@@ -195,7 +195,7 @@ proto.holdem.pb.Def.GameStatus = {
   HAND_STARTED: 2,
   HAND_PREFLOP: 3,
   HAND_FLOP: 4,
-  HAND_TRUN: 5,
+  HAND_TURN: 5,
   HAND_RIVER: 6,
   HAND_END: 7,
   CANCEL: 8,
