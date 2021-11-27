@@ -210,7 +210,7 @@ proto.holdem.pb.Def.Round = {
   UNKNOWN: 0,
   PREFLOP: 1,
   FLOP: 2,
-  TRUN: 3,
+  TURN: 3,
   RIVER: 4
 };
 
