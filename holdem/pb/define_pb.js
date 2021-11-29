@@ -200,14 +200,14 @@ proto.holdem.pb.Def.GameStatus = {
   HAND_END: 7,
   CANCEL: 8,
   COMPLETE: 9,
-  UNKNONW: 10
+  UNKNOWN: 10
 };
 
 /**
  * @enum {number}
  */
 proto.holdem.pb.Def.Round = {
-  UNKNOWN: 0,
+  UNDEFINED: 0,
   PREFLOP: 1,
   FLOP: 2,
   TURN: 3,
