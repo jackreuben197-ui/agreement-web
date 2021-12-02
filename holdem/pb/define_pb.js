@@ -810,7 +810,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     delaySeeCard: jspb.Message.getFieldWithDefault(msg, 16, false),
     straddle: jspb.Message.getFieldWithDefault(msg, 17, false),
     opDuration: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    retainType: jspb.Message.getFieldWithDefault(msg, 19, 0)
+    retainType: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    muck: jspb.Message.getFieldWithDefault(msg, 20, false)
   };
 
   if (includeInstance) {
@@ -922,6 +923,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 19:
       var value = /** @type {!proto.holdem.pb.RoomInfo.RetainType} */ (reader.readEnum());
       msg.setRetainType(value);
+      break;
+    case 20:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setMuck(value);
       break;
     default:
       reader.skipField();
@@ -1082,6 +1087,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       19,
+      f
+    );
+  }
+  f = message.getMuck();
+  if (f) {
+    writer.writeBool(
+      20,
       f
     );
   }
@@ -1393,6 +1405,23 @@ proto.holdem.pb.RoomInfo.prototype.getRetainType = function() {
 /** @param {!proto.holdem.pb.RoomInfo.RetainType} value */
 proto.holdem.pb.RoomInfo.prototype.setRetainType = function(value) {
   jspb.Message.setField(this, 19, value);
+};
+
+
+/**
+ * optional bool muck = 20;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.RoomInfo.prototype.getMuck = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 20, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.RoomInfo.prototype.setMuck = function(value) {
+  jspb.Message.setField(this, 20, value);
 };
 
 
@@ -5720,7 +5749,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     mttHunterKillAward: jspb.Message.getFieldWithDefault(msg, 12, 0),
     handBet: jspb.Message.getFieldWithDefault(msg, 13, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 14, 0),
-    mttHunterKillAwardPlus: jspb.Message.getFieldWithDefault(msg, 15, 0)
+    mttHunterKillAwardPlus: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    muck: jspb.Message.getFieldWithDefault(msg, 16, false)
   };
 
   if (includeInstance) {
@@ -5817,6 +5847,10 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
     case 15:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setMttHunterKillAwardPlus(value);
+      break;
+    case 16:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setMuck(value);
       break;
     default:
       reader.skipField();
@@ -5950,6 +5984,13 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       15,
+      f
+    );
+  }
+  f = message.getMuck();
+  if (f) {
+    writer.writeBool(
+      16,
       f
     );
   }
@@ -6208,6 +6249,23 @@ proto.holdem.pb.Result.prototype.getMttHunterKillAwardPlus = function() {
 /** @param {number} value */
 proto.holdem.pb.Result.prototype.setMttHunterKillAwardPlus = function(value) {
   jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * optional bool muck = 16;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.Result.prototype.getMuck = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 16, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.Result.prototype.setMuck = function(value) {
+  jspb.Message.setField(this, 16, value);
 };
 
 
