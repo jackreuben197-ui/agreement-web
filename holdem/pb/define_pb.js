@@ -5215,7 +5215,8 @@ proto.holdem.pb.Player.toObject = function(includeInstance, msg) {
     keepSeatLeftTime: jspb.Message.getFieldWithDefault(msg, 12, 0),
     buyInsuranceStep: jspb.Message.getFieldWithDefault(msg, 13, 0),
     buyInsuranceList: jspb.Message.toObjectList(msg.getBuyInsuranceList(),
-    proto.holdem.pb.PotInsuranceBuy.toObject, includeInstance)
+    proto.holdem.pb.PotInsuranceBuy.toObject, includeInstance),
+    randomId: jspb.Message.getFieldWithDefault(msg, 15, "")
   };
 
   if (includeInstance) {
@@ -5308,6 +5309,10 @@ proto.holdem.pb.Player.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.PotInsuranceBuy;
       reader.readMessage(value,proto.holdem.pb.PotInsuranceBuy.deserializeBinaryFromReader);
       msg.addBuyInsurance(value);
+      break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRandomId(value);
       break;
     default:
       reader.skipField();
@@ -5435,6 +5440,13 @@ proto.holdem.pb.Player.serializeBinaryToWriter = function(message, writer) {
       14,
       f,
       proto.holdem.pb.PotInsuranceBuy.serializeBinaryToWriter
+    );
+  }
+  f = message.getRandomId();
+  if (f.length > 0) {
+    writer.writeString(
+      15,
+      f
     );
   }
 };
@@ -5677,6 +5689,21 @@ proto.holdem.pb.Player.prototype.addBuyInsurance = function(opt_value, opt_index
 
 proto.holdem.pb.Player.prototype.clearBuyInsuranceList = function() {
   this.setBuyInsuranceList([]);
+};
+
+
+/**
+ * optional string random_id = 15;
+ * @return {string}
+ */
+proto.holdem.pb.Player.prototype.getRandomId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.Player.prototype.setRandomId = function(value) {
+  jspb.Message.setField(this, 15, value);
 };
 
 
