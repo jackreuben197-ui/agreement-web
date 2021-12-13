@@ -5202,7 +5202,7 @@ proto.holdem.pb.Player.prototype.toObject = function(opt_includeInstance) {
 proto.holdem.pb.Player.toObject = function(includeInstance, msg) {
   var f, obj = {
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    userId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    userRid: jspb.Message.getFieldWithDefault(msg, 2, 0),
     action: jspb.Message.getFieldWithDefault(msg, 3, 0),
     cardsList: jspb.Message.getRepeatedField(msg, 4),
     name: jspb.Message.getFieldWithDefault(msg, 5, ""),
@@ -5215,8 +5215,7 @@ proto.holdem.pb.Player.toObject = function(includeInstance, msg) {
     keepSeatLeftTime: jspb.Message.getFieldWithDefault(msg, 12, 0),
     buyInsuranceStep: jspb.Message.getFieldWithDefault(msg, 13, 0),
     buyInsuranceList: jspb.Message.toObjectList(msg.getBuyInsuranceList(),
-    proto.holdem.pb.PotInsuranceBuy.toObject, includeInstance),
-    randomId: jspb.Message.getFieldWithDefault(msg, 15, "")
+    proto.holdem.pb.PotInsuranceBuy.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -5258,8 +5257,8 @@ proto.holdem.pb.Player.deserializeBinaryFromReader = function(msg, reader) {
       msg.setSeatId(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setUserId(value);
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserRid(value);
       break;
     case 3:
       var value = /** @type {!proto.holdem.pb.Def.Action} */ (reader.readEnum());
@@ -5310,10 +5309,6 @@ proto.holdem.pb.Player.deserializeBinaryFromReader = function(msg, reader) {
       reader.readMessage(value,proto.holdem.pb.PotInsuranceBuy.deserializeBinaryFromReader);
       msg.addBuyInsurance(value);
       break;
-    case 15:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setRandomId(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -5350,9 +5345,9 @@ proto.holdem.pb.Player.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getUserId();
+  f = message.getUserRid();
   if (f !== 0) {
-    writer.writeUint32(
+    writer.writeUint64(
       2,
       f
     );
@@ -5442,13 +5437,6 @@ proto.holdem.pb.Player.serializeBinaryToWriter = function(message, writer) {
       proto.holdem.pb.PotInsuranceBuy.serializeBinaryToWriter
     );
   }
-  f = message.getRandomId();
-  if (f.length > 0) {
-    writer.writeString(
-      15,
-      f
-    );
-  }
 };
 
 
@@ -5468,16 +5456,16 @@ proto.holdem.pb.Player.prototype.setSeatId = function(value) {
 
 
 /**
- * optional uint32 user_id = 2;
+ * optional uint64 user_rid = 2;
  * @return {number}
  */
-proto.holdem.pb.Player.prototype.getUserId = function() {
+proto.holdem.pb.Player.prototype.getUserRid = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.Player.prototype.setUserId = function(value) {
+proto.holdem.pb.Player.prototype.setUserRid = function(value) {
   jspb.Message.setField(this, 2, value);
 };
 
@@ -5689,21 +5677,6 @@ proto.holdem.pb.Player.prototype.addBuyInsurance = function(opt_value, opt_index
 
 proto.holdem.pb.Player.prototype.clearBuyInsuranceList = function() {
   this.setBuyInsuranceList([]);
-};
-
-
-/**
- * optional string random_id = 15;
- * @return {string}
- */
-proto.holdem.pb.Player.prototype.getRandomId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
-};
-
-
-/** @param {string} value */
-proto.holdem.pb.Player.prototype.setRandomId = function(value) {
-  jspb.Message.setField(this, 15, value);
 };
 
 

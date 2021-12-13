@@ -63,10 +63,9 @@ proto.holdem.pb.ServerMessageSeatedOthers.toObject = function(includeInstance, m
     sex: jspb.Message.getFieldWithDefault(msg, 2, 0),
     avatar: jspb.Message.getFieldWithDefault(msg, 3, ""),
     name: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    userId: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    userRid: jspb.Message.getFieldWithDefault(msg, 5, 0),
     chips: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    storeChips: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    randomId: jspb.Message.getFieldWithDefault(msg, 8, "")
+    storeChips: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -120,8 +119,8 @@ proto.holdem.pb.ServerMessageSeatedOthers.deserializeBinaryFromReader = function
       msg.setName(value);
       break;
     case 5:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setUserId(value);
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserRid(value);
       break;
     case 6:
       var value = /** @type {number} */ (reader.readUint64());
@@ -130,10 +129,6 @@ proto.holdem.pb.ServerMessageSeatedOthers.deserializeBinaryFromReader = function
     case 7:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setStoreChips(value);
-      break;
-    case 8:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setRandomId(value);
       break;
     default:
       reader.skipField();
@@ -192,9 +187,9 @@ proto.holdem.pb.ServerMessageSeatedOthers.serializeBinaryToWriter = function(mes
       f
     );
   }
-  f = message.getUserId();
+  f = message.getUserRid();
   if (f !== 0) {
-    writer.writeUint32(
+    writer.writeUint64(
       5,
       f
     );
@@ -210,13 +205,6 @@ proto.holdem.pb.ServerMessageSeatedOthers.serializeBinaryToWriter = function(mes
   if (f !== 0) {
     writer.writeUint64(
       7,
-      f
-    );
-  }
-  f = message.getRandomId();
-  if (f.length > 0) {
-    writer.writeString(
-      8,
       f
     );
   }
@@ -284,16 +272,16 @@ proto.holdem.pb.ServerMessageSeatedOthers.prototype.setName = function(value) {
 
 
 /**
- * optional uint32 user_id = 5;
+ * optional uint64 user_rid = 5;
  * @return {number}
  */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.getUserId = function() {
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.getUserRid = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.setUserId = function(value) {
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.setUserRid = function(value) {
   jspb.Message.setField(this, 5, value);
 };
 
@@ -325,21 +313,6 @@ proto.holdem.pb.ServerMessageSeatedOthers.prototype.getStoreChips = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageSeatedOthers.prototype.setStoreChips = function(value) {
   jspb.Message.setField(this, 7, value);
-};
-
-
-/**
- * optional string random_id = 8;
- * @return {string}
- */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.getRandomId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
-};
-
-
-/** @param {string} value */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.setRandomId = function(value) {
-  jspb.Message.setField(this, 8, value);
 };
 
 
