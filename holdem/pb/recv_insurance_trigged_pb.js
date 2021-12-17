@@ -69,7 +69,8 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.toObject = function(includeInstanc
   var f, obj = {
     round: jspb.Message.getFieldWithDefault(msg, 1, 0),
     operatorList: jspb.Message.toObjectList(msg.getOperatorList(),
-    protobuf_holdem_define_pb.Operator.toObject, includeInstance)
+    protobuf_holdem_define_pb.Operator.toObject, includeInstance),
+    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -115,6 +116,11 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.deserializeBinaryFromReader = func
       reader.readMessage(value,protobuf_holdem_define_pb.Operator.deserializeBinaryFromReader);
       msg.addOperator(value);
       break;
+    case 3:
+      var value = new protobuf_holdem_define_pb.Room;
+      reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
+      msg.setRoom(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -157,6 +163,14 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.serializeBinaryToWriter = function
       2,
       f,
       protobuf_holdem_define_pb.Operator.serializeBinaryToWriter
+    );
+  }
+  f = message.getRoom();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      protobuf_holdem_define_pb.Room.serializeBinaryToWriter
     );
   }
 };
@@ -205,6 +219,36 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.addOperator = function(o
 
 proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.clearOperatorList = function() {
   this.setOperatorList([]);
+};
+
+
+/**
+ * optional Room room = 3;
+ * @return {?proto.holdem.pb.Room}
+ */
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.getRoom = function() {
+  return /** @type{?proto.holdem.pb.Room} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.Room, 3));
+};
+
+
+/** @param {?proto.holdem.pb.Room|undefined} value */
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.setRoom = function(value) {
+  jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.clearRoom = function() {
+  this.setRoom(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.hasRoom = function() {
+  return jspb.Message.getField(this, 3) != null;
 };
 
 

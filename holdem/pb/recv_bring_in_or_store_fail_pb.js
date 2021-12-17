@@ -11,6 +11,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ServerMessageBringInOrStoreFail', null, global);
 
 /**
@@ -61,7 +62,8 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.toObject = function(includeInsta
   var f, obj = {
     isBringIn: jspb.Message.getFieldWithDefault(msg, 1, false),
     currentChip: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    status: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    status: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -109,6 +111,11 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.deserializeBinaryFromReader = fu
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStatus(value);
+      break;
+    case 4:
+      var value = new protobuf_holdem_define_pb.Room;
+      reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
+      msg.setRoom(value);
       break;
     default:
       reader.skipField();
@@ -160,6 +167,14 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.serializeBinaryToWriter = functi
       f
     );
   }
+  f = message.getRoom();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      protobuf_holdem_define_pb.Room.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -207,6 +222,36 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.getStatus = function()
 /** @param {number} value */
 proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.setStatus = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional Room room = 4;
+ * @return {?proto.holdem.pb.Room}
+ */
+proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.getRoom = function() {
+  return /** @type{?proto.holdem.pb.Room} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.Room, 4));
+};
+
+
+/** @param {?proto.holdem.pb.Room|undefined} value */
+proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.setRoom = function(value) {
+  jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.clearRoom = function() {
+  this.setRoom(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.hasRoom = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

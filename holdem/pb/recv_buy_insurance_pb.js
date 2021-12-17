@@ -70,7 +70,8 @@ proto.holdem.pb.ServerMessageBuyInsurance.toObject = function(includeInstance, m
     round: jspb.Message.getFieldWithDefault(msg, 1, 0),
     seatId: jspb.Message.getFieldWithDefault(msg, 2, 0),
     buyList: jspb.Message.toObjectList(msg.getBuyList(),
-    protobuf_holdem_define_pb.PotInsuranceBuy.toObject, includeInstance)
+    protobuf_holdem_define_pb.PotInsuranceBuy.toObject, includeInstance),
+    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -119,6 +120,11 @@ proto.holdem.pb.ServerMessageBuyInsurance.deserializeBinaryFromReader = function
       var value = new protobuf_holdem_define_pb.PotInsuranceBuy;
       reader.readMessage(value,protobuf_holdem_define_pb.PotInsuranceBuy.deserializeBinaryFromReader);
       msg.addBuy(value);
+      break;
+    case 4:
+      var value = new protobuf_holdem_define_pb.Room;
+      reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
+      msg.setRoom(value);
       break;
     default:
       reader.skipField();
@@ -169,6 +175,14 @@ proto.holdem.pb.ServerMessageBuyInsurance.serializeBinaryToWriter = function(mes
       3,
       f,
       protobuf_holdem_define_pb.PotInsuranceBuy.serializeBinaryToWriter
+    );
+  }
+  f = message.getRoom();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      protobuf_holdem_define_pb.Room.serializeBinaryToWriter
     );
   }
 };
@@ -232,6 +246,36 @@ proto.holdem.pb.ServerMessageBuyInsurance.prototype.addBuy = function(opt_value,
 
 proto.holdem.pb.ServerMessageBuyInsurance.prototype.clearBuyList = function() {
   this.setBuyList([]);
+};
+
+
+/**
+ * optional Room room = 4;
+ * @return {?proto.holdem.pb.Room}
+ */
+proto.holdem.pb.ServerMessageBuyInsurance.prototype.getRoom = function() {
+  return /** @type{?proto.holdem.pb.Room} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.Room, 4));
+};
+
+
+/** @param {?proto.holdem.pb.Room|undefined} value */
+proto.holdem.pb.ServerMessageBuyInsurance.prototype.setRoom = function(value) {
+  jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+proto.holdem.pb.ServerMessageBuyInsurance.prototype.clearRoom = function() {
+  this.setRoom(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageBuyInsurance.prototype.hasRoom = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

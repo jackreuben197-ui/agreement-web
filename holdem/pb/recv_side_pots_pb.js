@@ -68,7 +68,8 @@ proto.holdem.pb.ServerMessageSidePots.prototype.toObject = function(opt_includeI
 proto.holdem.pb.ServerMessageSidePots.toObject = function(includeInstance, msg) {
   var f, obj = {
     potsList: jspb.Message.toObjectList(msg.getPotsList(),
-    protobuf_holdem_define_pb.SidePot.toObject, includeInstance)
+    protobuf_holdem_define_pb.SidePot.toObject, includeInstance),
+    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -110,6 +111,11 @@ proto.holdem.pb.ServerMessageSidePots.deserializeBinaryFromReader = function(msg
       reader.readMessage(value,protobuf_holdem_define_pb.SidePot.deserializeBinaryFromReader);
       msg.addPots(value);
       break;
+    case 2:
+      var value = new protobuf_holdem_define_pb.Room;
+      reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
+      msg.setRoom(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -147,6 +153,14 @@ proto.holdem.pb.ServerMessageSidePots.serializeBinaryToWriter = function(message
       protobuf_holdem_define_pb.SidePot.serializeBinaryToWriter
     );
   }
+  f = message.getRoom();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      protobuf_holdem_define_pb.Room.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -178,6 +192,36 @@ proto.holdem.pb.ServerMessageSidePots.prototype.addPots = function(opt_value, op
 
 proto.holdem.pb.ServerMessageSidePots.prototype.clearPotsList = function() {
   this.setPotsList([]);
+};
+
+
+/**
+ * optional Room room = 2;
+ * @return {?proto.holdem.pb.Room}
+ */
+proto.holdem.pb.ServerMessageSidePots.prototype.getRoom = function() {
+  return /** @type{?proto.holdem.pb.Room} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.Room, 2));
+};
+
+
+/** @param {?proto.holdem.pb.Room|undefined} value */
+proto.holdem.pb.ServerMessageSidePots.prototype.setRoom = function(value) {
+  jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+proto.holdem.pb.ServerMessageSidePots.prototype.clearRoom = function() {
+  this.setRoom(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageSidePots.prototype.hasRoom = function() {
+  return jspb.Message.getField(this, 2) != null;
 };
 
 
