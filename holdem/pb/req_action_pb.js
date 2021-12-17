@@ -274,8 +274,7 @@ proto.holdem.pb.ServerMessageAction.prototype.toObject = function(opt_includeIns
  */
 proto.holdem.pb.ServerMessageAction.toObject = function(includeInstance, msg) {
   var f, obj = {
-    status: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
+    status: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -316,11 +315,6 @@ proto.holdem.pb.ServerMessageAction.deserializeBinaryFromReader = function(msg, 
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStatus(value);
       break;
-    case 2:
-      var value = new protobuf_holdem_define_pb.Room;
-      reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
-      msg.setRoom(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -357,14 +351,6 @@ proto.holdem.pb.ServerMessageAction.serializeBinaryToWriter = function(message, 
       f
     );
   }
-  f = message.getRoom();
-  if (f != null) {
-    writer.writeMessage(
-      2,
-      f,
-      protobuf_holdem_define_pb.Room.serializeBinaryToWriter
-    );
-  }
 };
 
 
@@ -380,36 +366,6 @@ proto.holdem.pb.ServerMessageAction.prototype.getStatus = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageAction.prototype.setStatus = function(value) {
   jspb.Message.setField(this, 1, value);
-};
-
-
-/**
- * optional Room room = 2;
- * @return {?proto.holdem.pb.Room}
- */
-proto.holdem.pb.ServerMessageAction.prototype.getRoom = function() {
-  return /** @type{?proto.holdem.pb.Room} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.Room, 2));
-};
-
-
-/** @param {?proto.holdem.pb.Room|undefined} value */
-proto.holdem.pb.ServerMessageAction.prototype.setRoom = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
-};
-
-
-proto.holdem.pb.ServerMessageAction.prototype.clearRoom = function() {
-  this.setRoom(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.holdem.pb.ServerMessageAction.prototype.hasRoom = function() {
-  return jspb.Message.getField(this, 2) != null;
 };
 
 

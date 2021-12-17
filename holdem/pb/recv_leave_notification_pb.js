@@ -64,8 +64,7 @@ proto.holdem.pb.ServerMessageLeaveNotification.toObject = function(includeInstan
     chip: jspb.Message.getFieldWithDefault(msg, 2, 0),
     currentChips: jspb.Message.getFieldWithDefault(msg, 3, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    rebuyTimes: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
+    rebuyTimes: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -121,11 +120,6 @@ proto.holdem.pb.ServerMessageLeaveNotification.deserializeBinaryFromReader = fun
     case 5:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setRebuyTimes(value);
-      break;
-    case 6:
-      var value = new protobuf_holdem_define_pb.Room;
-      reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
-      msg.setRoom(value);
       break;
     default:
       reader.skipField();
@@ -189,14 +183,6 @@ proto.holdem.pb.ServerMessageLeaveNotification.serializeBinaryToWriter = functio
     writer.writeUint32(
       5,
       f
-    );
-  }
-  f = message.getRoom();
-  if (f != null) {
-    writer.writeMessage(
-      6,
-      f,
-      protobuf_holdem_define_pb.Room.serializeBinaryToWriter
     );
   }
 };
@@ -274,36 +260,6 @@ proto.holdem.pb.ServerMessageLeaveNotification.prototype.getRebuyTimes = functio
 /** @param {number} value */
 proto.holdem.pb.ServerMessageLeaveNotification.prototype.setRebuyTimes = function(value) {
   jspb.Message.setField(this, 5, value);
-};
-
-
-/**
- * optional Room room = 6;
- * @return {?proto.holdem.pb.Room}
- */
-proto.holdem.pb.ServerMessageLeaveNotification.prototype.getRoom = function() {
-  return /** @type{?proto.holdem.pb.Room} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.Room, 6));
-};
-
-
-/** @param {?proto.holdem.pb.Room|undefined} value */
-proto.holdem.pb.ServerMessageLeaveNotification.prototype.setRoom = function(value) {
-  jspb.Message.setWrapperField(this, 6, value);
-};
-
-
-proto.holdem.pb.ServerMessageLeaveNotification.prototype.clearRoom = function() {
-  this.setRoom(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.holdem.pb.ServerMessageLeaveNotification.prototype.hasRoom = function() {
-  return jspb.Message.getField(this, 6) != null;
 };
 
 

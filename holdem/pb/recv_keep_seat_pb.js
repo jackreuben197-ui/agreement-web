@@ -11,7 +11,6 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ServerMessageKeepSeat', null, global);
 
 /**
@@ -63,8 +62,7 @@ proto.holdem.pb.ServerMessageKeepSeat.toObject = function(includeInstance, msg) 
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     keep: jspb.Message.getFieldWithDefault(msg, 2, false),
     times: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    leftTime: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
+    leftTime: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -116,11 +114,6 @@ proto.holdem.pb.ServerMessageKeepSeat.deserializeBinaryFromReader = function(msg
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setLeftTime(value);
-      break;
-    case 5:
-      var value = new protobuf_holdem_define_pb.Room;
-      reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
-      msg.setRoom(value);
       break;
     default:
       reader.skipField();
@@ -177,14 +170,6 @@ proto.holdem.pb.ServerMessageKeepSeat.serializeBinaryToWriter = function(message
     writer.writeInt64(
       4,
       f
-    );
-  }
-  f = message.getRoom();
-  if (f != null) {
-    writer.writeMessage(
-      5,
-      f,
-      protobuf_holdem_define_pb.Room.serializeBinaryToWriter
     );
   }
 };
@@ -249,36 +234,6 @@ proto.holdem.pb.ServerMessageKeepSeat.prototype.getLeftTime = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageKeepSeat.prototype.setLeftTime = function(value) {
   jspb.Message.setField(this, 4, value);
-};
-
-
-/**
- * optional Room room = 5;
- * @return {?proto.holdem.pb.Room}
- */
-proto.holdem.pb.ServerMessageKeepSeat.prototype.getRoom = function() {
-  return /** @type{?proto.holdem.pb.Room} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.Room, 5));
-};
-
-
-/** @param {?proto.holdem.pb.Room|undefined} value */
-proto.holdem.pb.ServerMessageKeepSeat.prototype.setRoom = function(value) {
-  jspb.Message.setWrapperField(this, 5, value);
-};
-
-
-proto.holdem.pb.ServerMessageKeepSeat.prototype.clearRoom = function() {
-  this.setRoom(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.holdem.pb.ServerMessageKeepSeat.prototype.hasRoom = function() {
-  return jspb.Message.getField(this, 5) != null;
 };
 
 

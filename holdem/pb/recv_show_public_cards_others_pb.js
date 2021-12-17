@@ -61,8 +61,7 @@ proto.holdem.pb.ServerMessageShowPublicCardsOthers.prototype.toObject = function
 proto.holdem.pb.ServerMessageShowPublicCardsOthers.toObject = function(includeInstance, msg) {
   var f, obj = {
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    round: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
+    round: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -107,11 +106,6 @@ proto.holdem.pb.ServerMessageShowPublicCardsOthers.deserializeBinaryFromReader =
       var value = /** @type {!proto.holdem.pb.Def.Round} */ (reader.readEnum());
       msg.setRound(value);
       break;
-    case 3:
-      var value = new protobuf_holdem_define_pb.Room;
-      reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
-      msg.setRoom(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -155,14 +149,6 @@ proto.holdem.pb.ServerMessageShowPublicCardsOthers.serializeBinaryToWriter = fun
       f
     );
   }
-  f = message.getRoom();
-  if (f != null) {
-    writer.writeMessage(
-      3,
-      f,
-      protobuf_holdem_define_pb.Room.serializeBinaryToWriter
-    );
-  }
 };
 
 
@@ -193,36 +179,6 @@ proto.holdem.pb.ServerMessageShowPublicCardsOthers.prototype.getRound = function
 /** @param {!proto.holdem.pb.Def.Round} value */
 proto.holdem.pb.ServerMessageShowPublicCardsOthers.prototype.setRound = function(value) {
   jspb.Message.setField(this, 2, value);
-};
-
-
-/**
- * optional Room room = 3;
- * @return {?proto.holdem.pb.Room}
- */
-proto.holdem.pb.ServerMessageShowPublicCardsOthers.prototype.getRoom = function() {
-  return /** @type{?proto.holdem.pb.Room} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.Room, 3));
-};
-
-
-/** @param {?proto.holdem.pb.Room|undefined} value */
-proto.holdem.pb.ServerMessageShowPublicCardsOthers.prototype.setRoom = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
-};
-
-
-proto.holdem.pb.ServerMessageShowPublicCardsOthers.prototype.clearRoom = function() {
-  this.setRoom(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.holdem.pb.ServerMessageShowPublicCardsOthers.prototype.hasRoom = function() {
-  return jspb.Message.getField(this, 3) != null;
 };
 
 
