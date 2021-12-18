@@ -17,7 +17,9 @@ goog.exportSymbol('proto.holdem.pb.Code', null, global);
  */
 proto.holdem.pb.Code = {
   NONE: 0,
-  MSG_D_HEARTBEAT: 1001,
+  MSG_D_REGISTER: 1,
+  MSG_D_HEARTBEAT: 2,
+  MSG_S_ERROR: 99,
   MSG_D_ENTER_ROOM: 1002,
   MSG_D_SEATED: 1003,
   MSG_D_ADD_ON: 1004,
@@ -55,8 +57,7 @@ proto.holdem.pb.Code = {
   MSG_S_POST_STATUS_CHANGE: 1117,
   MSG_S_BRING_IN_OR_STORE_FAIL: 1118,
   MSG_S_HAND_CLEAR: 1119,
-  MSG_S_UP_BLIND: 1120,
-  MSG_S_ERROR: 1121
+  MSG_S_UP_BLIND: 1120
 };
 
 goog.object.extend(exports, proto.holdem.pb);
