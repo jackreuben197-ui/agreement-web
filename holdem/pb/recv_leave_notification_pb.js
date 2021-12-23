@@ -62,7 +62,7 @@ proto.holdem.pb.ServerMessageLeaveNotification.toObject = function(includeInstan
   var f, obj = {
     reason: jspb.Message.getFieldWithDefault(msg, 1, 0),
     chip: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    currentChips: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    accountChips: jspb.Message.getFieldWithDefault(msg, 3, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 4, 0),
     rebuyTimes: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
@@ -110,8 +110,8 @@ proto.holdem.pb.ServerMessageLeaveNotification.deserializeBinaryFromReader = fun
       msg.setChip(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setCurrentChips(value);
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setAccountChips(value);
       break;
     case 4:
       var value = /** @type {number} */ (reader.readUint64());
@@ -164,9 +164,9 @@ proto.holdem.pb.ServerMessageLeaveNotification.serializeBinaryToWriter = functio
       f
     );
   }
-  f = message.getCurrentChips();
+  f = message.getAccountChips();
   if (f !== 0) {
-    writer.writeUint64(
+    writer.writeInt64(
       3,
       f
     );
@@ -219,16 +219,16 @@ proto.holdem.pb.ServerMessageLeaveNotification.prototype.setChip = function(valu
 
 
 /**
- * optional uint64 current_chips = 3;
+ * optional int64 account_chips = 3;
  * @return {number}
  */
-proto.holdem.pb.ServerMessageLeaveNotification.prototype.getCurrentChips = function() {
+proto.holdem.pb.ServerMessageLeaveNotification.prototype.getAccountChips = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.ServerMessageLeaveNotification.prototype.setCurrentChips = function(value) {
+proto.holdem.pb.ServerMessageLeaveNotification.prototype.setAccountChips = function(value) {
   jspb.Message.setField(this, 3, value);
 };
 

@@ -435,7 +435,7 @@ proto.holdem.pb.ServerMessageSeated.deserializeBinaryFromReader = function(msg, 
       msg.setChips(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readUint64());
+      var value = /** @type {number} */ (reader.readInt64());
       msg.setAccountChips(value);
       break;
     case 4:
@@ -495,7 +495,7 @@ proto.holdem.pb.ServerMessageSeated.serializeBinaryToWriter = function(message, 
   }
   f = message.getAccountChips();
   if (f !== 0) {
-    writer.writeUint64(
+    writer.writeInt64(
       3,
       f
     );
@@ -555,7 +555,7 @@ proto.holdem.pb.ServerMessageSeated.prototype.setChips = function(value) {
 
 
 /**
- * optional uint64 account_chips = 3;
+ * optional int64 account_chips = 3;
  * @return {number}
  */
 proto.holdem.pb.ServerMessageSeated.prototype.getAccountChips = function() {

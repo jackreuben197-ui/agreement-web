@@ -6918,7 +6918,6 @@ proto.holdem.pb.PlayerChipChange.toObject = function(includeInstance, msg) {
     change: jspb.Message.getFieldWithDefault(msg, 2, 0),
     chips: jspb.Message.getFieldWithDefault(msg, 3, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    accountChips: jspb.Message.getFieldWithDefault(msg, 5, 0),
     auto: jspb.Message.getFieldWithDefault(msg, 6, false),
     reason: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
@@ -6972,10 +6971,6 @@ proto.holdem.pb.PlayerChipChange.deserializeBinaryFromReader = function(msg, rea
     case 4:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setStoreChips(value);
-      break;
-    case 5:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setAccountChips(value);
       break;
     case 6:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -7039,13 +7034,6 @@ proto.holdem.pb.PlayerChipChange.serializeBinaryToWriter = function(message, wri
   if (f !== 0) {
     writer.writeUint64(
       4,
-      f
-    );
-  }
-  f = message.getAccountChips();
-  if (f !== 0) {
-    writer.writeUint64(
-      5,
       f
     );
   }
@@ -7123,21 +7111,6 @@ proto.holdem.pb.PlayerChipChange.prototype.getStoreChips = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerChipChange.prototype.setStoreChips = function(value) {
   jspb.Message.setField(this, 4, value);
-};
-
-
-/**
- * optional uint64 account_chips = 5;
- * @return {number}
- */
-proto.holdem.pb.PlayerChipChange.prototype.getAccountChips = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.PlayerChipChange.prototype.setAccountChips = function(value) {
-  jspb.Message.setField(this, 5, value);
 };
 
 

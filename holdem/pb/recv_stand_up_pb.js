@@ -63,7 +63,7 @@ proto.holdem.pb.ServerMessageStandup.toObject = function(includeInstance, msg) {
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     reason: jspb.Message.getFieldWithDefault(msg, 2, 0),
     bringOut: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    currentChips: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    accountChips: jspb.Message.getFieldWithDefault(msg, 4, 0),
     fee: jspb.Message.getFieldWithDefault(msg, 5, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 6, 0),
     willLeave: jspb.Message.getFieldWithDefault(msg, 7, false)
@@ -116,8 +116,8 @@ proto.holdem.pb.ServerMessageStandup.deserializeBinaryFromReader = function(msg,
       msg.setBringOut(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setCurrentChips(value);
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setAccountChips(value);
       break;
     case 5:
       var value = /** @type {number} */ (reader.readUint64());
@@ -181,9 +181,9 @@ proto.holdem.pb.ServerMessageStandup.serializeBinaryToWriter = function(message,
       f
     );
   }
-  f = message.getCurrentChips();
+  f = message.getAccountChips();
   if (f !== 0) {
-    writer.writeUint64(
+    writer.writeInt64(
       4,
       f
     );
@@ -258,16 +258,16 @@ proto.holdem.pb.ServerMessageStandup.prototype.setBringOut = function(value) {
 
 
 /**
- * optional uint64 current_chips = 4;
+ * optional int64 account_chips = 4;
  * @return {number}
  */
-proto.holdem.pb.ServerMessageStandup.prototype.getCurrentChips = function() {
+proto.holdem.pb.ServerMessageStandup.prototype.getAccountChips = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.ServerMessageStandup.prototype.setCurrentChips = function(value) {
+proto.holdem.pb.ServerMessageStandup.prototype.setAccountChips = function(value) {
   jspb.Message.setField(this, 4, value);
 };
 
