@@ -174,7 +174,8 @@ proto.holdem.pb.Def.Action = {
   CHECK: 8,
   RAISE: 9,
   ALLIN: 10,
-  POST: 11
+  POST: 11,
+  READY: 12
 };
 
 /**
