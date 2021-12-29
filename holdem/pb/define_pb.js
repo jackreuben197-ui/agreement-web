@@ -529,7 +529,8 @@ proto.holdem.pb.Operator.toObject = function(includeInstance, msg) {
     leftOpTime: jspb.Message.getFieldWithDefault(msg, 4, 0),
     delayTimes: jspb.Message.getFieldWithDefault(msg, 5, 0),
     shortcutsList: jspb.Message.toObjectList(msg.getShortcutsList(),
-    proto.holdem.pb.ActionShortcutLimit.toObject, includeInstance)
+    proto.holdem.pb.ActionShortcutLimit.toObject, includeInstance),
+    isInsurance: jspb.Message.getFieldWithDefault(msg, 7, false)
   };
 
   if (includeInstance) {
@@ -592,6 +593,10 @@ proto.holdem.pb.Operator.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.ActionShortcutLimit;
       reader.readMessage(value,proto.holdem.pb.ActionShortcutLimit.deserializeBinaryFromReader);
       msg.addShortcuts(value);
+      break;
+    case 7:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsInsurance(value);
       break;
     default:
       reader.skipField();
@@ -665,6 +670,13 @@ proto.holdem.pb.Operator.serializeBinaryToWriter = function(message, writer) {
       6,
       f,
       proto.holdem.pb.ActionShortcutLimit.serializeBinaryToWriter
+    );
+  }
+  f = message.getIsInsurance();
+  if (f) {
+    writer.writeBool(
+      7,
+      f
     );
   }
 };
@@ -805,6 +817,23 @@ proto.holdem.pb.Operator.prototype.addShortcuts = function(opt_value, opt_index)
 
 proto.holdem.pb.Operator.prototype.clearShortcutsList = function() {
   this.setShortcutsList([]);
+};
+
+
+/**
+ * optional bool is_insurance = 7;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.Operator.prototype.getIsInsurance = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 7, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.Operator.prototype.setIsInsurance = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 
