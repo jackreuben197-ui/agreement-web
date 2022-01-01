@@ -11,6 +11,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ServerMessageKeepSeat', null, global);
 
 /**
@@ -62,7 +63,8 @@ proto.holdem.pb.ServerMessageKeepSeat.toObject = function(includeInstance, msg) 
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     keep: jspb.Message.getFieldWithDefault(msg, 2, false),
     times: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    leftTime: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    leftTime: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    postStatus: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -114,6 +116,10 @@ proto.holdem.pb.ServerMessageKeepSeat.deserializeBinaryFromReader = function(msg
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setLeftTime(value);
+      break;
+    case 5:
+      var value = /** @type {!proto.holdem.pb.Def.CanPlayStatus} */ (reader.readEnum());
+      msg.setPostStatus(value);
       break;
     default:
       reader.skipField();
@@ -169,6 +175,13 @@ proto.holdem.pb.ServerMessageKeepSeat.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeInt64(
       4,
+      f
+    );
+  }
+  f = message.getPostStatus();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      5,
       f
     );
   }
@@ -234,6 +247,21 @@ proto.holdem.pb.ServerMessageKeepSeat.prototype.getLeftTime = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageKeepSeat.prototype.setLeftTime = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional Def.CanPlayStatus post_status = 5;
+ * @return {!proto.holdem.pb.Def.CanPlayStatus}
+ */
+proto.holdem.pb.ServerMessageKeepSeat.prototype.getPostStatus = function() {
+  return /** @type {!proto.holdem.pb.Def.CanPlayStatus} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.CanPlayStatus} value */
+proto.holdem.pb.ServerMessageKeepSeat.prototype.setPostStatus = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 
