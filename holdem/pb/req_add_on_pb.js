@@ -61,7 +61,8 @@ proto.holdem.pb.ClientMessageAddOn.prototype.toObject = function(opt_includeInst
  */
 proto.holdem.pb.ClientMessageAddOn.toObject = function(includeInstance, msg) {
   var f, obj = {
-    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
+    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
+    useProp: jspb.Message.getFieldWithDefault(msg, 2, false)
   };
 
   if (includeInstance) {
@@ -103,6 +104,10 @@ proto.holdem.pb.ClientMessageAddOn.deserializeBinaryFromReader = function(msg, r
       reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
       msg.setRoom(value);
       break;
+    case 2:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setUseProp(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -140,6 +145,13 @@ proto.holdem.pb.ClientMessageAddOn.serializeBinaryToWriter = function(message, w
       protobuf_holdem_define_pb.Room.serializeBinaryToWriter
     );
   }
+  f = message.getUseProp();
+  if (f) {
+    writer.writeBool(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -170,6 +182,23 @@ proto.holdem.pb.ClientMessageAddOn.prototype.clearRoom = function() {
  */
 proto.holdem.pb.ClientMessageAddOn.prototype.hasRoom = function() {
   return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional bool use_prop = 2;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ClientMessageAddOn.prototype.getUseProp = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 2, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ClientMessageAddOn.prototype.setUseProp = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 

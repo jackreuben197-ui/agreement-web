@@ -20,6 +20,7 @@ goog.exportSymbol('proto.holdem.pb.Def.CanPlayStatus', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ChipChangeReason', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.GameStatus', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.LeaveReason', null, global);
+goog.exportSymbol('proto.holdem.pb.Def.MTTPropBuyType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.Round', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.StandUpReason', null, global);
 goog.exportSymbol('proto.holdem.pb.GPS', null, global);
@@ -269,6 +270,15 @@ proto.holdem.pb.Def.ActionShortcut = {
   SC_3_5: 5,
   SC_1_1: 6,
   SC_15_10: 7
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.Def.MTTPropBuyType = {
+  MTTPBT_NOT_SUPPORT: 0,
+  MTTPBT_ONLY: 1,
+  MTTPBT_MIX: 2
 };
 
 
@@ -1951,7 +1961,9 @@ proto.holdem.pb.MTTInfo.toObject = function(includeInstance, msg) {
     serviceFee: jspb.Message.getFieldWithDefault(msg, 14, 0),
     partialBringIn: jspb.Message.getFieldWithDefault(msg, 15, false),
     moneySync: jspb.Message.getFieldWithDefault(msg, 16, false),
-    partialBringInReturnBlindLevel: jspb.Message.getFieldWithDefault(msg, 17, 0)
+    partialBringInReturnBlindLevel: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    buyPropId: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    propBuyType: jspb.Message.getFieldWithDefault(msg, 19, 0)
   };
 
   if (includeInstance) {
@@ -2055,6 +2067,14 @@ proto.holdem.pb.MTTInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 17:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setPartialBringInReturnBlindLevel(value);
+      break;
+    case 18:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setBuyPropId(value);
+      break;
+    case 19:
+      var value = /** @type {!proto.holdem.pb.Def.MTTPropBuyType} */ (reader.readEnum());
+      msg.setPropBuyType(value);
       break;
     default:
       reader.skipField();
@@ -2201,6 +2221,20 @@ proto.holdem.pb.MTTInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint32(
       17,
+      f
+    );
+  }
+  f = message.getBuyPropId();
+  if (f !== 0) {
+    writer.writeUint64(
+      18,
+      f
+    );
+  }
+  f = message.getPropBuyType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      19,
       f
     );
   }
@@ -2467,6 +2501,36 @@ proto.holdem.pb.MTTInfo.prototype.getPartialBringInReturnBlindLevel = function()
 /** @param {number} value */
 proto.holdem.pb.MTTInfo.prototype.setPartialBringInReturnBlindLevel = function(value) {
   jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * optional uint64 buy_prop_id = 18;
+ * @return {number}
+ */
+proto.holdem.pb.MTTInfo.prototype.getBuyPropId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTInfo.prototype.setBuyPropId = function(value) {
+  jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * optional Def.MTTPropBuyType prop_buy_type = 19;
+ * @return {!proto.holdem.pb.Def.MTTPropBuyType}
+ */
+proto.holdem.pb.MTTInfo.prototype.getPropBuyType = function() {
+  return /** @type {!proto.holdem.pb.Def.MTTPropBuyType} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.MTTPropBuyType} value */
+proto.holdem.pb.MTTInfo.prototype.setPropBuyType = function(value) {
+  jspb.Message.setField(this, 19, value);
 };
 
 
