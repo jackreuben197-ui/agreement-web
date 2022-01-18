@@ -62,8 +62,7 @@ proto.holdem.pb.ClientMessageAddTime.prototype.toObject = function(opt_includeIn
 proto.holdem.pb.ClientMessageAddTime.toObject = function(includeInstance, msg) {
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
-    duration: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    cost: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    consume: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -105,13 +104,9 @@ proto.holdem.pb.ClientMessageAddTime.deserializeBinaryFromReader = function(msg,
       reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
       msg.setRoom(value);
       break;
-    case 2:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setDuration(value);
-      break;
     case 3:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setCost(value);
+      var value = /** @type {!proto.holdem.pb.Def.ConsumeType} */ (reader.readEnum());
+      msg.setConsume(value);
       break;
     default:
       reader.skipField();
@@ -150,16 +145,9 @@ proto.holdem.pb.ClientMessageAddTime.serializeBinaryToWriter = function(message,
       protobuf_holdem_define_pb.Room.serializeBinaryToWriter
     );
   }
-  f = message.getDuration();
-  if (f !== 0) {
-    writer.writeInt32(
-      2,
-      f
-    );
-  }
-  f = message.getCost();
-  if (f !== 0) {
-    writer.writeUint32(
+  f = message.getConsume();
+  if (f !== 0.0) {
+    writer.writeEnum(
       3,
       f
     );
@@ -198,31 +186,16 @@ proto.holdem.pb.ClientMessageAddTime.prototype.hasRoom = function() {
 
 
 /**
- * optional int32 duration = 2;
- * @return {number}
+ * optional Def.ConsumeType consume = 3;
+ * @return {!proto.holdem.pb.Def.ConsumeType}
  */
-proto.holdem.pb.ClientMessageAddTime.prototype.getDuration = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+proto.holdem.pb.ClientMessageAddTime.prototype.getConsume = function() {
+  return /** @type {!proto.holdem.pb.Def.ConsumeType} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.ClientMessageAddTime.prototype.setDuration = function(value) {
-  jspb.Message.setField(this, 2, value);
-};
-
-
-/**
- * optional uint32 cost = 3;
- * @return {number}
- */
-proto.holdem.pb.ClientMessageAddTime.prototype.getCost = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ClientMessageAddTime.prototype.setCost = function(value) {
+/** @param {!proto.holdem.pb.Def.ConsumeType} value */
+proto.holdem.pb.ClientMessageAddTime.prototype.setConsume = function(value) {
   jspb.Message.setField(this, 3, value);
 };
 

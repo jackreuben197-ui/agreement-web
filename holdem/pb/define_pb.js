@@ -18,6 +18,7 @@ goog.exportSymbol('proto.holdem.pb.Def.Action', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ActionShortcut', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.CanPlayStatus', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ChipChangeReason', null, global);
+goog.exportSymbol('proto.holdem.pb.Def.ConsumeType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.GameStatus', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.LeaveReason', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.MTTPropBuyType', null, global);
@@ -279,6 +280,27 @@ proto.holdem.pb.Def.MTTPropBuyType = {
   MTTPBT_NOT_SUPPORT: 0,
   MTTPBT_ONLY: 1,
   MTTPBT_MIX: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.Def.ConsumeType = {
+  CT_NONE: 0,
+  CT_MSG_1: 1,
+  CT_MSG_2: 2,
+  CT_MSG_3: 3,
+  CT_MSG_4: 4,
+  CT_EMOJI_1: 5,
+  CT_EMOJI_2: 6,
+  CT_EMOJI_3: 7,
+  CT_EMOJI_4: 8,
+  CT_DELAY_1: 9,
+  CT_DELAY_2: 10,
+  CT_DELAY_3: 11,
+  CT_DELAY_4: 12,
+  CT_VC_1: 13,
+  CT_VC_2: 14
 };
 
 

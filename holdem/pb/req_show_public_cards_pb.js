@@ -63,7 +63,7 @@ proto.holdem.pb.ClientMessageShowPublicCards.toObject = function(includeInstance
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     round: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    cost: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    consume: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -110,8 +110,8 @@ proto.holdem.pb.ClientMessageShowPublicCards.deserializeBinaryFromReader = funct
       msg.setRound(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setCost(value);
+      var value = /** @type {!proto.holdem.pb.Def.ConsumeType} */ (reader.readEnum());
+      msg.setConsume(value);
       break;
     default:
       reader.skipField();
@@ -157,9 +157,9 @@ proto.holdem.pb.ClientMessageShowPublicCards.serializeBinaryToWriter = function(
       f
     );
   }
-  f = message.getCost();
-  if (f !== 0) {
-    writer.writeUint32(
+  f = message.getConsume();
+  if (f !== 0.0) {
+    writer.writeEnum(
       3,
       f
     );
@@ -213,16 +213,16 @@ proto.holdem.pb.ClientMessageShowPublicCards.prototype.setRound = function(value
 
 
 /**
- * optional uint32 cost = 3;
- * @return {number}
+ * optional Def.ConsumeType consume = 3;
+ * @return {!proto.holdem.pb.Def.ConsumeType}
  */
-proto.holdem.pb.ClientMessageShowPublicCards.prototype.getCost = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+proto.holdem.pb.ClientMessageShowPublicCards.prototype.getConsume = function() {
+  return /** @type {!proto.holdem.pb.Def.ConsumeType} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.ClientMessageShowPublicCards.prototype.setCost = function(value) {
+/** @param {!proto.holdem.pb.Def.ConsumeType} value */
+proto.holdem.pb.ClientMessageShowPublicCards.prototype.setConsume = function(value) {
   jspb.Message.setField(this, 3, value);
 };
 
