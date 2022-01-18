@@ -26,19 +26,12 @@ goog.exportSymbol('proto.holdem.pb.ServerMessageBroadcastMsg', null, global);
  * @constructor
  */
 proto.holdem.pb.ClientMessageBroadcastMsg = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ClientMessageBroadcastMsg.repeatedFields_, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.holdem.pb.ClientMessageBroadcastMsg, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.ClientMessageBroadcastMsg.displayName = 'proto.holdem.pb.ClientMessageBroadcastMsg';
 }
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.holdem.pb.ClientMessageBroadcastMsg.repeatedFields_ = [4];
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -71,7 +64,7 @@ proto.holdem.pb.ClientMessageBroadcastMsg.toObject = function(includeInstance, m
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     consume: jspb.Message.getFieldWithDefault(msg, 2, 0),
     message: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    extraList: msg.getExtraList_asB64()
+    extra: msg.getExtra_asB64()
   };
 
   if (includeInstance) {
@@ -123,7 +116,7 @@ proto.holdem.pb.ClientMessageBroadcastMsg.deserializeBinaryFromReader = function
       break;
     case 4:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.addExtra(value);
+      msg.setExtra(value);
       break;
     default:
       reader.skipField();
@@ -176,9 +169,9 @@ proto.holdem.pb.ClientMessageBroadcastMsg.serializeBinaryToWriter = function(mes
       f
     );
   }
-  f = message.getExtraList_asU8();
+  f = message.getExtra_asU8();
   if (f.length > 0) {
-    writer.writeRepeatedBytes(
+    writer.writeBytes(
       4,
       f
     );
@@ -247,55 +240,41 @@ proto.holdem.pb.ClientMessageBroadcastMsg.prototype.setMessage = function(value)
 
 
 /**
- * repeated bytes extra = 4;
- * @return {!(Array<!Uint8Array>|Array<string>)}
+ * optional bytes extra = 4;
+ * @return {!(string|Uint8Array)}
  */
-proto.holdem.pb.ClientMessageBroadcastMsg.prototype.getExtraList = function() {
-  return /** @type {!(Array<!Uint8Array>|Array<string>)} */ (jspb.Message.getRepeatedField(this, 4));
+proto.holdem.pb.ClientMessageBroadcastMsg.prototype.getExtra = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /**
- * repeated bytes extra = 4;
- * This is a type-conversion wrapper around `getExtraList()`
- * @return {!Array.<string>}
+ * optional bytes extra = 4;
+ * This is a type-conversion wrapper around `getExtra()`
+ * @return {string}
  */
-proto.holdem.pb.ClientMessageBroadcastMsg.prototype.getExtraList_asB64 = function() {
-  return /** @type {!Array.<string>} */ (jspb.Message.bytesListAsB64(
-      this.getExtraList()));
+proto.holdem.pb.ClientMessageBroadcastMsg.prototype.getExtra_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getExtra()));
 };
 
 
 /**
- * repeated bytes extra = 4;
+ * optional bytes extra = 4;
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getExtraList()`
- * @return {!Array.<!Uint8Array>}
+ * This is a type-conversion wrapper around `getExtra()`
+ * @return {!Uint8Array}
  */
-proto.holdem.pb.ClientMessageBroadcastMsg.prototype.getExtraList_asU8 = function() {
-  return /** @type {!Array.<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
-      this.getExtraList()));
+proto.holdem.pb.ClientMessageBroadcastMsg.prototype.getExtra_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getExtra()));
 };
 
 
-/** @param {!(Array<!Uint8Array>|Array<string>)} value */
-proto.holdem.pb.ClientMessageBroadcastMsg.prototype.setExtraList = function(value) {
-  jspb.Message.setField(this, 4, value || []);
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
- * @param {number=} opt_index
- */
-proto.holdem.pb.ClientMessageBroadcastMsg.prototype.addExtra = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
-};
-
-
-proto.holdem.pb.ClientMessageBroadcastMsg.prototype.clearExtraList = function() {
-  this.setExtraList([]);
+/** @param {!(string|Uint8Array)} value */
+proto.holdem.pb.ClientMessageBroadcastMsg.prototype.setExtra = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

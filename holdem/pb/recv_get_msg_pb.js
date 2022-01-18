@@ -24,19 +24,12 @@ goog.exportSymbol('proto.holdem.pb.ServerMessageGetMsg', null, global);
  * @constructor
  */
 proto.holdem.pb.ServerMessageGetMsg = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ServerMessageGetMsg.repeatedFields_, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.holdem.pb.ServerMessageGetMsg, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.ServerMessageGetMsg.displayName = 'proto.holdem.pb.ServerMessageGetMsg';
 }
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.holdem.pb.ServerMessageGetMsg.repeatedFields_ = [2];
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -67,7 +60,7 @@ proto.holdem.pb.ServerMessageGetMsg.prototype.toObject = function(opt_includeIns
 proto.holdem.pb.ServerMessageGetMsg.toObject = function(includeInstance, msg) {
   var f, obj = {
     message: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    extraList: msg.getExtraList_asB64()
+    extra: msg.getExtra_asB64()
   };
 
   if (includeInstance) {
@@ -110,7 +103,7 @@ proto.holdem.pb.ServerMessageGetMsg.deserializeBinaryFromReader = function(msg, 
       break;
     case 2:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.addExtra(value);
+      msg.setExtra(value);
       break;
     default:
       reader.skipField();
@@ -148,9 +141,9 @@ proto.holdem.pb.ServerMessageGetMsg.serializeBinaryToWriter = function(message, 
       f
     );
   }
-  f = message.getExtraList_asU8();
+  f = message.getExtra_asU8();
   if (f.length > 0) {
-    writer.writeRepeatedBytes(
+    writer.writeBytes(
       2,
       f
     );
@@ -174,55 +167,41 @@ proto.holdem.pb.ServerMessageGetMsg.prototype.setMessage = function(value) {
 
 
 /**
- * repeated bytes extra = 2;
- * @return {!(Array<!Uint8Array>|Array<string>)}
+ * optional bytes extra = 2;
+ * @return {!(string|Uint8Array)}
  */
-proto.holdem.pb.ServerMessageGetMsg.prototype.getExtraList = function() {
-  return /** @type {!(Array<!Uint8Array>|Array<string>)} */ (jspb.Message.getRepeatedField(this, 2));
+proto.holdem.pb.ServerMessageGetMsg.prototype.getExtra = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
- * repeated bytes extra = 2;
- * This is a type-conversion wrapper around `getExtraList()`
- * @return {!Array.<string>}
+ * optional bytes extra = 2;
+ * This is a type-conversion wrapper around `getExtra()`
+ * @return {string}
  */
-proto.holdem.pb.ServerMessageGetMsg.prototype.getExtraList_asB64 = function() {
-  return /** @type {!Array.<string>} */ (jspb.Message.bytesListAsB64(
-      this.getExtraList()));
+proto.holdem.pb.ServerMessageGetMsg.prototype.getExtra_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getExtra()));
 };
 
 
 /**
- * repeated bytes extra = 2;
+ * optional bytes extra = 2;
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getExtraList()`
- * @return {!Array.<!Uint8Array>}
+ * This is a type-conversion wrapper around `getExtra()`
+ * @return {!Uint8Array}
  */
-proto.holdem.pb.ServerMessageGetMsg.prototype.getExtraList_asU8 = function() {
-  return /** @type {!Array.<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
-      this.getExtraList()));
+proto.holdem.pb.ServerMessageGetMsg.prototype.getExtra_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getExtra()));
 };
 
 
-/** @param {!(Array<!Uint8Array>|Array<string>)} value */
-proto.holdem.pb.ServerMessageGetMsg.prototype.setExtraList = function(value) {
-  jspb.Message.setField(this, 2, value || []);
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
- * @param {number=} opt_index
- */
-proto.holdem.pb.ServerMessageGetMsg.prototype.addExtra = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
-};
-
-
-proto.holdem.pb.ServerMessageGetMsg.prototype.clearExtraList = function() {
-  this.setExtraList([]);
+/** @param {!(string|Uint8Array)} value */
+proto.holdem.pb.ServerMessageGetMsg.prototype.setExtra = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 
