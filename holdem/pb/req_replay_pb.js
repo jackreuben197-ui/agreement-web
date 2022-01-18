@@ -62,7 +62,8 @@ proto.holdem.pb.ClientMessagePublicReplay.prototype.toObject = function(opt_incl
 proto.holdem.pb.ClientMessagePublicReplay.toObject = function(includeInstance, msg) {
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
-    handNum: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    handNum: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    uniqueId: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -108,6 +109,10 @@ proto.holdem.pb.ClientMessagePublicReplay.deserializeBinaryFromReader = function
       var value = /** @type {number} */ (reader.readUint32());
       msg.setHandNum(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUniqueId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -149,6 +154,13 @@ proto.holdem.pb.ClientMessagePublicReplay.serializeBinaryToWriter = function(mes
   if (f !== 0) {
     writer.writeUint32(
       2,
+      f
+    );
+  }
+  f = message.getUniqueId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
       f
     );
   }
@@ -197,6 +209,21 @@ proto.holdem.pb.ClientMessagePublicReplay.prototype.getHandNum = function() {
 /** @param {number} value */
 proto.holdem.pb.ClientMessagePublicReplay.prototype.setHandNum = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional string unique_id = 3;
+ * @return {string}
+ */
+proto.holdem.pb.ClientMessagePublicReplay.prototype.getUniqueId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.ClientMessagePublicReplay.prototype.setUniqueId = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 

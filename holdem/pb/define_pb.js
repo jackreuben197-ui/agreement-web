@@ -913,7 +913,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     straddle: jspb.Message.getFieldWithDefault(msg, 17, false),
     opDuration: jspb.Message.getFieldWithDefault(msg, 18, 0),
     retainType: jspb.Message.getFieldWithDefault(msg, 19, 0),
-    muck: jspb.Message.getFieldWithDefault(msg, 20, false)
+    muck: jspb.Message.getFieldWithDefault(msg, 20, false),
+    uniqueId: jspb.Message.getFieldWithDefault(msg, 21, "")
   };
 
   if (includeInstance) {
@@ -1029,6 +1030,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 20:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setMuck(value);
+      break;
+    case 21:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUniqueId(value);
       break;
     default:
       reader.skipField();
@@ -1196,6 +1201,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       20,
+      f
+    );
+  }
+  f = message.getUniqueId();
+  if (f.length > 0) {
+    writer.writeString(
+      21,
       f
     );
   }
@@ -1524,6 +1536,21 @@ proto.holdem.pb.RoomInfo.prototype.getMuck = function() {
 /** @param {boolean} value */
 proto.holdem.pb.RoomInfo.prototype.setMuck = function(value) {
   jspb.Message.setField(this, 20, value);
+};
+
+
+/**
+ * optional string unique_id = 21;
+ * @return {string}
+ */
+proto.holdem.pb.RoomInfo.prototype.getUniqueId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 21, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.RoomInfo.prototype.setUniqueId = function(value) {
+  jspb.Message.setField(this, 21, value);
 };
 
 
