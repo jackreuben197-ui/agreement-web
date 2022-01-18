@@ -5596,7 +5596,8 @@ proto.holdem.pb.Player.toObject = function(includeInstance, msg) {
     keepSeatLeftTime: jspb.Message.getFieldWithDefault(msg, 12, 0),
     buyInsuranceStep: jspb.Message.getFieldWithDefault(msg, 13, 0),
     buyInsuranceList: jspb.Message.toObjectList(msg.getBuyInsuranceList(),
-    proto.holdem.pb.PotInsuranceBuy.toObject, includeInstance)
+    proto.holdem.pb.PotInsuranceBuy.toObject, includeInstance),
+    isAutoop: jspb.Message.getFieldWithDefault(msg, 15, false)
   };
 
   if (includeInstance) {
@@ -5689,6 +5690,10 @@ proto.holdem.pb.Player.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.PotInsuranceBuy;
       reader.readMessage(value,proto.holdem.pb.PotInsuranceBuy.deserializeBinaryFromReader);
       msg.addBuyInsurance(value);
+      break;
+    case 15:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsAutoop(value);
       break;
     default:
       reader.skipField();
@@ -5816,6 +5821,13 @@ proto.holdem.pb.Player.serializeBinaryToWriter = function(message, writer) {
       14,
       f,
       proto.holdem.pb.PotInsuranceBuy.serializeBinaryToWriter
+    );
+  }
+  f = message.getIsAutoop();
+  if (f) {
+    writer.writeBool(
+      15,
+      f
     );
   }
 };
@@ -6058,6 +6070,23 @@ proto.holdem.pb.Player.prototype.addBuyInsurance = function(opt_value, opt_index
 
 proto.holdem.pb.Player.prototype.clearBuyInsuranceList = function() {
   this.setBuyInsuranceList([]);
+};
+
+
+/**
+ * optional bool is_autoop = 15;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.Player.prototype.getIsAutoop = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 15, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.Player.prototype.setIsAutoop = function(value) {
+  jspb.Message.setField(this, 15, value);
 };
 
 
