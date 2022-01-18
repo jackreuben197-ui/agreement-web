@@ -2866,7 +2866,8 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     hunterKill: jspb.Message.getFieldWithDefault(msg, 6, 0),
     hunterKillAward: jspb.Message.getFieldWithDefault(msg, 7, 0),
     hunterRank: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    storeChips: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    storeChips: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    isAutoop: jspb.Message.getFieldWithDefault(msg, 10, false)
   };
 
   if (includeInstance) {
@@ -2938,6 +2939,10 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 9:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setStoreChips(value);
+      break;
+    case 10:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsAutoop(value);
       break;
     default:
       reader.skipField();
@@ -3028,6 +3033,13 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       9,
+      f
+    );
+  }
+  f = message.getIsAutoop();
+  if (f) {
+    writer.writeBool(
+      10,
       f
     );
   }
@@ -3168,6 +3180,23 @@ proto.holdem.pb.MyGameInfo.prototype.getStoreChips = function() {
 /** @param {number} value */
 proto.holdem.pb.MyGameInfo.prototype.setStoreChips = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional bool is_autoop = 10;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getIsAutoop = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 10, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MyGameInfo.prototype.setIsAutoop = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 
