@@ -1640,7 +1640,8 @@ proto.holdem.pb.HandInfo.toObject = function(includeInstance, msg) {
     allBet: jspb.Message.getFieldWithDefault(msg, 6, 0),
     potsList: jspb.Message.toObjectList(msg.getPotsList(),
     proto.holdem.pb.SidePot.toObject, includeInstance),
-    roundBet: jspb.Message.getFieldWithDefault(msg, 8, 0)
+    roundBet: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    insurancePool: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -1709,6 +1710,10 @@ proto.holdem.pb.HandInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 8:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setRoundBet(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setInsurancePool(value);
       break;
     default:
       reader.skipField();
@@ -1793,6 +1798,13 @@ proto.holdem.pb.HandInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       8,
+      f
+    );
+  }
+  f = message.getInsurancePool();
+  if (f !== 0) {
+    writer.writeUint64(
+      9,
       f
     );
   }
@@ -1946,6 +1958,21 @@ proto.holdem.pb.HandInfo.prototype.getRoundBet = function() {
 /** @param {number} value */
 proto.holdem.pb.HandInfo.prototype.setRoundBet = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional uint64 insurance_pool = 9;
+ * @return {number}
+ */
+proto.holdem.pb.HandInfo.prototype.getInsurancePool = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.HandInfo.prototype.setInsurancePool = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -7627,7 +7654,8 @@ proto.holdem.pb.PlayerSummary.toObject = function(includeInstance, msg) {
     bringInTotal: jspb.Message.getFieldWithDefault(msg, 6, 0),
     bringOutTotal: jspb.Message.getFieldWithDefault(msg, 7, 0),
     chip: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    win: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    win: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    status: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -7699,6 +7727,10 @@ proto.holdem.pb.PlayerSummary.deserializeBinaryFromReader = function(msg, reader
     case 9:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setWin(value);
+      break;
+    case 10:
+      var value = /** @type {!proto.holdem.pb.Def.CanPlayStatus} */ (reader.readEnum());
+      msg.setStatus(value);
       break;
     default:
       reader.skipField();
@@ -7789,6 +7821,13 @@ proto.holdem.pb.PlayerSummary.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeInt64(
       9,
+      f
+    );
+  }
+  f = message.getStatus();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      10,
       f
     );
   }
@@ -7927,6 +7966,21 @@ proto.holdem.pb.PlayerSummary.prototype.getWin = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerSummary.prototype.setWin = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional Def.CanPlayStatus status = 10;
+ * @return {!proto.holdem.pb.Def.CanPlayStatus}
+ */
+proto.holdem.pb.PlayerSummary.prototype.getStatus = function() {
+  return /** @type {!proto.holdem.pb.Def.CanPlayStatus} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.CanPlayStatus} value */
+proto.holdem.pb.PlayerSummary.prototype.setStatus = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 
