@@ -353,8 +353,7 @@ proto.holdem.pb.Room.prototype.toObject = function(opt_includeInstance) {
 proto.holdem.pb.Room.toObject = function(includeInstance, msg) {
   var f, obj = {
     roomId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    roomType: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    matchId: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    matchId: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -397,10 +396,6 @@ proto.holdem.pb.Room.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setRoomType(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readUint32());
       msg.setMatchId(value);
       break;
     default:
@@ -439,17 +434,10 @@ proto.holdem.pb.Room.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getRoomType();
-  if (f !== 0) {
-    writer.writeUint32(
-      2,
-      f
-    );
-  }
   f = message.getMatchId();
   if (f !== 0) {
     writer.writeUint32(
-      3,
+      2,
       f
     );
   }
@@ -472,32 +460,17 @@ proto.holdem.pb.Room.prototype.setRoomId = function(value) {
 
 
 /**
- * optional uint32 room_type = 2;
+ * optional uint32 match_id = 2;
  * @return {number}
  */
-proto.holdem.pb.Room.prototype.getRoomType = function() {
+proto.holdem.pb.Room.prototype.getMatchId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.Room.prototype.setRoomType = function(value) {
-  jspb.Message.setField(this, 2, value);
-};
-
-
-/**
- * optional uint32 match_id = 3;
- * @return {number}
- */
-proto.holdem.pb.Room.prototype.getMatchId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
-};
-
-
-/** @param {number} value */
 proto.holdem.pb.Room.prototype.setMatchId = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setField(this, 2, value);
 };
 
 
