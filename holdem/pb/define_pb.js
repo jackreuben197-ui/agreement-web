@@ -3895,7 +3895,8 @@ proto.holdem.pb.InsurancePotLimit.toObject = function(includeInstance, msg) {
     insuranced: jspb.Message.getFieldWithDefault(msg, 6, 0),
     outs: jspb.Message.getFieldWithDefault(msg, 7, 0),
     outsDetailList: jspb.Message.toObjectList(msg.getOutsDetailList(),
-    proto.holdem.pb.UserOuts.toObject, includeInstance)
+    proto.holdem.pb.UserOuts.toObject, includeInstance),
+    potUserCount: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -3964,6 +3965,10 @@ proto.holdem.pb.InsurancePotLimit.deserializeBinaryFromReader = function(msg, re
       var value = new proto.holdem.pb.UserOuts;
       reader.readMessage(value,proto.holdem.pb.UserOuts.deserializeBinaryFromReader);
       msg.addOutsDetail(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setPotUserCount(value);
       break;
     default:
       reader.skipField();
@@ -4049,6 +4054,13 @@ proto.holdem.pb.InsurancePotLimit.serializeBinaryToWriter = function(message, wr
       8,
       f,
       proto.holdem.pb.UserOuts.serializeBinaryToWriter
+    );
+  }
+  f = message.getPotUserCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      9,
+      f
     );
   }
 };
@@ -4187,6 +4199,21 @@ proto.holdem.pb.InsurancePotLimit.prototype.addOutsDetail = function(opt_value, 
 
 proto.holdem.pb.InsurancePotLimit.prototype.clearOutsDetailList = function() {
   this.setOutsDetailList([]);
+};
+
+
+/**
+ * optional uint32 pot_user_count = 9;
+ * @return {number}
+ */
+proto.holdem.pb.InsurancePotLimit.prototype.getPotUserCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.InsurancePotLimit.prototype.setPotUserCount = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 
