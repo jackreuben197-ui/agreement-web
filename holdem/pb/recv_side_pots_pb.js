@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageSidePots.repeatedFields_ = [1];
+proto.holdem.pb.ServerMessageSidePots.repeatedFields_ = [1,2];
 
 
 
@@ -68,6 +68,8 @@ proto.holdem.pb.ServerMessageSidePots.prototype.toObject = function(opt_includeI
 proto.holdem.pb.ServerMessageSidePots.toObject = function(includeInstance, msg) {
   var f, obj = {
     potsList: jspb.Message.toObjectList(msg.getPotsList(),
+    protobuf_holdem_define_pb.SidePot.toObject, includeInstance),
+    secondPotsList: jspb.Message.toObjectList(msg.getSecondPotsList(),
     protobuf_holdem_define_pb.SidePot.toObject, includeInstance)
   };
 
@@ -110,6 +112,11 @@ proto.holdem.pb.ServerMessageSidePots.deserializeBinaryFromReader = function(msg
       reader.readMessage(value,protobuf_holdem_define_pb.SidePot.deserializeBinaryFromReader);
       msg.addPots(value);
       break;
+    case 2:
+      var value = new protobuf_holdem_define_pb.SidePot;
+      reader.readMessage(value,protobuf_holdem_define_pb.SidePot.deserializeBinaryFromReader);
+      msg.addSecondPots(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -147,6 +154,14 @@ proto.holdem.pb.ServerMessageSidePots.serializeBinaryToWriter = function(message
       protobuf_holdem_define_pb.SidePot.serializeBinaryToWriter
     );
   }
+  f = message.getSecondPotsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      2,
+      f,
+      protobuf_holdem_define_pb.SidePot.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -178,6 +193,37 @@ proto.holdem.pb.ServerMessageSidePots.prototype.addPots = function(opt_value, op
 
 proto.holdem.pb.ServerMessageSidePots.prototype.clearPotsList = function() {
   this.setPotsList([]);
+};
+
+
+/**
+ * repeated SidePot second_pots = 2;
+ * @return {!Array.<!proto.holdem.pb.SidePot>}
+ */
+proto.holdem.pb.ServerMessageSidePots.prototype.getSecondPotsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.SidePot>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.SidePot, 2));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.SidePot>} value */
+proto.holdem.pb.ServerMessageSidePots.prototype.setSecondPotsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.SidePot=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.SidePot}
+ */
+proto.holdem.pb.ServerMessageSidePots.prototype.addSecondPots = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.holdem.pb.SidePot, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageSidePots.prototype.clearSecondPotsList = function() {
+  this.setSecondPotsList([]);
 };
 
 

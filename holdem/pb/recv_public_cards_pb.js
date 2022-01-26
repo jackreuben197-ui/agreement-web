@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessagePublicCards.repeatedFields_ = [1];
+proto.holdem.pb.ServerMessagePublicCards.repeatedFields_ = [1,3];
 
 
 
@@ -68,7 +68,8 @@ proto.holdem.pb.ServerMessagePublicCards.prototype.toObject = function(opt_inclu
 proto.holdem.pb.ServerMessagePublicCards.toObject = function(includeInstance, msg) {
   var f, obj = {
     publicCardsArrayList: jspb.Message.getRepeatedField(msg, 1),
-    nextOperator: (f = msg.getNextOperator()) && protobuf_holdem_define_pb.Operator.toObject(includeInstance, f)
+    nextOperator: (f = msg.getNextOperator()) && protobuf_holdem_define_pb.Operator.toObject(includeInstance, f),
+    secondPublicCardsArrayList: jspb.Message.getRepeatedField(msg, 3)
   };
 
   if (includeInstance) {
@@ -114,6 +115,10 @@ proto.holdem.pb.ServerMessagePublicCards.deserializeBinaryFromReader = function(
       reader.readMessage(value,protobuf_holdem_define_pb.Operator.deserializeBinaryFromReader);
       msg.setNextOperator(value);
       break;
+    case 3:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setSecondPublicCardsArrayList(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -156,6 +161,13 @@ proto.holdem.pb.ServerMessagePublicCards.serializeBinaryToWriter = function(mess
       2,
       f,
       protobuf_holdem_define_pb.Operator.serializeBinaryToWriter
+    );
+  }
+  f = message.getSecondPublicCardsArrayList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      3,
+      f
     );
   }
 };
@@ -217,6 +229,35 @@ proto.holdem.pb.ServerMessagePublicCards.prototype.clearNextOperator = function(
  */
 proto.holdem.pb.ServerMessagePublicCards.prototype.hasNextOperator = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * repeated int32 second_public_cards_array = 3;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.ServerMessagePublicCards.prototype.getSecondPublicCardsArrayList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 3));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.ServerMessagePublicCards.prototype.setSecondPublicCardsArrayList = function(value) {
+  jspb.Message.setField(this, 3, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.ServerMessagePublicCards.prototype.addSecondPublicCardsArray = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 3, value, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessagePublicCards.prototype.clearSecondPublicCardsArrayList = function() {
+  this.setSecondPublicCardsArrayList([]);
 };
 
 
