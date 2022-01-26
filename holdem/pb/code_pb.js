@@ -62,7 +62,9 @@ proto.holdem.pb.Code = {
   MSG_S_BRING_IN_OR_STORE_FAIL: 1118,
   MSG_S_HAND_CLEAR: 1119,
   MSG_S_UP_BLIND: 1120,
-  MSG_S_GET_MSG: 1121
+  MSG_S_GET_MSG: 1121,
+  MSG_S_AGREE_SECOND_PCS_TRIGGED: 1122,
+  MSG_S_AGREE_SECOND_PCS: 1123
 };
 
 goog.object.extend(exports, proto.holdem.pb);
