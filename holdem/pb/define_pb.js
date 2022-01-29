@@ -45,6 +45,7 @@ goog.exportSymbol('proto.holdem.pb.RoomInfo', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomInfo.RetainType', null, global);
 goog.exportSymbol('proto.holdem.pb.Roomer', null, global);
 goog.exportSymbol('proto.holdem.pb.SidePot', null, global);
+goog.exportSymbol('proto.holdem.pb.SplitedResult', null, global);
 goog.exportSymbol('proto.holdem.pb.UserOuts', null, global);
 goog.exportSymbol('proto.holdem.pb.WinCard', null, global);
 
@@ -1632,7 +1633,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.HandInfo.repeatedFields_ = [5,7];
+proto.holdem.pb.HandInfo.repeatedFields_ = [5,7,10];
 
 
 
@@ -1672,7 +1673,8 @@ proto.holdem.pb.HandInfo.toObject = function(includeInstance, msg) {
     potsList: jspb.Message.toObjectList(msg.getPotsList(),
     proto.holdem.pb.SidePot.toObject, includeInstance),
     roundBet: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    insurancePool: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    insurancePool: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    extPublicCardsList: jspb.Message.getRepeatedField(msg, 10)
   };
 
   if (includeInstance) {
@@ -1745,6 +1747,10 @@ proto.holdem.pb.HandInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 9:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setInsurancePool(value);
+      break;
+    case 10:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setExtPublicCardsList(value);
       break;
     default:
       reader.skipField();
@@ -1836,6 +1842,13 @@ proto.holdem.pb.HandInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       9,
+      f
+    );
+  }
+  f = message.getExtPublicCardsList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      10,
       f
     );
   }
@@ -2004,6 +2017,35 @@ proto.holdem.pb.HandInfo.prototype.getInsurancePool = function() {
 /** @param {number} value */
 proto.holdem.pb.HandInfo.prototype.setInsurancePool = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * repeated int32 ext_public_cards = 10;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.HandInfo.prototype.getExtPublicCardsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 10));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.HandInfo.prototype.setExtPublicCardsList = function(value) {
+  jspb.Message.setField(this, 10, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.HandInfo.prototype.addExtPublicCards = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 10, value, opt_index);
+};
+
+
+proto.holdem.pb.HandInfo.prototype.clearExtPublicCardsList = function() {
+  this.setExtPublicCardsList([]);
 };
 
 
@@ -6222,7 +6264,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.Result.repeatedFields_ = [4,5,18];
+proto.holdem.pb.Result.repeatedFields_ = [4,5,18,19];
 
 
 
@@ -6272,7 +6314,9 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     muck: jspb.Message.getFieldWithDefault(msg, 16, false),
     handValueType2: jspb.Message.getFieldWithDefault(msg, 17, 0),
     winCards2List: jspb.Message.toObjectList(msg.getWinCards2List(),
-    proto.holdem.pb.WinCard.toObject, includeInstance)
+    proto.holdem.pb.WinCard.toObject, includeInstance),
+    splitResultsList: jspb.Message.toObjectList(msg.getSplitResultsList(),
+    proto.holdem.pb.SplitedResult.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -6382,6 +6426,11 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.WinCard;
       reader.readMessage(value,proto.holdem.pb.WinCard.deserializeBinaryFromReader);
       msg.addWinCards2(value);
+      break;
+    case 19:
+      var value = new proto.holdem.pb.SplitedResult;
+      reader.readMessage(value,proto.holdem.pb.SplitedResult.deserializeBinaryFromReader);
+      msg.addSplitResults(value);
       break;
     default:
       reader.skipField();
@@ -6538,6 +6587,14 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
       18,
       f,
       proto.holdem.pb.WinCard.serializeBinaryToWriter
+    );
+  }
+  f = message.getSplitResultsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      19,
+      f,
+      proto.holdem.pb.SplitedResult.serializeBinaryToWriter
     );
   }
 };
@@ -6858,6 +6915,208 @@ proto.holdem.pb.Result.prototype.addWinCards2 = function(opt_value, opt_index) {
 
 proto.holdem.pb.Result.prototype.clearWinCards2List = function() {
   this.setWinCards2List([]);
+};
+
+
+/**
+ * repeated SplitedResult split_results = 19;
+ * @return {!Array.<!proto.holdem.pb.SplitedResult>}
+ */
+proto.holdem.pb.Result.prototype.getSplitResultsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.SplitedResult>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.SplitedResult, 19));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.SplitedResult>} value */
+proto.holdem.pb.Result.prototype.setSplitResultsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 19, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.SplitedResult=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.SplitedResult}
+ */
+proto.holdem.pb.Result.prototype.addSplitResults = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 19, opt_value, proto.holdem.pb.SplitedResult, opt_index);
+};
+
+
+proto.holdem.pb.Result.prototype.clearSplitResultsList = function() {
+  this.setSplitResultsList([]);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.SplitedResult = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.SplitedResult, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.SplitedResult.displayName = 'proto.holdem.pb.SplitedResult';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.SplitedResult.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.SplitedResult.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.SplitedResult} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.SplitedResult.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    win: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    isWinner: jspb.Message.getFieldWithDefault(msg, 2, false)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.SplitedResult}
+ */
+proto.holdem.pb.SplitedResult.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.SplitedResult;
+  return proto.holdem.pb.SplitedResult.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.SplitedResult} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.SplitedResult}
+ */
+proto.holdem.pb.SplitedResult.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setWin(value);
+      break;
+    case 2:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsWinner(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.SplitedResult.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.SplitedResult.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.SplitedResult} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.SplitedResult.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getWin();
+  if (f !== 0) {
+    writer.writeUint64(
+      1,
+      f
+    );
+  }
+  f = message.getIsWinner();
+  if (f) {
+    writer.writeBool(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint64 win = 1;
+ * @return {number}
+ */
+proto.holdem.pb.SplitedResult.prototype.getWin = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SplitedResult.prototype.setWin = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional bool is_winner = 2;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.SplitedResult.prototype.getIsWinner = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 2, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.SplitedResult.prototype.setIsWinner = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 
