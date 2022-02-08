@@ -3996,7 +3996,8 @@ proto.holdem.pb.InsurancePotLimit.toObject = function(includeInstance, msg) {
     outs: jspb.Message.getFieldWithDefault(msg, 7, 0),
     outsDetailList: jspb.Message.toObjectList(msg.getOutsDetailList(),
     proto.holdem.pb.UserOuts.toObject, includeInstance),
-    potUserCount: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    potUserCount: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    potLeaderCount: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -4069,6 +4070,10 @@ proto.holdem.pb.InsurancePotLimit.deserializeBinaryFromReader = function(msg, re
     case 9:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setPotUserCount(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setPotLeaderCount(value);
       break;
     default:
       reader.skipField();
@@ -4160,6 +4165,13 @@ proto.holdem.pb.InsurancePotLimit.serializeBinaryToWriter = function(message, wr
   if (f !== 0) {
     writer.writeUint32(
       9,
+      f
+    );
+  }
+  f = message.getPotLeaderCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      10,
       f
     );
   }
@@ -4314,6 +4326,21 @@ proto.holdem.pb.InsurancePotLimit.prototype.getPotUserCount = function() {
 /** @param {number} value */
 proto.holdem.pb.InsurancePotLimit.prototype.setPotUserCount = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional uint32 pot_leader_count = 10;
+ * @return {number}
+ */
+proto.holdem.pb.InsurancePotLimit.prototype.getPotLeaderCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.InsurancePotLimit.prototype.setPotLeaderCount = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 
