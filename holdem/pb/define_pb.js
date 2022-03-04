@@ -20,8 +20,11 @@ goog.exportSymbol('proto.holdem.pb.Def.CanPlayStatus', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ChipChangeReason', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ConsumeType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.GameStatus', null, global);
+goog.exportSymbol('proto.holdem.pb.Def.GameType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.LeaveReason', null, global);
+goog.exportSymbol('proto.holdem.pb.Def.LimitBetType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.MTTPropBuyType', null, global);
+goog.exportSymbol('proto.holdem.pb.Def.PokerType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.Round', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.StandUpReason', null, global);
 goog.exportSymbol('proto.holdem.pb.GPS', null, global);
@@ -304,6 +307,33 @@ proto.holdem.pb.Def.ConsumeType = {
   CT_DELAY_4: 12,
   CT_VC_1: 13,
   CT_VC_2: 14
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.Def.GameType = {
+  HOLDEM: 0,
+  OMAHA4: 1,
+  OMAHA5: 2,
+  OMAHA6: 3
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.Def.PokerType = {
+  STANDARD: 0,
+  SIXPLUS_FIX: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.Def.LimitBetType = {
+  NO_LIMIT: 0,
+  POT_LIMIT: 1,
+  AOF: 2
 };
 
 
