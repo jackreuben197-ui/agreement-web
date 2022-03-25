@@ -3021,7 +3021,8 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     hunterKillAward: jspb.Message.getFieldWithDefault(msg, 7, 0),
     hunterRank: jspb.Message.getFieldWithDefault(msg, 8, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    isAutoop: jspb.Message.getFieldWithDefault(msg, 10, false)
+    isAutoop: jspb.Message.getFieldWithDefault(msg, 10, false),
+    roundActioned: jspb.Message.getFieldWithDefault(msg, 11, false)
   };
 
   if (includeInstance) {
@@ -3097,6 +3098,10 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsAutoop(value);
+      break;
+    case 11:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setRoundActioned(value);
       break;
     default:
       reader.skipField();
@@ -3194,6 +3199,13 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       10,
+      f
+    );
+  }
+  f = message.getRoundActioned();
+  if (f) {
+    writer.writeBool(
+      11,
       f
     );
   }
@@ -3351,6 +3363,23 @@ proto.holdem.pb.MyGameInfo.prototype.getIsAutoop = function() {
 /** @param {boolean} value */
 proto.holdem.pb.MyGameInfo.prototype.setIsAutoop = function(value) {
   jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * optional bool round_actioned = 11;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getRoundActioned = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 11, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MyGameInfo.prototype.setRoundActioned = function(value) {
+  jspb.Message.setField(this, 11, value);
 };
 
 
@@ -5805,7 +5834,8 @@ proto.holdem.pb.Player.toObject = function(includeInstance, msg) {
     buyInsuranceStep: jspb.Message.getFieldWithDefault(msg, 13, 0),
     buyInsuranceList: jspb.Message.toObjectList(msg.getBuyInsuranceList(),
     proto.holdem.pb.PotInsuranceBuy.toObject, includeInstance),
-    isAutoop: jspb.Message.getFieldWithDefault(msg, 15, false)
+    isAutoop: jspb.Message.getFieldWithDefault(msg, 15, false),
+    roundActioned: jspb.Message.getFieldWithDefault(msg, 16, false)
   };
 
   if (includeInstance) {
@@ -5902,6 +5932,10 @@ proto.holdem.pb.Player.deserializeBinaryFromReader = function(msg, reader) {
     case 15:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsAutoop(value);
+      break;
+    case 16:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setRoundActioned(value);
       break;
     default:
       reader.skipField();
@@ -6035,6 +6069,13 @@ proto.holdem.pb.Player.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       15,
+      f
+    );
+  }
+  f = message.getRoundActioned();
+  if (f) {
+    writer.writeBool(
+      16,
       f
     );
   }
@@ -6295,6 +6336,23 @@ proto.holdem.pb.Player.prototype.getIsAutoop = function() {
 /** @param {boolean} value */
 proto.holdem.pb.Player.prototype.setIsAutoop = function(value) {
   jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * optional bool round_actioned = 16;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.Player.prototype.getRoundActioned = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 16, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.Player.prototype.setRoundActioned = function(value) {
+  jspb.Message.setField(this, 16, value);
 };
 
 
