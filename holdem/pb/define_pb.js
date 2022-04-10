@@ -343,9 +343,10 @@ proto.holdem.pb.Def.LimitBetType = {
  * @enum {number}
  */
 proto.holdem.pb.Def.AddOnMode = {
-  ADDON_NORMAL: 0,
+  ADDON_NONE: 0,
   PLUS_MODE1: 1,
-  PLUS_MODE2: 2
+  PLUS_MODE2: 2,
+  ADDON_NORMAL: 3
 };
 
 
