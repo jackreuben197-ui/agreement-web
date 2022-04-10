@@ -2973,7 +2973,7 @@ proto.holdem.pb.MTTProgress.toObject = function(includeInstance, msg) {
     startCountDown: jspb.Message.getFieldWithDefault(msg, 4, 0),
     blindLevel: jspb.Message.getFieldWithDefault(msg, 5, 0),
     canAddOn: jspb.Message.getFieldWithDefault(msg, 6, false),
-    mode: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    addonMode: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -3036,7 +3036,7 @@ proto.holdem.pb.MTTProgress.deserializeBinaryFromReader = function(msg, reader) 
       break;
     case 7:
       var value = /** @type {!proto.holdem.pb.Def.AddOnMode} */ (reader.readEnum());
-      msg.setMode(value);
+      msg.setAddonMode(value);
       break;
     default:
       reader.skipField();
@@ -3109,7 +3109,7 @@ proto.holdem.pb.MTTProgress.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
-  f = message.getMode();
+  f = message.getAddonMode();
   if (f !== 0.0) {
     writer.writeEnum(
       7,
@@ -3212,16 +3212,16 @@ proto.holdem.pb.MTTProgress.prototype.setCanAddOn = function(value) {
 
 
 /**
- * optional Def.AddOnMode mode = 7;
+ * optional Def.AddOnMode addon_mode = 7;
  * @return {!proto.holdem.pb.Def.AddOnMode}
  */
-proto.holdem.pb.MTTProgress.prototype.getMode = function() {
+proto.holdem.pb.MTTProgress.prototype.getAddonMode = function() {
   return /** @type {!proto.holdem.pb.Def.AddOnMode} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
 /** @param {!proto.holdem.pb.Def.AddOnMode} value */
-proto.holdem.pb.MTTProgress.prototype.setMode = function(value) {
+proto.holdem.pb.MTTProgress.prototype.setAddonMode = function(value) {
   jspb.Message.setField(this, 7, value);
 };
 
