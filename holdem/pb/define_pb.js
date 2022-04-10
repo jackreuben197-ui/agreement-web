@@ -16,6 +16,7 @@ goog.exportSymbol('proto.holdem.pb.ActionShortcutLimit', null, global);
 goog.exportSymbol('proto.holdem.pb.Def', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.Action', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ActionShortcut', null, global);
+goog.exportSymbol('proto.holdem.pb.Def.AddOnMode', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.CanPlayStatus', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ChipChangeReason', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ConsumeType', null, global);
@@ -262,7 +263,9 @@ proto.holdem.pb.Def.ChipChangeReason = {
   CC_STORE_CHIP: 1,
   CC_AUTO_ON_TABLE: 2,
   CC_MTT_ADD_ON: 3,
-  CC_MTT_STORE_RETURN: 4
+  CC_MTT_STORE_RETURN: 4,
+  CC_MTT_ADD_ON_PLUS_MODE1: 5,
+  CC_MTT_ADD_ON_PLUS_MODE2: 6
 };
 
 /**
@@ -334,6 +337,15 @@ proto.holdem.pb.Def.LimitBetType = {
   NO_LIMIT: 0,
   POT_LIMIT: 1,
   AOF: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.Def.AddOnMode = {
+  ADDON_NORMAL: 0,
+  PLUS_MODE1: 1,
+  PLUS_MODE2: 2
 };
 
 
@@ -2144,7 +2156,14 @@ proto.holdem.pb.MTTInfo.toObject = function(includeInstance, msg) {
     moneySync: jspb.Message.getFieldWithDefault(msg, 16, false),
     partialBringInReturnBlindLevel: jspb.Message.getFieldWithDefault(msg, 17, 0),
     buyPropId: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    propBuyType: jspb.Message.getFieldWithDefault(msg, 19, 0)
+    propBuyType: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    addOnPlusMode1: jspb.Message.getFieldWithDefault(msg, 20, false),
+    addOnPlusMode1Limit: jspb.Message.getFieldWithDefault(msg, 21, 0),
+    addOnPlusMode1MaxTimes: jspb.Message.getFieldWithDefault(msg, 22, 0),
+    addOnPlusMode2: jspb.Message.getFieldWithDefault(msg, 23, false),
+    addOnPlusMode2EndBl: jspb.Message.getFieldWithDefault(msg, 24, 0),
+    addOnPlusMode2MaxTimes: jspb.Message.getFieldWithDefault(msg, 25, 0),
+    buyRatio: jspb.Message.getFieldWithDefault(msg, 26, 0)
   };
 
   if (includeInstance) {
@@ -2256,6 +2275,34 @@ proto.holdem.pb.MTTInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 19:
       var value = /** @type {!proto.holdem.pb.Def.MTTPropBuyType} */ (reader.readEnum());
       msg.setPropBuyType(value);
+      break;
+    case 20:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAddOnPlusMode1(value);
+      break;
+    case 21:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAddOnPlusMode1Limit(value);
+      break;
+    case 22:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAddOnPlusMode1MaxTimes(value);
+      break;
+    case 23:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAddOnPlusMode2(value);
+      break;
+    case 24:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setAddOnPlusMode2EndBl(value);
+      break;
+    case 25:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAddOnPlusMode2MaxTimes(value);
+      break;
+    case 26:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBuyRatio(value);
       break;
     default:
       reader.skipField();
@@ -2416,6 +2463,55 @@ proto.holdem.pb.MTTInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       19,
+      f
+    );
+  }
+  f = message.getAddOnPlusMode1();
+  if (f) {
+    writer.writeBool(
+      20,
+      f
+    );
+  }
+  f = message.getAddOnPlusMode1Limit();
+  if (f !== 0) {
+    writer.writeUint64(
+      21,
+      f
+    );
+  }
+  f = message.getAddOnPlusMode1MaxTimes();
+  if (f !== 0) {
+    writer.writeUint64(
+      22,
+      f
+    );
+  }
+  f = message.getAddOnPlusMode2();
+  if (f) {
+    writer.writeBool(
+      23,
+      f
+    );
+  }
+  f = message.getAddOnPlusMode2EndBl();
+  if (f !== 0) {
+    writer.writeUint32(
+      24,
+      f
+    );
+  }
+  f = message.getAddOnPlusMode2MaxTimes();
+  if (f !== 0) {
+    writer.writeUint64(
+      25,
+      f
+    );
+  }
+  f = message.getBuyRatio();
+  if (f !== 0) {
+    writer.writeUint32(
+      26,
       f
     );
   }
@@ -2715,6 +2811,115 @@ proto.holdem.pb.MTTInfo.prototype.setPropBuyType = function(value) {
 };
 
 
+/**
+ * optional bool add_on_plus_mode1 = 20;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MTTInfo.prototype.getAddOnPlusMode1 = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 20, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MTTInfo.prototype.setAddOnPlusMode1 = function(value) {
+  jspb.Message.setField(this, 20, value);
+};
+
+
+/**
+ * optional uint64 add_on_plus_mode1_limit = 21;
+ * @return {number}
+ */
+proto.holdem.pb.MTTInfo.prototype.getAddOnPlusMode1Limit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTInfo.prototype.setAddOnPlusMode1Limit = function(value) {
+  jspb.Message.setField(this, 21, value);
+};
+
+
+/**
+ * optional uint64 add_on_plus_mode1_max_times = 22;
+ * @return {number}
+ */
+proto.holdem.pb.MTTInfo.prototype.getAddOnPlusMode1MaxTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 22, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTInfo.prototype.setAddOnPlusMode1MaxTimes = function(value) {
+  jspb.Message.setField(this, 22, value);
+};
+
+
+/**
+ * optional bool add_on_plus_mode2 = 23;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MTTInfo.prototype.getAddOnPlusMode2 = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 23, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MTTInfo.prototype.setAddOnPlusMode2 = function(value) {
+  jspb.Message.setField(this, 23, value);
+};
+
+
+/**
+ * optional uint32 add_on_plus_mode2_end_bl = 24;
+ * @return {number}
+ */
+proto.holdem.pb.MTTInfo.prototype.getAddOnPlusMode2EndBl = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 24, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTInfo.prototype.setAddOnPlusMode2EndBl = function(value) {
+  jspb.Message.setField(this, 24, value);
+};
+
+
+/**
+ * optional uint64 add_on_plus_mode2_max_times = 25;
+ * @return {number}
+ */
+proto.holdem.pb.MTTInfo.prototype.getAddOnPlusMode2MaxTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 25, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTInfo.prototype.setAddOnPlusMode2MaxTimes = function(value) {
+  jspb.Message.setField(this, 25, value);
+};
+
+
+/**
+ * optional uint32 buy_ratio = 26;
+ * @return {number}
+ */
+proto.holdem.pb.MTTInfo.prototype.getBuyRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 26, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTInfo.prototype.setBuyRatio = function(value) {
+  jspb.Message.setField(this, 26, value);
+};
+
+
 
 /**
  * Generated by JsPbCodeGenerator.
@@ -2766,7 +2971,9 @@ proto.holdem.pb.MTTProgress.toObject = function(includeInstance, msg) {
     nextAnte: jspb.Message.getFieldWithDefault(msg, 2, 0),
     nextSmallBlind: jspb.Message.getFieldWithDefault(msg, 3, 0),
     startCountDown: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    blindLevel: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    blindLevel: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    canAddOn: jspb.Message.getFieldWithDefault(msg, 6, false),
+    mode: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -2822,6 +3029,14 @@ proto.holdem.pb.MTTProgress.deserializeBinaryFromReader = function(msg, reader) 
     case 5:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setBlindLevel(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setCanAddOn(value);
+      break;
+    case 7:
+      var value = /** @type {!proto.holdem.pb.Def.AddOnMode} */ (reader.readEnum());
+      msg.setMode(value);
       break;
     default:
       reader.skipField();
@@ -2884,6 +3099,20 @@ proto.holdem.pb.MTTProgress.serializeBinaryToWriter = function(message, writer) 
   if (f !== 0) {
     writer.writeUint32(
       5,
+      f
+    );
+  }
+  f = message.getCanAddOn();
+  if (f) {
+    writer.writeBool(
+      6,
+      f
+    );
+  }
+  f = message.getMode();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      7,
       f
     );
   }
@@ -2962,6 +3191,38 @@ proto.holdem.pb.MTTProgress.prototype.getBlindLevel = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTProgress.prototype.setBlindLevel = function(value) {
   jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional bool can_add_on = 6;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MTTProgress.prototype.getCanAddOn = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MTTProgress.prototype.setCanAddOn = function(value) {
+  jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional Def.AddOnMode mode = 7;
+ * @return {!proto.holdem.pb.Def.AddOnMode}
+ */
+proto.holdem.pb.MTTProgress.prototype.getMode = function() {
+  return /** @type {!proto.holdem.pb.Def.AddOnMode} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.AddOnMode} value */
+proto.holdem.pb.MTTProgress.prototype.setMode = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 

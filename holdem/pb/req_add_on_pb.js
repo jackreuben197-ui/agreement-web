@@ -62,7 +62,9 @@ proto.holdem.pb.ClientMessageAddOn.prototype.toObject = function(opt_includeInst
 proto.holdem.pb.ClientMessageAddOn.toObject = function(includeInstance, msg) {
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
-    useProp: jspb.Message.getFieldWithDefault(msg, 2, false)
+    useProp: jspb.Message.getFieldWithDefault(msg, 2, false),
+    ratio: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    mode: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -108,6 +110,14 @@ proto.holdem.pb.ClientMessageAddOn.deserializeBinaryFromReader = function(msg, r
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setUseProp(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setRatio(value);
+      break;
+    case 4:
+      var value = /** @type {!proto.holdem.pb.Def.AddOnMode} */ (reader.readEnum());
+      msg.setMode(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -149,6 +159,20 @@ proto.holdem.pb.ClientMessageAddOn.serializeBinaryToWriter = function(message, w
   if (f) {
     writer.writeBool(
       2,
+      f
+    );
+  }
+  f = message.getRatio();
+  if (f !== 0) {
+    writer.writeUint32(
+      3,
+      f
+    );
+  }
+  f = message.getMode();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      4,
       f
     );
   }
@@ -199,6 +223,36 @@ proto.holdem.pb.ClientMessageAddOn.prototype.getUseProp = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ClientMessageAddOn.prototype.setUseProp = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional uint32 ratio = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageAddOn.prototype.getRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageAddOn.prototype.setRatio = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional Def.AddOnMode mode = 4;
+ * @return {!proto.holdem.pb.Def.AddOnMode}
+ */
+proto.holdem.pb.ClientMessageAddOn.prototype.getMode = function() {
+  return /** @type {!proto.holdem.pb.Def.AddOnMode} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.AddOnMode} value */
+proto.holdem.pb.ClientMessageAddOn.prototype.setMode = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 
