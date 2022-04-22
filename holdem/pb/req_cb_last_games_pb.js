@@ -61,7 +61,8 @@ proto.holdem.pb.ClientMessageCbLastGames.prototype.toObject = function(opt_inclu
  */
 proto.holdem.pb.ClientMessageCbLastGames.toObject = function(includeInstance, msg) {
   var f, obj = {
-    limit: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    roomId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    limit: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -99,6 +100,10 @@ proto.holdem.pb.ClientMessageCbLastGames.deserializeBinaryFromReader = function(
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRoomId(value);
+      break;
+    case 2:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setLimit(value);
       break;
@@ -131,10 +136,17 @@ proto.holdem.pb.ClientMessageCbLastGames.prototype.serializeBinary = function() 
  */
 proto.holdem.pb.ClientMessageCbLastGames.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getRoomId();
+  if (f !== 0) {
+    writer.writeUint64(
+      1,
+      f
+    );
+  }
   f = message.getLimit();
   if (f !== 0) {
     writer.writeUint32(
-      1,
+      2,
       f
     );
   }
@@ -142,17 +154,32 @@ proto.holdem.pb.ClientMessageCbLastGames.serializeBinaryToWriter = function(mess
 
 
 /**
- * optional uint32 limit = 1;
+ * optional uint64 room_id = 1;
  * @return {number}
  */
-proto.holdem.pb.ClientMessageCbLastGames.prototype.getLimit = function() {
+proto.holdem.pb.ClientMessageCbLastGames.prototype.getRoomId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.ClientMessageCbLastGames.prototype.setLimit = function(value) {
+proto.holdem.pb.ClientMessageCbLastGames.prototype.setRoomId = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint32 limit = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageCbLastGames.prototype.getLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageCbLastGames.prototype.setLimit = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 

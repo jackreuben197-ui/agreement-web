@@ -60,7 +60,8 @@ proto.holdem.pb.ClientMessageCbCancelPlay.prototype.toObject = function(opt_incl
  */
 proto.holdem.pb.ClientMessageCbCancelPlay.toObject = function(includeInstance, msg) {
   var f, obj = {
-    gameNum: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    gameNum: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    roomId: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -101,6 +102,10 @@ proto.holdem.pb.ClientMessageCbCancelPlay.deserializeBinaryFromReader = function
       var value = /** @type {number} */ (reader.readUint32());
       msg.setGameNum(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRoomId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -137,6 +142,13 @@ proto.holdem.pb.ClientMessageCbCancelPlay.serializeBinaryToWriter = function(mes
       f
     );
   }
+  f = message.getRoomId();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -152,6 +164,21 @@ proto.holdem.pb.ClientMessageCbCancelPlay.prototype.getGameNum = function() {
 /** @param {number} value */
 proto.holdem.pb.ClientMessageCbCancelPlay.prototype.setGameNum = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 room_id = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageCbCancelPlay.prototype.getRoomId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageCbCancelPlay.prototype.setRoomId = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 

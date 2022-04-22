@@ -63,7 +63,8 @@ proto.holdem.pb.ClientMessageCbPlay.toObject = function(includeInstance, msg) {
   var f, obj = {
     gameNum: jspb.Message.getFieldWithDefault(msg, 1, 0),
     slot: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    amount: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    amount: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    roomId: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -111,6 +112,10 @@ proto.holdem.pb.ClientMessageCbPlay.deserializeBinaryFromReader = function(msg, 
     case 3:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setAmount(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRoomId(value);
       break;
     default:
       reader.skipField();
@@ -162,6 +167,13 @@ proto.holdem.pb.ClientMessageCbPlay.serializeBinaryToWriter = function(message, 
       f
     );
   }
+  f = message.getRoomId();
+  if (f !== 0) {
+    writer.writeUint64(
+      4,
+      f
+    );
+  }
 };
 
 
@@ -207,6 +219,21 @@ proto.holdem.pb.ClientMessageCbPlay.prototype.getAmount = function() {
 /** @param {number} value */
 proto.holdem.pb.ClientMessageCbPlay.prototype.setAmount = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional uint64 room_id = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageCbPlay.prototype.getRoomId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageCbPlay.prototype.setRoomId = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

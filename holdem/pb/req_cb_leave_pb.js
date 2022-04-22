@@ -60,7 +60,7 @@ proto.holdem.pb.ClientMessageCbLeave.prototype.toObject = function(opt_includeIn
  */
 proto.holdem.pb.ClientMessageCbLeave.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    roomId: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -97,6 +97,10 @@ proto.holdem.pb.ClientMessageCbLeave.deserializeBinaryFromReader = function(msg,
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRoomId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -126,6 +130,28 @@ proto.holdem.pb.ClientMessageCbLeave.prototype.serializeBinary = function() {
  */
 proto.holdem.pb.ClientMessageCbLeave.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getRoomId();
+  if (f !== 0) {
+    writer.writeUint64(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint64 room_id = 1;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageCbLeave.prototype.getRoomId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageCbLeave.prototype.setRoomId = function(value) {
+  jspb.Message.setField(this, 1, value);
 };
 
 

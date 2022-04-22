@@ -63,7 +63,8 @@ proto.holdem.pb.ClientMessageChat.toObject = function(includeInstance, msg) {
   var f, obj = {
     consume: jspb.Message.getFieldWithDefault(msg, 1, 0),
     message: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    extra: msg.getExtra_asB64()
+    extra: msg.getExtra_asB64(),
+    roomId: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -112,6 +113,10 @@ proto.holdem.pb.ClientMessageChat.deserializeBinaryFromReader = function(msg, re
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.setExtra(value);
       break;
+    case 4:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRoomId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -159,6 +164,13 @@ proto.holdem.pb.ClientMessageChat.serializeBinaryToWriter = function(message, wr
   if (f.length > 0) {
     writer.writeBytes(
       3,
+      f
+    );
+  }
+  f = message.getRoomId();
+  if (f !== 0) {
+    writer.writeUint64(
+      4,
       f
     );
   }
@@ -231,6 +243,21 @@ proto.holdem.pb.ClientMessageChat.prototype.getExtra_asU8 = function() {
 /** @param {!(string|Uint8Array)} value */
 proto.holdem.pb.ClientMessageChat.prototype.setExtra = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional uint64 room_id = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageChat.prototype.getRoomId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageChat.prototype.setRoomId = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 
