@@ -71,7 +71,7 @@ proto.holdem.pb.ServerMessageCbGameResult.toObject = function(includeInstance, m
     firstCard: jspb.Message.getFieldWithDefault(msg, 2, 0),
     gameResult: (f = msg.getGameResult()) && protobuf_holdem_define_cb_pb.CBGameResult.toObject(includeInstance, f),
     myPlayList: jspb.Message.toObjectList(msg.getMyPlayList(),
-    protobuf_holdem_define_cb_pb.CBPlaySummary.toObject, includeInstance),
+    protobuf_holdem_define_cb_pb.CBPlayResult.toObject, includeInstance),
     myWin: jspb.Message.getFieldWithDefault(msg, 5, 0),
     online: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
@@ -124,8 +124,8 @@ proto.holdem.pb.ServerMessageCbGameResult.deserializeBinaryFromReader = function
       msg.setGameResult(value);
       break;
     case 4:
-      var value = new protobuf_holdem_define_cb_pb.CBPlaySummary;
-      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBPlaySummary.deserializeBinaryFromReader);
+      var value = new protobuf_holdem_define_cb_pb.CBPlayResult;
+      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBPlayResult.deserializeBinaryFromReader);
       msg.addMyPlay(value);
       break;
     case 5:
@@ -192,7 +192,7 @@ proto.holdem.pb.ServerMessageCbGameResult.serializeBinaryToWriter = function(mes
     writer.writeRepeatedMessage(
       4,
       f,
-      protobuf_holdem_define_cb_pb.CBPlaySummary.serializeBinaryToWriter
+      protobuf_holdem_define_cb_pb.CBPlayResult.serializeBinaryToWriter
     );
   }
   f = message.getMyWin();
@@ -273,28 +273,28 @@ proto.holdem.pb.ServerMessageCbGameResult.prototype.hasGameResult = function() {
 
 
 /**
- * repeated CBPlaySummary my_play = 4;
- * @return {!Array.<!proto.holdem.pb.CBPlaySummary>}
+ * repeated CBPlayResult my_play = 4;
+ * @return {!Array.<!proto.holdem.pb.CBPlayResult>}
  */
 proto.holdem.pb.ServerMessageCbGameResult.prototype.getMyPlayList = function() {
-  return /** @type{!Array.<!proto.holdem.pb.CBPlaySummary>} */ (
-    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBPlaySummary, 4));
+  return /** @type{!Array.<!proto.holdem.pb.CBPlayResult>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBPlayResult, 4));
 };
 
 
-/** @param {!Array.<!proto.holdem.pb.CBPlaySummary>} value */
+/** @param {!Array.<!proto.holdem.pb.CBPlayResult>} value */
 proto.holdem.pb.ServerMessageCbGameResult.prototype.setMyPlayList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
 /**
- * @param {!proto.holdem.pb.CBPlaySummary=} opt_value
+ * @param {!proto.holdem.pb.CBPlayResult=} opt_value
  * @param {number=} opt_index
- * @return {!proto.holdem.pb.CBPlaySummary}
+ * @return {!proto.holdem.pb.CBPlayResult}
  */
 proto.holdem.pb.ServerMessageCbGameResult.prototype.addMyPlay = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.CBPlaySummary, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.CBPlayResult, opt_index);
 };
 
 
