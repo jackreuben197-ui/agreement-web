@@ -1943,7 +1943,8 @@ proto.holdem.pb.CBGameHistorySummary.toObject = function(includeInstance, msg) {
     resultSlotsList: jspb.Message.getRepeatedField(msg, 5),
     myPlayList: jspb.Message.toObjectList(msg.getMyPlayList(),
     proto.holdem.pb.CBPlaySummary.toObject, includeInstance),
-    myWin: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    myWin: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    gameNum: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -2008,6 +2009,10 @@ proto.holdem.pb.CBGameHistorySummary.deserializeBinaryFromReader = function(msg,
     case 7:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setMyWin(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setGameNum(value);
       break;
     default:
       reader.skipField();
@@ -2085,6 +2090,13 @@ proto.holdem.pb.CBGameHistorySummary.serializeBinaryToWriter = function(message,
   if (f !== 0) {
     writer.writeUint64(
       7,
+      f
+    );
+  }
+  f = message.getGameNum();
+  if (f !== 0) {
+    writer.writeUint32(
+      8,
       f
     );
   }
@@ -2265,6 +2277,21 @@ proto.holdem.pb.CBGameHistorySummary.prototype.getMyWin = function() {
 /** @param {number} value */
 proto.holdem.pb.CBGameHistorySummary.prototype.setMyWin = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint32 game_num = 8;
+ * @return {number}
+ */
+proto.holdem.pb.CBGameHistorySummary.prototype.getGameNum = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.CBGameHistorySummary.prototype.setGameNum = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 
