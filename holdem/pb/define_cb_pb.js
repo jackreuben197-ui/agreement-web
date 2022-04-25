@@ -30,6 +30,7 @@ goog.exportSymbol('proto.holdem.pb.DefCB', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.ConsumeType', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.HistoryResult', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.HistorySlot', null, global);
+goog.exportSymbol('proto.holdem.pb.DefCB.LeaveReason', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.PlaySlot', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.RoomCloseReason', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.WayPointColor', null, global);
@@ -232,6 +233,17 @@ proto.holdem.pb.DefCB.ConsumeType = {
   CT_EMOJI_2: 6,
   CT_EMOJI_3: 7,
   CT_EMOJI_4: 8
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.DefCB.LeaveReason = {
+  LR_NONE: 0,
+  LR_ACTIVE: 1,
+  LR_FORCE: 2,
+  LR_GAMEOVER: 3,
+  LR_OFFLINE: 4
 };
 
 
