@@ -20,6 +20,7 @@ goog.exportSymbol('proto.holdem.pb.CBPlayResult', null, global);
 goog.exportSymbol('proto.holdem.pb.CBPlaySummary', null, global);
 goog.exportSymbol('proto.holdem.pb.CBRoom', null, global);
 goog.exportSymbol('proto.holdem.pb.CBSetting', null, global);
+goog.exportSymbol('proto.holdem.pb.CBSlotUserPlaySummary', null, global);
 goog.exportSymbol('proto.holdem.pb.CBUserPlay', null, global);
 goog.exportSymbol('proto.holdem.pb.CBUserPlaySummary', null, global);
 goog.exportSymbol('proto.holdem.pb.CBWayPointMap', null, global);
@@ -1620,20 +1621,208 @@ proto.holdem.pb.CBPlayResult.prototype.setWin = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.holdem.pb.CBUserPlaySummary = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.CBUserPlaySummary.repeatedFields_, null);
+proto.holdem.pb.CBSlotUserPlaySummary = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.CBSlotUserPlaySummary.repeatedFields_, null);
 };
-goog.inherits(proto.holdem.pb.CBUserPlaySummary, jspb.Message);
+goog.inherits(proto.holdem.pb.CBSlotUserPlaySummary, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.holdem.pb.CBUserPlaySummary.displayName = 'proto.holdem.pb.CBUserPlaySummary';
+  proto.holdem.pb.CBSlotUserPlaySummary.displayName = 'proto.holdem.pb.CBSlotUserPlaySummary';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.CBUserPlaySummary.repeatedFields_ = [4];
+proto.holdem.pb.CBSlotUserPlaySummary.repeatedFields_ = [2];
 
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.CBSlotUserPlaySummary.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.CBSlotUserPlaySummary.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.CBSlotUserPlaySummary} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.CBSlotUserPlaySummary.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    slot: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    userSummaryList: jspb.Message.toObjectList(msg.getUserSummaryList(),
+    proto.holdem.pb.CBUserPlaySummary.toObject, includeInstance)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.CBSlotUserPlaySummary}
+ */
+proto.holdem.pb.CBSlotUserPlaySummary.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.CBSlotUserPlaySummary;
+  return proto.holdem.pb.CBSlotUserPlaySummary.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.CBSlotUserPlaySummary} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.CBSlotUserPlaySummary}
+ */
+proto.holdem.pb.CBSlotUserPlaySummary.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {!proto.holdem.pb.DefCB.PlaySlot} */ (reader.readEnum());
+      msg.setSlot(value);
+      break;
+    case 2:
+      var value = new proto.holdem.pb.CBUserPlaySummary;
+      reader.readMessage(value,proto.holdem.pb.CBUserPlaySummary.deserializeBinaryFromReader);
+      msg.addUserSummary(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.CBSlotUserPlaySummary.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.CBSlotUserPlaySummary.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.CBSlotUserPlaySummary} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.CBSlotUserPlaySummary.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSlot();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      1,
+      f
+    );
+  }
+  f = message.getUserSummaryList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      2,
+      f,
+      proto.holdem.pb.CBUserPlaySummary.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional DefCB.PlaySlot slot = 1;
+ * @return {!proto.holdem.pb.DefCB.PlaySlot}
+ */
+proto.holdem.pb.CBSlotUserPlaySummary.prototype.getSlot = function() {
+  return /** @type {!proto.holdem.pb.DefCB.PlaySlot} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {!proto.holdem.pb.DefCB.PlaySlot} value */
+proto.holdem.pb.CBSlotUserPlaySummary.prototype.setSlot = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * repeated CBUserPlaySummary user_summary = 2;
+ * @return {!Array.<!proto.holdem.pb.CBUserPlaySummary>}
+ */
+proto.holdem.pb.CBSlotUserPlaySummary.prototype.getUserSummaryList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.CBUserPlaySummary>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.CBUserPlaySummary, 2));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.CBUserPlaySummary>} value */
+proto.holdem.pb.CBSlotUserPlaySummary.prototype.setUserSummaryList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.CBUserPlaySummary=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.CBUserPlaySummary}
+ */
+proto.holdem.pb.CBSlotUserPlaySummary.prototype.addUserSummary = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.holdem.pb.CBUserPlaySummary, opt_index);
+};
+
+
+proto.holdem.pb.CBSlotUserPlaySummary.prototype.clearUserSummaryList = function() {
+  this.setUserSummaryList([]);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.CBUserPlaySummary = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.CBUserPlaySummary, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.CBUserPlaySummary.displayName = 'proto.holdem.pb.CBUserPlaySummary';
+}
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1666,8 +1855,7 @@ proto.holdem.pb.CBUserPlaySummary.toObject = function(includeInstance, msg) {
     userId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     avatar: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    playedList: jspb.Message.toObjectList(msg.getPlayedList(),
-    proto.holdem.pb.CBPlaySummary.toObject, includeInstance)
+    amount: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -1717,9 +1905,8 @@ proto.holdem.pb.CBUserPlaySummary.deserializeBinaryFromReader = function(msg, re
       msg.setAvatar(value);
       break;
     case 4:
-      var value = new proto.holdem.pb.CBPlaySummary;
-      reader.readMessage(value,proto.holdem.pb.CBPlaySummary.deserializeBinaryFromReader);
-      msg.addPlayed(value);
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAmount(value);
       break;
     default:
       reader.skipField();
@@ -1771,12 +1958,11 @@ proto.holdem.pb.CBUserPlaySummary.serializeBinaryToWriter = function(message, wr
       f
     );
   }
-  f = message.getPlayedList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
+  f = message.getAmount();
+  if (f !== 0) {
+    writer.writeUint64(
       4,
-      f,
-      proto.holdem.pb.CBPlaySummary.serializeBinaryToWriter
+      f
     );
   }
 };
@@ -1828,33 +2014,17 @@ proto.holdem.pb.CBUserPlaySummary.prototype.setAvatar = function(value) {
 
 
 /**
- * repeated CBPlaySummary played = 4;
- * @return {!Array.<!proto.holdem.pb.CBPlaySummary>}
+ * optional uint64 amount = 4;
+ * @return {number}
  */
-proto.holdem.pb.CBUserPlaySummary.prototype.getPlayedList = function() {
-  return /** @type{!Array.<!proto.holdem.pb.CBPlaySummary>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.CBPlaySummary, 4));
+proto.holdem.pb.CBUserPlaySummary.prototype.getAmount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {!Array.<!proto.holdem.pb.CBPlaySummary>} value */
-proto.holdem.pb.CBUserPlaySummary.prototype.setPlayedList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 4, value);
-};
-
-
-/**
- * @param {!proto.holdem.pb.CBPlaySummary=} opt_value
- * @param {number=} opt_index
- * @return {!proto.holdem.pb.CBPlaySummary}
- */
-proto.holdem.pb.CBUserPlaySummary.prototype.addPlayed = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.CBPlaySummary, opt_index);
-};
-
-
-proto.holdem.pb.CBUserPlaySummary.prototype.clearPlayedList = function() {
-  this.setPlayedList([]);
+/** @param {number} value */
+proto.holdem.pb.CBUserPlaySummary.prototype.setAmount = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 
