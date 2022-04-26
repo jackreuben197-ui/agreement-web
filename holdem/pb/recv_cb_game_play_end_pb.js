@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageCbGamePlayEnd.repeatedFields_ = [3,4];
+proto.holdem.pb.ServerMessageCbGamePlayEnd.repeatedFields_ = [2,3];
 
 
 
@@ -68,7 +68,6 @@ proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.toObject = function(opt_inc
 proto.holdem.pb.ServerMessageCbGamePlayEnd.toObject = function(includeInstance, msg) {
   var f, obj = {
     gameNum: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    firstCard: jspb.Message.getFieldWithDefault(msg, 2, 0),
     summaryList: jspb.Message.toObjectList(msg.getSummaryList(),
     protobuf_holdem_define_cb_pb.CBPlaySummary.toObject, includeInstance),
     userPlayList: jspb.Message.toObjectList(msg.getUserPlayList(),
@@ -114,15 +113,11 @@ proto.holdem.pb.ServerMessageCbGamePlayEnd.deserializeBinaryFromReader = functio
       msg.setGameNum(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setFirstCard(value);
-      break;
-    case 3:
       var value = new protobuf_holdem_define_cb_pb.CBPlaySummary;
       reader.readMessage(value,protobuf_holdem_define_cb_pb.CBPlaySummary.deserializeBinaryFromReader);
       msg.addSummary(value);
       break;
-    case 4:
+    case 3:
       var value = new protobuf_holdem_define_cb_pb.CBSlotUserPlaySummary;
       reader.readMessage(value,protobuf_holdem_define_cb_pb.CBSlotUserPlaySummary.deserializeBinaryFromReader);
       msg.addUserPlay(value);
@@ -163,17 +158,10 @@ proto.holdem.pb.ServerMessageCbGamePlayEnd.serializeBinaryToWriter = function(me
       f
     );
   }
-  f = message.getFirstCard();
-  if (f !== 0) {
-    writer.writeUint32(
-      2,
-      f
-    );
-  }
   f = message.getSummaryList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      3,
+      2,
       f,
       protobuf_holdem_define_cb_pb.CBPlaySummary.serializeBinaryToWriter
     );
@@ -181,7 +169,7 @@ proto.holdem.pb.ServerMessageCbGamePlayEnd.serializeBinaryToWriter = function(me
   f = message.getUserPlayList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      4,
+      3,
       f,
       protobuf_holdem_define_cb_pb.CBSlotUserPlaySummary.serializeBinaryToWriter
     );
@@ -205,33 +193,18 @@ proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.setGameNum = function(value
 
 
 /**
- * optional uint32 first_card = 2;
- * @return {number}
- */
-proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.getFirstCard = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.setFirstCard = function(value) {
-  jspb.Message.setField(this, 2, value);
-};
-
-
-/**
- * repeated CBPlaySummary summary = 3;
+ * repeated CBPlaySummary summary = 2;
  * @return {!Array.<!proto.holdem.pb.CBPlaySummary>}
  */
 proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.getSummaryList = function() {
   return /** @type{!Array.<!proto.holdem.pb.CBPlaySummary>} */ (
-    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBPlaySummary, 3));
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBPlaySummary, 2));
 };
 
 
 /** @param {!Array.<!proto.holdem.pb.CBPlaySummary>} value */
 proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.setSummaryList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 3, value);
+  jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -241,7 +214,7 @@ proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.setSummaryList = function(v
  * @return {!proto.holdem.pb.CBPlaySummary}
  */
 proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.addSummary = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.holdem.pb.CBPlaySummary, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.holdem.pb.CBPlaySummary, opt_index);
 };
 
 
@@ -251,18 +224,18 @@ proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.clearSummaryList = function
 
 
 /**
- * repeated CBSlotUserPlaySummary user_play = 4;
+ * repeated CBSlotUserPlaySummary user_play = 3;
  * @return {!Array.<!proto.holdem.pb.CBSlotUserPlaySummary>}
  */
 proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.getUserPlayList = function() {
   return /** @type{!Array.<!proto.holdem.pb.CBSlotUserPlaySummary>} */ (
-    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBSlotUserPlaySummary, 4));
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBSlotUserPlaySummary, 3));
 };
 
 
 /** @param {!Array.<!proto.holdem.pb.CBSlotUserPlaySummary>} value */
 proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.setUserPlayList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 4, value);
+  jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
 
@@ -272,7 +245,7 @@ proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.setUserPlayList = function(
  * @return {!proto.holdem.pb.CBSlotUserPlaySummary}
  */
 proto.holdem.pb.ServerMessageCbGamePlayEnd.prototype.addUserPlay = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.CBSlotUserPlaySummary, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.holdem.pb.CBSlotUserPlaySummary, opt_index);
 };
 
 
