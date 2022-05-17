@@ -59,7 +59,8 @@ proto.holdem.pb.ServerMessageSystemMessage.prototype.toObject = function(opt_inc
  */
 proto.holdem.pb.ServerMessageSystemMessage.toObject = function(includeInstance, msg) {
   var f, obj = {
-    message: jspb.Message.getFieldWithDefault(msg, 1, "")
+    message: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    rotateTimes: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -100,6 +101,10 @@ proto.holdem.pb.ServerMessageSystemMessage.deserializeBinaryFromReader = functio
       var value = /** @type {string} */ (reader.readString());
       msg.setMessage(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRotateTimes(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -136,6 +141,13 @@ proto.holdem.pb.ServerMessageSystemMessage.serializeBinaryToWriter = function(me
       f
     );
   }
+  f = message.getRotateTimes();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -151,6 +163,21 @@ proto.holdem.pb.ServerMessageSystemMessage.prototype.getMessage = function() {
 /** @param {string} value */
 proto.holdem.pb.ServerMessageSystemMessage.prototype.setMessage = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional int32 rotate_times = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSystemMessage.prototype.getRotateTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSystemMessage.prototype.setRotateTimes = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 
