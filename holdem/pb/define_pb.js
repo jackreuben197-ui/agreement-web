@@ -6939,7 +6939,9 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     winCards2List: jspb.Message.toObjectList(msg.getWinCards2List(),
     proto.holdem.pb.WinCard.toObject, includeInstance),
     splitResultsList: jspb.Message.toObjectList(msg.getSplitResultsList(),
-    proto.holdem.pb.SplitedResult.toObject, includeInstance)
+    proto.holdem.pb.SplitedResult.toObject, includeInstance),
+    mttHunterKillAwardOther: jspb.Message.getFieldWithDefault(msg, 20, 0),
+    mttHunterKillAwardOtherPlus: jspb.Message.getFieldWithDefault(msg, 21, 0)
   };
 
   if (includeInstance) {
@@ -7054,6 +7056,14 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.SplitedResult;
       reader.readMessage(value,proto.holdem.pb.SplitedResult.deserializeBinaryFromReader);
       msg.addSplitResults(value);
+      break;
+    case 20:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setMttHunterKillAwardOther(value);
+      break;
+    case 21:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setMttHunterKillAwardOtherPlus(value);
       break;
     default:
       reader.skipField();
@@ -7218,6 +7228,20 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
       19,
       f,
       proto.holdem.pb.SplitedResult.serializeBinaryToWriter
+    );
+  }
+  f = message.getMttHunterKillAwardOther();
+  if (f !== 0) {
+    writer.writeUint64(
+      20,
+      f
+    );
+  }
+  f = message.getMttHunterKillAwardOtherPlus();
+  if (f !== 0) {
+    writer.writeUint64(
+      21,
+      f
     );
   }
 };
@@ -7569,6 +7593,36 @@ proto.holdem.pb.Result.prototype.addSplitResults = function(opt_value, opt_index
 
 proto.holdem.pb.Result.prototype.clearSplitResultsList = function() {
   this.setSplitResultsList([]);
+};
+
+
+/**
+ * optional uint64 mtt_hunter_kill_award_other = 20;
+ * @return {number}
+ */
+proto.holdem.pb.Result.prototype.getMttHunterKillAwardOther = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Result.prototype.setMttHunterKillAwardOther = function(value) {
+  jspb.Message.setField(this, 20, value);
+};
+
+
+/**
+ * optional uint64 mtt_hunter_kill_award_other_plus = 21;
+ * @return {number}
+ */
+proto.holdem.pb.Result.prototype.getMttHunterKillAwardOtherPlus = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Result.prototype.setMttHunterKillAwardOtherPlus = function(value) {
+  jspb.Message.setField(this, 21, value);
 };
 
 
