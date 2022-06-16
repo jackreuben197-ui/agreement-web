@@ -65,7 +65,11 @@ proto.holdem.pb.ServerMessageSeatedOthers.toObject = function(includeInstance, m
     name: jspb.Message.getFieldWithDefault(msg, 4, ""),
     userRid: jspb.Message.getFieldWithDefault(msg, 5, 0),
     chips: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    storeChips: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    storeChips: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    hunterKill: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    hunterKillAward: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    hunterKillAwardOther: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    hunterHeadValue: jspb.Message.getFieldWithDefault(msg, 11, 0)
   };
 
   if (includeInstance) {
@@ -129,6 +133,22 @@ proto.holdem.pb.ServerMessageSeatedOthers.deserializeBinaryFromReader = function
     case 7:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setStoreChips(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setHunterKill(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setHunterKillAward(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setHunterKillAwardOther(value);
+      break;
+    case 11:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setHunterHeadValue(value);
       break;
     default:
       reader.skipField();
@@ -205,6 +225,34 @@ proto.holdem.pb.ServerMessageSeatedOthers.serializeBinaryToWriter = function(mes
   if (f !== 0) {
     writer.writeUint64(
       7,
+      f
+    );
+  }
+  f = message.getHunterKill();
+  if (f !== 0) {
+    writer.writeUint32(
+      8,
+      f
+    );
+  }
+  f = message.getHunterKillAward();
+  if (f !== 0) {
+    writer.writeUint64(
+      9,
+      f
+    );
+  }
+  f = message.getHunterKillAwardOther();
+  if (f !== 0) {
+    writer.writeUint64(
+      10,
+      f
+    );
+  }
+  f = message.getHunterHeadValue();
+  if (f !== 0) {
+    writer.writeUint64(
+      11,
       f
     );
   }
@@ -313,6 +361,66 @@ proto.holdem.pb.ServerMessageSeatedOthers.prototype.getStoreChips = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageSeatedOthers.prototype.setStoreChips = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint32 hunter_kill = 8;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.getHunterKill = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.setHunterKill = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional uint64 hunter_kill_award = 9;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.getHunterKillAward = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.setHunterKillAward = function(value) {
+  jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional uint64 hunter_kill_award_other = 10;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.getHunterKillAwardOther = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.setHunterKillAwardOther = function(value) {
+  jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * optional uint64 hunter_head_value = 11;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.getHunterHeadValue = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.setHunterHeadValue = function(value) {
+  jspb.Message.setField(this, 11, value);
 };
 
 

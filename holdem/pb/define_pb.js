@@ -2975,7 +2975,8 @@ proto.holdem.pb.MTTProgress.toObject = function(includeInstance, msg) {
     startCountDown: jspb.Message.getFieldWithDefault(msg, 4, 0),
     blindLevel: jspb.Message.getFieldWithDefault(msg, 5, 0),
     canAddOn: jspb.Message.getFieldWithDefault(msg, 6, false),
-    addonMode: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    addonMode: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    isBubbleWait: jspb.Message.getFieldWithDefault(msg, 8, false)
   };
 
   if (includeInstance) {
@@ -3039,6 +3040,10 @@ proto.holdem.pb.MTTProgress.deserializeBinaryFromReader = function(msg, reader) 
     case 7:
       var value = /** @type {!proto.holdem.pb.Def.AddOnMode} */ (reader.readEnum());
       msg.setAddonMode(value);
+      break;
+    case 8:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsBubbleWait(value);
       break;
     default:
       reader.skipField();
@@ -3115,6 +3120,13 @@ proto.holdem.pb.MTTProgress.serializeBinaryToWriter = function(message, writer) 
   if (f !== 0.0) {
     writer.writeEnum(
       7,
+      f
+    );
+  }
+  f = message.getIsBubbleWait();
+  if (f) {
+    writer.writeBool(
+      8,
       f
     );
   }
@@ -3225,6 +3237,23 @@ proto.holdem.pb.MTTProgress.prototype.getAddonMode = function() {
 /** @param {!proto.holdem.pb.Def.AddOnMode} value */
 proto.holdem.pb.MTTProgress.prototype.setAddonMode = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional bool is_bubble_wait = 8;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MTTProgress.prototype.getIsBubbleWait = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 8, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MTTProgress.prototype.setIsBubbleWait = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 
