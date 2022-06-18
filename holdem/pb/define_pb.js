@@ -6941,7 +6941,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     splitResultsList: jspb.Message.toObjectList(msg.getSplitResultsList(),
     proto.holdem.pb.SplitedResult.toObject, includeInstance),
     mttHunterKillAwardOther: jspb.Message.getFieldWithDefault(msg, 20, 0),
-    mttHunterKillAwardOtherPlus: jspb.Message.getFieldWithDefault(msg, 21, 0)
+    mttHunterKillAwardOtherPlus: jspb.Message.getFieldWithDefault(msg, 21, 0),
+    standUp: jspb.Message.getFieldWithDefault(msg, 22, false)
   };
 
   if (includeInstance) {
@@ -7064,6 +7065,10 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
     case 21:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setMttHunterKillAwardOtherPlus(value);
+      break;
+    case 22:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setStandUp(value);
       break;
     default:
       reader.skipField();
@@ -7241,6 +7246,13 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       21,
+      f
+    );
+  }
+  f = message.getStandUp();
+  if (f) {
+    writer.writeBool(
+      22,
       f
     );
   }
@@ -7623,6 +7635,23 @@ proto.holdem.pb.Result.prototype.getMttHunterKillAwardOtherPlus = function() {
 /** @param {number} value */
 proto.holdem.pb.Result.prototype.setMttHunterKillAwardOtherPlus = function(value) {
   jspb.Message.setField(this, 21, value);
+};
+
+
+/**
+ * optional bool stand_up = 22;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.Result.prototype.getStandUp = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 22, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.Result.prototype.setStandUp = function(value) {
+  jspb.Message.setField(this, 22, value);
 };
 
 
