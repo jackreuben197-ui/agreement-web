@@ -8245,7 +8245,8 @@ proto.holdem.pb.PlayerChipChange.toObject = function(includeInstance, msg) {
     chips: jspb.Message.getFieldWithDefault(msg, 3, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 4, 0),
     auto: jspb.Message.getFieldWithDefault(msg, 6, false),
-    reason: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    reason: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    mttHunterHeadPlus: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -8305,6 +8306,10 @@ proto.holdem.pb.PlayerChipChange.deserializeBinaryFromReader = function(msg, rea
     case 7:
       var value = /** @type {!proto.holdem.pb.Def.ChipChangeReason} */ (reader.readEnum());
       msg.setReason(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setMttHunterHeadPlus(value);
       break;
     default:
       reader.skipField();
@@ -8374,6 +8379,13 @@ proto.holdem.pb.PlayerChipChange.serializeBinaryToWriter = function(message, wri
   if (f !== 0.0) {
     writer.writeEnum(
       7,
+      f
+    );
+  }
+  f = message.getMttHunterHeadPlus();
+  if (f !== 0) {
+    writer.writeUint64(
+      8,
       f
     );
   }
@@ -8469,6 +8481,21 @@ proto.holdem.pb.PlayerChipChange.prototype.getReason = function() {
 /** @param {!proto.holdem.pb.Def.ChipChangeReason} value */
 proto.holdem.pb.PlayerChipChange.prototype.setReason = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint64 mtt_hunter_head_plus = 8;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerChipChange.prototype.getMttHunterHeadPlus = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerChipChange.prototype.setMttHunterHeadPlus = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 
