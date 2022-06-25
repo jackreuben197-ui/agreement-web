@@ -583,7 +583,8 @@ proto.holdem.pb.Operator.toObject = function(includeInstance, msg) {
     shortcutsList: jspb.Message.toObjectList(msg.getShortcutsList(),
     proto.holdem.pb.ActionShortcutLimit.toObject, includeInstance),
     isInsurance: jspb.Message.getFieldWithDefault(msg, 7, false),
-    isAgreeSecondPc: jspb.Message.getFieldWithDefault(msg, 8, false)
+    isAgreeSecondPc: jspb.Message.getFieldWithDefault(msg, 8, false),
+    opDeadline: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -654,6 +655,10 @@ proto.holdem.pb.Operator.deserializeBinaryFromReader = function(msg, reader) {
     case 8:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsAgreeSecondPc(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setOpDeadline(value);
       break;
     default:
       reader.skipField();
@@ -740,6 +745,13 @@ proto.holdem.pb.Operator.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       8,
+      f
+    );
+  }
+  f = message.getOpDeadline();
+  if (f !== 0) {
+    writer.writeInt64(
+      9,
       f
     );
   }
@@ -915,6 +927,21 @@ proto.holdem.pb.Operator.prototype.getIsAgreeSecondPc = function() {
 /** @param {boolean} value */
 proto.holdem.pb.Operator.prototype.setIsAgreeSecondPc = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional int64 op_deadline = 9;
+ * @return {number}
+ */
+proto.holdem.pb.Operator.prototype.getOpDeadline = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Operator.prototype.setOpDeadline = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 
