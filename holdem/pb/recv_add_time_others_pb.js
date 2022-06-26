@@ -61,7 +61,8 @@ proto.holdem.pb.ServerMessageAddTimeOthers.toObject = function(includeInstance, 
   var f, obj = {
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     duration: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    times: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    times: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    deadlien: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -109,6 +110,10 @@ proto.holdem.pb.ServerMessageAddTimeOthers.deserializeBinaryFromReader = functio
     case 3:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setTimes(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setDeadlien(value);
       break;
     default:
       reader.skipField();
@@ -160,6 +165,13 @@ proto.holdem.pb.ServerMessageAddTimeOthers.serializeBinaryToWriter = function(me
       f
     );
   }
+  f = message.getDeadlien();
+  if (f !== 0) {
+    writer.writeInt64(
+      4,
+      f
+    );
+  }
 };
 
 
@@ -205,6 +217,21 @@ proto.holdem.pb.ServerMessageAddTimeOthers.prototype.getTimes = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageAddTimeOthers.prototype.setTimes = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional int64 deadlien = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageAddTimeOthers.prototype.getDeadlien = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageAddTimeOthers.prototype.setDeadlien = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 
