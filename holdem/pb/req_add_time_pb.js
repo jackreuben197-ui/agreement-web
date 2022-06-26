@@ -248,7 +248,9 @@ proto.holdem.pb.ServerMessageAddTime.prototype.toObject = function(opt_includeIn
 proto.holdem.pb.ServerMessageAddTime.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    times: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    times: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    duration: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    deadline: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -293,6 +295,14 @@ proto.holdem.pb.ServerMessageAddTime.deserializeBinaryFromReader = function(msg,
       var value = /** @type {number} */ (reader.readUint32());
       msg.setTimes(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setDuration(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setDeadline(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -336,6 +346,20 @@ proto.holdem.pb.ServerMessageAddTime.serializeBinaryToWriter = function(message,
       f
     );
   }
+  f = message.getDuration();
+  if (f !== 0) {
+    writer.writeInt64(
+      3,
+      f
+    );
+  }
+  f = message.getDeadline();
+  if (f !== 0) {
+    writer.writeInt64(
+      4,
+      f
+    );
+  }
 };
 
 
@@ -366,6 +390,36 @@ proto.holdem.pb.ServerMessageAddTime.prototype.getTimes = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageAddTime.prototype.setTimes = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional int64 duration = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageAddTime.prototype.getDuration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageAddTime.prototype.setDuration = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional int64 deadline = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageAddTime.prototype.getDeadline = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageAddTime.prototype.setDeadline = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 
