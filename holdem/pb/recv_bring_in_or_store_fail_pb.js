@@ -11,6 +11,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ServerMessageBringInOrStoreFail', null, global);
 
 /**
@@ -61,7 +62,7 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.toObject = function(includeInsta
   var f, obj = {
     isBringIn: jspb.Message.getFieldWithDefault(msg, 1, false),
     currentChip: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    status: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    src: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -106,9 +107,9 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.deserializeBinaryFromReader = fu
       var value = /** @type {number} */ (reader.readUint64());
       msg.setCurrentChip(value);
       break;
-    case 3:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setStatus(value);
+    case 4:
+      var value = /** @type {!proto.holdem.pb.Def.ChipChangeReason} */ (reader.readEnum());
+      msg.setSrc(value);
       break;
     default:
       reader.skipField();
@@ -153,10 +154,10 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.serializeBinaryToWriter = functi
       f
     );
   }
-  f = message.getStatus();
-  if (f !== 0) {
-    writer.writeInt32(
-      3,
+  f = message.getSrc();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      4,
       f
     );
   }
@@ -196,17 +197,17 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.setCurrentChip = funct
 
 
 /**
- * optional int32 status = 3;
- * @return {number}
+ * optional Def.ChipChangeReason src = 4;
+ * @return {!proto.holdem.pb.Def.ChipChangeReason}
  */
-proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.getStatus = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.getSrc = function() {
+  return /** @type {!proto.holdem.pb.Def.ChipChangeReason} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.setStatus = function(value) {
-  jspb.Message.setField(this, 3, value);
+/** @param {!proto.holdem.pb.Def.ChipChangeReason} value */
+proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.setSrc = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 
