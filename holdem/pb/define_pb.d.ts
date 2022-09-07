@@ -1086,6 +1086,9 @@ export class Player extends jspb.Message {
   getHunterHeadValue(): number;
   setHunterHeadValue(value: number): void;
 
+  getVip(): number;
+  setVip(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Player.AsObject;
   static toObject(includeInstance: boolean, msg: Player): Player.AsObject;
@@ -1118,6 +1121,7 @@ export namespace Player {
     hunterKillAward: number,
     hunterKillAwardOther: number,
     hunterHeadValue: number,
+    vip: number,
   }
 }
 
@@ -1366,6 +1370,9 @@ export class Roomer extends jspb.Message {
   getSex(): number;
   setSex(value: number): void;
 
+  getVip(): number;
+  setVip(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Roomer.AsObject;
   static toObject(includeInstance: boolean, msg: Roomer): Roomer.AsObject;
@@ -1382,6 +1389,7 @@ export namespace Roomer {
     name: string,
     avatar: string,
     sex: number,
+    vip: number,
   }
 }
 
@@ -1416,6 +1424,9 @@ export class PlayerSummary extends jspb.Message {
   getStatus(): Def.CanPlayStatusMap[keyof Def.CanPlayStatusMap];
   setStatus(value: Def.CanPlayStatusMap[keyof Def.CanPlayStatusMap]): void;
 
+  getVip(): number;
+  setVip(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerSummary.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerSummary): PlayerSummary.AsObject;
@@ -1438,6 +1449,7 @@ export namespace PlayerSummary {
     chip: number,
     win: number,
     status: Def.CanPlayStatusMap[keyof Def.CanPlayStatusMap],
+    vip: number,
   }
 }
 
