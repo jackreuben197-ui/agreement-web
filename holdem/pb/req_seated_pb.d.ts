@@ -31,6 +31,9 @@ export class ClientMessageSeated extends jspb.Message {
   getClubId(): number;
   setClubId(value: number): void;
 
+  getKeepSeat(): boolean;
+  setKeepSeat(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageSeated.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageSeated): ClientMessageSeated.AsObject;
@@ -51,6 +54,7 @@ export namespace ClientMessageSeated {
     autoUseWallet: boolean,
     store: number,
     clubId: number,
+    keepSeat: boolean,
   }
 }
 
@@ -73,6 +77,12 @@ export class ServerMessageSeated extends jspb.Message {
   getStoreChips(): number;
   setStoreChips(value: number): void;
 
+  getKeepSeatLeftTime(): number;
+  setKeepSeatLeftTime(value: number): void;
+
+  getKeepSeatDeadline(): number;
+  setKeepSeatDeadline(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageSeated.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageSeated): ServerMessageSeated.AsObject;
@@ -91,6 +101,8 @@ export namespace ServerMessageSeated {
     recvSeatId: number,
     postStatus: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap],
     storeChips: number,
+    keepSeatLeftTime: number,
+    keepSeatDeadline: number,
   }
 }
 

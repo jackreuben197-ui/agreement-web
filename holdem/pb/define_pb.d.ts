@@ -1089,6 +1089,9 @@ export class Player extends jspb.Message {
   getVip(): number;
   setVip(value: number): void;
 
+  getKeepSeatDeadline(): number;
+  setKeepSeatDeadline(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Player.AsObject;
   static toObject(includeInstance: boolean, msg: Player): Player.AsObject;
@@ -1122,6 +1125,7 @@ export namespace Player {
     hunterKillAwardOther: number,
     hunterHeadValue: number,
     vip: number,
+    keepSeatDeadline: number,
   }
 }
 
