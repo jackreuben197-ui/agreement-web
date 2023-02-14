@@ -202,6 +202,11 @@ export class CBGameResult extends jspb.Message {
   setSummaryList(value: Array<CBPlaySummary>): void;
   addSummary(value?: CBPlaySummary, index?: number): CBPlaySummary;
 
+  clearPublicCardsSelectedList(): void;
+  getPublicCardsSelectedList(): Array<boolean>;
+  setPublicCardsSelectedList(value: Array<boolean>): void;
+  addPublicCardsSelected(value: boolean, index?: number): boolean;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CBGameResult.AsObject;
   static toObject(includeInstance: boolean, msg: CBGameResult): CBGameResult.AsObject;
@@ -219,6 +224,7 @@ export namespace CBGameResult {
     resultCowboy?: CBHandResult.AsObject,
     resultBeauty?: CBHandResult.AsObject,
     summaryList: Array<CBPlaySummary.AsObject>,
+    publicCardsSelectedList: Array<boolean>,
   }
 }
 
@@ -370,6 +376,11 @@ export class CBHandResult extends jspb.Message {
   setSelectedList(value: Array<boolean>): void;
   addSelected(value: boolean, index?: number): boolean;
 
+  clearPublicCardsSelectedList(): void;
+  getPublicCardsSelectedList(): Array<boolean>;
+  setPublicCardsSelectedList(value: Array<boolean>): void;
+  addPublicCardsSelected(value: boolean, index?: number): boolean;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CBHandResult.AsObject;
   static toObject(includeInstance: boolean, msg: CBHandResult): CBHandResult.AsObject;
@@ -385,6 +396,7 @@ export namespace CBHandResult {
     cardsList: Array<number>,
     handValueType: number,
     selectedList: Array<boolean>,
+    publicCardsSelectedList: Array<boolean>,
   }
 }
 

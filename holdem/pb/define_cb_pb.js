@@ -761,7 +761,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.CBGameResult.repeatedFields_ = [1,2,5];
+proto.holdem.pb.CBGameResult.repeatedFields_ = [1,2,5,6];
 
 
 
@@ -797,7 +797,8 @@ proto.holdem.pb.CBGameResult.toObject = function(includeInstance, msg) {
     resultCowboy: (f = msg.getResultCowboy()) && proto.holdem.pb.CBHandResult.toObject(includeInstance, f),
     resultBeauty: (f = msg.getResultBeauty()) && proto.holdem.pb.CBHandResult.toObject(includeInstance, f),
     summaryList: jspb.Message.toObjectList(msg.getSummaryList(),
-    proto.holdem.pb.CBPlaySummary.toObject, includeInstance)
+    proto.holdem.pb.CBPlaySummary.toObject, includeInstance),
+    publicCardsSelectedList: jspb.Message.getRepeatedField(msg, 6)
   };
 
   if (includeInstance) {
@@ -856,6 +857,10 @@ proto.holdem.pb.CBGameResult.deserializeBinaryFromReader = function(msg, reader)
       var value = new proto.holdem.pb.CBPlaySummary;
       reader.readMessage(value,proto.holdem.pb.CBPlaySummary.deserializeBinaryFromReader);
       msg.addSummary(value);
+      break;
+    case 6:
+      var value = /** @type {!Array.<boolean>} */ (reader.readPackedBool());
+      msg.setPublicCardsSelectedList(value);
       break;
     default:
       reader.skipField();
@@ -922,6 +927,13 @@ proto.holdem.pb.CBGameResult.serializeBinaryToWriter = function(message, writer)
       5,
       f,
       proto.holdem.pb.CBPlaySummary.serializeBinaryToWriter
+    );
+  }
+  f = message.getPublicCardsSelectedList();
+  if (f.length > 0) {
+    writer.writePackedBool(
+      6,
+      f
     );
   }
 };
@@ -1073,6 +1085,37 @@ proto.holdem.pb.CBGameResult.prototype.addSummary = function(opt_value, opt_inde
 
 proto.holdem.pb.CBGameResult.prototype.clearSummaryList = function() {
   this.setSummaryList([]);
+};
+
+
+/**
+ * repeated bool public_cards_selected = 6;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {!Array.<boolean>}
+ */
+proto.holdem.pb.CBGameResult.prototype.getPublicCardsSelectedList = function() {
+  return /** @type {!Array.<boolean>} */ (jspb.Message.getRepeatedField(this, 6));
+};
+
+
+/** @param {!Array.<boolean>} value */
+proto.holdem.pb.CBGameResult.prototype.setPublicCardsSelectedList = function(value) {
+  jspb.Message.setField(this, 6, value || []);
+};
+
+
+/**
+ * @param {!boolean} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.CBGameResult.prototype.addPublicCardsSelected = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+};
+
+
+proto.holdem.pb.CBGameResult.prototype.clearPublicCardsSelectedList = function() {
+  this.setPublicCardsSelectedList([]);
 };
 
 
@@ -2051,7 +2094,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.CBHandResult.repeatedFields_ = [1,3];
+proto.holdem.pb.CBHandResult.repeatedFields_ = [1,3,4];
 
 
 
@@ -2084,7 +2127,8 @@ proto.holdem.pb.CBHandResult.toObject = function(includeInstance, msg) {
   var f, obj = {
     cardsList: jspb.Message.getRepeatedField(msg, 1),
     handValueType: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    selectedList: jspb.Message.getRepeatedField(msg, 3)
+    selectedList: jspb.Message.getRepeatedField(msg, 3),
+    publicCardsSelectedList: jspb.Message.getRepeatedField(msg, 4)
   };
 
   if (includeInstance) {
@@ -2133,6 +2177,10 @@ proto.holdem.pb.CBHandResult.deserializeBinaryFromReader = function(msg, reader)
       var value = /** @type {!Array.<boolean>} */ (reader.readPackedBool());
       msg.setSelectedList(value);
       break;
+    case 4:
+      var value = /** @type {!Array.<boolean>} */ (reader.readPackedBool());
+      msg.setPublicCardsSelectedList(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -2180,6 +2228,13 @@ proto.holdem.pb.CBHandResult.serializeBinaryToWriter = function(message, writer)
   if (f.length > 0) {
     writer.writePackedBool(
       3,
+      f
+    );
+  }
+  f = message.getPublicCardsSelectedList();
+  if (f.length > 0) {
+    writer.writePackedBool(
+      4,
       f
     );
   }
@@ -2258,6 +2313,37 @@ proto.holdem.pb.CBHandResult.prototype.addSelected = function(value, opt_index) 
 
 proto.holdem.pb.CBHandResult.prototype.clearSelectedList = function() {
   this.setSelectedList([]);
+};
+
+
+/**
+ * repeated bool public_cards_selected = 4;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {!Array.<boolean>}
+ */
+proto.holdem.pb.CBHandResult.prototype.getPublicCardsSelectedList = function() {
+  return /** @type {!Array.<boolean>} */ (jspb.Message.getRepeatedField(this, 4));
+};
+
+
+/** @param {!Array.<boolean>} value */
+proto.holdem.pb.CBHandResult.prototype.setPublicCardsSelectedList = function(value) {
+  jspb.Message.setField(this, 4, value || []);
+};
+
+
+/**
+ * @param {!boolean} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.CBHandResult.prototype.addPublicCardsSelected = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
+proto.holdem.pb.CBHandResult.prototype.clearPublicCardsSelectedList = function() {
+  this.setPublicCardsSelectedList([]);
 };
 
 
