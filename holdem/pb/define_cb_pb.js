@@ -270,7 +270,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.CBRoom.repeatedFields_ = [3];
+proto.holdem.pb.CBRoom.repeatedFields_ = [3,4];
 
 
 
@@ -304,7 +304,12 @@ proto.holdem.pb.CBRoom.toObject = function(includeInstance, msg) {
     roomId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     settingsList: jspb.Message.toObjectList(msg.getSettingsList(),
-    proto.holdem.pb.CBSetting.toObject, includeInstance)
+    proto.holdem.pb.CBSetting.toObject, includeInstance),
+    maxAmountsList: jspb.Message.toObjectList(msg.getMaxAmountsList(),
+    proto.holdem.pb.CBPlaySummary.toObject, includeInstance),
+    startTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    duration: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    gameDuration: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -353,6 +358,23 @@ proto.holdem.pb.CBRoom.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.CBSetting;
       reader.readMessage(value,proto.holdem.pb.CBSetting.deserializeBinaryFromReader);
       msg.addSettings(value);
+      break;
+    case 4:
+      var value = new proto.holdem.pb.CBPlaySummary;
+      reader.readMessage(value,proto.holdem.pb.CBPlaySummary.deserializeBinaryFromReader);
+      msg.addMaxAmounts(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setStartTime(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setDuration(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setGameDuration(value);
       break;
     default:
       reader.skipField();
@@ -403,6 +425,35 @@ proto.holdem.pb.CBRoom.serializeBinaryToWriter = function(message, writer) {
       3,
       f,
       proto.holdem.pb.CBSetting.serializeBinaryToWriter
+    );
+  }
+  f = message.getMaxAmountsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      4,
+      f,
+      proto.holdem.pb.CBPlaySummary.serializeBinaryToWriter
+    );
+  }
+  f = message.getStartTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      5,
+      f
+    );
+  }
+  f = message.getDuration();
+  if (f !== 0) {
+    writer.writeUint32(
+      6,
+      f
+    );
+  }
+  f = message.getGameDuration();
+  if (f !== 0) {
+    writer.writeUint32(
+      7,
+      f
     );
   }
 };
@@ -466,6 +517,82 @@ proto.holdem.pb.CBRoom.prototype.addSettings = function(opt_value, opt_index) {
 
 proto.holdem.pb.CBRoom.prototype.clearSettingsList = function() {
   this.setSettingsList([]);
+};
+
+
+/**
+ * repeated CBPlaySummary max_amounts = 4;
+ * @return {!Array.<!proto.holdem.pb.CBPlaySummary>}
+ */
+proto.holdem.pb.CBRoom.prototype.getMaxAmountsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.CBPlaySummary>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.CBPlaySummary, 4));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.CBPlaySummary>} value */
+proto.holdem.pb.CBRoom.prototype.setMaxAmountsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 4, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.CBPlaySummary=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.CBPlaySummary}
+ */
+proto.holdem.pb.CBRoom.prototype.addMaxAmounts = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.CBPlaySummary, opt_index);
+};
+
+
+proto.holdem.pb.CBRoom.prototype.clearMaxAmountsList = function() {
+  this.setMaxAmountsList([]);
+};
+
+
+/**
+ * optional int64 start_time = 5;
+ * @return {number}
+ */
+proto.holdem.pb.CBRoom.prototype.getStartTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.CBRoom.prototype.setStartTime = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional uint32 duration = 6;
+ * @return {number}
+ */
+proto.holdem.pb.CBRoom.prototype.getDuration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.CBRoom.prototype.setDuration = function(value) {
+  jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional uint32 game_duration = 7;
+ * @return {number}
+ */
+proto.holdem.pb.CBRoom.prototype.getGameDuration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.CBRoom.prototype.setGameDuration = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 

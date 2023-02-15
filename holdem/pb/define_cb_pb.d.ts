@@ -120,6 +120,20 @@ export class CBRoom extends jspb.Message {
   setSettingsList(value: Array<CBSetting>): void;
   addSettings(value?: CBSetting, index?: number): CBSetting;
 
+  clearMaxAmountsList(): void;
+  getMaxAmountsList(): Array<CBPlaySummary>;
+  setMaxAmountsList(value: Array<CBPlaySummary>): void;
+  addMaxAmounts(value?: CBPlaySummary, index?: number): CBPlaySummary;
+
+  getStartTime(): number;
+  setStartTime(value: number): void;
+
+  getDuration(): number;
+  setDuration(value: number): void;
+
+  getGameDuration(): number;
+  setGameDuration(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CBRoom.AsObject;
   static toObject(includeInstance: boolean, msg: CBRoom): CBRoom.AsObject;
@@ -135,6 +149,10 @@ export namespace CBRoom {
     roomId: number,
     name: string,
     settingsList: Array<CBSetting.AsObject>,
+    maxAmountsList: Array<CBPlaySummary.AsObject>,
+    startTime: number,
+    duration: number,
+    gameDuration: number,
   }
 }
 
