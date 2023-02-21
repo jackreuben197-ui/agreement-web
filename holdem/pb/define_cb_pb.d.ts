@@ -510,6 +510,30 @@ export namespace CBHistoryItem {
   }
 }
 
+export class CBHistorySimpleItem extends jspb.Message {
+  getSlot(): DefCB.HistorySlotMap[keyof DefCB.HistorySlotMap];
+  setSlot(value: DefCB.HistorySlotMap[keyof DefCB.HistorySlotMap]): void;
+
+  getOccurTimes(): number;
+  setOccurTimes(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CBHistorySimpleItem.AsObject;
+  static toObject(includeInstance: boolean, msg: CBHistorySimpleItem): CBHistorySimpleItem.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CBHistorySimpleItem, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CBHistorySimpleItem;
+  static deserializeBinaryFromReader(message: CBHistorySimpleItem, reader: jspb.BinaryReader): CBHistorySimpleItem;
+}
+
+export namespace CBHistorySimpleItem {
+  export type AsObject = {
+    slot: DefCB.HistorySlotMap[keyof DefCB.HistorySlotMap],
+    occurTimes: number,
+  }
+}
+
 export class CBWayPointMove extends jspb.Message {
   getIndex(): number;
   setIndex(value: number): void;

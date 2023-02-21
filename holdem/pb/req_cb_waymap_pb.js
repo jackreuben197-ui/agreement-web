@@ -217,7 +217,7 @@ proto.holdem.pb.ServerMessageCbWaymap.toObject = function(includeInstance, msg) 
     previewList: jspb.Message.toObjectList(msg.getPreviewList(),
     protobuf_holdem_define_cb_pb.CBWayPointPreview.toObject, includeInstance),
     itemsList: jspb.Message.toObjectList(msg.getItemsList(),
-    protobuf_holdem_define_cb_pb.CBHistoryItem.toObject, includeInstance)
+    protobuf_holdem_define_cb_pb.CBHistorySimpleItem.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -279,8 +279,8 @@ proto.holdem.pb.ServerMessageCbWaymap.deserializeBinaryFromReader = function(msg
       msg.addPreview(value);
       break;
     case 6:
-      var value = new protobuf_holdem_define_cb_pb.CBHistoryItem;
-      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBHistoryItem.deserializeBinaryFromReader);
+      var value = new protobuf_holdem_define_cb_pb.CBHistorySimpleItem;
+      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBHistorySimpleItem.deserializeBinaryFromReader);
       msg.addItems(value);
       break;
     default:
@@ -356,7 +356,7 @@ proto.holdem.pb.ServerMessageCbWaymap.serializeBinaryToWriter = function(message
     writer.writeRepeatedMessage(
       6,
       f,
-      protobuf_holdem_define_cb_pb.CBHistoryItem.serializeBinaryToWriter
+      protobuf_holdem_define_cb_pb.CBHistorySimpleItem.serializeBinaryToWriter
     );
   }
 };
@@ -499,28 +499,28 @@ proto.holdem.pb.ServerMessageCbWaymap.prototype.clearPreviewList = function() {
 
 
 /**
- * repeated CBHistoryItem items = 6;
- * @return {!Array.<!proto.holdem.pb.CBHistoryItem>}
+ * repeated CBHistorySimpleItem items = 6;
+ * @return {!Array.<!proto.holdem.pb.CBHistorySimpleItem>}
  */
 proto.holdem.pb.ServerMessageCbWaymap.prototype.getItemsList = function() {
-  return /** @type{!Array.<!proto.holdem.pb.CBHistoryItem>} */ (
-    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBHistoryItem, 6));
+  return /** @type{!Array.<!proto.holdem.pb.CBHistorySimpleItem>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBHistorySimpleItem, 6));
 };
 
 
-/** @param {!Array.<!proto.holdem.pb.CBHistoryItem>} value */
+/** @param {!Array.<!proto.holdem.pb.CBHistorySimpleItem>} value */
 proto.holdem.pb.ServerMessageCbWaymap.prototype.setItemsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 6, value);
 };
 
 
 /**
- * @param {!proto.holdem.pb.CBHistoryItem=} opt_value
+ * @param {!proto.holdem.pb.CBHistorySimpleItem=} opt_value
  * @param {number=} opt_index
- * @return {!proto.holdem.pb.CBHistoryItem}
+ * @return {!proto.holdem.pb.CBHistorySimpleItem}
  */
 proto.holdem.pb.ServerMessageCbWaymap.prototype.addItems = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.holdem.pb.CBHistoryItem, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.holdem.pb.CBHistorySimpleItem, opt_index);
 };
 
 
