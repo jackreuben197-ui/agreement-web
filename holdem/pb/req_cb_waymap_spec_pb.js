@@ -249,12 +249,19 @@ proto.holdem.pb.ClientMessageCbWaymapSpec.prototype.setPanMapStartIndex = functi
  * @constructor
  */
 proto.holdem.pb.ServerMessageCbWaymapSpec = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ServerMessageCbWaymapSpec.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.ServerMessageCbWaymapSpec, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.ServerMessageCbWaymapSpec.displayName = 'proto.holdem.pb.ServerMessageCbWaymapSpec';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.ServerMessageCbWaymapSpec.repeatedFields_ = [2,3,4];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -285,9 +292,12 @@ proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.toObject = function(opt_incl
 proto.holdem.pb.ServerMessageCbWaymapSpec.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    bigMap: (f = msg.getBigMap()) && protobuf_holdem_define_cb_pb.CBWayPointMap.toObject(includeInstance, f),
-    smallMap: (f = msg.getSmallMap()) && protobuf_holdem_define_cb_pb.CBWayPointMap.toObject(includeInstance, f),
-    panMap: (f = msg.getPanMap()) && protobuf_holdem_define_cb_pb.CBWayPointMap.toObject(includeInstance, f)
+    bigMapList: jspb.Message.toObjectList(msg.getBigMapList(),
+    protobuf_holdem_define_cb_pb.CBWayPointMove.toObject, includeInstance),
+    smallMapList: jspb.Message.toObjectList(msg.getSmallMapList(),
+    protobuf_holdem_define_cb_pb.CBWayPointMove.toObject, includeInstance),
+    panMapList: jspb.Message.toObjectList(msg.getPanMapList(),
+    protobuf_holdem_define_cb_pb.CBWayPointMove.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -329,19 +339,19 @@ proto.holdem.pb.ServerMessageCbWaymapSpec.deserializeBinaryFromReader = function
       msg.setStatus(value);
       break;
     case 2:
-      var value = new protobuf_holdem_define_cb_pb.CBWayPointMap;
-      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBWayPointMap.deserializeBinaryFromReader);
-      msg.setBigMap(value);
+      var value = new protobuf_holdem_define_cb_pb.CBWayPointMove;
+      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBWayPointMove.deserializeBinaryFromReader);
+      msg.addBigMap(value);
       break;
     case 3:
-      var value = new protobuf_holdem_define_cb_pb.CBWayPointMap;
-      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBWayPointMap.deserializeBinaryFromReader);
-      msg.setSmallMap(value);
+      var value = new protobuf_holdem_define_cb_pb.CBWayPointMove;
+      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBWayPointMove.deserializeBinaryFromReader);
+      msg.addSmallMap(value);
       break;
     case 4:
-      var value = new protobuf_holdem_define_cb_pb.CBWayPointMap;
-      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBWayPointMap.deserializeBinaryFromReader);
-      msg.setPanMap(value);
+      var value = new protobuf_holdem_define_cb_pb.CBWayPointMove;
+      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBWayPointMove.deserializeBinaryFromReader);
+      msg.addPanMap(value);
       break;
     default:
       reader.skipField();
@@ -379,28 +389,28 @@ proto.holdem.pb.ServerMessageCbWaymapSpec.serializeBinaryToWriter = function(mes
       f
     );
   }
-  f = message.getBigMap();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getBigMapList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       2,
       f,
-      protobuf_holdem_define_cb_pb.CBWayPointMap.serializeBinaryToWriter
+      protobuf_holdem_define_cb_pb.CBWayPointMove.serializeBinaryToWriter
     );
   }
-  f = message.getSmallMap();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getSmallMapList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       3,
       f,
-      protobuf_holdem_define_cb_pb.CBWayPointMap.serializeBinaryToWriter
+      protobuf_holdem_define_cb_pb.CBWayPointMove.serializeBinaryToWriter
     );
   }
-  f = message.getPanMap();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getPanMapList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       4,
       f,
-      protobuf_holdem_define_cb_pb.CBWayPointMap.serializeBinaryToWriter
+      protobuf_holdem_define_cb_pb.CBWayPointMove.serializeBinaryToWriter
     );
   }
 };
@@ -422,92 +432,95 @@ proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.setStatus = function(value) 
 
 
 /**
- * optional CBWayPointMap big_map = 2;
- * @return {?proto.holdem.pb.CBWayPointMap}
+ * repeated CBWayPointMove big_map = 2;
+ * @return {!Array.<!proto.holdem.pb.CBWayPointMove>}
  */
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.getBigMap = function() {
-  return /** @type{?proto.holdem.pb.CBWayPointMap} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_cb_pb.CBWayPointMap, 2));
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.getBigMapList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.CBWayPointMove>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBWayPointMove, 2));
 };
 
 
-/** @param {?proto.holdem.pb.CBWayPointMap|undefined} value */
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.setBigMap = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
-};
-
-
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.clearBigMap = function() {
-  this.setBigMap(undefined);
+/** @param {!Array.<!proto.holdem.pb.CBWayPointMove>} value */
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.setBigMapList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
 /**
- * Returns whether this field is set.
- * @return {!boolean}
+ * @param {!proto.holdem.pb.CBWayPointMove=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.CBWayPointMove}
  */
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.hasBigMap = function() {
-  return jspb.Message.getField(this, 2) != null;
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.addBigMap = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.holdem.pb.CBWayPointMove, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.clearBigMapList = function() {
+  this.setBigMapList([]);
 };
 
 
 /**
- * optional CBWayPointMap small_map = 3;
- * @return {?proto.holdem.pb.CBWayPointMap}
+ * repeated CBWayPointMove small_map = 3;
+ * @return {!Array.<!proto.holdem.pb.CBWayPointMove>}
  */
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.getSmallMap = function() {
-  return /** @type{?proto.holdem.pb.CBWayPointMap} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_cb_pb.CBWayPointMap, 3));
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.getSmallMapList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.CBWayPointMove>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBWayPointMove, 3));
 };
 
 
-/** @param {?proto.holdem.pb.CBWayPointMap|undefined} value */
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.setSmallMap = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
-};
-
-
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.clearSmallMap = function() {
-  this.setSmallMap(undefined);
+/** @param {!Array.<!proto.holdem.pb.CBWayPointMove>} value */
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.setSmallMapList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
 
 /**
- * Returns whether this field is set.
- * @return {!boolean}
+ * @param {!proto.holdem.pb.CBWayPointMove=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.CBWayPointMove}
  */
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.hasSmallMap = function() {
-  return jspb.Message.getField(this, 3) != null;
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.addSmallMap = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.holdem.pb.CBWayPointMove, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.clearSmallMapList = function() {
+  this.setSmallMapList([]);
 };
 
 
 /**
- * optional CBWayPointMap pan_map = 4;
- * @return {?proto.holdem.pb.CBWayPointMap}
+ * repeated CBWayPointMove pan_map = 4;
+ * @return {!Array.<!proto.holdem.pb.CBWayPointMove>}
  */
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.getPanMap = function() {
-  return /** @type{?proto.holdem.pb.CBWayPointMap} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_cb_pb.CBWayPointMap, 4));
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.getPanMapList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.CBWayPointMove>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_cb_pb.CBWayPointMove, 4));
 };
 
 
-/** @param {?proto.holdem.pb.CBWayPointMap|undefined} value */
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.setPanMap = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
-};
-
-
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.clearPanMap = function() {
-  this.setPanMap(undefined);
+/** @param {!Array.<!proto.holdem.pb.CBWayPointMove>} value */
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.setPanMapList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
 /**
- * Returns whether this field is set.
- * @return {!boolean}
+ * @param {!proto.holdem.pb.CBWayPointMove=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.CBWayPointMove}
  */
-proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.hasPanMap = function() {
-  return jspb.Message.getField(this, 4) != null;
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.addPanMap = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.CBWayPointMove, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageCbWaymapSpec.prototype.clearPanMapList = function() {
+  this.setPanMapList([]);
 };
 
 

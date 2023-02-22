@@ -40,20 +40,20 @@ export class ServerMessageCbWaymapSpec extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
-  hasBigMap(): boolean;
-  clearBigMap(): void;
-  getBigMap(): protobuf_holdem_define_cb_pb.CBWayPointMap | undefined;
-  setBigMap(value?: protobuf_holdem_define_cb_pb.CBWayPointMap): void;
+  clearBigMapList(): void;
+  getBigMapList(): Array<protobuf_holdem_define_cb_pb.CBWayPointMove>;
+  setBigMapList(value: Array<protobuf_holdem_define_cb_pb.CBWayPointMove>): void;
+  addBigMap(value?: protobuf_holdem_define_cb_pb.CBWayPointMove, index?: number): protobuf_holdem_define_cb_pb.CBWayPointMove;
 
-  hasSmallMap(): boolean;
-  clearSmallMap(): void;
-  getSmallMap(): protobuf_holdem_define_cb_pb.CBWayPointMap | undefined;
-  setSmallMap(value?: protobuf_holdem_define_cb_pb.CBWayPointMap): void;
+  clearSmallMapList(): void;
+  getSmallMapList(): Array<protobuf_holdem_define_cb_pb.CBWayPointMove>;
+  setSmallMapList(value: Array<protobuf_holdem_define_cb_pb.CBWayPointMove>): void;
+  addSmallMap(value?: protobuf_holdem_define_cb_pb.CBWayPointMove, index?: number): protobuf_holdem_define_cb_pb.CBWayPointMove;
 
-  hasPanMap(): boolean;
-  clearPanMap(): void;
-  getPanMap(): protobuf_holdem_define_cb_pb.CBWayPointMap | undefined;
-  setPanMap(value?: protobuf_holdem_define_cb_pb.CBWayPointMap): void;
+  clearPanMapList(): void;
+  getPanMapList(): Array<protobuf_holdem_define_cb_pb.CBWayPointMove>;
+  setPanMapList(value: Array<protobuf_holdem_define_cb_pb.CBWayPointMove>): void;
+  addPanMap(value?: protobuf_holdem_define_cb_pb.CBWayPointMove, index?: number): protobuf_holdem_define_cb_pb.CBWayPointMove;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageCbWaymapSpec.AsObject;
@@ -68,9 +68,9 @@ export class ServerMessageCbWaymapSpec extends jspb.Message {
 export namespace ServerMessageCbWaymapSpec {
   export type AsObject = {
     status: number,
-    bigMap?: protobuf_holdem_define_cb_pb.CBWayPointMap.AsObject,
-    smallMap?: protobuf_holdem_define_cb_pb.CBWayPointMap.AsObject,
-    panMap?: protobuf_holdem_define_cb_pb.CBWayPointMap.AsObject,
+    bigMapList: Array<protobuf_holdem_define_cb_pb.CBWayPointMove.AsObject>,
+    smallMapList: Array<protobuf_holdem_define_cb_pb.CBWayPointMove.AsObject>,
+    panMapList: Array<protobuf_holdem_define_cb_pb.CBWayPointMove.AsObject>,
   }
 }
 
