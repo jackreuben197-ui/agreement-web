@@ -706,3 +706,31 @@ export namespace CBUserPlay {
   }
 }
 
+export class CBUser extends jspb.Message {
+  getUserId(): number;
+  setUserId(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getAvatar(): string;
+  setAvatar(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CBUser.AsObject;
+  static toObject(includeInstance: boolean, msg: CBUser): CBUser.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CBUser, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CBUser;
+  static deserializeBinaryFromReader(message: CBUser, reader: jspb.BinaryReader): CBUser;
+}
+
+export namespace CBUser {
+  export type AsObject = {
+    userId: number,
+    name: string,
+    avatar: string,
+  }
+}
+
