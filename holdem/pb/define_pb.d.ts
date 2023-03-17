@@ -1390,6 +1390,9 @@ export class Roomer extends jspb.Message {
   getVip(): number;
   setVip(value: number): void;
 
+  getIsOnline(): boolean;
+  setIsOnline(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Roomer.AsObject;
   static toObject(includeInstance: boolean, msg: Roomer): Roomer.AsObject;
@@ -1407,6 +1410,7 @@ export namespace Roomer {
     avatar: string,
     sex: number,
     vip: number,
+    isOnline: boolean,
   }
 }
 
@@ -1444,6 +1448,9 @@ export class PlayerSummary extends jspb.Message {
   getVip(): number;
   setVip(value: number): void;
 
+  getIsOnline(): boolean;
+  setIsOnline(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerSummary.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerSummary): PlayerSummary.AsObject;
@@ -1467,6 +1474,7 @@ export namespace PlayerSummary {
     win: number,
     status: Def.CanPlayStatusMap[keyof Def.CanPlayStatusMap],
     vip: number,
+    isOnline: boolean,
   }
 }
 
