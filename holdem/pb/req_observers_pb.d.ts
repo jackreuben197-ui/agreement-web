@@ -49,6 +49,9 @@ export class ServerMessageObservers extends jspb.Message {
   getLimit(): number;
   setLimit(value: number): void;
 
+  getTotal(): number;
+  setTotal(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageObservers.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageObservers): ServerMessageObservers.AsObject;
@@ -65,6 +68,7 @@ export namespace ServerMessageObservers {
     observersList: Array<protobuf_holdem_define_pb.Roomer.AsObject>,
     offset: number,
     limit: number,
+    total: number,
   }
 }
 

@@ -285,7 +285,8 @@ proto.holdem.pb.ServerMessageObservers.toObject = function(includeInstance, msg)
     observersList: jspb.Message.toObjectList(msg.getObserversList(),
     protobuf_holdem_define_pb.Roomer.toObject, includeInstance),
     offset: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    limit: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    limit: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    total: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -338,6 +339,10 @@ proto.holdem.pb.ServerMessageObservers.deserializeBinaryFromReader = function(ms
     case 4:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setLimit(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setTotal(value);
       break;
     default:
       reader.skipField();
@@ -394,6 +399,13 @@ proto.holdem.pb.ServerMessageObservers.serializeBinaryToWriter = function(messag
   if (f !== 0) {
     writer.writeInt32(
       4,
+      f
+    );
+  }
+  f = message.getTotal();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
       f
     );
   }
@@ -473,6 +485,21 @@ proto.holdem.pb.ServerMessageObservers.prototype.getLimit = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageObservers.prototype.setLimit = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int32 total = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageObservers.prototype.getTotal = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageObservers.prototype.setTotal = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 
