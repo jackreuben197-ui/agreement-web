@@ -1478,3 +1478,57 @@ export namespace PlayerSummary {
   }
 }
 
+export class PlayerAllInShowCardWinCardsLength extends jspb.Message {
+  getSeatId(): number;
+  setSeatId(value: number): void;
+
+  getWinCardsCount(): number;
+  setWinCardsCount(value: number): void;
+
+  getLeftCardsCount(): number;
+  setLeftCardsCount(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PlayerAllInShowCardWinCardsLength.AsObject;
+  static toObject(includeInstance: boolean, msg: PlayerAllInShowCardWinCardsLength): PlayerAllInShowCardWinCardsLength.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PlayerAllInShowCardWinCardsLength, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PlayerAllInShowCardWinCardsLength;
+  static deserializeBinaryFromReader(message: PlayerAllInShowCardWinCardsLength, reader: jspb.BinaryReader): PlayerAllInShowCardWinCardsLength;
+}
+
+export namespace PlayerAllInShowCardWinCardsLength {
+  export type AsObject = {
+    seatId: number,
+    winCardsCount: number,
+    leftCardsCount: number,
+  }
+}
+
+export class SecondPublicCardsPlayerAllInShowCardSummary extends jspb.Message {
+  getRnd(): Def.RoundMap[keyof Def.RoundMap];
+  setRnd(value: Def.RoundMap[keyof Def.RoundMap]): void;
+
+  clearAllinUsersList(): void;
+  getAllinUsersList(): Array<PlayerAllInShowCardWinCardsLength>;
+  setAllinUsersList(value: Array<PlayerAllInShowCardWinCardsLength>): void;
+  addAllinUsers(value?: PlayerAllInShowCardWinCardsLength, index?: number): PlayerAllInShowCardWinCardsLength;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SecondPublicCardsPlayerAllInShowCardSummary.AsObject;
+  static toObject(includeInstance: boolean, msg: SecondPublicCardsPlayerAllInShowCardSummary): SecondPublicCardsPlayerAllInShowCardSummary.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SecondPublicCardsPlayerAllInShowCardSummary, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SecondPublicCardsPlayerAllInShowCardSummary;
+  static deserializeBinaryFromReader(message: SecondPublicCardsPlayerAllInShowCardSummary, reader: jspb.BinaryReader): SecondPublicCardsPlayerAllInShowCardSummary;
+}
+
+export namespace SecondPublicCardsPlayerAllInShowCardSummary {
+  export type AsObject = {
+    rnd: Def.RoundMap[keyof Def.RoundMap],
+    allinUsersList: Array<PlayerAllInShowCardWinCardsLength.AsObject>,
+  }
+}
+
