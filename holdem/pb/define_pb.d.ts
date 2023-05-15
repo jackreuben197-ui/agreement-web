@@ -1451,6 +1451,9 @@ export class PlayerSummary extends jspb.Message {
   getIsOnline(): boolean;
   setIsOnline(value: boolean): void;
 
+  getStoreChips(): number;
+  setStoreChips(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerSummary.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerSummary): PlayerSummary.AsObject;
@@ -1475,6 +1478,7 @@ export namespace PlayerSummary {
     status: Def.CanPlayStatusMap[keyof Def.CanPlayStatusMap],
     vip: number,
     isOnline: boolean,
+    storeChips: number,
   }
 }
 
