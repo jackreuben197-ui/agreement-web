@@ -2206,7 +2206,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.HandInfo.repeatedFields_ = [5,7,10];
+proto.holdem.pb.HandInfo.repeatedFields_ = [5,7,10,11];
 
 
 
@@ -2247,7 +2247,8 @@ proto.holdem.pb.HandInfo.toObject = function(includeInstance, msg) {
     proto.holdem.pb.SidePot.toObject, includeInstance),
     roundBet: jspb.Message.getFieldWithDefault(msg, 8, 0),
     insurancePool: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    extPublicCardsList: jspb.Message.getRepeatedField(msg, 10)
+    extPublicCardsList: jspb.Message.getRepeatedField(msg, 10),
+    secondPublicCardsList: jspb.Message.getRepeatedField(msg, 11)
   };
 
   if (includeInstance) {
@@ -2324,6 +2325,10 @@ proto.holdem.pb.HandInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
       msg.setExtPublicCardsList(value);
+      break;
+    case 11:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setSecondPublicCardsList(value);
       break;
     default:
       reader.skipField();
@@ -2422,6 +2427,13 @@ proto.holdem.pb.HandInfo.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writePackedInt32(
       10,
+      f
+    );
+  }
+  f = message.getSecondPublicCardsList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      11,
       f
     );
   }
@@ -2619,6 +2631,35 @@ proto.holdem.pb.HandInfo.prototype.addExtPublicCards = function(value, opt_index
 
 proto.holdem.pb.HandInfo.prototype.clearExtPublicCardsList = function() {
   this.setExtPublicCardsList([]);
+};
+
+
+/**
+ * repeated int32 second_public_cards = 11;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.HandInfo.prototype.getSecondPublicCardsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 11));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.HandInfo.prototype.setSecondPublicCardsList = function(value) {
+  jspb.Message.setField(this, 11, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.HandInfo.prototype.addSecondPublicCards = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 11, value, opt_index);
+};
+
+
+proto.holdem.pb.HandInfo.prototype.clearSecondPublicCardsList = function() {
+  this.setSecondPublicCardsList([]);
 };
 
 

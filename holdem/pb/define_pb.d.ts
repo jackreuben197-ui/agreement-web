@@ -501,6 +501,11 @@ export class HandInfo extends jspb.Message {
   setExtPublicCardsList(value: Array<number>): void;
   addExtPublicCards(value: number, index?: number): number;
 
+  clearSecondPublicCardsList(): void;
+  getSecondPublicCardsList(): Array<number>;
+  setSecondPublicCardsList(value: Array<number>): void;
+  addSecondPublicCards(value: number, index?: number): number;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandInfo.AsObject;
   static toObject(includeInstance: boolean, msg: HandInfo): HandInfo.AsObject;
@@ -523,6 +528,7 @@ export namespace HandInfo {
     roundBet: number,
     insurancePool: number,
     extPublicCardsList: Array<number>,
+    secondPublicCardsList: Array<number>,
   }
 }
 
