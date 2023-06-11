@@ -33,6 +33,16 @@ export class ServerMessagePublicCards extends jspb.Message {
   setExtPublicCardsAllinSummaryList(value: Array<protobuf_holdem_define_pb.SecondPublicCardsPlayerAllInShowCardSummary>): void;
   addExtPublicCardsAllinSummary(value?: protobuf_holdem_define_pb.SecondPublicCardsPlayerAllInShowCardSummary, index?: number): protobuf_holdem_define_pb.SecondPublicCardsPlayerAllInShowCardSummary;
 
+  clearPublicCardsArray2List(): void;
+  getPublicCardsArray2List(): Array<number>;
+  setPublicCardsArray2List(value: Array<number>): void;
+  addPublicCardsArray2(value: number, index?: number): number;
+
+  clearAllinUsers2List(): void;
+  getAllinUsers2List(): Array<protobuf_holdem_define_pb.PlayerAllInShowCardWinCardsLength>;
+  setAllinUsers2List(value: Array<protobuf_holdem_define_pb.PlayerAllInShowCardWinCardsLength>): void;
+  addAllinUsers2(value?: protobuf_holdem_define_pb.PlayerAllInShowCardWinCardsLength, index?: number): protobuf_holdem_define_pb.PlayerAllInShowCardWinCardsLength;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessagePublicCards.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessagePublicCards): ServerMessagePublicCards.AsObject;
@@ -51,6 +61,8 @@ export namespace ServerMessagePublicCards {
     rnd: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap],
     allinUsersList: Array<protobuf_holdem_define_pb.PlayerAllInShowCardWinCardsLength.AsObject>,
     extPublicCardsAllinSummaryList: Array<protobuf_holdem_define_pb.SecondPublicCardsPlayerAllInShowCardSummary.AsObject>,
+    publicCardsArray2List: Array<number>,
+    allinUsers2List: Array<protobuf_holdem_define_pb.PlayerAllInShowCardWinCardsLength.AsObject>,
   }
 }
 

@@ -14,6 +14,12 @@ export class ServerMessageBringInOrStoreFail extends jspb.Message {
   getSrc(): protobuf_holdem_define_pb.Def.ChipChangeReasonMap[keyof protobuf_holdem_define_pb.Def.ChipChangeReasonMap];
   setSrc(value: protobuf_holdem_define_pb.Def.ChipChangeReasonMap[keyof protobuf_holdem_define_pb.Def.ChipChangeReasonMap]): void;
 
+  getExtErrcode(): number;
+  setExtErrcode(value: number): void;
+
+  getExtNotice(): string;
+  setExtNotice(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageBringInOrStoreFail.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageBringInOrStoreFail): ServerMessageBringInOrStoreFail.AsObject;
@@ -29,6 +35,8 @@ export namespace ServerMessageBringInOrStoreFail {
     isBringIn: boolean,
     currentChip: number,
     src: protobuf_holdem_define_pb.Def.ChipChangeReasonMap[keyof protobuf_holdem_define_pb.Def.ChipChangeReasonMap],
+    extErrcode: number,
+    extNotice: string,
   }
 }
 

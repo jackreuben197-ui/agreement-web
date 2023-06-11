@@ -62,7 +62,9 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.toObject = function(includeInsta
   var f, obj = {
     isBringIn: jspb.Message.getFieldWithDefault(msg, 1, false),
     currentChip: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    src: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    src: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    extErrcode: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    extNotice: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -110,6 +112,14 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.deserializeBinaryFromReader = fu
     case 4:
       var value = /** @type {!proto.holdem.pb.Def.ChipChangeReason} */ (reader.readEnum());
       msg.setSrc(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setExtErrcode(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setExtNotice(value);
       break;
     default:
       reader.skipField();
@@ -161,6 +171,20 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.serializeBinaryToWriter = functi
       f
     );
   }
+  f = message.getExtErrcode();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
+      f
+    );
+  }
+  f = message.getExtNotice();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
+      f
+    );
+  }
 };
 
 
@@ -208,6 +232,36 @@ proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.getSrc = function() {
 /** @param {!proto.holdem.pb.Def.ChipChangeReason} value */
 proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.setSrc = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int32 ext_errcode = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.getExtErrcode = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.setExtErrcode = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional string ext_notice = 6;
+ * @return {string}
+ */
+proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.getExtNotice = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.ServerMessageBringInOrStoreFail.prototype.setExtNotice = function(value) {
+  jspb.Message.setField(this, 6, value);
 };
 
 

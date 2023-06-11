@@ -77,6 +77,18 @@ export class ServerMessageSeated extends jspb.Message {
   getStoreChips(): number;
   setStoreChips(value: number): void;
 
+  getDepositLuckycards(): number;
+  setDepositLuckycards(value: number): void;
+
+  getDepositMushroom(): number;
+  setDepositMushroom(value: number): void;
+
+  getIsAutoMushroom(): boolean;
+  setIsAutoMushroom(value: boolean): void;
+
+  getCostMushroom(): number;
+  setCostMushroom(value: number): void;
+
   getKeepSeatLeftTime(): number;
   setKeepSeatLeftTime(value: number): void;
 
@@ -101,6 +113,10 @@ export namespace ServerMessageSeated {
     recvSeatId: number,
     postStatus: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap],
     storeChips: number,
+    depositLuckycards: number,
+    depositMushroom: number,
+    isAutoMushroom: boolean,
+    costMushroom: number,
     keepSeatLeftTime: number,
     keepSeatDeadline: number,
   }

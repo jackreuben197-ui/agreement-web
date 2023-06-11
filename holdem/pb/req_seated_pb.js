@@ -446,6 +446,10 @@ proto.holdem.pb.ServerMessageSeated.toObject = function(includeInstance, msg) {
     recvSeatId: jspb.Message.getFieldWithDefault(msg, 4, 0),
     postStatus: jspb.Message.getFieldWithDefault(msg, 5, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    depositLuckycards: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    depositMushroom: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    isAutoMushroom: jspb.Message.getFieldWithDefault(msg, 9, false),
+    costMushroom: jspb.Message.getFieldWithDefault(msg, 10, 0),
     keepSeatLeftTime: jspb.Message.getFieldWithDefault(msg, 13, 0),
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 14, 0)
   };
@@ -507,6 +511,22 @@ proto.holdem.pb.ServerMessageSeated.deserializeBinaryFromReader = function(msg, 
     case 6:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setStoreChips(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setDepositLuckycards(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setDepositMushroom(value);
+      break;
+    case 9:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsAutoMushroom(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setCostMushroom(value);
       break;
     case 13:
       var value = /** @type {number} */ (reader.readInt64());
@@ -584,6 +604,34 @@ proto.holdem.pb.ServerMessageSeated.serializeBinaryToWriter = function(message, 
   if (f !== 0) {
     writer.writeUint64(
       6,
+      f
+    );
+  }
+  f = message.getDepositLuckycards();
+  if (f !== 0) {
+    writer.writeUint64(
+      7,
+      f
+    );
+  }
+  f = message.getDepositMushroom();
+  if (f !== 0) {
+    writer.writeUint64(
+      8,
+      f
+    );
+  }
+  f = message.getIsAutoMushroom();
+  if (f) {
+    writer.writeBool(
+      9,
+      f
+    );
+  }
+  f = message.getCostMushroom();
+  if (f !== 0) {
+    writer.writeUint64(
+      10,
       f
     );
   }
@@ -691,6 +739,68 @@ proto.holdem.pb.ServerMessageSeated.prototype.getStoreChips = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageSeated.prototype.setStoreChips = function(value) {
   jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional uint64 deposit_luckycards = 7;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSeated.prototype.getDepositLuckycards = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSeated.prototype.setDepositLuckycards = function(value) {
+  jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint64 deposit_mushroom = 8;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSeated.prototype.getDepositMushroom = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSeated.prototype.setDepositMushroom = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional bool is_auto_mushroom = 9;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageSeated.prototype.getIsAutoMushroom = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 9, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageSeated.prototype.setIsAutoMushroom = function(value) {
+  jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional uint64 cost_mushroom = 10;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSeated.prototype.getCostMushroom = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSeated.prototype.setCostMushroom = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 

@@ -194,6 +194,14 @@ export namespace Def {
   }
 
   export const AddOnMode: AddOnModeMap;
+
+  export interface EHCTypeMap {
+    EHC_NONE: 0;
+    EHC_MUSHROOM: 1;
+    EHC_LUCKYCARDS: 2;
+  }
+
+  export const EHCType: EHCTypeMap;
 }
 
 export class Room extends jspb.Message {
@@ -345,6 +353,35 @@ export class RoomInfo extends jspb.Message {
   getIsAgreeSecondPcs(): boolean;
   setIsAgreeSecondPcs(value: boolean): void;
 
+  getIgnorePreflop(): boolean;
+  setIgnorePreflop(value: boolean): void;
+
+  getIsAlwaysSecondPcs(): boolean;
+  setIsAlwaysSecondPcs(value: boolean): void;
+
+  getMushroomBase(): number;
+  setMushroomBase(value: number): void;
+
+  getMushroomJoinBase(): number;
+  setMushroomJoinBase(value: number): void;
+
+  getMushroomPool(): number;
+  setMushroomPool(value: number): void;
+
+  getLuckycardsDeposit(): number;
+  setLuckycardsDeposit(value: number): void;
+
+  clearLuckycardsList(): void;
+  getLuckycardsList(): Array<Luckycards>;
+  setLuckycardsList(value: Array<Luckycards>): void;
+  addLuckycards(value?: Luckycards, index?: number): Luckycards;
+
+  getAnteMin(): number;
+  setAnteMin(value: number): void;
+
+  getAnteMax(): number;
+  setAnteMax(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -379,6 +416,15 @@ export namespace RoomInfo {
     muck: boolean,
     uniqueId: string,
     isAgreeSecondPcs: boolean,
+    ignorePreflop: boolean,
+    isAlwaysSecondPcs: boolean,
+    mushroomBase: number,
+    mushroomJoinBase: number,
+    mushroomPool: number,
+    luckycardsDeposit: number,
+    luckycardsList: Array<Luckycards.AsObject>,
+    anteMin: number,
+    anteMax: number,
   }
 
   export interface RetainTypeMap {
@@ -388,6 +434,34 @@ export namespace RoomInfo {
   }
 
   export const RetainType: RetainTypeMap;
+}
+
+export class Luckycards extends jspb.Message {
+  clearCardsList(): void;
+  getCardsList(): Array<number>;
+  setCardsList(value: Array<number>): void;
+  addCards(value: number, index?: number): number;
+
+  clearAwardsList(): void;
+  getAwardsList(): Array<number>;
+  setAwardsList(value: Array<number>): void;
+  addAwards(value: number, index?: number): number;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Luckycards.AsObject;
+  static toObject(includeInstance: boolean, msg: Luckycards): Luckycards.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Luckycards, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Luckycards;
+  static deserializeBinaryFromReader(message: Luckycards, reader: jspb.BinaryReader): Luckycards;
+}
+
+export namespace Luckycards {
+  export type AsObject = {
+    cardsList: Array<number>,
+    awardsList: Array<number>,
+  }
 }
 
 export class HandInfo extends jspb.Message {
@@ -984,6 +1058,12 @@ export class PlayerStartInfo extends jspb.Message {
   getStoreChips(): number;
   setStoreChips(value: number): void;
 
+  getDepositMushroom(): number;
+  setDepositMushroom(value: number): void;
+
+  getCostMushroom(): number;
+  setCostMushroom(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfo.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerStartInfo): PlayerStartInfo.AsObject;
@@ -1003,6 +1083,8 @@ export namespace PlayerStartInfo {
     roundBet: number,
     chip: number,
     storeChips: number,
+    depositMushroom: number,
+    costMushroom: number,
   }
 }
 
@@ -1104,6 +1186,18 @@ export class Player extends jspb.Message {
   getKeepSeatReason(): Def.KeepSeatReasonMap[keyof Def.KeepSeatReasonMap];
   setKeepSeatReason(value: Def.KeepSeatReasonMap[keyof Def.KeepSeatReasonMap]): void;
 
+  getDepositLuckycards(): number;
+  setDepositLuckycards(value: number): void;
+
+  getDepositMushroom(): number;
+  setDepositMushroom(value: number): void;
+
+  getIsAutoMushroom(): boolean;
+  setIsAutoMushroom(value: boolean): void;
+
+  getCostMushroom(): number;
+  setCostMushroom(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Player.AsObject;
   static toObject(includeInstance: boolean, msg: Player): Player.AsObject;
@@ -1139,6 +1233,10 @@ export namespace Player {
     vip: number,
     keepSeatDeadline: number,
     keepSeatReason: Def.KeepSeatReasonMap[keyof Def.KeepSeatReasonMap],
+    depositLuckycards: number,
+    depositMushroom: number,
+    isAutoMushroom: boolean,
+    costMushroom: number,
   }
 }
 
@@ -1217,6 +1315,17 @@ export class Result extends jspb.Message {
   getStandUp(): boolean;
   setStandUp(value: boolean): void;
 
+  hasEhcs(): boolean;
+  clearEhcs(): void;
+  getEhcs(): ExternalHandChange | undefined;
+  setEhcs(value?: ExternalHandChange): void;
+
+  getDepositLuckycards(): number;
+  setDepositLuckycards(value: number): void;
+
+  getDepositMushroom(): number;
+  setDepositMushroom(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -1251,6 +1360,37 @@ export namespace Result {
     mttHunterKillAwardOther: number,
     mttHunterKillAwardOtherPlus: number,
     standUp: boolean,
+    ehcs?: ExternalHandChange.AsObject,
+    depositLuckycards: number,
+    depositMushroom: number,
+  }
+}
+
+export class ExternalHandChange extends jspb.Message {
+  getEhcType(): Def.EHCTypeMap[keyof Def.EHCTypeMap];
+  setEhcType(value: Def.EHCTypeMap[keyof Def.EHCTypeMap]): void;
+
+  getIn(): number;
+  setIn(value: number): void;
+
+  getOut(): number;
+  setOut(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ExternalHandChange.AsObject;
+  static toObject(includeInstance: boolean, msg: ExternalHandChange): ExternalHandChange.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ExternalHandChange, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ExternalHandChange;
+  static deserializeBinaryFromReader(message: ExternalHandChange, reader: jspb.BinaryReader): ExternalHandChange;
+}
+
+export namespace ExternalHandChange {
+  export type AsObject = {
+    ehcType: Def.EHCTypeMap[keyof Def.EHCTypeMap],
+    pb_in: number,
+    out: number,
   }
 }
 
