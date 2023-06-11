@@ -362,12 +362,6 @@ export class RoomInfo extends jspb.Message {
   getMushroomBase(): number;
   setMushroomBase(value: number): void;
 
-  getMushroomJoinBase(): number;
-  setMushroomJoinBase(value: number): void;
-
-  getMushroomPool(): number;
-  setMushroomPool(value: number): void;
-
   getLuckycardsDeposit(): number;
   setLuckycardsDeposit(value: number): void;
 
@@ -419,8 +413,6 @@ export namespace RoomInfo {
     ignorePreflop: boolean,
     isAlwaysSecondPcs: boolean,
     mushroomBase: number,
-    mushroomJoinBase: number,
-    mushroomPool: number,
     luckycardsDeposit: number,
     luckycardsList: Array<Luckycards.AsObject>,
     anteMin: number,
@@ -506,6 +498,12 @@ export class HandInfo extends jspb.Message {
   setSecondPublicCardsList(value: Array<number>): void;
   addSecondPublicCards(value: number, index?: number): number;
 
+  getMushroomJoinBase(): number;
+  setMushroomJoinBase(value: number): void;
+
+  getMushroomPool(): number;
+  setMushroomPool(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandInfo.AsObject;
   static toObject(includeInstance: boolean, msg: HandInfo): HandInfo.AsObject;
@@ -529,6 +527,8 @@ export namespace HandInfo {
     insurancePool: number,
     extPublicCardsList: Array<number>,
     secondPublicCardsList: Array<number>,
+    mushroomJoinBase: number,
+    mushroomPool: number,
   }
 }
 
