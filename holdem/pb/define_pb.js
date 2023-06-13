@@ -2196,7 +2196,7 @@ proto.holdem.pb.HandInfo.toObject = function(includeInstance, msg) {
     extPublicCardsList: jspb.Message.getRepeatedField(msg, 10),
     secondPublicCardsList: jspb.Message.getRepeatedField(msg, 11),
     mushroomJoinBase: jspb.Message.getFieldWithDefault(msg, 12, 0),
-    mushroomPool: jspb.Message.getFieldWithDefault(msg, 13, 0)
+    mushroomePool: jspb.Message.getFieldWithDefault(msg, 13, 0)
   };
 
   if (includeInstance) {
@@ -2284,7 +2284,7 @@ proto.holdem.pb.HandInfo.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 13:
       var value = /** @type {number} */ (reader.readUint64());
-      msg.setMushroomPool(value);
+      msg.setMushroomePool(value);
       break;
     default:
       reader.skipField();
@@ -2400,7 +2400,7 @@ proto.holdem.pb.HandInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getMushroomPool();
+  f = message.getMushroomePool();
   if (f !== 0) {
     writer.writeUint64(
       13,
@@ -2649,16 +2649,16 @@ proto.holdem.pb.HandInfo.prototype.setMushroomJoinBase = function(value) {
 
 
 /**
- * optional uint64 mushroom_pool = 13;
+ * optional uint64 mushroomE_pool = 13;
  * @return {number}
  */
-proto.holdem.pb.HandInfo.prototype.getMushroomPool = function() {
+proto.holdem.pb.HandInfo.prototype.getMushroomePool = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.HandInfo.prototype.setMushroomPool = function(value) {
+proto.holdem.pb.HandInfo.prototype.setMushroomePool = function(value) {
   jspb.Message.setField(this, 13, value);
 };
 
@@ -7702,7 +7702,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.Result.repeatedFields_ = [4,5,18,19];
+proto.holdem.pb.Result.repeatedFields_ = [4,5,18,19,23];
 
 
 
@@ -7758,7 +7758,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     mttHunterKillAwardOther: jspb.Message.getFieldWithDefault(msg, 20, 0),
     mttHunterKillAwardOtherPlus: jspb.Message.getFieldWithDefault(msg, 21, 0),
     standUp: jspb.Message.getFieldWithDefault(msg, 22, false),
-    ehcs: (f = msg.getEhcs()) && proto.holdem.pb.ExternalHandChange.toObject(includeInstance, f),
+    ehcsList: jspb.Message.toObjectList(msg.getEhcsList(),
+    proto.holdem.pb.ExternalHandChange.toObject, includeInstance),
     depositLuckycards: jspb.Message.getFieldWithDefault(msg, 24, 0),
     depositMushroom: jspb.Message.getFieldWithDefault(msg, 25, 0)
   };
@@ -7891,7 +7892,7 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
     case 23:
       var value = new proto.holdem.pb.ExternalHandChange;
       reader.readMessage(value,proto.holdem.pb.ExternalHandChange.deserializeBinaryFromReader);
-      msg.setEhcs(value);
+      msg.addEhcs(value);
       break;
     case 24:
       var value = /** @type {number} */ (reader.readUint64());
@@ -8087,9 +8088,9 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getEhcs();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getEhcsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       23,
       f,
       proto.holdem.pb.ExternalHandChange.serializeBinaryToWriter
@@ -8509,32 +8510,33 @@ proto.holdem.pb.Result.prototype.setStandUp = function(value) {
 
 
 /**
- * optional ExternalHandChange ehcs = 23;
- * @return {?proto.holdem.pb.ExternalHandChange}
+ * repeated ExternalHandChange ehcs = 23;
+ * @return {!Array.<!proto.holdem.pb.ExternalHandChange>}
  */
-proto.holdem.pb.Result.prototype.getEhcs = function() {
-  return /** @type{?proto.holdem.pb.ExternalHandChange} */ (
-    jspb.Message.getWrapperField(this, proto.holdem.pb.ExternalHandChange, 23));
+proto.holdem.pb.Result.prototype.getEhcsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ExternalHandChange>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ExternalHandChange, 23));
 };
 
 
-/** @param {?proto.holdem.pb.ExternalHandChange|undefined} value */
-proto.holdem.pb.Result.prototype.setEhcs = function(value) {
-  jspb.Message.setWrapperField(this, 23, value);
-};
-
-
-proto.holdem.pb.Result.prototype.clearEhcs = function() {
-  this.setEhcs(undefined);
+/** @param {!Array.<!proto.holdem.pb.ExternalHandChange>} value */
+proto.holdem.pb.Result.prototype.setEhcsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 23, value);
 };
 
 
 /**
- * Returns whether this field is set.
- * @return {!boolean}
+ * @param {!proto.holdem.pb.ExternalHandChange=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ExternalHandChange}
  */
-proto.holdem.pb.Result.prototype.hasEhcs = function() {
-  return jspb.Message.getField(this, 23) != null;
+proto.holdem.pb.Result.prototype.addEhcs = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 23, opt_value, proto.holdem.pb.ExternalHandChange, opt_index);
+};
+
+
+proto.holdem.pb.Result.prototype.clearEhcsList = function() {
+  this.setEhcsList([]);
 };
 
 

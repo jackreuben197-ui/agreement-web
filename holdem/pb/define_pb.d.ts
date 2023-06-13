@@ -501,8 +501,8 @@ export class HandInfo extends jspb.Message {
   getMushroomJoinBase(): number;
   setMushroomJoinBase(value: number): void;
 
-  getMushroomPool(): number;
-  setMushroomPool(value: number): void;
+  getMushroomePool(): number;
+  setMushroomePool(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandInfo.AsObject;
@@ -528,7 +528,7 @@ export namespace HandInfo {
     extPublicCardsList: Array<number>,
     secondPublicCardsList: Array<number>,
     mushroomJoinBase: number,
-    mushroomPool: number,
+    mushroomePool: number,
   }
 }
 
@@ -1321,10 +1321,10 @@ export class Result extends jspb.Message {
   getStandUp(): boolean;
   setStandUp(value: boolean): void;
 
-  hasEhcs(): boolean;
-  clearEhcs(): void;
-  getEhcs(): ExternalHandChange | undefined;
-  setEhcs(value?: ExternalHandChange): void;
+  clearEhcsList(): void;
+  getEhcsList(): Array<ExternalHandChange>;
+  setEhcsList(value: Array<ExternalHandChange>): void;
+  addEhcs(value?: ExternalHandChange, index?: number): ExternalHandChange;
 
   getDepositLuckycards(): number;
   setDepositLuckycards(value: number): void;
@@ -1366,7 +1366,7 @@ export namespace Result {
     mttHunterKillAwardOther: number,
     mttHunterKillAwardOtherPlus: number,
     standUp: boolean,
-    ehcs?: ExternalHandChange.AsObject,
+    ehcsList: Array<ExternalHandChange.AsObject>,
     depositLuckycards: number,
     depositMushroom: number,
   }
