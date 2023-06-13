@@ -501,8 +501,8 @@ export class HandInfo extends jspb.Message {
   getMushroomJoinBase(): number;
   setMushroomJoinBase(value: number): void;
 
-  getMushroomePool(): number;
-  setMushroomePool(value: number): void;
+  getMushroomPool(): number;
+  setMushroomPool(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandInfo.AsObject;
@@ -528,7 +528,7 @@ export namespace HandInfo {
     extPublicCardsList: Array<number>,
     secondPublicCardsList: Array<number>,
     mushroomJoinBase: number,
-    mushroomePool: number,
+    mushroomPool: number,
   }
 }
 
