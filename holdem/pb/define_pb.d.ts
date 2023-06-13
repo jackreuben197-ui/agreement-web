@@ -1498,6 +1498,9 @@ export class PlayerChipChange extends jspb.Message {
   getMttHunterHeadPlus(): number;
   setMttHunterHeadPlus(value: number): void;
 
+  getDepositLuckycardsChange(): number;
+  setDepositLuckycardsChange(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerChipChange.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerChipChange): PlayerChipChange.AsObject;
@@ -1517,6 +1520,7 @@ export namespace PlayerChipChange {
     auto: boolean,
     reason: Def.ChipChangeReasonMap[keyof Def.ChipChangeReasonMap],
     mttHunterHeadPlus: number,
+    depositLuckycardsChange: number,
   }
 }
 

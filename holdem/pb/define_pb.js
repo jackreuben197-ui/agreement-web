@@ -9357,7 +9357,8 @@ proto.holdem.pb.PlayerChipChange.toObject = function(includeInstance, msg) {
     storeChips: jspb.Message.getFieldWithDefault(msg, 4, 0),
     auto: jspb.Message.getFieldWithDefault(msg, 6, false),
     reason: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    mttHunterHeadPlus: jspb.Message.getFieldWithDefault(msg, 8, 0)
+    mttHunterHeadPlus: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    depositLuckycardsChange: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -9421,6 +9422,10 @@ proto.holdem.pb.PlayerChipChange.deserializeBinaryFromReader = function(msg, rea
     case 8:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setMttHunterHeadPlus(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setDepositLuckycardsChange(value);
       break;
     default:
       reader.skipField();
@@ -9497,6 +9502,13 @@ proto.holdem.pb.PlayerChipChange.serializeBinaryToWriter = function(message, wri
   if (f !== 0) {
     writer.writeUint64(
       8,
+      f
+    );
+  }
+  f = message.getDepositLuckycardsChange();
+  if (f !== 0) {
+    writer.writeInt64(
+      9,
       f
     );
   }
@@ -9607,6 +9619,21 @@ proto.holdem.pb.PlayerChipChange.prototype.getMttHunterHeadPlus = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerChipChange.prototype.setMttHunterHeadPlus = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional int64 deposit_luckycards_change = 9;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerChipChange.prototype.getDepositLuckycardsChange = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerChipChange.prototype.setDepositLuckycardsChange = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 
