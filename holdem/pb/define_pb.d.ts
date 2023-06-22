@@ -202,6 +202,15 @@ export namespace Def {
   }
 
   export const EHCType: EHCTypeMap;
+
+  export interface IIReasonMap {
+    IIR_NONE: 0;
+    IIR_ZERO_OUTS: 1;
+    IIR_NO_ODDS_FOUND: 2;
+    IIR_NO_ODDS_TABLE_FOUND: 3;
+  }
+
+  export const IIReason: IIReasonMap;
 }
 
 export class Room extends jspb.Message {
@@ -262,6 +271,11 @@ export class Operator extends jspb.Message {
   getOpDeadline(): number;
   setOpDeadline(value: number): void;
 
+  clearInvalidInsurancePotsList(): void;
+  getInvalidInsurancePotsList(): Array<InsurancePotInvalid>;
+  setInvalidInsurancePotsList(value: Array<InsurancePotInvalid>): void;
+  addInvalidInsurancePots(value?: InsurancePotInvalid, index?: number): InsurancePotInvalid;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Operator.AsObject;
   static toObject(includeInstance: boolean, msg: Operator): Operator.AsObject;
@@ -283,6 +297,7 @@ export namespace Operator {
     isInsurance: boolean,
     isAgreeSecondPc: boolean,
     opDeadline: number,
+    invalidInsurancePotsList: Array<InsurancePotInvalid.AsObject>,
   }
 }
 
@@ -917,6 +932,42 @@ export namespace InsurancePotLimit {
     outsDetailList: Array<UserOuts.AsObject>,
     potUserCount: number,
     potLeaderCount: number,
+  }
+}
+
+export class InsurancePotInvalid extends jspb.Message {
+  getPotId(): number;
+  setPotId(value: number): void;
+
+  getPotAmount(): number;
+  setPotAmount(value: number): void;
+
+  getOuts(): number;
+  setOuts(value: number): void;
+
+  getPotUserCount(): number;
+  setPotUserCount(value: number): void;
+
+  getReason(): Def.IIReasonMap[keyof Def.IIReasonMap];
+  setReason(value: Def.IIReasonMap[keyof Def.IIReasonMap]): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): InsurancePotInvalid.AsObject;
+  static toObject(includeInstance: boolean, msg: InsurancePotInvalid): InsurancePotInvalid.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: InsurancePotInvalid, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): InsurancePotInvalid;
+  static deserializeBinaryFromReader(message: InsurancePotInvalid, reader: jspb.BinaryReader): InsurancePotInvalid;
+}
+
+export namespace InsurancePotInvalid {
+  export type AsObject = {
+    potId: number,
+    potAmount: number,
+    outs: number,
+    potUserCount: number,
+    reason: Def.IIReasonMap[keyof Def.IIReasonMap],
   }
 }
 
