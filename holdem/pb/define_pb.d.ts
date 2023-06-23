@@ -301,32 +301,6 @@ export namespace Operator {
   }
 }
 
-export class InvalidInsuranceLeader extends jspb.Message {
-  getSeatId(): number;
-  setSeatId(value: number): void;
-
-  clearInvalidPotsList(): void;
-  getInvalidPotsList(): Array<InsurancePotInvalid>;
-  setInvalidPotsList(value: Array<InsurancePotInvalid>): void;
-  addInvalidPots(value?: InsurancePotInvalid, index?: number): InsurancePotInvalid;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): InvalidInsuranceLeader.AsObject;
-  static toObject(includeInstance: boolean, msg: InvalidInsuranceLeader): InvalidInsuranceLeader.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: InvalidInsuranceLeader, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): InvalidInsuranceLeader;
-  static deserializeBinaryFromReader(message: InvalidInsuranceLeader, reader: jspb.BinaryReader): InvalidInsuranceLeader;
-}
-
-export namespace InvalidInsuranceLeader {
-  export type AsObject = {
-    seatId: number,
-    invalidPotsList: Array<InsurancePotInvalid.AsObject>,
-  }
-}
-
 export class RoomInfo extends jspb.Message {
   getAnte(): number;
   setAnte(value: number): void;

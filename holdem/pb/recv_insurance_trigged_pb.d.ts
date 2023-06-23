@@ -13,10 +13,10 @@ export class ServerMessageInsuranceTrigged extends jspb.Message {
   setOperatorList(value: Array<protobuf_holdem_define_pb.Operator>): void;
   addOperator(value?: protobuf_holdem_define_pb.Operator, index?: number): protobuf_holdem_define_pb.Operator;
 
-  clearInvalidLeadersList(): void;
-  getInvalidLeadersList(): Array<protobuf_holdem_define_pb.InvalidInsuranceLeader>;
-  setInvalidLeadersList(value: Array<protobuf_holdem_define_pb.InvalidInsuranceLeader>): void;
-  addInvalidLeaders(value?: protobuf_holdem_define_pb.InvalidInsuranceLeader, index?: number): protobuf_holdem_define_pb.InvalidInsuranceLeader;
+  clearInvalidPotsList(): void;
+  getInvalidPotsList(): Array<protobuf_holdem_define_pb.InsurancePotInvalid>;
+  setInvalidPotsList(value: Array<protobuf_holdem_define_pb.InsurancePotInvalid>): void;
+  addInvalidPots(value?: protobuf_holdem_define_pb.InsurancePotInvalid, index?: number): protobuf_holdem_define_pb.InsurancePotInvalid;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageInsuranceTrigged.AsObject;
@@ -32,7 +32,7 @@ export namespace ServerMessageInsuranceTrigged {
   export type AsObject = {
     round: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap],
     operatorList: Array<protobuf_holdem_define_pb.Operator.AsObject>,
-    invalidLeadersList: Array<protobuf_holdem_define_pb.InvalidInsuranceLeader.AsObject>,
+    invalidPotsList: Array<protobuf_holdem_define_pb.InsurancePotInvalid.AsObject>,
   }
 }
 

@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageInsuranceTrigged.repeatedFields_ = [2,3];
+proto.holdem.pb.ServerMessageInsuranceTrigged.repeatedFields_ = [2,4];
 
 
 
@@ -70,8 +70,8 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.toObject = function(includeInstanc
     round: jspb.Message.getFieldWithDefault(msg, 1, 0),
     operatorList: jspb.Message.toObjectList(msg.getOperatorList(),
     protobuf_holdem_define_pb.Operator.toObject, includeInstance),
-    invalidLeadersList: jspb.Message.toObjectList(msg.getInvalidLeadersList(),
-    protobuf_holdem_define_pb.InvalidInsuranceLeader.toObject, includeInstance)
+    invalidPotsList: jspb.Message.toObjectList(msg.getInvalidPotsList(),
+    protobuf_holdem_define_pb.InsurancePotInvalid.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -117,10 +117,10 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.deserializeBinaryFromReader = func
       reader.readMessage(value,protobuf_holdem_define_pb.Operator.deserializeBinaryFromReader);
       msg.addOperator(value);
       break;
-    case 3:
-      var value = new protobuf_holdem_define_pb.InvalidInsuranceLeader;
-      reader.readMessage(value,protobuf_holdem_define_pb.InvalidInsuranceLeader.deserializeBinaryFromReader);
-      msg.addInvalidLeaders(value);
+    case 4:
+      var value = new protobuf_holdem_define_pb.InsurancePotInvalid;
+      reader.readMessage(value,protobuf_holdem_define_pb.InsurancePotInvalid.deserializeBinaryFromReader);
+      msg.addInvalidPots(value);
       break;
     default:
       reader.skipField();
@@ -166,12 +166,12 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.serializeBinaryToWriter = function
       protobuf_holdem_define_pb.Operator.serializeBinaryToWriter
     );
   }
-  f = message.getInvalidLeadersList();
+  f = message.getInvalidPotsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      3,
+      4,
       f,
-      protobuf_holdem_define_pb.InvalidInsuranceLeader.serializeBinaryToWriter
+      protobuf_holdem_define_pb.InsurancePotInvalid.serializeBinaryToWriter
     );
   }
 };
@@ -224,33 +224,33 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.clearOperatorList = func
 
 
 /**
- * repeated InvalidInsuranceLeader invalid_leaders = 3;
- * @return {!Array.<!proto.holdem.pb.InvalidInsuranceLeader>}
+ * repeated InsurancePotInvalid invalid_pots = 4;
+ * @return {!Array.<!proto.holdem.pb.InsurancePotInvalid>}
  */
-proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.getInvalidLeadersList = function() {
-  return /** @type{!Array.<!proto.holdem.pb.InvalidInsuranceLeader>} */ (
-    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.InvalidInsuranceLeader, 3));
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.getInvalidPotsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.InsurancePotInvalid>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.InsurancePotInvalid, 4));
 };
 
 
-/** @param {!Array.<!proto.holdem.pb.InvalidInsuranceLeader>} value */
-proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.setInvalidLeadersList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 3, value);
+/** @param {!Array.<!proto.holdem.pb.InsurancePotInvalid>} value */
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.setInvalidPotsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
 /**
- * @param {!proto.holdem.pb.InvalidInsuranceLeader=} opt_value
+ * @param {!proto.holdem.pb.InsurancePotInvalid=} opt_value
  * @param {number=} opt_index
- * @return {!proto.holdem.pb.InvalidInsuranceLeader}
+ * @return {!proto.holdem.pb.InsurancePotInvalid}
  */
-proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.addInvalidLeaders = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.holdem.pb.InvalidInsuranceLeader, opt_index);
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.addInvalidPots = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.InsurancePotInvalid, opt_index);
 };
 
 
-proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.clearInvalidLeadersList = function() {
-  this.setInvalidLeadersList([]);
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.clearInvalidPotsList = function() {
+  this.setInvalidPotsList([]);
 };
 
 
