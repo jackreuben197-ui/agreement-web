@@ -13,6 +13,11 @@ export class ServerMessageInsuranceTrigged extends jspb.Message {
   setOperatorList(value: Array<protobuf_holdem_define_pb.Operator>): void;
   addOperator(value?: protobuf_holdem_define_pb.Operator, index?: number): protobuf_holdem_define_pb.Operator;
 
+  clearInvalidLeadersList(): void;
+  getInvalidLeadersList(): Array<protobuf_holdem_define_pb.InvalidInsuranceLeader>;
+  setInvalidLeadersList(value: Array<protobuf_holdem_define_pb.InvalidInsuranceLeader>): void;
+  addInvalidLeaders(value?: protobuf_holdem_define_pb.InvalidInsuranceLeader, index?: number): protobuf_holdem_define_pb.InvalidInsuranceLeader;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageInsuranceTrigged.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageInsuranceTrigged): ServerMessageInsuranceTrigged.AsObject;
@@ -27,6 +32,7 @@ export namespace ServerMessageInsuranceTrigged {
   export type AsObject = {
     round: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap],
     operatorList: Array<protobuf_holdem_define_pb.Operator.AsObject>,
+    invalidLeadersList: Array<protobuf_holdem_define_pb.InvalidInsuranceLeader.AsObject>,
   }
 }
 
