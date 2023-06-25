@@ -1255,6 +1255,11 @@ export class Player extends jspb.Message {
   getCostMushroom(): number;
   setCostMushroom(value: number): void;
 
+  hasWinCardsInfo(): boolean;
+  clearWinCardsInfo(): void;
+  getWinCardsInfo(): AllInWinCardsInfo | undefined;
+  setWinCardsInfo(value?: AllInWinCardsInfo): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Player.AsObject;
   static toObject(includeInstance: boolean, msg: Player): Player.AsObject;
@@ -1294,6 +1299,7 @@ export namespace Player {
     depositMushroom: number,
     isAutoMushroom: boolean,
     costMushroom: number,
+    winCardsInfo?: AllInWinCardsInfo.AsObject,
   }
 }
 
@@ -1383,11 +1389,6 @@ export class Result extends jspb.Message {
   getDepositMushroom(): number;
   setDepositMushroom(value: number): void;
 
-  hasWinCardsInfo(): boolean;
-  clearWinCardsInfo(): void;
-  getWinCardsInfo(): AllInWinCardsInfo | undefined;
-  setWinCardsInfo(value?: AllInWinCardsInfo): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -1425,7 +1426,6 @@ export namespace Result {
     ehcsList: Array<ExternalHandChange.AsObject>,
     depositLuckycards: number,
     depositMushroom: number,
-    winCardsInfo?: AllInWinCardsInfo.AsObject,
   }
 }
 
