@@ -1383,6 +1383,11 @@ export class Result extends jspb.Message {
   getDepositMushroom(): number;
   setDepositMushroom(value: number): void;
 
+  hasWinCardsInfo(): boolean;
+  clearWinCardsInfo(): void;
+  getWinCardsInfo(): AllInWinCardsInfo | undefined;
+  setWinCardsInfo(value?: AllInWinCardsInfo): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -1420,6 +1425,7 @@ export namespace Result {
     ehcsList: Array<ExternalHandChange.AsObject>,
     depositLuckycards: number,
     depositMushroom: number,
+    winCardsInfo?: AllInWinCardsInfo.AsObject,
   }
 }
 
@@ -1734,6 +1740,54 @@ export namespace SecondPublicCardsPlayerAllInShowCardSummary {
   export type AsObject = {
     rnd: Def.RoundMap[keyof Def.RoundMap],
     allinUsersList: Array<PlayerAllInShowCardWinCardsLength.AsObject>,
+  }
+}
+
+export class AllInWinCardsInfo extends jspb.Message {
+  getWcCount(): number;
+  setWcCount(value: number): void;
+
+  getLcCount(): number;
+  setLcCount(value: number): void;
+
+  getWcCount2(): number;
+  setWcCount2(value: number): void;
+
+  getLcCount2(): number;
+  setLcCount2(value: number): void;
+
+  getFlopWcCount(): number;
+  setFlopWcCount(value: number): void;
+
+  getFlopLcCount(): number;
+  setFlopLcCount(value: number): void;
+
+  getTurnWcCount(): number;
+  setTurnWcCount(value: number): void;
+
+  getTurnLcCount(): number;
+  setTurnLcCount(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AllInWinCardsInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: AllInWinCardsInfo): AllInWinCardsInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: AllInWinCardsInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AllInWinCardsInfo;
+  static deserializeBinaryFromReader(message: AllInWinCardsInfo, reader: jspb.BinaryReader): AllInWinCardsInfo;
+}
+
+export namespace AllInWinCardsInfo {
+  export type AsObject = {
+    wcCount: number,
+    lcCount: number,
+    wcCount2: number,
+    lcCount2: number,
+    flopWcCount: number,
+    flopLcCount: number,
+    turnWcCount: number,
+    turnLcCount: number,
   }
 }
 
