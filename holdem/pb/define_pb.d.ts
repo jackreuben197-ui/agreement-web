@@ -391,6 +391,9 @@ export class RoomInfo extends jspb.Message {
   getAnteMax(): number;
   setAnteMax(value: number): void;
 
+  getSeatedMessaging(): boolean;
+  setSeatedMessaging(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -432,6 +435,7 @@ export namespace RoomInfo {
     luckycardsList: Array<Luckycards.AsObject>,
     anteMin: number,
     anteMax: number,
+    seatedMessaging: boolean,
   }
 
   export interface RetainTypeMap {

@@ -1112,7 +1112,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     luckycardsList: jspb.Message.toObjectList(msg.getLuckycardsList(),
     proto.holdem.pb.Luckycards.toObject, includeInstance),
     anteMin: jspb.Message.getFieldWithDefault(msg, 30, 0),
-    anteMax: jspb.Message.getFieldWithDefault(msg, 31, 0)
+    anteMax: jspb.Message.getFieldWithDefault(msg, 31, 0),
+    seatedMessaging: jspb.Message.getFieldWithDefault(msg, 32, false)
   };
 
   if (includeInstance) {
@@ -1265,6 +1266,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 31:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setAnteMax(value);
+      break;
+    case 32:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSeatedMessaging(value);
       break;
     default:
       reader.skipField();
@@ -1496,6 +1501,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       31,
+      f
+    );
+  }
+  f = message.getSeatedMessaging();
+  if (f) {
+    writer.writeBool(
+      32,
       f
     );
   }
@@ -1981,6 +1993,23 @@ proto.holdem.pb.RoomInfo.prototype.getAnteMax = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setAnteMax = function(value) {
   jspb.Message.setField(this, 31, value);
+};
+
+
+/**
+ * optional bool seated_messaging = 32;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.RoomInfo.prototype.getSeatedMessaging = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 32, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.RoomInfo.prototype.setSeatedMessaging = function(value) {
+  jspb.Message.setField(this, 32, value);
 };
 
 
