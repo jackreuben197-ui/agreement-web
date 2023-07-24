@@ -338,7 +338,8 @@ proto.holdem.pb.ServerMessageEnterRoom.toObject = function(includeInstance, msg)
     protobuf_holdem_define_pb.Operator.toObject, includeInstance),
     mttInfo: (f = msg.getMttInfo()) && protobuf_holdem_define_pb.MTTInfo.toObject(includeInstance, f),
     mttProgress: (f = msg.getMttProgress()) && protobuf_holdem_define_pb.MTTProgress.toObject(includeInstance, f),
-    mttRoom: (f = msg.getMttRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
+    mttRoom: (f = msg.getMttRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
+    muted: jspb.Message.getFieldWithDefault(msg, 12, false)
   };
 
   if (includeInstance) {
@@ -422,6 +423,10 @@ proto.holdem.pb.ServerMessageEnterRoom.deserializeBinaryFromReader = function(ms
       var value = new protobuf_holdem_define_pb.Room;
       reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
       msg.setMttRoom(value);
+      break;
+    case 12:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setMuted(value);
       break;
     default:
       reader.skipField();
@@ -528,6 +533,13 @@ proto.holdem.pb.ServerMessageEnterRoom.serializeBinaryToWriter = function(messag
       11,
       f,
       protobuf_holdem_define_pb.Room.serializeBinaryToWriter
+    );
+  }
+  f = message.getMuted();
+  if (f) {
+    writer.writeBool(
+      12,
+      f
     );
   }
 };
@@ -802,6 +814,23 @@ proto.holdem.pb.ServerMessageEnterRoom.prototype.clearMttRoom = function() {
  */
 proto.holdem.pb.ServerMessageEnterRoom.prototype.hasMttRoom = function() {
   return jspb.Message.getField(this, 11) != null;
+};
+
+
+/**
+ * optional bool muted = 12;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageEnterRoom.prototype.getMuted = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 12, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageEnterRoom.prototype.setMuted = function(value) {
+  jspb.Message.setField(this, 12, value);
 };
 
 

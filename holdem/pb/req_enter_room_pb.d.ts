@@ -87,6 +87,9 @@ export class ServerMessageEnterRoom extends jspb.Message {
   getMttRoom(): protobuf_holdem_define_pb.Room | undefined;
   setMttRoom(value?: protobuf_holdem_define_pb.Room): void;
 
+  getMuted(): boolean;
+  setMuted(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageEnterRoom.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageEnterRoom): ServerMessageEnterRoom.AsObject;
@@ -109,6 +112,7 @@ export namespace ServerMessageEnterRoom {
     mttInfo?: protobuf_holdem_define_pb.MTTInfo.AsObject,
     mttProgress?: protobuf_holdem_define_pb.MTTProgress.AsObject,
     mttRoom?: protobuf_holdem_define_pb.Room.AsObject,
+    muted: boolean,
   }
 }
 
