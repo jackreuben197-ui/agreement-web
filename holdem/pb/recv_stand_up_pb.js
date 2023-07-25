@@ -66,7 +66,8 @@ proto.holdem.pb.ServerMessageStandup.toObject = function(includeInstance, msg) {
     accountChips: jspb.Message.getFieldWithDefault(msg, 4, 0),
     fee: jspb.Message.getFieldWithDefault(msg, 5, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    willLeave: jspb.Message.getFieldWithDefault(msg, 7, false)
+    willLeave: jspb.Message.getFieldWithDefault(msg, 7, false),
+    muted: jspb.Message.getFieldWithDefault(msg, 8, false)
   };
 
   if (includeInstance) {
@@ -130,6 +131,10 @@ proto.holdem.pb.ServerMessageStandup.deserializeBinaryFromReader = function(msg,
     case 7:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setWillLeave(value);
+      break;
+    case 8:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setMuted(value);
       break;
     default:
       reader.skipField();
@@ -206,6 +211,13 @@ proto.holdem.pb.ServerMessageStandup.serializeBinaryToWriter = function(message,
   if (f) {
     writer.writeBool(
       7,
+      f
+    );
+  }
+  f = message.getMuted();
+  if (f) {
+    writer.writeBool(
+      8,
       f
     );
   }
@@ -316,6 +328,23 @@ proto.holdem.pb.ServerMessageStandup.prototype.getWillLeave = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ServerMessageStandup.prototype.setWillLeave = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional bool muted = 8;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageStandup.prototype.getMuted = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 8, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageStandup.prototype.setMuted = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 

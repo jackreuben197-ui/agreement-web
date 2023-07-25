@@ -26,6 +26,9 @@ export class ServerMessageStandup extends jspb.Message {
   getWillLeave(): boolean;
   setWillLeave(value: boolean): void;
 
+  getMuted(): boolean;
+  setMuted(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageStandup.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageStandup): ServerMessageStandup.AsObject;
@@ -45,6 +48,7 @@ export namespace ServerMessageStandup {
     fee: number,
     storeChips: number,
     willLeave: boolean,
+    muted: boolean,
   }
 }
 
