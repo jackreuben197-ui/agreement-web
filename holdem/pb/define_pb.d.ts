@@ -394,6 +394,9 @@ export class RoomInfo extends jspb.Message {
   getSeatedMessaging(): boolean;
   setSeatedMessaging(value: boolean): void;
 
+  getRoomType(): number;
+  setRoomType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -436,6 +439,7 @@ export namespace RoomInfo {
     anteMin: number,
     anteMax: number,
     seatedMessaging: boolean,
+    roomType: number,
   }
 
   export interface RetainTypeMap {
