@@ -11,6 +11,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ClientMessageUserPlaying', null, global);
 goog.exportSymbol('proto.holdem.pb.ServerMessageUserPlaying', null, global);
 
@@ -152,7 +153,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageUserPlaying.repeatedFields_ = [2,3];
+proto.holdem.pb.ServerMessageUserPlaying.repeatedFields_ = [2];
 
 
 
@@ -184,8 +185,8 @@ proto.holdem.pb.ServerMessageUserPlaying.prototype.toObject = function(opt_inclu
 proto.holdem.pb.ServerMessageUserPlaying.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    roomIdList: jspb.Message.getRepeatedField(msg, 2),
-    matchIdList: jspb.Message.getRepeatedField(msg, 3)
+    roomsMttsList: jspb.Message.toObjectList(msg.getRoomsMttsList(),
+    protobuf_holdem_define_pb.RoomWithType.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -227,12 +228,9 @@ proto.holdem.pb.ServerMessageUserPlaying.deserializeBinaryFromReader = function(
       msg.setStatus(value);
       break;
     case 2:
-      var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
-      msg.setRoomIdList(value);
-      break;
-    case 3:
-      var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
-      msg.setMatchIdList(value);
+      var value = new protobuf_holdem_define_pb.RoomWithType;
+      reader.readMessage(value,protobuf_holdem_define_pb.RoomWithType.deserializeBinaryFromReader);
+      msg.addRoomsMtts(value);
       break;
     default:
       reader.skipField();
@@ -270,18 +268,12 @@ proto.holdem.pb.ServerMessageUserPlaying.serializeBinaryToWriter = function(mess
       f
     );
   }
-  f = message.getRoomIdList();
+  f = message.getRoomsMttsList();
   if (f.length > 0) {
-    writer.writePackedUint32(
+    writer.writeRepeatedMessage(
       2,
-      f
-    );
-  }
-  f = message.getMatchIdList();
-  if (f.length > 0) {
-    writer.writePackedUint32(
-      3,
-      f
+      f,
+      protobuf_holdem_define_pb.RoomWithType.serializeBinaryToWriter
     );
   }
 };
@@ -303,60 +295,33 @@ proto.holdem.pb.ServerMessageUserPlaying.prototype.setStatus = function(value) {
 
 
 /**
- * repeated uint32 room_id = 2;
- * @return {!Array.<number>}
+ * repeated RoomWithType rooms_mtts = 2;
+ * @return {!Array.<!proto.holdem.pb.RoomWithType>}
  */
-proto.holdem.pb.ServerMessageUserPlaying.prototype.getRoomIdList = function() {
-  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 2));
+proto.holdem.pb.ServerMessageUserPlaying.prototype.getRoomsMttsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.RoomWithType>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.RoomWithType, 2));
 };
 
 
-/** @param {!Array.<number>} value */
-proto.holdem.pb.ServerMessageUserPlaying.prototype.setRoomIdList = function(value) {
-  jspb.Message.setField(this, 2, value || []);
+/** @param {!Array.<!proto.holdem.pb.RoomWithType>} value */
+proto.holdem.pb.ServerMessageUserPlaying.prototype.setRoomsMttsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
 /**
- * @param {!number} value
+ * @param {!proto.holdem.pb.RoomWithType=} opt_value
  * @param {number=} opt_index
+ * @return {!proto.holdem.pb.RoomWithType}
  */
-proto.holdem.pb.ServerMessageUserPlaying.prototype.addRoomId = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+proto.holdem.pb.ServerMessageUserPlaying.prototype.addRoomsMtts = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.holdem.pb.RoomWithType, opt_index);
 };
 
 
-proto.holdem.pb.ServerMessageUserPlaying.prototype.clearRoomIdList = function() {
-  this.setRoomIdList([]);
-};
-
-
-/**
- * repeated uint32 match_id = 3;
- * @return {!Array.<number>}
- */
-proto.holdem.pb.ServerMessageUserPlaying.prototype.getMatchIdList = function() {
-  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 3));
-};
-
-
-/** @param {!Array.<number>} value */
-proto.holdem.pb.ServerMessageUserPlaying.prototype.setMatchIdList = function(value) {
-  jspb.Message.setField(this, 3, value || []);
-};
-
-
-/**
- * @param {!number} value
- * @param {number=} opt_index
- */
-proto.holdem.pb.ServerMessageUserPlaying.prototype.addMatchId = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 3, value, opt_index);
-};
-
-
-proto.holdem.pb.ServerMessageUserPlaying.prototype.clearMatchIdList = function() {
-  this.setMatchIdList([]);
+proto.holdem.pb.ServerMessageUserPlaying.prototype.clearRoomsMttsList = function() {
+  this.setRoomsMttsList([]);
 };
 
 

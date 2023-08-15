@@ -1799,3 +1799,31 @@ export namespace AllInWinCardsInfo {
   }
 }
 
+export class RoomWithType extends jspb.Message {
+  getRoomId(): number;
+  setRoomId(value: number): void;
+
+  getMatchId(): number;
+  setMatchId(value: number): void;
+
+  getRoomType(): number;
+  setRoomType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RoomWithType.AsObject;
+  static toObject(includeInstance: boolean, msg: RoomWithType): RoomWithType.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RoomWithType, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RoomWithType;
+  static deserializeBinaryFromReader(message: RoomWithType, reader: jspb.BinaryReader): RoomWithType;
+}
+
+export namespace RoomWithType {
+  export type AsObject = {
+    roomId: number,
+    matchId: number,
+    roomType: number,
+  }
+}
+

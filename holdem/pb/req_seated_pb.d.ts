@@ -34,8 +34,11 @@ export class ClientMessageSeated extends jspb.Message {
   getApplyBringIn(): boolean;
   setApplyBringIn(value: boolean): void;
 
-  getAutoOnTableNoStore(): boolean;
-  setAutoOnTableNoStore(value: boolean): void;
+  getAutoBringInLine(): number;
+  setAutoBringInLine(value: number): void;
+
+  getAutoBringIn(): number;
+  setAutoBringIn(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageSeated.AsObject;
@@ -58,7 +61,8 @@ export namespace ClientMessageSeated {
     store: number,
     clubId: number,
     applyBringIn: boolean,
-    autoOnTableNoStore: boolean,
+    autoBringInLine: number,
+    autoBringIn: number,
   }
 }
 

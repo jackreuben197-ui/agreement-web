@@ -2,6 +2,7 @@
 // file: protobuf/holdem/req_user_playing.proto
 
 import * as jspb from "google-protobuf";
+import * as protobuf_holdem_define_pb from "../../protobuf/holdem/define_pb";
 
 export class ClientMessageUserPlaying extends jspb.Message {
   serializeBinary(): Uint8Array;
@@ -23,15 +24,10 @@ export class ServerMessageUserPlaying extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
-  clearRoomIdList(): void;
-  getRoomIdList(): Array<number>;
-  setRoomIdList(value: Array<number>): void;
-  addRoomId(value: number, index?: number): number;
-
-  clearMatchIdList(): void;
-  getMatchIdList(): Array<number>;
-  setMatchIdList(value: Array<number>): void;
-  addMatchId(value: number, index?: number): number;
+  clearRoomsMttsList(): void;
+  getRoomsMttsList(): Array<protobuf_holdem_define_pb.RoomWithType>;
+  setRoomsMttsList(value: Array<protobuf_holdem_define_pb.RoomWithType>): void;
+  addRoomsMtts(value?: protobuf_holdem_define_pb.RoomWithType, index?: number): protobuf_holdem_define_pb.RoomWithType;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserPlaying.AsObject;
@@ -46,8 +42,7 @@ export class ServerMessageUserPlaying extends jspb.Message {
 export namespace ServerMessageUserPlaying {
   export type AsObject = {
     status: number,
-    roomIdList: Array<number>,
-    matchIdList: Array<number>,
+    roomsMttsList: Array<protobuf_holdem_define_pb.RoomWithType.AsObject>,
   }
 }
 
