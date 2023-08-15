@@ -64,8 +64,7 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.toObject = function(includeInstance,
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     autoOnTable: jspb.Message.getFieldWithDefault(msg, 2, 0),
     autoUseWallet: jspb.Message.getFieldWithDefault(msg, 3, false),
-    autoBringInLine: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    autoBringIn: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    autoOnTableNoStore: jspb.Message.getFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -116,12 +115,8 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.deserializeBinaryFromReader = functi
       msg.setAutoUseWallet(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setAutoBringInLine(value);
-      break;
-    case 5:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setAutoBringIn(value);
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAutoOnTableNoStore(value);
       break;
     default:
       reader.skipField();
@@ -174,17 +169,10 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.serializeBinaryToWriter = function(m
       f
     );
   }
-  f = message.getAutoBringInLine();
-  if (f !== 0) {
-    writer.writeUint64(
+  f = message.getAutoOnTableNoStore();
+  if (f) {
+    writer.writeBool(
       4,
-      f
-    );
-  }
-  f = message.getAutoBringIn();
-  if (f !== 0) {
-    writer.writeUint64(
-      5,
       f
     );
   }
@@ -254,32 +242,19 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.setAutoUseWallet = functio
 
 
 /**
- * optional uint64 auto_bring_in_line = 4;
- * @return {number}
+ * optional bool auto_on_table_no_store = 4;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
  */
-proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.getAutoBringInLine = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.getAutoOnTableNoStore = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 4, false));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.setAutoBringInLine = function(value) {
+/** @param {boolean} value */
+proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.setAutoOnTableNoStore = function(value) {
   jspb.Message.setField(this, 4, value);
-};
-
-
-/**
- * optional uint64 auto_bring_in = 5;
- * @return {number}
- */
-proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.getAutoBringIn = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.setAutoBringIn = function(value) {
-  jspb.Message.setField(this, 5, value);
 };
 
 
