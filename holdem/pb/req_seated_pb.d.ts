@@ -37,6 +37,9 @@ export class ClientMessageSeated extends jspb.Message {
   getAutoOnTableNoStore(): boolean;
   setAutoOnTableNoStore(value: boolean): void;
 
+  getAutoOnTableBringInWallet(): number;
+  setAutoOnTableBringInWallet(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageSeated.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageSeated): ClientMessageSeated.AsObject;
@@ -59,6 +62,7 @@ export namespace ClientMessageSeated {
     clubId: number,
     applyBringIn: boolean,
     autoOnTableNoStore: boolean,
+    autoOnTableBringInWallet: number,
   }
 }
 

@@ -63,7 +63,9 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.toObject = function(includeInstance,
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     autoOnTable: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    autoUseWallet: jspb.Message.getFieldWithDefault(msg, 3, false)
+    autoUseWallet: jspb.Message.getFieldWithDefault(msg, 3, false),
+    autoOnTableNoStore: jspb.Message.getFieldWithDefault(msg, 4, false),
+    autoOnTableBringInWallet: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -113,6 +115,14 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.deserializeBinaryFromReader = functi
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setAutoUseWallet(value);
       break;
+    case 4:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAutoOnTableNoStore(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAutoOnTableBringInWallet(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -161,6 +171,20 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.serializeBinaryToWriter = function(m
   if (f) {
     writer.writeBool(
       3,
+      f
+    );
+  }
+  f = message.getAutoOnTableNoStore();
+  if (f) {
+    writer.writeBool(
+      4,
+      f
+    );
+  }
+  f = message.getAutoOnTableBringInWallet();
+  if (f !== 0) {
+    writer.writeUint64(
+      5,
       f
     );
   }
@@ -226,6 +250,38 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.getAutoUseWallet = functio
 /** @param {boolean} value */
 proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.setAutoUseWallet = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional bool auto_on_table_no_store = 4;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.getAutoOnTableNoStore = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 4, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.setAutoOnTableNoStore = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional uint64 auto_on_table_bring_in_wallet = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.getAutoOnTableBringInWallet = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.setAutoOnTableBringInWallet = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 

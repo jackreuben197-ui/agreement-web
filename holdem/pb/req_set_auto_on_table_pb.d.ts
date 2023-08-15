@@ -16,6 +16,12 @@ export class ClientMessageSetAutoOnTable extends jspb.Message {
   getAutoUseWallet(): boolean;
   setAutoUseWallet(value: boolean): void;
 
+  getAutoOnTableNoStore(): boolean;
+  setAutoOnTableNoStore(value: boolean): void;
+
+  getAutoOnTableBringInWallet(): number;
+  setAutoOnTableBringInWallet(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageSetAutoOnTable.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageSetAutoOnTable): ClientMessageSetAutoOnTable.AsObject;
@@ -31,6 +37,8 @@ export namespace ClientMessageSetAutoOnTable {
     room?: protobuf_holdem_define_pb.Room.AsObject,
     autoOnTable: number,
     autoUseWallet: boolean,
+    autoOnTableNoStore: boolean,
+    autoOnTableBringInWallet: number,
   }
 }
 
