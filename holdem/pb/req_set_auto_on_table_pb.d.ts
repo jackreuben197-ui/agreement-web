@@ -19,6 +19,9 @@ export class ClientMessageSetAutoOnTable extends jspb.Message {
   getAutoOnTableNoStore(): boolean;
   setAutoOnTableNoStore(value: boolean): void;
 
+  getAutoOnTableFix(): number;
+  setAutoOnTableFix(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageSetAutoOnTable.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageSetAutoOnTable): ClientMessageSetAutoOnTable.AsObject;
@@ -35,6 +38,7 @@ export namespace ClientMessageSetAutoOnTable {
     autoOnTable: number,
     autoUseWallet: boolean,
     autoOnTableNoStore: boolean,
+    autoOnTableFix: number,
   }
 }
 
