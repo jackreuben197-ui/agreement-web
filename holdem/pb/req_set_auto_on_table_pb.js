@@ -64,8 +64,7 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.toObject = function(includeInstance,
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     autoOnTable: jspb.Message.getFieldWithDefault(msg, 2, 0),
     autoUseWallet: jspb.Message.getFieldWithDefault(msg, 3, false),
-    autoOnTableNoStore: jspb.Message.getFieldWithDefault(msg, 4, false),
-    autoOnTableBringInWallet: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    autoOnTableNoStore: jspb.Message.getFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -118,10 +117,6 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.deserializeBinaryFromReader = functi
     case 4:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setAutoOnTableNoStore(value);
-      break;
-    case 5:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setAutoOnTableBringInWallet(value);
       break;
     default:
       reader.skipField();
@@ -178,13 +173,6 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.serializeBinaryToWriter = function(m
   if (f) {
     writer.writeBool(
       4,
-      f
-    );
-  }
-  f = message.getAutoOnTableBringInWallet();
-  if (f !== 0) {
-    writer.writeUint64(
-      5,
       f
     );
   }
@@ -267,21 +255,6 @@ proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.getAutoOnTableNoStore = fu
 /** @param {boolean} value */
 proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.setAutoOnTableNoStore = function(value) {
   jspb.Message.setField(this, 4, value);
-};
-
-
-/**
- * optional uint64 auto_on_table_bring_in_wallet = 5;
- * @return {number}
- */
-proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.getAutoOnTableBringInWallet = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ClientMessageSetAutoOnTable.prototype.setAutoOnTableBringInWallet = function(value) {
-  jspb.Message.setField(this, 5, value);
 };
 
 
