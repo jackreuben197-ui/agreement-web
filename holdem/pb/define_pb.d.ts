@@ -1809,6 +1809,12 @@ export class RoomWithType extends jspb.Message {
   getRoomType(): number;
   setRoomType(value: number): void;
 
+  getAntiCheatType(): number;
+  setAntiCheatType(value: number): void;
+
+  getAntiCheatVideoType(): number;
+  setAntiCheatVideoType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomWithType.AsObject;
   static toObject(includeInstance: boolean, msg: RoomWithType): RoomWithType.AsObject;
@@ -1824,6 +1830,8 @@ export namespace RoomWithType {
     roomId: number,
     matchId: number,
     roomType: number,
+    antiCheatType: number,
+    antiCheatVideoType: number,
   }
 }
 
