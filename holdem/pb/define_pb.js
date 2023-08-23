@@ -1115,7 +1115,9 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     anteMin: jspb.Message.getFieldWithDefault(msg, 30, 0),
     anteMax: jspb.Message.getFieldWithDefault(msg, 31, 0),
     seatedMessaging: jspb.Message.getFieldWithDefault(msg, 32, false),
-    roomType: jspb.Message.getFieldWithDefault(msg, 33, 0)
+    roomType: jspb.Message.getFieldWithDefault(msg, 33, 0),
+    antiCheatType: jspb.Message.getFieldWithDefault(msg, 34, 0),
+    antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 35, 0)
   };
 
   if (includeInstance) {
@@ -1276,6 +1278,14 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 33:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setRoomType(value);
+      break;
+    case 34:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setAntiCheatType(value);
+      break;
+    case 35:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setAntiCheatVideoType(value);
       break;
     default:
       reader.skipField();
@@ -1521,6 +1531,20 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       33,
+      f
+    );
+  }
+  f = message.getAntiCheatType();
+  if (f !== 0) {
+    writer.writeUint32(
+      34,
+      f
+    );
+  }
+  f = message.getAntiCheatVideoType();
+  if (f !== 0) {
+    writer.writeUint32(
+      35,
       f
     );
   }
@@ -2038,6 +2062,36 @@ proto.holdem.pb.RoomInfo.prototype.getRoomType = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setRoomType = function(value) {
   jspb.Message.setField(this, 33, value);
+};
+
+
+/**
+ * optional uint32 anti_cheat_type = 34;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getAntiCheatType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 34, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setAntiCheatType = function(value) {
+  jspb.Message.setField(this, 34, value);
+};
+
+
+/**
+ * optional uint32 anti_cheat_video_type = 35;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getAntiCheatVideoType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 35, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setAntiCheatVideoType = function(value) {
+  jspb.Message.setField(this, 35, value);
 };
 
 
