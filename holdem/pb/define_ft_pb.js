@@ -1311,7 +1311,8 @@ proto.holdem.pb.PlayerFT.toObject = function(includeInstance, msg) {
     vip: jspb.Message.getFieldWithDefault(msg, 11, 0),
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 12, 0),
     keepSeatReason: jspb.Message.getFieldWithDefault(msg, 13, 0),
-    fantasy: jspb.Message.getFieldWithDefault(msg, 14, false)
+    fantasy: jspb.Message.getFieldWithDefault(msg, 14, false),
+    status: jspb.Message.getFieldWithDefault(msg, 15, 0)
   };
 
   if (includeInstance) {
@@ -1404,6 +1405,10 @@ proto.holdem.pb.PlayerFT.deserializeBinaryFromReader = function(msg, reader) {
     case 14:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setFantasy(value);
+      break;
+    case 15:
+      var value = /** @type {!proto.holdem.pb.Def.CanPlayStatus} */ (reader.readEnum());
+      msg.setStatus(value);
       break;
     default:
       reader.skipField();
@@ -1530,6 +1535,13 @@ proto.holdem.pb.PlayerFT.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       14,
+      f
+    );
+  }
+  f = message.getStatus();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      15,
       f
     );
   }
@@ -1777,6 +1789,21 @@ proto.holdem.pb.PlayerFT.prototype.getFantasy = function() {
 /** @param {boolean} value */
 proto.holdem.pb.PlayerFT.prototype.setFantasy = function(value) {
   jspb.Message.setField(this, 14, value);
+};
+
+
+/**
+ * optional Def.CanPlayStatus status = 15;
+ * @return {!proto.holdem.pb.Def.CanPlayStatus}
+ */
+proto.holdem.pb.PlayerFT.prototype.getStatus = function() {
+  return /** @type {!proto.holdem.pb.Def.CanPlayStatus} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.CanPlayStatus} value */
+proto.holdem.pb.PlayerFT.prototype.setStatus = function(value) {
+  jspb.Message.setField(this, 15, value);
 };
 
 

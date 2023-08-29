@@ -221,6 +221,9 @@ export class PlayerFT extends jspb.Message {
   getFantasy(): boolean;
   setFantasy(value: boolean): void;
 
+  getStatus(): protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap];
+  setStatus(value: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerFT.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerFT): PlayerFT.AsObject;
@@ -247,6 +250,7 @@ export namespace PlayerFT {
     keepSeatDeadline: number,
     keepSeatReason: protobuf_holdem_define_pb.Def.KeepSeatReasonMap[keyof protobuf_holdem_define_pb.Def.KeepSeatReasonMap],
     fantasy: boolean,
+    status: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap],
   }
 }
 
