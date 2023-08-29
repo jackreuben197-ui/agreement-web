@@ -191,8 +191,8 @@ proto.holdem.pb.RoomInfoFT.toObject = function(includeInstance, msg) {
     schedulePlayDuration: jspb.Message.getFieldWithDefault(msg, 2, 0),
     startTime: jspb.Message.getFieldWithDefault(msg, 3, 0),
     currentMinstack: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    currentMin: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    currentMax: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    currentMinRate: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    currentMaxRate: jspb.Message.getFieldWithDefault(msg, 6, 0),
     limitIp: jspb.Message.getFieldWithDefault(msg, 7, false),
     limitGps: jspb.Message.getFieldWithDefault(msg, 8, false),
     delaySeeCard: jspb.Message.getFieldWithDefault(msg, 9, false),
@@ -257,11 +257,11 @@ proto.holdem.pb.RoomInfoFT.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 5:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setCurrentMin(value);
+      msg.setCurrentMinRate(value);
       break;
     case 6:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setCurrentMax(value);
+      msg.setCurrentMaxRate(value);
       break;
     case 7:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -360,14 +360,14 @@ proto.holdem.pb.RoomInfoFT.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCurrentMin();
+  f = message.getCurrentMinRate();
   if (f !== 0) {
     writer.writeUint32(
       5,
       f
     );
   }
-  f = message.getCurrentMax();
+  f = message.getCurrentMaxRate();
   if (f !== 0) {
     writer.writeUint32(
       6,
@@ -508,31 +508,31 @@ proto.holdem.pb.RoomInfoFT.prototype.setCurrentMinstack = function(value) {
 
 
 /**
- * optional uint32 current_min = 5;
+ * optional uint32 current_min_rate = 5;
  * @return {number}
  */
-proto.holdem.pb.RoomInfoFT.prototype.getCurrentMin = function() {
+proto.holdem.pb.RoomInfoFT.prototype.getCurrentMinRate = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.RoomInfoFT.prototype.setCurrentMin = function(value) {
+proto.holdem.pb.RoomInfoFT.prototype.setCurrentMinRate = function(value) {
   jspb.Message.setField(this, 5, value);
 };
 
 
 /**
- * optional uint32 current_max = 6;
+ * optional uint32 current_max_rate = 6;
  * @return {number}
  */
-proto.holdem.pb.RoomInfoFT.prototype.getCurrentMax = function() {
+proto.holdem.pb.RoomInfoFT.prototype.getCurrentMaxRate = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.RoomInfoFT.prototype.setCurrentMax = function(value) {
+proto.holdem.pb.RoomInfoFT.prototype.setCurrentMaxRate = function(value) {
   jspb.Message.setField(this, 6, value);
 };
 

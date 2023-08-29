@@ -33,11 +33,11 @@ export class RoomInfoFT extends jspb.Message {
   getCurrentMinstack(): number;
   setCurrentMinstack(value: number): void;
 
-  getCurrentMin(): number;
-  setCurrentMin(value: number): void;
+  getCurrentMinRate(): number;
+  setCurrentMinRate(value: number): void;
 
-  getCurrentMax(): number;
-  setCurrentMax(value: number): void;
+  getCurrentMaxRate(): number;
+  setCurrentMaxRate(value: number): void;
 
   getLimitIp(): boolean;
   setLimitIp(value: boolean): void;
@@ -85,8 +85,8 @@ export namespace RoomInfoFT {
     schedulePlayDuration: number,
     startTime: number,
     currentMinstack: number,
-    currentMin: number,
-    currentMax: number,
+    currentMinRate: number,
+    currentMaxRate: number,
     limitIp: boolean,
     limitGps: boolean,
     delaySeeCard: boolean,
