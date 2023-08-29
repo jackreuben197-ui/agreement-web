@@ -15,6 +15,9 @@ export class ServerMessageFtStartInfo extends jspb.Message {
   setPlayersList(value: Array<protobuf_holdem_define_ft_pb.PlayerStartInfoFT>): void;
   addPlayers(value?: protobuf_holdem_define_ft_pb.PlayerStartInfoFT, index?: number): protobuf_holdem_define_ft_pb.PlayerStartInfoFT;
 
+  getWaitDeadline(): number;
+  setWaitDeadline(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageFtStartInfo.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageFtStartInfo): ServerMessageFtStartInfo.AsObject;
@@ -29,6 +32,7 @@ export namespace ServerMessageFtStartInfo {
   export type AsObject = {
     handInfo?: protobuf_holdem_define_ft_pb.HandInfoFT.AsObject,
     playersList: Array<protobuf_holdem_define_ft_pb.PlayerStartInfoFT.AsObject>,
+    waitDeadline: number,
   }
 }
 
