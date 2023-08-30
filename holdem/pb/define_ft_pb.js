@@ -2780,7 +2780,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.GroupResultFT.repeatedFields_ = [1];
+proto.holdem.pb.GroupResultFT.repeatedFields_ = [1,6];
 
 
 
@@ -2816,7 +2816,8 @@ proto.holdem.pb.GroupResultFT.toObject = function(includeInstance, msg) {
     handValueType: jspb.Message.getFieldWithDefault(msg, 2, 0),
     isNuts: jspb.Message.getFieldWithDefault(msg, 3, false),
     bonusPt: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    fantasy: jspb.Message.getFieldWithDefault(msg, 5, false)
+    fantasy: jspb.Message.getFieldWithDefault(msg, 5, false),
+    myCardsList: jspb.Message.getRepeatedField(msg, 6)
   };
 
   if (includeInstance) {
@@ -2873,6 +2874,10 @@ proto.holdem.pb.GroupResultFT.deserializeBinaryFromReader = function(msg, reader
     case 5:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setFantasy(value);
+      break;
+    case 6:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setMyCardsList(value);
       break;
     default:
       reader.skipField();
@@ -2936,6 +2941,13 @@ proto.holdem.pb.GroupResultFT.serializeBinaryToWriter = function(message, writer
   if (f) {
     writer.writeBool(
       5,
+      f
+    );
+  }
+  f = message.getMyCardsList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      6,
       f
     );
   }
@@ -3034,6 +3046,35 @@ proto.holdem.pb.GroupResultFT.prototype.getFantasy = function() {
 /** @param {boolean} value */
 proto.holdem.pb.GroupResultFT.prototype.setFantasy = function(value) {
   jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * repeated int32 my_cards = 6;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.GroupResultFT.prototype.getMyCardsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 6));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.GroupResultFT.prototype.setMyCardsList = function(value) {
+  jspb.Message.setField(this, 6, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.GroupResultFT.prototype.addMyCards = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+};
+
+
+proto.holdem.pb.GroupResultFT.prototype.clearMyCardsList = function() {
+  this.setMyCardsList([]);
 };
 
 

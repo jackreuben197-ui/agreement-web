@@ -406,6 +406,11 @@ export class GroupResultFT extends jspb.Message {
   getFantasy(): boolean;
   setFantasy(value: boolean): void;
 
+  clearMyCardsList(): void;
+  getMyCardsList(): Array<number>;
+  setMyCardsList(value: Array<number>): void;
+  addMyCards(value: number, index?: number): number;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GroupResultFT.AsObject;
   static toObject(includeInstance: boolean, msg: GroupResultFT): GroupResultFT.AsObject;
@@ -423,6 +428,7 @@ export namespace GroupResultFT {
     isNuts: boolean,
     bonusPt: number,
     fantasy: boolean,
+    myCardsList: Array<number>,
   }
 }
 
