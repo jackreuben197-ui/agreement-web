@@ -13,6 +13,9 @@ export class ClientMessageFtBringIn extends jspb.Message {
   getBringIn(): number;
   setBringIn(value: number): void;
 
+  getUseWallet(): boolean;
+  setUseWallet(value: boolean): void;
+
   getApplyBringIn(): boolean;
   setApplyBringIn(value: boolean): void;
 
@@ -30,6 +33,7 @@ export namespace ClientMessageFtBringIn {
   export type AsObject = {
     room?: protobuf_holdem_define_pb.Room.AsObject,
     bringIn: number,
+    useWallet: boolean,
     applyBringIn: boolean,
   }
 }
