@@ -1843,3 +1843,468 @@ export namespace RoomWithType {
   }
 }
 
+export class RoomRecord extends jspb.Message {
+  getRid(): number;
+  setRid(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getRoomType(): number;
+  setRoomType(value: number): void;
+
+  getGameType(): number;
+  setGameType(value: number): void;
+
+  getPokerType(): number;
+  setPokerType(value: number): void;
+
+  getLimitBetType(): number;
+  setLimitBetType(value: number): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getAnte(): number;
+  setAnte(value: number): void;
+
+  getSb(): number;
+  setSb(value: number): void;
+
+  getOpDuration(): number;
+  setOpDuration(value: number): void;
+
+  getNoUserWaitDuration(): number;
+  setNoUserWaitDuration(value: number): void;
+
+  getKeepSeatDuration(): number;
+  setKeepSeatDuration(value: number): void;
+
+  getTotalBringIn(): number;
+  setTotalBringIn(value: number): void;
+
+  getTotalBringOut(): number;
+  setTotalBringOut(value: number): void;
+
+  getTotalChip(): number;
+  setTotalChip(value: number): void;
+
+  getMinRate(): number;
+  setMinRate(value: number): void;
+
+  getMaxRate(): number;
+  setMaxRate(value: number): void;
+
+  getMinPlayers(): number;
+  setMinPlayers(value: number): void;
+
+  getAutostartMinPlayers(): number;
+  setAutostartMinPlayers(value: number): void;
+
+  getStraddleOn(): number;
+  setStraddleOn(value: number): void;
+
+  getStraddleMax(): number;
+  setStraddleMax(value: number): void;
+
+  getInsuranceOn(): number;
+  setInsuranceOn(value: number): void;
+
+  getInsuranceOpDuration(): number;
+  setInsuranceOpDuration(value: number): void;
+
+  getSecondPcsOn(): number;
+  setSecondPcsOn(value: number): void;
+
+  getSecondPcsOpDuration(): number;
+  setSecondPcsOpDuration(value: number): void;
+
+  getSecondPcsUserLimit(): number;
+  setSecondPcsUserLimit(value: number): void;
+
+  getDelayViewCardOn(): number;
+  setDelayViewCardOn(value: number): void;
+
+  getPostOn(): number;
+  setPostOn(value: number): void;
+
+  getMuckOn(): number;
+  setMuckOn(value: number): void;
+
+  getLimitIpOn(): number;
+  setLimitIpOn(value: number): void;
+
+  getLimitGpsOn(): number;
+  setLimitGpsOn(value: number): void;
+
+  getLimitGpsDistance(): number;
+  setLimitGpsDistance(value: number): void;
+
+  getLimitDelayTimes(): number;
+  setLimitDelayTimes(value: number): void;
+
+  getLimitAutoCheckTimes(): number;
+  setLimitAutoCheckTimes(value: number): void;
+
+  getLimitAutoFoldTimes(): number;
+  setLimitAutoFoldTimes(value: number): void;
+
+  getSeatCount(): number;
+  setSeatCount(value: number): void;
+
+  getEmptySeat(): number;
+  setEmptySeat(value: number): void;
+
+  getRoomers(): number;
+  setRoomers(value: number): void;
+
+  getEnterTime(): number;
+  setEnterTime(value: number): void;
+
+  getPlayDuration(): number;
+  setPlayDuration(value: number): void;
+
+  getNoUserCloseDuration(): number;
+  setNoUserCloseDuration(value: number): void;
+
+  getRetainMinRate(): number;
+  setRetainMinRate(value: number): void;
+
+  getScheduleStartTime(): number;
+  setScheduleStartTime(value: number): void;
+
+  getStartTime(): number;
+  setStartTime(value: number): void;
+
+  getEndTime(): number;
+  setEndTime(value: number): void;
+
+  getSettlementType(): number;
+  setSettlementType(value: number): void;
+
+  getHandNum(): number;
+  setHandNum(value: number): void;
+
+  getTribeId(): number;
+  setTribeId(value: number): void;
+
+  getEndReason(): string;
+  setEndReason(value: string): void;
+
+  getHcTotalHandLv(): number;
+  setHcTotalHandLv(value: number): void;
+
+  getHcTotalHand(): number;
+  setHcTotalHand(value: number): void;
+
+  getHcPoolRateLv(): number;
+  setHcPoolRateLv(value: number): void;
+
+  getHcPoolRate(): number;
+  setHcPoolRate(value: number): void;
+
+  getServiceId(): string;
+  setServiceId(value: string): void;
+
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
+  getUpdateTime(): number;
+  setUpdateTime(value: number): void;
+
+  clearInsuranceOddsList(): void;
+  getInsuranceOddsList(): Array<InsuranceOddsForPotsUserCount>;
+  setInsuranceOddsList(value: Array<InsuranceOddsForPotsUserCount>): void;
+  addInsuranceOdds(value?: InsuranceOddsForPotsUserCount, index?: number): InsuranceOddsForPotsUserCount;
+
+  getVoiceprintVerifyOn(): number;
+  setVoiceprintVerifyOn(value: number): void;
+
+  getVoiceprintVerifyLimitTimes(): number;
+  setVoiceprintVerifyLimitTimes(value: number): void;
+
+  getVoiceprintVerifyDuration(): number;
+  setVoiceprintVerifyDuration(value: number): void;
+
+  getVoiceprintVerifyIntervalDuration(): number;
+  setVoiceprintVerifyIntervalDuration(value: number): void;
+
+  getParticipationStatus(): number;
+  setParticipationStatus(value: number): void;
+
+  getTableclothTag(): string;
+  setTableclothTag(value: string): void;
+
+  getClubId(): number;
+  setClubId(value: number): void;
+
+  getOriginType(): number;
+  setOriginType(value: number): void;
+
+  getLimitBringIn(): number;
+  setLimitBringIn(value: number): void;
+
+  getCreatorId(): number;
+  setCreatorId(value: number): void;
+
+  getInvitationCode(): string;
+  setInvitationCode(value: string): void;
+
+  getShareTable(): number;
+  setShareTable(value: number): void;
+
+  getTemplateId(): number;
+  setTemplateId(value: number): void;
+
+  getPrivateRoom(): number;
+  setPrivateRoom(value: number): void;
+
+  getRoomPassword(): string;
+  setRoomPassword(value: string): void;
+
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getRealTimeVoiceOn(): number;
+  setRealTimeVoiceOn(value: number): void;
+
+  getAntiCheatType(): number;
+  setAntiCheatType(value: number): void;
+
+  getAntiCheatTimelimit(): number;
+  setAntiCheatTimelimit(value: number): void;
+
+  getDealDelay(): number;
+  setDealDelay(value: number): void;
+
+  getAntiCheatVideoType(): number;
+  setAntiCheatVideoType(value: number): void;
+
+  getVideoVerifyCount(): number;
+  setVideoVerifyCount(value: number): void;
+
+  getCreatorRandomId(): number;
+  setCreatorRandomId(value: number): void;
+
+  getMultiLangNamesObjMap(): jspb.Map<string, string>;
+  clearMultiLangNamesObjMap(): void;
+  getAntiCheatFeeType(): number;
+  setAntiCheatFeeType(value: number): void;
+
+  getAntiCheatOrderType(): number;
+  setAntiCheatOrderType(value: number): void;
+
+  getAntiCheatOrderMicType(): number;
+  setAntiCheatOrderMicType(value: number): void;
+
+  getSelectOuts(): number;
+  setSelectOuts(value: number): void;
+
+  getBringinLimitType(): number;
+  setBringinLimitType(value: number): void;
+
+  getBombpot(): number;
+  setBombpot(value: number): void;
+
+  getMushroomMode(): number;
+  setMushroomMode(value: number): void;
+
+  getMushroomBase(): number;
+  setMushroomBase(value: number): void;
+
+  getMushroomStatic(): number;
+  setMushroomStatic(value: number): void;
+
+  getRandomAnte(): string;
+  setRandomAnte(value: string): void;
+
+  clearLuckycardsNumList(): void;
+  getLuckycardsNumList(): Array<Luckycards>;
+  setLuckycardsNumList(value: Array<Luckycards>): void;
+  addLuckycardsNum(value?: Luckycards, index?: number): Luckycards;
+
+  getVideoEffectType(): number;
+  setVideoEffectType(value: number): void;
+
+  getVideoVerifyType(): number;
+  setVideoVerifyType(value: number): void;
+
+  getVideoQualityType(): number;
+  setVideoQualityType(value: number): void;
+
+  getSeatedMessaging(): number;
+  setSeatedMessaging(value: number): void;
+
+  getChatType(): number;
+  setChatType(value: number): void;
+
+  getAutoOnTableSwitch(): number;
+  setAutoOnTableSwitch(value: number): void;
+
+  getRetainType(): number;
+  setRetainType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RoomRecord.AsObject;
+  static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RoomRecord, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RoomRecord;
+  static deserializeBinaryFromReader(message: RoomRecord, reader: jspb.BinaryReader): RoomRecord;
+}
+
+export namespace RoomRecord {
+  export type AsObject = {
+    rid: number,
+    name: string,
+    roomType: number,
+    gameType: number,
+    pokerType: number,
+    limitBetType: number,
+    status: number,
+    ante: number,
+    sb: number,
+    opDuration: number,
+    noUserWaitDuration: number,
+    keepSeatDuration: number,
+    totalBringIn: number,
+    totalBringOut: number,
+    totalChip: number,
+    minRate: number,
+    maxRate: number,
+    minPlayers: number,
+    autostartMinPlayers: number,
+    straddleOn: number,
+    straddleMax: number,
+    insuranceOn: number,
+    insuranceOpDuration: number,
+    secondPcsOn: number,
+    secondPcsOpDuration: number,
+    secondPcsUserLimit: number,
+    delayViewCardOn: number,
+    postOn: number,
+    muckOn: number,
+    limitIpOn: number,
+    limitGpsOn: number,
+    limitGpsDistance: number,
+    limitDelayTimes: number,
+    limitAutoCheckTimes: number,
+    limitAutoFoldTimes: number,
+    seatCount: number,
+    emptySeat: number,
+    roomers: number,
+    enterTime: number,
+    playDuration: number,
+    noUserCloseDuration: number,
+    retainMinRate: number,
+    scheduleStartTime: number,
+    startTime: number,
+    endTime: number,
+    settlementType: number,
+    handNum: number,
+    tribeId: number,
+    endReason: string,
+    hcTotalHandLv: number,
+    hcTotalHand: number,
+    hcPoolRateLv: number,
+    hcPoolRate: number,
+    serviceId: string,
+    createTime: number,
+    updateTime: number,
+    insuranceOddsList: Array<InsuranceOddsForPotsUserCount.AsObject>,
+    voiceprintVerifyOn: number,
+    voiceprintVerifyLimitTimes: number,
+    voiceprintVerifyDuration: number,
+    voiceprintVerifyIntervalDuration: number,
+    participationStatus: number,
+    tableclothTag: string,
+    clubId: number,
+    originType: number,
+    limitBringIn: number,
+    creatorId: number,
+    invitationCode: string,
+    shareTable: number,
+    templateId: number,
+    privateRoom: number,
+    roomPassword: string,
+    goldType: number,
+    realTimeVoiceOn: number,
+    antiCheatType: number,
+    antiCheatTimelimit: number,
+    dealDelay: number,
+    antiCheatVideoType: number,
+    videoVerifyCount: number,
+    creatorRandomId: number,
+    multiLangNamesObjMap: Array<[string, string]>,
+    antiCheatFeeType: number,
+    antiCheatOrderType: number,
+    antiCheatOrderMicType: number,
+    selectOuts: number,
+    bringinLimitType: number,
+    bombpot: number,
+    mushroomMode: number,
+    mushroomBase: number,
+    mushroomStatic: number,
+    randomAnte: string,
+    luckycardsNumList: Array<Luckycards.AsObject>,
+    videoEffectType: number,
+    videoVerifyType: number,
+    videoQualityType: number,
+    seatedMessaging: number,
+    chatType: number,
+    autoOnTableSwitch: number,
+    retainType: number,
+  }
+}
+
+export class InsuranceOdds extends jspb.Message {
+  getOuts(): number;
+  setOuts(value: number): void;
+
+  getOdds(): number;
+  setOdds(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): InsuranceOdds.AsObject;
+  static toObject(includeInstance: boolean, msg: InsuranceOdds): InsuranceOdds.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: InsuranceOdds, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): InsuranceOdds;
+  static deserializeBinaryFromReader(message: InsuranceOdds, reader: jspb.BinaryReader): InsuranceOdds;
+}
+
+export namespace InsuranceOdds {
+  export type AsObject = {
+    outs: number,
+    odds: number,
+  }
+}
+
+export class InsuranceOddsForPotsUserCount extends jspb.Message {
+  getPotUserCount(): number;
+  setPotUserCount(value: number): void;
+
+  clearOddsList(): void;
+  getOddsList(): Array<InsuranceOdds>;
+  setOddsList(value: Array<InsuranceOdds>): void;
+  addOdds(value?: InsuranceOdds, index?: number): InsuranceOdds;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): InsuranceOddsForPotsUserCount.AsObject;
+  static toObject(includeInstance: boolean, msg: InsuranceOddsForPotsUserCount): InsuranceOddsForPotsUserCount.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: InsuranceOddsForPotsUserCount, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): InsuranceOddsForPotsUserCount;
+  static deserializeBinaryFromReader(message: InsuranceOddsForPotsUserCount, reader: jspb.BinaryReader): InsuranceOddsForPotsUserCount;
+}
+
+export namespace InsuranceOddsForPotsUserCount {
+  export type AsObject = {
+    potUserCount: number,
+    oddsList: Array<InsuranceOdds.AsObject>,
+  }
+}
+
