@@ -111,7 +111,7 @@ proto.holdem.pb.ClientMessageRooms.deserializeBinaryFromReader = function(msg, r
       msg.setRoomIdList(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readUint32());
       msg.setRpcId(value);
       break;
     default:
@@ -152,7 +152,7 @@ proto.holdem.pb.ClientMessageRooms.serializeBinaryToWriter = function(message, w
   }
   f = message.getRpcId();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeUint32(
       2,
       f
     );
@@ -190,7 +190,7 @@ proto.holdem.pb.ClientMessageRooms.prototype.clearRoomIdList = function() {
 
 
 /**
- * optional int32 rpc_id = 2;
+ * optional uint32 rpc_id = 2;
  * @return {number}
  */
 proto.holdem.pb.ClientMessageRooms.prototype.getRpcId = function() {
@@ -303,7 +303,7 @@ proto.holdem.pb.ServerMessageRooms.deserializeBinaryFromReader = function(msg, r
       msg.setStatus(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {number} */ (reader.readUint32());
       msg.setRpcId(value);
       break;
     case 3:
@@ -349,7 +349,7 @@ proto.holdem.pb.ServerMessageRooms.serializeBinaryToWriter = function(message, w
   }
   f = message.getRpcId();
   if (f !== 0) {
-    writer.writeInt32(
+    writer.writeUint32(
       2,
       f
     );
@@ -381,7 +381,7 @@ proto.holdem.pb.ServerMessageRooms.prototype.setStatus = function(value) {
 
 
 /**
- * optional int32 rpc_id = 2;
+ * optional uint32 rpc_id = 2;
  * @return {number}
  */
 proto.holdem.pb.ServerMessageRooms.prototype.getRpcId = function() {
