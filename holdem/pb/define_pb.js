@@ -42,6 +42,7 @@ goog.exportSymbol('proto.holdem.pb.InsurancePotLimit', null, global);
 goog.exportSymbol('proto.holdem.pb.Luckycards', null, global);
 goog.exportSymbol('proto.holdem.pb.MTTInfo', null, global);
 goog.exportSymbol('proto.holdem.pb.MTTProgress', null, global);
+goog.exportSymbol('proto.holdem.pb.MultiLangName', null, global);
 goog.exportSymbol('proto.holdem.pb.MyGameInfo', null, global);
 goog.exportSymbol('proto.holdem.pb.Operator', null, global);
 goog.exportSymbol('proto.holdem.pb.OutsCard', null, global);
@@ -11846,7 +11847,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.RoomRecord.repeatedFields_ = [58,93];
+proto.holdem.pb.RoomRecord.repeatedFields_ = [58,82,93];
 
 
 
@@ -11944,7 +11945,6 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     clubId: jspb.Message.getFieldWithDefault(msg, 65, 0),
     originType: jspb.Message.getFieldWithDefault(msg, 66, 0),
     limitBringIn: jspb.Message.getFieldWithDefault(msg, 67, 0),
-    creatorId: jspb.Message.getFieldWithDefault(msg, 68, 0),
     invitationCode: jspb.Message.getFieldWithDefault(msg, 69, ""),
     shareTable: jspb.Message.getFieldWithDefault(msg, 70, 0),
     templateId: jspb.Message.getFieldWithDefault(msg, 71, 0),
@@ -11958,7 +11958,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 79, 0),
     videoVerifyCount: jspb.Message.getFieldWithDefault(msg, 80, 0),
     creatorRandomId: jspb.Message.getFieldWithDefault(msg, 81, 0),
-    multiLangNamesObjMap: (f = msg.getMultiLangNamesObjMap()) ? f.toObject(includeInstance, undefined) : [],
+    multiLangNamesList: jspb.Message.toObjectList(msg.getMultiLangNamesList(),
+    proto.holdem.pb.MultiLangName.toObject, includeInstance),
     antiCheatFeeType: jspb.Message.getFieldWithDefault(msg, 83, 0),
     antiCheatOrderType: jspb.Message.getFieldWithDefault(msg, 84, 0),
     antiCheatOrderMicType: jspb.Message.getFieldWithDefault(msg, 85, 0),
@@ -12279,10 +12280,6 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {number} */ (reader.readInt32());
       msg.setLimitBringIn(value);
       break;
-    case 68:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setCreatorId(value);
-      break;
     case 69:
       var value = /** @type {string} */ (reader.readString());
       msg.setInvitationCode(value);
@@ -12336,10 +12333,9 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
       msg.setCreatorRandomId(value);
       break;
     case 82:
-      var value = msg.getMultiLangNamesObjMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString);
-         });
+      var value = new proto.holdem.pb.MultiLangName;
+      reader.readMessage(value,proto.holdem.pb.MultiLangName.deserializeBinaryFromReader);
+      msg.addMultiLangNames(value);
       break;
     case 83:
       var value = /** @type {number} */ (reader.readInt32());
@@ -12906,13 +12902,6 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCreatorId();
-  if (f !== 0) {
-    writer.writeUint64(
-      68,
-      f
-    );
-  }
   f = message.getInvitationCode();
   if (f.length > 0) {
     writer.writeString(
@@ -13004,9 +12993,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getMultiLangNamesObjMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(82, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  f = message.getMultiLangNamesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      82,
+      f,
+      proto.holdem.pb.MultiLangName.serializeBinaryToWriter
+    );
   }
   f = message.getAntiCheatFeeType();
   if (f !== 0) {
@@ -14145,21 +14138,6 @@ proto.holdem.pb.RoomRecord.prototype.setLimitBringIn = function(value) {
 
 
 /**
- * optional uint64 creator_id = 68;
- * @return {number}
- */
-proto.holdem.pb.RoomRecord.prototype.getCreatorId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 68, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.RoomRecord.prototype.setCreatorId = function(value) {
-  jspb.Message.setField(this, 68, value);
-};
-
-
-/**
  * optional string invitation_code = 69;
  * @return {string}
  */
@@ -14355,20 +14333,33 @@ proto.holdem.pb.RoomRecord.prototype.setCreatorRandomId = function(value) {
 
 
 /**
- * map<string, string> multi_lang_names_obj = 82;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,string>}
+ * repeated MultiLangName multi_lang_names = 82;
+ * @return {!Array.<!proto.holdem.pb.MultiLangName>}
  */
-proto.holdem.pb.RoomRecord.prototype.getMultiLangNamesObjMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,string>} */ (
-      jspb.Message.getMapField(this, 82, opt_noLazyCreate,
-      null));
+proto.holdem.pb.RoomRecord.prototype.getMultiLangNamesList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.MultiLangName>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.MultiLangName, 82));
 };
 
 
-proto.holdem.pb.RoomRecord.prototype.clearMultiLangNamesObjMap = function() {
-  this.getMultiLangNamesObjMap().clear();
+/** @param {!Array.<!proto.holdem.pb.MultiLangName>} value */
+proto.holdem.pb.RoomRecord.prototype.setMultiLangNamesList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 82, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.MultiLangName=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.MultiLangName}
+ */
+proto.holdem.pb.RoomRecord.prototype.addMultiLangNames = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 82, opt_value, proto.holdem.pb.MultiLangName, opt_index);
+};
+
+
+proto.holdem.pb.RoomRecord.prototype.clearMultiLangNamesList = function() {
+  this.setMultiLangNamesList([]);
 };
 
 
@@ -15019,6 +15010,175 @@ proto.holdem.pb.InsuranceOddsForPotsUserCount.prototype.addOdds = function(opt_v
 
 proto.holdem.pb.InsuranceOddsForPotsUserCount.prototype.clearOddsList = function() {
   this.setOddsList([]);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.MultiLangName = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.MultiLangName, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.MultiLangName.displayName = 'proto.holdem.pb.MultiLangName';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.MultiLangName.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.MultiLangName.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.MultiLangName} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.MultiLangName.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    lang: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.MultiLangName}
+ */
+proto.holdem.pb.MultiLangName.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.MultiLangName;
+  return proto.holdem.pb.MultiLangName.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.MultiLangName} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.MultiLangName}
+ */
+proto.holdem.pb.MultiLangName.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLang(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.MultiLangName.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.MultiLangName.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.MultiLangName} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.MultiLangName.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getLang();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string lang = 1;
+ * @return {string}
+ */
+proto.holdem.pb.MultiLangName.prototype.getLang = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.MultiLangName.prototype.setLang = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional string name = 2;
+ * @return {string}
+ */
+proto.holdem.pb.MultiLangName.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.MultiLangName.prototype.setName = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 

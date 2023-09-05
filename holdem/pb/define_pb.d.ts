@@ -2044,9 +2044,6 @@ export class RoomRecord extends jspb.Message {
   getLimitBringIn(): number;
   setLimitBringIn(value: number): void;
 
-  getCreatorId(): number;
-  setCreatorId(value: number): void;
-
   getInvitationCode(): string;
   setInvitationCode(value: string): void;
 
@@ -2086,8 +2083,11 @@ export class RoomRecord extends jspb.Message {
   getCreatorRandomId(): number;
   setCreatorRandomId(value: number): void;
 
-  getMultiLangNamesObjMap(): jspb.Map<string, string>;
-  clearMultiLangNamesObjMap(): void;
+  clearMultiLangNamesList(): void;
+  getMultiLangNamesList(): Array<MultiLangName>;
+  setMultiLangNamesList(value: Array<MultiLangName>): void;
+  addMultiLangNames(value?: MultiLangName, index?: number): MultiLangName;
+
   getAntiCheatFeeType(): number;
   setAntiCheatFeeType(value: number): void;
 
@@ -2222,7 +2222,6 @@ export namespace RoomRecord {
     clubId: number,
     originType: number,
     limitBringIn: number,
-    creatorId: number,
     invitationCode: string,
     shareTable: number,
     templateId: number,
@@ -2236,7 +2235,7 @@ export namespace RoomRecord {
     antiCheatVideoType: number,
     videoVerifyCount: number,
     creatorRandomId: number,
-    multiLangNamesObjMap: Array<[string, string]>,
+    multiLangNamesList: Array<MultiLangName.AsObject>,
     antiCheatFeeType: number,
     antiCheatOrderType: number,
     antiCheatOrderMicType: number,
@@ -2305,6 +2304,30 @@ export namespace InsuranceOddsForPotsUserCount {
   export type AsObject = {
     potUserCount: number,
     oddsList: Array<InsuranceOdds.AsObject>,
+  }
+}
+
+export class MultiLangName extends jspb.Message {
+  getLang(): string;
+  setLang(value: string): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MultiLangName.AsObject;
+  static toObject(includeInstance: boolean, msg: MultiLangName): MultiLangName.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MultiLangName, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MultiLangName;
+  static deserializeBinaryFromReader(message: MultiLangName, reader: jspb.BinaryReader): MultiLangName;
+}
+
+export namespace MultiLangName {
+  export type AsObject = {
+    lang: string,
+    name: string,
   }
 }
 
