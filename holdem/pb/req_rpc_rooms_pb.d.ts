@@ -4,7 +4,7 @@
 import * as jspb from "google-protobuf";
 import * as protobuf_holdem_define_pb from "../../protobuf/holdem/define_pb";
 
-export class ClientMessageRpcRooms extends jspb.Message {
+export class ClientMessageRooms extends jspb.Message {
   clearRoomIdList(): void;
   getRoomIdList(): Array<number>;
   setRoomIdList(value: Array<number>): void;
@@ -14,23 +14,23 @@ export class ClientMessageRpcRooms extends jspb.Message {
   setRpcId(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ClientMessageRpcRooms.AsObject;
-  static toObject(includeInstance: boolean, msg: ClientMessageRpcRooms): ClientMessageRpcRooms.AsObject;
+  toObject(includeInstance?: boolean): ClientMessageRooms.AsObject;
+  static toObject(includeInstance: boolean, msg: ClientMessageRooms): ClientMessageRooms.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ClientMessageRpcRooms, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ClientMessageRpcRooms;
-  static deserializeBinaryFromReader(message: ClientMessageRpcRooms, reader: jspb.BinaryReader): ClientMessageRpcRooms;
+  static serializeBinaryToWriter(message: ClientMessageRooms, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ClientMessageRooms;
+  static deserializeBinaryFromReader(message: ClientMessageRooms, reader: jspb.BinaryReader): ClientMessageRooms;
 }
 
-export namespace ClientMessageRpcRooms {
+export namespace ClientMessageRooms {
   export type AsObject = {
     roomIdList: Array<number>,
     rpcId: number,
   }
 }
 
-export class ServerMessageRpcRooms extends jspb.Message {
+export class ServerMessageRooms extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
@@ -43,16 +43,16 @@ export class ServerMessageRpcRooms extends jspb.Message {
   addRooms(value?: protobuf_holdem_define_pb.RoomRecord, index?: number): protobuf_holdem_define_pb.RoomRecord;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ServerMessageRpcRooms.AsObject;
-  static toObject(includeInstance: boolean, msg: ServerMessageRpcRooms): ServerMessageRpcRooms.AsObject;
+  toObject(includeInstance?: boolean): ServerMessageRooms.AsObject;
+  static toObject(includeInstance: boolean, msg: ServerMessageRooms): ServerMessageRooms.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ServerMessageRpcRooms, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ServerMessageRpcRooms;
-  static deserializeBinaryFromReader(message: ServerMessageRpcRooms, reader: jspb.BinaryReader): ServerMessageRpcRooms;
+  static serializeBinaryToWriter(message: ServerMessageRooms, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ServerMessageRooms;
+  static deserializeBinaryFromReader(message: ServerMessageRooms, reader: jspb.BinaryReader): ServerMessageRooms;
 }
 
-export namespace ServerMessageRpcRooms {
+export namespace ServerMessageRooms {
   export type AsObject = {
     status: number,
     rpcId: number,
