@@ -250,7 +250,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageShowPublicCards.repeatedFields_ = [2];
+proto.holdem.pb.ServerMessageShowPublicCards.repeatedFields_ = [2,4];
 
 
 
@@ -283,7 +283,8 @@ proto.holdem.pb.ServerMessageShowPublicCards.toObject = function(includeInstance
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
     publicCardsList: jspb.Message.getRepeatedField(msg, 2),
-    round: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    round: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    publicCards2List: jspb.Message.getRepeatedField(msg, 4)
   };
 
   if (includeInstance) {
@@ -332,6 +333,10 @@ proto.holdem.pb.ServerMessageShowPublicCards.deserializeBinaryFromReader = funct
       var value = /** @type {!proto.holdem.pb.Def.Round} */ (reader.readEnum());
       msg.setRound(value);
       break;
+    case 4:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setPublicCards2List(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -379,6 +384,13 @@ proto.holdem.pb.ServerMessageShowPublicCards.serializeBinaryToWriter = function(
   if (f !== 0.0) {
     writer.writeEnum(
       3,
+      f
+    );
+  }
+  f = message.getPublicCards2List();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      4,
       f
     );
   }
@@ -441,6 +453,35 @@ proto.holdem.pb.ServerMessageShowPublicCards.prototype.getRound = function() {
 /** @param {!proto.holdem.pb.Def.Round} value */
 proto.holdem.pb.ServerMessageShowPublicCards.prototype.setRound = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * repeated int32 public_cards2 = 4;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.ServerMessageShowPublicCards.prototype.getPublicCards2List = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 4));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.ServerMessageShowPublicCards.prototype.setPublicCards2List = function(value) {
+  jspb.Message.setField(this, 4, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.ServerMessageShowPublicCards.prototype.addPublicCards2 = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageShowPublicCards.prototype.clearPublicCards2List = function() {
+  this.setPublicCards2List([]);
 };
 
 

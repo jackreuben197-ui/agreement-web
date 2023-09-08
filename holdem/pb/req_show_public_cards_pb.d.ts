@@ -46,6 +46,11 @@ export class ServerMessageShowPublicCards extends jspb.Message {
   getRound(): protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap];
   setRound(value: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap]): void;
 
+  clearPublicCards2List(): void;
+  getPublicCards2List(): Array<number>;
+  setPublicCards2List(value: Array<number>): void;
+  addPublicCards2(value: number, index?: number): number;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageShowPublicCards.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageShowPublicCards): ServerMessageShowPublicCards.AsObject;
@@ -61,6 +66,7 @@ export namespace ServerMessageShowPublicCards {
     status: number,
     publicCardsList: Array<number>,
     round: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap],
+    publicCards2List: Array<number>,
   }
 }
 
