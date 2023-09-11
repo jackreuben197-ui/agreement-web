@@ -17,10 +17,10 @@ export class ServerMessageFtPublicCards extends jspb.Message {
   getPublicCardsGroupIndex(): number;
   setPublicCardsGroupIndex(value: number): void;
 
-  hasOperators(): boolean;
-  clearOperators(): void;
-  getOperators(): protobuf_holdem_define_ft_pb.OperatorFT | undefined;
-  setOperators(value?: protobuf_holdem_define_ft_pb.OperatorFT): void;
+  clearOperatorsList(): void;
+  getOperatorsList(): Array<protobuf_holdem_define_ft_pb.OperatorFT>;
+  setOperatorsList(value: Array<protobuf_holdem_define_ft_pb.OperatorFT>): void;
+  addOperators(value?: protobuf_holdem_define_ft_pb.OperatorFT, index?: number): protobuf_holdem_define_ft_pb.OperatorFT;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageFtPublicCards.AsObject;
@@ -37,7 +37,7 @@ export namespace ServerMessageFtPublicCards {
     publicCardsGroupList: Array<protobuf_holdem_define_ft_pb.CardsGroup.AsObject>,
     rnd: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap],
     publicCardsGroupIndex: number,
-    operators?: protobuf_holdem_define_ft_pb.OperatorFT.AsObject,
+    operatorsList: Array<protobuf_holdem_define_ft_pb.OperatorFT.AsObject>,
   }
 }
 

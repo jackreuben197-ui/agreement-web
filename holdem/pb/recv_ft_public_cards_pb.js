@@ -37,7 +37,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageFtPublicCards.repeatedFields_ = [1];
+proto.holdem.pb.ServerMessageFtPublicCards.repeatedFields_ = [1,4];
 
 
 
@@ -72,7 +72,8 @@ proto.holdem.pb.ServerMessageFtPublicCards.toObject = function(includeInstance, 
     protobuf_holdem_define_ft_pb.CardsGroup.toObject, includeInstance),
     rnd: jspb.Message.getFieldWithDefault(msg, 2, 0),
     publicCardsGroupIndex: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    operators: (f = msg.getOperators()) && protobuf_holdem_define_ft_pb.OperatorFT.toObject(includeInstance, f)
+    operatorsList: jspb.Message.toObjectList(msg.getOperatorsList(),
+    protobuf_holdem_define_ft_pb.OperatorFT.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -125,7 +126,7 @@ proto.holdem.pb.ServerMessageFtPublicCards.deserializeBinaryFromReader = functio
     case 4:
       var value = new protobuf_holdem_define_ft_pb.OperatorFT;
       reader.readMessage(value,protobuf_holdem_define_ft_pb.OperatorFT.deserializeBinaryFromReader);
-      msg.setOperators(value);
+      msg.addOperators(value);
       break;
     default:
       reader.skipField();
@@ -178,9 +179,9 @@ proto.holdem.pb.ServerMessageFtPublicCards.serializeBinaryToWriter = function(me
       f
     );
   }
-  f = message.getOperators();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getOperatorsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
       4,
       f,
       protobuf_holdem_define_ft_pb.OperatorFT.serializeBinaryToWriter
@@ -251,32 +252,33 @@ proto.holdem.pb.ServerMessageFtPublicCards.prototype.setPublicCardsGroupIndex = 
 
 
 /**
- * optional OperatorFT operators = 4;
- * @return {?proto.holdem.pb.OperatorFT}
+ * repeated OperatorFT operators = 4;
+ * @return {!Array.<!proto.holdem.pb.OperatorFT>}
  */
-proto.holdem.pb.ServerMessageFtPublicCards.prototype.getOperators = function() {
-  return /** @type{?proto.holdem.pb.OperatorFT} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_ft_pb.OperatorFT, 4));
+proto.holdem.pb.ServerMessageFtPublicCards.prototype.getOperatorsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.OperatorFT>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_ft_pb.OperatorFT, 4));
 };
 
 
-/** @param {?proto.holdem.pb.OperatorFT|undefined} value */
-proto.holdem.pb.ServerMessageFtPublicCards.prototype.setOperators = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
-};
-
-
-proto.holdem.pb.ServerMessageFtPublicCards.prototype.clearOperators = function() {
-  this.setOperators(undefined);
+/** @param {!Array.<!proto.holdem.pb.OperatorFT>} value */
+proto.holdem.pb.ServerMessageFtPublicCards.prototype.setOperatorsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
 /**
- * Returns whether this field is set.
- * @return {!boolean}
+ * @param {!proto.holdem.pb.OperatorFT=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.OperatorFT}
  */
-proto.holdem.pb.ServerMessageFtPublicCards.prototype.hasOperators = function() {
-  return jspb.Message.getField(this, 4) != null;
+proto.holdem.pb.ServerMessageFtPublicCards.prototype.addOperators = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.OperatorFT, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageFtPublicCards.prototype.clearOperatorsList = function() {
+  this.setOperatorsList([]);
 };
 
 
