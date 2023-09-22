@@ -182,6 +182,32 @@ export namespace HandCardIndexGroup {
   }
 }
 
+export class PlayerCardsGroup extends jspb.Message {
+  getSeatId(): number;
+  setSeatId(value: number): void;
+
+  clearHandCardsGroupList(): void;
+  getHandCardsGroupList(): Array<CardsGroup>;
+  setHandCardsGroupList(value: Array<CardsGroup>): void;
+  addHandCardsGroup(value?: CardsGroup, index?: number): CardsGroup;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PlayerCardsGroup.AsObject;
+  static toObject(includeInstance: boolean, msg: PlayerCardsGroup): PlayerCardsGroup.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PlayerCardsGroup, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PlayerCardsGroup;
+  static deserializeBinaryFromReader(message: PlayerCardsGroup, reader: jspb.BinaryReader): PlayerCardsGroup;
+}
+
+export namespace PlayerCardsGroup {
+  export type AsObject = {
+    seatId: number,
+    handCardsGroupList: Array<CardsGroup.AsObject>,
+  }
+}
+
 export class PlayerFT extends jspb.Message {
   getSeatId(): number;
   setSeatId(value: number): void;
