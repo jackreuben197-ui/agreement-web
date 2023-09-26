@@ -1472,7 +1472,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.PlayerFT.repeatedFields_ = [3,4];
+proto.holdem.pb.PlayerFT.repeatedFields_ = [3,4,16];
 
 
 
@@ -1518,7 +1518,8 @@ proto.holdem.pb.PlayerFT.toObject = function(includeInstance, msg) {
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 12, 0),
     keepSeatReason: jspb.Message.getFieldWithDefault(msg, 13, 0),
     fantasy: jspb.Message.getFieldWithDefault(msg, 14, false),
-    status: jspb.Message.getFieldWithDefault(msg, 15, 0)
+    status: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    groupPairedList: jspb.Message.getRepeatedField(msg, 16)
   };
 
   if (includeInstance) {
@@ -1615,6 +1616,10 @@ proto.holdem.pb.PlayerFT.deserializeBinaryFromReader = function(msg, reader) {
     case 15:
       var value = /** @type {!proto.holdem.pb.Def.CanPlayStatus} */ (reader.readEnum());
       msg.setStatus(value);
+      break;
+    case 16:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setGroupPairedList(value);
       break;
     default:
       reader.skipField();
@@ -1748,6 +1753,13 @@ proto.holdem.pb.PlayerFT.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       15,
+      f
+    );
+  }
+  f = message.getGroupPairedList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      16,
       f
     );
   }
@@ -2010,6 +2022,35 @@ proto.holdem.pb.PlayerFT.prototype.getStatus = function() {
 /** @param {!proto.holdem.pb.Def.CanPlayStatus} value */
 proto.holdem.pb.PlayerFT.prototype.setStatus = function(value) {
   jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * repeated int32 group_paired = 16;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.PlayerFT.prototype.getGroupPairedList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 16));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.PlayerFT.prototype.setGroupPairedList = function(value) {
+  jspb.Message.setField(this, 16, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.PlayerFT.prototype.addGroupPaired = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 16, value, opt_index);
+};
+
+
+proto.holdem.pb.PlayerFT.prototype.clearGroupPairedList = function() {
+  this.setGroupPairedList([]);
 };
 
 
