@@ -71,7 +71,6 @@ proto.holdem.pb.ServerMessageFtPublicCards.toObject = function(includeInstance, 
     publicCardsGroupList: jspb.Message.toObjectList(msg.getPublicCardsGroupList(),
     protobuf_holdem_define_ft_pb.CardsGroup.toObject, includeInstance),
     rnd: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    publicCardsGroupIndex: jspb.Message.getFieldWithDefault(msg, 3, 0),
     operatorsList: jspb.Message.toObjectList(msg.getOperatorsList(),
     protobuf_holdem_define_ft_pb.OperatorFT.toObject, includeInstance)
   };
@@ -119,10 +118,6 @@ proto.holdem.pb.ServerMessageFtPublicCards.deserializeBinaryFromReader = functio
       var value = /** @type {!proto.holdem.pb.Def.Round} */ (reader.readEnum());
       msg.setRnd(value);
       break;
-    case 3:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setPublicCardsGroupIndex(value);
-      break;
     case 4:
       var value = new protobuf_holdem_define_ft_pb.OperatorFT;
       reader.readMessage(value,protobuf_holdem_define_ft_pb.OperatorFT.deserializeBinaryFromReader);
@@ -169,13 +164,6 @@ proto.holdem.pb.ServerMessageFtPublicCards.serializeBinaryToWriter = function(me
   if (f !== 0.0) {
     writer.writeEnum(
       2,
-      f
-    );
-  }
-  f = message.getPublicCardsGroupIndex();
-  if (f !== 0) {
-    writer.writeInt32(
-      3,
       f
     );
   }
@@ -233,21 +221,6 @@ proto.holdem.pb.ServerMessageFtPublicCards.prototype.getRnd = function() {
 /** @param {!proto.holdem.pb.Def.Round} value */
 proto.holdem.pb.ServerMessageFtPublicCards.prototype.setRnd = function(value) {
   jspb.Message.setField(this, 2, value);
-};
-
-
-/**
- * optional int32 public_cards_group_index = 3;
- * @return {number}
- */
-proto.holdem.pb.ServerMessageFtPublicCards.prototype.getPublicCardsGroupIndex = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ServerMessageFtPublicCards.prototype.setPublicCardsGroupIndex = function(value) {
-  jspb.Message.setField(this, 3, value);
 };
 
 

@@ -7,11 +7,10 @@ export class ServerMessageFtPairAll extends jspb.Message {
   getOperatorSeatId(): number;
   setOperatorSeatId(value: number): void;
 
-  getHandGroupIndex(): number;
-  setHandGroupIndex(value: number): void;
-
-  getPublicCardsGroupIndex(): number;
-  setPublicCardsGroupIndex(value: number): void;
+  clearHandGroupIndexesList(): void;
+  getHandGroupIndexesList(): Array<number>;
+  setHandGroupIndexesList(value: Array<number>): void;
+  addHandGroupIndexes(value: number, index?: number): number;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageFtPairAll.AsObject;
@@ -26,8 +25,7 @@ export class ServerMessageFtPairAll extends jspb.Message {
 export namespace ServerMessageFtPairAll {
   export type AsObject = {
     operatorSeatId: number,
-    handGroupIndex: number,
-    publicCardsGroupIndex: number,
+    handGroupIndexesList: Array<number>,
   }
 }
 

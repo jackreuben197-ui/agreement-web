@@ -14,9 +14,6 @@ export class ServerMessageFtPublicCards extends jspb.Message {
   getRnd(): protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap];
   setRnd(value: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap]): void;
 
-  getPublicCardsGroupIndex(): number;
-  setPublicCardsGroupIndex(value: number): void;
-
   clearOperatorsList(): void;
   getOperatorsList(): Array<protobuf_holdem_define_ft_pb.OperatorFT>;
   setOperatorsList(value: Array<protobuf_holdem_define_ft_pb.OperatorFT>): void;
@@ -36,7 +33,6 @@ export namespace ServerMessageFtPublicCards {
   export type AsObject = {
     publicCardsGroupList: Array<protobuf_holdem_define_ft_pb.CardsGroup.AsObject>,
     rnd: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap],
-    publicCardsGroupIndex: number,
     operatorsList: Array<protobuf_holdem_define_ft_pb.OperatorFT.AsObject>,
   }
 }

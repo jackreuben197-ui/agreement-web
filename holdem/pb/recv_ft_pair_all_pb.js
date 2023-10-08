@@ -24,12 +24,19 @@ goog.exportSymbol('proto.holdem.pb.ServerMessageFtPairAll', null, global);
  * @constructor
  */
 proto.holdem.pb.ServerMessageFtPairAll = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ServerMessageFtPairAll.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.ServerMessageFtPairAll, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.ServerMessageFtPairAll.displayName = 'proto.holdem.pb.ServerMessageFtPairAll';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.ServerMessageFtPairAll.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -60,8 +67,7 @@ proto.holdem.pb.ServerMessageFtPairAll.prototype.toObject = function(opt_include
 proto.holdem.pb.ServerMessageFtPairAll.toObject = function(includeInstance, msg) {
   var f, obj = {
     operatorSeatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    handGroupIndex: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    publicCardsGroupIndex: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    handGroupIndexesList: jspb.Message.getRepeatedField(msg, 2)
   };
 
   if (includeInstance) {
@@ -103,12 +109,8 @@ proto.holdem.pb.ServerMessageFtPairAll.deserializeBinaryFromReader = function(ms
       msg.setOperatorSeatId(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setHandGroupIndex(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setPublicCardsGroupIndex(value);
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setHandGroupIndexesList(value);
       break;
     default:
       reader.skipField();
@@ -146,17 +148,10 @@ proto.holdem.pb.ServerMessageFtPairAll.serializeBinaryToWriter = function(messag
       f
     );
   }
-  f = message.getHandGroupIndex();
-  if (f !== 0) {
-    writer.writeInt32(
+  f = message.getHandGroupIndexesList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
       2,
-      f
-    );
-  }
-  f = message.getPublicCardsGroupIndex();
-  if (f !== 0) {
-    writer.writeInt32(
-      3,
       f
     );
   }
@@ -179,32 +174,31 @@ proto.holdem.pb.ServerMessageFtPairAll.prototype.setOperatorSeatId = function(va
 
 
 /**
- * optional int32 hand_group_index = 2;
- * @return {number}
+ * repeated int32 hand_group_indexes = 2;
+ * @return {!Array.<number>}
  */
-proto.holdem.pb.ServerMessageFtPairAll.prototype.getHandGroupIndex = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+proto.holdem.pb.ServerMessageFtPairAll.prototype.getHandGroupIndexesList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 2));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.ServerMessageFtPairAll.prototype.setHandGroupIndex = function(value) {
-  jspb.Message.setField(this, 2, value);
+/** @param {!Array.<number>} value */
+proto.holdem.pb.ServerMessageFtPairAll.prototype.setHandGroupIndexesList = function(value) {
+  jspb.Message.setField(this, 2, value || []);
 };
 
 
 /**
- * optional int32 public_cards_group_index = 3;
- * @return {number}
+ * @param {!number} value
+ * @param {number=} opt_index
  */
-proto.holdem.pb.ServerMessageFtPairAll.prototype.getPublicCardsGroupIndex = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+proto.holdem.pb.ServerMessageFtPairAll.prototype.addHandGroupIndexes = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.ServerMessageFtPairAll.prototype.setPublicCardsGroupIndex = function(value) {
-  jspb.Message.setField(this, 3, value);
+proto.holdem.pb.ServerMessageFtPairAll.prototype.clearHandGroupIndexesList = function() {
+  this.setHandGroupIndexesList([]);
 };
 
 

@@ -10,11 +10,10 @@ export class ClientMessageFtPair extends jspb.Message {
   getRoom(): protobuf_holdem_define_pb.Room | undefined;
   setRoom(value?: protobuf_holdem_define_pb.Room): void;
 
-  getHandGroupIndex(): number;
-  setHandGroupIndex(value: number): void;
-
-  getPublicCardsGroupIndex(): number;
-  setPublicCardsGroupIndex(value: number): void;
+  clearHandGroupIndexesList(): void;
+  getHandGroupIndexesList(): Array<number>;
+  setHandGroupIndexesList(value: Array<number>): void;
+  addHandGroupIndexes(value: number, index?: number): number;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageFtPair.AsObject;
@@ -29,8 +28,7 @@ export class ClientMessageFtPair extends jspb.Message {
 export namespace ClientMessageFtPair {
   export type AsObject = {
     room?: protobuf_holdem_define_pb.Room.AsObject,
-    handGroupIndex: number,
-    publicCardsGroupIndex: number,
+    handGroupIndexesList: Array<number>,
   }
 }
 

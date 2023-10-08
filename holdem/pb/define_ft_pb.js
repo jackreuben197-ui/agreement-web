@@ -12,6 +12,7 @@ var goog = jspb;
 var global = Function('return this')();
 
 var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
+goog.exportSymbol('proto.holdem.pb.BoardsDetailFT', null, global);
 goog.exportSymbol('proto.holdem.pb.CardsGroup', null, global);
 goog.exportSymbol('proto.holdem.pb.DefFT', null, global);
 goog.exportSymbol('proto.holdem.pb.DefFT.ActionType', null, global);
@@ -3363,6 +3364,223 @@ proto.holdem.pb.GroupResultFT.prototype.clearMyCardsList = function() {
  * @extends {jspb.Message}
  * @constructor
  */
+proto.holdem.pb.BoardsDetailFT = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.BoardsDetailFT.repeatedFields_, null);
+};
+goog.inherits(proto.holdem.pb.BoardsDetailFT, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.BoardsDetailFT.displayName = 'proto.holdem.pb.BoardsDetailFT';
+}
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.BoardsDetailFT.repeatedFields_ = [2];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.BoardsDetailFT.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.BoardsDetailFT.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.BoardsDetailFT} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.BoardsDetailFT.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    targetSeatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    boardsPtList: jspb.Message.getRepeatedField(msg, 2),
+    fullWinBonusPt: jspb.Message.getFieldWithDefault(msg, 3, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.BoardsDetailFT}
+ */
+proto.holdem.pb.BoardsDetailFT.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.BoardsDetailFT;
+  return proto.holdem.pb.BoardsDetailFT.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.BoardsDetailFT} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.BoardsDetailFT}
+ */
+proto.holdem.pb.BoardsDetailFT.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setTargetSeatId(value);
+      break;
+    case 2:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setBoardsPtList(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setFullWinBonusPt(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.BoardsDetailFT.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.BoardsDetailFT.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.BoardsDetailFT} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.BoardsDetailFT.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getTargetSeatId();
+  if (f !== 0) {
+    writer.writeInt32(
+      1,
+      f
+    );
+  }
+  f = message.getBoardsPtList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      2,
+      f
+    );
+  }
+  f = message.getFullWinBonusPt();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional int32 target_seat_id = 1;
+ * @return {number}
+ */
+proto.holdem.pb.BoardsDetailFT.prototype.getTargetSeatId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.BoardsDetailFT.prototype.setTargetSeatId = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * repeated int32 boards_pt = 2;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.BoardsDetailFT.prototype.getBoardsPtList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.BoardsDetailFT.prototype.setBoardsPtList = function(value) {
+  jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.BoardsDetailFT.prototype.addBoardsPt = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+proto.holdem.pb.BoardsDetailFT.prototype.clearBoardsPtList = function() {
+  this.setBoardsPtList([]);
+};
+
+
+/**
+ * optional int32 full_win_bonus_pt = 3;
+ * @return {number}
+ */
+proto.holdem.pb.BoardsDetailFT.prototype.getFullWinBonusPt = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.BoardsDetailFT.prototype.setFullWinBonusPt = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
 proto.holdem.pb.ResultFT = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ResultFT.repeatedFields_, null);
 };
@@ -3375,7 +3593,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ResultFT.repeatedFields_ = [2];
+proto.holdem.pb.ResultFT.repeatedFields_ = [2,13];
 
 
 
@@ -3418,7 +3636,9 @@ proto.holdem.pb.ResultFT.toObject = function(includeInstance, msg) {
     fee: jspb.Message.getFieldWithDefault(msg, 9, 0),
     fantasy: jspb.Message.getFieldWithDefault(msg, 10, false),
     nextFantasy: jspb.Message.getFieldWithDefault(msg, 11, false),
-    standUp: jspb.Message.getFieldWithDefault(msg, 12, false)
+    standUp: jspb.Message.getFieldWithDefault(msg, 12, false),
+    boardsDetailList: jspb.Message.toObjectList(msg.getBoardsDetailList(),
+    proto.holdem.pb.BoardsDetailFT.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -3503,6 +3723,11 @@ proto.holdem.pb.ResultFT.deserializeBinaryFromReader = function(msg, reader) {
     case 12:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setStandUp(value);
+      break;
+    case 13:
+      var value = new proto.holdem.pb.BoardsDetailFT;
+      reader.readMessage(value,proto.holdem.pb.BoardsDetailFT.deserializeBinaryFromReader);
+      msg.addBoardsDetail(value);
       break;
     default:
       reader.skipField();
@@ -3616,6 +3841,14 @@ proto.holdem.pb.ResultFT.serializeBinaryToWriter = function(message, writer) {
     writer.writeBool(
       12,
       f
+    );
+  }
+  f = message.getBoardsDetailList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      13,
+      f,
+      proto.holdem.pb.BoardsDetailFT.serializeBinaryToWriter
     );
   }
 };
@@ -3820,6 +4053,37 @@ proto.holdem.pb.ResultFT.prototype.getStandUp = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ResultFT.prototype.setStandUp = function(value) {
   jspb.Message.setField(this, 12, value);
+};
+
+
+/**
+ * repeated BoardsDetailFT boards_detail = 13;
+ * @return {!Array.<!proto.holdem.pb.BoardsDetailFT>}
+ */
+proto.holdem.pb.ResultFT.prototype.getBoardsDetailList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.BoardsDetailFT>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.BoardsDetailFT, 13));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.BoardsDetailFT>} value */
+proto.holdem.pb.ResultFT.prototype.setBoardsDetailList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 13, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.BoardsDetailFT=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.BoardsDetailFT}
+ */
+proto.holdem.pb.ResultFT.prototype.addBoardsDetail = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 13, opt_value, proto.holdem.pb.BoardsDetailFT, opt_index);
+};
+
+
+proto.holdem.pb.ResultFT.prototype.clearBoardsDetailList = function() {
+  this.setBoardsDetailList([]);
 };
 
 

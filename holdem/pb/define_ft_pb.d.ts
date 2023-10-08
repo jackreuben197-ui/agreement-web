@@ -476,6 +476,36 @@ export namespace GroupResultFT {
   }
 }
 
+export class BoardsDetailFT extends jspb.Message {
+  getTargetSeatId(): number;
+  setTargetSeatId(value: number): void;
+
+  clearBoardsPtList(): void;
+  getBoardsPtList(): Array<number>;
+  setBoardsPtList(value: Array<number>): void;
+  addBoardsPt(value: number, index?: number): number;
+
+  getFullWinBonusPt(): number;
+  setFullWinBonusPt(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BoardsDetailFT.AsObject;
+  static toObject(includeInstance: boolean, msg: BoardsDetailFT): BoardsDetailFT.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: BoardsDetailFT, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BoardsDetailFT;
+  static deserializeBinaryFromReader(message: BoardsDetailFT, reader: jspb.BinaryReader): BoardsDetailFT;
+}
+
+export namespace BoardsDetailFT {
+  export type AsObject = {
+    targetSeatId: number,
+    boardsPtList: Array<number>,
+    fullWinBonusPt: number,
+  }
+}
+
 export class ResultFT extends jspb.Message {
   getSeatId(): number;
   setSeatId(value: number): void;
@@ -515,6 +545,11 @@ export class ResultFT extends jspb.Message {
   getStandUp(): boolean;
   setStandUp(value: boolean): void;
 
+  clearBoardsDetailList(): void;
+  getBoardsDetailList(): Array<BoardsDetailFT>;
+  setBoardsDetailList(value: Array<BoardsDetailFT>): void;
+  addBoardsDetail(value?: BoardsDetailFT, index?: number): BoardsDetailFT;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ResultFT.AsObject;
   static toObject(includeInstance: boolean, msg: ResultFT): ResultFT.AsObject;
@@ -539,6 +574,7 @@ export namespace ResultFT {
     fantasy: boolean,
     nextFantasy: boolean,
     standUp: boolean,
+    boardsDetailList: Array<BoardsDetailFT.AsObject>,
   }
 }
 
