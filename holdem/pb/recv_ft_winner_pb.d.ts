@@ -17,6 +17,16 @@ export class ServerMessageFtWinner extends jspb.Message {
   getRound(): protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap];
   setRound(value: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap]): void;
 
+  clearTurnPublicCardsGroupList(): void;
+  getTurnPublicCardsGroupList(): Array<protobuf_holdem_define_ft_pb.CardsGroup>;
+  setTurnPublicCardsGroupList(value: Array<protobuf_holdem_define_ft_pb.CardsGroup>): void;
+  addTurnPublicCardsGroup(value?: protobuf_holdem_define_ft_pb.CardsGroup, index?: number): protobuf_holdem_define_ft_pb.CardsGroup;
+
+  clearRiverPublicCardsGroupList(): void;
+  getRiverPublicCardsGroupList(): Array<protobuf_holdem_define_ft_pb.CardsGroup>;
+  setRiverPublicCardsGroupList(value: Array<protobuf_holdem_define_ft_pb.CardsGroup>): void;
+  addRiverPublicCardsGroup(value?: protobuf_holdem_define_ft_pb.CardsGroup, index?: number): protobuf_holdem_define_ft_pb.CardsGroup;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageFtWinner.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageFtWinner): ServerMessageFtWinner.AsObject;
@@ -32,6 +42,8 @@ export namespace ServerMessageFtWinner {
     resultsList: Array<protobuf_holdem_define_ft_pb.ResultFT.AsObject>,
     handNum: number,
     round: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap],
+    turnPublicCardsGroupList: Array<protobuf_holdem_define_ft_pb.CardsGroup.AsObject>,
+    riverPublicCardsGroupList: Array<protobuf_holdem_define_ft_pb.CardsGroup.AsObject>,
   }
 }
 

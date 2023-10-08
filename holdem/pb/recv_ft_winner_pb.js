@@ -37,7 +37,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageFtWinner.repeatedFields_ = [1];
+proto.holdem.pb.ServerMessageFtWinner.repeatedFields_ = [1,4,5];
 
 
 
@@ -71,7 +71,11 @@ proto.holdem.pb.ServerMessageFtWinner.toObject = function(includeInstance, msg) 
     resultsList: jspb.Message.toObjectList(msg.getResultsList(),
     protobuf_holdem_define_ft_pb.ResultFT.toObject, includeInstance),
     handNum: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    round: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    round: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    turnPublicCardsGroupList: jspb.Message.toObjectList(msg.getTurnPublicCardsGroupList(),
+    protobuf_holdem_define_ft_pb.CardsGroup.toObject, includeInstance),
+    riverPublicCardsGroupList: jspb.Message.toObjectList(msg.getRiverPublicCardsGroupList(),
+    protobuf_holdem_define_ft_pb.CardsGroup.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -120,6 +124,16 @@ proto.holdem.pb.ServerMessageFtWinner.deserializeBinaryFromReader = function(msg
     case 3:
       var value = /** @type {!proto.holdem.pb.Def.Round} */ (reader.readEnum());
       msg.setRound(value);
+      break;
+    case 4:
+      var value = new protobuf_holdem_define_ft_pb.CardsGroup;
+      reader.readMessage(value,protobuf_holdem_define_ft_pb.CardsGroup.deserializeBinaryFromReader);
+      msg.addTurnPublicCardsGroup(value);
+      break;
+    case 5:
+      var value = new protobuf_holdem_define_ft_pb.CardsGroup;
+      reader.readMessage(value,protobuf_holdem_define_ft_pb.CardsGroup.deserializeBinaryFromReader);
+      msg.addRiverPublicCardsGroup(value);
       break;
     default:
       reader.skipField();
@@ -170,6 +184,22 @@ proto.holdem.pb.ServerMessageFtWinner.serializeBinaryToWriter = function(message
     writer.writeEnum(
       3,
       f
+    );
+  }
+  f = message.getTurnPublicCardsGroupList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      4,
+      f,
+      protobuf_holdem_define_ft_pb.CardsGroup.serializeBinaryToWriter
+    );
+  }
+  f = message.getRiverPublicCardsGroupList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      5,
+      f,
+      protobuf_holdem_define_ft_pb.CardsGroup.serializeBinaryToWriter
     );
   }
 };
@@ -233,6 +263,68 @@ proto.holdem.pb.ServerMessageFtWinner.prototype.getRound = function() {
 /** @param {!proto.holdem.pb.Def.Round} value */
 proto.holdem.pb.ServerMessageFtWinner.prototype.setRound = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * repeated CardsGroup turn_public_cards_group = 4;
+ * @return {!Array.<!proto.holdem.pb.CardsGroup>}
+ */
+proto.holdem.pb.ServerMessageFtWinner.prototype.getTurnPublicCardsGroupList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.CardsGroup>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_ft_pb.CardsGroup, 4));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.CardsGroup>} value */
+proto.holdem.pb.ServerMessageFtWinner.prototype.setTurnPublicCardsGroupList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 4, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.CardsGroup=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.CardsGroup}
+ */
+proto.holdem.pb.ServerMessageFtWinner.prototype.addTurnPublicCardsGroup = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.CardsGroup, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageFtWinner.prototype.clearTurnPublicCardsGroupList = function() {
+  this.setTurnPublicCardsGroupList([]);
+};
+
+
+/**
+ * repeated CardsGroup river_public_cards_group = 5;
+ * @return {!Array.<!proto.holdem.pb.CardsGroup>}
+ */
+proto.holdem.pb.ServerMessageFtWinner.prototype.getRiverPublicCardsGroupList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.CardsGroup>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_ft_pb.CardsGroup, 5));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.CardsGroup>} value */
+proto.holdem.pb.ServerMessageFtWinner.prototype.setRiverPublicCardsGroupList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 5, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.CardsGroup=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.CardsGroup}
+ */
+proto.holdem.pb.ServerMessageFtWinner.prototype.addRiverPublicCardsGroup = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.holdem.pb.CardsGroup, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageFtWinner.prototype.clearRiverPublicCardsGroupList = function() {
+  this.setRiverPublicCardsGroupList([]);
 };
 
 
