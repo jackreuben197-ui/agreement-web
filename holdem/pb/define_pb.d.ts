@@ -2144,6 +2144,11 @@ export class RoomRecord extends jspb.Message {
   getRetainType(): number;
   setRetainType(value: number): void;
 
+  hasRoomAdmin(): boolean;
+  clearRoomAdmin(): void;
+  getRoomAdmin(): RoomAdmin | undefined;
+  setRoomAdmin(value?: RoomAdmin): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2254,6 +2259,7 @@ export namespace RoomRecord {
     chatType: number,
     autoOnTableSwitch: number,
     retainType: number,
+    roomAdmin?: RoomAdmin.AsObject,
   }
 }
 
@@ -2328,6 +2334,46 @@ export namespace MultiLangName {
   export type AsObject = {
     lang: string,
     name: string,
+  }
+}
+
+export class RoomAdmin extends jspb.Message {
+  getDisbandRoom(): number;
+  setDisbandRoom(value: number): void;
+
+  getUserStandUp(): number;
+  setUserStandUp(value: number): void;
+
+  getUserLeave(): number;
+  setUserLeave(value: number): void;
+
+  getViewVideo(): number;
+  setViewVideo(value: number): void;
+
+  getVideoVerify(): number;
+  setVideoVerify(value: number): void;
+
+  getIsAdmin(): boolean;
+  setIsAdmin(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RoomAdmin.AsObject;
+  static toObject(includeInstance: boolean, msg: RoomAdmin): RoomAdmin.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RoomAdmin, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RoomAdmin;
+  static deserializeBinaryFromReader(message: RoomAdmin, reader: jspb.BinaryReader): RoomAdmin;
+}
+
+export namespace RoomAdmin {
+  export type AsObject = {
+    disbandRoom: number,
+    userStandUp: number,
+    userLeave: number,
+    viewVideo: number,
+    videoVerify: number,
+    isAdmin: boolean,
   }
 }
 
