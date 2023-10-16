@@ -376,6 +376,9 @@ export class PlayerStartInfoFT extends jspb.Message {
   getNeedGroup(): boolean;
   setNeedGroup(value: boolean): void;
 
+  getWaitDeadline(): number;
+  setWaitDeadline(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfoFT.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerStartInfoFT): PlayerStartInfoFT.AsObject;
@@ -393,6 +396,7 @@ export namespace PlayerStartInfoFT {
     chip: number,
     fantasy: boolean,
     needGroup: boolean,
+    waitDeadline: number,
   }
 }
 
