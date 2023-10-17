@@ -582,3 +582,67 @@ export namespace ResultFT {
   }
 }
 
+export class PlayerSummaryFT extends jspb.Message {
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getAvatar(): string;
+  setAvatar(value: string): void;
+
+  getSex(): number;
+  setSex(value: number): void;
+
+  getHandNum(): number;
+  setHandNum(value: number): void;
+
+  getBringInTotal(): number;
+  setBringInTotal(value: number): void;
+
+  getBringOutTotal(): number;
+  setBringOutTotal(value: number): void;
+
+  getChip(): number;
+  setChip(value: number): void;
+
+  getWin(): number;
+  setWin(value: number): void;
+
+  getStatus(): protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap];
+  setStatus(value: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap]): void;
+
+  getIsOnline(): boolean;
+  setIsOnline(value: boolean): void;
+
+  getFantasyCount(): number;
+  setFantasyCount(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PlayerSummaryFT.AsObject;
+  static toObject(includeInstance: boolean, msg: PlayerSummaryFT): PlayerSummaryFT.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PlayerSummaryFT, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PlayerSummaryFT;
+  static deserializeBinaryFromReader(message: PlayerSummaryFT, reader: jspb.BinaryReader): PlayerSummaryFT;
+}
+
+export namespace PlayerSummaryFT {
+  export type AsObject = {
+    userRid: number,
+    name: string,
+    avatar: string,
+    sex: number,
+    handNum: number,
+    bringInTotal: number,
+    bringOutTotal: number,
+    chip: number,
+    win: number,
+    status: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap],
+    isOnline: boolean,
+    fantasyCount: number,
+  }
+}
+
