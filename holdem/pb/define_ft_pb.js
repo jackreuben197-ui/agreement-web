@@ -731,7 +731,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.HandInfoFT.repeatedFields_ = [3];
+proto.holdem.pb.HandInfoFT.repeatedFields_ = [3,4];
 
 
 
@@ -765,7 +765,9 @@ proto.holdem.pb.HandInfoFT.toObject = function(includeInstance, msg) {
     handNum: jspb.Message.getFieldWithDefault(msg, 1, 0),
     buSeatId: jspb.Message.getFieldWithDefault(msg, 2, 0),
     publicCardsGroupList: jspb.Message.toObjectList(msg.getPublicCardsGroupList(),
-    proto.holdem.pb.CardsGroup.toObject, includeInstance)
+    proto.holdem.pb.CardsGroup.toObject, includeInstance),
+    resultsList: jspb.Message.toObjectList(msg.getResultsList(),
+    proto.holdem.pb.ResultFT.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -814,6 +816,11 @@ proto.holdem.pb.HandInfoFT.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.CardsGroup;
       reader.readMessage(value,proto.holdem.pb.CardsGroup.deserializeBinaryFromReader);
       msg.addPublicCardsGroup(value);
+      break;
+    case 4:
+      var value = new proto.holdem.pb.ResultFT;
+      reader.readMessage(value,proto.holdem.pb.ResultFT.deserializeBinaryFromReader);
+      msg.addResults(value);
       break;
     default:
       reader.skipField();
@@ -864,6 +871,14 @@ proto.holdem.pb.HandInfoFT.serializeBinaryToWriter = function(message, writer) {
       3,
       f,
       proto.holdem.pb.CardsGroup.serializeBinaryToWriter
+    );
+  }
+  f = message.getResultsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      4,
+      f,
+      proto.holdem.pb.ResultFT.serializeBinaryToWriter
     );
   }
 };
@@ -927,6 +942,37 @@ proto.holdem.pb.HandInfoFT.prototype.addPublicCardsGroup = function(opt_value, o
 
 proto.holdem.pb.HandInfoFT.prototype.clearPublicCardsGroupList = function() {
   this.setPublicCardsGroupList([]);
+};
+
+
+/**
+ * repeated ResultFT results = 4;
+ * @return {!Array.<!proto.holdem.pb.ResultFT>}
+ */
+proto.holdem.pb.HandInfoFT.prototype.getResultsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ResultFT>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ResultFT, 4));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.ResultFT>} value */
+proto.holdem.pb.HandInfoFT.prototype.setResultsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 4, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.ResultFT=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ResultFT}
+ */
+proto.holdem.pb.HandInfoFT.prototype.addResults = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.ResultFT, opt_index);
+};
+
+
+proto.holdem.pb.HandInfoFT.prototype.clearResultsList = function() {
+  this.setResultsList([]);
 };
 
 
