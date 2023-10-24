@@ -269,6 +269,9 @@ export class PlayerFT extends jspb.Message {
   setGroupPairedList(value: Array<number>): void;
   addGroupPaired(value: number, index?: number): number;
 
+  getFantasyConNum(): number;
+  setFantasyConNum(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerFT.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerFT): PlayerFT.AsObject;
@@ -297,6 +300,7 @@ export namespace PlayerFT {
     fantasy: boolean,
     status: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap],
     groupPairedList: Array<number>,
+    fantasyConNum: number,
   }
 }
 
@@ -385,6 +389,9 @@ export class PlayerStartInfoFT extends jspb.Message {
   getWaitDeadline(): number;
   setWaitDeadline(value: number): void;
 
+  getFantasyConNum(): number;
+  setFantasyConNum(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfoFT.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerStartInfoFT): PlayerStartInfoFT.AsObject;
@@ -403,6 +410,7 @@ export namespace PlayerStartInfoFT {
     fantasy: boolean,
     needGroup: boolean,
     waitDeadline: number,
+    fantasyConNum: number,
   }
 }
 

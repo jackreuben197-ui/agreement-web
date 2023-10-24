@@ -1567,7 +1567,8 @@ proto.holdem.pb.PlayerFT.toObject = function(includeInstance, msg) {
     keepSeatReason: jspb.Message.getFieldWithDefault(msg, 13, 0),
     fantasy: jspb.Message.getFieldWithDefault(msg, 14, false),
     status: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    groupPairedList: jspb.Message.getRepeatedField(msg, 16)
+    groupPairedList: jspb.Message.getRepeatedField(msg, 16),
+    fantasyConNum: jspb.Message.getFieldWithDefault(msg, 17, 0)
   };
 
   if (includeInstance) {
@@ -1668,6 +1669,10 @@ proto.holdem.pb.PlayerFT.deserializeBinaryFromReader = function(msg, reader) {
     case 16:
       var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
       msg.setGroupPairedList(value);
+      break;
+    case 17:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setFantasyConNum(value);
       break;
     default:
       reader.skipField();
@@ -1808,6 +1813,13 @@ proto.holdem.pb.PlayerFT.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writePackedInt32(
       16,
+      f
+    );
+  }
+  f = message.getFantasyConNum();
+  if (f !== 0) {
+    writer.writeUint32(
+      17,
       f
     );
   }
@@ -2099,6 +2111,21 @@ proto.holdem.pb.PlayerFT.prototype.addGroupPaired = function(value, opt_index) {
 
 proto.holdem.pb.PlayerFT.prototype.clearGroupPairedList = function() {
   this.setGroupPairedList([]);
+};
+
+
+/**
+ * optional uint32 fantasy_con_num = 17;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerFT.prototype.getFantasyConNum = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerFT.prototype.setFantasyConNum = function(value) {
+  jspb.Message.setField(this, 17, value);
 };
 
 
@@ -2611,7 +2638,8 @@ proto.holdem.pb.PlayerStartInfoFT.toObject = function(includeInstance, msg) {
     chip: jspb.Message.getFieldWithDefault(msg, 3, 0),
     fantasy: jspb.Message.getFieldWithDefault(msg, 4, false),
     needGroup: jspb.Message.getFieldWithDefault(msg, 5, false),
-    waitDeadline: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    waitDeadline: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    fantasyConNum: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -2671,6 +2699,10 @@ proto.holdem.pb.PlayerStartInfoFT.deserializeBinaryFromReader = function(msg, re
     case 6:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setWaitDeadline(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setFantasyConNum(value);
       break;
     default:
       reader.skipField();
@@ -2740,6 +2772,13 @@ proto.holdem.pb.PlayerStartInfoFT.serializeBinaryToWriter = function(message, wr
   if (f !== 0) {
     writer.writeInt64(
       6,
+      f
+    );
+  }
+  f = message.getFantasyConNum();
+  if (f !== 0) {
+    writer.writeUint32(
+      7,
       f
     );
   }
@@ -2851,6 +2890,21 @@ proto.holdem.pb.PlayerStartInfoFT.prototype.getWaitDeadline = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerStartInfoFT.prototype.setWaitDeadline = function(value) {
   jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional uint32 fantasy_con_num = 7;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerStartInfoFT.prototype.getFantasyConNum = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerStartInfoFT.prototype.setFantasyConNum = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 
