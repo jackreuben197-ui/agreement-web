@@ -568,6 +568,9 @@ export class ResultFT extends jspb.Message {
   setBoardsDetailList(value: Array<BoardsDetailFT>): void;
   addBoardsDetail(value?: BoardsDetailFT, index?: number): BoardsDetailFT;
 
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ResultFT.AsObject;
   static toObject(includeInstance: boolean, msg: ResultFT): ResultFT.AsObject;
@@ -593,6 +596,7 @@ export namespace ResultFT {
     nextFantasy: boolean,
     standUp: boolean,
     boardsDetailList: Array<BoardsDetailFT.AsObject>,
+    userRid: number,
   }
 }
 

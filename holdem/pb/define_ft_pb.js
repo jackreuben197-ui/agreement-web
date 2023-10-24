@@ -3766,7 +3766,8 @@ proto.holdem.pb.ResultFT.toObject = function(includeInstance, msg) {
     nextFantasy: jspb.Message.getFieldWithDefault(msg, 11, false),
     standUp: jspb.Message.getFieldWithDefault(msg, 12, false),
     boardsDetailList: jspb.Message.toObjectList(msg.getBoardsDetailList(),
-    proto.holdem.pb.BoardsDetailFT.toObject, includeInstance)
+    proto.holdem.pb.BoardsDetailFT.toObject, includeInstance),
+    userRid: jspb.Message.getFieldWithDefault(msg, 14, 0)
   };
 
   if (includeInstance) {
@@ -3856,6 +3857,10 @@ proto.holdem.pb.ResultFT.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.BoardsDetailFT;
       reader.readMessage(value,proto.holdem.pb.BoardsDetailFT.deserializeBinaryFromReader);
       msg.addBoardsDetail(value);
+      break;
+    case 14:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserRid(value);
       break;
     default:
       reader.skipField();
@@ -3977,6 +3982,13 @@ proto.holdem.pb.ResultFT.serializeBinaryToWriter = function(message, writer) {
       13,
       f,
       proto.holdem.pb.BoardsDetailFT.serializeBinaryToWriter
+    );
+  }
+  f = message.getUserRid();
+  if (f !== 0) {
+    writer.writeUint64(
+      14,
+      f
     );
   }
 };
@@ -4212,6 +4224,21 @@ proto.holdem.pb.ResultFT.prototype.addBoardsDetail = function(opt_value, opt_ind
 
 proto.holdem.pb.ResultFT.prototype.clearBoardsDetailList = function() {
   this.setBoardsDetailList([]);
+};
+
+
+/**
+ * optional uint64 user_rid = 14;
+ * @return {number}
+ */
+proto.holdem.pb.ResultFT.prototype.getUserRid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ResultFT.prototype.setUserRid = function(value) {
+  jspb.Message.setField(this, 14, value);
 };
 
 
