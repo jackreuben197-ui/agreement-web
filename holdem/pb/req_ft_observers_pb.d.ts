@@ -4,7 +4,7 @@
 import * as jspb from "google-protobuf";
 import * as protobuf_holdem_define_pb from "../../protobuf/holdem/define_pb";
 
-export class ClientMessageFTObservers extends jspb.Message {
+export class ClientMessageFtObservers extends jspb.Message {
   hasRoom(): boolean;
   clearRoom(): void;
   getRoom(): protobuf_holdem_define_pb.Room | undefined;
@@ -17,16 +17,16 @@ export class ClientMessageFTObservers extends jspb.Message {
   setLimit(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ClientMessageFTObservers.AsObject;
-  static toObject(includeInstance: boolean, msg: ClientMessageFTObservers): ClientMessageFTObservers.AsObject;
+  toObject(includeInstance?: boolean): ClientMessageFtObservers.AsObject;
+  static toObject(includeInstance: boolean, msg: ClientMessageFtObservers): ClientMessageFtObservers.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ClientMessageFTObservers, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ClientMessageFTObservers;
-  static deserializeBinaryFromReader(message: ClientMessageFTObservers, reader: jspb.BinaryReader): ClientMessageFTObservers;
+  static serializeBinaryToWriter(message: ClientMessageFtObservers, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ClientMessageFtObservers;
+  static deserializeBinaryFromReader(message: ClientMessageFtObservers, reader: jspb.BinaryReader): ClientMessageFtObservers;
 }
 
-export namespace ClientMessageFTObservers {
+export namespace ClientMessageFtObservers {
   export type AsObject = {
     room?: protobuf_holdem_define_pb.Room.AsObject,
     offset: number,
@@ -34,7 +34,7 @@ export namespace ClientMessageFTObservers {
   }
 }
 
-export class ServerMessageFTObservers extends jspb.Message {
+export class ServerMessageFtObservers extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
@@ -53,16 +53,16 @@ export class ServerMessageFTObservers extends jspb.Message {
   setTotal(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ServerMessageFTObservers.AsObject;
-  static toObject(includeInstance: boolean, msg: ServerMessageFTObservers): ServerMessageFTObservers.AsObject;
+  toObject(includeInstance?: boolean): ServerMessageFtObservers.AsObject;
+  static toObject(includeInstance: boolean, msg: ServerMessageFtObservers): ServerMessageFtObservers.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ServerMessageFTObservers, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ServerMessageFTObservers;
-  static deserializeBinaryFromReader(message: ServerMessageFTObservers, reader: jspb.BinaryReader): ServerMessageFTObservers;
+  static serializeBinaryToWriter(message: ServerMessageFtObservers, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ServerMessageFtObservers;
+  static deserializeBinaryFromReader(message: ServerMessageFtObservers, reader: jspb.BinaryReader): ServerMessageFtObservers;
 }
 
-export namespace ServerMessageFTObservers {
+export namespace ServerMessageFtObservers {
   export type AsObject = {
     status: number,
     observersList: Array<protobuf_holdem_define_pb.Roomer.AsObject>,
