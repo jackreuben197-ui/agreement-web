@@ -45,6 +45,9 @@ export class ServerMessageCbBringIn extends jspb.Message {
   getCurrent(): number;
   setCurrent(value: number): void;
 
+  getMaxPlayBetLimit(): number;
+  setMaxPlayBetLimit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageCbBringIn.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageCbBringIn): ServerMessageCbBringIn.AsObject;
@@ -60,6 +63,7 @@ export namespace ServerMessageCbBringIn {
     status: number,
     bringIn: number,
     current: number,
+    maxPlayBetLimit: number,
   }
 }
 

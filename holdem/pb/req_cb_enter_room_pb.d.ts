@@ -60,9 +60,6 @@ export class ServerMessageCbEnterRoom extends jspb.Message {
   getMyWallet(): number;
   setMyWallet(value: number): void;
 
-  getMaxPlayBetLimit(): number;
-  setMaxPlayBetLimit(value: number): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageCbEnterRoom.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageCbEnterRoom): ServerMessageCbEnterRoom.AsObject;
@@ -84,7 +81,6 @@ export namespace ServerMessageCbEnterRoom {
     myWin: number,
     onTable: boolean,
     myWallet: number,
-    maxPlayBetLimit: number,
   }
 }
 

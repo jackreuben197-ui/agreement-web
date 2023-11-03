@@ -220,8 +220,7 @@ proto.holdem.pb.ServerMessageCbEnterRoom.toObject = function(includeInstance, ms
     protobuf_holdem_define_cb_pb.CBPlayResult.toObject, includeInstance),
     myWin: jspb.Message.getFieldWithDefault(msg, 7, 0),
     onTable: jspb.Message.getFieldWithDefault(msg, 8, false),
-    myWallet: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    maxPlayBetLimit: jspb.Message.getFieldWithDefault(msg, 10, 0)
+    myWallet: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -297,10 +296,6 @@ proto.holdem.pb.ServerMessageCbEnterRoom.deserializeBinaryFromReader = function(
     case 9:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setMyWallet(value);
-      break;
-    case 10:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setMaxPlayBetLimit(value);
       break;
     default:
       reader.skipField();
@@ -395,13 +390,6 @@ proto.holdem.pb.ServerMessageCbEnterRoom.serializeBinaryToWriter = function(mess
   if (f !== 0) {
     writer.writeUint64(
       9,
-      f
-    );
-  }
-  f = message.getMaxPlayBetLimit();
-  if (f !== 0) {
-    writer.writeUint64(
-      10,
       f
     );
   }
@@ -604,21 +592,6 @@ proto.holdem.pb.ServerMessageCbEnterRoom.prototype.getMyWallet = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageCbEnterRoom.prototype.setMyWallet = function(value) {
   jspb.Message.setField(this, 9, value);
-};
-
-
-/**
- * optional uint64 max_play_bet_limit = 10;
- * @return {number}
- */
-proto.holdem.pb.ServerMessageCbEnterRoom.prototype.getMaxPlayBetLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ServerMessageCbEnterRoom.prototype.setMaxPlayBetLimit = function(value) {
-  jspb.Message.setField(this, 10, value);
 };
 
 
