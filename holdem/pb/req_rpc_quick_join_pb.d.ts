@@ -2,6 +2,7 @@
 // file: protobuf/holdem/req_rpc_quick_join.proto
 
 import * as jspb from "google-protobuf";
+import * as protobuf_holdem_define_pb from "../../protobuf/holdem/define_pb";
 
 export class ClientMessageQuickJoin extends jspb.Message {
   getRpcId(): number;
@@ -42,8 +43,10 @@ export class ServerMessageQuickJoin extends jspb.Message {
   getRpcId(): number;
   setRpcId(value: number): void;
 
-  getRoomId(): number;
-  setRoomId(value: number): void;
+  hasRoom(): boolean;
+  clearRoom(): void;
+  getRoom(): protobuf_holdem_define_pb.RoomWithType | undefined;
+  setRoom(value?: protobuf_holdem_define_pb.RoomWithType): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageQuickJoin.AsObject;
@@ -59,7 +62,7 @@ export namespace ServerMessageQuickJoin {
   export type AsObject = {
     status: number,
     rpcId: number,
-    roomId: number,
+    room?: protobuf_holdem_define_pb.RoomWithType.AsObject,
   }
 }
 

@@ -11,6 +11,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ClientMessageQuickJoin', null, global);
 goog.exportSymbol('proto.holdem.pb.ServerMessageQuickJoin', null, global);
 
@@ -289,7 +290,7 @@ proto.holdem.pb.ServerMessageQuickJoin.toObject = function(includeInstance, msg)
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
     rpcId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    roomId: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.RoomWithType.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -335,8 +336,9 @@ proto.holdem.pb.ServerMessageQuickJoin.deserializeBinaryFromReader = function(ms
       msg.setRpcId(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setRoomId(value);
+      var value = new protobuf_holdem_define_pb.RoomWithType;
+      reader.readMessage(value,protobuf_holdem_define_pb.RoomWithType.deserializeBinaryFromReader);
+      msg.setRoom(value);
       break;
     default:
       reader.skipField();
@@ -381,11 +383,12 @@ proto.holdem.pb.ServerMessageQuickJoin.serializeBinaryToWriter = function(messag
       f
     );
   }
-  f = message.getRoomId();
-  if (f !== 0) {
-    writer.writeUint32(
+  f = message.getRoom();
+  if (f != null) {
+    writer.writeMessage(
       3,
-      f
+      f,
+      protobuf_holdem_define_pb.RoomWithType.serializeBinaryToWriter
     );
   }
 };
@@ -422,17 +425,32 @@ proto.holdem.pb.ServerMessageQuickJoin.prototype.setRpcId = function(value) {
 
 
 /**
- * optional uint32 room_id = 3;
- * @return {number}
+ * optional RoomWithType room = 3;
+ * @return {?proto.holdem.pb.RoomWithType}
  */
-proto.holdem.pb.ServerMessageQuickJoin.prototype.getRoomId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+proto.holdem.pb.ServerMessageQuickJoin.prototype.getRoom = function() {
+  return /** @type{?proto.holdem.pb.RoomWithType} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.RoomWithType, 3));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.ServerMessageQuickJoin.prototype.setRoomId = function(value) {
-  jspb.Message.setField(this, 3, value);
+/** @param {?proto.holdem.pb.RoomWithType|undefined} value */
+proto.holdem.pb.ServerMessageQuickJoin.prototype.setRoom = function(value) {
+  jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+proto.holdem.pb.ServerMessageQuickJoin.prototype.clearRoom = function() {
+  this.setRoom(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageQuickJoin.prototype.hasRoom = function() {
+  return jspb.Message.getField(this, 3) != null;
 };
 
 
