@@ -34,6 +34,7 @@ goog.exportSymbol('proto.holdem.pb.DefCB.ConsumeType', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.HistoryResult', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.HistorySlot', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.LeaveReason', null, global);
+goog.exportSymbol('proto.holdem.pb.DefCB.OrderByType', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.PlaySlot', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.RoomCloseReason', null, global);
 goog.exportSymbol('proto.holdem.pb.DefCB.WayPointColor', null, global);
@@ -247,6 +248,16 @@ proto.holdem.pb.DefCB.LeaveReason = {
   LR_FORCE: 2,
   LR_GAMEOVER: 3,
   LR_OFFLINE: 4
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.DefCB.OrderByType = {
+  OT_ORDER_BY_NONE: 0,
+  OT_ORDER_BY_PLAY: 1,
+  OT_ORDER_BY_WALLET: 2,
+  OT_ORDER_BY_RATE: 3
 };
 
 

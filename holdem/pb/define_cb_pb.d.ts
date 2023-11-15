@@ -106,6 +106,15 @@ export namespace DefCB {
   }
 
   export const LeaveReason: LeaveReasonMap;
+
+  export interface OrderByTypeMap {
+    OT_ORDER_BY_NONE: 0;
+    OT_ORDER_BY_PLAY: 1;
+    OT_ORDER_BY_WALLET: 2;
+    OT_ORDER_BY_RATE: 3;
+  }
+
+  export const OrderByType: OrderByTypeMap;
 }
 
 export class CBRoom extends jspb.Message {
