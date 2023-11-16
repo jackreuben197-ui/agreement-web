@@ -285,8 +285,7 @@ proto.holdem.pb.ServerMessageCbBringIn.toObject = function(includeInstance, msg)
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
     bringIn: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    current: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    maxPlayBetLimit: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    current: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -334,10 +333,6 @@ proto.holdem.pb.ServerMessageCbBringIn.deserializeBinaryFromReader = function(ms
     case 3:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setCurrent(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setMaxPlayBetLimit(value);
       break;
     default:
       reader.skipField();
@@ -389,13 +384,6 @@ proto.holdem.pb.ServerMessageCbBringIn.serializeBinaryToWriter = function(messag
       f
     );
   }
-  f = message.getMaxPlayBetLimit();
-  if (f !== 0) {
-    writer.writeUint64(
-      4,
-      f
-    );
-  }
 };
 
 
@@ -441,21 +429,6 @@ proto.holdem.pb.ServerMessageCbBringIn.prototype.getCurrent = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageCbBringIn.prototype.setCurrent = function(value) {
   jspb.Message.setField(this, 3, value);
-};
-
-
-/**
- * optional uint64 max_play_bet_limit = 4;
- * @return {number}
- */
-proto.holdem.pb.ServerMessageCbBringIn.prototype.getMaxPlayBetLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ServerMessageCbBringIn.prototype.setMaxPlayBetLimit = function(value) {
-  jspb.Message.setField(this, 4, value);
 };
 
 
