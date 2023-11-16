@@ -2038,7 +2038,8 @@ proto.holdem.pb.CBUserPlaySummary.toObject = function(includeInstance, msg) {
     userId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     avatar: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    amount: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    amount: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    win: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -2090,6 +2091,10 @@ proto.holdem.pb.CBUserPlaySummary.deserializeBinaryFromReader = function(msg, re
     case 4:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setAmount(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setWin(value);
       break;
     default:
       reader.skipField();
@@ -2145,6 +2150,13 @@ proto.holdem.pb.CBUserPlaySummary.serializeBinaryToWriter = function(message, wr
   if (f !== 0) {
     writer.writeUint64(
       4,
+      f
+    );
+  }
+  f = message.getWin();
+  if (f !== 0) {
+    writer.writeInt64(
+      5,
       f
     );
   }
@@ -2208,6 +2220,21 @@ proto.holdem.pb.CBUserPlaySummary.prototype.getAmount = function() {
 /** @param {number} value */
 proto.holdem.pb.CBUserPlaySummary.prototype.setAmount = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int64 win = 5;
+ * @return {number}
+ */
+proto.holdem.pb.CBUserPlaySummary.prototype.getWin = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.CBUserPlaySummary.prototype.setWin = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 

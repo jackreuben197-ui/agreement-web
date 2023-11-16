@@ -370,6 +370,9 @@ export class CBUserPlaySummary extends jspb.Message {
   getAmount(): number;
   setAmount(value: number): void;
 
+  getWin(): number;
+  setWin(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CBUserPlaySummary.AsObject;
   static toObject(includeInstance: boolean, msg: CBUserPlaySummary): CBUserPlaySummary.AsObject;
@@ -386,6 +389,7 @@ export namespace CBUserPlaySummary {
     name: string,
     avatar: string,
     amount: number,
+    win: number,
   }
 }
 
