@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageWinner.repeatedFields_ = [1,4];
+proto.holdem.pb.ServerMessageWinner.repeatedFields_ = [1];
 
 
 
@@ -71,8 +71,7 @@ proto.holdem.pb.ServerMessageWinner.toObject = function(includeInstance, msg) {
     protobuf_holdem_define_pb.Result.toObject, includeInstance),
     handNum: jspb.Message.getFieldWithDefault(msg, 2, 0),
     round: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    poolEhcsList: jspb.Message.toObjectList(msg.getPoolEhcsList(),
-    protobuf_holdem_define_pb.ExternalHandChange.toObject, includeInstance)
+    pools: (f = msg.getPools()) && protobuf_holdem_define_pb.ExternalPools.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -123,9 +122,9 @@ proto.holdem.pb.ServerMessageWinner.deserializeBinaryFromReader = function(msg, 
       msg.setRound(value);
       break;
     case 4:
-      var value = new protobuf_holdem_define_pb.ExternalHandChange;
-      reader.readMessage(value,protobuf_holdem_define_pb.ExternalHandChange.deserializeBinaryFromReader);
-      msg.addPoolEhcs(value);
+      var value = new protobuf_holdem_define_pb.ExternalPools;
+      reader.readMessage(value,protobuf_holdem_define_pb.ExternalPools.deserializeBinaryFromReader);
+      msg.setPools(value);
       break;
     default:
       reader.skipField();
@@ -178,12 +177,12 @@ proto.holdem.pb.ServerMessageWinner.serializeBinaryToWriter = function(message, 
       f
     );
   }
-  f = message.getPoolEhcsList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
+  f = message.getPools();
+  if (f != null) {
+    writer.writeMessage(
       4,
       f,
-      protobuf_holdem_define_pb.ExternalHandChange.serializeBinaryToWriter
+      protobuf_holdem_define_pb.ExternalPools.serializeBinaryToWriter
     );
   }
 };
@@ -251,33 +250,32 @@ proto.holdem.pb.ServerMessageWinner.prototype.setRound = function(value) {
 
 
 /**
- * repeated ExternalHandChange pool_ehcs = 4;
- * @return {!Array.<!proto.holdem.pb.ExternalHandChange>}
+ * optional ExternalPools pools = 4;
+ * @return {?proto.holdem.pb.ExternalPools}
  */
-proto.holdem.pb.ServerMessageWinner.prototype.getPoolEhcsList = function() {
-  return /** @type{!Array.<!proto.holdem.pb.ExternalHandChange>} */ (
-    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.ExternalHandChange, 4));
+proto.holdem.pb.ServerMessageWinner.prototype.getPools = function() {
+  return /** @type{?proto.holdem.pb.ExternalPools} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.ExternalPools, 4));
 };
 
 
-/** @param {!Array.<!proto.holdem.pb.ExternalHandChange>} value */
-proto.holdem.pb.ServerMessageWinner.prototype.setPoolEhcsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 4, value);
+/** @param {?proto.holdem.pb.ExternalPools|undefined} value */
+proto.holdem.pb.ServerMessageWinner.prototype.setPools = function(value) {
+  jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+proto.holdem.pb.ServerMessageWinner.prototype.clearPools = function() {
+  this.setPools(undefined);
 };
 
 
 /**
- * @param {!proto.holdem.pb.ExternalHandChange=} opt_value
- * @param {number=} opt_index
- * @return {!proto.holdem.pb.ExternalHandChange}
+ * Returns whether this field is set.
+ * @return {!boolean}
  */
-proto.holdem.pb.ServerMessageWinner.prototype.addPoolEhcs = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.holdem.pb.ExternalHandChange, opt_index);
-};
-
-
-proto.holdem.pb.ServerMessageWinner.prototype.clearPoolEhcsList = function() {
-  this.setPoolEhcsList([]);
+proto.holdem.pb.ServerMessageWinner.prototype.hasPools = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

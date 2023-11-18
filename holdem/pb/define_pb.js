@@ -33,6 +33,7 @@ goog.exportSymbol('proto.holdem.pb.Def.PokerType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.Round', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.StandUpReason', null, global);
 goog.exportSymbol('proto.holdem.pb.ExternalHandChange', null, global);
+goog.exportSymbol('proto.holdem.pb.ExternalPools', null, global);
 goog.exportSymbol('proto.holdem.pb.GPS', null, global);
 goog.exportSymbol('proto.holdem.pb.HandInfo', null, global);
 goog.exportSymbol('proto.holdem.pb.InsuranceOdds', null, global);
@@ -44,6 +45,7 @@ goog.exportSymbol('proto.holdem.pb.MTTInfo', null, global);
 goog.exportSymbol('proto.holdem.pb.MTTProgress', null, global);
 goog.exportSymbol('proto.holdem.pb.MultiLangName', null, global);
 goog.exportSymbol('proto.holdem.pb.MyGameInfo', null, global);
+goog.exportSymbol('proto.holdem.pb.NextHandInfoChange', null, global);
 goog.exportSymbol('proto.holdem.pb.Operator', null, global);
 goog.exportSymbol('proto.holdem.pb.OutsCard', null, global);
 goog.exportSymbol('proto.holdem.pb.Player', null, global);
@@ -291,7 +293,9 @@ proto.holdem.pb.Def.ChipChangeReason = {
   CC_MTT_ADD_ON: 3,
   CC_MTT_STORE_RETURN: 4,
   CC_MTT_ADD_ON_PLUS_MODE1: 5,
-  CC_MTT_ADD_ON_PLUS_MODE2: 6
+  CC_MTT_ADD_ON_PLUS_MODE2: 6,
+  CC_MUSHROOM_SPLIT: 7,
+  CC_SQUID_SPLIT: 8
 };
 
 /**
@@ -381,7 +385,8 @@ proto.holdem.pb.Def.AddOnMode = {
 proto.holdem.pb.Def.EHCType = {
   EHC_NONE: 0,
   EHC_MUSHROOM: 1,
-  EHC_LUCKYCARDS: 2
+  EHC_LUCKYCARDS: 2,
+  EHC_SQUID: 3
 };
 
 /**
@@ -1114,7 +1119,7 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     ignorePreflop: jspb.Message.getFieldWithDefault(msg, 23, false),
     isAlwaysSecondPcs: jspb.Message.getFieldWithDefault(msg, 24, false),
     mushroomBase: jspb.Message.getFieldWithDefault(msg, 25, 0),
-    luckycardsDeposit: jspb.Message.getFieldWithDefault(msg, 27, 0),
+    deposit: jspb.Message.getFieldWithDefault(msg, 27, 0),
     luckycardsList: jspb.Message.toObjectList(msg.getLuckycardsList(),
     proto.holdem.pb.Luckycards.toObject, includeInstance),
     anteMin: jspb.Message.getFieldWithDefault(msg, 30, 0),
@@ -1122,7 +1127,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     seatedMessaging: jspb.Message.getFieldWithDefault(msg, 32, false),
     roomType: jspb.Message.getFieldWithDefault(msg, 33, 0),
     antiCheatType: jspb.Message.getFieldWithDefault(msg, 34, 0),
-    antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 35, 0)
+    antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 35, 0),
+    squidBase: jspb.Message.getFieldWithDefault(msg, 36, 0)
   };
 
   if (includeInstance) {
@@ -1261,7 +1267,7 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 27:
       var value = /** @type {number} */ (reader.readUint64());
-      msg.setLuckycardsDeposit(value);
+      msg.setDeposit(value);
       break;
     case 28:
       var value = new proto.holdem.pb.Luckycards;
@@ -1291,6 +1297,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 35:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setAntiCheatVideoType(value);
+      break;
+    case 36:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSquidBase(value);
       break;
     default:
       reader.skipField();
@@ -1496,7 +1506,7 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getLuckycardsDeposit();
+  f = message.getDeposit();
   if (f !== 0) {
     writer.writeUint64(
       27,
@@ -1550,6 +1560,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint32(
       35,
+      f
+    );
+  }
+  f = message.getSquidBase();
+  if (f !== 0) {
+    writer.writeUint64(
+      36,
       f
     );
   }
@@ -1963,16 +1980,16 @@ proto.holdem.pb.RoomInfo.prototype.setMushroomBase = function(value) {
 
 
 /**
- * optional uint64 luckycards_deposit = 27;
+ * optional uint64 deposit = 27;
  * @return {number}
  */
-proto.holdem.pb.RoomInfo.prototype.getLuckycardsDeposit = function() {
+proto.holdem.pb.RoomInfo.prototype.getDeposit = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 27, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.RoomInfo.prototype.setLuckycardsDeposit = function(value) {
+proto.holdem.pb.RoomInfo.prototype.setDeposit = function(value) {
   jspb.Message.setField(this, 27, value);
 };
 
@@ -2097,6 +2114,21 @@ proto.holdem.pb.RoomInfo.prototype.getAntiCheatVideoType = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setAntiCheatVideoType = function(value) {
   jspb.Message.setField(this, 35, value);
+};
+
+
+/**
+ * optional uint64 squid_base = 36;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getSquidBase = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 36, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setSquidBase = function(value) {
+  jspb.Message.setField(this, 36, value);
 };
 
 
@@ -2370,8 +2402,8 @@ proto.holdem.pb.HandInfo.toObject = function(includeInstance, msg) {
     insurancePool: jspb.Message.getFieldWithDefault(msg, 9, 0),
     extPublicCardsList: jspb.Message.getRepeatedField(msg, 10),
     secondPublicCardsList: jspb.Message.getRepeatedField(msg, 11),
-    mushroomJoinBase: jspb.Message.getFieldWithDefault(msg, 12, 0),
-    mushroomPool: jspb.Message.getFieldWithDefault(msg, 13, 0)
+    pools: (f = msg.getPools()) && proto.holdem.pb.ExternalPools.toObject(includeInstance, f),
+    inSquid: jspb.Message.getFieldWithDefault(msg, 15, false)
   };
 
   if (includeInstance) {
@@ -2453,13 +2485,14 @@ proto.holdem.pb.HandInfo.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
       msg.setSecondPublicCardsList(value);
       break;
-    case 12:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setMushroomJoinBase(value);
+    case 14:
+      var value = new proto.holdem.pb.ExternalPools;
+      reader.readMessage(value,proto.holdem.pb.ExternalPools.deserializeBinaryFromReader);
+      msg.setPools(value);
       break;
-    case 13:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setMushroomPool(value);
+    case 15:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setInSquid(value);
       break;
     default:
       reader.skipField();
@@ -2568,17 +2601,18 @@ proto.holdem.pb.HandInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getMushroomJoinBase();
-  if (f !== 0) {
-    writer.writeUint64(
-      12,
-      f
+  f = message.getPools();
+  if (f != null) {
+    writer.writeMessage(
+      14,
+      f,
+      proto.holdem.pb.ExternalPools.serializeBinaryToWriter
     );
   }
-  f = message.getMushroomPool();
-  if (f !== 0) {
-    writer.writeUint64(
-      13,
+  f = message.getInSquid();
+  if (f) {
+    writer.writeBool(
+      15,
       f
     );
   }
@@ -2809,32 +2843,49 @@ proto.holdem.pb.HandInfo.prototype.clearSecondPublicCardsList = function() {
 
 
 /**
- * optional uint64 mushroom_join_base = 12;
- * @return {number}
+ * optional ExternalPools pools = 14;
+ * @return {?proto.holdem.pb.ExternalPools}
  */
-proto.holdem.pb.HandInfo.prototype.getMushroomJoinBase = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
+proto.holdem.pb.HandInfo.prototype.getPools = function() {
+  return /** @type{?proto.holdem.pb.ExternalPools} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.ExternalPools, 14));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.HandInfo.prototype.setMushroomJoinBase = function(value) {
-  jspb.Message.setField(this, 12, value);
+/** @param {?proto.holdem.pb.ExternalPools|undefined} value */
+proto.holdem.pb.HandInfo.prototype.setPools = function(value) {
+  jspb.Message.setWrapperField(this, 14, value);
+};
+
+
+proto.holdem.pb.HandInfo.prototype.clearPools = function() {
+  this.setPools(undefined);
 };
 
 
 /**
- * optional uint64 mushroom_pool = 13;
- * @return {number}
+ * Returns whether this field is set.
+ * @return {!boolean}
  */
-proto.holdem.pb.HandInfo.prototype.getMushroomPool = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+proto.holdem.pb.HandInfo.prototype.hasPools = function() {
+  return jspb.Message.getField(this, 14) != null;
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.HandInfo.prototype.setMushroomPool = function(value) {
-  jspb.Message.setField(this, 13, value);
+/**
+ * optional bool in_squid = 15;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.HandInfo.prototype.getInSquid = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 15, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.HandInfo.prototype.setInSquid = function(value) {
+  jspb.Message.setField(this, 15, value);
 };
 
 
@@ -6727,8 +6778,10 @@ proto.holdem.pb.PlayerStartInfo.toObject = function(includeInstance, msg) {
     roundBet: jspb.Message.getFieldWithDefault(msg, 6, 0),
     chip: jspb.Message.getFieldWithDefault(msg, 7, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    depositMushroom: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    costMushroom: jspb.Message.getFieldWithDefault(msg, 10, 0)
+    deposit: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    costMushroom: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    inMushroom: jspb.Message.getFieldWithDefault(msg, 11, false),
+    squidEscaped: jspb.Message.getFieldWithDefault(msg, 12, false)
   };
 
   if (includeInstance) {
@@ -6795,11 +6848,19 @@ proto.holdem.pb.PlayerStartInfo.deserializeBinaryFromReader = function(msg, read
       break;
     case 9:
       var value = /** @type {number} */ (reader.readUint64());
-      msg.setDepositMushroom(value);
+      msg.setDeposit(value);
       break;
     case 10:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setCostMushroom(value);
+      break;
+    case 11:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setInMushroom(value);
+      break;
+    case 12:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSquidEscaped(value);
       break;
     default:
       reader.skipField();
@@ -6879,7 +6940,7 @@ proto.holdem.pb.PlayerStartInfo.serializeBinaryToWriter = function(message, writ
       f
     );
   }
-  f = message.getDepositMushroom();
+  f = message.getDeposit();
   if (f !== 0) {
     writer.writeUint64(
       9,
@@ -6890,6 +6951,20 @@ proto.holdem.pb.PlayerStartInfo.serializeBinaryToWriter = function(message, writ
   if (f !== 0) {
     writer.writeUint64(
       10,
+      f
+    );
+  }
+  f = message.getInMushroom();
+  if (f) {
+    writer.writeBool(
+      11,
+      f
+    );
+  }
+  f = message.getSquidEscaped();
+  if (f) {
+    writer.writeBool(
+      12,
       f
     );
   }
@@ -7016,16 +7091,16 @@ proto.holdem.pb.PlayerStartInfo.prototype.setStoreChips = function(value) {
 
 
 /**
- * optional uint64 deposit_mushroom = 9;
+ * optional uint64 deposit = 9;
  * @return {number}
  */
-proto.holdem.pb.PlayerStartInfo.prototype.getDepositMushroom = function() {
+proto.holdem.pb.PlayerStartInfo.prototype.getDeposit = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.PlayerStartInfo.prototype.setDepositMushroom = function(value) {
+proto.holdem.pb.PlayerStartInfo.prototype.setDeposit = function(value) {
   jspb.Message.setField(this, 9, value);
 };
 
@@ -7042,6 +7117,40 @@ proto.holdem.pb.PlayerStartInfo.prototype.getCostMushroom = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerStartInfo.prototype.setCostMushroom = function(value) {
   jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * optional bool in_mushroom = 11;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.PlayerStartInfo.prototype.getInMushroom = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 11, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.PlayerStartInfo.prototype.setInMushroom = function(value) {
+  jspb.Message.setField(this, 11, value);
+};
+
+
+/**
+ * optional bool squid_escaped = 12;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.PlayerStartInfo.prototype.getSquidEscaped = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 12, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.PlayerStartInfo.prototype.setSquidEscaped = function(value) {
+  jspb.Message.setField(this, 12, value);
 };
 
 
@@ -7292,11 +7401,11 @@ proto.holdem.pb.Player.toObject = function(includeInstance, msg) {
     vip: jspb.Message.getFieldWithDefault(msg, 21, 0),
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 22, 0),
     keepSeatReason: jspb.Message.getFieldWithDefault(msg, 23, 0),
-    depositLuckycards: jspb.Message.getFieldWithDefault(msg, 24, 0),
-    depositMushroom: jspb.Message.getFieldWithDefault(msg, 25, 0),
-    isAutoMushroom: jspb.Message.getFieldWithDefault(msg, 26, false),
+    deposit: jspb.Message.getFieldWithDefault(msg, 24, 0),
+    inMushroom: jspb.Message.getFieldWithDefault(msg, 26, false),
     costMushroom: jspb.Message.getFieldWithDefault(msg, 27, 0),
-    winCardsInfo: (f = msg.getWinCardsInfo()) && proto.holdem.pb.AllInWinCardsInfo.toObject(includeInstance, f)
+    winCardsInfo: (f = msg.getWinCardsInfo()) && proto.holdem.pb.AllInWinCardsInfo.toObject(includeInstance, f),
+    squidEscaped: jspb.Message.getFieldWithDefault(msg, 29, false)
   };
 
   if (includeInstance) {
@@ -7428,15 +7537,11 @@ proto.holdem.pb.Player.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 24:
       var value = /** @type {number} */ (reader.readUint64());
-      msg.setDepositLuckycards(value);
-      break;
-    case 25:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setDepositMushroom(value);
+      msg.setDeposit(value);
       break;
     case 26:
       var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIsAutoMushroom(value);
+      msg.setInMushroom(value);
       break;
     case 27:
       var value = /** @type {number} */ (reader.readUint64());
@@ -7446,6 +7551,10 @@ proto.holdem.pb.Player.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.AllInWinCardsInfo;
       reader.readMessage(value,proto.holdem.pb.AllInWinCardsInfo.deserializeBinaryFromReader);
       msg.setWinCardsInfo(value);
+      break;
+    case 29:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSquidEscaped(value);
       break;
     default:
       reader.skipField();
@@ -7638,21 +7747,14 @@ proto.holdem.pb.Player.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getDepositLuckycards();
+  f = message.getDeposit();
   if (f !== 0) {
     writer.writeUint64(
       24,
       f
     );
   }
-  f = message.getDepositMushroom();
-  if (f !== 0) {
-    writer.writeUint64(
-      25,
-      f
-    );
-  }
-  f = message.getIsAutoMushroom();
+  f = message.getInMushroom();
   if (f) {
     writer.writeBool(
       26,
@@ -7672,6 +7774,13 @@ proto.holdem.pb.Player.serializeBinaryToWriter = function(message, writer) {
       28,
       f,
       proto.holdem.pb.AllInWinCardsInfo.serializeBinaryToWriter
+    );
+  }
+  f = message.getSquidEscaped();
+  if (f) {
+    writer.writeBool(
+      29,
+      f
     );
   }
 };
@@ -8057,48 +8166,33 @@ proto.holdem.pb.Player.prototype.setKeepSeatReason = function(value) {
 
 
 /**
- * optional uint64 deposit_luckycards = 24;
+ * optional uint64 deposit = 24;
  * @return {number}
  */
-proto.holdem.pb.Player.prototype.getDepositLuckycards = function() {
+proto.holdem.pb.Player.prototype.getDeposit = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 24, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.Player.prototype.setDepositLuckycards = function(value) {
+proto.holdem.pb.Player.prototype.setDeposit = function(value) {
   jspb.Message.setField(this, 24, value);
 };
 
 
 /**
- * optional uint64 deposit_mushroom = 25;
- * @return {number}
- */
-proto.holdem.pb.Player.prototype.getDepositMushroom = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 25, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.Player.prototype.setDepositMushroom = function(value) {
-  jspb.Message.setField(this, 25, value);
-};
-
-
-/**
- * optional bool is_auto_mushroom = 26;
+ * optional bool in_mushroom = 26;
  * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
  * You should avoid comparisons like {@code val === true/false} in those cases.
  * @return {boolean}
  */
-proto.holdem.pb.Player.prototype.getIsAutoMushroom = function() {
+proto.holdem.pb.Player.prototype.getInMushroom = function() {
   return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 26, false));
 };
 
 
 /** @param {boolean} value */
-proto.holdem.pb.Player.prototype.setIsAutoMushroom = function(value) {
+proto.holdem.pb.Player.prototype.setInMushroom = function(value) {
   jspb.Message.setField(this, 26, value);
 };
 
@@ -8145,6 +8239,23 @@ proto.holdem.pb.Player.prototype.clearWinCardsInfo = function() {
  */
 proto.holdem.pb.Player.prototype.hasWinCardsInfo = function() {
   return jspb.Message.getField(this, 28) != null;
+};
+
+
+/**
+ * optional bool squid_escaped = 29;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.Player.prototype.getSquidEscaped = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 29, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.Player.prototype.setSquidEscaped = function(value) {
+  jspb.Message.setField(this, 29, value);
 };
 
 
@@ -8229,8 +8340,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     standUp: jspb.Message.getFieldWithDefault(msg, 22, false),
     ehcsList: jspb.Message.toObjectList(msg.getEhcsList(),
     proto.holdem.pb.ExternalHandChange.toObject, includeInstance),
-    depositLuckycards: jspb.Message.getFieldWithDefault(msg, 24, 0),
-    depositMushroom: jspb.Message.getFieldWithDefault(msg, 25, 0)
+    deposit: jspb.Message.getFieldWithDefault(msg, 24, 0),
+    squidEscaped: jspb.Message.getFieldWithDefault(msg, 25, false)
   };
 
   if (includeInstance) {
@@ -8365,11 +8476,11 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 24:
       var value = /** @type {number} */ (reader.readUint64());
-      msg.setDepositLuckycards(value);
+      msg.setDeposit(value);
       break;
     case 25:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setDepositMushroom(value);
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSquidEscaped(value);
       break;
     default:
       reader.skipField();
@@ -8565,16 +8676,16 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
       proto.holdem.pb.ExternalHandChange.serializeBinaryToWriter
     );
   }
-  f = message.getDepositLuckycards();
+  f = message.getDeposit();
   if (f !== 0) {
     writer.writeUint64(
       24,
       f
     );
   }
-  f = message.getDepositMushroom();
-  if (f !== 0) {
-    writer.writeUint64(
+  f = message.getSquidEscaped();
+  if (f) {
+    writer.writeBool(
       25,
       f
     );
@@ -9010,31 +9121,33 @@ proto.holdem.pb.Result.prototype.clearEhcsList = function() {
 
 
 /**
- * optional uint64 deposit_luckycards = 24;
+ * optional uint64 deposit = 24;
  * @return {number}
  */
-proto.holdem.pb.Result.prototype.getDepositLuckycards = function() {
+proto.holdem.pb.Result.prototype.getDeposit = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 24, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.Result.prototype.setDepositLuckycards = function(value) {
+proto.holdem.pb.Result.prototype.setDeposit = function(value) {
   jspb.Message.setField(this, 24, value);
 };
 
 
 /**
- * optional uint64 deposit_mushroom = 25;
- * @return {number}
+ * optional bool squid_escaped = 25;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
  */
-proto.holdem.pb.Result.prototype.getDepositMushroom = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 25, 0));
+proto.holdem.pb.Result.prototype.getSquidEscaped = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 25, false));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.Result.prototype.setDepositMushroom = function(value) {
+/** @param {boolean} value */
+proto.holdem.pb.Result.prototype.setSquidEscaped = function(value) {
   jspb.Message.setField(this, 25, value);
 };
 
@@ -9232,6 +9345,175 @@ proto.holdem.pb.ExternalHandChange.prototype.getOut = function() {
 /** @param {number} value */
 proto.holdem.pb.ExternalHandChange.prototype.setOut = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.ExternalPools = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.ExternalPools, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.ExternalPools.displayName = 'proto.holdem.pb.ExternalPools';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.ExternalPools.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.ExternalPools.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.ExternalPools} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.ExternalPools.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    mushroomPool: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    squidPool: jspb.Message.getFieldWithDefault(msg, 2, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.ExternalPools}
+ */
+proto.holdem.pb.ExternalPools.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.ExternalPools;
+  return proto.holdem.pb.ExternalPools.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.ExternalPools} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.ExternalPools}
+ */
+proto.holdem.pb.ExternalPools.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setMushroomPool(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSquidPool(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.ExternalPools.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.ExternalPools.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.ExternalPools} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.ExternalPools.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getMushroomPool();
+  if (f !== 0) {
+    writer.writeUint64(
+      1,
+      f
+    );
+  }
+  f = message.getSquidPool();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint64 mushroom_pool = 1;
+ * @return {number}
+ */
+proto.holdem.pb.ExternalPools.prototype.getMushroomPool = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ExternalPools.prototype.setMushroomPool = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 squid_pool = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ExternalPools.prototype.getSquidPool = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ExternalPools.prototype.setSquidPool = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -9827,7 +10109,7 @@ proto.holdem.pb.PlayerChipChange.toObject = function(includeInstance, msg) {
     auto: jspb.Message.getFieldWithDefault(msg, 6, false),
     reason: jspb.Message.getFieldWithDefault(msg, 7, 0),
     mttHunterHeadPlus: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    depositLuckycardsChange: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    depositChange: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -9894,7 +10176,7 @@ proto.holdem.pb.PlayerChipChange.deserializeBinaryFromReader = function(msg, rea
       break;
     case 9:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setDepositLuckycardsChange(value);
+      msg.setDepositChange(value);
       break;
     default:
       reader.skipField();
@@ -9974,7 +10256,7 @@ proto.holdem.pb.PlayerChipChange.serializeBinaryToWriter = function(message, wri
       f
     );
   }
-  f = message.getDepositLuckycardsChange();
+  f = message.getDepositChange();
   if (f !== 0) {
     writer.writeInt64(
       9,
@@ -10092,16 +10374,16 @@ proto.holdem.pb.PlayerChipChange.prototype.setMttHunterHeadPlus = function(value
 
 
 /**
- * optional int64 deposit_luckycards_change = 9;
+ * optional int64 deposit_change = 9;
  * @return {number}
  */
-proto.holdem.pb.PlayerChipChange.prototype.getDepositLuckycardsChange = function() {
+proto.holdem.pb.PlayerChipChange.prototype.getDepositChange = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.PlayerChipChange.prototype.setDepositLuckycardsChange = function(value) {
+proto.holdem.pb.PlayerChipChange.prototype.setDepositChange = function(value) {
   jspb.Message.setField(this, 9, value);
 };
 
@@ -15503,6 +15785,318 @@ proto.holdem.pb.RoomAdmin.prototype.getIsAdmin = function() {
 /** @param {boolean} value */
 proto.holdem.pb.RoomAdmin.prototype.setIsAdmin = function(value) {
   jspb.Message.setField(this, 6, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.NextHandInfoChange = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.NextHandInfoChange, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.NextHandInfoChange.displayName = 'proto.holdem.pb.NextHandInfoChange';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.NextHandInfoChange.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.NextHandInfoChange.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.NextHandInfoChange} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.NextHandInfoChange.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    changed: jspb.Message.getFieldWithDefault(msg, 1, false),
+    ante: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    smallBlind: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    ignorePreflop: jspb.Message.getFieldWithDefault(msg, 4, false),
+    isAlwaysSecondPcs: jspb.Message.getFieldWithDefault(msg, 5, false),
+    squidOpen: jspb.Message.getFieldWithDefault(msg, 6, false),
+    roomType: jspb.Message.getFieldWithDefault(msg, 7, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.NextHandInfoChange}
+ */
+proto.holdem.pb.NextHandInfoChange.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.NextHandInfoChange;
+  return proto.holdem.pb.NextHandInfoChange.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.NextHandInfoChange} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.NextHandInfoChange}
+ */
+proto.holdem.pb.NextHandInfoChange.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setChanged(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAnte(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSmallBlind(value);
+      break;
+    case 4:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIgnorePreflop(value);
+      break;
+    case 5:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsAlwaysSecondPcs(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSquidOpen(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRoomType(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.NextHandInfoChange.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.NextHandInfoChange.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.NextHandInfoChange} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.NextHandInfoChange.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getChanged();
+  if (f) {
+    writer.writeBool(
+      1,
+      f
+    );
+  }
+  f = message.getAnte();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
+  f = message.getSmallBlind();
+  if (f !== 0) {
+    writer.writeUint64(
+      3,
+      f
+    );
+  }
+  f = message.getIgnorePreflop();
+  if (f) {
+    writer.writeBool(
+      4,
+      f
+    );
+  }
+  f = message.getIsAlwaysSecondPcs();
+  if (f) {
+    writer.writeBool(
+      5,
+      f
+    );
+  }
+  f = message.getSquidOpen();
+  if (f) {
+    writer.writeBool(
+      6,
+      f
+    );
+  }
+  f = message.getRoomType();
+  if (f !== 0) {
+    writer.writeUint64(
+      7,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional bool changed = 1;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.NextHandInfoChange.prototype.getChanged = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 1, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.NextHandInfoChange.prototype.setChanged = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 ante = 2;
+ * @return {number}
+ */
+proto.holdem.pb.NextHandInfoChange.prototype.getAnte = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.NextHandInfoChange.prototype.setAnte = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional uint64 small_blind = 3;
+ * @return {number}
+ */
+proto.holdem.pb.NextHandInfoChange.prototype.getSmallBlind = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.NextHandInfoChange.prototype.setSmallBlind = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional bool ignore_preflop = 4;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.NextHandInfoChange.prototype.getIgnorePreflop = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 4, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.NextHandInfoChange.prototype.setIgnorePreflop = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional bool is_always_second_pcs = 5;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.NextHandInfoChange.prototype.getIsAlwaysSecondPcs = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 5, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.NextHandInfoChange.prototype.setIsAlwaysSecondPcs = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional bool squid_open = 6;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.NextHandInfoChange.prototype.getSquidOpen = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.NextHandInfoChange.prototype.setSquidOpen = function(value) {
+  jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional uint64 room_type = 7;
+ * @return {number}
+ */
+proto.holdem.pb.NextHandInfoChange.prototype.getRoomType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.NextHandInfoChange.prototype.setRoomType = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 

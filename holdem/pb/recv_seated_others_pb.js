@@ -73,10 +73,8 @@ proto.holdem.pb.ServerMessageSeatedOthers.toObject = function(includeInstance, m
     vip: jspb.Message.getFieldWithDefault(msg, 12, 0),
     keepSeatLeftTime: jspb.Message.getFieldWithDefault(msg, 13, 0),
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 14, 0),
-    depositLuckycards: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    depositMushroom: jspb.Message.getFieldWithDefault(msg, 16, 0),
-    isAutoMushroom: jspb.Message.getFieldWithDefault(msg, 17, false),
-    costMushroom: jspb.Message.getFieldWithDefault(msg, 18, 0)
+    deposit: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    squidIn: jspb.Message.getFieldWithDefault(msg, 17, false)
   };
 
   if (includeInstance) {
@@ -171,19 +169,11 @@ proto.holdem.pb.ServerMessageSeatedOthers.deserializeBinaryFromReader = function
       break;
     case 15:
       var value = /** @type {number} */ (reader.readUint64());
-      msg.setDepositLuckycards(value);
-      break;
-    case 16:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setDepositMushroom(value);
+      msg.setDeposit(value);
       break;
     case 17:
       var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIsAutoMushroom(value);
-      break;
-    case 18:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setCostMushroom(value);
+      msg.setSquidIn(value);
       break;
     default:
       reader.skipField();
@@ -312,31 +302,17 @@ proto.holdem.pb.ServerMessageSeatedOthers.serializeBinaryToWriter = function(mes
       f
     );
   }
-  f = message.getDepositLuckycards();
+  f = message.getDeposit();
   if (f !== 0) {
     writer.writeUint64(
       15,
       f
     );
   }
-  f = message.getDepositMushroom();
-  if (f !== 0) {
-    writer.writeUint64(
-      16,
-      f
-    );
-  }
-  f = message.getIsAutoMushroom();
+  f = message.getSquidIn();
   if (f) {
     writer.writeBool(
       17,
-      f
-    );
-  }
-  f = message.getCostMushroom();
-  if (f !== 0) {
-    writer.writeUint64(
-      18,
       f
     );
   }
@@ -554,64 +530,34 @@ proto.holdem.pb.ServerMessageSeatedOthers.prototype.setKeepSeatDeadline = functi
 
 
 /**
- * optional uint64 deposit_luckycards = 15;
+ * optional uint64 deposit = 15;
  * @return {number}
  */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.getDepositLuckycards = function() {
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.getDeposit = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.setDepositLuckycards = function(value) {
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.setDeposit = function(value) {
   jspb.Message.setField(this, 15, value);
 };
 
 
 /**
- * optional uint64 deposit_mushroom = 16;
- * @return {number}
- */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.getDepositMushroom = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.setDepositMushroom = function(value) {
-  jspb.Message.setField(this, 16, value);
-};
-
-
-/**
- * optional bool is_auto_mushroom = 17;
+ * optional bool squid_in = 17;
  * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
  * You should avoid comparisons like {@code val === true/false} in those cases.
  * @return {boolean}
  */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.getIsAutoMushroom = function() {
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.getSquidIn = function() {
   return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 17, false));
 };
 
 
 /** @param {boolean} value */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.setIsAutoMushroom = function(value) {
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.setSquidIn = function(value) {
   jspb.Message.setField(this, 17, value);
-};
-
-
-/**
- * optional uint64 cost_mushroom = 18;
- * @return {number}
- */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.getCostMushroom = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ServerMessageSeatedOthers.prototype.setCostMushroom = function(value) {
-  jspb.Message.setField(this, 18, value);
 };
 
 

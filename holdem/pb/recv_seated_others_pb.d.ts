@@ -46,17 +46,11 @@ export class ServerMessageSeatedOthers extends jspb.Message {
   getKeepSeatDeadline(): number;
   setKeepSeatDeadline(value: number): void;
 
-  getDepositLuckycards(): number;
-  setDepositLuckycards(value: number): void;
+  getDeposit(): number;
+  setDeposit(value: number): void;
 
-  getDepositMushroom(): number;
-  setDepositMushroom(value: number): void;
-
-  getIsAutoMushroom(): boolean;
-  setIsAutoMushroom(value: boolean): void;
-
-  getCostMushroom(): number;
-  setCostMushroom(value: number): void;
+  getSquidIn(): boolean;
+  setSquidIn(value: boolean): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageSeatedOthers.AsObject;
@@ -84,10 +78,8 @@ export namespace ServerMessageSeatedOthers {
     vip: number,
     keepSeatLeftTime: number,
     keepSeatDeadline: number,
-    depositLuckycards: number,
-    depositMushroom: number,
-    isAutoMushroom: boolean,
-    costMushroom: number,
+    deposit: number,
+    squidIn: boolean,
   }
 }
 

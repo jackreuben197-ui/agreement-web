@@ -16,10 +16,10 @@ export class ServerMessageWinner extends jspb.Message {
   getRound(): protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap];
   setRound(value: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap]): void;
 
-  clearPoolEhcsList(): void;
-  getPoolEhcsList(): Array<protobuf_holdem_define_pb.ExternalHandChange>;
-  setPoolEhcsList(value: Array<protobuf_holdem_define_pb.ExternalHandChange>): void;
-  addPoolEhcs(value?: protobuf_holdem_define_pb.ExternalHandChange, index?: number): protobuf_holdem_define_pb.ExternalHandChange;
+  hasPools(): boolean;
+  clearPools(): void;
+  getPools(): protobuf_holdem_define_pb.ExternalPools | undefined;
+  setPools(value?: protobuf_holdem_define_pb.ExternalPools): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageWinner.AsObject;
@@ -36,7 +36,7 @@ export namespace ServerMessageWinner {
     resultsList: Array<protobuf_holdem_define_pb.Result.AsObject>,
     handNum: number,
     round: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap],
-    poolEhcsList: Array<protobuf_holdem_define_pb.ExternalHandChange.AsObject>,
+    pools?: protobuf_holdem_define_pb.ExternalPools.AsObject,
   }
 }
 

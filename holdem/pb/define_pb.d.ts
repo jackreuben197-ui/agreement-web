@@ -117,6 +117,8 @@ export namespace Def {
     CC_MTT_STORE_RETURN: 4;
     CC_MTT_ADD_ON_PLUS_MODE1: 5;
     CC_MTT_ADD_ON_PLUS_MODE2: 6;
+    CC_MUSHROOM_SPLIT: 7;
+    CC_SQUID_SPLIT: 8;
   }
 
   export const ChipChangeReason: ChipChangeReasonMap;
@@ -199,6 +201,7 @@ export namespace Def {
     EHC_NONE: 0;
     EHC_MUSHROOM: 1;
     EHC_LUCKYCARDS: 2;
+    EHC_SQUID: 3;
   }
 
   export const EHCType: EHCTypeMap;
@@ -377,8 +380,8 @@ export class RoomInfo extends jspb.Message {
   getMushroomBase(): number;
   setMushroomBase(value: number): void;
 
-  getLuckycardsDeposit(): number;
-  setLuckycardsDeposit(value: number): void;
+  getDeposit(): number;
+  setDeposit(value: number): void;
 
   clearLuckycardsList(): void;
   getLuckycardsList(): Array<Luckycards>;
@@ -402,6 +405,9 @@ export class RoomInfo extends jspb.Message {
 
   getAntiCheatVideoType(): number;
   setAntiCheatVideoType(value: number): void;
+
+  getSquidBase(): number;
+  setSquidBase(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
@@ -440,7 +446,7 @@ export namespace RoomInfo {
     ignorePreflop: boolean,
     isAlwaysSecondPcs: boolean,
     mushroomBase: number,
-    luckycardsDeposit: number,
+    deposit: number,
     luckycardsList: Array<Luckycards.AsObject>,
     anteMin: number,
     anteMax: number,
@@ -448,6 +454,7 @@ export namespace RoomInfo {
     roomType: number,
     antiCheatType: number,
     antiCheatVideoType: number,
+    squidBase: number,
   }
 
   export interface RetainTypeMap {
@@ -529,11 +536,13 @@ export class HandInfo extends jspb.Message {
   setSecondPublicCardsList(value: Array<number>): void;
   addSecondPublicCards(value: number, index?: number): number;
 
-  getMushroomJoinBase(): number;
-  setMushroomJoinBase(value: number): void;
+  hasPools(): boolean;
+  clearPools(): void;
+  getPools(): ExternalPools | undefined;
+  setPools(value?: ExternalPools): void;
 
-  getMushroomPool(): number;
-  setMushroomPool(value: number): void;
+  getInSquid(): boolean;
+  setInSquid(value: boolean): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandInfo.AsObject;
@@ -558,8 +567,8 @@ export namespace HandInfo {
     insurancePool: number,
     extPublicCardsList: Array<number>,
     secondPublicCardsList: Array<number>,
-    mushroomJoinBase: number,
-    mushroomPool: number,
+    pools?: ExternalPools.AsObject,
+    inSquid: boolean,
   }
 }
 
@@ -1131,11 +1140,17 @@ export class PlayerStartInfo extends jspb.Message {
   getStoreChips(): number;
   setStoreChips(value: number): void;
 
-  getDepositMushroom(): number;
-  setDepositMushroom(value: number): void;
+  getDeposit(): number;
+  setDeposit(value: number): void;
 
   getCostMushroom(): number;
   setCostMushroom(value: number): void;
+
+  getInMushroom(): boolean;
+  setInMushroom(value: boolean): void;
+
+  getSquidEscaped(): boolean;
+  setSquidEscaped(value: boolean): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfo.AsObject;
@@ -1156,8 +1171,10 @@ export namespace PlayerStartInfo {
     roundBet: number,
     chip: number,
     storeChips: number,
-    depositMushroom: number,
+    deposit: number,
     costMushroom: number,
+    inMushroom: boolean,
+    squidEscaped: boolean,
   }
 }
 
@@ -1259,14 +1276,11 @@ export class Player extends jspb.Message {
   getKeepSeatReason(): Def.KeepSeatReasonMap[keyof Def.KeepSeatReasonMap];
   setKeepSeatReason(value: Def.KeepSeatReasonMap[keyof Def.KeepSeatReasonMap]): void;
 
-  getDepositLuckycards(): number;
-  setDepositLuckycards(value: number): void;
+  getDeposit(): number;
+  setDeposit(value: number): void;
 
-  getDepositMushroom(): number;
-  setDepositMushroom(value: number): void;
-
-  getIsAutoMushroom(): boolean;
-  setIsAutoMushroom(value: boolean): void;
+  getInMushroom(): boolean;
+  setInMushroom(value: boolean): void;
 
   getCostMushroom(): number;
   setCostMushroom(value: number): void;
@@ -1275,6 +1289,9 @@ export class Player extends jspb.Message {
   clearWinCardsInfo(): void;
   getWinCardsInfo(): AllInWinCardsInfo | undefined;
   setWinCardsInfo(value?: AllInWinCardsInfo): void;
+
+  getSquidEscaped(): boolean;
+  setSquidEscaped(value: boolean): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Player.AsObject;
@@ -1311,11 +1328,11 @@ export namespace Player {
     vip: number,
     keepSeatDeadline: number,
     keepSeatReason: Def.KeepSeatReasonMap[keyof Def.KeepSeatReasonMap],
-    depositLuckycards: number,
-    depositMushroom: number,
-    isAutoMushroom: boolean,
+    deposit: number,
+    inMushroom: boolean,
     costMushroom: number,
     winCardsInfo?: AllInWinCardsInfo.AsObject,
+    squidEscaped: boolean,
   }
 }
 
@@ -1399,11 +1416,11 @@ export class Result extends jspb.Message {
   setEhcsList(value: Array<ExternalHandChange>): void;
   addEhcs(value?: ExternalHandChange, index?: number): ExternalHandChange;
 
-  getDepositLuckycards(): number;
-  setDepositLuckycards(value: number): void;
+  getDeposit(): number;
+  setDeposit(value: number): void;
 
-  getDepositMushroom(): number;
-  setDepositMushroom(value: number): void;
+  getSquidEscaped(): boolean;
+  setSquidEscaped(value: boolean): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
@@ -1440,8 +1457,8 @@ export namespace Result {
     mttHunterKillAwardOtherPlus: number,
     standUp: boolean,
     ehcsList: Array<ExternalHandChange.AsObject>,
-    depositLuckycards: number,
-    depositMushroom: number,
+    deposit: number,
+    squidEscaped: boolean,
   }
 }
 
@@ -1470,6 +1487,30 @@ export namespace ExternalHandChange {
     ehcType: Def.EHCTypeMap[keyof Def.EHCTypeMap],
     pb_in: number,
     out: number,
+  }
+}
+
+export class ExternalPools extends jspb.Message {
+  getMushroomPool(): number;
+  setMushroomPool(value: number): void;
+
+  getSquidPool(): number;
+  setSquidPool(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ExternalPools.AsObject;
+  static toObject(includeInstance: boolean, msg: ExternalPools): ExternalPools.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ExternalPools, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ExternalPools;
+  static deserializeBinaryFromReader(message: ExternalPools, reader: jspb.BinaryReader): ExternalPools;
+}
+
+export namespace ExternalPools {
+  export type AsObject = {
+    mushroomPool: number,
+    squidPool: number,
   }
 }
 
@@ -1571,8 +1612,8 @@ export class PlayerChipChange extends jspb.Message {
   getMttHunterHeadPlus(): number;
   setMttHunterHeadPlus(value: number): void;
 
-  getDepositLuckycardsChange(): number;
-  setDepositLuckycardsChange(value: number): void;
+  getDepositChange(): number;
+  setDepositChange(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerChipChange.AsObject;
@@ -1593,7 +1634,7 @@ export namespace PlayerChipChange {
     auto: boolean,
     reason: Def.ChipChangeReasonMap[keyof Def.ChipChangeReasonMap],
     mttHunterHeadPlus: number,
-    depositLuckycardsChange: number,
+    depositChange: number,
   }
 }
 
@@ -2374,6 +2415,50 @@ export namespace RoomAdmin {
     viewVideo: number,
     videoVerify: number,
     isAdmin: boolean,
+  }
+}
+
+export class NextHandInfoChange extends jspb.Message {
+  getChanged(): boolean;
+  setChanged(value: boolean): void;
+
+  getAnte(): number;
+  setAnte(value: number): void;
+
+  getSmallBlind(): number;
+  setSmallBlind(value: number): void;
+
+  getIgnorePreflop(): boolean;
+  setIgnorePreflop(value: boolean): void;
+
+  getIsAlwaysSecondPcs(): boolean;
+  setIsAlwaysSecondPcs(value: boolean): void;
+
+  getSquidOpen(): boolean;
+  setSquidOpen(value: boolean): void;
+
+  getRoomType(): number;
+  setRoomType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): NextHandInfoChange.AsObject;
+  static toObject(includeInstance: boolean, msg: NextHandInfoChange): NextHandInfoChange.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: NextHandInfoChange, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): NextHandInfoChange;
+  static deserializeBinaryFromReader(message: NextHandInfoChange, reader: jspb.BinaryReader): NextHandInfoChange;
+}
+
+export namespace NextHandInfoChange {
+  export type AsObject = {
+    changed: boolean,
+    ante: number,
+    smallBlind: number,
+    ignorePreflop: boolean,
+    isAlwaysSecondPcs: boolean,
+    squidOpen: boolean,
+    roomType: number,
   }
 }
 

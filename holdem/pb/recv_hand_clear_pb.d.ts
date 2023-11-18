@@ -2,10 +2,16 @@
 // file: protobuf/holdem/recv_hand_clear.proto
 
 import * as jspb from "google-protobuf";
+import * as protobuf_holdem_define_pb from "../../protobuf/holdem/define_pb";
 
 export class ServerMessageHandClear extends jspb.Message {
   getHandNum(): number;
   setHandNum(value: number): void;
+
+  hasNextHandChange(): boolean;
+  clearNextHandChange(): void;
+  getNextHandChange(): protobuf_holdem_define_pb.NextHandInfoChange | undefined;
+  setNextHandChange(value?: protobuf_holdem_define_pb.NextHandInfoChange): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageHandClear.AsObject;
@@ -20,6 +26,7 @@ export class ServerMessageHandClear extends jspb.Message {
 export namespace ServerMessageHandClear {
   export type AsObject = {
     handNum: number,
+    nextHandChange?: protobuf_holdem_define_pb.NextHandInfoChange.AsObject,
   }
 }
 

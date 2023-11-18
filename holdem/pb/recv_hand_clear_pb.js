@@ -11,6 +11,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ServerMessageHandClear', null, global);
 
 /**
@@ -59,7 +60,8 @@ proto.holdem.pb.ServerMessageHandClear.prototype.toObject = function(opt_include
  */
 proto.holdem.pb.ServerMessageHandClear.toObject = function(includeInstance, msg) {
   var f, obj = {
-    handNum: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    handNum: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    nextHandChange: (f = msg.getNextHandChange()) && protobuf_holdem_define_pb.NextHandInfoChange.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -100,6 +102,11 @@ proto.holdem.pb.ServerMessageHandClear.deserializeBinaryFromReader = function(ms
       var value = /** @type {number} */ (reader.readUint32());
       msg.setHandNum(value);
       break;
+    case 2:
+      var value = new protobuf_holdem_define_pb.NextHandInfoChange;
+      reader.readMessage(value,protobuf_holdem_define_pb.NextHandInfoChange.deserializeBinaryFromReader);
+      msg.setNextHandChange(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -136,6 +143,14 @@ proto.holdem.pb.ServerMessageHandClear.serializeBinaryToWriter = function(messag
       f
     );
   }
+  f = message.getNextHandChange();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      protobuf_holdem_define_pb.NextHandInfoChange.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -151,6 +166,36 @@ proto.holdem.pb.ServerMessageHandClear.prototype.getHandNum = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageHandClear.prototype.setHandNum = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional NextHandInfoChange next_hand_change = 2;
+ * @return {?proto.holdem.pb.NextHandInfoChange}
+ */
+proto.holdem.pb.ServerMessageHandClear.prototype.getNextHandChange = function() {
+  return /** @type{?proto.holdem.pb.NextHandInfoChange} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.NextHandInfoChange, 2));
+};
+
+
+/** @param {?proto.holdem.pb.NextHandInfoChange|undefined} value */
+proto.holdem.pb.ServerMessageHandClear.prototype.setNextHandChange = function(value) {
+  jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+proto.holdem.pb.ServerMessageHandClear.prototype.clearNextHandChange = function() {
+  this.setNextHandChange(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageHandClear.prototype.hasNextHandChange = function() {
+  return jspb.Message.getField(this, 2) != null;
 };
 
 
