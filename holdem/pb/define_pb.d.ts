@@ -214,6 +214,22 @@ export namespace Def {
   }
 
   export const IIReason: IIReasonMap;
+
+  export interface PropBuyTypeMap {
+    NOT_SUPPORT: 0;
+    ONLY_PROP: 1;
+    MIX: 2;
+  }
+
+  export const PropBuyType: PropBuyTypeMap;
+
+  export interface DealDelayTypeMap {
+    UNKOWN: 0;
+    GG: 1;
+    HH: 2;
+  }
+
+  export const DealDelayType: DealDelayTypeMap;
 }
 
 export class Room extends jspb.Message {
@@ -2415,6 +2431,502 @@ export namespace RoomAdmin {
     viewVideo: number,
     videoVerify: number,
     isAdmin: boolean,
+  }
+}
+
+export class MTTRecord extends jspb.Message {
+  getMatchId(): number;
+  setMatchId(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getGameType(): Def.GameTypeMap[keyof Def.GameTypeMap];
+  setGameType(value: Def.GameTypeMap[keyof Def.GameTypeMap]): void;
+
+  getPokerType(): Def.PokerTypeMap[keyof Def.PokerTypeMap];
+  setPokerType(value: Def.PokerTypeMap[keyof Def.PokerTypeMap]): void;
+
+  getLimitBetType(): Def.LimitBetTypeMap[keyof Def.LimitBetTypeMap];
+  setLimitBetType(value: Def.LimitBetTypeMap[keyof Def.LimitBetTypeMap]): void;
+
+  getRankType(): number;
+  setRankType(value: number): void;
+
+  getEnterTime(): number;
+  setEnterTime(value: number): void;
+
+  getStartTime(): number;
+  setStartTime(value: number): void;
+
+  getEndTime(): number;
+  setEndTime(value: number): void;
+
+  getHunterOn(): number;
+  setHunterOn(value: number): void;
+
+  getHunterBonus(): number;
+  setHunterBonus(value: number): void;
+
+  getPartialOn(): number;
+  setPartialOn(value: number): void;
+
+  getParitalReturnBl(): number;
+  setParitalReturnBl(value: number): void;
+
+  getStraddleOn(): number;
+  setStraddleOn(value: number): void;
+
+  getStraddleMax(): number;
+  setStraddleMax(value: number): void;
+
+  getMuckOn(): number;
+  setMuckOn(value: number): void;
+
+  getRooms(): number;
+  setRooms(value: number): void;
+
+  getMaxRoomId(): number;
+  setMaxRoomId(value: number): void;
+
+  getDelayViewCardOn(): number;
+  setDelayViewCardOn(value: number): void;
+
+  getLimitMin(): number;
+  setLimitMin(value: number): void;
+
+  getLimitDelayTimes(): number;
+  setLimitDelayTimes(value: number): void;
+
+  getLimitAutoCheckTimes(): number;
+  setLimitAutoCheckTimes(value: number): void;
+
+  getLimitAutoFoldTimes(): number;
+  setLimitAutoFoldTimes(value: number): void;
+
+  getParticipants(): number;
+  setParticipants(value: number): void;
+
+  getAlive(): number;
+  setAlive(value: number): void;
+
+  getAwardNum(): number;
+  setAwardNum(value: number): void;
+
+  getMoneySync(): number;
+  setMoneySync(value: number): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getSeatCount(): number;
+  setSeatCount(value: number): void;
+
+  getFinalSeatCount(): number;
+  setFinalSeatCount(value: number): void;
+
+  getNoUserWaitDuration(): number;
+  setNoUserWaitDuration(value: number): void;
+
+  getInitialScore(): number;
+  setInitialScore(value: number): void;
+
+  getBlindtableType(): number;
+  setBlindtableType(value: number): void;
+
+  getUpblindInterval(): number;
+  setUpblindInterval(value: number): void;
+
+  getApplyStartTime(): number;
+  setApplyStartTime(value: number): void;
+
+  getOpDuration(): number;
+  setOpDuration(value: number): void;
+
+  getMaxDelayApplyBl(): number;
+  setMaxDelayApplyBl(value: number): void;
+
+  getRebuyTimes(): number;
+  setRebuyTimes(value: number): void;
+
+  getMaxRebuyBl(): number;
+  setMaxRebuyBl(value: number): void;
+
+  getLimitTotalBuyTimes(): number;
+  setLimitTotalBuyTimes(value: number): void;
+
+  getTotalBuyTimes(): number;
+  setTotalBuyTimes(value: number): void;
+
+  getTotalBuyinTimes(): number;
+  setTotalBuyinTimes(value: number): void;
+
+  getTotalRebuyTimes(): number;
+  setTotalRebuyTimes(value: number): void;
+
+  getAddonBeginBl(): number;
+  setAddonBeginBl(value: number): void;
+
+  getAddonEndBl(): number;
+  setAddonEndBl(value: number): void;
+
+  getAddonScore(): number;
+  setAddonScore(value: number): void;
+
+  getTotalAddonTimes(): number;
+  setTotalAddonTimes(value: number): void;
+
+  getApplyFeePool(): number;
+  setApplyFeePool(value: number): void;
+
+  getApplyFeeService(): number;
+  setApplyFeeService(value: number): void;
+
+  getApplyFeeHunter(): number;
+  setApplyFeeHunter(value: number): void;
+
+  getPrizeType(): number;
+  setPrizeType(value: number): void;
+
+  getPrizeBasePool(): number;
+  setPrizeBasePool(value: number): void;
+
+  getTribeId(): number;
+  setTribeId(value: number): void;
+
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
+  getUpdateTime(): number;
+  setUpdateTime(value: number): void;
+
+  getBuyPropId(): number;
+  setBuyPropId(value: number): void;
+
+  getPropBuyType(): Def.PropBuyTypeMap[keyof Def.PropBuyTypeMap];
+  setPropBuyType(value: Def.PropBuyTypeMap[keyof Def.PropBuyTypeMap]): void;
+
+  getGameIcon(): string;
+  setGameIcon(value: string): void;
+
+  getVoiceprintVerifyOn(): number;
+  setVoiceprintVerifyOn(value: number): void;
+
+  getVoiceprintVerifyDuration(): number;
+  setVoiceprintVerifyDuration(value: number): void;
+
+  getAddonplusM1On(): number;
+  setAddonplusM1On(value: number): void;
+
+  getAddonplusM1MaxTimes(): number;
+  setAddonplusM1MaxTimes(value: number): void;
+
+  getAddonplusM1Limit(): number;
+  setAddonplusM1Limit(value: number): void;
+
+  getTotalAddonplusM1Times(): number;
+  setTotalAddonplusM1Times(value: number): void;
+
+  getAddonplusM2On(): number;
+  setAddonplusM2On(value: number): void;
+
+  getAddonplusM2MaxTimes(): number;
+  setAddonplusM2MaxTimes(value: number): void;
+
+  getAddonplusM2MaxBl(): number;
+  setAddonplusM2MaxBl(value: number): void;
+
+  getTotalAddonplusM2Times(): number;
+  setTotalAddonplusM2Times(value: number): void;
+
+  getBuyRatio(): number;
+  setBuyRatio(value: number): void;
+
+  getPreBuyinBonus(): number;
+  setPreBuyinBonus(value: number): void;
+
+  getTableclothTag(): string;
+  setTableclothTag(value: string): void;
+
+  getLimitTag(): string;
+  setLimitTag(value: string): void;
+
+  getBonustableType(): number;
+  setBonustableType(value: number): void;
+
+  getBuyinFreeTimes(): number;
+  setBuyinFreeTimes(value: number): void;
+
+  getRebuyFreeTimes(): number;
+  setRebuyFreeTimes(value: number): void;
+
+  getMultiRatioFreeTimes(): number;
+  setMultiRatioFreeTimes(value: number): void;
+
+  getAddonFreeTimes(): number;
+  setAddonFreeTimes(value: number): void;
+
+  getBuyinFreeInclSvr(): number;
+  setBuyinFreeInclSvr(value: number): void;
+
+  getRebuyFreeInclSvr(): number;
+  setRebuyFreeInclSvr(value: number): void;
+
+  getMultiRatioFreeInclSvr(): number;
+  setMultiRatioFreeInclSvr(value: number): void;
+
+  getAddonFreeInclSvr(): number;
+  setAddonFreeInclSvr(value: number): void;
+
+  getAwardReplacePropId(): number;
+  setAwardReplacePropId(value: number): void;
+
+  getAwardReplacePropValue(): number;
+  setAwardReplacePropValue(value: number): void;
+
+  getAwardExtraBuyTimes(): number;
+  setAwardExtraBuyTimes(value: number): void;
+
+  getAwardExtraAddCount(): number;
+  setAwardExtraAddCount(value: number): void;
+
+  getAwardExtraPropId(): number;
+  setAwardExtraPropId(value: number): void;
+
+  getAwardExtraGoldValue(): number;
+  setAwardExtraGoldValue(value: number): void;
+
+  getAwardExtraGoldBuy(): number;
+  setAwardExtraGoldBuy(value: number): void;
+
+  getAwardExtraTicketBuy(): number;
+  setAwardExtraTicketBuy(value: number): void;
+
+  getAwardExtraFreeBuy(): number;
+  setAwardExtraFreeBuy(value: number): void;
+
+  getBreakBasePool(): number;
+  setBreakBasePool(value: number): void;
+
+  getTotalExtraBuyTimes(): number;
+  setTotalExtraBuyTimes(value: number): void;
+
+  getAwardExtraPropValue(): number;
+  setAwardExtraPropValue(value: number): void;
+
+  getRebuyTicketLimitTimes(): number;
+  setRebuyTicketLimitTimes(value: number): void;
+
+  getAddonTicketLimitTimes(): number;
+  setAddonTicketLimitTimes(value: number): void;
+
+  getCreatorId(): number;
+  setCreatorId(value: number): void;
+
+  getShareMtt(): number;
+  setShareMtt(value: number): void;
+
+  getTemplateId(): number;
+  setTemplateId(value: number): void;
+
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getDealDelay(): number;
+  setDealDelay(value: number): void;
+
+  getBombpot(): number;
+  setBombpot(value: number): void;
+
+  getAntiCheatType(): number;
+  setAntiCheatType(value: number): void;
+
+  getAntiCheatTimelimit(): number;
+  setAntiCheatTimelimit(value: number): void;
+
+  getAntiCheatVideoType(): number;
+  setAntiCheatVideoType(value: number): void;
+
+  getPopupMessage(): string;
+  setPopupMessage(value: string): void;
+
+  getVideoVerifyType(): number;
+  setVideoVerifyType(value: number): void;
+
+  getAntiCheatOrderType(): number;
+  setAntiCheatOrderType(value: number): void;
+
+  getAntiCheatOrderMicType(): number;
+  setAntiCheatOrderMicType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MTTRecord.AsObject;
+  static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MTTRecord, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MTTRecord;
+  static deserializeBinaryFromReader(message: MTTRecord, reader: jspb.BinaryReader): MTTRecord;
+}
+
+export namespace MTTRecord {
+  export type AsObject = {
+    matchId: number,
+    name: string,
+    type: number,
+    gameType: Def.GameTypeMap[keyof Def.GameTypeMap],
+    pokerType: Def.PokerTypeMap[keyof Def.PokerTypeMap],
+    limitBetType: Def.LimitBetTypeMap[keyof Def.LimitBetTypeMap],
+    rankType: number,
+    enterTime: number,
+    startTime: number,
+    endTime: number,
+    hunterOn: number,
+    hunterBonus: number,
+    partialOn: number,
+    paritalReturnBl: number,
+    straddleOn: number,
+    straddleMax: number,
+    muckOn: number,
+    rooms: number,
+    maxRoomId: number,
+    delayViewCardOn: number,
+    limitMin: number,
+    limitDelayTimes: number,
+    limitAutoCheckTimes: number,
+    limitAutoFoldTimes: number,
+    participants: number,
+    alive: number,
+    awardNum: number,
+    moneySync: number,
+    status: number,
+    seatCount: number,
+    finalSeatCount: number,
+    noUserWaitDuration: number,
+    initialScore: number,
+    blindtableType: number,
+    upblindInterval: number,
+    applyStartTime: number,
+    opDuration: number,
+    maxDelayApplyBl: number,
+    rebuyTimes: number,
+    maxRebuyBl: number,
+    limitTotalBuyTimes: number,
+    totalBuyTimes: number,
+    totalBuyinTimes: number,
+    totalRebuyTimes: number,
+    addonBeginBl: number,
+    addonEndBl: number,
+    addonScore: number,
+    totalAddonTimes: number,
+    applyFeePool: number,
+    applyFeeService: number,
+    applyFeeHunter: number,
+    prizeType: number,
+    prizeBasePool: number,
+    tribeId: number,
+    createTime: number,
+    updateTime: number,
+    buyPropId: number,
+    propBuyType: Def.PropBuyTypeMap[keyof Def.PropBuyTypeMap],
+    gameIcon: string,
+    voiceprintVerifyOn: number,
+    voiceprintVerifyDuration: number,
+    addonplusM1On: number,
+    addonplusM1MaxTimes: number,
+    addonplusM1Limit: number,
+    totalAddonplusM1Times: number,
+    addonplusM2On: number,
+    addonplusM2MaxTimes: number,
+    addonplusM2MaxBl: number,
+    totalAddonplusM2Times: number,
+    buyRatio: number,
+    preBuyinBonus: number,
+    tableclothTag: string,
+    limitTag: string,
+    bonustableType: number,
+    buyinFreeTimes: number,
+    rebuyFreeTimes: number,
+    multiRatioFreeTimes: number,
+    addonFreeTimes: number,
+    buyinFreeInclSvr: number,
+    rebuyFreeInclSvr: number,
+    multiRatioFreeInclSvr: number,
+    addonFreeInclSvr: number,
+    awardReplacePropId: number,
+    awardReplacePropValue: number,
+    awardExtraBuyTimes: number,
+    awardExtraAddCount: number,
+    awardExtraPropId: number,
+    awardExtraGoldValue: number,
+    awardExtraGoldBuy: number,
+    awardExtraTicketBuy: number,
+    awardExtraFreeBuy: number,
+    breakBasePool: number,
+    totalExtraBuyTimes: number,
+    awardExtraPropValue: number,
+    rebuyTicketLimitTimes: number,
+    addonTicketLimitTimes: number,
+    creatorId: number,
+    shareMtt: number,
+    templateId: number,
+    goldType: number,
+    dealDelay: number,
+    bombpot: number,
+    antiCheatType: number,
+    antiCheatTimelimit: number,
+    antiCheatVideoType: number,
+    popupMessage: string,
+    videoVerifyType: number,
+    antiCheatOrderType: number,
+    antiCheatOrderMicType: number,
+  }
+}
+
+export class MTTMore extends jspb.Message {
+  getBl(): number;
+  setBl(value: number): void;
+
+  getSb(): number;
+  setSb(value: number): void;
+
+  getAnte(): number;
+  setAnte(value: number): void;
+
+  getNsb(): number;
+  setNsb(value: number): void;
+
+  getNante(): number;
+  setNante(value: number): void;
+
+  getNbl(): number;
+  setNbl(value: number): void;
+
+  getPrizePool(): number;
+  setPrizePool(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MTTMore.AsObject;
+  static toObject(includeInstance: boolean, msg: MTTMore): MTTMore.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MTTMore, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MTTMore;
+  static deserializeBinaryFromReader(message: MTTMore, reader: jspb.BinaryReader): MTTMore;
+}
+
+export namespace MTTMore {
+  export type AsObject = {
+    bl: number,
+    sb: number,
+    ante: number,
+    nsb: number,
+    nante: number,
+    nbl: number,
+    prizePool: number,
   }
 }
 
