@@ -236,7 +236,8 @@ proto.holdem.pb.ServerMessageMttDetail.toObject = function(includeInstance, msg)
     more: (f = msg.getMore()) && protobuf_holdem_define_pb.MTTMore.toObject(includeInstance, f),
     alive: jspb.Message.getFieldWithDefault(msg, 5, 0),
     stateCode: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    top: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    top: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    state: (f = msg.getState()) && protobuf_holdem_define_pb.MTTUserStatus.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -302,6 +303,11 @@ proto.holdem.pb.ServerMessageMttDetail.deserializeBinaryFromReader = function(ms
     case 7:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setTop(value);
+      break;
+    case 8:
+      var value = new protobuf_holdem_define_pb.MTTUserStatus;
+      reader.readMessage(value,protobuf_holdem_define_pb.MTTUserStatus.deserializeBinaryFromReader);
+      msg.setState(value);
       break;
     default:
       reader.skipField();
@@ -381,6 +387,14 @@ proto.holdem.pb.ServerMessageMttDetail.serializeBinaryToWriter = function(messag
     writer.writeUint32(
       7,
       f
+    );
+  }
+  f = message.getState();
+  if (f != null) {
+    writer.writeMessage(
+      8,
+      f,
+      protobuf_holdem_define_pb.MTTUserStatus.serializeBinaryToWriter
     );
   }
 };
@@ -518,6 +532,36 @@ proto.holdem.pb.ServerMessageMttDetail.prototype.getTop = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageMttDetail.prototype.setTop = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional MTTUserStatus state = 8;
+ * @return {?proto.holdem.pb.MTTUserStatus}
+ */
+proto.holdem.pb.ServerMessageMttDetail.prototype.getState = function() {
+  return /** @type{?proto.holdem.pb.MTTUserStatus} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.MTTUserStatus, 8));
+};
+
+
+/** @param {?proto.holdem.pb.MTTUserStatus|undefined} value */
+proto.holdem.pb.ServerMessageMttDetail.prototype.setState = function(value) {
+  jspb.Message.setWrapperField(this, 8, value);
+};
+
+
+proto.holdem.pb.ServerMessageMttDetail.prototype.clearState = function() {
+  this.setState(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageMttDetail.prototype.hasState = function() {
+  return jspb.Message.getField(this, 8) != null;
 };
 
 

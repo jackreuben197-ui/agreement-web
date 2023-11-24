@@ -2930,3 +2930,39 @@ export namespace MTTMore {
   }
 }
 
+export class MTTUserStatus extends jspb.Message {
+  getLeftRebuyTimes(): number;
+  setLeftRebuyTimes(value: number): void;
+
+  getChip(): number;
+  setChip(value: number): void;
+
+  getStore(): number;
+  setStore(value: number): void;
+
+  getInitScore(): number;
+  setInitScore(value: number): void;
+
+  getPartialEnable(): boolean;
+  setPartialEnable(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MTTUserStatus.AsObject;
+  static toObject(includeInstance: boolean, msg: MTTUserStatus): MTTUserStatus.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MTTUserStatus, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MTTUserStatus;
+  static deserializeBinaryFromReader(message: MTTUserStatus, reader: jspb.BinaryReader): MTTUserStatus;
+}
+
+export namespace MTTUserStatus {
+  export type AsObject = {
+    leftRebuyTimes: number,
+    chip: number,
+    store: number,
+    initScore: number,
+    partialEnable: boolean,
+  }
+}
+

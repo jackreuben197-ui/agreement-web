@@ -54,6 +54,11 @@ export class ServerMessageMttDetail extends jspb.Message {
   getTop(): number;
   setTop(value: number): void;
 
+  hasState(): boolean;
+  clearState(): void;
+  getState(): protobuf_holdem_define_pb.MTTUserStatus | undefined;
+  setState(value?: protobuf_holdem_define_pb.MTTUserStatus): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMttDetail.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMttDetail): ServerMessageMttDetail.AsObject;
@@ -73,6 +78,7 @@ export namespace ServerMessageMttDetail {
     alive: number,
     stateCode: number,
     top: number,
+    state?: protobuf_holdem_define_pb.MTTUserStatus.AsObject,
   }
 }
 
