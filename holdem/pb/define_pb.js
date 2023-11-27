@@ -15864,9 +15864,9 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     pokerType: jspb.Message.getFieldWithDefault(msg, 5, 0),
     limitBetType: jspb.Message.getFieldWithDefault(msg, 6, 0),
     rankType: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    enterTime: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    startTime: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    endTime: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    enterTime: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    startTime: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    endTime: jspb.Message.getFieldWithDefault(msg, 10, ""),
     hunterOn: jspb.Message.getFieldWithDefault(msg, 11, 0),
     hunterBonus: jspb.Message.getFieldWithDefault(msg, 12, 0),
     partialOn: jspb.Message.getFieldWithDefault(msg, 13, 0),
@@ -15892,7 +15892,7 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     initialScore: jspb.Message.getFieldWithDefault(msg, 33, 0),
     blindtableType: jspb.Message.getFieldWithDefault(msg, 34, 0),
     upblindInterval: jspb.Message.getFieldWithDefault(msg, 35, 0),
-    applyStartTime: jspb.Message.getFieldWithDefault(msg, 36, 0),
+    applyStartTime: jspb.Message.getFieldWithDefault(msg, 36, ""),
     opDuration: jspb.Message.getFieldWithDefault(msg, 37, 0),
     maxDelayApplyBl: jspb.Message.getFieldWithDefault(msg, 38, 0),
     rebuyTimes: jspb.Message.getFieldWithDefault(msg, 39, 0),
@@ -15911,8 +15911,8 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     prizeType: jspb.Message.getFieldWithDefault(msg, 52, 0),
     prizeBasePool: jspb.Message.getFieldWithDefault(msg, 53, 0),
     tribeId: jspb.Message.getFieldWithDefault(msg, 54, 0),
-    createTime: jspb.Message.getFieldWithDefault(msg, 55, 0),
-    updateTime: jspb.Message.getFieldWithDefault(msg, 56, 0),
+    createTime: jspb.Message.getFieldWithDefault(msg, 55, ""),
+    updateTime: jspb.Message.getFieldWithDefault(msg, 56, ""),
     buyPropId: jspb.Message.getFieldWithDefault(msg, 57, 0),
     propBuyType: jspb.Message.getFieldWithDefault(msg, 58, 0),
     gameIcon: jspb.Message.getFieldWithDefault(msg, 59, ""),
@@ -16031,15 +16031,15 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
       msg.setRankType(value);
       break;
     case 8:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setEnterTime(value);
       break;
     case 9:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setStartTime(value);
       break;
     case 10:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setEndTime(value);
       break;
     case 11:
@@ -16143,7 +16143,7 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
       msg.setUpblindInterval(value);
       break;
     case 36:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setApplyStartTime(value);
       break;
     case 37:
@@ -16219,11 +16219,11 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
       msg.setTribeId(value);
       break;
     case 55:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setCreateTime(value);
       break;
     case 56:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setUpdateTime(value);
       break;
     case 57:
@@ -16517,22 +16517,22 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getEnterTime();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f.length > 0) {
+    writer.writeString(
       8,
       f
     );
   }
   f = message.getStartTime();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f.length > 0) {
+    writer.writeString(
       9,
       f
     );
   }
   f = message.getEndTime();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f.length > 0) {
+    writer.writeString(
       10,
       f
     );
@@ -16713,8 +16713,8 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getApplyStartTime();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f.length > 0) {
+    writer.writeString(
       36,
       f
     );
@@ -16846,15 +16846,15 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getCreateTime();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f.length > 0) {
+    writer.writeString(
       55,
       f
     );
   }
   f = message.getUpdateTime();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f.length > 0) {
+    writer.writeString(
       56,
       f
     );
@@ -17339,45 +17339,45 @@ proto.holdem.pb.MTTRecord.prototype.setRankType = function(value) {
 
 
 /**
- * optional int64 enter_time = 8;
- * @return {number}
+ * optional string enter_time = 8;
+ * @return {string}
  */
 proto.holdem.pb.MTTRecord.prototype.getEnterTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
-/** @param {number} value */
+/** @param {string} value */
 proto.holdem.pb.MTTRecord.prototype.setEnterTime = function(value) {
   jspb.Message.setField(this, 8, value);
 };
 
 
 /**
- * optional int64 start_time = 9;
- * @return {number}
+ * optional string start_time = 9;
+ * @return {string}
  */
 proto.holdem.pb.MTTRecord.prototype.getStartTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
-/** @param {number} value */
+/** @param {string} value */
 proto.holdem.pb.MTTRecord.prototype.setStartTime = function(value) {
   jspb.Message.setField(this, 9, value);
 };
 
 
 /**
- * optional int64 end_time = 10;
- * @return {number}
+ * optional string end_time = 10;
+ * @return {string}
  */
 proto.holdem.pb.MTTRecord.prototype.getEndTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
-/** @param {number} value */
+/** @param {string} value */
 proto.holdem.pb.MTTRecord.prototype.setEndTime = function(value) {
   jspb.Message.setField(this, 10, value);
 };
@@ -17759,15 +17759,15 @@ proto.holdem.pb.MTTRecord.prototype.setUpblindInterval = function(value) {
 
 
 /**
- * optional int64 apply_start_time = 36;
- * @return {number}
+ * optional string apply_start_time = 36;
+ * @return {string}
  */
 proto.holdem.pb.MTTRecord.prototype.getApplyStartTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 36, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 36, ""));
 };
 
 
-/** @param {number} value */
+/** @param {string} value */
 proto.holdem.pb.MTTRecord.prototype.setApplyStartTime = function(value) {
   jspb.Message.setField(this, 36, value);
 };
@@ -18044,30 +18044,30 @@ proto.holdem.pb.MTTRecord.prototype.setTribeId = function(value) {
 
 
 /**
- * optional int64 create_time = 55;
- * @return {number}
+ * optional string create_time = 55;
+ * @return {string}
  */
 proto.holdem.pb.MTTRecord.prototype.getCreateTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 55, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 55, ""));
 };
 
 
-/** @param {number} value */
+/** @param {string} value */
 proto.holdem.pb.MTTRecord.prototype.setCreateTime = function(value) {
   jspb.Message.setField(this, 55, value);
 };
 
 
 /**
- * optional int64 update_time = 56;
- * @return {number}
+ * optional string update_time = 56;
+ * @return {string}
  */
 proto.holdem.pb.MTTRecord.prototype.getUpdateTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 56, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 56, ""));
 };
 
 
-/** @param {number} value */
+/** @param {string} value */
 proto.holdem.pb.MTTRecord.prototype.setUpdateTime = function(value) {
   jspb.Message.setField(this, 56, value);
 };

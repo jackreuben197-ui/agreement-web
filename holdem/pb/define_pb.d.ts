@@ -2456,14 +2456,14 @@ export class MTTRecord extends jspb.Message {
   getRankType(): number;
   setRankType(value: number): void;
 
-  getEnterTime(): number;
-  setEnterTime(value: number): void;
+  getEnterTime(): string;
+  setEnterTime(value: string): void;
 
-  getStartTime(): number;
-  setStartTime(value: number): void;
+  getStartTime(): string;
+  setStartTime(value: string): void;
 
-  getEndTime(): number;
-  setEndTime(value: number): void;
+  getEndTime(): string;
+  setEndTime(value: string): void;
 
   getHunterOn(): number;
   setHunterOn(value: number): void;
@@ -2540,8 +2540,8 @@ export class MTTRecord extends jspb.Message {
   getUpblindInterval(): number;
   setUpblindInterval(value: number): void;
 
-  getApplyStartTime(): number;
-  setApplyStartTime(value: number): void;
+  getApplyStartTime(): string;
+  setApplyStartTime(value: string): void;
 
   getOpDuration(): number;
   setOpDuration(value: number): void;
@@ -2597,11 +2597,11 @@ export class MTTRecord extends jspb.Message {
   getTribeId(): number;
   setTribeId(value: number): void;
 
-  getCreateTime(): number;
-  setCreateTime(value: number): void;
+  getCreateTime(): string;
+  setCreateTime(value: string): void;
 
-  getUpdateTime(): number;
-  setUpdateTime(value: number): void;
+  getUpdateTime(): string;
+  setUpdateTime(value: string): void;
 
   getBuyPropId(): number;
   setBuyPropId(value: number): void;
@@ -2781,9 +2781,9 @@ export namespace MTTRecord {
     pokerType: Def.PokerTypeMap[keyof Def.PokerTypeMap],
     limitBetType: Def.LimitBetTypeMap[keyof Def.LimitBetTypeMap],
     rankType: number,
-    enterTime: number,
-    startTime: number,
-    endTime: number,
+    enterTime: string,
+    startTime: string,
+    endTime: string,
     hunterOn: number,
     hunterBonus: number,
     partialOn: number,
@@ -2809,7 +2809,7 @@ export namespace MTTRecord {
     initialScore: number,
     blindtableType: number,
     upblindInterval: number,
-    applyStartTime: number,
+    applyStartTime: string,
     opDuration: number,
     maxDelayApplyBl: number,
     rebuyTimes: number,
@@ -2828,8 +2828,8 @@ export namespace MTTRecord {
     prizeType: number,
     prizeBasePool: number,
     tribeId: number,
-    createTime: number,
-    updateTime: number,
+    createTime: string,
+    updateTime: string,
     buyPropId: number,
     propBuyType: Def.PropBuyTypeMap[keyof Def.PropBuyTypeMap],
     gameIcon: string,
