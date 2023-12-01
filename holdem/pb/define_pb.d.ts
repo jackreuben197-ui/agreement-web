@@ -2966,3 +2966,23 @@ export namespace MTTUserStatus {
   }
 }
 
+export class UserPlayStatus extends jspb.Message {
+  getMuted(): boolean;
+  setMuted(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserPlayStatus.AsObject;
+  static toObject(includeInstance: boolean, msg: UserPlayStatus): UserPlayStatus.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserPlayStatus, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserPlayStatus;
+  static deserializeBinaryFromReader(message: UserPlayStatus, reader: jspb.BinaryReader): UserPlayStatus;
+}
+
+export namespace UserPlayStatus {
+  export type AsObject = {
+    muted: boolean,
+  }
+}
+
