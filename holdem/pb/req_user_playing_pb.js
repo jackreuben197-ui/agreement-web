@@ -186,8 +186,7 @@ proto.holdem.pb.ServerMessageUserPlaying.toObject = function(includeInstance, ms
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
     roomsMttsList: jspb.Message.toObjectList(msg.getRoomsMttsList(),
-    protobuf_holdem_define_pb.RoomWithType.toObject, includeInstance),
-    userPlayStatus: (f = msg.getUserPlayStatus()) && protobuf_holdem_define_pb.UserPlayStatus.toObject(includeInstance, f)
+    protobuf_holdem_define_pb.RoomWithType.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -233,11 +232,6 @@ proto.holdem.pb.ServerMessageUserPlaying.deserializeBinaryFromReader = function(
       reader.readMessage(value,protobuf_holdem_define_pb.RoomWithType.deserializeBinaryFromReader);
       msg.addRoomsMtts(value);
       break;
-    case 3:
-      var value = new protobuf_holdem_define_pb.UserPlayStatus;
-      reader.readMessage(value,protobuf_holdem_define_pb.UserPlayStatus.deserializeBinaryFromReader);
-      msg.setUserPlayStatus(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -280,14 +274,6 @@ proto.holdem.pb.ServerMessageUserPlaying.serializeBinaryToWriter = function(mess
       2,
       f,
       protobuf_holdem_define_pb.RoomWithType.serializeBinaryToWriter
-    );
-  }
-  f = message.getUserPlayStatus();
-  if (f != null) {
-    writer.writeMessage(
-      3,
-      f,
-      protobuf_holdem_define_pb.UserPlayStatus.serializeBinaryToWriter
     );
   }
 };
@@ -336,36 +322,6 @@ proto.holdem.pb.ServerMessageUserPlaying.prototype.addRoomsMtts = function(opt_v
 
 proto.holdem.pb.ServerMessageUserPlaying.prototype.clearRoomsMttsList = function() {
   this.setRoomsMttsList([]);
-};
-
-
-/**
- * optional UserPlayStatus user_play_status = 3;
- * @return {?proto.holdem.pb.UserPlayStatus}
- */
-proto.holdem.pb.ServerMessageUserPlaying.prototype.getUserPlayStatus = function() {
-  return /** @type{?proto.holdem.pb.UserPlayStatus} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.UserPlayStatus, 3));
-};
-
-
-/** @param {?proto.holdem.pb.UserPlayStatus|undefined} value */
-proto.holdem.pb.ServerMessageUserPlaying.prototype.setUserPlayStatus = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
-};
-
-
-proto.holdem.pb.ServerMessageUserPlaying.prototype.clearUserPlayStatus = function() {
-  this.setUserPlayStatus(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.holdem.pb.ServerMessageUserPlaying.prototype.hasUserPlayStatus = function() {
-  return jspb.Message.getField(this, 3) != null;
 };
 
 

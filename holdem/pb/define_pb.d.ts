@@ -1864,6 +1864,26 @@ export namespace AllInWinCardsInfo {
   }
 }
 
+export class UserPlayStatus extends jspb.Message {
+  getMuted(): boolean;
+  setMuted(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserPlayStatus.AsObject;
+  static toObject(includeInstance: boolean, msg: UserPlayStatus): UserPlayStatus.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserPlayStatus, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserPlayStatus;
+  static deserializeBinaryFromReader(message: UserPlayStatus, reader: jspb.BinaryReader): UserPlayStatus;
+}
+
+export namespace UserPlayStatus {
+  export type AsObject = {
+    muted: boolean,
+  }
+}
+
 export class RoomWithType extends jspb.Message {
   getRoomId(): number;
   setRoomId(value: number): void;
@@ -1879,6 +1899,11 @@ export class RoomWithType extends jspb.Message {
 
   getAntiCheatVideoType(): number;
   setAntiCheatVideoType(value: number): void;
+
+  hasUserPlayStatus(): boolean;
+  clearUserPlayStatus(): void;
+  getUserPlayStatus(): UserPlayStatus | undefined;
+  setUserPlayStatus(value?: UserPlayStatus): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomWithType.AsObject;
@@ -1897,6 +1922,7 @@ export namespace RoomWithType {
     roomType: number,
     antiCheatType: number,
     antiCheatVideoType: number,
+    userPlayStatus?: UserPlayStatus.AsObject,
   }
 }
 
@@ -2963,26 +2989,6 @@ export namespace MTTUserStatus {
     store: number,
     initScore: number,
     partialEnable: boolean,
-  }
-}
-
-export class UserPlayStatus extends jspb.Message {
-  getMuted(): boolean;
-  setMuted(value: boolean): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserPlayStatus.AsObject;
-  static toObject(includeInstance: boolean, msg: UserPlayStatus): UserPlayStatus.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: UserPlayStatus, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserPlayStatus;
-  static deserializeBinaryFromReader(message: UserPlayStatus, reader: jspb.BinaryReader): UserPlayStatus;
-}
-
-export namespace UserPlayStatus {
-  export type AsObject = {
-    muted: boolean,
   }
 }
 

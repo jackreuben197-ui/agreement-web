@@ -29,11 +29,6 @@ export class ServerMessageUserPlaying extends jspb.Message {
   setRoomsMttsList(value: Array<protobuf_holdem_define_pb.RoomWithType>): void;
   addRoomsMtts(value?: protobuf_holdem_define_pb.RoomWithType, index?: number): protobuf_holdem_define_pb.RoomWithType;
 
-  hasUserPlayStatus(): boolean;
-  clearUserPlayStatus(): void;
-  getUserPlayStatus(): protobuf_holdem_define_pb.UserPlayStatus | undefined;
-  setUserPlayStatus(value?: protobuf_holdem_define_pb.UserPlayStatus): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserPlaying.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserPlaying): ServerMessageUserPlaying.AsObject;
@@ -48,7 +43,6 @@ export namespace ServerMessageUserPlaying {
   export type AsObject = {
     status: number,
     roomsMttsList: Array<protobuf_holdem_define_pb.RoomWithType.AsObject>,
-    userPlayStatus?: protobuf_holdem_define_pb.UserPlayStatus.AsObject,
   }
 }
 
