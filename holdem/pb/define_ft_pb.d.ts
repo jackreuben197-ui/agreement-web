@@ -77,6 +77,9 @@ export class RoomInfoFT extends jspb.Message {
   getPtLevel(): number;
   setPtLevel(value: number): void;
 
+  getPersonalType(): number;
+  setPersonalType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfoFT.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfoFT): RoomInfoFT.AsObject;
@@ -105,6 +108,7 @@ export namespace RoomInfoFT {
     antiCheatType: number,
     antiCheatVideoType: number,
     ptLevel: number,
+    personalType: number,
   }
 }
 

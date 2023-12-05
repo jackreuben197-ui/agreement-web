@@ -1151,7 +1151,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     roomType: jspb.Message.getFieldWithDefault(msg, 33, 0),
     antiCheatType: jspb.Message.getFieldWithDefault(msg, 34, 0),
     antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 35, 0),
-    squidBase: jspb.Message.getFieldWithDefault(msg, 36, 0)
+    squidBase: jspb.Message.getFieldWithDefault(msg, 36, 0),
+    personalType: jspb.Message.getFieldWithDefault(msg, 37, 0)
   };
 
   if (includeInstance) {
@@ -1324,6 +1325,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 36:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setSquidBase(value);
+      break;
+    case 37:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPersonalType(value);
       break;
     default:
       reader.skipField();
@@ -1590,6 +1595,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       36,
+      f
+    );
+  }
+  f = message.getPersonalType();
+  if (f !== 0) {
+    writer.writeInt32(
+      37,
       f
     );
   }
@@ -2152,6 +2164,21 @@ proto.holdem.pb.RoomInfo.prototype.getSquidBase = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setSquidBase = function(value) {
   jspb.Message.setField(this, 36, value);
+};
+
+
+/**
+ * optional int32 personal_type = 37;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getPersonalType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 37, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setPersonalType = function(value) {
+  jspb.Message.setField(this, 37, value);
 };
 
 
@@ -12473,7 +12500,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     chatType: jspb.Message.getFieldWithDefault(msg, 98, 0),
     autoOnTableSwitch: jspb.Message.getFieldWithDefault(msg, 99, 0),
     retainType: jspb.Message.getFieldWithDefault(msg, 100, 0),
-    roomAdmin: (f = msg.getRoomAdmin()) && proto.holdem.pb.RoomAdmin.toObject(includeInstance, f)
+    roomAdmin: (f = msg.getRoomAdmin()) && proto.holdem.pb.RoomAdmin.toObject(includeInstance, f),
+    personalType: jspb.Message.getFieldWithDefault(msg, 102, 0)
   };
 
   if (includeInstance) {
@@ -12909,6 +12937,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.RoomAdmin;
       reader.readMessage(value,proto.holdem.pb.RoomAdmin.deserializeBinaryFromReader);
       msg.setRoomAdmin(value);
+      break;
+    case 102:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPersonalType(value);
       break;
     default:
       reader.skipField();
@@ -13634,6 +13666,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
       101,
       f,
       proto.holdem.pb.RoomAdmin.serializeBinaryToWriter
+    );
+  }
+  f = message.getPersonalType();
+  if (f !== 0) {
+    writer.writeInt32(
+      102,
+      f
     );
   }
 };
@@ -15184,6 +15223,21 @@ proto.holdem.pb.RoomRecord.prototype.clearRoomAdmin = function() {
  */
 proto.holdem.pb.RoomRecord.prototype.hasRoomAdmin = function() {
   return jspb.Message.getField(this, 101) != null;
+};
+
+
+/**
+ * optional int32 personal_type = 102;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getPersonalType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 102, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setPersonalType = function(value) {
+  jspb.Message.setField(this, 102, value);
 };
 
 

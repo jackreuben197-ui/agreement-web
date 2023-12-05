@@ -215,7 +215,8 @@ proto.holdem.pb.RoomInfoFT.toObject = function(includeInstance, msg) {
     roomType: jspb.Message.getFieldWithDefault(msg, 13, 0),
     antiCheatType: jspb.Message.getFieldWithDefault(msg, 14, 0),
     antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    ptLevel: jspb.Message.getFieldWithDefault(msg, 16, 0)
+    ptLevel: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    personalType: jspb.Message.getFieldWithDefault(msg, 17, 0)
   };
 
   if (includeInstance) {
@@ -315,6 +316,10 @@ proto.holdem.pb.RoomInfoFT.deserializeBinaryFromReader = function(msg, reader) {
     case 16:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setPtLevel(value);
+      break;
+    case 17:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPersonalType(value);
       break;
     default:
       reader.skipField();
@@ -454,6 +459,13 @@ proto.holdem.pb.RoomInfoFT.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       16,
+      f
+    );
+  }
+  f = message.getPersonalType();
+  if (f !== 0) {
+    writer.writeInt32(
+      17,
       f
     );
   }
@@ -705,6 +717,21 @@ proto.holdem.pb.RoomInfoFT.prototype.getPtLevel = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfoFT.prototype.setPtLevel = function(value) {
   jspb.Message.setField(this, 16, value);
+};
+
+
+/**
+ * optional int32 personal_type = 17;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoFT.prototype.getPersonalType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoFT.prototype.setPersonalType = function(value) {
+  jspb.Message.setField(this, 17, value);
 };
 
 

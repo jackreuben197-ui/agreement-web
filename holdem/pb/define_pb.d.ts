@@ -425,6 +425,9 @@ export class RoomInfo extends jspb.Message {
   getSquidBase(): number;
   setSquidBase(value: number): void;
 
+  getPersonalType(): number;
+  setPersonalType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -471,6 +474,7 @@ export namespace RoomInfo {
     antiCheatType: number,
     antiCheatVideoType: number,
     squidBase: number,
+    personalType: number,
   }
 
   export interface RetainTypeMap {
@@ -2232,6 +2236,9 @@ export class RoomRecord extends jspb.Message {
   getRoomAdmin(): RoomAdmin | undefined;
   setRoomAdmin(value?: RoomAdmin): void;
 
+  getPersonalType(): number;
+  setPersonalType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2343,6 +2350,7 @@ export namespace RoomRecord {
     autoOnTableSwitch: number,
     retainType: number,
     roomAdmin?: RoomAdmin.AsObject,
+    personalType: number,
   }
 }
 
