@@ -2205,7 +2205,10 @@ proto.holdem.pb.MyGameInfoFT.toObject = function(includeInstance, msg) {
   var f, obj = {
     chip: jspb.Message.getFieldWithDefault(msg, 1, 0),
     seatId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    isAutoop: jspb.Message.getFieldWithDefault(msg, 3, false)
+    isAutoop: jspb.Message.getFieldWithDefault(msg, 3, false),
+    name: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    avatar: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    sex: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -2253,6 +2256,18 @@ proto.holdem.pb.MyGameInfoFT.deserializeBinaryFromReader = function(msg, reader)
     case 3:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsAutoop(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAvatar(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSex(value);
       break;
     default:
       reader.skipField();
@@ -2304,6 +2319,27 @@ proto.holdem.pb.MyGameInfoFT.serializeBinaryToWriter = function(message, writer)
       f
     );
   }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getAvatar();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getSex();
+  if (f !== 0) {
+    writer.writeInt32(
+      6,
+      f
+    );
+  }
 };
 
 
@@ -2351,6 +2387,51 @@ proto.holdem.pb.MyGameInfoFT.prototype.getIsAutoop = function() {
 /** @param {boolean} value */
 proto.holdem.pb.MyGameInfoFT.prototype.setIsAutoop = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional string name = 4;
+ * @return {string}
+ */
+proto.holdem.pb.MyGameInfoFT.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.MyGameInfoFT.prototype.setName = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional string avatar = 5;
+ * @return {string}
+ */
+proto.holdem.pb.MyGameInfoFT.prototype.getAvatar = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.MyGameInfoFT.prototype.setAvatar = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional int32 sex = 6;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfoFT.prototype.getSex = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfoFT.prototype.setSex = function(value) {
+  jspb.Message.setField(this, 6, value);
 };
 
 

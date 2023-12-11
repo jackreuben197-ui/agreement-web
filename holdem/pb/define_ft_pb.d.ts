@@ -318,6 +318,15 @@ export class MyGameInfoFT extends jspb.Message {
   getIsAutoop(): boolean;
   setIsAutoop(value: boolean): void;
 
+  getName(): string;
+  setName(value: string): void;
+
+  getAvatar(): string;
+  setAvatar(value: string): void;
+
+  getSex(): number;
+  setSex(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfoFT.AsObject;
   static toObject(includeInstance: boolean, msg: MyGameInfoFT): MyGameInfoFT.AsObject;
@@ -333,6 +342,9 @@ export namespace MyGameInfoFT {
     chip: number,
     seatId: number,
     isAutoop: boolean,
+    name: string,
+    avatar: string,
+    sex: number,
   }
 }
 

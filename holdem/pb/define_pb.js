@@ -2409,7 +2409,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.HandInfo.repeatedFields_ = [5,7,10,11];
+proto.holdem.pb.HandInfo.repeatedFields_ = [5,7,10,11,16];
 
 
 
@@ -2453,7 +2453,9 @@ proto.holdem.pb.HandInfo.toObject = function(includeInstance, msg) {
     extPublicCardsList: jspb.Message.getRepeatedField(msg, 10),
     secondPublicCardsList: jspb.Message.getRepeatedField(msg, 11),
     pools: (f = msg.getPools()) && proto.holdem.pb.ExternalPools.toObject(includeInstance, f),
-    inSquid: jspb.Message.getFieldWithDefault(msg, 15, false)
+    inSquid: jspb.Message.getFieldWithDefault(msg, 15, false),
+    secondPotsList: jspb.Message.toObjectList(msg.getSecondPotsList(),
+    proto.holdem.pb.SidePot.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -2543,6 +2545,11 @@ proto.holdem.pb.HandInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 15:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setInSquid(value);
+      break;
+    case 16:
+      var value = new proto.holdem.pb.SidePot;
+      reader.readMessage(value,proto.holdem.pb.SidePot.deserializeBinaryFromReader);
+      msg.addSecondPots(value);
       break;
     default:
       reader.skipField();
@@ -2664,6 +2671,14 @@ proto.holdem.pb.HandInfo.serializeBinaryToWriter = function(message, writer) {
     writer.writeBool(
       15,
       f
+    );
+  }
+  f = message.getSecondPotsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      16,
+      f,
+      proto.holdem.pb.SidePot.serializeBinaryToWriter
     );
   }
 };
@@ -2936,6 +2951,37 @@ proto.holdem.pb.HandInfo.prototype.getInSquid = function() {
 /** @param {boolean} value */
 proto.holdem.pb.HandInfo.prototype.setInSquid = function(value) {
   jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * repeated SidePot second_pots = 16;
+ * @return {!Array.<!proto.holdem.pb.SidePot>}
+ */
+proto.holdem.pb.HandInfo.prototype.getSecondPotsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.SidePot>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.SidePot, 16));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.SidePot>} value */
+proto.holdem.pb.HandInfo.prototype.setSecondPotsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 16, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.SidePot=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.SidePot}
+ */
+proto.holdem.pb.HandInfo.prototype.addSecondPots = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 16, opt_value, proto.holdem.pb.SidePot, opt_index);
+};
+
+
+proto.holdem.pb.HandInfo.prototype.clearSecondPotsList = function() {
+  this.setSecondPotsList([]);
 };
 
 
@@ -4164,7 +4210,10 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     addonPlusMode1Times: jspb.Message.getFieldWithDefault(msg, 12, 0),
     addonPlusMode2Times: jspb.Message.getFieldWithDefault(msg, 13, 0),
     hunterKillAwardOther: jspb.Message.getFieldWithDefault(msg, 14, 0),
-    hunterHeadValue: jspb.Message.getFieldWithDefault(msg, 15, 0)
+    hunterHeadValue: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 16, ""),
+    avatar: jspb.Message.getFieldWithDefault(msg, 17, ""),
+    sex: jspb.Message.getFieldWithDefault(msg, 18, 0)
   };
 
   if (includeInstance) {
@@ -4260,6 +4309,18 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 15:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setHunterHeadValue(value);
+      break;
+    case 16:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 17:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAvatar(value);
+      break;
+    case 18:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSex(value);
       break;
     default:
       reader.skipField();
@@ -4392,6 +4453,27 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       15,
+      f
+    );
+  }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      16,
+      f
+    );
+  }
+  f = message.getAvatar();
+  if (f.length > 0) {
+    writer.writeString(
+      17,
+      f
+    );
+  }
+  f = message.getSex();
+  if (f !== 0) {
+    writer.writeInt32(
+      18,
       f
     );
   }
@@ -4626,6 +4708,51 @@ proto.holdem.pb.MyGameInfo.prototype.getHunterHeadValue = function() {
 /** @param {number} value */
 proto.holdem.pb.MyGameInfo.prototype.setHunterHeadValue = function(value) {
   jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * optional string name = 16;
+ * @return {string}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.MyGameInfo.prototype.setName = function(value) {
+  jspb.Message.setField(this, 16, value);
+};
+
+
+/**
+ * optional string avatar = 17;
+ * @return {string}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getAvatar = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 17, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.MyGameInfo.prototype.setAvatar = function(value) {
+  jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * optional int32 sex = 18;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getSex = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfo.prototype.setSex = function(value) {
+  jspb.Message.setField(this, 18, value);
 };
 
 

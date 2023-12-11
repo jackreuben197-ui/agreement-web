@@ -564,6 +564,11 @@ export class HandInfo extends jspb.Message {
   getInSquid(): boolean;
   setInSquid(value: boolean): void;
 
+  clearSecondPotsList(): void;
+  getSecondPotsList(): Array<SidePot>;
+  setSecondPotsList(value: Array<SidePot>): void;
+  addSecondPots(value?: SidePot, index?: number): SidePot;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandInfo.AsObject;
   static toObject(includeInstance: boolean, msg: HandInfo): HandInfo.AsObject;
@@ -589,6 +594,7 @@ export namespace HandInfo {
     secondPublicCardsList: Array<number>,
     pools?: ExternalPools.AsObject,
     inSquid: boolean,
+    secondPotsList: Array<SidePot.AsObject>,
   }
 }
 
@@ -806,6 +812,15 @@ export class MyGameInfo extends jspb.Message {
   getHunterHeadValue(): number;
   setHunterHeadValue(value: number): void;
 
+  getName(): string;
+  setName(value: string): void;
+
+  getAvatar(): string;
+  setAvatar(value: string): void;
+
+  getSex(): number;
+  setSex(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfo.AsObject;
   static toObject(includeInstance: boolean, msg: MyGameInfo): MyGameInfo.AsObject;
@@ -833,6 +848,9 @@ export namespace MyGameInfo {
     addonPlusMode2Times: number,
     hunterKillAwardOther: number,
     hunterHeadValue: number,
+    name: string,
+    avatar: string,
+    sex: number,
   }
 }
 
