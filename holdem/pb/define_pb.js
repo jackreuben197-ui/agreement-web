@@ -12230,7 +12230,8 @@ proto.holdem.pb.RoomWithType.toObject = function(includeInstance, msg) {
     roomType: jspb.Message.getFieldWithDefault(msg, 3, 0),
     antiCheatType: jspb.Message.getFieldWithDefault(msg, 4, 0),
     antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    userPlayStatus: (f = msg.getUserPlayStatus()) && proto.holdem.pb.UserPlayStatus.toObject(includeInstance, f)
+    userPlayStatus: (f = msg.getUserPlayStatus()) && proto.holdem.pb.UserPlayStatus.toObject(includeInstance, f),
+    bombpot: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -12291,6 +12292,10 @@ proto.holdem.pb.RoomWithType.deserializeBinaryFromReader = function(msg, reader)
       var value = new proto.holdem.pb.UserPlayStatus;
       reader.readMessage(value,proto.holdem.pb.UserPlayStatus.deserializeBinaryFromReader);
       msg.setUserPlayStatus(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBombpot(value);
       break;
     default:
       reader.skipField();
@@ -12362,6 +12367,13 @@ proto.holdem.pb.RoomWithType.serializeBinaryToWriter = function(message, writer)
       6,
       f,
       proto.holdem.pb.UserPlayStatus.serializeBinaryToWriter
+    );
+  }
+  f = message.getBombpot();
+  if (f !== 0) {
+    writer.writeUint32(
+      7,
+      f
     );
   }
 };
@@ -12469,6 +12481,21 @@ proto.holdem.pb.RoomWithType.prototype.clearUserPlayStatus = function() {
  */
 proto.holdem.pb.RoomWithType.prototype.hasUserPlayStatus = function() {
   return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional uint32 bombpot = 7;
+ * @return {number}
+ */
+proto.holdem.pb.RoomWithType.prototype.getBombpot = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomWithType.prototype.setBombpot = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 
