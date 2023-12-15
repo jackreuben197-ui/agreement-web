@@ -64,7 +64,8 @@ proto.holdem.pb.ClientMessageFtBroadcastMsg.toObject = function(includeInstance,
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     consume: jspb.Message.getFieldWithDefault(msg, 2, 0),
     message: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    extra: msg.getExtra_asB64()
+    extra: msg.getExtra_asB64(),
+    msgType: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -117,6 +118,10 @@ proto.holdem.pb.ClientMessageFtBroadcastMsg.deserializeBinaryFromReader = functi
     case 4:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.setExtra(value);
+      break;
+    case 5:
+      var value = /** @type {!proto.holdem.pb.Def.BroadcastMsgType} */ (reader.readEnum());
+      msg.setMsgType(value);
       break;
     default:
       reader.skipField();
@@ -173,6 +178,13 @@ proto.holdem.pb.ClientMessageFtBroadcastMsg.serializeBinaryToWriter = function(m
   if (f.length > 0) {
     writer.writeBytes(
       4,
+      f
+    );
+  }
+  f = message.getMsgType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      5,
       f
     );
   }
@@ -275,6 +287,21 @@ proto.holdem.pb.ClientMessageFtBroadcastMsg.prototype.getExtra_asU8 = function()
 /** @param {!(string|Uint8Array)} value */
 proto.holdem.pb.ClientMessageFtBroadcastMsg.prototype.setExtra = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional Def.BroadcastMsgType msg_type = 5;
+ * @return {!proto.holdem.pb.Def.BroadcastMsgType}
+ */
+proto.holdem.pb.ClientMessageFtBroadcastMsg.prototype.getMsgType = function() {
+  return /** @type {!proto.holdem.pb.Def.BroadcastMsgType} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.BroadcastMsgType} value */
+proto.holdem.pb.ClientMessageFtBroadcastMsg.prototype.setMsgType = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 

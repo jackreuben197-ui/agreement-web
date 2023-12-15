@@ -230,6 +230,16 @@ export namespace Def {
   }
 
   export const DealDelayType: DealDelayTypeMap;
+
+  export interface BroadcastMsgTypeMap {
+    BC_MSG_NONE: 0;
+    BC_MSG_EMOJI: 1;
+    BC_MSG_BULLET: 2;
+    BC_MSG_AVATAR: 3;
+    BC_MSG_THROW: 4;
+  }
+
+  export const BroadcastMsgType: BroadcastMsgTypeMap;
 }
 
 export class Room extends jspb.Message {

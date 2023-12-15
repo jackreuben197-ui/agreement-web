@@ -21,6 +21,9 @@ export class ClientMessageBroadcastMsg extends jspb.Message {
   getExtra_asB64(): string;
   setExtra(value: Uint8Array | string): void;
 
+  getMsgType(): protobuf_holdem_define_pb.Def.BroadcastMsgTypeMap[keyof protobuf_holdem_define_pb.Def.BroadcastMsgTypeMap];
+  setMsgType(value: protobuf_holdem_define_pb.Def.BroadcastMsgTypeMap[keyof protobuf_holdem_define_pb.Def.BroadcastMsgTypeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageBroadcastMsg.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageBroadcastMsg): ClientMessageBroadcastMsg.AsObject;
@@ -37,6 +40,7 @@ export namespace ClientMessageBroadcastMsg {
     consume: protobuf_holdem_define_pb.Def.ConsumeTypeMap[keyof protobuf_holdem_define_pb.Def.ConsumeTypeMap],
     message: string,
     extra: Uint8Array | string,
+    msgType: protobuf_holdem_define_pb.Def.BroadcastMsgTypeMap[keyof protobuf_holdem_define_pb.Def.BroadcastMsgTypeMap],
   }
 }
 

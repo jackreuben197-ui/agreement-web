@@ -18,6 +18,7 @@ goog.exportSymbol('proto.holdem.pb.Def', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.Action', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ActionShortcut', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.AddOnMode', null, global);
+goog.exportSymbol('proto.holdem.pb.Def.BroadcastMsgType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.CanPlayStatus', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ChipChangeReason', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.ConsumeType', null, global);
@@ -420,6 +421,17 @@ proto.holdem.pb.Def.DealDelayType = {
   UNKOWN: 0,
   GG: 1,
   HH: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.Def.BroadcastMsgType = {
+  BC_MSG_NONE: 0,
+  BC_MSG_EMOJI: 1,
+  BC_MSG_BULLET: 2,
+  BC_MSG_AVATAR: 3,
+  BC_MSG_THROW: 4
 };
 
 
