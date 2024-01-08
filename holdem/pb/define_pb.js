@@ -10915,7 +10915,9 @@ proto.holdem.pb.PlayerSummary.toObject = function(includeInstance, msg) {
     status: jspb.Message.getFieldWithDefault(msg, 10, 0),
     vip: jspb.Message.getFieldWithDefault(msg, 11, 0),
     isOnline: jspb.Message.getFieldWithDefault(msg, 12, false),
-    storeChips: jspb.Message.getFieldWithDefault(msg, 13, 0)
+    storeChips: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    mushroomCount: jspb.Message.getFieldWithDefault(msg, 14, 0),
+    mushroomAmount: jspb.Message.getFieldWithDefault(msg, 15, 0)
   };
 
   if (includeInstance) {
@@ -11003,6 +11005,14 @@ proto.holdem.pb.PlayerSummary.deserializeBinaryFromReader = function(msg, reader
     case 13:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setStoreChips(value);
+      break;
+    case 14:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMushroomCount(value);
+      break;
+    case 15:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setMushroomAmount(value);
       break;
     default:
       reader.skipField();
@@ -11121,6 +11131,20 @@ proto.holdem.pb.PlayerSummary.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeUint64(
       13,
+      f
+    );
+  }
+  f = message.getMushroomCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      14,
+      f
+    );
+  }
+  f = message.getMushroomAmount();
+  if (f !== 0) {
+    writer.writeUint64(
+      15,
       f
     );
   }
@@ -11321,6 +11345,36 @@ proto.holdem.pb.PlayerSummary.prototype.getStoreChips = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerSummary.prototype.setStoreChips = function(value) {
   jspb.Message.setField(this, 13, value);
+};
+
+
+/**
+ * optional uint32 mushroom_count = 14;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummary.prototype.getMushroomCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummary.prototype.setMushroomCount = function(value) {
+  jspb.Message.setField(this, 14, value);
+};
+
+
+/**
+ * optional uint64 mushroom_amount = 15;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummary.prototype.getMushroomAmount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummary.prototype.setMushroomAmount = function(value) {
+  jspb.Message.setField(this, 15, value);
 };
 
 
