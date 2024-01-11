@@ -247,7 +247,8 @@ proto.holdem.pb.DefCB.LeaveReason = {
   LR_ACTIVE: 1,
   LR_FORCE: 2,
   LR_GAMEOVER: 3,
-  LR_OFFLINE: 4
+  LR_OFFLINE: 4,
+  LR_STAND_UP: 5
 };
 
 /**
