@@ -4,7 +4,7 @@
 import * as jspb from "google-protobuf";
 import * as protobuf_holdem_define_cb_pb from "../../protobuf/holdem/define_cb_pb";
 
-export class ServerMessageCbLeaveNotification extends jspb.Message {
+export class ServerMessageCbStandupNotification extends jspb.Message {
   getReason(): protobuf_holdem_define_cb_pb.DefCB.LeaveReasonMap[keyof protobuf_holdem_define_cb_pb.DefCB.LeaveReasonMap];
   setReason(value: protobuf_holdem_define_cb_pb.DefCB.LeaveReasonMap[keyof protobuf_holdem_define_cb_pb.DefCB.LeaveReasonMap]): void;
 
@@ -12,16 +12,16 @@ export class ServerMessageCbLeaveNotification extends jspb.Message {
   setBringOut(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ServerMessageCbLeaveNotification.AsObject;
-  static toObject(includeInstance: boolean, msg: ServerMessageCbLeaveNotification): ServerMessageCbLeaveNotification.AsObject;
+  toObject(includeInstance?: boolean): ServerMessageCbStandupNotification.AsObject;
+  static toObject(includeInstance: boolean, msg: ServerMessageCbStandupNotification): ServerMessageCbStandupNotification.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ServerMessageCbLeaveNotification, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ServerMessageCbLeaveNotification;
-  static deserializeBinaryFromReader(message: ServerMessageCbLeaveNotification, reader: jspb.BinaryReader): ServerMessageCbLeaveNotification;
+  static serializeBinaryToWriter(message: ServerMessageCbStandupNotification, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ServerMessageCbStandupNotification;
+  static deserializeBinaryFromReader(message: ServerMessageCbStandupNotification, reader: jspb.BinaryReader): ServerMessageCbStandupNotification;
 }
 
-export namespace ServerMessageCbLeaveNotification {
+export namespace ServerMessageCbStandupNotification {
   export type AsObject = {
     reason: protobuf_holdem_define_cb_pb.DefCB.LeaveReasonMap[keyof protobuf_holdem_define_cb_pb.DefCB.LeaveReasonMap],
     bringOut: number,
