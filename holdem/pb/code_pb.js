@@ -133,7 +133,8 @@ proto.holdem.pb.Code = {
   MSG_S_CB_WAYMAP_UPDATE: 2104,
   MSG_S_CB_ROOM_CLOSE: 2105,
   MSG_S_CB_CHAT_OTHERS: 2106,
-  MSG_S_CB_LEAVE_NOTIFICATION: 2107
+  MSG_S_CB_LEAVE_NOTIFICATION: 2107,
+  MSG_S_CB_STAND_UP_NOTIFICATION: 2108
 };
 
 goog.object.extend(exports, proto.holdem.pb);
