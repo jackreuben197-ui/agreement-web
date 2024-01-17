@@ -74,7 +74,8 @@ proto.holdem.pb.ServerMessageSeatedOthers.toObject = function(includeInstance, m
     keepSeatLeftTime: jspb.Message.getFieldWithDefault(msg, 13, 0),
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 14, 0),
     deposit: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    squidIn: jspb.Message.getFieldWithDefault(msg, 17, false)
+    squidIn: jspb.Message.getFieldWithDefault(msg, 17, false),
+    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 18, 0)
   };
 
   if (includeInstance) {
@@ -174,6 +175,10 @@ proto.holdem.pb.ServerMessageSeatedOthers.deserializeBinaryFromReader = function
     case 17:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setSquidIn(value);
+      break;
+    case 18:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserSubscriptionId(value);
       break;
     default:
       reader.skipField();
@@ -313,6 +318,13 @@ proto.holdem.pb.ServerMessageSeatedOthers.serializeBinaryToWriter = function(mes
   if (f) {
     writer.writeBool(
       17,
+      f
+    );
+  }
+  f = message.getUserSubscriptionId();
+  if (f !== 0) {
+    writer.writeUint64(
+      18,
       f
     );
   }
@@ -558,6 +570,21 @@ proto.holdem.pb.ServerMessageSeatedOthers.prototype.getSquidIn = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ServerMessageSeatedOthers.prototype.setSquidIn = function(value) {
   jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * optional uint64 user_subscription_id = 18;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.getUserSubscriptionId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.setUserSubscriptionId = function(value) {
+  jspb.Message.setField(this, 18, value);
 };
 
 

@@ -276,6 +276,9 @@ export class PlayerFT extends jspb.Message {
   getFantasyConNum(): number;
   setFantasyConNum(value: number): void;
 
+  getUserSubscriptionId(): number;
+  setUserSubscriptionId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerFT.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerFT): PlayerFT.AsObject;
@@ -305,6 +308,7 @@ export namespace PlayerFT {
     status: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap],
     groupPairedList: Array<number>,
     fantasyConNum: number,
+    userSubscriptionId: number,
   }
 }
 
@@ -327,6 +331,9 @@ export class MyGameInfoFT extends jspb.Message {
   getSex(): number;
   setSex(value: number): void;
 
+  getUserSubscriptionId(): number;
+  setUserSubscriptionId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfoFT.AsObject;
   static toObject(includeInstance: boolean, msg: MyGameInfoFT): MyGameInfoFT.AsObject;
@@ -345,6 +352,7 @@ export namespace MyGameInfoFT {
     name: string,
     avatar: string,
     sex: number,
+    userSubscriptionId: number,
   }
 }
 

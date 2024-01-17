@@ -4225,7 +4225,8 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     hunterHeadValue: jspb.Message.getFieldWithDefault(msg, 15, 0),
     name: jspb.Message.getFieldWithDefault(msg, 16, ""),
     avatar: jspb.Message.getFieldWithDefault(msg, 17, ""),
-    sex: jspb.Message.getFieldWithDefault(msg, 18, 0)
+    sex: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 19, 0)
   };
 
   if (includeInstance) {
@@ -4333,6 +4334,10 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 18:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSex(value);
+      break;
+    case 19:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserSubscriptionId(value);
       break;
     default:
       reader.skipField();
@@ -4486,6 +4491,13 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       18,
+      f
+    );
+  }
+  f = message.getUserSubscriptionId();
+  if (f !== 0) {
+    writer.writeUint64(
+      19,
       f
     );
   }
@@ -4765,6 +4777,21 @@ proto.holdem.pb.MyGameInfo.prototype.getSex = function() {
 /** @param {number} value */
 proto.holdem.pb.MyGameInfo.prototype.setSex = function(value) {
   jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * optional uint64 user_subscription_id = 19;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getUserSubscriptionId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfo.prototype.setUserSubscriptionId = function(value) {
+  jspb.Message.setField(this, 19, value);
 };
 
 
@@ -7594,7 +7621,8 @@ proto.holdem.pb.Player.toObject = function(includeInstance, msg) {
     inMushroom: jspb.Message.getFieldWithDefault(msg, 26, false),
     costMushroom: jspb.Message.getFieldWithDefault(msg, 27, 0),
     winCardsInfo: (f = msg.getWinCardsInfo()) && proto.holdem.pb.AllInWinCardsInfo.toObject(includeInstance, f),
-    squidEscaped: jspb.Message.getFieldWithDefault(msg, 29, false)
+    squidEscaped: jspb.Message.getFieldWithDefault(msg, 29, false),
+    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 30, 0)
   };
 
   if (includeInstance) {
@@ -7744,6 +7772,10 @@ proto.holdem.pb.Player.deserializeBinaryFromReader = function(msg, reader) {
     case 29:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setSquidEscaped(value);
+      break;
+    case 30:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserSubscriptionId(value);
       break;
     default:
       reader.skipField();
@@ -7969,6 +8001,13 @@ proto.holdem.pb.Player.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       29,
+      f
+    );
+  }
+  f = message.getUserSubscriptionId();
+  if (f !== 0) {
+    writer.writeUint64(
+      30,
       f
     );
   }
@@ -8445,6 +8484,21 @@ proto.holdem.pb.Player.prototype.getSquidEscaped = function() {
 /** @param {boolean} value */
 proto.holdem.pb.Player.prototype.setSquidEscaped = function(value) {
   jspb.Message.setField(this, 29, value);
+};
+
+
+/**
+ * optional uint64 user_subscription_id = 30;
+ * @return {number}
+ */
+proto.holdem.pb.Player.prototype.getUserSubscriptionId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 30, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Player.prototype.setUserSubscriptionId = function(value) {
+  jspb.Message.setField(this, 30, value);
 };
 
 

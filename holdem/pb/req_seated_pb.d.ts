@@ -97,6 +97,9 @@ export class ServerMessageSeated extends jspb.Message {
   getKeepSeatDeadline(): number;
   setKeepSeatDeadline(value: number): void;
 
+  getUserSubscriptionId(): number;
+  setUserSubscriptionId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageSeated.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageSeated): ServerMessageSeated.AsObject;
@@ -119,6 +122,7 @@ export namespace ServerMessageSeated {
     squidIn: boolean,
     keepSeatLeftTime: number,
     keepSeatDeadline: number,
+    userSubscriptionId: number,
   }
 }
 

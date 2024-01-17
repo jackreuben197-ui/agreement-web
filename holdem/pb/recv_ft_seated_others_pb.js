@@ -67,7 +67,8 @@ proto.holdem.pb.ServerMessageFtSeatedOthers.toObject = function(includeInstance,
     chips: jspb.Message.getFieldWithDefault(msg, 6, 0),
     vip: jspb.Message.getFieldWithDefault(msg, 7, 0),
     keepSeatLeftTime: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -139,6 +140,10 @@ proto.holdem.pb.ServerMessageFtSeatedOthers.deserializeBinaryFromReader = functi
     case 9:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setKeepSeatDeadline(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserSubscriptionId(value);
       break;
     default:
       reader.skipField();
@@ -229,6 +234,13 @@ proto.holdem.pb.ServerMessageFtSeatedOthers.serializeBinaryToWriter = function(m
   if (f !== 0) {
     writer.writeInt64(
       9,
+      f
+    );
+  }
+  f = message.getUserSubscriptionId();
+  if (f !== 0) {
+    writer.writeUint64(
+      10,
       f
     );
   }
@@ -367,6 +379,21 @@ proto.holdem.pb.ServerMessageFtSeatedOthers.prototype.getKeepSeatDeadline = func
 /** @param {number} value */
 proto.holdem.pb.ServerMessageFtSeatedOthers.prototype.setKeepSeatDeadline = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional uint64 user_subscription_id = 10;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageFtSeatedOthers.prototype.getUserSubscriptionId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageFtSeatedOthers.prototype.setUserSubscriptionId = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 

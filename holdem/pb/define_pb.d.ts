@@ -831,6 +831,9 @@ export class MyGameInfo extends jspb.Message {
   getSex(): number;
   setSex(value: number): void;
 
+  getUserSubscriptionId(): number;
+  setUserSubscriptionId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfo.AsObject;
   static toObject(includeInstance: boolean, msg: MyGameInfo): MyGameInfo.AsObject;
@@ -861,6 +864,7 @@ export namespace MyGameInfo {
     name: string,
     avatar: string,
     sex: number,
+    userSubscriptionId: number,
   }
 }
 
@@ -1341,6 +1345,9 @@ export class Player extends jspb.Message {
   getSquidEscaped(): boolean;
   setSquidEscaped(value: boolean): void;
 
+  getUserSubscriptionId(): number;
+  setUserSubscriptionId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Player.AsObject;
   static toObject(includeInstance: boolean, msg: Player): Player.AsObject;
@@ -1381,6 +1388,7 @@ export namespace Player {
     costMushroom: number,
     winCardsInfo?: AllInWinCardsInfo.AsObject,
     squidEscaped: boolean,
+    userSubscriptionId: number,
   }
 }
 
