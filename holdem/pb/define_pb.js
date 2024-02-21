@@ -12775,7 +12775,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     autoOnTableSwitch: jspb.Message.getFieldWithDefault(msg, 99, 0),
     retainType: jspb.Message.getFieldWithDefault(msg, 100, 0),
     roomAdmin: (f = msg.getRoomAdmin()) && proto.holdem.pb.RoomAdmin.toObject(includeInstance, f),
-    personalType: jspb.Message.getFieldWithDefault(msg, 102, 0)
+    personalType: jspb.Message.getFieldWithDefault(msg, 102, 0),
+    randomSeat: jspb.Message.getFieldWithDefault(msg, 103, 0)
   };
 
   if (includeInstance) {
@@ -13215,6 +13216,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 102:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPersonalType(value);
+      break;
+    case 103:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRandomSeat(value);
       break;
     default:
       reader.skipField();
@@ -13946,6 +13951,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       102,
+      f
+    );
+  }
+  f = message.getRandomSeat();
+  if (f !== 0) {
+    writer.writeInt32(
+      103,
       f
     );
   }
@@ -15512,6 +15524,21 @@ proto.holdem.pb.RoomRecord.prototype.getPersonalType = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setPersonalType = function(value) {
   jspb.Message.setField(this, 102, value);
+};
+
+
+/**
+ * optional int32 random_seat = 103;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRandomSeat = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 103, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setRandomSeat = function(value) {
+  jspb.Message.setField(this, 103, value);
 };
 
 

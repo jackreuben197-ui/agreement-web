@@ -2287,6 +2287,9 @@ export class RoomRecord extends jspb.Message {
   getPersonalType(): number;
   setPersonalType(value: number): void;
 
+  getRandomSeat(): number;
+  setRandomSeat(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2399,6 +2402,7 @@ export namespace RoomRecord {
     retainType: number,
     roomAdmin?: RoomAdmin.AsObject,
     personalType: number,
+    randomSeat: number,
   }
 }
 
