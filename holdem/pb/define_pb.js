@@ -12776,7 +12776,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     retainType: jspb.Message.getFieldWithDefault(msg, 100, 0),
     roomAdmin: (f = msg.getRoomAdmin()) && proto.holdem.pb.RoomAdmin.toObject(includeInstance, f),
     personalType: jspb.Message.getFieldWithDefault(msg, 102, 0),
-    randomSeat: jspb.Message.getFieldWithDefault(msg, 103, 0)
+    randomSeat: jspb.Message.getFieldWithDefault(msg, 103, 0),
+    squidBase: jspb.Message.getFieldWithDefault(msg, 104, 0)
   };
 
   if (includeInstance) {
@@ -13220,6 +13221,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 103:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setRandomSeat(value);
+      break;
+    case 104:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSquidBase(value);
       break;
     default:
       reader.skipField();
@@ -13958,6 +13963,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       103,
+      f
+    );
+  }
+  f = message.getSquidBase();
+  if (f !== 0) {
+    writer.writeUint64(
+      104,
       f
     );
   }
@@ -15539,6 +15551,21 @@ proto.holdem.pb.RoomRecord.prototype.getRandomSeat = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setRandomSeat = function(value) {
   jspb.Message.setField(this, 103, value);
+};
+
+
+/**
+ * optional uint64 squid_base = 104;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSquidBase = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 104, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSquidBase = function(value) {
+  jspb.Message.setField(this, 104, value);
 };
 
 
