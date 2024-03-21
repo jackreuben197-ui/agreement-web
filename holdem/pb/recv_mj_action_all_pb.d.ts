@@ -43,6 +43,11 @@ export class ServerMessageMjActionAll extends jspb.Message {
   setErjsList(value: Array<protobuf_holdem_define_mj_pb.ExternalResultMJ>): void;
   addErjs(value?: protobuf_holdem_define_mj_pb.ExternalResultMJ, index?: number): protobuf_holdem_define_mj_pb.ExternalResultMJ;
 
+  clearOperatorReadyTilesList(): void;
+  getOperatorReadyTilesList(): Array<protobuf_holdem_define_mj_pb.ReadyTile>;
+  setOperatorReadyTilesList(value: Array<protobuf_holdem_define_mj_pb.ReadyTile>): void;
+  addOperatorReadyTiles(value?: protobuf_holdem_define_mj_pb.ReadyTile, index?: number): protobuf_holdem_define_mj_pb.ReadyTile;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjActionAll.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjActionAll): ServerMessageMjActionAll.AsObject;
@@ -65,6 +70,7 @@ export namespace ServerMessageMjActionAll {
     wallAscIndex: number,
     wallDescIndex: number,
     erjsList: Array<protobuf_holdem_define_mj_pb.ExternalResultMJ.AsObject>,
+    operatorReadyTilesList: Array<protobuf_holdem_define_mj_pb.ReadyTile.AsObject>,
   }
 }
 
