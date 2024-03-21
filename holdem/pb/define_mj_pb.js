@@ -18,6 +18,7 @@ goog.exportSymbol('proto.holdem.pb.DefMJ.TileType', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.WaitType', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.WinLoseReason', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.WinType', null, global);
+goog.exportSymbol('proto.holdem.pb.ExchangeFlower', null, global);
 goog.exportSymbol('proto.holdem.pb.ExternalResultMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.MatchInfoMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.MyGameInfoMJ', null, global);
@@ -1587,6 +1588,220 @@ proto.holdem.pb.MatchInfoMJ.prototype.setWaitDeadline = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
+proto.holdem.pb.ExchangeFlower = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ExchangeFlower.repeatedFields_, null);
+};
+goog.inherits(proto.holdem.pb.ExchangeFlower, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.ExchangeFlower.displayName = 'proto.holdem.pb.ExchangeFlower';
+}
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.ExchangeFlower.repeatedFields_ = [1,2];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.ExchangeFlower.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.ExchangeFlower.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.ExchangeFlower} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.ExchangeFlower.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    flowersList: jspb.Message.toObjectList(msg.getFlowersList(),
+    proto.holdem.pb.Tile.toObject, includeInstance),
+    tilesList: jspb.Message.toObjectList(msg.getTilesList(),
+    proto.holdem.pb.Tile.toObject, includeInstance)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.ExchangeFlower}
+ */
+proto.holdem.pb.ExchangeFlower.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.ExchangeFlower;
+  return proto.holdem.pb.ExchangeFlower.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.ExchangeFlower} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.ExchangeFlower}
+ */
+proto.holdem.pb.ExchangeFlower.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.holdem.pb.Tile;
+      reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
+      msg.addFlowers(value);
+      break;
+    case 2:
+      var value = new proto.holdem.pb.Tile;
+      reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
+      msg.addTiles(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.ExchangeFlower.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.ExchangeFlower.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.ExchangeFlower} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.ExchangeFlower.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getFlowersList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      1,
+      f,
+      proto.holdem.pb.Tile.serializeBinaryToWriter
+    );
+  }
+  f = message.getTilesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      2,
+      f,
+      proto.holdem.pb.Tile.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * repeated Tile flowers = 1;
+ * @return {!Array.<!proto.holdem.pb.Tile>}
+ */
+proto.holdem.pb.ExchangeFlower.prototype.getFlowersList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.Tile>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.Tile, 1));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.Tile>} value */
+proto.holdem.pb.ExchangeFlower.prototype.setFlowersList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.Tile=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.Tile}
+ */
+proto.holdem.pb.ExchangeFlower.prototype.addFlowers = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.holdem.pb.Tile, opt_index);
+};
+
+
+proto.holdem.pb.ExchangeFlower.prototype.clearFlowersList = function() {
+  this.setFlowersList([]);
+};
+
+
+/**
+ * repeated Tile tiles = 2;
+ * @return {!Array.<!proto.holdem.pb.Tile>}
+ */
+proto.holdem.pb.ExchangeFlower.prototype.getTilesList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.Tile>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.Tile, 2));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.Tile>} value */
+proto.holdem.pb.ExchangeFlower.prototype.setTilesList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 2, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.Tile=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.Tile}
+ */
+proto.holdem.pb.ExchangeFlower.prototype.addTiles = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.holdem.pb.Tile, opt_index);
+};
+
+
+proto.holdem.pb.ExchangeFlower.prototype.clearTilesList = function() {
+  this.setTilesList([]);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
 proto.holdem.pb.PlayerStartInfoMJ = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.PlayerStartInfoMJ.repeatedFields_, null);
 };
@@ -1599,7 +1814,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.PlayerStartInfoMJ.repeatedFields_ = [2,9];
+proto.holdem.pb.PlayerStartInfoMJ.repeatedFields_ = [2,10,9];
 
 
 
@@ -1631,8 +1846,10 @@ proto.holdem.pb.PlayerStartInfoMJ.prototype.toObject = function(opt_includeInsta
 proto.holdem.pb.PlayerStartInfoMJ.toObject = function(includeInstance, msg) {
   var f, obj = {
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    handTilesList: jspb.Message.toObjectList(msg.getHandTilesList(),
+    orderTilesList: jspb.Message.toObjectList(msg.getOrderTilesList(),
     proto.holdem.pb.Tile.toObject, includeInstance),
+    exchangeTilesList: jspb.Message.toObjectList(msg.getExchangeTilesList(),
+    proto.holdem.pb.ExchangeFlower.toObject, includeInstance),
     lastTile: (f = msg.getLastTile()) && proto.holdem.pb.Tile.toObject(includeInstance, f),
     chip: jspb.Message.getFieldWithDefault(msg, 4, 0),
     waitType: jspb.Message.getFieldWithDefault(msg, 5, 0),
@@ -1682,7 +1899,12 @@ proto.holdem.pb.PlayerStartInfoMJ.deserializeBinaryFromReader = function(msg, re
     case 2:
       var value = new proto.holdem.pb.Tile;
       reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
-      msg.addHandTiles(value);
+      msg.addOrderTiles(value);
+      break;
+    case 10:
+      var value = new proto.holdem.pb.ExchangeFlower;
+      reader.readMessage(value,proto.holdem.pb.ExchangeFlower.deserializeBinaryFromReader);
+      msg.addExchangeTiles(value);
       break;
     case 3:
       var value = new proto.holdem.pb.Tile;
@@ -1742,12 +1964,20 @@ proto.holdem.pb.PlayerStartInfoMJ.serializeBinaryToWriter = function(message, wr
       f
     );
   }
-  f = message.getHandTilesList();
+  f = message.getOrderTilesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       2,
       f,
       proto.holdem.pb.Tile.serializeBinaryToWriter
+    );
+  }
+  f = message.getExchangeTilesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      10,
+      f,
+      proto.holdem.pb.ExchangeFlower.serializeBinaryToWriter
     );
   }
   f = message.getLastTile();
@@ -1806,17 +2036,17 @@ proto.holdem.pb.PlayerStartInfoMJ.prototype.setSeatId = function(value) {
 
 
 /**
- * repeated Tile hand_tiles = 2;
+ * repeated Tile order_tiles = 2;
  * @return {!Array.<!proto.holdem.pb.Tile>}
  */
-proto.holdem.pb.PlayerStartInfoMJ.prototype.getHandTilesList = function() {
+proto.holdem.pb.PlayerStartInfoMJ.prototype.getOrderTilesList = function() {
   return /** @type{!Array.<!proto.holdem.pb.Tile>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.Tile, 2));
 };
 
 
 /** @param {!Array.<!proto.holdem.pb.Tile>} value */
-proto.holdem.pb.PlayerStartInfoMJ.prototype.setHandTilesList = function(value) {
+proto.holdem.pb.PlayerStartInfoMJ.prototype.setOrderTilesList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
@@ -1826,13 +2056,44 @@ proto.holdem.pb.PlayerStartInfoMJ.prototype.setHandTilesList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.holdem.pb.Tile}
  */
-proto.holdem.pb.PlayerStartInfoMJ.prototype.addHandTiles = function(opt_value, opt_index) {
+proto.holdem.pb.PlayerStartInfoMJ.prototype.addOrderTiles = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.holdem.pb.Tile, opt_index);
 };
 
 
-proto.holdem.pb.PlayerStartInfoMJ.prototype.clearHandTilesList = function() {
-  this.setHandTilesList([]);
+proto.holdem.pb.PlayerStartInfoMJ.prototype.clearOrderTilesList = function() {
+  this.setOrderTilesList([]);
+};
+
+
+/**
+ * repeated ExchangeFlower exchange_tiles = 10;
+ * @return {!Array.<!proto.holdem.pb.ExchangeFlower>}
+ */
+proto.holdem.pb.PlayerStartInfoMJ.prototype.getExchangeTilesList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ExchangeFlower>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ExchangeFlower, 10));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.ExchangeFlower>} value */
+proto.holdem.pb.PlayerStartInfoMJ.prototype.setExchangeTilesList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 10, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.ExchangeFlower=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ExchangeFlower}
+ */
+proto.holdem.pb.PlayerStartInfoMJ.prototype.addExchangeTiles = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 10, opt_value, proto.holdem.pb.ExchangeFlower, opt_index);
+};
+
+
+proto.holdem.pb.PlayerStartInfoMJ.prototype.clearExchangeTilesList = function() {
+  this.setExchangeTilesList([]);
 };
 
 
@@ -3421,9 +3682,7 @@ proto.holdem.pb.OperatorMJ.toObject = function(includeInstance, msg) {
     opDeadline: jspb.Message.getFieldWithDefault(msg, 3, 0),
     actionType: jspb.Message.getFieldWithDefault(msg, 4, 0),
     validActionsList: jspb.Message.toObjectList(msg.getValidActionsList(),
-    proto.holdem.pb.ValidAction.toObject, includeInstance),
-    drawTile: jspb.Message.getFieldWithDefault(msg, 6, false),
-    lastTile: (f = msg.getLastTile()) && proto.holdem.pb.Tile.toObject(includeInstance, f)
+    proto.holdem.pb.ValidAction.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -3480,15 +3739,6 @@ proto.holdem.pb.OperatorMJ.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.ValidAction;
       reader.readMessage(value,proto.holdem.pb.ValidAction.deserializeBinaryFromReader);
       msg.addValidActions(value);
-      break;
-    case 6:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setDrawTile(value);
-      break;
-    case 7:
-      var value = new proto.holdem.pb.Tile;
-      reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
-      msg.setLastTile(value);
       break;
     default:
       reader.skipField();
@@ -3553,21 +3803,6 @@ proto.holdem.pb.OperatorMJ.serializeBinaryToWriter = function(message, writer) {
       5,
       f,
       proto.holdem.pb.ValidAction.serializeBinaryToWriter
-    );
-  }
-  f = message.getDrawTile();
-  if (f) {
-    writer.writeBool(
-      6,
-      f
-    );
-  }
-  f = message.getLastTile();
-  if (f != null) {
-    writer.writeMessage(
-      7,
-      f,
-      proto.holdem.pb.Tile.serializeBinaryToWriter
     );
   }
 };
@@ -3661,53 +3896,6 @@ proto.holdem.pb.OperatorMJ.prototype.addValidActions = function(opt_value, opt_i
 
 proto.holdem.pb.OperatorMJ.prototype.clearValidActionsList = function() {
   this.setValidActionsList([]);
-};
-
-
-/**
- * optional bool draw_tile = 6;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.holdem.pb.OperatorMJ.prototype.getDrawTile = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
-};
-
-
-/** @param {boolean} value */
-proto.holdem.pb.OperatorMJ.prototype.setDrawTile = function(value) {
-  jspb.Message.setField(this, 6, value);
-};
-
-
-/**
- * optional Tile last_tile = 7;
- * @return {?proto.holdem.pb.Tile}
- */
-proto.holdem.pb.OperatorMJ.prototype.getLastTile = function() {
-  return /** @type{?proto.holdem.pb.Tile} */ (
-    jspb.Message.getWrapperField(this, proto.holdem.pb.Tile, 7));
-};
-
-
-/** @param {?proto.holdem.pb.Tile|undefined} value */
-proto.holdem.pb.OperatorMJ.prototype.setLastTile = function(value) {
-  jspb.Message.setWrapperField(this, 7, value);
-};
-
-
-proto.holdem.pb.OperatorMJ.prototype.clearLastTile = function() {
-  this.setLastTile(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.holdem.pb.OperatorMJ.prototype.hasLastTile = function() {
-  return jspb.Message.getField(this, 7) != null;
 };
 
 

@@ -296,14 +296,47 @@ export namespace MatchInfoMJ {
   }
 }
 
+export class ExchangeFlower extends jspb.Message {
+  clearFlowersList(): void;
+  getFlowersList(): Array<Tile>;
+  setFlowersList(value: Array<Tile>): void;
+  addFlowers(value?: Tile, index?: number): Tile;
+
+  clearTilesList(): void;
+  getTilesList(): Array<Tile>;
+  setTilesList(value: Array<Tile>): void;
+  addTiles(value?: Tile, index?: number): Tile;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ExchangeFlower.AsObject;
+  static toObject(includeInstance: boolean, msg: ExchangeFlower): ExchangeFlower.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ExchangeFlower, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ExchangeFlower;
+  static deserializeBinaryFromReader(message: ExchangeFlower, reader: jspb.BinaryReader): ExchangeFlower;
+}
+
+export namespace ExchangeFlower {
+  export type AsObject = {
+    flowersList: Array<Tile.AsObject>,
+    tilesList: Array<Tile.AsObject>,
+  }
+}
+
 export class PlayerStartInfoMJ extends jspb.Message {
   getSeatId(): number;
   setSeatId(value: number): void;
 
-  clearHandTilesList(): void;
-  getHandTilesList(): Array<Tile>;
-  setHandTilesList(value: Array<Tile>): void;
-  addHandTiles(value?: Tile, index?: number): Tile;
+  clearOrderTilesList(): void;
+  getOrderTilesList(): Array<Tile>;
+  setOrderTilesList(value: Array<Tile>): void;
+  addOrderTiles(value?: Tile, index?: number): Tile;
+
+  clearExchangeTilesList(): void;
+  getExchangeTilesList(): Array<ExchangeFlower>;
+  setExchangeTilesList(value: Array<ExchangeFlower>): void;
+  addExchangeTiles(value?: ExchangeFlower, index?: number): ExchangeFlower;
 
   hasLastTile(): boolean;
   clearLastTile(): void;
@@ -337,7 +370,8 @@ export class PlayerStartInfoMJ extends jspb.Message {
 export namespace PlayerStartInfoMJ {
   export type AsObject = {
     seatId: number,
-    handTilesList: Array<Tile.AsObject>,
+    orderTilesList: Array<Tile.AsObject>,
+    exchangeTilesList: Array<ExchangeFlower.AsObject>,
     lastTile?: Tile.AsObject,
     chip: number,
     waitType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
@@ -566,14 +600,6 @@ export class OperatorMJ extends jspb.Message {
   setValidActionsList(value: Array<ValidAction>): void;
   addValidActions(value?: ValidAction, index?: number): ValidAction;
 
-  getDrawTile(): boolean;
-  setDrawTile(value: boolean): void;
-
-  hasLastTile(): boolean;
-  clearLastTile(): void;
-  getLastTile(): Tile | undefined;
-  setLastTile(value?: Tile): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OperatorMJ.AsObject;
   static toObject(includeInstance: boolean, msg: OperatorMJ): OperatorMJ.AsObject;
@@ -591,8 +617,6 @@ export namespace OperatorMJ {
     opDeadline: number,
     actionType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
     validActionsList: Array<ValidAction.AsObject>,
-    drawTile: boolean,
-    lastTile?: Tile.AsObject,
   }
 }
 

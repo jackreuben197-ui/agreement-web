@@ -69,8 +69,7 @@ proto.holdem.pb.ServerMessageMjStartInfo.toObject = function(includeInstance, ms
   var f, obj = {
     handInfo: (f = msg.getHandInfo()) && protobuf_holdem_define_mj_pb.MatchInfoMJ.toObject(includeInstance, f),
     playersList: jspb.Message.toObjectList(msg.getPlayersList(),
-    protobuf_holdem_define_mj_pb.PlayerStartInfoMJ.toObject, includeInstance),
-    waitDeadline: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    protobuf_holdem_define_mj_pb.PlayerStartInfoMJ.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -117,10 +116,6 @@ proto.holdem.pb.ServerMessageMjStartInfo.deserializeBinaryFromReader = function(
       reader.readMessage(value,protobuf_holdem_define_mj_pb.PlayerStartInfoMJ.deserializeBinaryFromReader);
       msg.addPlayers(value);
       break;
-    case 3:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setWaitDeadline(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -164,13 +159,6 @@ proto.holdem.pb.ServerMessageMjStartInfo.serializeBinaryToWriter = function(mess
       2,
       f,
       protobuf_holdem_define_mj_pb.PlayerStartInfoMJ.serializeBinaryToWriter
-    );
-  }
-  f = message.getWaitDeadline();
-  if (f !== 0) {
-    writer.writeInt64(
-      3,
-      f
     );
   }
 };
@@ -234,21 +222,6 @@ proto.holdem.pb.ServerMessageMjStartInfo.prototype.addPlayers = function(opt_val
 
 proto.holdem.pb.ServerMessageMjStartInfo.prototype.clearPlayersList = function() {
   this.setPlayersList([]);
-};
-
-
-/**
- * optional int64 wait_deadline = 3;
- * @return {number}
- */
-proto.holdem.pb.ServerMessageMjStartInfo.prototype.getWaitDeadline = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ServerMessageMjStartInfo.prototype.setWaitDeadline = function(value) {
-  jspb.Message.setField(this, 3, value);
 };
 
 
