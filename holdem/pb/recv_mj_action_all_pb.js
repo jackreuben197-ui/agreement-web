@@ -72,7 +72,11 @@ proto.holdem.pb.ServerMessageMjActionAll.toObject = function(includeInstance, ms
     tilesList: jspb.Message.toObjectList(msg.getTilesList(),
     protobuf_holdem_define_mj_pb.Tile.toObject, includeInstance),
     targetSeatId: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    targetTile: (f = msg.getTargetTile()) && protobuf_holdem_define_mj_pb.Tile.toObject(includeInstance, f)
+    targetTile: (f = msg.getTargetTile()) && protobuf_holdem_define_mj_pb.Tile.toObject(includeInstance, f),
+    op: (f = msg.getOp()) && protobuf_holdem_define_mj_pb.OperatorMJ.toObject(includeInstance, f),
+    waitDeadline: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    wallAscIndex: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    wallDescIndex: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -130,6 +134,23 @@ proto.holdem.pb.ServerMessageMjActionAll.deserializeBinaryFromReader = function(
       var value = new protobuf_holdem_define_mj_pb.Tile;
       reader.readMessage(value,protobuf_holdem_define_mj_pb.Tile.deserializeBinaryFromReader);
       msg.setTargetTile(value);
+      break;
+    case 6:
+      var value = new protobuf_holdem_define_mj_pb.OperatorMJ;
+      reader.readMessage(value,protobuf_holdem_define_mj_pb.OperatorMJ.deserializeBinaryFromReader);
+      msg.setOp(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setWaitDeadline(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setWallAscIndex(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setWallDescIndex(value);
       break;
     default:
       reader.skipField();
@@ -195,6 +216,35 @@ proto.holdem.pb.ServerMessageMjActionAll.serializeBinaryToWriter = function(mess
       5,
       f,
       protobuf_holdem_define_mj_pb.Tile.serializeBinaryToWriter
+    );
+  }
+  f = message.getOp();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      protobuf_holdem_define_mj_pb.OperatorMJ.serializeBinaryToWriter
+    );
+  }
+  f = message.getWaitDeadline();
+  if (f !== 0) {
+    writer.writeInt64(
+      7,
+      f
+    );
+  }
+  f = message.getWallAscIndex();
+  if (f !== 0) {
+    writer.writeUint32(
+      8,
+      f
+    );
+  }
+  f = message.getWallDescIndex();
+  if (f !== 0) {
+    writer.writeUint32(
+      9,
+      f
     );
   }
 };
@@ -303,6 +353,81 @@ proto.holdem.pb.ServerMessageMjActionAll.prototype.clearTargetTile = function() 
  */
 proto.holdem.pb.ServerMessageMjActionAll.prototype.hasTargetTile = function() {
   return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * optional OperatorMJ op = 6;
+ * @return {?proto.holdem.pb.OperatorMJ}
+ */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.getOp = function() {
+  return /** @type{?proto.holdem.pb.OperatorMJ} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_mj_pb.OperatorMJ, 6));
+};
+
+
+/** @param {?proto.holdem.pb.OperatorMJ|undefined} value */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.setOp = function(value) {
+  jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+proto.holdem.pb.ServerMessageMjActionAll.prototype.clearOp = function() {
+  this.setOp(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.hasOp = function() {
+  return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional int64 wait_deadline = 7;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.getWaitDeadline = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.setWaitDeadline = function(value) {
+  jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint32 wall_asc_index = 8;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.getWallAscIndex = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.setWallAscIndex = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional uint32 wall_desc_index = 9;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.getWallDescIndex = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.setWallDescIndex = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 

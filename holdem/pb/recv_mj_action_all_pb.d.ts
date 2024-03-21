@@ -24,6 +24,20 @@ export class ServerMessageMjActionAll extends jspb.Message {
   getTargetTile(): protobuf_holdem_define_mj_pb.Tile | undefined;
   setTargetTile(value?: protobuf_holdem_define_mj_pb.Tile): void;
 
+  hasOp(): boolean;
+  clearOp(): void;
+  getOp(): protobuf_holdem_define_mj_pb.OperatorMJ | undefined;
+  setOp(value?: protobuf_holdem_define_mj_pb.OperatorMJ): void;
+
+  getWaitDeadline(): number;
+  setWaitDeadline(value: number): void;
+
+  getWallAscIndex(): number;
+  setWallAscIndex(value: number): void;
+
+  getWallDescIndex(): number;
+  setWallDescIndex(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjActionAll.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjActionAll): ServerMessageMjActionAll.AsObject;
@@ -41,6 +55,10 @@ export namespace ServerMessageMjActionAll {
     tilesList: Array<protobuf_holdem_define_mj_pb.Tile.AsObject>,
     targetSeatId: number,
     targetTile?: protobuf_holdem_define_mj_pb.Tile.AsObject,
+    op?: protobuf_holdem_define_mj_pb.OperatorMJ.AsObject,
+    waitDeadline: number,
+    wallAscIndex: number,
+    wallDescIndex: number,
   }
 }
 

@@ -129,6 +129,32 @@ export namespace Tile {
   }
 }
 
+export class ValidAction extends jspb.Message {
+  getAction(): DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap];
+  setAction(value: DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap]): void;
+
+  clearTilesList(): void;
+  getTilesList(): Array<number>;
+  setTilesList(value: Array<number>): void;
+  addTiles(value: number, index?: number): number;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ValidAction.AsObject;
+  static toObject(includeInstance: boolean, msg: ValidAction): ValidAction.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ValidAction, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ValidAction;
+  static deserializeBinaryFromReader(message: ValidAction, reader: jspb.BinaryReader): ValidAction;
+}
+
+export namespace ValidAction {
+  export type AsObject = {
+    action: DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap],
+    tilesList: Array<number>,
+  }
+}
+
 export class RoomInfoMJ extends jspb.Message {
   getScheduleStartTime(): number;
   setScheduleStartTime(value: number): void;
@@ -220,6 +246,18 @@ export class MatchInfoMJ extends jspb.Message {
   getDealerSeatId(): number;
   setDealerSeatId(value: number): void;
 
+  getWallAscIndex(): number;
+  setWallAscIndex(value: number): void;
+
+  getWallDescIndex(): number;
+  setWallDescIndex(value: number): void;
+
+  getWallTileLength(): number;
+  setWallTileLength(value: number): void;
+
+  getDiceNum(): number;
+  setDiceNum(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MatchInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: MatchInfoMJ): MatchInfoMJ.AsObject;
@@ -234,6 +272,10 @@ export namespace MatchInfoMJ {
   export type AsObject = {
     matchNum: number,
     dealerSeatId: number,
+    wallAscIndex: number,
+    wallDescIndex: number,
+    wallTileLength: number,
+    diceNum: number,
   }
 }
 
@@ -260,6 +302,11 @@ export class PlayerStartInfoMJ extends jspb.Message {
   getWaitDeadline(): number;
   setWaitDeadline(value: number): void;
 
+  clearValidActionsList(): void;
+  getValidActionsList(): Array<ValidAction>;
+  setValidActionsList(value: Array<ValidAction>): void;
+  addValidActions(value?: ValidAction, index?: number): ValidAction;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerStartInfoMJ): PlayerStartInfoMJ.AsObject;
@@ -278,6 +325,7 @@ export namespace PlayerStartInfoMJ {
     chip: number,
     waitType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
     waitDeadline: number,
+    validActionsList: Array<ValidAction.AsObject>,
   }
 }
 
@@ -325,6 +373,11 @@ export class PlayerMJ extends jspb.Message {
   getFlowersList(): Array<number>;
   setFlowersList(value: Array<number>): void;
   addFlowers(value: number, index?: number): number;
+
+  clearPungList(): void;
+  getPungList(): Array<number>;
+  setPungList(value: Array<number>): void;
+  addPung(value: number, index?: number): number;
 
   getName(): string;
   setName(value: string): void;
@@ -381,6 +434,7 @@ export namespace PlayerMJ {
     ckongList: Array<number>,
     chowList: Array<number>,
     flowersList: Array<number>,
+    pungList: Array<number>,
     name: string,
     avatar: string,
     sex: number,
@@ -476,6 +530,11 @@ export class OperatorMJ extends jspb.Message {
   getActionType(): DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap];
   setActionType(value: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap]): void;
 
+  clearValidActionsList(): void;
+  getValidActionsList(): Array<ValidAction>;
+  setValidActionsList(value: Array<ValidAction>): void;
+  addValidActions(value?: ValidAction, index?: number): ValidAction;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OperatorMJ.AsObject;
   static toObject(includeInstance: boolean, msg: OperatorMJ): OperatorMJ.AsObject;
@@ -492,6 +551,7 @@ export namespace OperatorMJ {
     delayTimes: number,
     opDeadline: number,
     actionType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
+    validActionsList: Array<ValidAction.AsObject>,
   }
 }
 
