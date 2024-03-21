@@ -461,7 +461,9 @@ proto.holdem.pb.ValidAction.prototype.toObject = function(opt_includeInstance) {
 proto.holdem.pb.ValidAction.toObject = function(includeInstance, msg) {
   var f, obj = {
     action: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    tilesList: jspb.Message.getRepeatedField(msg, 2)
+    tilesList: jspb.Message.getRepeatedField(msg, 2),
+    targetSeatId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    targetTile: (f = msg.getTargetTile()) && proto.holdem.pb.Tile.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -506,6 +508,15 @@ proto.holdem.pb.ValidAction.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
       msg.setTilesList(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setTargetSeatId(value);
+      break;
+    case 4:
+      var value = new proto.holdem.pb.Tile;
+      reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
+      msg.setTargetTile(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -547,6 +558,21 @@ proto.holdem.pb.ValidAction.serializeBinaryToWriter = function(message, writer) 
     writer.writePackedInt32(
       2,
       f
+    );
+  }
+  f = message.getTargetSeatId();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
+  f = message.getTargetTile();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      proto.holdem.pb.Tile.serializeBinaryToWriter
     );
   }
 };
@@ -593,6 +619,51 @@ proto.holdem.pb.ValidAction.prototype.addTiles = function(value, opt_index) {
 
 proto.holdem.pb.ValidAction.prototype.clearTilesList = function() {
   this.setTilesList([]);
+};
+
+
+/**
+ * optional int32 target_seat_id = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ValidAction.prototype.getTargetSeatId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ValidAction.prototype.setTargetSeatId = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional Tile target_tile = 4;
+ * @return {?proto.holdem.pb.Tile}
+ */
+proto.holdem.pb.ValidAction.prototype.getTargetTile = function() {
+  return /** @type{?proto.holdem.pb.Tile} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.Tile, 4));
+};
+
+
+/** @param {?proto.holdem.pb.Tile|undefined} value */
+proto.holdem.pb.ValidAction.prototype.setTargetTile = function(value) {
+  jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+proto.holdem.pb.ValidAction.prototype.clearTargetTile = function() {
+  this.setTargetTile(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ValidAction.prototype.hasTargetTile = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 

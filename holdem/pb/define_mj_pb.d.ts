@@ -138,6 +138,14 @@ export class ValidAction extends jspb.Message {
   setTilesList(value: Array<number>): void;
   addTiles(value: number, index?: number): number;
 
+  getTargetSeatId(): number;
+  setTargetSeatId(value: number): void;
+
+  hasTargetTile(): boolean;
+  clearTargetTile(): void;
+  getTargetTile(): Tile | undefined;
+  setTargetTile(value?: Tile): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ValidAction.AsObject;
   static toObject(includeInstance: boolean, msg: ValidAction): ValidAction.AsObject;
@@ -152,6 +160,8 @@ export namespace ValidAction {
   export type AsObject = {
     action: DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap],
     tilesList: Array<number>,
+    targetSeatId: number,
+    targetTile?: Tile.AsObject,
   }
 }
 
