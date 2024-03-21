@@ -270,6 +270,9 @@ export class MatchInfoMJ extends jspb.Message {
   setDiceNumList(value: Array<number>): void;
   addDiceNum(value: number, index?: number): number;
 
+  getWaitDeadline(): number;
+  setWaitDeadline(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MatchInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: MatchInfoMJ): MatchInfoMJ.AsObject;
@@ -288,6 +291,7 @@ export namespace MatchInfoMJ {
     wallDescIndex: number,
     wallTileLength: number,
     diceNumList: Array<number>,
+    waitDeadline: number,
   }
 }
 

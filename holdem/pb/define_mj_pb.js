@@ -1306,7 +1306,8 @@ proto.holdem.pb.MatchInfoMJ.toObject = function(includeInstance, msg) {
     wallAscIndex: jspb.Message.getFieldWithDefault(msg, 3, 0),
     wallDescIndex: jspb.Message.getFieldWithDefault(msg, 4, 0),
     wallTileLength: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    diceNumList: jspb.Message.getRepeatedField(msg, 6)
+    diceNumList: jspb.Message.getRepeatedField(msg, 6),
+    waitDeadline: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -1366,6 +1367,10 @@ proto.holdem.pb.MatchInfoMJ.deserializeBinaryFromReader = function(msg, reader) 
     case 6:
       var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
       msg.setDiceNumList(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setWaitDeadline(value);
       break;
     default:
       reader.skipField();
@@ -1435,6 +1440,13 @@ proto.holdem.pb.MatchInfoMJ.serializeBinaryToWriter = function(message, writer) 
   if (f.length > 0) {
     writer.writePackedUint32(
       6,
+      f
+    );
+  }
+  f = message.getWaitDeadline();
+  if (f !== 0) {
+    writer.writeInt64(
+      7,
       f
     );
   }
@@ -1542,6 +1554,21 @@ proto.holdem.pb.MatchInfoMJ.prototype.addDiceNum = function(value, opt_index) {
 
 proto.holdem.pb.MatchInfoMJ.prototype.clearDiceNumList = function() {
   this.setDiceNumList([]);
+};
+
+
+/**
+ * optional int64 wait_deadline = 7;
+ * @return {number}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getWaitDeadline = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setWaitDeadline = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 
