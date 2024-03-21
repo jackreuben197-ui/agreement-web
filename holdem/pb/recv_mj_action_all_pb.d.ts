@@ -38,6 +38,11 @@ export class ServerMessageMjActionAll extends jspb.Message {
   getWallDescIndex(): number;
   setWallDescIndex(value: number): void;
 
+  clearErjsList(): void;
+  getErjsList(): Array<protobuf_holdem_define_mj_pb.ExternalResultMJ>;
+  setErjsList(value: Array<protobuf_holdem_define_mj_pb.ExternalResultMJ>): void;
+  addErjs(value?: protobuf_holdem_define_mj_pb.ExternalResultMJ, index?: number): protobuf_holdem_define_mj_pb.ExternalResultMJ;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjActionAll.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjActionAll): ServerMessageMjActionAll.AsObject;
@@ -59,6 +64,7 @@ export namespace ServerMessageMjActionAll {
     waitDeadline: number,
     wallAscIndex: number,
     wallDescIndex: number,
+    erjsList: Array<protobuf_holdem_define_mj_pb.ExternalResultMJ.AsObject>,
   }
 }
 

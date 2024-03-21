@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageMjActionAll.repeatedFields_ = [3];
+proto.holdem.pb.ServerMessageMjActionAll.repeatedFields_ = [3,10];
 
 
 
@@ -76,7 +76,9 @@ proto.holdem.pb.ServerMessageMjActionAll.toObject = function(includeInstance, ms
     op: (f = msg.getOp()) && protobuf_holdem_define_mj_pb.OperatorMJ.toObject(includeInstance, f),
     waitDeadline: jspb.Message.getFieldWithDefault(msg, 7, 0),
     wallAscIndex: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    wallDescIndex: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    wallDescIndex: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    erjsList: jspb.Message.toObjectList(msg.getErjsList(),
+    protobuf_holdem_define_mj_pb.ExternalResultMJ.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -151,6 +153,11 @@ proto.holdem.pb.ServerMessageMjActionAll.deserializeBinaryFromReader = function(
     case 9:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setWallDescIndex(value);
+      break;
+    case 10:
+      var value = new protobuf_holdem_define_mj_pb.ExternalResultMJ;
+      reader.readMessage(value,protobuf_holdem_define_mj_pb.ExternalResultMJ.deserializeBinaryFromReader);
+      msg.addErjs(value);
       break;
     default:
       reader.skipField();
@@ -245,6 +252,14 @@ proto.holdem.pb.ServerMessageMjActionAll.serializeBinaryToWriter = function(mess
     writer.writeUint32(
       9,
       f
+    );
+  }
+  f = message.getErjsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      10,
+      f,
+      protobuf_holdem_define_mj_pb.ExternalResultMJ.serializeBinaryToWriter
     );
   }
 };
@@ -428,6 +443,37 @@ proto.holdem.pb.ServerMessageMjActionAll.prototype.getWallDescIndex = function()
 /** @param {number} value */
 proto.holdem.pb.ServerMessageMjActionAll.prototype.setWallDescIndex = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * repeated ExternalResultMJ erjs = 10;
+ * @return {!Array.<!proto.holdem.pb.ExternalResultMJ>}
+ */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.getErjsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ExternalResultMJ>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_mj_pb.ExternalResultMJ, 10));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.ExternalResultMJ>} value */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.setErjsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 10, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.ExternalResultMJ=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ExternalResultMJ}
+ */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.addErjs = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 10, opt_value, proto.holdem.pb.ExternalResultMJ, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageMjActionAll.prototype.clearErjsList = function() {
+  this.setErjsList([]);
 };
 
 

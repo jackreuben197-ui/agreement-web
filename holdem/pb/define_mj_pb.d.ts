@@ -677,6 +677,36 @@ export namespace PlayerChipChangeMJ {
   }
 }
 
+export class ExternalResultMJ extends jspb.Message {
+  getSeatId(): number;
+  setSeatId(value: number): void;
+
+  getChip(): number;
+  setChip(value: number): void;
+
+  clearResultDetailList(): void;
+  getResultDetailList(): Array<ResultDetailMJ>;
+  setResultDetailList(value: Array<ResultDetailMJ>): void;
+  addResultDetail(value?: ResultDetailMJ, index?: number): ResultDetailMJ;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ExternalResultMJ.AsObject;
+  static toObject(includeInstance: boolean, msg: ExternalResultMJ): ExternalResultMJ.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ExternalResultMJ, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ExternalResultMJ;
+  static deserializeBinaryFromReader(message: ExternalResultMJ, reader: jspb.BinaryReader): ExternalResultMJ;
+}
+
+export namespace ExternalResultMJ {
+  export type AsObject = {
+    seatId: number,
+    chip: number,
+    resultDetailList: Array<ResultDetailMJ.AsObject>,
+  }
+}
+
 export class ResultMJ extends jspb.Message {
   getSeatId(): number;
   setSeatId(value: number): void;
