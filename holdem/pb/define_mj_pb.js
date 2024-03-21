@@ -3315,7 +3315,9 @@ proto.holdem.pb.OperatorMJ.toObject = function(includeInstance, msg) {
     opDeadline: jspb.Message.getFieldWithDefault(msg, 3, 0),
     actionType: jspb.Message.getFieldWithDefault(msg, 4, 0),
     validActionsList: jspb.Message.toObjectList(msg.getValidActionsList(),
-    proto.holdem.pb.ValidAction.toObject, includeInstance)
+    proto.holdem.pb.ValidAction.toObject, includeInstance),
+    drawTile: jspb.Message.getFieldWithDefault(msg, 6, false),
+    lastTile: (f = msg.getLastTile()) && proto.holdem.pb.Tile.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3372,6 +3374,15 @@ proto.holdem.pb.OperatorMJ.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.ValidAction;
       reader.readMessage(value,proto.holdem.pb.ValidAction.deserializeBinaryFromReader);
       msg.addValidActions(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDrawTile(value);
+      break;
+    case 7:
+      var value = new proto.holdem.pb.Tile;
+      reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
+      msg.setLastTile(value);
       break;
     default:
       reader.skipField();
@@ -3436,6 +3447,21 @@ proto.holdem.pb.OperatorMJ.serializeBinaryToWriter = function(message, writer) {
       5,
       f,
       proto.holdem.pb.ValidAction.serializeBinaryToWriter
+    );
+  }
+  f = message.getDrawTile();
+  if (f) {
+    writer.writeBool(
+      6,
+      f
+    );
+  }
+  f = message.getLastTile();
+  if (f != null) {
+    writer.writeMessage(
+      7,
+      f,
+      proto.holdem.pb.Tile.serializeBinaryToWriter
     );
   }
 };
@@ -3529,6 +3555,53 @@ proto.holdem.pb.OperatorMJ.prototype.addValidActions = function(opt_value, opt_i
 
 proto.holdem.pb.OperatorMJ.prototype.clearValidActionsList = function() {
   this.setValidActionsList([]);
+};
+
+
+/**
+ * optional bool draw_tile = 6;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.OperatorMJ.prototype.getDrawTile = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.OperatorMJ.prototype.setDrawTile = function(value) {
+  jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional Tile last_tile = 7;
+ * @return {?proto.holdem.pb.Tile}
+ */
+proto.holdem.pb.OperatorMJ.prototype.getLastTile = function() {
+  return /** @type{?proto.holdem.pb.Tile} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.Tile, 7));
+};
+
+
+/** @param {?proto.holdem.pb.Tile|undefined} value */
+proto.holdem.pb.OperatorMJ.prototype.setLastTile = function(value) {
+  jspb.Message.setWrapperField(this, 7, value);
+};
+
+
+proto.holdem.pb.OperatorMJ.prototype.clearLastTile = function() {
+  this.setLastTile(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.OperatorMJ.prototype.hasLastTile = function() {
+  return jspb.Message.getField(this, 7) != null;
 };
 
 

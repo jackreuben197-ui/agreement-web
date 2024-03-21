@@ -551,6 +551,14 @@ export class OperatorMJ extends jspb.Message {
   setValidActionsList(value: Array<ValidAction>): void;
   addValidActions(value?: ValidAction, index?: number): ValidAction;
 
+  getDrawTile(): boolean;
+  setDrawTile(value: boolean): void;
+
+  hasLastTile(): boolean;
+  clearLastTile(): void;
+  getLastTile(): Tile | undefined;
+  setLastTile(value?: Tile): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OperatorMJ.AsObject;
   static toObject(includeInstance: boolean, msg: OperatorMJ): OperatorMJ.AsObject;
@@ -568,6 +576,8 @@ export namespace OperatorMJ {
     opDeadline: number,
     actionType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
     validActionsList: Array<ValidAction.AsObject>,
+    drawTile: boolean,
+    lastTile?: Tile.AsObject,
   }
 }
 
