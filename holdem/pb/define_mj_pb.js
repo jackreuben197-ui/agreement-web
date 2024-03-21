@@ -1188,12 +1188,19 @@ proto.holdem.pb.RoomInfoMJ.prototype.setPersonalType = function(value) {
  * @constructor
  */
 proto.holdem.pb.MatchInfoMJ = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.MatchInfoMJ.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.MatchInfoMJ, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.MatchInfoMJ.displayName = 'proto.holdem.pb.MatchInfoMJ';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.MatchInfoMJ.repeatedFields_ = [6];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1228,7 +1235,7 @@ proto.holdem.pb.MatchInfoMJ.toObject = function(includeInstance, msg) {
     wallAscIndex: jspb.Message.getFieldWithDefault(msg, 3, 0),
     wallDescIndex: jspb.Message.getFieldWithDefault(msg, 4, 0),
     wallTileLength: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    diceNum: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    diceNumList: jspb.Message.getRepeatedField(msg, 6)
   };
 
   if (includeInstance) {
@@ -1286,8 +1293,8 @@ proto.holdem.pb.MatchInfoMJ.deserializeBinaryFromReader = function(msg, reader) 
       msg.setWallTileLength(value);
       break;
     case 6:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setDiceNum(value);
+      var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
+      msg.setDiceNumList(value);
       break;
     default:
       reader.skipField();
@@ -1353,9 +1360,9 @@ proto.holdem.pb.MatchInfoMJ.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
-  f = message.getDiceNum();
-  if (f !== 0) {
-    writer.writeUint32(
+  f = message.getDiceNumList();
+  if (f.length > 0) {
+    writer.writePackedUint32(
       6,
       f
     );
@@ -1439,17 +1446,31 @@ proto.holdem.pb.MatchInfoMJ.prototype.setWallTileLength = function(value) {
 
 
 /**
- * optional uint32 dice_num = 6;
- * @return {number}
+ * repeated uint32 dice_num = 6;
+ * @return {!Array.<number>}
  */
-proto.holdem.pb.MatchInfoMJ.prototype.getDiceNum = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+proto.holdem.pb.MatchInfoMJ.prototype.getDiceNumList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 6));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.MatchInfoMJ.prototype.setDiceNum = function(value) {
-  jspb.Message.setField(this, 6, value);
+/** @param {!Array.<number>} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setDiceNumList = function(value) {
+  jspb.Message.setField(this, 6, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.addDiceNum = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+};
+
+
+proto.holdem.pb.MatchInfoMJ.prototype.clearDiceNumList = function() {
+  this.setDiceNumList([]);
 };
 
 

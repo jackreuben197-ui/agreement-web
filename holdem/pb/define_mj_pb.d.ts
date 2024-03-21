@@ -255,8 +255,10 @@ export class MatchInfoMJ extends jspb.Message {
   getWallTileLength(): number;
   setWallTileLength(value: number): void;
 
-  getDiceNum(): number;
-  setDiceNum(value: number): void;
+  clearDiceNumList(): void;
+  getDiceNumList(): Array<number>;
+  setDiceNumList(value: Array<number>): void;
+  addDiceNum(value: number, index?: number): number;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MatchInfoMJ.AsObject;
@@ -275,7 +277,7 @@ export namespace MatchInfoMJ {
     wallAscIndex: number,
     wallDescIndex: number,
     wallTileLength: number,
-    diceNum: number,
+    diceNumList: Array<number>,
   }
 }
 
