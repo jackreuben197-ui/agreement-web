@@ -428,6 +428,17 @@ export class PlayerMJ extends jspb.Message {
   getUserSubscriptionId(): number;
   setUserSubscriptionId(value: number): void;
 
+  getWin(): boolean;
+  setWin(value: boolean): void;
+
+  getTotalWinLose(): number;
+  setTotalWinLose(value: number): void;
+
+  clearResultDetailList(): void;
+  getResultDetailList(): Array<ResultDetailMJ>;
+  setResultDetailList(value: Array<ResultDetailMJ>): void;
+  addResultDetail(value?: ResultDetailMJ, index?: number): ResultDetailMJ;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -462,6 +473,9 @@ export namespace PlayerMJ {
     keepSeatReason: protobuf_holdem_define_pb.Def.KeepSeatReasonMap[keyof protobuf_holdem_define_pb.Def.KeepSeatReasonMap],
     status: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap],
     userSubscriptionId: number,
+    win: boolean,
+    totalWinLose: number,
+    resultDetailList: Array<ResultDetailMJ.AsObject>,
   }
 }
 

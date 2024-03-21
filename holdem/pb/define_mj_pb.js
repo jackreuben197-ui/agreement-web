@@ -1963,7 +1963,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.PlayerMJ.repeatedFields_ = [3,4,5,6,7,8,23];
+proto.holdem.pb.PlayerMJ.repeatedFields_ = [3,4,5,6,7,8,23,32];
 
 
 
@@ -2017,7 +2017,11 @@ proto.holdem.pb.PlayerMJ.toObject = function(includeInstance, msg) {
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 17, 0),
     keepSeatReason: jspb.Message.getFieldWithDefault(msg, 18, 0),
     status: jspb.Message.getFieldWithDefault(msg, 19, 0),
-    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 20, 0)
+    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 20, 0),
+    win: jspb.Message.getFieldWithDefault(msg, 30, false),
+    totalWinLose: jspb.Message.getFieldWithDefault(msg, 31, 0),
+    resultDetailList: jspb.Message.toObjectList(msg.getResultDetailList(),
+    proto.holdem.pb.ResultDetailMJ.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -2144,6 +2148,19 @@ proto.holdem.pb.PlayerMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 20:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setUserSubscriptionId(value);
+      break;
+    case 30:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setWin(value);
+      break;
+    case 31:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setTotalWinLose(value);
+      break;
+    case 32:
+      var value = new proto.holdem.pb.ResultDetailMJ;
+      reader.readMessage(value,proto.holdem.pb.ResultDetailMJ.deserializeBinaryFromReader);
+      msg.addResultDetail(value);
       break;
     default:
       reader.skipField();
@@ -2329,6 +2346,28 @@ proto.holdem.pb.PlayerMJ.serializeBinaryToWriter = function(message, writer) {
     writer.writeUint64(
       20,
       f
+    );
+  }
+  f = message.getWin();
+  if (f) {
+    writer.writeBool(
+      30,
+      f
+    );
+  }
+  f = message.getTotalWinLose();
+  if (f !== 0) {
+    writer.writeInt64(
+      31,
+      f
+    );
+  }
+  f = message.getResultDetailList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      32,
+      f,
+      proto.holdem.pb.ResultDetailMJ.serializeBinaryToWriter
     );
   }
 };
@@ -2780,6 +2819,69 @@ proto.holdem.pb.PlayerMJ.prototype.getUserSubscriptionId = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerMJ.prototype.setUserSubscriptionId = function(value) {
   jspb.Message.setField(this, 20, value);
+};
+
+
+/**
+ * optional bool win = 30;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.PlayerMJ.prototype.getWin = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 30, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.PlayerMJ.prototype.setWin = function(value) {
+  jspb.Message.setField(this, 30, value);
+};
+
+
+/**
+ * optional int64 total_win_lose = 31;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerMJ.prototype.getTotalWinLose = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 31, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerMJ.prototype.setTotalWinLose = function(value) {
+  jspb.Message.setField(this, 31, value);
+};
+
+
+/**
+ * repeated ResultDetailMJ result_detail = 32;
+ * @return {!Array.<!proto.holdem.pb.ResultDetailMJ>}
+ */
+proto.holdem.pb.PlayerMJ.prototype.getResultDetailList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ResultDetailMJ>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ResultDetailMJ, 32));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.ResultDetailMJ>} value */
+proto.holdem.pb.PlayerMJ.prototype.setResultDetailList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 32, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.ResultDetailMJ=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ResultDetailMJ}
+ */
+proto.holdem.pb.PlayerMJ.prototype.addResultDetail = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 32, opt_value, proto.holdem.pb.ResultDetailMJ, opt_index);
+};
+
+
+proto.holdem.pb.PlayerMJ.prototype.clearResultDetailList = function() {
+  this.setResultDetailList([]);
 };
 
 

@@ -69,7 +69,9 @@ proto.holdem.pb.ServerMessageMjResult.toObject = function(includeInstance, msg) 
   var f, obj = {
     resultsList: jspb.Message.toObjectList(msg.getResultsList(),
     protobuf_holdem_define_mj_pb.ResultMJ.toObject, includeInstance),
-    matchNum: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    matchNum: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    pb_final: jspb.Message.getFieldWithDefault(msg, 3, false),
+    draw: jspb.Message.getFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -115,6 +117,14 @@ proto.holdem.pb.ServerMessageMjResult.deserializeBinaryFromReader = function(msg
       var value = /** @type {number} */ (reader.readUint32());
       msg.setMatchNum(value);
       break;
+    case 3:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setFinal(value);
+      break;
+    case 4:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDraw(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -156,6 +166,20 @@ proto.holdem.pb.ServerMessageMjResult.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeUint32(
       2,
+      f
+    );
+  }
+  f = message.getFinal();
+  if (f) {
+    writer.writeBool(
+      3,
+      f
+    );
+  }
+  f = message.getDraw();
+  if (f) {
+    writer.writeBool(
+      4,
       f
     );
   }
@@ -205,6 +229,40 @@ proto.holdem.pb.ServerMessageMjResult.prototype.getMatchNum = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageMjResult.prototype.setMatchNum = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional bool final = 3;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.getFinal = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 3, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageMjResult.prototype.setFinal = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional bool draw = 4;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.getDraw = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 4, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageMjResult.prototype.setDraw = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

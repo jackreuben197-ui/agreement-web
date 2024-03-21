@@ -13,6 +13,12 @@ export class ServerMessageMjResult extends jspb.Message {
   getMatchNum(): number;
   setMatchNum(value: number): void;
 
+  getFinal(): boolean;
+  setFinal(value: boolean): void;
+
+  getDraw(): boolean;
+  setDraw(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjResult.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjResult): ServerMessageMjResult.AsObject;
@@ -27,6 +33,8 @@ export namespace ServerMessageMjResult {
   export type AsObject = {
     resultsList: Array<protobuf_holdem_define_mj_pb.ResultMJ.AsObject>,
     matchNum: number,
+    pb_final: boolean,
+    draw: boolean,
   }
 }
 
