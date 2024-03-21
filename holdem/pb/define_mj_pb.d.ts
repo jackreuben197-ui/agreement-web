@@ -749,6 +749,30 @@ export namespace ResultMJ {
   }
 }
 
+export class SourceMJ extends jspb.Message {
+  getSeatedId(): number;
+  setSeatedId(value: number): void;
+
+  getWinLose(): number;
+  setWinLose(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SourceMJ.AsObject;
+  static toObject(includeInstance: boolean, msg: SourceMJ): SourceMJ.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SourceMJ, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SourceMJ;
+  static deserializeBinaryFromReader(message: SourceMJ, reader: jspb.BinaryReader): SourceMJ;
+}
+
+export namespace SourceMJ {
+  export type AsObject = {
+    seatedId: number,
+    winLose: number,
+  }
+}
+
 export class ResultDetailMJ extends jspb.Message {
   getReason(): DefMJ.WinLoseReasonMap[keyof DefMJ.WinLoseReasonMap];
   setReason(value: DefMJ.WinLoseReasonMap[keyof DefMJ.WinLoseReasonMap]): void;
@@ -769,6 +793,11 @@ export class ResultDetailMJ extends jspb.Message {
   getWinTile(): Tile | undefined;
   setWinTile(value?: Tile): void;
 
+  clearSourceList(): void;
+  getSourceList(): Array<SourceMJ>;
+  setSourceList(value: Array<SourceMJ>): void;
+  addSource(value?: SourceMJ, index?: number): SourceMJ;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ResultDetailMJ.AsObject;
   static toObject(includeInstance: boolean, msg: ResultDetailMJ): ResultDetailMJ.AsObject;
@@ -786,6 +815,7 @@ export namespace ResultDetailMJ {
     winPt: number,
     winTypesList: Array<DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap]>,
     winTile?: Tile.AsObject,
+    sourceList: Array<SourceMJ.AsObject>,
   }
 }
 

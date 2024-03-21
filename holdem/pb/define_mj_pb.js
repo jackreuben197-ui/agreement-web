@@ -30,6 +30,7 @@ goog.exportSymbol('proto.holdem.pb.PlayerVoidSuit', null, global);
 goog.exportSymbol('proto.holdem.pb.ResultDetailMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.ResultMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomInfoMJ', null, global);
+goog.exportSymbol('proto.holdem.pb.SourceMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.Tile', null, global);
 goog.exportSymbol('proto.holdem.pb.ValidAction', null, global);
 
@@ -4810,6 +4811,175 @@ proto.holdem.pb.ResultMJ.prototype.setStandUp = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
+proto.holdem.pb.SourceMJ = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.SourceMJ, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.SourceMJ.displayName = 'proto.holdem.pb.SourceMJ';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.SourceMJ.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.SourceMJ.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.SourceMJ} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.SourceMJ.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    seatedId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    winLose: jspb.Message.getFieldWithDefault(msg, 2, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.SourceMJ}
+ */
+proto.holdem.pb.SourceMJ.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.SourceMJ;
+  return proto.holdem.pb.SourceMJ.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.SourceMJ} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.SourceMJ}
+ */
+proto.holdem.pb.SourceMJ.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSeatedId(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setWinLose(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.SourceMJ.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.SourceMJ.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.SourceMJ} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.SourceMJ.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSeatedId();
+  if (f !== 0) {
+    writer.writeInt32(
+      1,
+      f
+    );
+  }
+  f = message.getWinLose();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional int32 seated_id = 1;
+ * @return {number}
+ */
+proto.holdem.pb.SourceMJ.prototype.getSeatedId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SourceMJ.prototype.setSeatedId = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional int64 win_lose = 2;
+ * @return {number}
+ */
+proto.holdem.pb.SourceMJ.prototype.getWinLose = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SourceMJ.prototype.setWinLose = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
 proto.holdem.pb.ResultDetailMJ = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ResultDetailMJ.repeatedFields_, null);
 };
@@ -4822,7 +4992,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ResultDetailMJ.repeatedFields_ = [4];
+proto.holdem.pb.ResultDetailMJ.repeatedFields_ = [4,6];
 
 
 
@@ -4857,7 +5027,9 @@ proto.holdem.pb.ResultDetailMJ.toObject = function(includeInstance, msg) {
     winLose: jspb.Message.getFieldWithDefault(msg, 2, 0),
     winPt: jspb.Message.getFieldWithDefault(msg, 3, 0),
     winTypesList: jspb.Message.getRepeatedField(msg, 4),
-    winTile: (f = msg.getWinTile()) && proto.holdem.pb.Tile.toObject(includeInstance, f)
+    winTile: (f = msg.getWinTile()) && proto.holdem.pb.Tile.toObject(includeInstance, f),
+    sourceList: jspb.Message.toObjectList(msg.getSourceList(),
+    proto.holdem.pb.SourceMJ.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -4914,6 +5086,11 @@ proto.holdem.pb.ResultDetailMJ.deserializeBinaryFromReader = function(msg, reade
       var value = new proto.holdem.pb.Tile;
       reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
       msg.setWinTile(value);
+      break;
+    case 6:
+      var value = new proto.holdem.pb.SourceMJ;
+      reader.readMessage(value,proto.holdem.pb.SourceMJ.deserializeBinaryFromReader);
+      msg.addSource(value);
       break;
     default:
       reader.skipField();
@@ -4978,6 +5155,14 @@ proto.holdem.pb.ResultDetailMJ.serializeBinaryToWriter = function(message, write
       5,
       f,
       proto.holdem.pb.Tile.serializeBinaryToWriter
+    );
+  }
+  f = message.getSourceList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      6,
+      f,
+      proto.holdem.pb.SourceMJ.serializeBinaryToWriter
     );
   }
 };
@@ -5084,6 +5269,37 @@ proto.holdem.pb.ResultDetailMJ.prototype.clearWinTile = function() {
  */
 proto.holdem.pb.ResultDetailMJ.prototype.hasWinTile = function() {
   return jspb.Message.getField(this, 5) != null;
+};
+
+
+/**
+ * repeated SourceMJ source = 6;
+ * @return {!Array.<!proto.holdem.pb.SourceMJ>}
+ */
+proto.holdem.pb.ResultDetailMJ.prototype.getSourceList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.SourceMJ>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.SourceMJ, 6));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.SourceMJ>} value */
+proto.holdem.pb.ResultDetailMJ.prototype.setSourceList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 6, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.SourceMJ=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.SourceMJ}
+ */
+proto.holdem.pb.ResultDetailMJ.prototype.addSource = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.holdem.pb.SourceMJ, opt_index);
+};
+
+
+proto.holdem.pb.ResultDetailMJ.prototype.clearSourceList = function() {
+  this.setSourceList([]);
 };
 
 
