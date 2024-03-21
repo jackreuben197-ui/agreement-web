@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageMjResult.repeatedFields_ = [1];
+proto.holdem.pb.ServerMessageMjResult.repeatedFields_ = [1,11];
 
 
 
@@ -71,7 +71,13 @@ proto.holdem.pb.ServerMessageMjResult.toObject = function(includeInstance, msg) 
     protobuf_holdem_define_mj_pb.ResultMJ.toObject, includeInstance),
     matchNum: jspb.Message.getFieldWithDefault(msg, 2, 0),
     pb_final: jspb.Message.getFieldWithDefault(msg, 3, false),
-    draw: jspb.Message.getFieldWithDefault(msg, 4, false)
+    draw: jspb.Message.getFieldWithDefault(msg, 4, false),
+    op: (f = msg.getOp()) && protobuf_holdem_define_mj_pb.OperatorMJ.toObject(includeInstance, f),
+    waitDeadline: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    wallAscIndex: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    wallDescIndex: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    operatorReadyTilesList: jspb.Message.toObjectList(msg.getOperatorReadyTilesList(),
+    protobuf_holdem_define_mj_pb.ReadyTile.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -124,6 +130,28 @@ proto.holdem.pb.ServerMessageMjResult.deserializeBinaryFromReader = function(msg
     case 4:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setDraw(value);
+      break;
+    case 6:
+      var value = new protobuf_holdem_define_mj_pb.OperatorMJ;
+      reader.readMessage(value,protobuf_holdem_define_mj_pb.OperatorMJ.deserializeBinaryFromReader);
+      msg.setOp(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setWaitDeadline(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setWallAscIndex(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setWallDescIndex(value);
+      break;
+    case 11:
+      var value = new protobuf_holdem_define_mj_pb.ReadyTile;
+      reader.readMessage(value,protobuf_holdem_define_mj_pb.ReadyTile.deserializeBinaryFromReader);
+      msg.addOperatorReadyTiles(value);
       break;
     default:
       reader.skipField();
@@ -181,6 +209,43 @@ proto.holdem.pb.ServerMessageMjResult.serializeBinaryToWriter = function(message
     writer.writeBool(
       4,
       f
+    );
+  }
+  f = message.getOp();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      protobuf_holdem_define_mj_pb.OperatorMJ.serializeBinaryToWriter
+    );
+  }
+  f = message.getWaitDeadline();
+  if (f !== 0) {
+    writer.writeInt64(
+      7,
+      f
+    );
+  }
+  f = message.getWallAscIndex();
+  if (f !== 0) {
+    writer.writeUint32(
+      8,
+      f
+    );
+  }
+  f = message.getWallDescIndex();
+  if (f !== 0) {
+    writer.writeUint32(
+      9,
+      f
+    );
+  }
+  f = message.getOperatorReadyTilesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      11,
+      f,
+      protobuf_holdem_define_mj_pb.ReadyTile.serializeBinaryToWriter
     );
   }
 };
@@ -263,6 +328,112 @@ proto.holdem.pb.ServerMessageMjResult.prototype.getDraw = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ServerMessageMjResult.prototype.setDraw = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional OperatorMJ op = 6;
+ * @return {?proto.holdem.pb.OperatorMJ}
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.getOp = function() {
+  return /** @type{?proto.holdem.pb.OperatorMJ} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_mj_pb.OperatorMJ, 6));
+};
+
+
+/** @param {?proto.holdem.pb.OperatorMJ|undefined} value */
+proto.holdem.pb.ServerMessageMjResult.prototype.setOp = function(value) {
+  jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+proto.holdem.pb.ServerMessageMjResult.prototype.clearOp = function() {
+  this.setOp(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.hasOp = function() {
+  return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional int64 wait_deadline = 7;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.getWaitDeadline = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjResult.prototype.setWaitDeadline = function(value) {
+  jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint32 wall_asc_index = 8;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.getWallAscIndex = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjResult.prototype.setWallAscIndex = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional uint32 wall_desc_index = 9;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.getWallDescIndex = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjResult.prototype.setWallDescIndex = function(value) {
+  jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * repeated ReadyTile operator_ready_tiles = 11;
+ * @return {!Array.<!proto.holdem.pb.ReadyTile>}
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.getOperatorReadyTilesList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ReadyTile>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_mj_pb.ReadyTile, 11));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.ReadyTile>} value */
+proto.holdem.pb.ServerMessageMjResult.prototype.setOperatorReadyTilesList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 11, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.ReadyTile=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ReadyTile}
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.addOperatorReadyTiles = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 11, opt_value, proto.holdem.pb.ReadyTile, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageMjResult.prototype.clearOperatorReadyTilesList = function() {
+  this.setOperatorReadyTilesList([]);
 };
 
 
