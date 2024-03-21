@@ -50,6 +50,7 @@ export namespace DefMJ {
     MELDEDKONG3: 6;
     WIN: 7;
     DRAW: 8;
+    PASS: 9;
   }
 
   export const ActionMj: ActionMjMap;

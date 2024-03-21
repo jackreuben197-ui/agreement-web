@@ -184,7 +184,8 @@ proto.holdem.pb.DefMJ.ActionMj = {
   PUNG: 5,
   MELDEDKONG3: 6,
   WIN: 7,
-  DRAW: 8
+  DRAW: 8,
+  PASS: 9
 };
 
 /**
