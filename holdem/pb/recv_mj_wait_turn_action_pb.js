@@ -71,9 +71,7 @@ proto.holdem.pb.ServerMessageMjWaitTurnAction.toObject = function(includeInstanc
     waitDeadline: jspb.Message.getFieldWithDefault(msg, 2, 0),
     wallAscIndex: jspb.Message.getFieldWithDefault(msg, 3, 0),
     wallDescIndex: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    isKong: jspb.Message.getFieldWithDefault(msg, 5, false),
-    drawTile: jspb.Message.getFieldWithDefault(msg, 6, false),
-    lastTile: (f = msg.getLastTile()) && protobuf_holdem_define_mj_pb.Tile.toObject(includeInstance, f),
+    wallLeft: jspb.Message.getFieldWithDefault(msg, 5, 0),
     exchangeTilesList: jspb.Message.toObjectList(msg.getExchangeTilesList(),
     protobuf_holdem_define_mj_pb.ExchangeFlower.toObject, includeInstance)
   };
@@ -130,17 +128,8 @@ proto.holdem.pb.ServerMessageMjWaitTurnAction.deserializeBinaryFromReader = func
       msg.setWallDescIndex(value);
       break;
     case 5:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIsKong(value);
-      break;
-    case 6:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setDrawTile(value);
-      break;
-    case 7:
-      var value = new protobuf_holdem_define_mj_pb.Tile;
-      reader.readMessage(value,protobuf_holdem_define_mj_pb.Tile.deserializeBinaryFromReader);
-      msg.setLastTile(value);
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setWallLeft(value);
       break;
     case 10:
       var value = new protobuf_holdem_define_mj_pb.ExchangeFlower;
@@ -205,26 +194,11 @@ proto.holdem.pb.ServerMessageMjWaitTurnAction.serializeBinaryToWriter = function
       f
     );
   }
-  f = message.getIsKong();
-  if (f) {
-    writer.writeBool(
+  f = message.getWallLeft();
+  if (f !== 0) {
+    writer.writeUint32(
       5,
       f
-    );
-  }
-  f = message.getDrawTile();
-  if (f) {
-    writer.writeBool(
-      6,
-      f
-    );
-  }
-  f = message.getLastTile();
-  if (f != null) {
-    writer.writeMessage(
-      7,
-      f,
-      protobuf_holdem_define_mj_pb.Tile.serializeBinaryToWriter
     );
   }
   f = message.getExchangeTilesList();
@@ -314,66 +288,17 @@ proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.setWallDescIndex = funct
 
 
 /**
- * optional bool is_kong = 5;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
+ * optional uint32 wall_left = 5;
+ * @return {number}
  */
-proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.getIsKong = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 5, false));
+proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.getWallLeft = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {boolean} value */
-proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.setIsKong = function(value) {
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.setWallLeft = function(value) {
   jspb.Message.setField(this, 5, value);
-};
-
-
-/**
- * optional bool draw_tile = 6;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.getDrawTile = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
-};
-
-
-/** @param {boolean} value */
-proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.setDrawTile = function(value) {
-  jspb.Message.setField(this, 6, value);
-};
-
-
-/**
- * optional Tile last_tile = 7;
- * @return {?proto.holdem.pb.Tile}
- */
-proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.getLastTile = function() {
-  return /** @type{?proto.holdem.pb.Tile} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_mj_pb.Tile, 7));
-};
-
-
-/** @param {?proto.holdem.pb.Tile|undefined} value */
-proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.setLastTile = function(value) {
-  jspb.Message.setWrapperField(this, 7, value);
-};
-
-
-proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.clearLastTile = function() {
-  this.setLastTile(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.holdem.pb.ServerMessageMjWaitTurnAction.prototype.hasLastTile = function() {
-  return jspb.Message.getField(this, 7) != null;
 };
 
 

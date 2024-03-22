@@ -19,16 +19,8 @@ export class ServerMessageMjWaitTurnAction extends jspb.Message {
   getWallDescIndex(): number;
   setWallDescIndex(value: number): void;
 
-  getIsKong(): boolean;
-  setIsKong(value: boolean): void;
-
-  getDrawTile(): boolean;
-  setDrawTile(value: boolean): void;
-
-  hasLastTile(): boolean;
-  clearLastTile(): void;
-  getLastTile(): protobuf_holdem_define_mj_pb.Tile | undefined;
-  setLastTile(value?: protobuf_holdem_define_mj_pb.Tile): void;
+  getWallLeft(): number;
+  setWallLeft(value: number): void;
 
   clearExchangeTilesList(): void;
   getExchangeTilesList(): Array<protobuf_holdem_define_mj_pb.ExchangeFlower>;
@@ -51,9 +43,7 @@ export namespace ServerMessageMjWaitTurnAction {
     waitDeadline: number,
     wallAscIndex: number,
     wallDescIndex: number,
-    isKong: boolean,
-    drawTile: boolean,
-    lastTile?: protobuf_holdem_define_mj_pb.Tile.AsObject,
+    wallLeft: number,
     exchangeTilesList: Array<protobuf_holdem_define_mj_pb.ExchangeFlower.AsObject>,
   }
 }

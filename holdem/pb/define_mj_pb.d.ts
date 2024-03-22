@@ -139,14 +139,6 @@ export class ValidAction extends jspb.Message {
   setTilesList(value: Array<number>): void;
   addTiles(value: number, index?: number): number;
 
-  getTargetSeatId(): number;
-  setTargetSeatId(value: number): void;
-
-  hasTargetTile(): boolean;
-  clearTargetTile(): void;
-  getTargetTile(): Tile | undefined;
-  setTargetTile(value?: Tile): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ValidAction.AsObject;
   static toObject(includeInstance: boolean, msg: ValidAction): ValidAction.AsObject;
@@ -161,8 +153,6 @@ export namespace ValidAction {
   export type AsObject = {
     action: DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap],
     tilesList: Array<number>,
-    targetSeatId: number,
-    targetTile?: Tile.AsObject,
   }
 }
 
@@ -274,6 +264,9 @@ export class MatchInfoMJ extends jspb.Message {
   getWaitDeadline(): number;
   setWaitDeadline(value: number): void;
 
+  getWallLeft(): number;
+  setWallLeft(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MatchInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: MatchInfoMJ): MatchInfoMJ.AsObject;
@@ -293,6 +286,7 @@ export namespace MatchInfoMJ {
     wallTileLength: number,
     diceNumList: Array<number>,
     waitDeadline: number,
+    wallLeft: number,
   }
 }
 
@@ -582,6 +576,78 @@ export namespace PlayerVoidSuit {
   }
 }
 
+export class ClaimValidAction extends jspb.Message {
+  clearValidActionsList(): void;
+  getValidActionsList(): Array<ValidAction>;
+  setValidActionsList(value: Array<ValidAction>): void;
+  addValidActions(value?: ValidAction, index?: number): ValidAction;
+
+  hasTargetTile(): boolean;
+  clearTargetTile(): void;
+  getTargetTile(): Tile | undefined;
+  setTargetTile(value?: Tile): void;
+
+  getTargetSeatId(): number;
+  setTargetSeatId(value: number): void;
+
+  getTargetAciton(): DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap];
+  setTargetAciton(value: DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap]): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ClaimValidAction.AsObject;
+  static toObject(includeInstance: boolean, msg: ClaimValidAction): ClaimValidAction.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ClaimValidAction, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ClaimValidAction;
+  static deserializeBinaryFromReader(message: ClaimValidAction, reader: jspb.BinaryReader): ClaimValidAction;
+}
+
+export namespace ClaimValidAction {
+  export type AsObject = {
+    validActionsList: Array<ValidAction.AsObject>,
+    targetTile?: Tile.AsObject,
+    targetSeatId: number,
+    targetAciton: DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap],
+  }
+}
+
+export class TurnValidAction extends jspb.Message {
+  clearValidActionsList(): void;
+  getValidActionsList(): Array<ValidAction>;
+  setValidActionsList(value: Array<ValidAction>): void;
+  addValidActions(value?: ValidAction, index?: number): ValidAction;
+
+  getLastAction(): DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap];
+  setLastAction(value: DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap]): void;
+
+  getAscDraw(): boolean;
+  setAscDraw(value: boolean): void;
+
+  hasLastTile(): boolean;
+  clearLastTile(): void;
+  getLastTile(): Tile | undefined;
+  setLastTile(value?: Tile): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TurnValidAction.AsObject;
+  static toObject(includeInstance: boolean, msg: TurnValidAction): TurnValidAction.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: TurnValidAction, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TurnValidAction;
+  static deserializeBinaryFromReader(message: TurnValidAction, reader: jspb.BinaryReader): TurnValidAction;
+}
+
+export namespace TurnValidAction {
+  export type AsObject = {
+    validActionsList: Array<ValidAction.AsObject>,
+    lastAction: DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap],
+    ascDraw: boolean,
+    lastTile?: Tile.AsObject,
+  }
+}
+
 export class OperatorMJ extends jspb.Message {
   getSeatId(): number;
   setSeatId(value: number): void;
@@ -595,10 +661,15 @@ export class OperatorMJ extends jspb.Message {
   getActionType(): DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap];
   setActionType(value: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap]): void;
 
-  clearValidActionsList(): void;
-  getValidActionsList(): Array<ValidAction>;
-  setValidActionsList(value: Array<ValidAction>): void;
-  addValidActions(value?: ValidAction, index?: number): ValidAction;
+  hasClaimAction(): boolean;
+  clearClaimAction(): void;
+  getClaimAction(): ClaimValidAction | undefined;
+  setClaimAction(value?: ClaimValidAction): void;
+
+  hasTurnAction(): boolean;
+  clearTurnAction(): void;
+  getTurnAction(): TurnValidAction | undefined;
+  setTurnAction(value?: TurnValidAction): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OperatorMJ.AsObject;
@@ -616,7 +687,8 @@ export namespace OperatorMJ {
     delayTimes: number,
     opDeadline: number,
     actionType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
-    validActionsList: Array<ValidAction.AsObject>,
+    claimAction?: ClaimValidAction.AsObject,
+    turnAction?: TurnValidAction.AsObject,
   }
 }
 

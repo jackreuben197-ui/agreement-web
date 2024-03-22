@@ -12,6 +12,7 @@ var goog = jspb;
 var global = Function('return this')();
 
 var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
+goog.exportSymbol('proto.holdem.pb.ClaimValidAction', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.ActionMj', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.TileType', null, global);
@@ -34,6 +35,7 @@ goog.exportSymbol('proto.holdem.pb.ResultMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomInfoMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.SourceMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.Tile', null, global);
+goog.exportSymbol('proto.holdem.pb.TurnValidAction', null, global);
 goog.exportSymbol('proto.holdem.pb.ValidAction', null, global);
 
 /**
@@ -466,9 +468,7 @@ proto.holdem.pb.ValidAction.prototype.toObject = function(opt_includeInstance) {
 proto.holdem.pb.ValidAction.toObject = function(includeInstance, msg) {
   var f, obj = {
     action: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    tilesList: jspb.Message.getRepeatedField(msg, 2),
-    targetSeatId: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    targetTile: (f = msg.getTargetTile()) && proto.holdem.pb.Tile.toObject(includeInstance, f)
+    tilesList: jspb.Message.getRepeatedField(msg, 2)
   };
 
   if (includeInstance) {
@@ -513,15 +513,6 @@ proto.holdem.pb.ValidAction.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
       msg.setTilesList(value);
       break;
-    case 3:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setTargetSeatId(value);
-      break;
-    case 4:
-      var value = new proto.holdem.pb.Tile;
-      reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
-      msg.setTargetTile(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -563,21 +554,6 @@ proto.holdem.pb.ValidAction.serializeBinaryToWriter = function(message, writer) 
     writer.writePackedInt32(
       2,
       f
-    );
-  }
-  f = message.getTargetSeatId();
-  if (f !== 0) {
-    writer.writeInt32(
-      3,
-      f
-    );
-  }
-  f = message.getTargetTile();
-  if (f != null) {
-    writer.writeMessage(
-      4,
-      f,
-      proto.holdem.pb.Tile.serializeBinaryToWriter
     );
   }
 };
@@ -624,51 +600,6 @@ proto.holdem.pb.ValidAction.prototype.addTiles = function(value, opt_index) {
 
 proto.holdem.pb.ValidAction.prototype.clearTilesList = function() {
   this.setTilesList([]);
-};
-
-
-/**
- * optional int32 target_seat_id = 3;
- * @return {number}
- */
-proto.holdem.pb.ValidAction.prototype.getTargetSeatId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ValidAction.prototype.setTargetSeatId = function(value) {
-  jspb.Message.setField(this, 3, value);
-};
-
-
-/**
- * optional Tile target_tile = 4;
- * @return {?proto.holdem.pb.Tile}
- */
-proto.holdem.pb.ValidAction.prototype.getTargetTile = function() {
-  return /** @type{?proto.holdem.pb.Tile} */ (
-    jspb.Message.getWrapperField(this, proto.holdem.pb.Tile, 4));
-};
-
-
-/** @param {?proto.holdem.pb.Tile|undefined} value */
-proto.holdem.pb.ValidAction.prototype.setTargetTile = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
-};
-
-
-proto.holdem.pb.ValidAction.prototype.clearTargetTile = function() {
-  this.setTargetTile(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.holdem.pb.ValidAction.prototype.hasTargetTile = function() {
-  return jspb.Message.getField(this, 4) != null;
 };
 
 
@@ -1312,7 +1243,8 @@ proto.holdem.pb.MatchInfoMJ.toObject = function(includeInstance, msg) {
     wallDescIndex: jspb.Message.getFieldWithDefault(msg, 4, 0),
     wallTileLength: jspb.Message.getFieldWithDefault(msg, 5, 0),
     diceNumList: jspb.Message.getRepeatedField(msg, 6),
-    waitDeadline: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    waitDeadline: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    wallLeft: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -1376,6 +1308,10 @@ proto.holdem.pb.MatchInfoMJ.deserializeBinaryFromReader = function(msg, reader) 
     case 7:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setWaitDeadline(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setWallLeft(value);
       break;
     default:
       reader.skipField();
@@ -1452,6 +1388,13 @@ proto.holdem.pb.MatchInfoMJ.serializeBinaryToWriter = function(message, writer) 
   if (f !== 0) {
     writer.writeInt64(
       7,
+      f
+    );
+  }
+  f = message.getWallLeft();
+  if (f !== 0) {
+    writer.writeUint32(
+      8,
       f
     );
   }
@@ -1574,6 +1517,21 @@ proto.holdem.pb.MatchInfoMJ.prototype.getWaitDeadline = function() {
 /** @param {number} value */
 proto.holdem.pb.MatchInfoMJ.prototype.setWaitDeadline = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint32 wall_left = 8;
+ * @return {number}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getWallLeft = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setWallLeft = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -3634,20 +3592,547 @@ proto.holdem.pb.PlayerVoidSuit.prototype.setTt = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.holdem.pb.OperatorMJ = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.OperatorMJ.repeatedFields_, null);
+proto.holdem.pb.ClaimValidAction = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ClaimValidAction.repeatedFields_, null);
 };
-goog.inherits(proto.holdem.pb.OperatorMJ, jspb.Message);
+goog.inherits(proto.holdem.pb.ClaimValidAction, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.holdem.pb.OperatorMJ.displayName = 'proto.holdem.pb.OperatorMJ';
+  proto.holdem.pb.ClaimValidAction.displayName = 'proto.holdem.pb.ClaimValidAction';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.OperatorMJ.repeatedFields_ = [5];
+proto.holdem.pb.ClaimValidAction.repeatedFields_ = [1];
 
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.ClaimValidAction.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.ClaimValidAction.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.ClaimValidAction} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.ClaimValidAction.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    validActionsList: jspb.Message.toObjectList(msg.getValidActionsList(),
+    proto.holdem.pb.ValidAction.toObject, includeInstance),
+    targetTile: (f = msg.getTargetTile()) && proto.holdem.pb.Tile.toObject(includeInstance, f),
+    targetSeatId: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    targetAciton: jspb.Message.getFieldWithDefault(msg, 4, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.ClaimValidAction}
+ */
+proto.holdem.pb.ClaimValidAction.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.ClaimValidAction;
+  return proto.holdem.pb.ClaimValidAction.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.ClaimValidAction} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.ClaimValidAction}
+ */
+proto.holdem.pb.ClaimValidAction.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.holdem.pb.ValidAction;
+      reader.readMessage(value,proto.holdem.pb.ValidAction.deserializeBinaryFromReader);
+      msg.addValidActions(value);
+      break;
+    case 2:
+      var value = new proto.holdem.pb.Tile;
+      reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
+      msg.setTargetTile(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setTargetSeatId(value);
+      break;
+    case 4:
+      var value = /** @type {!proto.holdem.pb.DefMJ.ActionMj} */ (reader.readEnum());
+      msg.setTargetAciton(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.ClaimValidAction.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.ClaimValidAction.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.ClaimValidAction} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.ClaimValidAction.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getValidActionsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      1,
+      f,
+      proto.holdem.pb.ValidAction.serializeBinaryToWriter
+    );
+  }
+  f = message.getTargetTile();
+  if (f != null) {
+    writer.writeMessage(
+      2,
+      f,
+      proto.holdem.pb.Tile.serializeBinaryToWriter
+    );
+  }
+  f = message.getTargetSeatId();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
+  f = message.getTargetAciton();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * repeated ValidAction valid_actions = 1;
+ * @return {!Array.<!proto.holdem.pb.ValidAction>}
+ */
+proto.holdem.pb.ClaimValidAction.prototype.getValidActionsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ValidAction>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ValidAction, 1));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.ValidAction>} value */
+proto.holdem.pb.ClaimValidAction.prototype.setValidActionsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.ValidAction=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ValidAction}
+ */
+proto.holdem.pb.ClaimValidAction.prototype.addValidActions = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.holdem.pb.ValidAction, opt_index);
+};
+
+
+proto.holdem.pb.ClaimValidAction.prototype.clearValidActionsList = function() {
+  this.setValidActionsList([]);
+};
+
+
+/**
+ * optional Tile target_tile = 2;
+ * @return {?proto.holdem.pb.Tile}
+ */
+proto.holdem.pb.ClaimValidAction.prototype.getTargetTile = function() {
+  return /** @type{?proto.holdem.pb.Tile} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.Tile, 2));
+};
+
+
+/** @param {?proto.holdem.pb.Tile|undefined} value */
+proto.holdem.pb.ClaimValidAction.prototype.setTargetTile = function(value) {
+  jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+proto.holdem.pb.ClaimValidAction.prototype.clearTargetTile = function() {
+  this.setTargetTile(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ClaimValidAction.prototype.hasTargetTile = function() {
+  return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional int32 target_seat_id = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ClaimValidAction.prototype.getTargetSeatId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClaimValidAction.prototype.setTargetSeatId = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional DefMJ.ActionMj target_aciton = 4;
+ * @return {!proto.holdem.pb.DefMJ.ActionMj}
+ */
+proto.holdem.pb.ClaimValidAction.prototype.getTargetAciton = function() {
+  return /** @type {!proto.holdem.pb.DefMJ.ActionMj} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {!proto.holdem.pb.DefMJ.ActionMj} value */
+proto.holdem.pb.ClaimValidAction.prototype.setTargetAciton = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.TurnValidAction = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.TurnValidAction.repeatedFields_, null);
+};
+goog.inherits(proto.holdem.pb.TurnValidAction, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.TurnValidAction.displayName = 'proto.holdem.pb.TurnValidAction';
+}
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.TurnValidAction.repeatedFields_ = [1];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.TurnValidAction.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.TurnValidAction.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.TurnValidAction} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.TurnValidAction.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    validActionsList: jspb.Message.toObjectList(msg.getValidActionsList(),
+    proto.holdem.pb.ValidAction.toObject, includeInstance),
+    lastAction: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    ascDraw: jspb.Message.getFieldWithDefault(msg, 3, false),
+    lastTile: (f = msg.getLastTile()) && proto.holdem.pb.Tile.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.TurnValidAction}
+ */
+proto.holdem.pb.TurnValidAction.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.TurnValidAction;
+  return proto.holdem.pb.TurnValidAction.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.TurnValidAction} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.TurnValidAction}
+ */
+proto.holdem.pb.TurnValidAction.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.holdem.pb.ValidAction;
+      reader.readMessage(value,proto.holdem.pb.ValidAction.deserializeBinaryFromReader);
+      msg.addValidActions(value);
+      break;
+    case 2:
+      var value = /** @type {!proto.holdem.pb.DefMJ.ActionMj} */ (reader.readEnum());
+      msg.setLastAction(value);
+      break;
+    case 3:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAscDraw(value);
+      break;
+    case 4:
+      var value = new proto.holdem.pb.Tile;
+      reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
+      msg.setLastTile(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.TurnValidAction.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.TurnValidAction.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.TurnValidAction} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.TurnValidAction.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getValidActionsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      1,
+      f,
+      proto.holdem.pb.ValidAction.serializeBinaryToWriter
+    );
+  }
+  f = message.getLastAction();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      2,
+      f
+    );
+  }
+  f = message.getAscDraw();
+  if (f) {
+    writer.writeBool(
+      3,
+      f
+    );
+  }
+  f = message.getLastTile();
+  if (f != null) {
+    writer.writeMessage(
+      4,
+      f,
+      proto.holdem.pb.Tile.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * repeated ValidAction valid_actions = 1;
+ * @return {!Array.<!proto.holdem.pb.ValidAction>}
+ */
+proto.holdem.pb.TurnValidAction.prototype.getValidActionsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ValidAction>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ValidAction, 1));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.ValidAction>} value */
+proto.holdem.pb.TurnValidAction.prototype.setValidActionsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.ValidAction=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ValidAction}
+ */
+proto.holdem.pb.TurnValidAction.prototype.addValidActions = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.holdem.pb.ValidAction, opt_index);
+};
+
+
+proto.holdem.pb.TurnValidAction.prototype.clearValidActionsList = function() {
+  this.setValidActionsList([]);
+};
+
+
+/**
+ * optional DefMJ.ActionMj last_action = 2;
+ * @return {!proto.holdem.pb.DefMJ.ActionMj}
+ */
+proto.holdem.pb.TurnValidAction.prototype.getLastAction = function() {
+  return /** @type {!proto.holdem.pb.DefMJ.ActionMj} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {!proto.holdem.pb.DefMJ.ActionMj} value */
+proto.holdem.pb.TurnValidAction.prototype.setLastAction = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional bool asc_draw = 3;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.TurnValidAction.prototype.getAscDraw = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 3, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.TurnValidAction.prototype.setAscDraw = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional Tile last_tile = 4;
+ * @return {?proto.holdem.pb.Tile}
+ */
+proto.holdem.pb.TurnValidAction.prototype.getLastTile = function() {
+  return /** @type{?proto.holdem.pb.Tile} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.Tile, 4));
+};
+
+
+/** @param {?proto.holdem.pb.Tile|undefined} value */
+proto.holdem.pb.TurnValidAction.prototype.setLastTile = function(value) {
+  jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+proto.holdem.pb.TurnValidAction.prototype.clearLastTile = function() {
+  this.setLastTile(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.TurnValidAction.prototype.hasLastTile = function() {
+  return jspb.Message.getField(this, 4) != null;
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.OperatorMJ = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.OperatorMJ, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.OperatorMJ.displayName = 'proto.holdem.pb.OperatorMJ';
+}
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -3681,8 +4166,8 @@ proto.holdem.pb.OperatorMJ.toObject = function(includeInstance, msg) {
     delayTimes: jspb.Message.getFieldWithDefault(msg, 2, 0),
     opDeadline: jspb.Message.getFieldWithDefault(msg, 3, 0),
     actionType: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    validActionsList: jspb.Message.toObjectList(msg.getValidActionsList(),
-    proto.holdem.pb.ValidAction.toObject, includeInstance)
+    claimAction: (f = msg.getClaimAction()) && proto.holdem.pb.ClaimValidAction.toObject(includeInstance, f),
+    turnAction: (f = msg.getTurnAction()) && proto.holdem.pb.TurnValidAction.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -3736,9 +4221,14 @@ proto.holdem.pb.OperatorMJ.deserializeBinaryFromReader = function(msg, reader) {
       msg.setActionType(value);
       break;
     case 5:
-      var value = new proto.holdem.pb.ValidAction;
-      reader.readMessage(value,proto.holdem.pb.ValidAction.deserializeBinaryFromReader);
-      msg.addValidActions(value);
+      var value = new proto.holdem.pb.ClaimValidAction;
+      reader.readMessage(value,proto.holdem.pb.ClaimValidAction.deserializeBinaryFromReader);
+      msg.setClaimAction(value);
+      break;
+    case 6:
+      var value = new proto.holdem.pb.TurnValidAction;
+      reader.readMessage(value,proto.holdem.pb.TurnValidAction.deserializeBinaryFromReader);
+      msg.setTurnAction(value);
       break;
     default:
       reader.skipField();
@@ -3797,12 +4287,20 @@ proto.holdem.pb.OperatorMJ.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getValidActionsList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
+  f = message.getClaimAction();
+  if (f != null) {
+    writer.writeMessage(
       5,
       f,
-      proto.holdem.pb.ValidAction.serializeBinaryToWriter
+      proto.holdem.pb.ClaimValidAction.serializeBinaryToWriter
+    );
+  }
+  f = message.getTurnAction();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      proto.holdem.pb.TurnValidAction.serializeBinaryToWriter
     );
   }
 };
@@ -3869,33 +4367,62 @@ proto.holdem.pb.OperatorMJ.prototype.setActionType = function(value) {
 
 
 /**
- * repeated ValidAction valid_actions = 5;
- * @return {!Array.<!proto.holdem.pb.ValidAction>}
+ * optional ClaimValidAction claim_action = 5;
+ * @return {?proto.holdem.pb.ClaimValidAction}
  */
-proto.holdem.pb.OperatorMJ.prototype.getValidActionsList = function() {
-  return /** @type{!Array.<!proto.holdem.pb.ValidAction>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ValidAction, 5));
+proto.holdem.pb.OperatorMJ.prototype.getClaimAction = function() {
+  return /** @type{?proto.holdem.pb.ClaimValidAction} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.ClaimValidAction, 5));
 };
 
 
-/** @param {!Array.<!proto.holdem.pb.ValidAction>} value */
-proto.holdem.pb.OperatorMJ.prototype.setValidActionsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 5, value);
+/** @param {?proto.holdem.pb.ClaimValidAction|undefined} value */
+proto.holdem.pb.OperatorMJ.prototype.setClaimAction = function(value) {
+  jspb.Message.setWrapperField(this, 5, value);
+};
+
+
+proto.holdem.pb.OperatorMJ.prototype.clearClaimAction = function() {
+  this.setClaimAction(undefined);
 };
 
 
 /**
- * @param {!proto.holdem.pb.ValidAction=} opt_value
- * @param {number=} opt_index
- * @return {!proto.holdem.pb.ValidAction}
+ * Returns whether this field is set.
+ * @return {!boolean}
  */
-proto.holdem.pb.OperatorMJ.prototype.addValidActions = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.holdem.pb.ValidAction, opt_index);
+proto.holdem.pb.OperatorMJ.prototype.hasClaimAction = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 
-proto.holdem.pb.OperatorMJ.prototype.clearValidActionsList = function() {
-  this.setValidActionsList([]);
+/**
+ * optional TurnValidAction turn_action = 6;
+ * @return {?proto.holdem.pb.TurnValidAction}
+ */
+proto.holdem.pb.OperatorMJ.prototype.getTurnAction = function() {
+  return /** @type{?proto.holdem.pb.TurnValidAction} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.TurnValidAction, 6));
+};
+
+
+/** @param {?proto.holdem.pb.TurnValidAction|undefined} value */
+proto.holdem.pb.OperatorMJ.prototype.setTurnAction = function(value) {
+  jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+proto.holdem.pb.OperatorMJ.prototype.clearTurnAction = function() {
+  this.setTurnAction(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.OperatorMJ.prototype.hasTurnAction = function() {
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
