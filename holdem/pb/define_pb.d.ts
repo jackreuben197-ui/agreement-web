@@ -1780,6 +1780,9 @@ export class PlayerSummary extends jspb.Message {
   getMushroomAmount(): number;
   setMushroomAmount(value: number): void;
 
+  getPoolRate(): number;
+  setPoolRate(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerSummary.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerSummary): PlayerSummary.AsObject;
@@ -1807,6 +1810,7 @@ export namespace PlayerSummary {
     storeChips: number,
     mushroomCount: number,
     mushroomAmount: number,
+    poolRate: number,
   }
 }
 
