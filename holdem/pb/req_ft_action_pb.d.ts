@@ -16,6 +16,9 @@ export class ClientMessageFtAction extends jspb.Message {
   setCardIndexGroupsList(value: Array<protobuf_holdem_define_ft_pb.HandCardIndexGroup>): void;
   addCardIndexGroups(value?: protobuf_holdem_define_ft_pb.HandCardIndexGroup, index?: number): protobuf_holdem_define_ft_pb.HandCardIndexGroup;
 
+  getConfirm(): boolean;
+  setConfirm(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageFtAction.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageFtAction): ClientMessageFtAction.AsObject;
@@ -30,6 +33,7 @@ export namespace ClientMessageFtAction {
   export type AsObject = {
     room?: protobuf_holdem_define_pb.Room.AsObject,
     cardIndexGroupsList: Array<protobuf_holdem_define_ft_pb.HandCardIndexGroup.AsObject>,
+    confirm: boolean,
   }
 }
 

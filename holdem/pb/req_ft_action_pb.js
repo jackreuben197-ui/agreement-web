@@ -71,7 +71,8 @@ proto.holdem.pb.ClientMessageFtAction.toObject = function(includeInstance, msg) 
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     cardIndexGroupsList: jspb.Message.toObjectList(msg.getCardIndexGroupsList(),
-    protobuf_holdem_define_ft_pb.HandCardIndexGroup.toObject, includeInstance)
+    protobuf_holdem_define_ft_pb.HandCardIndexGroup.toObject, includeInstance),
+    confirm: jspb.Message.getFieldWithDefault(msg, 3, false)
   };
 
   if (includeInstance) {
@@ -118,6 +119,10 @@ proto.holdem.pb.ClientMessageFtAction.deserializeBinaryFromReader = function(msg
       reader.readMessage(value,protobuf_holdem_define_ft_pb.HandCardIndexGroup.deserializeBinaryFromReader);
       msg.addCardIndexGroups(value);
       break;
+    case 3:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setConfirm(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -161,6 +166,13 @@ proto.holdem.pb.ClientMessageFtAction.serializeBinaryToWriter = function(message
       2,
       f,
       protobuf_holdem_define_ft_pb.HandCardIndexGroup.serializeBinaryToWriter
+    );
+  }
+  f = message.getConfirm();
+  if (f) {
+    writer.writeBool(
+      3,
+      f
     );
   }
 };
@@ -224,6 +236,23 @@ proto.holdem.pb.ClientMessageFtAction.prototype.addCardIndexGroups = function(op
 
 proto.holdem.pb.ClientMessageFtAction.prototype.clearCardIndexGroupsList = function() {
   this.setCardIndexGroupsList([]);
+};
+
+
+/**
+ * optional bool confirm = 3;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ClientMessageFtAction.prototype.getConfirm = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 3, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ClientMessageFtAction.prototype.setConfirm = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 
