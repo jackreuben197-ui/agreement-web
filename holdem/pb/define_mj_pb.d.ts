@@ -895,9 +895,9 @@ export class ResultDetailMJ extends jspb.Message {
   setWinPt(value: number): void;
 
   clearWinTypesList(): void;
-  getWinTypesList(): Array<DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap]>;
-  setWinTypesList(value: Array<DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap]>): void;
-  addWinTypes(value: DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap], index?: number): DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap];
+  getWinTypesList(): Array<WinTypeWithPoint>;
+  setWinTypesList(value: Array<WinTypeWithPoint>): void;
+  addWinTypes(value?: WinTypeWithPoint, index?: number): WinTypeWithPoint;
 
   hasWinTile(): boolean;
   clearWinTile(): void;
@@ -924,9 +924,33 @@ export namespace ResultDetailMJ {
     reason: DefMJ.WinLoseReasonMap[keyof DefMJ.WinLoseReasonMap],
     winLose: number,
     winPt: number,
-    winTypesList: Array<DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap]>,
+    winTypesList: Array<WinTypeWithPoint.AsObject>,
     winTile?: Tile.AsObject,
     sourceList: Array<SourceMJ.AsObject>,
+  }
+}
+
+export class WinTypeWithPoint extends jspb.Message {
+  getWinType(): DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap];
+  setWinType(value: DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap]): void;
+
+  getPoint(): number;
+  setPoint(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): WinTypeWithPoint.AsObject;
+  static toObject(includeInstance: boolean, msg: WinTypeWithPoint): WinTypeWithPoint.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: WinTypeWithPoint, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): WinTypeWithPoint;
+  static deserializeBinaryFromReader(message: WinTypeWithPoint, reader: jspb.BinaryReader): WinTypeWithPoint;
+}
+
+export namespace WinTypeWithPoint {
+  export type AsObject = {
+    winType: DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap],
+    point: number,
   }
 }
 
@@ -941,9 +965,9 @@ export class ReadyTile extends jspb.Message {
   setLeft(value: number): void;
 
   clearWinTypesList(): void;
-  getWinTypesList(): Array<DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap]>;
-  setWinTypesList(value: Array<DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap]>): void;
-  addWinTypes(value: DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap], index?: number): DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap];
+  getWinTypesList(): Array<WinTypeWithPoint>;
+  setWinTypesList(value: Array<WinTypeWithPoint>): void;
+  addWinTypes(value?: WinTypeWithPoint, index?: number): WinTypeWithPoint;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ReadyTile.AsObject;
@@ -960,7 +984,7 @@ export namespace ReadyTile {
     tile: number,
     winPt: number,
     left: number,
-    winTypesList: Array<DefMJ.WinTypeMap[keyof DefMJ.WinTypeMap]>,
+    winTypesList: Array<WinTypeWithPoint.AsObject>,
   }
 }
 
