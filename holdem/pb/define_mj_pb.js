@@ -14,6 +14,7 @@ var global = Function('return this')();
 var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ClaimValidAction', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ', null, global);
+goog.exportSymbol('proto.holdem.pb.DefMJ.ActionFailReason', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.ActionMj', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.TileType', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.WaitType', null, global);
@@ -243,6 +244,15 @@ proto.holdem.pb.DefMJ.WinType = {
   WNT_ROBKONG: 19,
   WNT_OUTWITHREPLACEMENTTILE: 20,
   WNT_OUTWITHREPLACEMENTTILEDISCARD: 21
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.DefMJ.ActionFailReason = {
+  AFRNONE: 0,
+  AFRMAX: 1,
+  AFRROBKONG: 2
 };
 
 

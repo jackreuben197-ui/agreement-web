@@ -104,6 +104,14 @@ export namespace DefMJ {
   }
 
   export const WinType: WinTypeMap;
+
+  export interface ActionFailReasonMap {
+    AFRNONE: 0;
+    AFRMAX: 1;
+    AFRROBKONG: 2;
+  }
+
+  export const ActionFailReason: ActionFailReasonMap;
 }
 
 export class Tile extends jspb.Message {
