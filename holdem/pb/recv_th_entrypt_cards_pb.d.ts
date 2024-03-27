@@ -4,7 +4,7 @@
 import * as jspb from "google-protobuf";
 import * as protobuf_holdem_define_pb from "../../protobuf/holdem/define_pb";
 
-export class ServerMessageEntryptCards extends jspb.Message {
+export class ServerMessageEncryptCards extends jspb.Message {
   getSeatId(): number;
   setSeatId(value: number): void;
 
@@ -17,16 +17,16 @@ export class ServerMessageEntryptCards extends jspb.Message {
   addCards(value: string, index?: number): string;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ServerMessageEntryptCards.AsObject;
-  static toObject(includeInstance: boolean, msg: ServerMessageEntryptCards): ServerMessageEntryptCards.AsObject;
+  toObject(includeInstance?: boolean): ServerMessageEncryptCards.AsObject;
+  static toObject(includeInstance: boolean, msg: ServerMessageEncryptCards): ServerMessageEncryptCards.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ServerMessageEntryptCards, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ServerMessageEntryptCards;
-  static deserializeBinaryFromReader(message: ServerMessageEntryptCards, reader: jspb.BinaryReader): ServerMessageEntryptCards;
+  static serializeBinaryToWriter(message: ServerMessageEncryptCards, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ServerMessageEncryptCards;
+  static deserializeBinaryFromReader(message: ServerMessageEncryptCards, reader: jspb.BinaryReader): ServerMessageEncryptCards;
 }
 
-export namespace ServerMessageEntryptCards {
+export namespace ServerMessageEncryptCards {
   export type AsObject = {
     seatId: number,
     cutOffset: number,
