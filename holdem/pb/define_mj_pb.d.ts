@@ -866,6 +866,9 @@ export class ResultMJ extends jspb.Message {
   getStandUp(): boolean;
   setStandUp(value: boolean): void;
 
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ResultMJ.AsObject;
   static toObject(includeInstance: boolean, msg: ResultMJ): ResultMJ.AsObject;
@@ -884,6 +887,7 @@ export namespace ResultMJ {
     hand: string,
     resultDetailList: Array<ResultDetailMJ.AsObject>,
     standUp: boolean,
+    userRid: number,
   }
 }
 

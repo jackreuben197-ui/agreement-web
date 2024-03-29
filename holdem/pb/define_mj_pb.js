@@ -5508,7 +5508,8 @@ proto.holdem.pb.ResultMJ.toObject = function(includeInstance, msg) {
     hand: jspb.Message.getFieldWithDefault(msg, 4, ""),
     resultDetailList: jspb.Message.toObjectList(msg.getResultDetailList(),
     proto.holdem.pb.ResultDetailMJ.toObject, includeInstance),
-    standUp: jspb.Message.getFieldWithDefault(msg, 12, false)
+    standUp: jspb.Message.getFieldWithDefault(msg, 12, false),
+    userRid: jspb.Message.getFieldWithDefault(msg, 14, 0)
   };
 
   if (includeInstance) {
@@ -5569,6 +5570,10 @@ proto.holdem.pb.ResultMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 12:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setStandUp(value);
+      break;
+    case 14:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserRid(value);
       break;
     default:
       reader.skipField();
@@ -5639,6 +5644,13 @@ proto.holdem.pb.ResultMJ.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       12,
+      f
+    );
+  }
+  f = message.getUserRid();
+  if (f !== 0) {
+    writer.writeUint64(
+      14,
       f
     );
   }
@@ -5750,6 +5762,21 @@ proto.holdem.pb.ResultMJ.prototype.getStandUp = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ResultMJ.prototype.setStandUp = function(value) {
   jspb.Message.setField(this, 12, value);
+};
+
+
+/**
+ * optional uint64 user_rid = 14;
+ * @return {number}
+ */
+proto.holdem.pb.ResultMJ.prototype.getUserRid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ResultMJ.prototype.setUserRid = function(value) {
+  jspb.Message.setField(this, 14, value);
 };
 
 
