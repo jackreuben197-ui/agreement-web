@@ -72,8 +72,7 @@ proto.holdem.pb.ClientMessageMjAction.toObject = function(includeInstance, msg) 
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     action: jspb.Message.getFieldWithDefault(msg, 2, 0),
     tilesList: jspb.Message.toObjectList(msg.getTilesList(),
-    protobuf_holdem_define_mj_pb.Tile.toObject, includeInstance),
-    targetTile: (f = msg.getTargetTile()) && protobuf_holdem_define_mj_pb.Tile.toObject(includeInstance, f)
+    protobuf_holdem_define_mj_pb.Tile.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -124,11 +123,6 @@ proto.holdem.pb.ClientMessageMjAction.deserializeBinaryFromReader = function(msg
       reader.readMessage(value,protobuf_holdem_define_mj_pb.Tile.deserializeBinaryFromReader);
       msg.addTiles(value);
       break;
-    case 4:
-      var value = new protobuf_holdem_define_mj_pb.Tile;
-      reader.readMessage(value,protobuf_holdem_define_mj_pb.Tile.deserializeBinaryFromReader);
-      msg.setTargetTile(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -177,14 +171,6 @@ proto.holdem.pb.ClientMessageMjAction.serializeBinaryToWriter = function(message
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       3,
-      f,
-      protobuf_holdem_define_mj_pb.Tile.serializeBinaryToWriter
-    );
-  }
-  f = message.getTargetTile();
-  if (f != null) {
-    writer.writeMessage(
-      4,
       f,
       protobuf_holdem_define_mj_pb.Tile.serializeBinaryToWriter
     );
@@ -265,36 +251,6 @@ proto.holdem.pb.ClientMessageMjAction.prototype.addTiles = function(opt_value, o
 
 proto.holdem.pb.ClientMessageMjAction.prototype.clearTilesList = function() {
   this.setTilesList([]);
-};
-
-
-/**
- * optional Tile target_tile = 4;
- * @return {?proto.holdem.pb.Tile}
- */
-proto.holdem.pb.ClientMessageMjAction.prototype.getTargetTile = function() {
-  return /** @type{?proto.holdem.pb.Tile} */ (
-    jspb.Message.getWrapperField(this, protobuf_holdem_define_mj_pb.Tile, 4));
-};
-
-
-/** @param {?proto.holdem.pb.Tile|undefined} value */
-proto.holdem.pb.ClientMessageMjAction.prototype.setTargetTile = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
-};
-
-
-proto.holdem.pb.ClientMessageMjAction.prototype.clearTargetTile = function() {
-  this.setTargetTile(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {!boolean}
- */
-proto.holdem.pb.ClientMessageMjAction.prototype.hasTargetTile = function() {
-  return jspb.Message.getField(this, 4) != null;
 };
 
 

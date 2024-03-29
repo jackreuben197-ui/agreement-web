@@ -19,11 +19,6 @@ export class ClientMessageMjAction extends jspb.Message {
   setTilesList(value: Array<protobuf_holdem_define_mj_pb.Tile>): void;
   addTiles(value?: protobuf_holdem_define_mj_pb.Tile, index?: number): protobuf_holdem_define_mj_pb.Tile;
 
-  hasTargetTile(): boolean;
-  clearTargetTile(): void;
-  getTargetTile(): protobuf_holdem_define_mj_pb.Tile | undefined;
-  setTargetTile(value?: protobuf_holdem_define_mj_pb.Tile): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageMjAction.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageMjAction): ClientMessageMjAction.AsObject;
@@ -39,7 +34,6 @@ export namespace ClientMessageMjAction {
     room?: protobuf_holdem_define_pb.Room.AsObject,
     action: protobuf_holdem_define_mj_pb.DefMJ.ActionMjMap[keyof protobuf_holdem_define_mj_pb.DefMJ.ActionMjMap],
     tilesList: Array<protobuf_holdem_define_mj_pb.Tile.AsObject>,
-    targetTile?: protobuf_holdem_define_mj_pb.Tile.AsObject,
   }
 }
 
