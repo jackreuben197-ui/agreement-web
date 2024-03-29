@@ -5,10 +5,10 @@ import * as jspb from "google-protobuf";
 import * as protobuf_holdem_define_mj_pb from "../../protobuf/holdem/define_mj_pb";
 
 export class ServerMessageMjStartInfo extends jspb.Message {
-  hasHandInfo(): boolean;
-  clearHandInfo(): void;
-  getHandInfo(): protobuf_holdem_define_mj_pb.MatchInfoMJ | undefined;
-  setHandInfo(value?: protobuf_holdem_define_mj_pb.MatchInfoMJ): void;
+  hasMatchInfo(): boolean;
+  clearMatchInfo(): void;
+  getMatchInfo(): protobuf_holdem_define_mj_pb.MatchInfoMJ | undefined;
+  setMatchInfo(value?: protobuf_holdem_define_mj_pb.MatchInfoMJ): void;
 
   clearPlayersList(): void;
   getPlayersList(): Array<protobuf_holdem_define_mj_pb.PlayerStartInfoMJ>;
@@ -27,7 +27,7 @@ export class ServerMessageMjStartInfo extends jspb.Message {
 
 export namespace ServerMessageMjStartInfo {
   export type AsObject = {
-    handInfo?: protobuf_holdem_define_mj_pb.MatchInfoMJ.AsObject,
+    matchInfo?: protobuf_holdem_define_mj_pb.MatchInfoMJ.AsObject,
     playersList: Array<protobuf_holdem_define_mj_pb.PlayerStartInfoMJ.AsObject>,
   }
 }

@@ -276,6 +276,9 @@ export class MatchInfoMJ extends jspb.Message {
   getWallLeft(): number;
   setWallLeft(value: number): void;
 
+  getWaitType(): DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap];
+  setWaitType(value: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MatchInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: MatchInfoMJ): MatchInfoMJ.AsObject;
@@ -296,6 +299,7 @@ export namespace MatchInfoMJ {
     diceNumList: Array<number>,
     waitDeadline: number,
     wallLeft: number,
+    waitType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
   }
 }
 

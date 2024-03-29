@@ -67,7 +67,7 @@ proto.holdem.pb.ServerMessageMjStartInfo.prototype.toObject = function(opt_inclu
  */
 proto.holdem.pb.ServerMessageMjStartInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    handInfo: (f = msg.getHandInfo()) && protobuf_holdem_define_mj_pb.MatchInfoMJ.toObject(includeInstance, f),
+    matchInfo: (f = msg.getMatchInfo()) && protobuf_holdem_define_mj_pb.MatchInfoMJ.toObject(includeInstance, f),
     playersList: jspb.Message.toObjectList(msg.getPlayersList(),
     protobuf_holdem_define_mj_pb.PlayerStartInfoMJ.toObject, includeInstance)
   };
@@ -109,7 +109,7 @@ proto.holdem.pb.ServerMessageMjStartInfo.deserializeBinaryFromReader = function(
     case 1:
       var value = new protobuf_holdem_define_mj_pb.MatchInfoMJ;
       reader.readMessage(value,protobuf_holdem_define_mj_pb.MatchInfoMJ.deserializeBinaryFromReader);
-      msg.setHandInfo(value);
+      msg.setMatchInfo(value);
       break;
     case 2:
       var value = new protobuf_holdem_define_mj_pb.PlayerStartInfoMJ;
@@ -145,7 +145,7 @@ proto.holdem.pb.ServerMessageMjStartInfo.prototype.serializeBinary = function() 
  */
 proto.holdem.pb.ServerMessageMjStartInfo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getHandInfo();
+  f = message.getMatchInfo();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -165,23 +165,23 @@ proto.holdem.pb.ServerMessageMjStartInfo.serializeBinaryToWriter = function(mess
 
 
 /**
- * optional MatchInfoMJ hand_info = 1;
+ * optional MatchInfoMJ match_info = 1;
  * @return {?proto.holdem.pb.MatchInfoMJ}
  */
-proto.holdem.pb.ServerMessageMjStartInfo.prototype.getHandInfo = function() {
+proto.holdem.pb.ServerMessageMjStartInfo.prototype.getMatchInfo = function() {
   return /** @type{?proto.holdem.pb.MatchInfoMJ} */ (
     jspb.Message.getWrapperField(this, protobuf_holdem_define_mj_pb.MatchInfoMJ, 1));
 };
 
 
 /** @param {?proto.holdem.pb.MatchInfoMJ|undefined} value */
-proto.holdem.pb.ServerMessageMjStartInfo.prototype.setHandInfo = function(value) {
+proto.holdem.pb.ServerMessageMjStartInfo.prototype.setMatchInfo = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
 
 
-proto.holdem.pb.ServerMessageMjStartInfo.prototype.clearHandInfo = function() {
-  this.setHandInfo(undefined);
+proto.holdem.pb.ServerMessageMjStartInfo.prototype.clearMatchInfo = function() {
+  this.setMatchInfo(undefined);
 };
 
 
@@ -189,7 +189,7 @@ proto.holdem.pb.ServerMessageMjStartInfo.prototype.clearHandInfo = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.holdem.pb.ServerMessageMjStartInfo.prototype.hasHandInfo = function() {
+proto.holdem.pb.ServerMessageMjStartInfo.prototype.hasMatchInfo = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 

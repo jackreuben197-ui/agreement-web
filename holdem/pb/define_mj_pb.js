@@ -1256,7 +1256,8 @@ proto.holdem.pb.MatchInfoMJ.toObject = function(includeInstance, msg) {
     wallTileLength: jspb.Message.getFieldWithDefault(msg, 5, 0),
     diceNumList: jspb.Message.getRepeatedField(msg, 6),
     waitDeadline: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    wallLeft: jspb.Message.getFieldWithDefault(msg, 8, 0)
+    wallLeft: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    waitType: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -1324,6 +1325,10 @@ proto.holdem.pb.MatchInfoMJ.deserializeBinaryFromReader = function(msg, reader) 
     case 8:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setWallLeft(value);
+      break;
+    case 9:
+      var value = /** @type {!proto.holdem.pb.DefMJ.WaitType} */ (reader.readEnum());
+      msg.setWaitType(value);
       break;
     default:
       reader.skipField();
@@ -1407,6 +1412,13 @@ proto.holdem.pb.MatchInfoMJ.serializeBinaryToWriter = function(message, writer) 
   if (f !== 0) {
     writer.writeUint32(
       8,
+      f
+    );
+  }
+  f = message.getWaitType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      9,
       f
     );
   }
@@ -1544,6 +1556,21 @@ proto.holdem.pb.MatchInfoMJ.prototype.getWallLeft = function() {
 /** @param {number} value */
 proto.holdem.pb.MatchInfoMJ.prototype.setWallLeft = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional DefMJ.WaitType wait_type = 9;
+ * @return {!proto.holdem.pb.DefMJ.WaitType}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getWaitType = function() {
+  return /** @type {!proto.holdem.pb.DefMJ.WaitType} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {!proto.holdem.pb.DefMJ.WaitType} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setWaitType = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 
