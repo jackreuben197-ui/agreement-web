@@ -19,24 +19,14 @@ export class ServerMessageMjResult extends jspb.Message {
   getDraw(): boolean;
   setDraw(value: boolean): void;
 
-  hasOp(): boolean;
-  clearOp(): void;
-  getOp(): protobuf_holdem_define_mj_pb.OperatorMJ | undefined;
-  setOp(value?: protobuf_holdem_define_mj_pb.OperatorMJ): void;
-
-  getWaitDeadline(): number;
-  setWaitDeadline(value: number): void;
-
   getWallAscIndex(): number;
   setWallAscIndex(value: number): void;
 
   getWallDescIndex(): number;
   setWallDescIndex(value: number): void;
 
-  clearOperatorReadyTilesList(): void;
-  getOperatorReadyTilesList(): Array<protobuf_holdem_define_mj_pb.ReadyTile>;
-  setOperatorReadyTilesList(value: Array<protobuf_holdem_define_mj_pb.ReadyTile>): void;
-  addOperatorReadyTiles(value?: protobuf_holdem_define_mj_pb.ReadyTile, index?: number): protobuf_holdem_define_mj_pb.ReadyTile;
+  getWallLeft(): number;
+  setWallLeft(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjResult.AsObject;
@@ -54,11 +44,9 @@ export namespace ServerMessageMjResult {
     matchNum: number,
     pb_final: boolean,
     draw: boolean,
-    op?: protobuf_holdem_define_mj_pb.OperatorMJ.AsObject,
-    waitDeadline: number,
     wallAscIndex: number,
     wallDescIndex: number,
-    operatorReadyTilesList: Array<protobuf_holdem_define_mj_pb.ReadyTile.AsObject>,
+    wallLeft: number,
   }
 }
 
