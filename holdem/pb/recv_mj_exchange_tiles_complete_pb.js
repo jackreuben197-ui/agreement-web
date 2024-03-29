@@ -73,7 +73,8 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.toObject = function(include
     protobuf_holdem_define_mj_pb.Tile.toObject, includeInstance),
     opsList: jspb.Message.toObjectList(msg.getOpsList(),
     protobuf_holdem_define_mj_pb.OperatorMJ.toObject, includeInstance),
-    waitDeadline: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    waitDeadline: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    exchangeTileLength: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -128,6 +129,10 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.deserializeBinaryFromReader
     case 4:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setWaitDeadline(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setExchangeTileLength(value);
       break;
     default:
       reader.skipField();
@@ -186,6 +191,13 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.serializeBinaryToWriter = f
   if (f !== 0) {
     writer.writeInt64(
       4,
+      f
+    );
+  }
+  f = message.getExchangeTileLength();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
       f
     );
   }
@@ -297,6 +309,21 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.getWaitDeadline =
 /** @param {number} value */
 proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.setWaitDeadline = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int32 exchange_tile_length = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.getExchangeTileLength = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.setExchangeTileLength = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 

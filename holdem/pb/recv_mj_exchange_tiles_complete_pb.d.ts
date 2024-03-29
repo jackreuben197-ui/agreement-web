@@ -23,6 +23,9 @@ export class ServerMessageMjExchangeTilesComplete extends jspb.Message {
   getWaitDeadline(): number;
   setWaitDeadline(value: number): void;
 
+  getExchangeTileLength(): number;
+  setExchangeTileLength(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjExchangeTilesComplete.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjExchangeTilesComplete): ServerMessageMjExchangeTilesComplete.AsObject;
@@ -39,6 +42,7 @@ export namespace ServerMessageMjExchangeTilesComplete {
     outTilesList: Array<protobuf_holdem_define_mj_pb.Tile.AsObject>,
     opsList: Array<protobuf_holdem_define_mj_pb.OperatorMJ.AsObject>,
     waitDeadline: number,
+    exchangeTileLength: number,
   }
 }
 
