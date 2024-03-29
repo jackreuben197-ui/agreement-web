@@ -160,9 +160,10 @@ proto.holdem.pb.DefMJ.serializeBinaryToWriter = function(message, writer) {
  */
 proto.holdem.pb.DefMJ.WaitType = {
   WT_NONE: 0,
-  WT_NORMAL: 1,
-  WT_EXCHANGE: 2,
-  WT_VOIDSUIT: 3
+  WT_TURN: 1,
+  WT_CLAIM: 2,
+  WT_EXCHANGE: 3,
+  WT_VOIDSUIT: 4
 };
 
 /**
@@ -4176,7 +4177,7 @@ proto.holdem.pb.OperatorMJ.toObject = function(includeInstance, msg) {
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     delayTimes: jspb.Message.getFieldWithDefault(msg, 2, 0),
     opDeadline: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    actionType: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    waitType: jspb.Message.getFieldWithDefault(msg, 4, 0),
     claimAction: (f = msg.getClaimAction()) && proto.holdem.pb.ClaimValidAction.toObject(includeInstance, f),
     turnAction: (f = msg.getTurnAction()) && proto.holdem.pb.TurnValidAction.toObject(includeInstance, f)
   };
@@ -4229,7 +4230,7 @@ proto.holdem.pb.OperatorMJ.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 4:
       var value = /** @type {!proto.holdem.pb.DefMJ.WaitType} */ (reader.readEnum());
-      msg.setActionType(value);
+      msg.setWaitType(value);
       break;
     case 5:
       var value = new proto.holdem.pb.ClaimValidAction;
@@ -4291,7 +4292,7 @@ proto.holdem.pb.OperatorMJ.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getActionType();
+  f = message.getWaitType();
   if (f !== 0.0) {
     writer.writeEnum(
       4,
@@ -4363,16 +4364,16 @@ proto.holdem.pb.OperatorMJ.prototype.setOpDeadline = function(value) {
 
 
 /**
- * optional DefMJ.WaitType action_type = 4;
+ * optional DefMJ.WaitType wait_type = 4;
  * @return {!proto.holdem.pb.DefMJ.WaitType}
  */
-proto.holdem.pb.OperatorMJ.prototype.getActionType = function() {
+proto.holdem.pb.OperatorMJ.prototype.getWaitType = function() {
   return /** @type {!proto.holdem.pb.DefMJ.WaitType} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
 /** @param {!proto.holdem.pb.DefMJ.WaitType} value */
-proto.holdem.pb.OperatorMJ.prototype.setActionType = function(value) {
+proto.holdem.pb.OperatorMJ.prototype.setWaitType = function(value) {
   jspb.Message.setField(this, 4, value);
 };
 

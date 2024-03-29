@@ -21,9 +21,10 @@ export namespace DefMJ {
 
   export interface WaitTypeMap {
     WT_NONE: 0;
-    WT_NORMAL: 1;
-    WT_EXCHANGE: 2;
-    WT_VOIDSUIT: 3;
+    WT_TURN: 1;
+    WT_CLAIM: 2;
+    WT_EXCHANGE: 3;
+    WT_VOIDSUIT: 4;
   }
 
   export const WaitType: WaitTypeMap;
@@ -666,8 +667,8 @@ export class OperatorMJ extends jspb.Message {
   getOpDeadline(): number;
   setOpDeadline(value: number): void;
 
-  getActionType(): DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap];
-  setActionType(value: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap]): void;
+  getWaitType(): DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap];
+  setWaitType(value: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap]): void;
 
   hasClaimAction(): boolean;
   clearClaimAction(): void;
@@ -694,7 +695,7 @@ export namespace OperatorMJ {
     seatId: number,
     delayTimes: number,
     opDeadline: number,
-    actionType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
+    waitType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
     claimAction?: ClaimValidAction.AsObject,
     turnAction?: TurnValidAction.AsObject,
   }
