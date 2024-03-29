@@ -12804,7 +12804,15 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     roomAdmin: (f = msg.getRoomAdmin()) && proto.holdem.pb.RoomAdmin.toObject(includeInstance, f),
     personalType: jspb.Message.getFieldWithDefault(msg, 102, 0),
     randomSeat: jspb.Message.getFieldWithDefault(msg, 103, 0),
-    squidBase: jspb.Message.getFieldWithDefault(msg, 104, 0)
+    squidBase: jspb.Message.getFieldWithDefault(msg, 104, 0),
+    forceShowCard: jspb.Message.getFieldWithDefault(msg, 105, 0),
+    onlyIos: jspb.Message.getFieldWithDefault(msg, 106, 0),
+    viewPlayerCards: jspb.Message.getFieldWithDefault(msg, 107, 0),
+    cut: jspb.Message.getFieldWithDefault(msg, 108, 0),
+    encryptCards: jspb.Message.getFieldWithDefault(msg, 109, 0),
+    minPlayerChipRate: jspb.Message.getFieldWithDefault(msg, 110, 0),
+    maxBringinTotalRate: jspb.Message.getFieldWithDefault(msg, 111, 0),
+    bringinEqualLeader: jspb.Message.getFieldWithDefault(msg, 112, 0)
   };
 
   if (includeInstance) {
@@ -13252,6 +13260,38 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 104:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setSquidBase(value);
+      break;
+    case 105:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setForceShowCard(value);
+      break;
+    case 106:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setOnlyIos(value);
+      break;
+    case 107:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setViewPlayerCards(value);
+      break;
+    case 108:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setCut(value);
+      break;
+    case 109:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setEncryptCards(value);
+      break;
+    case 110:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setMinPlayerChipRate(value);
+      break;
+    case 111:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setMaxBringinTotalRate(value);
+      break;
+    case 112:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setBringinEqualLeader(value);
       break;
     default:
       reader.skipField();
@@ -13997,6 +14037,62 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       104,
+      f
+    );
+  }
+  f = message.getForceShowCard();
+  if (f !== 0) {
+    writer.writeInt32(
+      105,
+      f
+    );
+  }
+  f = message.getOnlyIos();
+  if (f !== 0) {
+    writer.writeInt32(
+      106,
+      f
+    );
+  }
+  f = message.getViewPlayerCards();
+  if (f !== 0) {
+    writer.writeInt32(
+      107,
+      f
+    );
+  }
+  f = message.getCut();
+  if (f !== 0) {
+    writer.writeInt32(
+      108,
+      f
+    );
+  }
+  f = message.getEncryptCards();
+  if (f !== 0) {
+    writer.writeInt32(
+      109,
+      f
+    );
+  }
+  f = message.getMinPlayerChipRate();
+  if (f !== 0) {
+    writer.writeUint64(
+      110,
+      f
+    );
+  }
+  f = message.getMaxBringinTotalRate();
+  if (f !== 0) {
+    writer.writeUint64(
+      111,
+      f
+    );
+  }
+  f = message.getBringinEqualLeader();
+  if (f !== 0) {
+    writer.writeUint64(
+      112,
       f
     );
   }
@@ -15593,6 +15689,126 @@ proto.holdem.pb.RoomRecord.prototype.getSquidBase = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setSquidBase = function(value) {
   jspb.Message.setField(this, 104, value);
+};
+
+
+/**
+ * optional int32 force_show_card = 105;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getForceShowCard = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 105, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setForceShowCard = function(value) {
+  jspb.Message.setField(this, 105, value);
+};
+
+
+/**
+ * optional int32 only_ios = 106;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getOnlyIos = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 106, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setOnlyIos = function(value) {
+  jspb.Message.setField(this, 106, value);
+};
+
+
+/**
+ * optional int32 view_player_cards = 107;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getViewPlayerCards = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 107, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setViewPlayerCards = function(value) {
+  jspb.Message.setField(this, 107, value);
+};
+
+
+/**
+ * optional int32 cut = 108;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getCut = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 108, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setCut = function(value) {
+  jspb.Message.setField(this, 108, value);
+};
+
+
+/**
+ * optional int32 encrypt_cards = 109;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getEncryptCards = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 109, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setEncryptCards = function(value) {
+  jspb.Message.setField(this, 109, value);
+};
+
+
+/**
+ * optional uint64 min_player_chip_rate = 110;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getMinPlayerChipRate = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 110, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setMinPlayerChipRate = function(value) {
+  jspb.Message.setField(this, 110, value);
+};
+
+
+/**
+ * optional uint64 max_bringin_total_rate = 111;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getMaxBringinTotalRate = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 111, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setMaxBringinTotalRate = function(value) {
+  jspb.Message.setField(this, 111, value);
+};
+
+
+/**
+ * optional uint64 bringin_equal_leader = 112;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getBringinEqualLeader = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 112, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setBringinEqualLeader = function(value) {
+  jspb.Message.setField(this, 112, value);
 };
 
 

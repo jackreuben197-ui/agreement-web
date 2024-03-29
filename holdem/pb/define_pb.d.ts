@@ -2297,6 +2297,30 @@ export class RoomRecord extends jspb.Message {
   getSquidBase(): number;
   setSquidBase(value: number): void;
 
+  getForceShowCard(): number;
+  setForceShowCard(value: number): void;
+
+  getOnlyIos(): number;
+  setOnlyIos(value: number): void;
+
+  getViewPlayerCards(): number;
+  setViewPlayerCards(value: number): void;
+
+  getCut(): number;
+  setCut(value: number): void;
+
+  getEncryptCards(): number;
+  setEncryptCards(value: number): void;
+
+  getMinPlayerChipRate(): number;
+  setMinPlayerChipRate(value: number): void;
+
+  getMaxBringinTotalRate(): number;
+  setMaxBringinTotalRate(value: number): void;
+
+  getBringinEqualLeader(): number;
+  setBringinEqualLeader(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2411,6 +2435,14 @@ export namespace RoomRecord {
     personalType: number,
     randomSeat: number,
     squidBase: number,
+    forceShowCard: number,
+    onlyIos: number,
+    viewPlayerCards: number,
+    cut: number,
+    encryptCards: number,
+    minPlayerChipRate: number,
+    maxBringinTotalRate: number,
+    bringinEqualLeader: number,
   }
 }
 
