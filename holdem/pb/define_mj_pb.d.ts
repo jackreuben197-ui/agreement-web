@@ -360,6 +360,14 @@ export class PlayerStartInfoMJ extends jspb.Message {
   setValidActionsList(value: Array<ValidAction>): void;
   addValidActions(value?: ValidAction, index?: number): ValidAction;
 
+  clearFlowersList(): void;
+  getFlowersList(): Array<number>;
+  setFlowersList(value: Array<number>): void;
+  addFlowers(value: number, index?: number): number;
+
+  getHandTileLength(): number;
+  setHandTileLength(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerStartInfoMJ): PlayerStartInfoMJ.AsObject;
@@ -380,6 +388,8 @@ export namespace PlayerStartInfoMJ {
     waitType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
     waitDeadline: number,
     validActionsList: Array<ValidAction.AsObject>,
+    flowersList: Array<number>,
+    handTileLength: number,
   }
 }
 
@@ -399,6 +409,9 @@ export class PlayerMJ extends jspb.Message {
   clearLastTile(): void;
   getLastTile(): Tile | undefined;
   setLastTile(value?: Tile): void;
+
+  getHandTileLength(): number;
+  setHandTileLength(value: number): void;
 
   getVoidSuit(): DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap];
   setVoidSuit(value: DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap]): void;
@@ -493,6 +506,7 @@ export namespace PlayerMJ {
     userRid: number,
     handTilesList: Array<Tile.AsObject>,
     lastTile?: Tile.AsObject,
+    handTileLength: number,
     voidSuit: DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap],
     discardTilesList: Array<Tile.AsObject>,
     mkongList: Array<number>,
