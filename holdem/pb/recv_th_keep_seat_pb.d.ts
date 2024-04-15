@@ -23,6 +23,9 @@ export class ServerMessageKeepSeat extends jspb.Message {
   getKeepSeatReason(): protobuf_holdem_define_pb.Def.KeepSeatReasonMap[keyof protobuf_holdem_define_pb.Def.KeepSeatReasonMap];
   setKeepSeatReason(value: protobuf_holdem_define_pb.Def.KeepSeatReasonMap[keyof protobuf_holdem_define_pb.Def.KeepSeatReasonMap]): void;
 
+  getDeadline(): number;
+  setDeadline(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageKeepSeat.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageKeepSeat): ServerMessageKeepSeat.AsObject;
@@ -41,6 +44,7 @@ export namespace ServerMessageKeepSeat {
     leftTime: number,
     postStatus: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap],
     keepSeatReason: protobuf_holdem_define_pb.Def.KeepSeatReasonMap[keyof protobuf_holdem_define_pb.Def.KeepSeatReasonMap],
+    deadline: number,
   }
 }
 
