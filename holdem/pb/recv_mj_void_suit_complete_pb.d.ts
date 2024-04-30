@@ -18,6 +18,11 @@ export class ServerMessageMjVoidSuitComplete extends jspb.Message {
   getWaitDeadline(): number;
   setWaitDeadline(value: number): void;
 
+  clearReadyTilesList(): void;
+  getReadyTilesList(): Array<protobuf_holdem_define_mj_pb.ReadyTile>;
+  setReadyTilesList(value: Array<protobuf_holdem_define_mj_pb.ReadyTile>): void;
+  addReadyTiles(value?: protobuf_holdem_define_mj_pb.ReadyTile, index?: number): protobuf_holdem_define_mj_pb.ReadyTile;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjVoidSuitComplete.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjVoidSuitComplete): ServerMessageMjVoidSuitComplete.AsObject;
@@ -33,6 +38,7 @@ export namespace ServerMessageMjVoidSuitComplete {
     playersList: Array<protobuf_holdem_define_mj_pb.PlayerVoidSuit.AsObject>,
     opsList: Array<protobuf_holdem_define_mj_pb.OperatorMJ.AsObject>,
     waitDeadline: number,
+    readyTilesList: Array<protobuf_holdem_define_mj_pb.ReadyTile.AsObject>,
   }
 }
 

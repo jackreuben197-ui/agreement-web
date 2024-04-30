@@ -372,6 +372,11 @@ export class PlayerStartInfoMJ extends jspb.Message {
   getHandTileLength(): number;
   setHandTileLength(value: number): void;
 
+  clearReadyTilesList(): void;
+  getReadyTilesList(): Array<ReadyTile>;
+  setReadyTilesList(value: Array<ReadyTile>): void;
+  addReadyTiles(value?: ReadyTile, index?: number): ReadyTile;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerStartInfoMJ): PlayerStartInfoMJ.AsObject;
@@ -394,6 +399,7 @@ export namespace PlayerStartInfoMJ {
     validActionsList: Array<ValidAction.AsObject>,
     flowersList: Array<number>,
     handTileLength: number,
+    readyTilesList: Array<ReadyTile.AsObject>,
   }
 }
 
@@ -494,6 +500,11 @@ export class PlayerMJ extends jspb.Message {
   setResultDetailList(value: Array<ResultDetailMJ>): void;
   addResultDetail(value?: ResultDetailMJ, index?: number): ResultDetailMJ;
 
+  clearReadyTilesList(): void;
+  getReadyTilesList(): Array<ReadyTile>;
+  setReadyTilesList(value: Array<ReadyTile>): void;
+  addReadyTiles(value?: ReadyTile, index?: number): ReadyTile;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -532,6 +543,7 @@ export namespace PlayerMJ {
     win: boolean,
     totalWinLose: number,
     resultDetailList: Array<ResultDetailMJ.AsObject>,
+    readyTilesList: Array<ReadyTile.AsObject>,
   }
 }
 

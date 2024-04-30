@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageMjExchangeTilesComplete.repeatedFields_ = [1,2,3];
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.repeatedFields_ = [1,2,3,6];
 
 
 
@@ -74,7 +74,9 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.toObject = function(include
     opsList: jspb.Message.toObjectList(msg.getOpsList(),
     protobuf_holdem_define_mj_pb.OperatorMJ.toObject, includeInstance),
     waitDeadline: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    exchangeTileLength: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    exchangeTileLength: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    readyTilesList: jspb.Message.toObjectList(msg.getReadyTilesList(),
+    protobuf_holdem_define_mj_pb.ReadyTile.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -133,6 +135,11 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.deserializeBinaryFromReader
     case 5:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setExchangeTileLength(value);
+      break;
+    case 6:
+      var value = new protobuf_holdem_define_mj_pb.ReadyTile;
+      reader.readMessage(value,protobuf_holdem_define_mj_pb.ReadyTile.deserializeBinaryFromReader);
+      msg.addReadyTiles(value);
       break;
     default:
       reader.skipField();
@@ -199,6 +206,14 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.serializeBinaryToWriter = f
     writer.writeInt32(
       5,
       f
+    );
+  }
+  f = message.getReadyTilesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      6,
+      f,
+      protobuf_holdem_define_mj_pb.ReadyTile.serializeBinaryToWriter
     );
   }
 };
@@ -324,6 +339,37 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.getExchangeTileLe
 /** @param {number} value */
 proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.setExchangeTileLength = function(value) {
   jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * repeated ReadyTile ready_tiles = 6;
+ * @return {!Array.<!proto.holdem.pb.ReadyTile>}
+ */
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.getReadyTilesList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ReadyTile>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_mj_pb.ReadyTile, 6));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.ReadyTile>} value */
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.setReadyTilesList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 6, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.ReadyTile=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ReadyTile}
+ */
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.addReadyTiles = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.holdem.pb.ReadyTile, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.clearReadyTilesList = function() {
+  this.setReadyTilesList([]);
 };
 
 
