@@ -3092,3 +3092,55 @@ export namespace MTTUserStatus {
   }
 }
 
+export class PlayerJackpotSummary extends jspb.Message {
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getAvatar(): string;
+  setAvatar(value: string): void;
+
+  getSex(): number;
+  setSex(value: number): void;
+
+  getContributeTotal(): number;
+  setContributeTotal(value: number): void;
+
+  getAwardTotal(): number;
+  setAwardTotal(value: number): void;
+
+  getRoyalFlushCount(): number;
+  setRoyalFlushCount(value: number): void;
+
+  getStraightFlushCount(): number;
+  setStraightFlushCount(value: number): void;
+
+  getFourOfaKindCount(): number;
+  setFourOfaKindCount(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PlayerJackpotSummary.AsObject;
+  static toObject(includeInstance: boolean, msg: PlayerJackpotSummary): PlayerJackpotSummary.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PlayerJackpotSummary, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PlayerJackpotSummary;
+  static deserializeBinaryFromReader(message: PlayerJackpotSummary, reader: jspb.BinaryReader): PlayerJackpotSummary;
+}
+
+export namespace PlayerJackpotSummary {
+  export type AsObject = {
+    userRid: number,
+    name: string,
+    avatar: string,
+    sex: number,
+    contributeTotal: number,
+    awardTotal: number,
+    royalFlushCount: number,
+    straightFlushCount: number,
+    fourOfaKindCount: number,
+  }
+}
+
