@@ -765,6 +765,21 @@ export class PlayerSummaryMJ extends jspb.Message {
   getIsOnline(): boolean;
   setIsOnline(value: boolean): void;
 
+  getWinSelfDrawCount(): number;
+  setWinSelfDrawCount(value: number): void;
+
+  getWinDiscardCount(): number;
+  setWinDiscardCount(value: number): void;
+
+  getLoseDiscardCount(): number;
+  setLoseDiscardCount(value: number): void;
+
+  getConcealedKongCount(): number;
+  setConcealedKongCount(value: number): void;
+
+  getExposedKongCount(): number;
+  setExposedKongCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerSummaryMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerSummaryMJ): PlayerSummaryMJ.AsObject;
@@ -788,6 +803,11 @@ export namespace PlayerSummaryMJ {
     win: number,
     status: protobuf_holdem_define_pb.Def.CanPlayStatusMap[keyof protobuf_holdem_define_pb.Def.CanPlayStatusMap],
     isOnline: boolean,
+    winSelfDrawCount: number,
+    winDiscardCount: number,
+    loseDiscardCount: number,
+    concealedKongCount: number,
+    exposedKongCount: number,
   }
 }
 

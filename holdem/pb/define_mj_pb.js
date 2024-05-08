@@ -4709,7 +4709,12 @@ proto.holdem.pb.PlayerSummaryMJ.toObject = function(includeInstance, msg) {
     chip: jspb.Message.getFieldWithDefault(msg, 8, 0),
     win: jspb.Message.getFieldWithDefault(msg, 9, 0),
     status: jspb.Message.getFieldWithDefault(msg, 10, 0),
-    isOnline: jspb.Message.getFieldWithDefault(msg, 11, false)
+    isOnline: jspb.Message.getFieldWithDefault(msg, 11, false),
+    winSelfDrawCount: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    winDiscardCount: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    loseDiscardCount: jspb.Message.getFieldWithDefault(msg, 14, 0),
+    concealedKongCount: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    exposedKongCount: jspb.Message.getFieldWithDefault(msg, 16, 0)
   };
 
   if (includeInstance) {
@@ -4789,6 +4794,26 @@ proto.holdem.pb.PlayerSummaryMJ.deserializeBinaryFromReader = function(msg, read
     case 11:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsOnline(value);
+      break;
+    case 12:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setWinSelfDrawCount(value);
+      break;
+    case 13:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setWinDiscardCount(value);
+      break;
+    case 14:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setLoseDiscardCount(value);
+      break;
+    case 15:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setConcealedKongCount(value);
+      break;
+    case 16:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setExposedKongCount(value);
       break;
     default:
       reader.skipField();
@@ -4893,6 +4918,41 @@ proto.holdem.pb.PlayerSummaryMJ.serializeBinaryToWriter = function(message, writ
   if (f) {
     writer.writeBool(
       11,
+      f
+    );
+  }
+  f = message.getWinSelfDrawCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      12,
+      f
+    );
+  }
+  f = message.getWinDiscardCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      13,
+      f
+    );
+  }
+  f = message.getLoseDiscardCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      14,
+      f
+    );
+  }
+  f = message.getConcealedKongCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      15,
+      f
+    );
+  }
+  f = message.getExposedKongCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      16,
       f
     );
   }
@@ -5063,6 +5123,81 @@ proto.holdem.pb.PlayerSummaryMJ.prototype.getIsOnline = function() {
 /** @param {boolean} value */
 proto.holdem.pb.PlayerSummaryMJ.prototype.setIsOnline = function(value) {
   jspb.Message.setField(this, 11, value);
+};
+
+
+/**
+ * optional uint32 win_self_draw_count = 12;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummaryMJ.prototype.getWinSelfDrawCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummaryMJ.prototype.setWinSelfDrawCount = function(value) {
+  jspb.Message.setField(this, 12, value);
+};
+
+
+/**
+ * optional uint32 win_discard_count = 13;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummaryMJ.prototype.getWinDiscardCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummaryMJ.prototype.setWinDiscardCount = function(value) {
+  jspb.Message.setField(this, 13, value);
+};
+
+
+/**
+ * optional uint32 lose_discard_count = 14;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummaryMJ.prototype.getLoseDiscardCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummaryMJ.prototype.setLoseDiscardCount = function(value) {
+  jspb.Message.setField(this, 14, value);
+};
+
+
+/**
+ * optional uint32 concealed_kong_count = 15;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummaryMJ.prototype.getConcealedKongCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummaryMJ.prototype.setConcealedKongCount = function(value) {
+  jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * optional uint32 exposed_kong_count = 16;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummaryMJ.prototype.getExposedKongCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummaryMJ.prototype.setExposedKongCount = function(value) {
+  jspb.Message.setField(this, 16, value);
 };
 
 
