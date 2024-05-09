@@ -438,6 +438,12 @@ export class RoomInfo extends jspb.Message {
   getPersonalType(): number;
   setPersonalType(value: number): void;
 
+  getWinTotal(): number;
+  setWinTotal(value: number): void;
+
+  getCalltimeCount(): number;
+  setCalltimeCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -485,6 +491,8 @@ export namespace RoomInfo {
     antiCheatVideoType: number,
     squidBase: number,
     personalType: number,
+    winTotal: number,
+    calltimeCount: number,
   }
 
   export interface RetainTypeMap {
@@ -1478,6 +1486,12 @@ export class Result extends jspb.Message {
   getSquidEscaped(): boolean;
   setSquidEscaped(value: boolean): void;
 
+  getWinTotal(): number;
+  setWinTotal(value: number): void;
+
+  getCalltimeCount(): number;
+  setCalltimeCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -1515,6 +1529,8 @@ export namespace Result {
     ehcsList: Array<ExternalHandChange.AsObject>,
     deposit: number,
     squidEscaped: boolean,
+    winTotal: number,
+    calltimeCount: number,
   }
 }
 
@@ -2321,6 +2337,12 @@ export class RoomRecord extends jspb.Message {
   getBringinEqualLeader(): number;
   setBringinEqualLeader(value: number): void;
 
+  getCalltimeLimit(): number;
+  setCalltimeLimit(value: number): void;
+
+  getCalltimeWinLine(): number;
+  setCalltimeWinLine(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2443,6 +2465,8 @@ export namespace RoomRecord {
     minPlayerChipRate: number,
     maxBringinTotalRate: number,
     bringinEqualLeader: number,
+    calltimeLimit: number,
+    calltimeWinLine: number,
   }
 }
 

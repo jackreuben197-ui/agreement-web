@@ -1165,7 +1165,9 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     antiCheatType: jspb.Message.getFieldWithDefault(msg, 34, 0),
     antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 35, 0),
     squidBase: jspb.Message.getFieldWithDefault(msg, 36, 0),
-    personalType: jspb.Message.getFieldWithDefault(msg, 37, 0)
+    personalType: jspb.Message.getFieldWithDefault(msg, 37, 0),
+    winTotal: jspb.Message.getFieldWithDefault(msg, 38, 0),
+    calltimeCount: jspb.Message.getFieldWithDefault(msg, 39, 0)
   };
 
   if (includeInstance) {
@@ -1342,6 +1344,14 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 37:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPersonalType(value);
+      break;
+    case 38:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setWinTotal(value);
+      break;
+    case 39:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setCalltimeCount(value);
       break;
     default:
       reader.skipField();
@@ -1615,6 +1625,20 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       37,
+      f
+    );
+  }
+  f = message.getWinTotal();
+  if (f !== 0) {
+    writer.writeUint64(
+      38,
+      f
+    );
+  }
+  f = message.getCalltimeCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      39,
       f
     );
   }
@@ -2192,6 +2216,36 @@ proto.holdem.pb.RoomInfo.prototype.getPersonalType = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setPersonalType = function(value) {
   jspb.Message.setField(this, 37, value);
+};
+
+
+/**
+ * optional uint64 win_total = 38;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getWinTotal = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 38, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setWinTotal = function(value) {
+  jspb.Message.setField(this, 38, value);
+};
+
+
+/**
+ * optional uint32 calltime_count = 39;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getCalltimeCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 39, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setCalltimeCount = function(value) {
+  jspb.Message.setField(this, 39, value);
 };
 
 
@@ -8585,7 +8639,9 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     ehcsList: jspb.Message.toObjectList(msg.getEhcsList(),
     proto.holdem.pb.ExternalHandChange.toObject, includeInstance),
     deposit: jspb.Message.getFieldWithDefault(msg, 24, 0),
-    squidEscaped: jspb.Message.getFieldWithDefault(msg, 25, false)
+    squidEscaped: jspb.Message.getFieldWithDefault(msg, 25, false),
+    winTotal: jspb.Message.getFieldWithDefault(msg, 26, 0),
+    calltimeCount: jspb.Message.getFieldWithDefault(msg, 27, 0)
   };
 
   if (includeInstance) {
@@ -8725,6 +8781,14 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
     case 25:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setSquidEscaped(value);
+      break;
+    case 26:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setWinTotal(value);
+      break;
+    case 27:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setCalltimeCount(value);
       break;
     default:
       reader.skipField();
@@ -8931,6 +8995,20 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       25,
+      f
+    );
+  }
+  f = message.getWinTotal();
+  if (f !== 0) {
+    writer.writeUint64(
+      26,
+      f
+    );
+  }
+  f = message.getCalltimeCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      27,
       f
     );
   }
@@ -9393,6 +9471,36 @@ proto.holdem.pb.Result.prototype.getSquidEscaped = function() {
 /** @param {boolean} value */
 proto.holdem.pb.Result.prototype.setSquidEscaped = function(value) {
   jspb.Message.setField(this, 25, value);
+};
+
+
+/**
+ * optional uint64 win_total = 26;
+ * @return {number}
+ */
+proto.holdem.pb.Result.prototype.getWinTotal = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 26, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Result.prototype.setWinTotal = function(value) {
+  jspb.Message.setField(this, 26, value);
+};
+
+
+/**
+ * optional uint32 calltime_count = 27;
+ * @return {number}
+ */
+proto.holdem.pb.Result.prototype.getCalltimeCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 27, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Result.prototype.setCalltimeCount = function(value) {
+  jspb.Message.setField(this, 27, value);
 };
 
 
@@ -12813,7 +12921,9 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     encryptCards: jspb.Message.getFieldWithDefault(msg, 109, 0),
     minPlayerChipRate: jspb.Message.getFieldWithDefault(msg, 110, 0),
     maxBringinTotalRate: jspb.Message.getFieldWithDefault(msg, 111, 0),
-    bringinEqualLeader: jspb.Message.getFieldWithDefault(msg, 112, 0)
+    bringinEqualLeader: jspb.Message.getFieldWithDefault(msg, 112, 0),
+    calltimeLimit: jspb.Message.getFieldWithDefault(msg, 113, 0),
+    calltimeWinLine: jspb.Message.getFieldWithDefault(msg, 114, 0)
   };
 
   if (includeInstance) {
@@ -13293,6 +13403,14 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 112:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setBringinEqualLeader(value);
+      break;
+    case 113:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setCalltimeLimit(value);
+      break;
+    case 114:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setCalltimeWinLine(value);
       break;
     default:
       reader.skipField();
@@ -14094,6 +14212,20 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       112,
+      f
+    );
+  }
+  f = message.getCalltimeLimit();
+  if (f !== 0) {
+    writer.writeUint32(
+      113,
+      f
+    );
+  }
+  f = message.getCalltimeWinLine();
+  if (f !== 0) {
+    writer.writeUint64(
+      114,
       f
     );
   }
@@ -15810,6 +15942,36 @@ proto.holdem.pb.RoomRecord.prototype.getBringinEqualLeader = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setBringinEqualLeader = function(value) {
   jspb.Message.setField(this, 112, value);
+};
+
+
+/**
+ * optional uint32 calltime_limit = 113;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getCalltimeLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 113, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setCalltimeLimit = function(value) {
+  jspb.Message.setField(this, 113, value);
+};
+
+
+/**
+ * optional uint64 calltime_win_line = 114;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getCalltimeWinLine = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 114, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setCalltimeWinLine = function(value) {
+  jspb.Message.setField(this, 114, value);
 };
 
 
