@@ -1167,7 +1167,7 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     squidBase: jspb.Message.getFieldWithDefault(msg, 36, 0),
     personalType: jspb.Message.getFieldWithDefault(msg, 37, 0),
     winTotal: jspb.Message.getFieldWithDefault(msg, 38, 0),
-    calltimeCount: jspb.Message.getFieldWithDefault(msg, 39, 0)
+    callTimeCount: jspb.Message.getFieldWithDefault(msg, 39, 0)
   };
 
   if (includeInstance) {
@@ -1351,7 +1351,7 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 39:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setCalltimeCount(value);
+      msg.setCallTimeCount(value);
       break;
     default:
       reader.skipField();
@@ -1635,7 +1635,7 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCalltimeCount();
+  f = message.getCallTimeCount();
   if (f !== 0) {
     writer.writeUint32(
       39,
@@ -2235,16 +2235,16 @@ proto.holdem.pb.RoomInfo.prototype.setWinTotal = function(value) {
 
 
 /**
- * optional uint32 calltime_count = 39;
+ * optional uint32 call_time_count = 39;
  * @return {number}
  */
-proto.holdem.pb.RoomInfo.prototype.getCalltimeCount = function() {
+proto.holdem.pb.RoomInfo.prototype.getCallTimeCount = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 39, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.RoomInfo.prototype.setCalltimeCount = function(value) {
+proto.holdem.pb.RoomInfo.prototype.setCallTimeCount = function(value) {
   jspb.Message.setField(this, 39, value);
 };
 
@@ -4283,7 +4283,8 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     sex: jspb.Message.getFieldWithDefault(msg, 18, 0),
     userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 19, 0),
     winTotal: jspb.Message.getFieldWithDefault(msg, 20, 0),
-    calltimeCount: jspb.Message.getFieldWithDefault(msg, 21, 0)
+    callTimeCount: jspb.Message.getFieldWithDefault(msg, 21, 0),
+    callTimeStay: jspb.Message.getFieldWithDefault(msg, 22, false)
   };
 
   if (includeInstance) {
@@ -4402,7 +4403,11 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 21:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setCalltimeCount(value);
+      msg.setCallTimeCount(value);
+      break;
+    case 22:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setCallTimeStay(value);
       break;
     default:
       reader.skipField();
@@ -4573,10 +4578,17 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCalltimeCount();
+  f = message.getCallTimeCount();
   if (f !== 0) {
     writer.writeUint32(
       21,
+      f
+    );
+  }
+  f = message.getCallTimeStay();
+  if (f) {
+    writer.writeBool(
+      22,
       f
     );
   }
@@ -4890,17 +4902,34 @@ proto.holdem.pb.MyGameInfo.prototype.setWinTotal = function(value) {
 
 
 /**
- * optional uint32 calltime_count = 21;
+ * optional uint32 call_time_count = 21;
  * @return {number}
  */
-proto.holdem.pb.MyGameInfo.prototype.getCalltimeCount = function() {
+proto.holdem.pb.MyGameInfo.prototype.getCallTimeCount = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.MyGameInfo.prototype.setCalltimeCount = function(value) {
+proto.holdem.pb.MyGameInfo.prototype.setCallTimeCount = function(value) {
   jspb.Message.setField(this, 21, value);
+};
+
+
+/**
+ * optional bool call_time_stay = 22;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getCallTimeStay = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 22, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MyGameInfo.prototype.setCallTimeStay = function(value) {
+  jspb.Message.setField(this, 22, value);
 };
 
 
@@ -8695,7 +8724,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     deposit: jspb.Message.getFieldWithDefault(msg, 24, 0),
     squidEscaped: jspb.Message.getFieldWithDefault(msg, 25, false),
     winTotal: jspb.Message.getFieldWithDefault(msg, 26, 0),
-    calltimeCount: jspb.Message.getFieldWithDefault(msg, 27, 0)
+    callTimeCount: jspb.Message.getFieldWithDefault(msg, 27, 0),
+    callTimeStay: jspb.Message.getFieldWithDefault(msg, 28, false)
   };
 
   if (includeInstance) {
@@ -8842,7 +8872,11 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 27:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setCalltimeCount(value);
+      msg.setCallTimeCount(value);
+      break;
+    case 28:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setCallTimeStay(value);
       break;
     default:
       reader.skipField();
@@ -9059,10 +9093,17 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCalltimeCount();
+  f = message.getCallTimeCount();
   if (f !== 0) {
     writer.writeUint32(
       27,
+      f
+    );
+  }
+  f = message.getCallTimeStay();
+  if (f) {
+    writer.writeBool(
+      28,
       f
     );
   }
@@ -9544,17 +9585,34 @@ proto.holdem.pb.Result.prototype.setWinTotal = function(value) {
 
 
 /**
- * optional uint32 calltime_count = 27;
+ * optional uint32 call_time_count = 27;
  * @return {number}
  */
-proto.holdem.pb.Result.prototype.getCalltimeCount = function() {
+proto.holdem.pb.Result.prototype.getCallTimeCount = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 27, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.Result.prototype.setCalltimeCount = function(value) {
+proto.holdem.pb.Result.prototype.setCallTimeCount = function(value) {
   jspb.Message.setField(this, 27, value);
+};
+
+
+/**
+ * optional bool call_time_stay = 28;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.Result.prototype.getCallTimeStay = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 28, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.Result.prototype.setCallTimeStay = function(value) {
+  jspb.Message.setField(this, 28, value);
 };
 
 

@@ -441,8 +441,8 @@ export class RoomInfo extends jspb.Message {
   getWinTotal(): number;
   setWinTotal(value: number): void;
 
-  getCalltimeCount(): number;
-  setCalltimeCount(value: number): void;
+  getCallTimeCount(): number;
+  setCallTimeCount(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
@@ -492,7 +492,7 @@ export namespace RoomInfo {
     squidBase: number,
     personalType: number,
     winTotal: number,
-    calltimeCount: number,
+    callTimeCount: number,
   }
 
   export interface RetainTypeMap {
@@ -845,8 +845,11 @@ export class MyGameInfo extends jspb.Message {
   getWinTotal(): number;
   setWinTotal(value: number): void;
 
-  getCalltimeCount(): number;
-  setCalltimeCount(value: number): void;
+  getCallTimeCount(): number;
+  setCallTimeCount(value: number): void;
+
+  getCallTimeStay(): boolean;
+  setCallTimeStay(value: boolean): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfo.AsObject;
@@ -880,7 +883,8 @@ export namespace MyGameInfo {
     sex: number,
     userSubscriptionId: number,
     winTotal: number,
-    calltimeCount: number,
+    callTimeCount: number,
+    callTimeStay: boolean,
   }
 }
 
@@ -1497,8 +1501,11 @@ export class Result extends jspb.Message {
   getWinTotal(): number;
   setWinTotal(value: number): void;
 
-  getCalltimeCount(): number;
-  setCalltimeCount(value: number): void;
+  getCallTimeCount(): number;
+  setCallTimeCount(value: number): void;
+
+  getCallTimeStay(): boolean;
+  setCallTimeStay(value: boolean): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
@@ -1538,7 +1545,8 @@ export namespace Result {
     deposit: number,
     squidEscaped: boolean,
     winTotal: number,
-    calltimeCount: number,
+    callTimeCount: number,
+    callTimeStay: boolean,
   }
 }
 
