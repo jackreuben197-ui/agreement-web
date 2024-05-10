@@ -842,6 +842,12 @@ export class MyGameInfo extends jspb.Message {
   getUserSubscriptionId(): number;
   setUserSubscriptionId(value: number): void;
 
+  getWinTotal(): number;
+  setWinTotal(value: number): void;
+
+  getCalltimeCount(): number;
+  setCalltimeCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfo.AsObject;
   static toObject(includeInstance: boolean, msg: MyGameInfo): MyGameInfo.AsObject;
@@ -873,6 +879,8 @@ export namespace MyGameInfo {
     avatar: string,
     sex: number,
     userSubscriptionId: number,
+    winTotal: number,
+    calltimeCount: number,
   }
 }
 

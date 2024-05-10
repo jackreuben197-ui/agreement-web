@@ -4281,7 +4281,9 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 16, ""),
     avatar: jspb.Message.getFieldWithDefault(msg, 17, ""),
     sex: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 19, 0)
+    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    winTotal: jspb.Message.getFieldWithDefault(msg, 20, 0),
+    calltimeCount: jspb.Message.getFieldWithDefault(msg, 21, 0)
   };
 
   if (includeInstance) {
@@ -4393,6 +4395,14 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 19:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setUserSubscriptionId(value);
+      break;
+    case 20:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setWinTotal(value);
+      break;
+    case 21:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setCalltimeCount(value);
       break;
     default:
       reader.skipField();
@@ -4553,6 +4563,20 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       19,
+      f
+    );
+  }
+  f = message.getWinTotal();
+  if (f !== 0) {
+    writer.writeUint64(
+      20,
+      f
+    );
+  }
+  f = message.getCalltimeCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      21,
       f
     );
   }
@@ -4847,6 +4871,36 @@ proto.holdem.pb.MyGameInfo.prototype.getUserSubscriptionId = function() {
 /** @param {number} value */
 proto.holdem.pb.MyGameInfo.prototype.setUserSubscriptionId = function(value) {
   jspb.Message.setField(this, 19, value);
+};
+
+
+/**
+ * optional uint64 win_total = 20;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getWinTotal = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfo.prototype.setWinTotal = function(value) {
+  jspb.Message.setField(this, 20, value);
+};
+
+
+/**
+ * optional uint32 calltime_count = 21;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getCalltimeCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfo.prototype.setCalltimeCount = function(value) {
+  jspb.Message.setField(this, 21, value);
 };
 
 
