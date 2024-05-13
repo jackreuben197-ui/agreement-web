@@ -13,6 +13,9 @@ export class ClientMessageAddTime extends jspb.Message {
   getConsume(): protobuf_holdem_define_pb.Def.ConsumeTypeMap[keyof protobuf_holdem_define_pb.Def.ConsumeTypeMap];
   setConsume(value: protobuf_holdem_define_pb.Def.ConsumeTypeMap[keyof protobuf_holdem_define_pb.Def.ConsumeTypeMap]): void;
 
+  getDirectConsume(): boolean;
+  setDirectConsume(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageAddTime.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageAddTime): ClientMessageAddTime.AsObject;
@@ -27,6 +30,7 @@ export namespace ClientMessageAddTime {
   export type AsObject = {
     room?: protobuf_holdem_define_pb.Room.AsObject,
     consume: protobuf_holdem_define_pb.Def.ConsumeTypeMap[keyof protobuf_holdem_define_pb.Def.ConsumeTypeMap],
+    directConsume: boolean,
   }
 }
 

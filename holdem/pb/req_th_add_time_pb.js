@@ -62,7 +62,8 @@ proto.holdem.pb.ClientMessageAddTime.prototype.toObject = function(opt_includeIn
 proto.holdem.pb.ClientMessageAddTime.toObject = function(includeInstance, msg) {
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
-    consume: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    consume: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    directConsume: jspb.Message.getFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -108,6 +109,10 @@ proto.holdem.pb.ClientMessageAddTime.deserializeBinaryFromReader = function(msg,
       var value = /** @type {!proto.holdem.pb.Def.ConsumeType} */ (reader.readEnum());
       msg.setConsume(value);
       break;
+    case 4:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDirectConsume(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -149,6 +154,13 @@ proto.holdem.pb.ClientMessageAddTime.serializeBinaryToWriter = function(message,
   if (f !== 0.0) {
     writer.writeEnum(
       3,
+      f
+    );
+  }
+  f = message.getDirectConsume();
+  if (f) {
+    writer.writeBool(
+      4,
       f
     );
   }
@@ -197,6 +209,23 @@ proto.holdem.pb.ClientMessageAddTime.prototype.getConsume = function() {
 /** @param {!proto.holdem.pb.Def.ConsumeType} value */
 proto.holdem.pb.ClientMessageAddTime.prototype.setConsume = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional bool direct_consume = 4;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ClientMessageAddTime.prototype.getDirectConsume = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 4, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ClientMessageAddTime.prototype.setDirectConsume = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 
