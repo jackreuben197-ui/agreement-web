@@ -1266,7 +1266,8 @@ proto.holdem.pb.MatchInfoMJ.toObject = function(includeInstance, msg) {
     waitDeadline: jspb.Message.getFieldWithDefault(msg, 7, 0),
     wallLeft: jspb.Message.getFieldWithDefault(msg, 8, 0),
     waitType: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    draw: jspb.Message.getFieldWithDefault(msg, 10, false)
+    draw: jspb.Message.getFieldWithDefault(msg, 10, false),
+    pb_final: jspb.Message.getFieldWithDefault(msg, 11, false)
   };
 
   if (includeInstance) {
@@ -1342,6 +1343,10 @@ proto.holdem.pb.MatchInfoMJ.deserializeBinaryFromReader = function(msg, reader) 
     case 10:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setDraw(value);
+      break;
+    case 11:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setFinal(value);
       break;
     default:
       reader.skipField();
@@ -1439,6 +1444,13 @@ proto.holdem.pb.MatchInfoMJ.serializeBinaryToWriter = function(message, writer) 
   if (f) {
     writer.writeBool(
       10,
+      f
+    );
+  }
+  f = message.getFinal();
+  if (f) {
+    writer.writeBool(
+      11,
       f
     );
   }
@@ -1608,6 +1620,23 @@ proto.holdem.pb.MatchInfoMJ.prototype.getDraw = function() {
 /** @param {boolean} value */
 proto.holdem.pb.MatchInfoMJ.prototype.setDraw = function(value) {
   jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * optional bool final = 11;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getFinal = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 11, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setFinal = function(value) {
+  jspb.Message.setField(this, 11, value);
 };
 
 

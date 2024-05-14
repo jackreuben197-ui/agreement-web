@@ -290,6 +290,9 @@ export class MatchInfoMJ extends jspb.Message {
   getDraw(): boolean;
   setDraw(value: boolean): void;
 
+  getFinal(): boolean;
+  setFinal(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MatchInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: MatchInfoMJ): MatchInfoMJ.AsObject;
@@ -312,6 +315,7 @@ export namespace MatchInfoMJ {
     wallLeft: number,
     waitType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
     draw: boolean,
+    pb_final: boolean,
   }
 }
 
