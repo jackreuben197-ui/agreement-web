@@ -16,6 +16,9 @@ export class ServerMessageFriendRoomBringInApplyToUser extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
+  getClubId(): number;
+  setClubId(value: number): void;
+
   getOriginType(): number;
   setOriginType(value: number): void;
 
@@ -35,6 +38,7 @@ export namespace ServerMessageFriendRoomBringInApplyToUser {
     userId: number,
     bringIn: number,
     status: number,
+    clubId: number,
     originType: number,
   }
 }

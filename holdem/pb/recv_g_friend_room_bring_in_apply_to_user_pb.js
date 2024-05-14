@@ -63,7 +63,8 @@ proto.holdem.pb.ServerMessageFriendRoomBringInApplyToUser.toObject = function(in
     userId: jspb.Message.getFieldWithDefault(msg, 2, 0),
     bringIn: jspb.Message.getFieldWithDefault(msg, 3, 0),
     status: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    originType: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    clubId: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    originType: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -117,6 +118,10 @@ proto.holdem.pb.ServerMessageFriendRoomBringInApplyToUser.deserializeBinaryFromR
       msg.setStatus(value);
       break;
     case 5:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setClubId(value);
+      break;
+    case 6:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOriginType(value);
       break;
@@ -177,10 +182,17 @@ proto.holdem.pb.ServerMessageFriendRoomBringInApplyToUser.serializeBinaryToWrite
       f
     );
   }
+  f = message.getClubId();
+  if (f !== 0) {
+    writer.writeUint64(
+      5,
+      f
+    );
+  }
   f = message.getOriginType();
   if (f !== 0) {
     writer.writeInt32(
-      5,
+      6,
       f
     );
   }
@@ -248,17 +260,32 @@ proto.holdem.pb.ServerMessageFriendRoomBringInApplyToUser.prototype.setStatus = 
 
 
 /**
- * optional int32 origin_type = 5;
+ * optional uint64 club_id = 5;
  * @return {number}
  */
-proto.holdem.pb.ServerMessageFriendRoomBringInApplyToUser.prototype.getOriginType = function() {
+proto.holdem.pb.ServerMessageFriendRoomBringInApplyToUser.prototype.getClubId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.ServerMessageFriendRoomBringInApplyToUser.prototype.setOriginType = function(value) {
+proto.holdem.pb.ServerMessageFriendRoomBringInApplyToUser.prototype.setClubId = function(value) {
   jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional int32 origin_type = 6;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageFriendRoomBringInApplyToUser.prototype.getOriginType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageFriendRoomBringInApplyToUser.prototype.setOriginType = function(value) {
+  jspb.Message.setField(this, 6, value);
 };
 
 
