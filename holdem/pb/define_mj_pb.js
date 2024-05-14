@@ -1265,7 +1265,8 @@ proto.holdem.pb.MatchInfoMJ.toObject = function(includeInstance, msg) {
     diceNumList: jspb.Message.getRepeatedField(msg, 6),
     waitDeadline: jspb.Message.getFieldWithDefault(msg, 7, 0),
     wallLeft: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    waitType: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    waitType: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    draw: jspb.Message.getFieldWithDefault(msg, 10, false)
   };
 
   if (includeInstance) {
@@ -1337,6 +1338,10 @@ proto.holdem.pb.MatchInfoMJ.deserializeBinaryFromReader = function(msg, reader) 
     case 9:
       var value = /** @type {!proto.holdem.pb.DefMJ.WaitType} */ (reader.readEnum());
       msg.setWaitType(value);
+      break;
+    case 10:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDraw(value);
       break;
     default:
       reader.skipField();
@@ -1427,6 +1432,13 @@ proto.holdem.pb.MatchInfoMJ.serializeBinaryToWriter = function(message, writer) 
   if (f !== 0.0) {
     writer.writeEnum(
       9,
+      f
+    );
+  }
+  f = message.getDraw();
+  if (f) {
+    writer.writeBool(
+      10,
       f
     );
   }
@@ -1579,6 +1591,23 @@ proto.holdem.pb.MatchInfoMJ.prototype.getWaitType = function() {
 /** @param {!proto.holdem.pb.DefMJ.WaitType} value */
 proto.holdem.pb.MatchInfoMJ.prototype.setWaitType = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional bool draw = 10;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getDraw = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 10, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setDraw = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 
