@@ -67,6 +67,7 @@ goog.exportSymbol('proto.holdem.pb.Room', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomAdmin', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomInfo', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomInfo.RetainType', null, global);
+goog.exportSymbol('proto.holdem.pb.RoomJackpotConfig', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomRecord', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomWithType', null, global);
 goog.exportSymbol('proto.holdem.pb.Roomer', null, global);
@@ -13035,7 +13036,11 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     maxBringinTotalRate: jspb.Message.getFieldWithDefault(msg, 111, 0),
     bringinEqualLeader: jspb.Message.getFieldWithDefault(msg, 112, 0),
     calltimeLimit: jspb.Message.getFieldWithDefault(msg, 113, 0),
-    calltimeWinLine: jspb.Message.getFieldWithDefault(msg, 114, 0)
+    calltimeWinLine: jspb.Message.getFieldWithDefault(msg, 114, 0),
+    jackpot: jspb.Message.getFieldWithDefault(msg, 115, 0),
+    jackpotId: jspb.Message.getFieldWithDefault(msg, 116, 0),
+    jackpotGold: jspb.Message.getFieldWithDefault(msg, 117, 0),
+    jackpotConfig: (f = msg.getJackpotConfig()) && proto.holdem.pb.RoomJackpotConfig.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -13523,6 +13528,23 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 114:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setCalltimeWinLine(value);
+      break;
+    case 115:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setJackpot(value);
+      break;
+    case 116:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setJackpotId(value);
+      break;
+    case 117:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setJackpotGold(value);
+      break;
+    case 118:
+      var value = new proto.holdem.pb.RoomJackpotConfig;
+      reader.readMessage(value,proto.holdem.pb.RoomJackpotConfig.deserializeBinaryFromReader);
+      msg.setJackpotConfig(value);
       break;
     default:
       reader.skipField();
@@ -14339,6 +14361,35 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
     writer.writeUint64(
       114,
       f
+    );
+  }
+  f = message.getJackpot();
+  if (f !== 0) {
+    writer.writeInt32(
+      115,
+      f
+    );
+  }
+  f = message.getJackpotId();
+  if (f !== 0) {
+    writer.writeUint64(
+      116,
+      f
+    );
+  }
+  f = message.getJackpotGold();
+  if (f !== 0) {
+    writer.writeUint64(
+      117,
+      f
+    );
+  }
+  f = message.getJackpotConfig();
+  if (f != null) {
+    writer.writeMessage(
+      118,
+      f,
+      proto.holdem.pb.RoomJackpotConfig.serializeBinaryToWriter
     );
   }
 };
@@ -16084,6 +16135,81 @@ proto.holdem.pb.RoomRecord.prototype.getCalltimeWinLine = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setCalltimeWinLine = function(value) {
   jspb.Message.setField(this, 114, value);
+};
+
+
+/**
+ * optional int32 jackpot = 115;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getJackpot = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 115, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setJackpot = function(value) {
+  jspb.Message.setField(this, 115, value);
+};
+
+
+/**
+ * optional uint64 jackpot_id = 116;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getJackpotId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 116, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setJackpotId = function(value) {
+  jspb.Message.setField(this, 116, value);
+};
+
+
+/**
+ * optional uint64 jackpot_gold = 117;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getJackpotGold = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 117, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setJackpotGold = function(value) {
+  jspb.Message.setField(this, 117, value);
+};
+
+
+/**
+ * optional RoomJackpotConfig jackpot_config = 118;
+ * @return {?proto.holdem.pb.RoomJackpotConfig}
+ */
+proto.holdem.pb.RoomRecord.prototype.getJackpotConfig = function() {
+  return /** @type{?proto.holdem.pb.RoomJackpotConfig} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.RoomJackpotConfig, 118));
+};
+
+
+/** @param {?proto.holdem.pb.RoomJackpotConfig|undefined} value */
+proto.holdem.pb.RoomRecord.prototype.setJackpotConfig = function(value) {
+  jspb.Message.setWrapperField(this, 118, value);
+};
+
+
+proto.holdem.pb.RoomRecord.prototype.clearJackpotConfig = function() {
+  this.setJackpotConfig(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.RoomRecord.prototype.hasJackpotConfig = function() {
+  return jspb.Message.getField(this, 118) != null;
 };
 
 
@@ -20868,6 +20994,391 @@ proto.holdem.pb.PlayerJackpotSummary.prototype.getFourOfaKindCount = function() 
 /** @param {number} value */
 proto.holdem.pb.PlayerJackpotSummary.prototype.setFourOfaKindCount = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.RoomJackpotConfig = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.RoomJackpotConfig, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.RoomJackpotConfig.displayName = 'proto.holdem.pb.RoomJackpotConfig';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.RoomJackpotConfig.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.RoomJackpotConfig} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.RoomJackpotConfig.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    contributePotSwitch: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    contributePotLimit: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    awardBetSwitch: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    awardBetLimit: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    awardOtherSwitch: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    awardOtherRatio: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    contributeType: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    contributeFixedLimit: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    contributeFixedRate: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    contributeRatio: jspb.Message.getFieldWithDefault(msg, 10, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.RoomJackpotConfig}
+ */
+proto.holdem.pb.RoomJackpotConfig.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.RoomJackpotConfig;
+  return proto.holdem.pb.RoomJackpotConfig.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.RoomJackpotConfig} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.RoomJackpotConfig}
+ */
+proto.holdem.pb.RoomJackpotConfig.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setContributePotSwitch(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setContributePotLimit(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setAwardBetSwitch(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAwardBetLimit(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setAwardOtherSwitch(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAwardOtherRatio(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setContributeType(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setContributeFixedLimit(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setContributeFixedRate(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setContributeRatio(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.RoomJackpotConfig.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.RoomJackpotConfig} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.RoomJackpotConfig.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getContributePotSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      1,
+      f
+    );
+  }
+  f = message.getContributePotLimit();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
+  f = message.getAwardBetSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
+  f = message.getAwardBetLimit();
+  if (f !== 0) {
+    writer.writeUint64(
+      4,
+      f
+    );
+  }
+  f = message.getAwardOtherSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
+      f
+    );
+  }
+  f = message.getAwardOtherRatio();
+  if (f !== 0) {
+    writer.writeUint64(
+      6,
+      f
+    );
+  }
+  f = message.getContributeType();
+  if (f !== 0) {
+    writer.writeInt32(
+      7,
+      f
+    );
+  }
+  f = message.getContributeFixedLimit();
+  if (f !== 0) {
+    writer.writeUint64(
+      8,
+      f
+    );
+  }
+  f = message.getContributeFixedRate();
+  if (f !== 0) {
+    writer.writeUint64(
+      9,
+      f
+    );
+  }
+  f = message.getContributeRatio();
+  if (f !== 0) {
+    writer.writeUint64(
+      10,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional int32 contribute_pot_switch = 1;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getContributePotSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setContributePotSwitch = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 contribute_pot_limit = 2;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getContributePotLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setContributePotLimit = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional int32 award_bet_switch = 3;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getAwardBetSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setAwardBetSwitch = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional uint64 award_bet_limit = 4;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getAwardBetLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setAwardBetLimit = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int32 award_other_switch = 5;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getAwardOtherSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setAwardOtherSwitch = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional uint64 award_other_ratio = 6;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getAwardOtherRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setAwardOtherRatio = function(value) {
+  jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional int32 contribute_type = 7;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getContributeType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setContributeType = function(value) {
+  jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint64 contribute_fixed_limit = 8;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getContributeFixedLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setContributeFixedLimit = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional uint64 contribute_fixed_rate = 9;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getContributeFixedRate = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setContributeFixedRate = function(value) {
+  jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional uint64 contribute_ratio = 10;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getContributeRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setContributeRatio = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 

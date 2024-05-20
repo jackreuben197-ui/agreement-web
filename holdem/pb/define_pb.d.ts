@@ -2359,6 +2359,20 @@ export class RoomRecord extends jspb.Message {
   getCalltimeWinLine(): number;
   setCalltimeWinLine(value: number): void;
 
+  getJackpot(): number;
+  setJackpot(value: number): void;
+
+  getJackpotId(): number;
+  setJackpotId(value: number): void;
+
+  getJackpotGold(): number;
+  setJackpotGold(value: number): void;
+
+  hasJackpotConfig(): boolean;
+  clearJackpotConfig(): void;
+  getJackpotConfig(): RoomJackpotConfig | undefined;
+  setJackpotConfig(value?: RoomJackpotConfig): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2483,6 +2497,10 @@ export namespace RoomRecord {
     bringinEqualLeader: number,
     calltimeLimit: number,
     calltimeWinLine: number,
+    jackpot: number,
+    jackpotId: number,
+    jackpotGold: number,
+    jackpotConfig?: RoomJackpotConfig.AsObject,
   }
 }
 
@@ -3181,6 +3199,62 @@ export namespace PlayerJackpotSummary {
     royalFlushCount: number,
     straightFlushCount: number,
     fourOfaKindCount: number,
+  }
+}
+
+export class RoomJackpotConfig extends jspb.Message {
+  getContributePotSwitch(): number;
+  setContributePotSwitch(value: number): void;
+
+  getContributePotLimit(): number;
+  setContributePotLimit(value: number): void;
+
+  getAwardBetSwitch(): number;
+  setAwardBetSwitch(value: number): void;
+
+  getAwardBetLimit(): number;
+  setAwardBetLimit(value: number): void;
+
+  getAwardOtherSwitch(): number;
+  setAwardOtherSwitch(value: number): void;
+
+  getAwardOtherRatio(): number;
+  setAwardOtherRatio(value: number): void;
+
+  getContributeType(): number;
+  setContributeType(value: number): void;
+
+  getContributeFixedLimit(): number;
+  setContributeFixedLimit(value: number): void;
+
+  getContributeFixedRate(): number;
+  setContributeFixedRate(value: number): void;
+
+  getContributeRatio(): number;
+  setContributeRatio(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RoomJackpotConfig.AsObject;
+  static toObject(includeInstance: boolean, msg: RoomJackpotConfig): RoomJackpotConfig.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RoomJackpotConfig, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RoomJackpotConfig;
+  static deserializeBinaryFromReader(message: RoomJackpotConfig, reader: jspb.BinaryReader): RoomJackpotConfig;
+}
+
+export namespace RoomJackpotConfig {
+  export type AsObject = {
+    contributePotSwitch: number,
+    contributePotLimit: number,
+    awardBetSwitch: number,
+    awardBetLimit: number,
+    awardOtherSwitch: number,
+    awardOtherRatio: number,
+    contributeType: number,
+    contributeFixedLimit: number,
+    contributeFixedRate: number,
+    contributeRatio: number,
   }
 }
 
