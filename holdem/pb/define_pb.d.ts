@@ -444,6 +444,12 @@ export class RoomInfo extends jspb.Message {
   getCallTimeCount(): number;
   setCallTimeCount(value: number): void;
 
+  getJackpot(): number;
+  setJackpot(value: number): void;
+
+  getJackpotGold(): number;
+  setJackpotGold(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -493,6 +499,8 @@ export namespace RoomInfo {
     personalType: number,
     winTotal: number,
     callTimeCount: number,
+    jackpot: number,
+    jackpotGold: number,
   }
 
   export interface RetainTypeMap {

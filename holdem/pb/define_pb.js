@@ -1168,7 +1168,9 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     squidBase: jspb.Message.getFieldWithDefault(msg, 36, 0),
     personalType: jspb.Message.getFieldWithDefault(msg, 37, 0),
     winTotal: jspb.Message.getFieldWithDefault(msg, 38, 0),
-    callTimeCount: jspb.Message.getFieldWithDefault(msg, 39, 0)
+    callTimeCount: jspb.Message.getFieldWithDefault(msg, 39, 0),
+    jackpot: jspb.Message.getFieldWithDefault(msg, 40, 0),
+    jackpotGold: jspb.Message.getFieldWithDefault(msg, 41, 0)
   };
 
   if (includeInstance) {
@@ -1353,6 +1355,14 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 39:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setCallTimeCount(value);
+      break;
+    case 40:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setJackpot(value);
+      break;
+    case 41:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setJackpotGold(value);
       break;
     default:
       reader.skipField();
@@ -1640,6 +1650,20 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint32(
       39,
+      f
+    );
+  }
+  f = message.getJackpot();
+  if (f !== 0) {
+    writer.writeInt32(
+      40,
+      f
+    );
+  }
+  f = message.getJackpotGold();
+  if (f !== 0) {
+    writer.writeUint64(
+      41,
       f
     );
   }
@@ -2247,6 +2271,36 @@ proto.holdem.pb.RoomInfo.prototype.getCallTimeCount = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setCallTimeCount = function(value) {
   jspb.Message.setField(this, 39, value);
+};
+
+
+/**
+ * optional int32 jackpot = 40;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getJackpot = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 40, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setJackpot = function(value) {
+  jspb.Message.setField(this, 40, value);
+};
+
+
+/**
+ * optional uint64 jackpot_gold = 41;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getJackpotGold = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 41, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setJackpotGold = function(value) {
+  jspb.Message.setField(this, 41, value);
 };
 
 
