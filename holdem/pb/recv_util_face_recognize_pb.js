@@ -67,7 +67,8 @@ proto.holdem.pb.ServerMessageUtilFaceRecognize.toObject = function(includeInstan
     status: jspb.Message.getFieldWithDefault(msg, 6, 0),
     recogTime: jspb.Message.getFieldWithDefault(msg, 7, 0),
     createTime: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    timeoutStamp: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    timeoutStamp: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    roomType: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -139,6 +140,10 @@ proto.holdem.pb.ServerMessageUtilFaceRecognize.deserializeBinaryFromReader = fun
     case 9:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setTimeoutStamp(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRoomType(value);
       break;
     default:
       reader.skipField();
@@ -229,6 +234,13 @@ proto.holdem.pb.ServerMessageUtilFaceRecognize.serializeBinaryToWriter = functio
   if (f !== 0) {
     writer.writeInt64(
       9,
+      f
+    );
+  }
+  f = message.getRoomType();
+  if (f !== 0) {
+    writer.writeUint64(
+      10,
       f
     );
   }
@@ -367,6 +379,21 @@ proto.holdem.pb.ServerMessageUtilFaceRecognize.prototype.getTimeoutStamp = funct
 /** @param {number} value */
 proto.holdem.pb.ServerMessageUtilFaceRecognize.prototype.setTimeoutStamp = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional uint64 room_type = 10;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUtilFaceRecognize.prototype.getRoomType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUtilFaceRecognize.prototype.setRoomType = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 

@@ -31,6 +31,9 @@ export class ServerMessageUtilFaceRecognize extends jspb.Message {
   getTimeoutStamp(): number;
   setTimeoutStamp(value: number): void;
 
+  getRoomType(): number;
+  setRoomType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUtilFaceRecognize.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUtilFaceRecognize): ServerMessageUtilFaceRecognize.AsObject;
@@ -52,6 +55,7 @@ export namespace ServerMessageUtilFaceRecognize {
     recogTime: number,
     createTime: number,
     timeoutStamp: number,
+    roomType: number,
   }
 }
 
