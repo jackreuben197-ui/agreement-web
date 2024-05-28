@@ -59,7 +59,8 @@ proto.holdem.pb.ServerMessageUtilAntiCheatRoomVideo.prototype.toObject = functio
  */
 proto.holdem.pb.ServerMessageUtilAntiCheatRoomVideo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    status: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    status: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    roomType: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -100,6 +101,10 @@ proto.holdem.pb.ServerMessageUtilAntiCheatRoomVideo.deserializeBinaryFromReader 
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStatus(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRoomType(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -136,6 +141,13 @@ proto.holdem.pb.ServerMessageUtilAntiCheatRoomVideo.serializeBinaryToWriter = fu
       f
     );
   }
+  f = message.getRoomType();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -151,6 +163,21 @@ proto.holdem.pb.ServerMessageUtilAntiCheatRoomVideo.prototype.getStatus = functi
 /** @param {number} value */
 proto.holdem.pb.ServerMessageUtilAntiCheatRoomVideo.prototype.setStatus = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 room_type = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUtilAntiCheatRoomVideo.prototype.getRoomType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUtilAntiCheatRoomVideo.prototype.setRoomType = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 

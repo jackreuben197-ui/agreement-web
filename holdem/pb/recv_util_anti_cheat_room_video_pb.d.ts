@@ -7,6 +7,9 @@ export class ServerMessageUtilAntiCheatRoomVideo extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
+  getRoomType(): number;
+  setRoomType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUtilAntiCheatRoomVideo.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUtilAntiCheatRoomVideo): ServerMessageUtilAntiCheatRoomVideo.AsObject;
@@ -20,6 +23,7 @@ export class ServerMessageUtilAntiCheatRoomVideo extends jspb.Message {
 export namespace ServerMessageUtilAntiCheatRoomVideo {
   export type AsObject = {
     status: number,
+    roomType: number,
   }
 }
 
