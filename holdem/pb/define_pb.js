@@ -7190,7 +7190,8 @@ proto.holdem.pb.PlayerStartInfo.toObject = function(includeInstance, msg) {
     deposit: jspb.Message.getFieldWithDefault(msg, 9, 0),
     costMushroom: jspb.Message.getFieldWithDefault(msg, 10, 0),
     inMushroom: jspb.Message.getFieldWithDefault(msg, 11, false),
-    squidEscaped: jspb.Message.getFieldWithDefault(msg, 12, false)
+    squidEscaped: jspb.Message.getFieldWithDefault(msg, 12, false),
+    squidCount: jspb.Message.getFieldWithDefault(msg, 13, 0)
   };
 
   if (includeInstance) {
@@ -7270,6 +7271,10 @@ proto.holdem.pb.PlayerStartInfo.deserializeBinaryFromReader = function(msg, read
     case 12:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setSquidEscaped(value);
+      break;
+    case 13:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidCount(value);
       break;
     default:
       reader.skipField();
@@ -7374,6 +7379,13 @@ proto.holdem.pb.PlayerStartInfo.serializeBinaryToWriter = function(message, writ
   if (f) {
     writer.writeBool(
       12,
+      f
+    );
+  }
+  f = message.getSquidCount();
+  if (f !== 0) {
+    writer.writeInt32(
+      13,
       f
     );
   }
@@ -7560,6 +7572,21 @@ proto.holdem.pb.PlayerStartInfo.prototype.getSquidEscaped = function() {
 /** @param {boolean} value */
 proto.holdem.pb.PlayerStartInfo.prototype.setSquidEscaped = function(value) {
   jspb.Message.setField(this, 12, value);
+};
+
+
+/**
+ * optional int32 squid_count = 13;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerStartInfo.prototype.getSquidCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerStartInfo.prototype.setSquidCount = function(value) {
+  jspb.Message.setField(this, 13, value);
 };
 
 
@@ -7815,7 +7842,8 @@ proto.holdem.pb.Player.toObject = function(includeInstance, msg) {
     costMushroom: jspb.Message.getFieldWithDefault(msg, 27, 0),
     winCardsInfo: (f = msg.getWinCardsInfo()) && proto.holdem.pb.AllInWinCardsInfo.toObject(includeInstance, f),
     squidEscaped: jspb.Message.getFieldWithDefault(msg, 29, false),
-    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 30, 0)
+    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 30, 0),
+    squidCount: jspb.Message.getFieldWithDefault(msg, 31, 0)
   };
 
   if (includeInstance) {
@@ -7969,6 +7997,10 @@ proto.holdem.pb.Player.deserializeBinaryFromReader = function(msg, reader) {
     case 30:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setUserSubscriptionId(value);
+      break;
+    case 31:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidCount(value);
       break;
     default:
       reader.skipField();
@@ -8201,6 +8233,13 @@ proto.holdem.pb.Player.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       30,
+      f
+    );
+  }
+  f = message.getSquidCount();
+  if (f !== 0) {
+    writer.writeInt32(
+      31,
       f
     );
   }
@@ -8692,6 +8731,21 @@ proto.holdem.pb.Player.prototype.getUserSubscriptionId = function() {
 /** @param {number} value */
 proto.holdem.pb.Player.prototype.setUserSubscriptionId = function(value) {
   jspb.Message.setField(this, 30, value);
+};
+
+
+/**
+ * optional int32 squid_count = 31;
+ * @return {number}
+ */
+proto.holdem.pb.Player.prototype.getSquidCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 31, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Player.prototype.setSquidCount = function(value) {
+  jspb.Message.setField(this, 31, value);
 };
 
 

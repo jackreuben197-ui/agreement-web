@@ -1232,6 +1232,9 @@ export class PlayerStartInfo extends jspb.Message {
   getSquidEscaped(): boolean;
   setSquidEscaped(value: boolean): void;
 
+  getSquidCount(): number;
+  setSquidCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfo.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerStartInfo): PlayerStartInfo.AsObject;
@@ -1255,6 +1258,7 @@ export namespace PlayerStartInfo {
     costMushroom: number,
     inMushroom: boolean,
     squidEscaped: boolean,
+    squidCount: number,
   }
 }
 
@@ -1376,6 +1380,9 @@ export class Player extends jspb.Message {
   getUserSubscriptionId(): number;
   setUserSubscriptionId(value: number): void;
 
+  getSquidCount(): number;
+  setSquidCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Player.AsObject;
   static toObject(includeInstance: boolean, msg: Player): Player.AsObject;
@@ -1417,6 +1424,7 @@ export namespace Player {
     winCardsInfo?: AllInWinCardsInfo.AsObject,
     squidEscaped: boolean,
     userSubscriptionId: number,
+    squidCount: number,
   }
 }
 
