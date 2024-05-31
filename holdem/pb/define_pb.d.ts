@@ -1235,6 +1235,9 @@ export class PlayerStartInfo extends jspb.Message {
   getSquidCount(): number;
   setSquidCount(value: number): void;
 
+  getInSquid(): boolean;
+  setInSquid(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfo.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerStartInfo): PlayerStartInfo.AsObject;
@@ -1259,6 +1262,7 @@ export namespace PlayerStartInfo {
     inMushroom: boolean,
     squidEscaped: boolean,
     squidCount: number,
+    inSquid: boolean,
   }
 }
 
@@ -1383,6 +1387,9 @@ export class Player extends jspb.Message {
   getSquidCount(): number;
   setSquidCount(value: number): void;
 
+  getInSquid(): boolean;
+  setInSquid(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Player.AsObject;
   static toObject(includeInstance: boolean, msg: Player): Player.AsObject;
@@ -1425,6 +1432,7 @@ export namespace Player {
     squidEscaped: boolean,
     userSubscriptionId: number,
     squidCount: number,
+    inSquid: boolean,
   }
 }
 
@@ -1523,6 +1531,9 @@ export class Result extends jspb.Message {
   getCallTimeStay(): boolean;
   setCallTimeStay(value: boolean): void;
 
+  getSquidCount(): number;
+  setSquidCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -1563,6 +1574,7 @@ export namespace Result {
     winTotal: number,
     callTimeCount: number,
     callTimeStay: boolean,
+    squidCount: number,
   }
 }
 
