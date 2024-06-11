@@ -74,6 +74,7 @@ goog.exportSymbol('proto.holdem.pb.Roomer', null, global);
 goog.exportSymbol('proto.holdem.pb.SecondPublicCardsPlayerAllInShowCardSummary', null, global);
 goog.exportSymbol('proto.holdem.pb.SidePot', null, global);
 goog.exportSymbol('proto.holdem.pb.SplitedResult', null, global);
+goog.exportSymbol('proto.holdem.pb.SubRoomConfig', null, global);
 goog.exportSymbol('proto.holdem.pb.UserOuts', null, global);
 goog.exportSymbol('proto.holdem.pb.UserPlayStatus', null, global);
 goog.exportSymbol('proto.holdem.pb.WinCard', null, global);
@@ -13084,7 +13085,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.RoomRecord.repeatedFields_ = [58,82,93];
+proto.holdem.pb.RoomRecord.repeatedFields_ = [58,82,93,119];
 
 
 
@@ -13233,7 +13234,14 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     jackpot: jspb.Message.getFieldWithDefault(msg, 115, 0),
     jackpotId: jspb.Message.getFieldWithDefault(msg, 116, 0),
     jackpotGold: jspb.Message.getFieldWithDefault(msg, 117, 0),
-    jackpotConfig: (f = msg.getJackpotConfig()) && proto.holdem.pb.RoomJackpotConfig.toObject(includeInstance, f)
+    jackpotConfig: (f = msg.getJackpotConfig()) && proto.holdem.pb.RoomJackpotConfig.toObject(includeInstance, f),
+    subConfigsList: jspb.Message.toObjectList(msg.getSubConfigsList(),
+    proto.holdem.pb.SubRoomConfig.toObject, includeInstance),
+    squidMax: jspb.Message.getFieldWithDefault(msg, 120, 0),
+    squidMostGet: jspb.Message.getFieldWithDefault(msg, 121, 0),
+    squidBetGet: jspb.Message.getFieldWithDefault(msg, 122, 0),
+    squidHead: jspb.Message.getFieldWithDefault(msg, 123, 0),
+    squidTail: jspb.Message.getFieldWithDefault(msg, 124, 0)
   };
 
   if (includeInstance) {
@@ -13738,6 +13746,31 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.RoomJackpotConfig;
       reader.readMessage(value,proto.holdem.pb.RoomJackpotConfig.deserializeBinaryFromReader);
       msg.setJackpotConfig(value);
+      break;
+    case 119:
+      var value = new proto.holdem.pb.SubRoomConfig;
+      reader.readMessage(value,proto.holdem.pb.SubRoomConfig.deserializeBinaryFromReader);
+      msg.addSubConfigs(value);
+      break;
+    case 120:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidMax(value);
+      break;
+    case 121:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidMostGet(value);
+      break;
+    case 122:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidBetGet(value);
+      break;
+    case 123:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidHead(value);
+      break;
+    case 124:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidTail(value);
       break;
     default:
       reader.skipField();
@@ -14583,6 +14616,49 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
       118,
       f,
       proto.holdem.pb.RoomJackpotConfig.serializeBinaryToWriter
+    );
+  }
+  f = message.getSubConfigsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      119,
+      f,
+      proto.holdem.pb.SubRoomConfig.serializeBinaryToWriter
+    );
+  }
+  f = message.getSquidMax();
+  if (f !== 0) {
+    writer.writeInt32(
+      120,
+      f
+    );
+  }
+  f = message.getSquidMostGet();
+  if (f !== 0) {
+    writer.writeInt32(
+      121,
+      f
+    );
+  }
+  f = message.getSquidBetGet();
+  if (f !== 0) {
+    writer.writeInt32(
+      122,
+      f
+    );
+  }
+  f = message.getSquidHead();
+  if (f !== 0) {
+    writer.writeInt32(
+      123,
+      f
+    );
+  }
+  f = message.getSquidTail();
+  if (f !== 0) {
+    writer.writeInt32(
+      124,
+      f
     );
   }
 };
@@ -16403,6 +16479,112 @@ proto.holdem.pb.RoomRecord.prototype.clearJackpotConfig = function() {
  */
 proto.holdem.pb.RoomRecord.prototype.hasJackpotConfig = function() {
   return jspb.Message.getField(this, 118) != null;
+};
+
+
+/**
+ * repeated SubRoomConfig sub_configs = 119;
+ * @return {!Array.<!proto.holdem.pb.SubRoomConfig>}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSubConfigsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.SubRoomConfig>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.SubRoomConfig, 119));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.SubRoomConfig>} value */
+proto.holdem.pb.RoomRecord.prototype.setSubConfigsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 119, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.SubRoomConfig=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.SubRoomConfig}
+ */
+proto.holdem.pb.RoomRecord.prototype.addSubConfigs = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 119, opt_value, proto.holdem.pb.SubRoomConfig, opt_index);
+};
+
+
+proto.holdem.pb.RoomRecord.prototype.clearSubConfigsList = function() {
+  this.setSubConfigsList([]);
+};
+
+
+/**
+ * optional int32 squid_max = 120;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSquidMax = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 120, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSquidMax = function(value) {
+  jspb.Message.setField(this, 120, value);
+};
+
+
+/**
+ * optional int32 squid_most_get = 121;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSquidMostGet = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 121, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSquidMostGet = function(value) {
+  jspb.Message.setField(this, 121, value);
+};
+
+
+/**
+ * optional int32 squid_bet_get = 122;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSquidBetGet = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 122, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSquidBetGet = function(value) {
+  jspb.Message.setField(this, 122, value);
+};
+
+
+/**
+ * optional int32 squid_head = 123;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSquidHead = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 123, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSquidHead = function(value) {
+  jspb.Message.setField(this, 123, value);
+};
+
+
+/**
+ * optional int32 squid_tail = 124;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSquidTail = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 124, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSquidTail = function(value) {
+  jspb.Message.setField(this, 124, value);
 };
 
 
@@ -21572,6 +21754,337 @@ proto.holdem.pb.RoomJackpotConfig.prototype.getContributeRatio = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomJackpotConfig.prototype.setContributeRatio = function(value) {
   jspb.Message.setField(this, 10, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.SubRoomConfig = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.SubRoomConfig, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.SubRoomConfig.displayName = 'proto.holdem.pb.SubRoomConfig';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.SubRoomConfig.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.SubRoomConfig} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.SubRoomConfig.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    ante: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    sb: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    gameType: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    pokerType: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    limitBetType: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    bombpot: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    squidBase: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    rounds: jspb.Message.getFieldWithDefault(msg, 8, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.SubRoomConfig}
+ */
+proto.holdem.pb.SubRoomConfig.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.SubRoomConfig;
+  return proto.holdem.pb.SubRoomConfig.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.SubRoomConfig} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.SubRoomConfig}
+ */
+proto.holdem.pb.SubRoomConfig.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAnte(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSb(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setGameType(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPokerType(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setLimitBetType(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setBombpot(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSquidBase(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRounds(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.SubRoomConfig.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.SubRoomConfig} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.SubRoomConfig.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getAnte();
+  if (f !== 0) {
+    writer.writeUint64(
+      1,
+      f
+    );
+  }
+  f = message.getSb();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
+  f = message.getGameType();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
+  f = message.getPokerType();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
+      f
+    );
+  }
+  f = message.getLimitBetType();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
+      f
+    );
+  }
+  f = message.getBombpot();
+  if (f !== 0) {
+    writer.writeInt32(
+      6,
+      f
+    );
+  }
+  f = message.getSquidBase();
+  if (f !== 0) {
+    writer.writeUint64(
+      7,
+      f
+    );
+  }
+  f = message.getRounds();
+  if (f !== 0) {
+    writer.writeInt32(
+      8,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint64 ante = 1;
+ * @return {number}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.getAnte = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SubRoomConfig.prototype.setAnte = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 sb = 2;
+ * @return {number}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.getSb = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SubRoomConfig.prototype.setSb = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional int32 game_type = 3;
+ * @return {number}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.getGameType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SubRoomConfig.prototype.setGameType = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional int32 poker_type = 4;
+ * @return {number}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.getPokerType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SubRoomConfig.prototype.setPokerType = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int32 limit_bet_type = 5;
+ * @return {number}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.getLimitBetType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SubRoomConfig.prototype.setLimitBetType = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional int32 bombpot = 6;
+ * @return {number}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.getBombpot = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SubRoomConfig.prototype.setBombpot = function(value) {
+  jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional uint64 squid_base = 7;
+ * @return {number}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.getSquidBase = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SubRoomConfig.prototype.setSquidBase = function(value) {
+  jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional int32 rounds = 8;
+ * @return {number}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.getRounds = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SubRoomConfig.prototype.setRounds = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 

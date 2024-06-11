@@ -2401,6 +2401,26 @@ export class RoomRecord extends jspb.Message {
   getJackpotConfig(): RoomJackpotConfig | undefined;
   setJackpotConfig(value?: RoomJackpotConfig): void;
 
+  clearSubConfigsList(): void;
+  getSubConfigsList(): Array<SubRoomConfig>;
+  setSubConfigsList(value: Array<SubRoomConfig>): void;
+  addSubConfigs(value?: SubRoomConfig, index?: number): SubRoomConfig;
+
+  getSquidMax(): number;
+  setSquidMax(value: number): void;
+
+  getSquidMostGet(): number;
+  setSquidMostGet(value: number): void;
+
+  getSquidBetGet(): number;
+  setSquidBetGet(value: number): void;
+
+  getSquidHead(): number;
+  setSquidHead(value: number): void;
+
+  getSquidTail(): number;
+  setSquidTail(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2529,6 +2549,12 @@ export namespace RoomRecord {
     jackpotId: number,
     jackpotGold: number,
     jackpotConfig?: RoomJackpotConfig.AsObject,
+    subConfigsList: Array<SubRoomConfig.AsObject>,
+    squidMax: number,
+    squidMostGet: number,
+    squidBetGet: number,
+    squidHead: number,
+    squidTail: number,
   }
 }
 
@@ -3283,6 +3309,54 @@ export namespace RoomJackpotConfig {
     contributeFixedLimit: number,
     contributeFixedRate: number,
     contributeRatio: number,
+  }
+}
+
+export class SubRoomConfig extends jspb.Message {
+  getAnte(): number;
+  setAnte(value: number): void;
+
+  getSb(): number;
+  setSb(value: number): void;
+
+  getGameType(): number;
+  setGameType(value: number): void;
+
+  getPokerType(): number;
+  setPokerType(value: number): void;
+
+  getLimitBetType(): number;
+  setLimitBetType(value: number): void;
+
+  getBombpot(): number;
+  setBombpot(value: number): void;
+
+  getSquidBase(): number;
+  setSquidBase(value: number): void;
+
+  getRounds(): number;
+  setRounds(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SubRoomConfig.AsObject;
+  static toObject(includeInstance: boolean, msg: SubRoomConfig): SubRoomConfig.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SubRoomConfig, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SubRoomConfig;
+  static deserializeBinaryFromReader(message: SubRoomConfig, reader: jspb.BinaryReader): SubRoomConfig;
+}
+
+export namespace SubRoomConfig {
+  export type AsObject = {
+    ante: number,
+    sb: number,
+    gameType: number,
+    pokerType: number,
+    limitBetType: number,
+    bombpot: number,
+    squidBase: number,
+    rounds: number,
   }
 }
 
