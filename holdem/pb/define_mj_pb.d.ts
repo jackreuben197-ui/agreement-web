@@ -917,6 +917,11 @@ export class ResultMJ extends jspb.Message {
   getUserRid(): number;
   setUserRid(value: number): void;
 
+  clearHandTilesList(): void;
+  getHandTilesList(): Array<Tile>;
+  setHandTilesList(value: Array<Tile>): void;
+  addHandTiles(value?: Tile, index?: number): Tile;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ResultMJ.AsObject;
   static toObject(includeInstance: boolean, msg: ResultMJ): ResultMJ.AsObject;
@@ -936,6 +941,7 @@ export namespace ResultMJ {
     resultDetailList: Array<ResultDetailMJ.AsObject>,
     standUp: boolean,
     userRid: number,
+    handTilesList: Array<Tile.AsObject>,
   }
 }
 

@@ -5764,7 +5764,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ResultMJ.repeatedFields_ = [5];
+proto.holdem.pb.ResultMJ.repeatedFields_ = [5,15];
 
 
 
@@ -5802,7 +5802,9 @@ proto.holdem.pb.ResultMJ.toObject = function(includeInstance, msg) {
     resultDetailList: jspb.Message.toObjectList(msg.getResultDetailList(),
     proto.holdem.pb.ResultDetailMJ.toObject, includeInstance),
     standUp: jspb.Message.getFieldWithDefault(msg, 12, false),
-    userRid: jspb.Message.getFieldWithDefault(msg, 14, 0)
+    userRid: jspb.Message.getFieldWithDefault(msg, 14, 0),
+    handTilesList: jspb.Message.toObjectList(msg.getHandTilesList(),
+    proto.holdem.pb.Tile.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -5867,6 +5869,11 @@ proto.holdem.pb.ResultMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 14:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setUserRid(value);
+      break;
+    case 15:
+      var value = new proto.holdem.pb.Tile;
+      reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
+      msg.addHandTiles(value);
       break;
     default:
       reader.skipField();
@@ -5945,6 +5952,14 @@ proto.holdem.pb.ResultMJ.serializeBinaryToWriter = function(message, writer) {
     writer.writeUint64(
       14,
       f
+    );
+  }
+  f = message.getHandTilesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      15,
+      f,
+      proto.holdem.pb.Tile.serializeBinaryToWriter
     );
   }
 };
@@ -6070,6 +6085,37 @@ proto.holdem.pb.ResultMJ.prototype.getUserRid = function() {
 /** @param {number} value */
 proto.holdem.pb.ResultMJ.prototype.setUserRid = function(value) {
   jspb.Message.setField(this, 14, value);
+};
+
+
+/**
+ * repeated Tile hand_tiles = 15;
+ * @return {!Array.<!proto.holdem.pb.Tile>}
+ */
+proto.holdem.pb.ResultMJ.prototype.getHandTilesList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.Tile>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.Tile, 15));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.Tile>} value */
+proto.holdem.pb.ResultMJ.prototype.setHandTilesList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 15, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.Tile=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.Tile}
+ */
+proto.holdem.pb.ResultMJ.prototype.addHandTiles = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 15, opt_value, proto.holdem.pb.Tile, opt_index);
+};
+
+
+proto.holdem.pb.ResultMJ.prototype.clearHandTilesList = function() {
+  this.setHandTilesList([]);
 };
 
 
