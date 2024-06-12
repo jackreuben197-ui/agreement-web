@@ -11388,7 +11388,9 @@ proto.holdem.pb.PlayerSummary.toObject = function(includeInstance, msg) {
     storeChips: jspb.Message.getFieldWithDefault(msg, 13, 0),
     mushroomCount: jspb.Message.getFieldWithDefault(msg, 14, 0),
     mushroomAmount: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    poolRate: jspb.Message.getFieldWithDefault(msg, 16, 0)
+    poolRate: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    squidInTotal: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    squidOutTotal: jspb.Message.getFieldWithDefault(msg, 18, 0)
   };
 
   if (includeInstance) {
@@ -11488,6 +11490,14 @@ proto.holdem.pb.PlayerSummary.deserializeBinaryFromReader = function(msg, reader
     case 16:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPoolRate(value);
+      break;
+    case 17:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSquidInTotal(value);
+      break;
+    case 18:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSquidOutTotal(value);
       break;
     default:
       reader.skipField();
@@ -11627,6 +11637,20 @@ proto.holdem.pb.PlayerSummary.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeInt32(
       16,
+      f
+    );
+  }
+  f = message.getSquidInTotal();
+  if (f !== 0) {
+    writer.writeUint64(
+      17,
+      f
+    );
+  }
+  f = message.getSquidOutTotal();
+  if (f !== 0) {
+    writer.writeUint64(
+      18,
       f
     );
   }
@@ -11872,6 +11896,36 @@ proto.holdem.pb.PlayerSummary.prototype.getPoolRate = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerSummary.prototype.setPoolRate = function(value) {
   jspb.Message.setField(this, 16, value);
+};
+
+
+/**
+ * optional uint64 squid_in_total = 17;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummary.prototype.getSquidInTotal = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummary.prototype.setSquidInTotal = function(value) {
+  jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * optional uint64 squid_out_total = 18;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummary.prototype.getSquidOutTotal = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummary.prototype.setSquidOutTotal = function(value) {
+  jspb.Message.setField(this, 18, value);
 };
 
 
