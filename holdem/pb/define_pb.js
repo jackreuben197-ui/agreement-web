@@ -2578,7 +2578,8 @@ proto.holdem.pb.HandInfo.toObject = function(includeInstance, msg) {
     pools: (f = msg.getPools()) && proto.holdem.pb.ExternalPools.toObject(includeInstance, f),
     inSquid: jspb.Message.getFieldWithDefault(msg, 15, false),
     secondPotsList: jspb.Message.toObjectList(msg.getSecondPotsList(),
-    proto.holdem.pb.SidePot.toObject, includeInstance)
+    proto.holdem.pb.SidePot.toObject, includeInstance),
+    conRounds: jspb.Message.getFieldWithDefault(msg, 17, 0)
   };
 
   if (includeInstance) {
@@ -2673,6 +2674,10 @@ proto.holdem.pb.HandInfo.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.SidePot;
       reader.readMessage(value,proto.holdem.pb.SidePot.deserializeBinaryFromReader);
       msg.addSecondPots(value);
+      break;
+    case 17:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setConRounds(value);
       break;
     default:
       reader.skipField();
@@ -2802,6 +2807,13 @@ proto.holdem.pb.HandInfo.serializeBinaryToWriter = function(message, writer) {
       16,
       f,
       proto.holdem.pb.SidePot.serializeBinaryToWriter
+    );
+  }
+  f = message.getConRounds();
+  if (f !== 0) {
+    writer.writeUint32(
+      17,
+      f
     );
   }
 };
@@ -3105,6 +3117,21 @@ proto.holdem.pb.HandInfo.prototype.addSecondPots = function(opt_value, opt_index
 
 proto.holdem.pb.HandInfo.prototype.clearSecondPotsList = function() {
   this.setSecondPotsList([]);
+};
+
+
+/**
+ * optional uint32 con_rounds = 17;
+ * @return {number}
+ */
+proto.holdem.pb.HandInfo.prototype.getConRounds = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.HandInfo.prototype.setConRounds = function(value) {
+  jspb.Message.setField(this, 17, value);
 };
 
 

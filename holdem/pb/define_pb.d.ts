@@ -595,6 +595,9 @@ export class HandInfo extends jspb.Message {
   setSecondPotsList(value: Array<SidePot>): void;
   addSecondPots(value?: SidePot, index?: number): SidePot;
 
+  getConRounds(): number;
+  setConRounds(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandInfo.AsObject;
   static toObject(includeInstance: boolean, msg: HandInfo): HandInfo.AsObject;
@@ -621,6 +624,7 @@ export namespace HandInfo {
     pools?: ExternalPools.AsObject,
     inSquid: boolean,
     secondPotsList: Array<SidePot.AsObject>,
+    conRounds: number,
   }
 }
 
