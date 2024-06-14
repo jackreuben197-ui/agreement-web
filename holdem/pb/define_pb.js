@@ -13322,7 +13322,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     squidMostGet: jspb.Message.getFieldWithDefault(msg, 121, 0),
     squidBetGet: jspb.Message.getFieldWithDefault(msg, 122, 0),
     squidHead: jspb.Message.getFieldWithDefault(msg, 123, 0),
-    squidTail: jspb.Message.getFieldWithDefault(msg, 124, 0)
+    squidTail: jspb.Message.getFieldWithDefault(msg, 124, 0),
+    rounds: jspb.Message.getFieldWithDefault(msg, 125, 0)
   };
 
   if (includeInstance) {
@@ -13852,6 +13853,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 124:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSquidTail(value);
+      break;
+    case 125:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRounds(value);
       break;
     default:
       reader.skipField();
@@ -14739,6 +14744,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       124,
+      f
+    );
+  }
+  f = message.getRounds();
+  if (f !== 0) {
+    writer.writeInt32(
+      125,
       f
     );
   }
@@ -16666,6 +16678,21 @@ proto.holdem.pb.RoomRecord.prototype.getSquidTail = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setSquidTail = function(value) {
   jspb.Message.setField(this, 124, value);
+};
+
+
+/**
+ * optional int32 rounds = 125;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRounds = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 125, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setRounds = function(value) {
+  jspb.Message.setField(this, 125, value);
 };
 
 

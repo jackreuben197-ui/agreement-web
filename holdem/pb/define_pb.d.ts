@@ -2433,6 +2433,9 @@ export class RoomRecord extends jspb.Message {
   getSquidTail(): number;
   setSquidTail(value: number): void;
 
+  getRounds(): number;
+  setRounds(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2567,6 +2570,7 @@ export namespace RoomRecord {
     squidBetGet: number,
     squidHead: number,
     squidTail: number,
+    rounds: number,
   }
 }
 
