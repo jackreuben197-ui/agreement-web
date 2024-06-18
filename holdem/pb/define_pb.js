@@ -11528,7 +11528,7 @@ proto.holdem.pb.PlayerSummary.deserializeBinaryFromReader = function(msg, reader
       msg.setSquidOutTotal(value);
       break;
     case 19:
-      var value = /** @type {number} */ (reader.readUint64());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setSquidCount(value);
       break;
     default:
@@ -11688,7 +11688,7 @@ proto.holdem.pb.PlayerSummary.serializeBinaryToWriter = function(message, writer
   }
   f = message.getSquidCount();
   if (f !== 0) {
-    writer.writeUint64(
+    writer.writeInt32(
       19,
       f
     );
@@ -11969,7 +11969,7 @@ proto.holdem.pb.PlayerSummary.prototype.setSquidOutTotal = function(value) {
 
 
 /**
- * optional uint64 squid_count = 19;
+ * optional int32 squid_count = 19;
  * @return {number}
  */
 proto.holdem.pb.PlayerSummary.prototype.getSquidCount = function() {
