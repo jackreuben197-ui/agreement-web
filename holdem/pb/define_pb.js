@@ -11417,7 +11417,8 @@ proto.holdem.pb.PlayerSummary.toObject = function(includeInstance, msg) {
     mushroomAmount: jspb.Message.getFieldWithDefault(msg, 15, 0),
     poolRate: jspb.Message.getFieldWithDefault(msg, 16, 0),
     squidInTotal: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    squidOutTotal: jspb.Message.getFieldWithDefault(msg, 18, 0)
+    squidOutTotal: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    squidCount: jspb.Message.getFieldWithDefault(msg, 19, 0)
   };
 
   if (includeInstance) {
@@ -11525,6 +11526,10 @@ proto.holdem.pb.PlayerSummary.deserializeBinaryFromReader = function(msg, reader
     case 18:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setSquidOutTotal(value);
+      break;
+    case 19:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSquidCount(value);
       break;
     default:
       reader.skipField();
@@ -11678,6 +11683,13 @@ proto.holdem.pb.PlayerSummary.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeUint64(
       18,
+      f
+    );
+  }
+  f = message.getSquidCount();
+  if (f !== 0) {
+    writer.writeUint64(
+      19,
       f
     );
   }
@@ -11953,6 +11965,21 @@ proto.holdem.pb.PlayerSummary.prototype.getSquidOutTotal = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerSummary.prototype.setSquidOutTotal = function(value) {
   jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * optional uint64 squid_count = 19;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummary.prototype.getSquidCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummary.prototype.setSquidCount = function(value) {
+  jspb.Message.setField(this, 19, value);
 };
 
 
