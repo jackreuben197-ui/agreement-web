@@ -16,6 +16,9 @@ export class ServerMessageEncryptCards extends jspb.Message {
   setCardsList(value: Array<string>): void;
   addCards(value: string, index?: number): string;
 
+  getCutType(): number;
+  setCutType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageEncryptCards.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageEncryptCards): ServerMessageEncryptCards.AsObject;
@@ -31,6 +34,7 @@ export namespace ServerMessageEncryptCards {
     seatId: number,
     cutOffset: number,
     cardsList: Array<string>,
+    cutType: number,
   }
 }
 

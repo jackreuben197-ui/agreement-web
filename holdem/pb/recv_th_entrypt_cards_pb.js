@@ -69,7 +69,8 @@ proto.holdem.pb.ServerMessageEncryptCards.toObject = function(includeInstance, m
   var f, obj = {
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     cutOffset: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    cardsList: jspb.Message.getRepeatedField(msg, 3)
+    cardsList: jspb.Message.getRepeatedField(msg, 3),
+    cutType: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -118,6 +119,10 @@ proto.holdem.pb.ServerMessageEncryptCards.deserializeBinaryFromReader = function
       var value = /** @type {string} */ (reader.readString());
       msg.addCards(value);
       break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setCutType(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -165,6 +170,13 @@ proto.holdem.pb.ServerMessageEncryptCards.serializeBinaryToWriter = function(mes
   if (f.length > 0) {
     writer.writeRepeatedString(
       3,
+      f
+    );
+  }
+  f = message.getCutType();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
       f
     );
   }
@@ -227,6 +239,21 @@ proto.holdem.pb.ServerMessageEncryptCards.prototype.addCards = function(value, o
 
 proto.holdem.pb.ServerMessageEncryptCards.prototype.clearCardsList = function() {
   this.setCardsList([]);
+};
+
+
+/**
+ * optional int32 cut_type = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageEncryptCards.prototype.getCutType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageEncryptCards.prototype.setCutType = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 
