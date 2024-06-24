@@ -2,7 +2,6 @@
 // file: protobuf/holdem/recv_th_jackpot_award.proto
 
 import * as jspb from "google-protobuf";
-import * as protobuf_holdem_define_pb from "../../protobuf/holdem/define_pb";
 
 export class ServerMessageJackpotAward extends jspb.Message {
   getHandNum(): number;

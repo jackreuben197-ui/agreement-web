@@ -2,7 +2,6 @@
 // file: protobuf/holdem/recv_th_jackpot_gold_change.proto
 
 import * as jspb from "google-protobuf";
-import * as protobuf_holdem_define_pb from "../../protobuf/holdem/define_pb";
 
 export class ServerMessageJackpotGoldChange extends jspb.Message {
   getJackpotId(): number;
