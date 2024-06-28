@@ -63,7 +63,8 @@ proto.holdem.pb.ClientMessageAction.toObject = function(includeInstance, msg) {
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     action: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    amount: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    amount: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    clubId: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -113,6 +114,10 @@ proto.holdem.pb.ClientMessageAction.deserializeBinaryFromReader = function(msg, 
       var value = /** @type {number} */ (reader.readUint64());
       msg.setAmount(value);
       break;
+    case 4:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setClubId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -161,6 +166,13 @@ proto.holdem.pb.ClientMessageAction.serializeBinaryToWriter = function(message, 
   if (f !== 0) {
     writer.writeUint64(
       3,
+      f
+    );
+  }
+  f = message.getClubId();
+  if (f !== 0) {
+    writer.writeUint64(
+      4,
       f
     );
   }
@@ -224,6 +236,21 @@ proto.holdem.pb.ClientMessageAction.prototype.getAmount = function() {
 /** @param {number} value */
 proto.holdem.pb.ClientMessageAction.prototype.setAmount = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional uint64 club_id = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageAction.prototype.getClubId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageAction.prototype.setClubId = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

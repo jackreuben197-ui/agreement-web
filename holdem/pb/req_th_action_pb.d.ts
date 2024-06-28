@@ -16,6 +16,9 @@ export class ClientMessageAction extends jspb.Message {
   getAmount(): number;
   setAmount(value: number): void;
 
+  getClubId(): number;
+  setClubId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageAction.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageAction): ClientMessageAction.AsObject;
@@ -31,6 +34,7 @@ export namespace ClientMessageAction {
     room?: protobuf_holdem_define_pb.Room.AsObject,
     action: protobuf_holdem_define_pb.Def.ActionMap[keyof protobuf_holdem_define_pb.Def.ActionMap],
     amount: number,
+    clubId: number,
   }
 }
 
