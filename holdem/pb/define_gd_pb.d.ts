@@ -269,24 +269,10 @@ export class PlayerStartInfoGD extends jspb.Message {
   getChip(): number;
   setChip(value: number): void;
 
-  getWaitType(): DefGD.WaitTypeMap[keyof DefGD.WaitTypeMap];
-  setWaitType(value: DefGD.WaitTypeMap[keyof DefGD.WaitTypeMap]): void;
-
-  getWaitDeadline(): number;
-  setWaitDeadline(value: number): void;
-
-  clearValidActionsList(): void;
-  getValidActionsList(): Array<DefGD.ActionGdMap[keyof DefGD.ActionGdMap]>;
-  setValidActionsList(value: Array<DefGD.ActionGdMap[keyof DefGD.ActionGdMap]>): void;
-  addValidActions(value: DefGD.ActionGdMap[keyof DefGD.ActionGdMap], index?: number): DefGD.ActionGdMap[keyof DefGD.ActionGdMap];
-
-  clearDiscardCardsList(): void;
-  getDiscardCardsList(): Array<ValidCards>;
-  setDiscardCardsList(value: Array<ValidCards>): void;
-  addDiscardCards(value?: ValidCards, index?: number): ValidCards;
-
-  getRefuseTribute(): boolean;
-  setRefuseTribute(value: boolean): void;
+  hasOp(): boolean;
+  clearOp(): void;
+  getOp(): OperatorGD | undefined;
+  setOp(value?: OperatorGD): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfoGD.AsObject;
@@ -303,11 +289,7 @@ export namespace PlayerStartInfoGD {
     seatId: number,
     cardsList: Array<Card.AsObject>,
     chip: number,
-    waitType: DefGD.WaitTypeMap[keyof DefGD.WaitTypeMap],
-    waitDeadline: number,
-    validActionsList: Array<DefGD.ActionGdMap[keyof DefGD.ActionGdMap]>,
-    discardCardsList: Array<ValidCards.AsObject>,
-    refuseTribute: boolean,
+    op?: OperatorGD.AsObject,
   }
 }
 
@@ -376,6 +358,14 @@ export class PlayerGD extends jspb.Message {
   getReadyStart(): boolean;
   setReadyStart(value: boolean): void;
 
+  getLastAction(): DefGD.ActionGdMap[keyof DefGD.ActionGdMap];
+  setLastAction(value: DefGD.ActionGdMap[keyof DefGD.ActionGdMap]): void;
+
+  hasLastDiscard(): boolean;
+  clearLastDiscard(): void;
+  getLastDiscard(): ValidCards | undefined;
+  setLastDiscard(value?: ValidCards): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerGD.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerGD): PlayerGD.AsObject;
@@ -408,6 +398,8 @@ export namespace PlayerGD {
     rank: DefGD.WinTypeMap[keyof DefGD.WinTypeMap],
     totalWinLose: number,
     readyStart: boolean,
+    lastAction: DefGD.ActionGdMap[keyof DefGD.ActionGdMap],
+    lastDiscard?: ValidCards.AsObject,
   }
 }
 
@@ -481,6 +473,11 @@ export class OperatorGD extends jspb.Message {
   getRefuseTribute(): boolean;
   setRefuseTribute(value: boolean): void;
 
+  clearTributeCardsList(): void;
+  getTributeCardsList(): Array<Card>;
+  setTributeCardsList(value: Array<Card>): void;
+  addTributeCards(value?: Card, index?: number): Card;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OperatorGD.AsObject;
   static toObject(includeInstance: boolean, msg: OperatorGD): OperatorGD.AsObject;
@@ -500,6 +497,7 @@ export namespace OperatorGD {
     validActionsList: Array<DefGD.ActionGdMap[keyof DefGD.ActionGdMap]>,
     discardCardsList: Array<ValidCards.AsObject>,
     refuseTribute: boolean,
+    tributeCardsList: Array<Card.AsObject>,
   }
 }
 

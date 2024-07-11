@@ -1572,7 +1572,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.PlayerStartInfoGD.repeatedFields_ = [2,6,7];
+proto.holdem.pb.PlayerStartInfoGD.repeatedFields_ = [2];
 
 
 
@@ -1607,12 +1607,7 @@ proto.holdem.pb.PlayerStartInfoGD.toObject = function(includeInstance, msg) {
     cardsList: jspb.Message.toObjectList(msg.getCardsList(),
     proto.holdem.pb.Card.toObject, includeInstance),
     chip: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    waitType: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    waitDeadline: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    validActionsList: jspb.Message.getRepeatedField(msg, 6),
-    discardCardsList: jspb.Message.toObjectList(msg.getDiscardCardsList(),
-    proto.holdem.pb.ValidCards.toObject, includeInstance),
-    refuseTribute: jspb.Message.getFieldWithDefault(msg, 8, false)
+    op: (f = msg.getOp()) && proto.holdem.pb.OperatorGD.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1663,25 +1658,9 @@ proto.holdem.pb.PlayerStartInfoGD.deserializeBinaryFromReader = function(msg, re
       msg.setChip(value);
       break;
     case 4:
-      var value = /** @type {!proto.holdem.pb.DefGD.WaitType} */ (reader.readEnum());
-      msg.setWaitType(value);
-      break;
-    case 5:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setWaitDeadline(value);
-      break;
-    case 6:
-      var value = /** @type {!Array.<!proto.holdem.pb.DefGD.ActionGd>} */ (reader.readPackedEnum());
-      msg.setValidActionsList(value);
-      break;
-    case 7:
-      var value = new proto.holdem.pb.ValidCards;
-      reader.readMessage(value,proto.holdem.pb.ValidCards.deserializeBinaryFromReader);
-      msg.addDiscardCards(value);
-      break;
-    case 8:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setRefuseTribute(value);
+      var value = new proto.holdem.pb.OperatorGD;
+      reader.readMessage(value,proto.holdem.pb.OperatorGD.deserializeBinaryFromReader);
+      msg.setOp(value);
       break;
     default:
       reader.skipField();
@@ -1734,40 +1713,12 @@ proto.holdem.pb.PlayerStartInfoGD.serializeBinaryToWriter = function(message, wr
       f
     );
   }
-  f = message.getWaitType();
-  if (f !== 0.0) {
-    writer.writeEnum(
+  f = message.getOp();
+  if (f != null) {
+    writer.writeMessage(
       4,
-      f
-    );
-  }
-  f = message.getWaitDeadline();
-  if (f !== 0) {
-    writer.writeInt64(
-      5,
-      f
-    );
-  }
-  f = message.getValidActionsList();
-  if (f.length > 0) {
-    writer.writePackedEnum(
-      6,
-      f
-    );
-  }
-  f = message.getDiscardCardsList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      7,
       f,
-      proto.holdem.pb.ValidCards.serializeBinaryToWriter
-    );
-  }
-  f = message.getRefuseTribute();
-  if (f) {
-    writer.writeBool(
-      8,
-      f
+      proto.holdem.pb.OperatorGD.serializeBinaryToWriter
     );
   }
 };
@@ -1835,109 +1786,32 @@ proto.holdem.pb.PlayerStartInfoGD.prototype.setChip = function(value) {
 
 
 /**
- * optional DefGD.WaitType wait_type = 4;
- * @return {!proto.holdem.pb.DefGD.WaitType}
+ * optional OperatorGD op = 4;
+ * @return {?proto.holdem.pb.OperatorGD}
  */
-proto.holdem.pb.PlayerStartInfoGD.prototype.getWaitType = function() {
-  return /** @type {!proto.holdem.pb.DefGD.WaitType} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+proto.holdem.pb.PlayerStartInfoGD.prototype.getOp = function() {
+  return /** @type{?proto.holdem.pb.OperatorGD} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.OperatorGD, 4));
 };
 
 
-/** @param {!proto.holdem.pb.DefGD.WaitType} value */
-proto.holdem.pb.PlayerStartInfoGD.prototype.setWaitType = function(value) {
-  jspb.Message.setField(this, 4, value);
+/** @param {?proto.holdem.pb.OperatorGD|undefined} value */
+proto.holdem.pb.PlayerStartInfoGD.prototype.setOp = function(value) {
+  jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+proto.holdem.pb.PlayerStartInfoGD.prototype.clearOp = function() {
+  this.setOp(undefined);
 };
 
 
 /**
- * optional int64 wait_deadline = 5;
- * @return {number}
+ * Returns whether this field is set.
+ * @return {!boolean}
  */
-proto.holdem.pb.PlayerStartInfoGD.prototype.getWaitDeadline = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.PlayerStartInfoGD.prototype.setWaitDeadline = function(value) {
-  jspb.Message.setField(this, 5, value);
-};
-
-
-/**
- * repeated DefGD.ActionGd valid_actions = 6;
- * @return {!Array.<!proto.holdem.pb.DefGD.ActionGd>}
- */
-proto.holdem.pb.PlayerStartInfoGD.prototype.getValidActionsList = function() {
-  return /** @type {!Array.<!proto.holdem.pb.DefGD.ActionGd>} */ (jspb.Message.getRepeatedField(this, 6));
-};
-
-
-/** @param {!Array.<!proto.holdem.pb.DefGD.ActionGd>} value */
-proto.holdem.pb.PlayerStartInfoGD.prototype.setValidActionsList = function(value) {
-  jspb.Message.setField(this, 6, value || []);
-};
-
-
-/**
- * @param {!proto.holdem.pb.DefGD.ActionGd} value
- * @param {number=} opt_index
- */
-proto.holdem.pb.PlayerStartInfoGD.prototype.addValidActions = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 6, value, opt_index);
-};
-
-
-proto.holdem.pb.PlayerStartInfoGD.prototype.clearValidActionsList = function() {
-  this.setValidActionsList([]);
-};
-
-
-/**
- * repeated ValidCards discard_cards = 7;
- * @return {!Array.<!proto.holdem.pb.ValidCards>}
- */
-proto.holdem.pb.PlayerStartInfoGD.prototype.getDiscardCardsList = function() {
-  return /** @type{!Array.<!proto.holdem.pb.ValidCards>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ValidCards, 7));
-};
-
-
-/** @param {!Array.<!proto.holdem.pb.ValidCards>} value */
-proto.holdem.pb.PlayerStartInfoGD.prototype.setDiscardCardsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 7, value);
-};
-
-
-/**
- * @param {!proto.holdem.pb.ValidCards=} opt_value
- * @param {number=} opt_index
- * @return {!proto.holdem.pb.ValidCards}
- */
-proto.holdem.pb.PlayerStartInfoGD.prototype.addDiscardCards = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 7, opt_value, proto.holdem.pb.ValidCards, opt_index);
-};
-
-
-proto.holdem.pb.PlayerStartInfoGD.prototype.clearDiscardCardsList = function() {
-  this.setDiscardCardsList([]);
-};
-
-
-/**
- * optional bool refuse_tribute = 8;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.holdem.pb.PlayerStartInfoGD.prototype.getRefuseTribute = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 8, false));
-};
-
-
-/** @param {boolean} value */
-proto.holdem.pb.PlayerStartInfoGD.prototype.setRefuseTribute = function(value) {
-  jspb.Message.setField(this, 8, value);
+proto.holdem.pb.PlayerStartInfoGD.prototype.hasOp = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
@@ -2015,7 +1889,9 @@ proto.holdem.pb.PlayerGD.toObject = function(includeInstance, msg) {
     tributeCard: (f = msg.getTributeCard()) && proto.holdem.pb.TributeCard.toObject(includeInstance, f),
     rank: jspb.Message.getFieldWithDefault(msg, 18, 0),
     totalWinLose: jspb.Message.getFieldWithDefault(msg, 19, 0),
-    readyStart: jspb.Message.getFieldWithDefault(msg, 20, false)
+    readyStart: jspb.Message.getFieldWithDefault(msg, 20, false),
+    lastAction: jspb.Message.getFieldWithDefault(msg, 21, 0),
+    lastDiscard: (f = msg.getLastDiscard()) && proto.holdem.pb.ValidCards.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2133,6 +2009,15 @@ proto.holdem.pb.PlayerGD.deserializeBinaryFromReader = function(msg, reader) {
     case 20:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setReadyStart(value);
+      break;
+    case 21:
+      var value = /** @type {!proto.holdem.pb.DefGD.ActionGd} */ (reader.readEnum());
+      msg.setLastAction(value);
+      break;
+    case 22:
+      var value = new proto.holdem.pb.ValidCards;
+      reader.readMessage(value,proto.holdem.pb.ValidCards.deserializeBinaryFromReader);
+      msg.setLastDiscard(value);
       break;
     default:
       reader.skipField();
@@ -2303,6 +2188,21 @@ proto.holdem.pb.PlayerGD.serializeBinaryToWriter = function(message, writer) {
     writer.writeBool(
       20,
       f
+    );
+  }
+  f = message.getLastAction();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      21,
+      f
+    );
+  }
+  f = message.getLastDiscard();
+  if (f != null) {
+    writer.writeMessage(
+      22,
+      f,
+      proto.holdem.pb.ValidCards.serializeBinaryToWriter
     );
   }
 };
@@ -2645,6 +2545,51 @@ proto.holdem.pb.PlayerGD.prototype.setReadyStart = function(value) {
 };
 
 
+/**
+ * optional DefGD.ActionGd last_action = 21;
+ * @return {!proto.holdem.pb.DefGD.ActionGd}
+ */
+proto.holdem.pb.PlayerGD.prototype.getLastAction = function() {
+  return /** @type {!proto.holdem.pb.DefGD.ActionGd} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
+};
+
+
+/** @param {!proto.holdem.pb.DefGD.ActionGd} value */
+proto.holdem.pb.PlayerGD.prototype.setLastAction = function(value) {
+  jspb.Message.setField(this, 21, value);
+};
+
+
+/**
+ * optional ValidCards last_discard = 22;
+ * @return {?proto.holdem.pb.ValidCards}
+ */
+proto.holdem.pb.PlayerGD.prototype.getLastDiscard = function() {
+  return /** @type{?proto.holdem.pb.ValidCards} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.ValidCards, 22));
+};
+
+
+/** @param {?proto.holdem.pb.ValidCards|undefined} value */
+proto.holdem.pb.PlayerGD.prototype.setLastDiscard = function(value) {
+  jspb.Message.setWrapperField(this, 22, value);
+};
+
+
+proto.holdem.pb.PlayerGD.prototype.clearLastDiscard = function() {
+  this.setLastDiscard(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.PlayerGD.prototype.hasLastDiscard = function() {
+  return jspb.Message.getField(this, 22) != null;
+};
+
+
 
 /**
  * Generated by JsPbCodeGenerator.
@@ -2974,7 +2919,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.OperatorGD.repeatedFields_ = [6,7];
+proto.holdem.pb.OperatorGD.repeatedFields_ = [6,7,9];
 
 
 
@@ -3012,7 +2957,9 @@ proto.holdem.pb.OperatorGD.toObject = function(includeInstance, msg) {
     validActionsList: jspb.Message.getRepeatedField(msg, 6),
     discardCardsList: jspb.Message.toObjectList(msg.getDiscardCardsList(),
     proto.holdem.pb.ValidCards.toObject, includeInstance),
-    refuseTribute: jspb.Message.getFieldWithDefault(msg, 8, false)
+    refuseTribute: jspb.Message.getFieldWithDefault(msg, 8, false),
+    tributeCardsList: jspb.Message.toObjectList(msg.getTributeCardsList(),
+    proto.holdem.pb.Card.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -3077,6 +3024,11 @@ proto.holdem.pb.OperatorGD.deserializeBinaryFromReader = function(msg, reader) {
     case 8:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setRefuseTribute(value);
+      break;
+    case 9:
+      var value = new proto.holdem.pb.Card;
+      reader.readMessage(value,proto.holdem.pb.Card.deserializeBinaryFromReader);
+      msg.addTributeCards(value);
       break;
     default:
       reader.skipField();
@@ -3155,6 +3107,14 @@ proto.holdem.pb.OperatorGD.serializeBinaryToWriter = function(message, writer) {
     writer.writeBool(
       8,
       f
+    );
+  }
+  f = message.getTributeCardsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      9,
+      f,
+      proto.holdem.pb.Card.serializeBinaryToWriter
     );
   }
 };
@@ -3294,6 +3254,37 @@ proto.holdem.pb.OperatorGD.prototype.getRefuseTribute = function() {
 /** @param {boolean} value */
 proto.holdem.pb.OperatorGD.prototype.setRefuseTribute = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * repeated Card tribute_cards = 9;
+ * @return {!Array.<!proto.holdem.pb.Card>}
+ */
+proto.holdem.pb.OperatorGD.prototype.getTributeCardsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.Card>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.Card, 9));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.Card>} value */
+proto.holdem.pb.OperatorGD.prototype.setTributeCardsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 9, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.Card=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.Card}
+ */
+proto.holdem.pb.OperatorGD.prototype.addTributeCards = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 9, opt_value, proto.holdem.pb.Card, opt_index);
+};
+
+
+proto.holdem.pb.OperatorGD.prototype.clearTributeCardsList = function() {
+  this.setTributeCardsList([]);
 };
 
 

@@ -62,6 +62,11 @@ export class ServerMessageGdSyncEnter extends jspb.Message {
   getMuted(): boolean;
   setMuted(value: boolean): void;
 
+  clearResultsList(): void;
+  getResultsList(): Array<protobuf_holdem_define_gd_pb.ResultGD>;
+  setResultsList(value: Array<protobuf_holdem_define_gd_pb.ResultGD>): void;
+  addResults(value?: protobuf_holdem_define_gd_pb.ResultGD, index?: number): protobuf_holdem_define_gd_pb.ResultGD;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageGdSyncEnter.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageGdSyncEnter): ServerMessageGdSyncEnter.AsObject;
@@ -82,6 +87,7 @@ export namespace ServerMessageGdSyncEnter {
     myInfo?: protobuf_holdem_define_gd_pb.MyGameInfoGD.AsObject,
     operatorList: Array<protobuf_holdem_define_gd_pb.OperatorGD.AsObject>,
     muted: boolean,
+    resultsList: Array<protobuf_holdem_define_gd_pb.ResultGD.AsObject>,
   }
 }
 

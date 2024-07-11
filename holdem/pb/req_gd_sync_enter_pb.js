@@ -197,7 +197,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageGdSyncEnter.repeatedFields_ = [5,7];
+proto.holdem.pb.ServerMessageGdSyncEnter.repeatedFields_ = [5,7,9];
 
 
 
@@ -237,7 +237,9 @@ proto.holdem.pb.ServerMessageGdSyncEnter.toObject = function(includeInstance, ms
     myInfo: (f = msg.getMyInfo()) && protobuf_holdem_define_gd_pb.MyGameInfoGD.toObject(includeInstance, f),
     operatorList: jspb.Message.toObjectList(msg.getOperatorList(),
     protobuf_holdem_define_gd_pb.OperatorGD.toObject, includeInstance),
-    muted: jspb.Message.getFieldWithDefault(msg, 8, false)
+    muted: jspb.Message.getFieldWithDefault(msg, 8, false),
+    resultsList: jspb.Message.toObjectList(msg.getResultsList(),
+    protobuf_holdem_define_gd_pb.ResultGD.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -310,6 +312,11 @@ proto.holdem.pb.ServerMessageGdSyncEnter.deserializeBinaryFromReader = function(
     case 8:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setMuted(value);
+      break;
+    case 9:
+      var value = new protobuf_holdem_define_gd_pb.ResultGD;
+      reader.readMessage(value,protobuf_holdem_define_gd_pb.ResultGD.deserializeBinaryFromReader);
+      msg.addResults(value);
       break;
     default:
       reader.skipField();
@@ -399,6 +406,14 @@ proto.holdem.pb.ServerMessageGdSyncEnter.serializeBinaryToWriter = function(mess
     writer.writeBool(
       8,
       f
+    );
+  }
+  f = message.getResultsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      9,
+      f,
+      protobuf_holdem_define_gd_pb.ResultGD.serializeBinaryToWriter
     );
   }
 };
@@ -600,6 +615,37 @@ proto.holdem.pb.ServerMessageGdSyncEnter.prototype.getMuted = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ServerMessageGdSyncEnter.prototype.setMuted = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * repeated ResultGD results = 9;
+ * @return {!Array.<!proto.holdem.pb.ResultGD>}
+ */
+proto.holdem.pb.ServerMessageGdSyncEnter.prototype.getResultsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ResultGD>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_gd_pb.ResultGD, 9));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.ResultGD>} value */
+proto.holdem.pb.ServerMessageGdSyncEnter.prototype.setResultsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 9, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.ResultGD=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ResultGD}
+ */
+proto.holdem.pb.ServerMessageGdSyncEnter.prototype.addResults = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 9, opt_value, proto.holdem.pb.ResultGD, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageGdSyncEnter.prototype.clearResultsList = function() {
+  this.setResultsList([]);
 };
 
 
