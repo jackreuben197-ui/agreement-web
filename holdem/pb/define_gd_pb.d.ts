@@ -98,6 +98,9 @@ export class ValidCards extends jspb.Message {
   setCardsList(value: Array<Card>): void;
   addCards(value?: Card, index?: number): Card;
 
+  getUniqueId(): string;
+  setUniqueId(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ValidCards.AsObject;
   static toObject(includeInstance: boolean, msg: ValidCards): ValidCards.AsObject;
@@ -112,6 +115,7 @@ export namespace ValidCards {
   export type AsObject = {
     cardsType: DefGD.CardsTypeMap[keyof DefGD.CardsTypeMap],
     cardsList: Array<Card.AsObject>,
+    uniqueId: string,
   }
 }
 

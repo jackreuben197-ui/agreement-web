@@ -419,7 +419,8 @@ proto.holdem.pb.ValidCards.toObject = function(includeInstance, msg) {
   var f, obj = {
     cardsType: jspb.Message.getFieldWithDefault(msg, 1, 0),
     cardsList: jspb.Message.toObjectList(msg.getCardsList(),
-    proto.holdem.pb.Card.toObject, includeInstance)
+    proto.holdem.pb.Card.toObject, includeInstance),
+    uniqueId: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -465,6 +466,10 @@ proto.holdem.pb.ValidCards.deserializeBinaryFromReader = function(msg, reader) {
       reader.readMessage(value,proto.holdem.pb.Card.deserializeBinaryFromReader);
       msg.addCards(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUniqueId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -507,6 +512,13 @@ proto.holdem.pb.ValidCards.serializeBinaryToWriter = function(message, writer) {
       2,
       f,
       proto.holdem.pb.Card.serializeBinaryToWriter
+    );
+  }
+  f = message.getUniqueId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
     );
   }
 };
@@ -555,6 +567,21 @@ proto.holdem.pb.ValidCards.prototype.addCards = function(opt_value, opt_index) {
 
 proto.holdem.pb.ValidCards.prototype.clearCardsList = function() {
   this.setCardsList([]);
+};
+
+
+/**
+ * optional string unique_id = 3;
+ * @return {string}
+ */
+proto.holdem.pb.ValidCards.prototype.getUniqueId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.ValidCards.prototype.setUniqueId = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 

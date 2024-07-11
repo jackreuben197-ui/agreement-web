@@ -7,6 +7,9 @@ export class ServerMessageGdReadyStartOthers extends jspb.Message {
   getSeatId(): number;
   setSeatId(value: number): void;
 
+  getWaitDeadline(): number;
+  setWaitDeadline(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageGdReadyStartOthers.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageGdReadyStartOthers): ServerMessageGdReadyStartOthers.AsObject;
@@ -20,6 +23,7 @@ export class ServerMessageGdReadyStartOthers extends jspb.Message {
 export namespace ServerMessageGdReadyStartOthers {
   export type AsObject = {
     seatId: number,
+    waitDeadline: number,
   }
 }
 

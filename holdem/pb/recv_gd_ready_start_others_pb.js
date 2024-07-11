@@ -59,7 +59,8 @@ proto.holdem.pb.ServerMessageGdReadyStartOthers.prototype.toObject = function(op
  */
 proto.holdem.pb.ServerMessageGdReadyStartOthers.toObject = function(includeInstance, msg) {
   var f, obj = {
-    seatId: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    waitDeadline: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -100,6 +101,10 @@ proto.holdem.pb.ServerMessageGdReadyStartOthers.deserializeBinaryFromReader = fu
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSeatId(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setWaitDeadline(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -136,6 +141,13 @@ proto.holdem.pb.ServerMessageGdReadyStartOthers.serializeBinaryToWriter = functi
       f
     );
   }
+  f = message.getWaitDeadline();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -151,6 +163,21 @@ proto.holdem.pb.ServerMessageGdReadyStartOthers.prototype.getSeatId = function()
 /** @param {number} value */
 proto.holdem.pb.ServerMessageGdReadyStartOthers.prototype.setSeatId = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional int64 wait_deadline = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageGdReadyStartOthers.prototype.getWaitDeadline = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageGdReadyStartOthers.prototype.setWaitDeadline = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 
