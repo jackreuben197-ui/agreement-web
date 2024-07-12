@@ -74,6 +74,7 @@ goog.exportSymbol('proto.holdem.pb.Roomer', null, global);
 goog.exportSymbol('proto.holdem.pb.SecondPublicCardsPlayerAllInShowCardSummary', null, global);
 goog.exportSymbol('proto.holdem.pb.SidePot', null, global);
 goog.exportSymbol('proto.holdem.pb.SplitedResult', null, global);
+goog.exportSymbol('proto.holdem.pb.SquidDetail', null, global);
 goog.exportSymbol('proto.holdem.pb.SubRoomConfig', null, global);
 goog.exportSymbol('proto.holdem.pb.UserOuts', null, global);
 goog.exportSymbol('proto.holdem.pb.UserPlayStatus', null, global);
@@ -10045,13 +10046,243 @@ proto.holdem.pb.ExternalHandChange.prototype.setOut = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.holdem.pb.ExternalPools = function(opt_data) {
+proto.holdem.pb.SquidDetail = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.SquidDetail, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.SquidDetail.displayName = 'proto.holdem.pb.SquidDetail';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.SquidDetail.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.SquidDetail.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.SquidDetail} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.SquidDetail.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    userRid: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    avatar: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    punishFee: jspb.Message.getFieldWithDefault(msg, 4, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.SquidDetail}
+ */
+proto.holdem.pb.SquidDetail.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.SquidDetail;
+  return proto.holdem.pb.SquidDetail.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.SquidDetail} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.SquidDetail}
+ */
+proto.holdem.pb.SquidDetail.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserRid(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAvatar(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setPunishFee(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.SquidDetail.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.SquidDetail.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.SquidDetail} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.SquidDetail.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getUserRid();
+  if (f !== 0) {
+    writer.writeUint64(
+      1,
+      f
+    );
+  }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getAvatar();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getPunishFee();
+  if (f !== 0) {
+    writer.writeUint64(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint64 user_rid = 1;
+ * @return {number}
+ */
+proto.holdem.pb.SquidDetail.prototype.getUserRid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SquidDetail.prototype.setUserRid = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional string name = 2;
+ * @return {string}
+ */
+proto.holdem.pb.SquidDetail.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.SquidDetail.prototype.setName = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional string avatar = 3;
+ * @return {string}
+ */
+proto.holdem.pb.SquidDetail.prototype.getAvatar = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.SquidDetail.prototype.setAvatar = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional uint64 punish_fee = 4;
+ * @return {number}
+ */
+proto.holdem.pb.SquidDetail.prototype.getPunishFee = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SquidDetail.prototype.setPunishFee = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.ExternalPools = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ExternalPools.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.ExternalPools, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.ExternalPools.displayName = 'proto.holdem.pb.ExternalPools';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.ExternalPools.repeatedFields_ = [3];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -10082,7 +10313,9 @@ proto.holdem.pb.ExternalPools.prototype.toObject = function(opt_includeInstance)
 proto.holdem.pb.ExternalPools.toObject = function(includeInstance, msg) {
   var f, obj = {
     mushroomPool: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    squidPool: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    squidPool: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    squidDetailsList: jspb.Message.toObjectList(msg.getSquidDetailsList(),
+    proto.holdem.pb.SquidDetail.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -10127,6 +10360,11 @@ proto.holdem.pb.ExternalPools.deserializeBinaryFromReader = function(msg, reader
       var value = /** @type {number} */ (reader.readUint64());
       msg.setSquidPool(value);
       break;
+    case 3:
+      var value = new proto.holdem.pb.SquidDetail;
+      reader.readMessage(value,proto.holdem.pb.SquidDetail.deserializeBinaryFromReader);
+      msg.addSquidDetails(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -10170,6 +10408,14 @@ proto.holdem.pb.ExternalPools.serializeBinaryToWriter = function(message, writer
       f
     );
   }
+  f = message.getSquidDetailsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      3,
+      f,
+      proto.holdem.pb.SquidDetail.serializeBinaryToWriter
+    );
+  }
 };
 
 
@@ -10200,6 +10446,37 @@ proto.holdem.pb.ExternalPools.prototype.getSquidPool = function() {
 /** @param {number} value */
 proto.holdem.pb.ExternalPools.prototype.setSquidPool = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * repeated SquidDetail squid_details = 3;
+ * @return {!Array.<!proto.holdem.pb.SquidDetail>}
+ */
+proto.holdem.pb.ExternalPools.prototype.getSquidDetailsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.SquidDetail>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.SquidDetail, 3));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.SquidDetail>} value */
+proto.holdem.pb.ExternalPools.prototype.setSquidDetailsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 3, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.SquidDetail=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.SquidDetail}
+ */
+proto.holdem.pb.ExternalPools.prototype.addSquidDetails = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.holdem.pb.SquidDetail, opt_index);
+};
+
+
+proto.holdem.pb.ExternalPools.prototype.clearSquidDetailsList = function() {
+  this.setSquidDetailsList([]);
 };
 
 
@@ -11418,7 +11695,8 @@ proto.holdem.pb.PlayerSummary.toObject = function(includeInstance, msg) {
     poolRate: jspb.Message.getFieldWithDefault(msg, 16, 0),
     squidInTotal: jspb.Message.getFieldWithDefault(msg, 17, 0),
     squidOutTotal: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    squidCount: jspb.Message.getFieldWithDefault(msg, 19, 0)
+    squidCount: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    squidPunishTotal: jspb.Message.getFieldWithDefault(msg, 20, 0)
   };
 
   if (includeInstance) {
@@ -11530,6 +11808,10 @@ proto.holdem.pb.PlayerSummary.deserializeBinaryFromReader = function(msg, reader
     case 19:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSquidCount(value);
+      break;
+    case 20:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSquidPunishTotal(value);
       break;
     default:
       reader.skipField();
@@ -11690,6 +11972,13 @@ proto.holdem.pb.PlayerSummary.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeInt32(
       19,
+      f
+    );
+  }
+  f = message.getSquidPunishTotal();
+  if (f !== 0) {
+    writer.writeUint64(
+      20,
       f
     );
   }
@@ -11980,6 +12269,21 @@ proto.holdem.pb.PlayerSummary.prototype.getSquidCount = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerSummary.prototype.setSquidCount = function(value) {
   jspb.Message.setField(this, 19, value);
+};
+
+
+/**
+ * optional uint64 squid_punish_total = 20;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummary.prototype.getSquidPunishTotal = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummary.prototype.setSquidPunishTotal = function(value) {
+  jspb.Message.setField(this, 20, value);
 };
 
 

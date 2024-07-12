@@ -1610,12 +1610,49 @@ export namespace ExternalHandChange {
   }
 }
 
+export class SquidDetail extends jspb.Message {
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getAvatar(): string;
+  setAvatar(value: string): void;
+
+  getPunishFee(): number;
+  setPunishFee(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SquidDetail.AsObject;
+  static toObject(includeInstance: boolean, msg: SquidDetail): SquidDetail.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SquidDetail, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SquidDetail;
+  static deserializeBinaryFromReader(message: SquidDetail, reader: jspb.BinaryReader): SquidDetail;
+}
+
+export namespace SquidDetail {
+  export type AsObject = {
+    userRid: number,
+    name: string,
+    avatar: string,
+    punishFee: number,
+  }
+}
+
 export class ExternalPools extends jspb.Message {
   getMushroomPool(): number;
   setMushroomPool(value: number): void;
 
   getSquidPool(): number;
   setSquidPool(value: number): void;
+
+  clearSquidDetailsList(): void;
+  getSquidDetailsList(): Array<SquidDetail>;
+  setSquidDetailsList(value: Array<SquidDetail>): void;
+  addSquidDetails(value?: SquidDetail, index?: number): SquidDetail;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ExternalPools.AsObject;
@@ -1631,6 +1668,7 @@ export namespace ExternalPools {
   export type AsObject = {
     mushroomPool: number,
     squidPool: number,
+    squidDetailsList: Array<SquidDetail.AsObject>,
   }
 }
 
@@ -1856,6 +1894,9 @@ export class PlayerSummary extends jspb.Message {
   getSquidCount(): number;
   setSquidCount(value: number): void;
 
+  getSquidPunishTotal(): number;
+  setSquidPunishTotal(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerSummary.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerSummary): PlayerSummary.AsObject;
@@ -1887,6 +1928,7 @@ export namespace PlayerSummary {
     squidInTotal: number,
     squidOutTotal: number,
     squidCount: number,
+    squidPunishTotal: number,
   }
 }
 
