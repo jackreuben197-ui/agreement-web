@@ -11,6 +11,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var protobuf_holdem_define_cb_pb = require('../../protobuf/holdem/define_cb_pb.js');
 goog.exportSymbol('proto.holdem.pb.ServerMessageCBEncryptCards', null, global);
 
 /**
@@ -67,7 +68,7 @@ proto.holdem.pb.ServerMessageCBEncryptCards.prototype.toObject = function(opt_in
 proto.holdem.pb.ServerMessageCBEncryptCards.toObject = function(includeInstance, msg) {
   var f, obj = {
     gameNum: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    cutUserId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    cutUser: (f = msg.getCutUser()) && protobuf_holdem_define_cb_pb.CBUser.toObject(includeInstance, f),
     cutOffset: jspb.Message.getFieldWithDefault(msg, 3, 0),
     cardsList: jspb.Message.getRepeatedField(msg, 4),
     cutType: jspb.Message.getFieldWithDefault(msg, 5, 0)
@@ -112,8 +113,9 @@ proto.holdem.pb.ServerMessageCBEncryptCards.deserializeBinaryFromReader = functi
       msg.setGameNum(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setCutUserId(value);
+      var value = new protobuf_holdem_define_cb_pb.CBUser;
+      reader.readMessage(value,protobuf_holdem_define_cb_pb.CBUser.deserializeBinaryFromReader);
+      msg.setCutUser(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
@@ -163,11 +165,12 @@ proto.holdem.pb.ServerMessageCBEncryptCards.serializeBinaryToWriter = function(m
       f
     );
   }
-  f = message.getCutUserId();
-  if (f !== 0) {
-    writer.writeUint64(
+  f = message.getCutUser();
+  if (f != null) {
+    writer.writeMessage(
       2,
-      f
+      f,
+      protobuf_holdem_define_cb_pb.CBUser.serializeBinaryToWriter
     );
   }
   f = message.getCutOffset();
@@ -210,17 +213,32 @@ proto.holdem.pb.ServerMessageCBEncryptCards.prototype.setGameNum = function(valu
 
 
 /**
- * optional uint64 cut_user_id = 2;
- * @return {number}
+ * optional CBUser cut_user = 2;
+ * @return {?proto.holdem.pb.CBUser}
  */
-proto.holdem.pb.ServerMessageCBEncryptCards.prototype.getCutUserId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+proto.holdem.pb.ServerMessageCBEncryptCards.prototype.getCutUser = function() {
+  return /** @type{?proto.holdem.pb.CBUser} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_cb_pb.CBUser, 2));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.ServerMessageCBEncryptCards.prototype.setCutUserId = function(value) {
-  jspb.Message.setField(this, 2, value);
+/** @param {?proto.holdem.pb.CBUser|undefined} value */
+proto.holdem.pb.ServerMessageCBEncryptCards.prototype.setCutUser = function(value) {
+  jspb.Message.setWrapperField(this, 2, value);
+};
+
+
+proto.holdem.pb.ServerMessageCBEncryptCards.prototype.clearCutUser = function() {
+  this.setCutUser(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageCBEncryptCards.prototype.hasCutUser = function() {
+  return jspb.Message.getField(this, 2) != null;
 };
 
 

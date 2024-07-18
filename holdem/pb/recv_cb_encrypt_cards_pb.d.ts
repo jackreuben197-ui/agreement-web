@@ -2,13 +2,16 @@
 // file: protobuf/holdem/recv_cb_encrypt_cards.proto
 
 import * as jspb from "google-protobuf";
+import * as protobuf_holdem_define_cb_pb from "../../protobuf/holdem/define_cb_pb";
 
 export class ServerMessageCBEncryptCards extends jspb.Message {
   getGameNum(): number;
   setGameNum(value: number): void;
 
-  getCutUserId(): number;
-  setCutUserId(value: number): void;
+  hasCutUser(): boolean;
+  clearCutUser(): void;
+  getCutUser(): protobuf_holdem_define_cb_pb.CBUser | undefined;
+  setCutUser(value?: protobuf_holdem_define_cb_pb.CBUser): void;
 
   getCutOffset(): number;
   setCutOffset(value: number): void;
@@ -34,7 +37,7 @@ export class ServerMessageCBEncryptCards extends jspb.Message {
 export namespace ServerMessageCBEncryptCards {
   export type AsObject = {
     gameNum: number,
-    cutUserId: number,
+    cutUser?: protobuf_holdem_define_cb_pb.CBUser.AsObject,
     cutOffset: number,
     cardsList: Array<string>,
     cutType: number,
