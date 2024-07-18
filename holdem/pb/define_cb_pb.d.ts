@@ -32,6 +32,9 @@ export namespace DefCB {
     HS_STA_FLUSH_THREE: 9;
     HS_FULL_HOUSE: 10;
     HS_FOUR_STAFLUSH_ROYALFLUSH: 11;
+    HS_FLUSH: 12;
+    HS_STA: 13;
+    HS_STAFLUSH: 14;
   }
 
   export const HistorySlot: HistorySlotMap;
@@ -60,6 +63,9 @@ export namespace DefCB {
     PS_STA_FLUSH_THREE: 9;
     PS_FULL_HOUSE: 10;
     PS_FOUR_STAFLUSH_ROYALFLUSH: 11;
+    PS_FLUSH: 12;
+    PS_STA: 13;
+    PS_STAFLUSH: 14;
   }
 
   export const PlaySlot: PlaySlotMap;
