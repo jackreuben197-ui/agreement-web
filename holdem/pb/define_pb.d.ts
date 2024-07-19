@@ -305,6 +305,11 @@ export class Operator extends jspb.Message {
   setInvalidInsurancePotsList(value: Array<InsurancePotInvalid>): void;
   addInvalidInsurancePots(value?: InsurancePotInvalid, index?: number): InsurancePotInvalid;
 
+  clearCardsList(): void;
+  getCardsList(): Array<number>;
+  setCardsList(value: Array<number>): void;
+  addCards(value: number, index?: number): number;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Operator.AsObject;
   static toObject(includeInstance: boolean, msg: Operator): Operator.AsObject;
@@ -327,6 +332,7 @@ export namespace Operator {
     isAgreeSecondPc: boolean,
     opDeadline: number,
     invalidInsurancePotsList: Array<InsurancePotInvalid.AsObject>,
+    cardsList: Array<number>,
   }
 }
 

@@ -630,7 +630,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.Operator.repeatedFields_ = [2,3,6,10];
+proto.holdem.pb.Operator.repeatedFields_ = [2,3,6,10,11];
 
 
 
@@ -674,7 +674,8 @@ proto.holdem.pb.Operator.toObject = function(includeInstance, msg) {
     isAgreeSecondPc: jspb.Message.getFieldWithDefault(msg, 8, false),
     opDeadline: jspb.Message.getFieldWithDefault(msg, 9, 0),
     invalidInsurancePotsList: jspb.Message.toObjectList(msg.getInvalidInsurancePotsList(),
-    proto.holdem.pb.InsurancePotInvalid.toObject, includeInstance)
+    proto.holdem.pb.InsurancePotInvalid.toObject, includeInstance),
+    cardsList: jspb.Message.getRepeatedField(msg, 11)
   };
 
   if (includeInstance) {
@@ -754,6 +755,10 @@ proto.holdem.pb.Operator.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.InsurancePotInvalid;
       reader.readMessage(value,proto.holdem.pb.InsurancePotInvalid.deserializeBinaryFromReader);
       msg.addInvalidInsurancePots(value);
+      break;
+    case 11:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setCardsList(value);
       break;
     default:
       reader.skipField();
@@ -856,6 +861,13 @@ proto.holdem.pb.Operator.serializeBinaryToWriter = function(message, writer) {
       10,
       f,
       proto.holdem.pb.InsurancePotInvalid.serializeBinaryToWriter
+    );
+  }
+  f = message.getCardsList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      11,
+      f
     );
   }
 };
@@ -1076,6 +1088,35 @@ proto.holdem.pb.Operator.prototype.addInvalidInsurancePots = function(opt_value,
 
 proto.holdem.pb.Operator.prototype.clearInvalidInsurancePotsList = function() {
   this.setInvalidInsurancePotsList([]);
+};
+
+
+/**
+ * repeated int32 cards = 11;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.Operator.prototype.getCardsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 11));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.Operator.prototype.setCardsList = function(value) {
+  jspb.Message.setField(this, 11, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.Operator.prototype.addCards = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 11, value, opt_index);
+};
+
+
+proto.holdem.pb.Operator.prototype.clearCardsList = function() {
+  this.setCardsList([]);
 };
 
 
