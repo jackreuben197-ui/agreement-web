@@ -4,7 +4,7 @@
 import * as jspb from "google-protobuf";
 import * as protobuf_holdem_define_cb_pb from "../../protobuf/holdem/define_cb_pb";
 
-export class ServerMessageCBEncryptCards extends jspb.Message {
+export class ServerMessageCbEncryptCards extends jspb.Message {
   getGameNum(): number;
   setGameNum(value: number): void;
 
@@ -25,16 +25,16 @@ export class ServerMessageCBEncryptCards extends jspb.Message {
   setCutType(value: number): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ServerMessageCBEncryptCards.AsObject;
-  static toObject(includeInstance: boolean, msg: ServerMessageCBEncryptCards): ServerMessageCBEncryptCards.AsObject;
+  toObject(includeInstance?: boolean): ServerMessageCbEncryptCards.AsObject;
+  static toObject(includeInstance: boolean, msg: ServerMessageCbEncryptCards): ServerMessageCbEncryptCards.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ServerMessageCBEncryptCards, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ServerMessageCBEncryptCards;
-  static deserializeBinaryFromReader(message: ServerMessageCBEncryptCards, reader: jspb.BinaryReader): ServerMessageCBEncryptCards;
+  static serializeBinaryToWriter(message: ServerMessageCbEncryptCards, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ServerMessageCbEncryptCards;
+  static deserializeBinaryFromReader(message: ServerMessageCbEncryptCards, reader: jspb.BinaryReader): ServerMessageCbEncryptCards;
 }
 
-export namespace ServerMessageCBEncryptCards {
+export namespace ServerMessageCbEncryptCards {
   export type AsObject = {
     gameNum: number,
     cutUser?: protobuf_holdem_define_cb_pb.CBUser.AsObject,
