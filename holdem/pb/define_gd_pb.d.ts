@@ -482,6 +482,12 @@ export class OperatorGD extends jspb.Message {
   setTributeCardsList(value: Array<Card>): void;
   addTributeCards(value?: Card, index?: number): Card;
 
+  getFirst(): boolean;
+  setFirst(value: boolean): void;
+
+  getFollow(): boolean;
+  setFollow(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): OperatorGD.AsObject;
   static toObject(includeInstance: boolean, msg: OperatorGD): OperatorGD.AsObject;
@@ -502,6 +508,8 @@ export namespace OperatorGD {
     discardCardsList: Array<ValidCards.AsObject>,
     refuseTribute: boolean,
     tributeCardsList: Array<Card.AsObject>,
+    first: boolean,
+    follow: boolean,
   }
 }
 

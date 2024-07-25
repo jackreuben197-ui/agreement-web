@@ -66,9 +66,7 @@ proto.holdem.pb.ServerMessageGdActionAll.toObject = function(includeInstance, ms
     handCardsLength: jspb.Message.getFieldWithDefault(msg, 4, 0),
     currentWinrate: jspb.Message.getFieldWithDefault(msg, 5, 0),
     nextOperator: (f = msg.getNextOperator()) && protobuf_holdem_define_gd_pb.OperatorGD.toObject(includeInstance, f),
-    nextFollow: jspb.Message.getFieldWithDefault(msg, 7, false),
-    rank: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    nextFirst: jspb.Message.getFieldWithDefault(msg, 9, false)
+    rank: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -131,17 +129,9 @@ proto.holdem.pb.ServerMessageGdActionAll.deserializeBinaryFromReader = function(
       reader.readMessage(value,protobuf_holdem_define_gd_pb.OperatorGD.deserializeBinaryFromReader);
       msg.setNextOperator(value);
       break;
-    case 7:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setNextFollow(value);
-      break;
     case 8:
       var value = /** @type {!proto.holdem.pb.DefGD.WinType} */ (reader.readEnum());
       msg.setRank(value);
-      break;
-    case 9:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setNextFirst(value);
       break;
     default:
       reader.skipField();
@@ -216,24 +206,10 @@ proto.holdem.pb.ServerMessageGdActionAll.serializeBinaryToWriter = function(mess
       protobuf_holdem_define_gd_pb.OperatorGD.serializeBinaryToWriter
     );
   }
-  f = message.getNextFollow();
-  if (f) {
-    writer.writeBool(
-      7,
-      f
-    );
-  }
   f = message.getRank();
   if (f !== 0.0) {
     writer.writeEnum(
       8,
-      f
-    );
-  }
-  f = message.getNextFirst();
-  if (f) {
-    writer.writeBool(
-      9,
       f
     );
   }
@@ -361,23 +337,6 @@ proto.holdem.pb.ServerMessageGdActionAll.prototype.hasNextOperator = function() 
 
 
 /**
- * optional bool next_follow = 7;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.holdem.pb.ServerMessageGdActionAll.prototype.getNextFollow = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 7, false));
-};
-
-
-/** @param {boolean} value */
-proto.holdem.pb.ServerMessageGdActionAll.prototype.setNextFollow = function(value) {
-  jspb.Message.setField(this, 7, value);
-};
-
-
-/**
  * optional DefGD.WinType rank = 8;
  * @return {!proto.holdem.pb.DefGD.WinType}
  */
@@ -389,23 +348,6 @@ proto.holdem.pb.ServerMessageGdActionAll.prototype.getRank = function() {
 /** @param {!proto.holdem.pb.DefGD.WinType} value */
 proto.holdem.pb.ServerMessageGdActionAll.prototype.setRank = function(value) {
   jspb.Message.setField(this, 8, value);
-};
-
-
-/**
- * optional bool next_first = 9;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.holdem.pb.ServerMessageGdActionAll.prototype.getNextFirst = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 9, false));
-};
-
-
-/** @param {boolean} value */
-proto.holdem.pb.ServerMessageGdActionAll.prototype.setNextFirst = function(value) {
-  jspb.Message.setField(this, 9, value);
 };
 
 

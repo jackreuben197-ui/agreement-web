@@ -27,14 +27,8 @@ export class ServerMessageGdActionAll extends jspb.Message {
   getNextOperator(): protobuf_holdem_define_gd_pb.OperatorGD | undefined;
   setNextOperator(value?: protobuf_holdem_define_gd_pb.OperatorGD): void;
 
-  getNextFollow(): boolean;
-  setNextFollow(value: boolean): void;
-
   getRank(): protobuf_holdem_define_gd_pb.DefGD.WinTypeMap[keyof protobuf_holdem_define_gd_pb.DefGD.WinTypeMap];
   setRank(value: protobuf_holdem_define_gd_pb.DefGD.WinTypeMap[keyof protobuf_holdem_define_gd_pb.DefGD.WinTypeMap]): void;
-
-  getNextFirst(): boolean;
-  setNextFirst(value: boolean): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageGdActionAll.AsObject;
@@ -54,9 +48,7 @@ export namespace ServerMessageGdActionAll {
     handCardsLength: number,
     currentWinrate: number,
     nextOperator?: protobuf_holdem_define_gd_pb.OperatorGD.AsObject,
-    nextFollow: boolean,
     rank: protobuf_holdem_define_gd_pb.DefGD.WinTypeMap[keyof protobuf_holdem_define_gd_pb.DefGD.WinTypeMap],
-    nextFirst: boolean,
   }
 }
 

@@ -2987,7 +2987,9 @@ proto.holdem.pb.OperatorGD.toObject = function(includeInstance, msg) {
     proto.holdem.pb.ValidCards.toObject, includeInstance),
     refuseTribute: jspb.Message.getFieldWithDefault(msg, 8, false),
     tributeCardsList: jspb.Message.toObjectList(msg.getTributeCardsList(),
-    proto.holdem.pb.Card.toObject, includeInstance)
+    proto.holdem.pb.Card.toObject, includeInstance),
+    first: jspb.Message.getFieldWithDefault(msg, 10, false),
+    follow: jspb.Message.getFieldWithDefault(msg, 11, false)
   };
 
   if (includeInstance) {
@@ -3057,6 +3059,14 @@ proto.holdem.pb.OperatorGD.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.Card;
       reader.readMessage(value,proto.holdem.pb.Card.deserializeBinaryFromReader);
       msg.addTributeCards(value);
+      break;
+    case 10:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setFirst(value);
+      break;
+    case 11:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setFollow(value);
       break;
     default:
       reader.skipField();
@@ -3143,6 +3153,20 @@ proto.holdem.pb.OperatorGD.serializeBinaryToWriter = function(message, writer) {
       9,
       f,
       proto.holdem.pb.Card.serializeBinaryToWriter
+    );
+  }
+  f = message.getFirst();
+  if (f) {
+    writer.writeBool(
+      10,
+      f
+    );
+  }
+  f = message.getFollow();
+  if (f) {
+    writer.writeBool(
+      11,
+      f
     );
   }
 };
@@ -3313,6 +3337,40 @@ proto.holdem.pb.OperatorGD.prototype.addTributeCards = function(opt_value, opt_i
 
 proto.holdem.pb.OperatorGD.prototype.clearTributeCardsList = function() {
   this.setTributeCardsList([]);
+};
+
+
+/**
+ * optional bool first = 10;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.OperatorGD.prototype.getFirst = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 10, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.OperatorGD.prototype.setFirst = function(value) {
+  jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * optional bool follow = 11;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.OperatorGD.prototype.getFollow = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 11, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.OperatorGD.prototype.setFollow = function(value) {
+  jspb.Message.setField(this, 11, value);
 };
 
 
