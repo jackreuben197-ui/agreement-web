@@ -129,6 +129,9 @@ export class HandInfoFT extends jspb.Message {
   setResultsList(value: Array<ResultFT>): void;
   addResults(value?: ResultFT, index?: number): ResultFT;
 
+  getResultTime(): number;
+  setResultTime(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandInfoFT.AsObject;
   static toObject(includeInstance: boolean, msg: HandInfoFT): HandInfoFT.AsObject;
@@ -145,6 +148,7 @@ export namespace HandInfoFT {
     buSeatId: number,
     publicCardsGroupList: Array<CardsGroup.AsObject>,
     resultsList: Array<ResultFT.AsObject>,
+    resultTime: number,
   }
 }
 

@@ -794,7 +794,8 @@ proto.holdem.pb.HandInfoFT.toObject = function(includeInstance, msg) {
     publicCardsGroupList: jspb.Message.toObjectList(msg.getPublicCardsGroupList(),
     proto.holdem.pb.CardsGroup.toObject, includeInstance),
     resultsList: jspb.Message.toObjectList(msg.getResultsList(),
-    proto.holdem.pb.ResultFT.toObject, includeInstance)
+    proto.holdem.pb.ResultFT.toObject, includeInstance),
+    resultTime: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -848,6 +849,10 @@ proto.holdem.pb.HandInfoFT.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.ResultFT;
       reader.readMessage(value,proto.holdem.pb.ResultFT.deserializeBinaryFromReader);
       msg.addResults(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setResultTime(value);
       break;
     default:
       reader.skipField();
@@ -906,6 +911,13 @@ proto.holdem.pb.HandInfoFT.serializeBinaryToWriter = function(message, writer) {
       4,
       f,
       proto.holdem.pb.ResultFT.serializeBinaryToWriter
+    );
+  }
+  f = message.getResultTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      5,
+      f
     );
   }
 };
@@ -1000,6 +1012,21 @@ proto.holdem.pb.HandInfoFT.prototype.addResults = function(opt_value, opt_index)
 
 proto.holdem.pb.HandInfoFT.prototype.clearResultsList = function() {
   this.setResultsList([]);
+};
+
+
+/**
+ * optional int64 result_time = 5;
+ * @return {number}
+ */
+proto.holdem.pb.HandInfoFT.prototype.getResultTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.HandInfoFT.prototype.setResultTime = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 
