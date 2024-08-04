@@ -106,7 +106,7 @@ proto.holdem.pb.ClientMessageJoinMatching.deserializeBinaryFromReader = function
       msg.setRpcId(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readUint32());
+      var value = /** @type {number} */ (reader.readUint64());
       msg.setRoomId(value);
       break;
     case 3:
@@ -159,7 +159,7 @@ proto.holdem.pb.ClientMessageJoinMatching.serializeBinaryToWriter = function(mes
   }
   f = message.getRoomId();
   if (f !== 0) {
-    writer.writeUint32(
+    writer.writeUint64(
       2,
       f
     );
@@ -204,7 +204,7 @@ proto.holdem.pb.ClientMessageJoinMatching.prototype.setRpcId = function(value) {
 
 
 /**
- * optional uint32 room_id = 2;
+ * optional uint64 room_id = 2;
  * @return {number}
  */
 proto.holdem.pb.ClientMessageJoinMatching.prototype.getRoomId = function() {
