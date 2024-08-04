@@ -34,6 +34,9 @@ export class ClientMessageGdSeated extends jspb.Message {
   getApplyBringIn(): boolean;
   setApplyBringIn(value: boolean): void;
 
+  getMatchingDeposit(): number;
+  setMatchingDeposit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageGdSeated.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageGdSeated): ClientMessageGdSeated.AsObject;
@@ -55,6 +58,7 @@ export namespace ClientMessageGdSeated {
     autoOnTableFix: number,
     clubId: number,
     applyBringIn: boolean,
+    matchingDeposit: number,
   }
 }
 

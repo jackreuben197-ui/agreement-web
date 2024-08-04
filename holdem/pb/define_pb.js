@@ -49,6 +49,7 @@ goog.exportSymbol('proto.holdem.pb.MTTMore', null, global);
 goog.exportSymbol('proto.holdem.pb.MTTProgress', null, global);
 goog.exportSymbol('proto.holdem.pb.MTTRecord', null, global);
 goog.exportSymbol('proto.holdem.pb.MTTUserStatus', null, global);
+goog.exportSymbol('proto.holdem.pb.ModeSetting', null, global);
 goog.exportSymbol('proto.holdem.pb.MultiLangName', null, global);
 goog.exportSymbol('proto.holdem.pb.MyGameInfo', null, global);
 goog.exportSymbol('proto.holdem.pb.Operator', null, global);
@@ -13247,7 +13248,9 @@ proto.holdem.pb.RoomWithType.toObject = function(includeInstance, msg) {
     antiCheatType: jspb.Message.getFieldWithDefault(msg, 4, 0),
     antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 5, 0),
     userPlayStatus: (f = msg.getUserPlayStatus()) && proto.holdem.pb.UserPlayStatus.toObject(includeInstance, f),
-    bombpot: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    bombpot: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    mode: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    matchingLeftTime: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -13312,6 +13315,14 @@ proto.holdem.pb.RoomWithType.deserializeBinaryFromReader = function(msg, reader)
     case 7:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setBombpot(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMode(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMatchingLeftTime(value);
       break;
     default:
       reader.skipField();
@@ -13389,6 +13400,20 @@ proto.holdem.pb.RoomWithType.serializeBinaryToWriter = function(message, writer)
   if (f !== 0) {
     writer.writeUint32(
       7,
+      f
+    );
+  }
+  f = message.getMode();
+  if (f !== 0) {
+    writer.writeInt32(
+      8,
+      f
+    );
+  }
+  f = message.getMatchingLeftTime();
+  if (f !== 0) {
+    writer.writeInt32(
+      9,
       f
     );
   }
@@ -13512,6 +13537,36 @@ proto.holdem.pb.RoomWithType.prototype.getBombpot = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomWithType.prototype.setBombpot = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional int32 mode = 8;
+ * @return {number}
+ */
+proto.holdem.pb.RoomWithType.prototype.getMode = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomWithType.prototype.setMode = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional int32 matching_left_time = 9;
+ * @return {number}
+ */
+proto.holdem.pb.RoomWithType.prototype.getMatchingLeftTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomWithType.prototype.setMatchingLeftTime = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 
@@ -13695,7 +13750,9 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     squidBetGet: jspb.Message.getFieldWithDefault(msg, 122, 0),
     squidHead: jspb.Message.getFieldWithDefault(msg, 123, 0),
     squidTail: jspb.Message.getFieldWithDefault(msg, 124, 0),
-    rounds: jspb.Message.getFieldWithDefault(msg, 125, 0)
+    rounds: jspb.Message.getFieldWithDefault(msg, 125, 0),
+    mode: jspb.Message.getFieldWithDefault(msg, 126, 0),
+    modeSetting: (f = msg.getModeSetting()) && proto.holdem.pb.ModeSetting.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -14229,6 +14286,15 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 125:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setRounds(value);
+      break;
+    case 126:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMode(value);
+      break;
+    case 127:
+      var value = new proto.holdem.pb.ModeSetting;
+      reader.readMessage(value,proto.holdem.pb.ModeSetting.deserializeBinaryFromReader);
+      msg.setModeSetting(value);
       break;
     default:
       reader.skipField();
@@ -15124,6 +15190,21 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
     writer.writeInt32(
       125,
       f
+    );
+  }
+  f = message.getMode();
+  if (f !== 0) {
+    writer.writeInt32(
+      126,
+      f
+    );
+  }
+  f = message.getModeSetting();
+  if (f != null) {
+    writer.writeMessage(
+      127,
+      f,
+      proto.holdem.pb.ModeSetting.serializeBinaryToWriter
     );
   }
 };
@@ -17065,6 +17146,301 @@ proto.holdem.pb.RoomRecord.prototype.getRounds = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setRounds = function(value) {
   jspb.Message.setField(this, 125, value);
+};
+
+
+/**
+ * optional int32 mode = 126;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getMode = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 126, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setMode = function(value) {
+  jspb.Message.setField(this, 126, value);
+};
+
+
+/**
+ * optional ModeSetting mode_setting = 127;
+ * @return {?proto.holdem.pb.ModeSetting}
+ */
+proto.holdem.pb.RoomRecord.prototype.getModeSetting = function() {
+  return /** @type{?proto.holdem.pb.ModeSetting} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.ModeSetting, 127));
+};
+
+
+/** @param {?proto.holdem.pb.ModeSetting|undefined} value */
+proto.holdem.pb.RoomRecord.prototype.setModeSetting = function(value) {
+  jspb.Message.setWrapperField(this, 127, value);
+};
+
+
+proto.holdem.pb.RoomRecord.prototype.clearModeSetting = function() {
+  this.setModeSetting(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.RoomRecord.prototype.hasModeSetting = function() {
+  return jspb.Message.getField(this, 127) != null;
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.ModeSetting = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.ModeSetting, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.ModeSetting.displayName = 'proto.holdem.pb.ModeSetting';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.ModeSetting.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.ModeSetting.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.ModeSetting} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.ModeSetting.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    deposit: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    minUsers: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    time: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    timeOutType: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    depositTo: jspb.Message.getFieldWithDefault(msg, 5, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.ModeSetting}
+ */
+proto.holdem.pb.ModeSetting.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.ModeSetting;
+  return proto.holdem.pb.ModeSetting.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.ModeSetting} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.ModeSetting}
+ */
+proto.holdem.pb.ModeSetting.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setDeposit(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMinUsers(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setTime(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setTimeOutType(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setDepositTo(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.ModeSetting.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.ModeSetting.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.ModeSetting} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.ModeSetting.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getDeposit();
+  if (f !== 0) {
+    writer.writeUint64(
+      1,
+      f
+    );
+  }
+  f = message.getMinUsers();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
+      f
+    );
+  }
+  f = message.getTime();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
+  f = message.getTimeOutType();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
+      f
+    );
+  }
+  f = message.getDepositTo();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint64 deposit = 1;
+ * @return {number}
+ */
+proto.holdem.pb.ModeSetting.prototype.getDeposit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ModeSetting.prototype.setDeposit = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional int32 min_users = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ModeSetting.prototype.getMinUsers = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ModeSetting.prototype.setMinUsers = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional int32 time = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ModeSetting.prototype.getTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ModeSetting.prototype.setTime = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional int32 time_out_type = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ModeSetting.prototype.getTimeOutType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ModeSetting.prototype.setTimeOutType = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int32 deposit_to = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ModeSetting.prototype.getDepositTo = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ModeSetting.prototype.setDepositTo = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 

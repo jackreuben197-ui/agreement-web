@@ -40,6 +40,9 @@ export class ClientMessageSeated extends jspb.Message {
   getAutoOnTableFix(): number;
   setAutoOnTableFix(value: number): void;
 
+  getMatchingDeposit(): number;
+  setMatchingDeposit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageSeated.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageSeated): ClientMessageSeated.AsObject;
@@ -63,6 +66,7 @@ export namespace ClientMessageSeated {
     applyBringIn: boolean,
     autoOnTableNoStore: boolean,
     autoOnTableFix: number,
+    matchingDeposit: number,
   }
 }
 

@@ -2084,6 +2084,12 @@ export class RoomWithType extends jspb.Message {
   getBombpot(): number;
   setBombpot(value: number): void;
 
+  getMode(): number;
+  setMode(value: number): void;
+
+  getMatchingLeftTime(): number;
+  setMatchingLeftTime(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomWithType.AsObject;
   static toObject(includeInstance: boolean, msg: RoomWithType): RoomWithType.AsObject;
@@ -2103,6 +2109,8 @@ export namespace RoomWithType {
     antiCheatVideoType: number,
     userPlayStatus?: UserPlayStatus.AsObject,
     bombpot: number,
+    mode: number,
+    matchingLeftTime: number,
   }
 }
 
@@ -2488,6 +2496,14 @@ export class RoomRecord extends jspb.Message {
   getRounds(): number;
   setRounds(value: number): void;
 
+  getMode(): number;
+  setMode(value: number): void;
+
+  hasModeSetting(): boolean;
+  clearModeSetting(): void;
+  getModeSetting(): ModeSetting | undefined;
+  setModeSetting(value?: ModeSetting): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2623,6 +2639,44 @@ export namespace RoomRecord {
     squidHead: number,
     squidTail: number,
     rounds: number,
+    mode: number,
+    modeSetting?: ModeSetting.AsObject,
+  }
+}
+
+export class ModeSetting extends jspb.Message {
+  getDeposit(): number;
+  setDeposit(value: number): void;
+
+  getMinUsers(): number;
+  setMinUsers(value: number): void;
+
+  getTime(): number;
+  setTime(value: number): void;
+
+  getTimeOutType(): number;
+  setTimeOutType(value: number): void;
+
+  getDepositTo(): number;
+  setDepositTo(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ModeSetting.AsObject;
+  static toObject(includeInstance: boolean, msg: ModeSetting): ModeSetting.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ModeSetting, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ModeSetting;
+  static deserializeBinaryFromReader(message: ModeSetting, reader: jspb.BinaryReader): ModeSetting;
+}
+
+export namespace ModeSetting {
+  export type AsObject = {
+    deposit: number,
+    minUsers: number,
+    time: number,
+    timeOutType: number,
+    depositTo: number,
   }
 }
 
