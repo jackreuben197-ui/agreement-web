@@ -22284,7 +22284,8 @@ proto.holdem.pb.RoomJackpotConfig.toObject = function(includeInstance, msg) {
     contributeType: jspb.Message.getFieldWithDefault(msg, 7, 0),
     contributeFixedLimit: jspb.Message.getFieldWithDefault(msg, 8, 0),
     contributeFixedRate: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    contributeRatio: jspb.Message.getFieldWithDefault(msg, 10, 0)
+    contributeRatio: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    contributePotRatio: jspb.Message.getFieldWithDefault(msg, 11, 0)
   };
 
   if (includeInstance) {
@@ -22360,6 +22361,10 @@ proto.holdem.pb.RoomJackpotConfig.deserializeBinaryFromReader = function(msg, re
     case 10:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setContributeRatio(value);
+      break;
+    case 11:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setContributePotRatio(value);
       break;
     default:
       reader.skipField();
@@ -22457,6 +22462,13 @@ proto.holdem.pb.RoomJackpotConfig.serializeBinaryToWriter = function(message, wr
   if (f !== 0) {
     writer.writeUint64(
       10,
+      f
+    );
+  }
+  f = message.getContributePotRatio();
+  if (f !== 0) {
+    writer.writeUint64(
+      11,
       f
     );
   }
@@ -22610,6 +22622,21 @@ proto.holdem.pb.RoomJackpotConfig.prototype.getContributeRatio = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomJackpotConfig.prototype.setContributeRatio = function(value) {
   jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * optional uint64 contribute_pot_ratio = 11;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getContributePotRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setContributePotRatio = function(value) {
+  jspb.Message.setField(this, 11, value);
 };
 
 

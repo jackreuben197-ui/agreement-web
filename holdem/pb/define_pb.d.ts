@@ -3409,6 +3409,9 @@ export class RoomJackpotConfig extends jspb.Message {
   getContributeRatio(): number;
   setContributeRatio(value: number): void;
 
+  getContributePotRatio(): number;
+  setContributePotRatio(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomJackpotConfig.AsObject;
   static toObject(includeInstance: boolean, msg: RoomJackpotConfig): RoomJackpotConfig.AsObject;
@@ -3431,6 +3434,7 @@ export namespace RoomJackpotConfig {
     contributeFixedLimit: number,
     contributeFixedRate: number,
     contributeRatio: number,
+    contributePotRatio: number,
   }
 }
 
