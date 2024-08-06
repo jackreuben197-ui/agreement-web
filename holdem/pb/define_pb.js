@@ -13752,7 +13752,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     squidTail: jspb.Message.getFieldWithDefault(msg, 124, 0),
     rounds: jspb.Message.getFieldWithDefault(msg, 125, 0),
     mode: jspb.Message.getFieldWithDefault(msg, 126, 0),
-    modeSetting: (f = msg.getModeSetting()) && proto.holdem.pb.ModeSetting.toObject(includeInstance, f)
+    modeSetting: (f = msg.getModeSetting()) && proto.holdem.pb.ModeSetting.toObject(includeInstance, f),
+    enterRoomType: jspb.Message.getFieldWithDefault(msg, 128, 0)
   };
 
   if (includeInstance) {
@@ -14295,6 +14296,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.ModeSetting;
       reader.readMessage(value,proto.holdem.pb.ModeSetting.deserializeBinaryFromReader);
       msg.setModeSetting(value);
+      break;
+    case 128:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setEnterRoomType(value);
       break;
     default:
       reader.skipField();
@@ -15205,6 +15210,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
       127,
       f,
       proto.holdem.pb.ModeSetting.serializeBinaryToWriter
+    );
+  }
+  f = message.getEnterRoomType();
+  if (f !== 0) {
+    writer.writeInt32(
+      128,
+      f
     );
   }
 };
@@ -17191,6 +17203,21 @@ proto.holdem.pb.RoomRecord.prototype.clearModeSetting = function() {
  */
 proto.holdem.pb.RoomRecord.prototype.hasModeSetting = function() {
   return jspb.Message.getField(this, 127) != null;
+};
+
+
+/**
+ * optional int32 enter_room_type = 128;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getEnterRoomType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 128, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setEnterRoomType = function(value) {
+  jspb.Message.setField(this, 128, value);
 };
 
 
