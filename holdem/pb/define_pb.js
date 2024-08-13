@@ -1235,7 +1235,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     winTotal: jspb.Message.getFieldWithDefault(msg, 38, 0),
     callTimeCount: jspb.Message.getFieldWithDefault(msg, 39, 0),
     jackpot: jspb.Message.getFieldWithDefault(msg, 40, 0),
-    jackpotGold: jspb.Message.getFieldWithDefault(msg, 41, 0)
+    jackpotGold: jspb.Message.getFieldWithDefault(msg, 41, 0),
+    jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 42, 0)
   };
 
   if (includeInstance) {
@@ -1428,6 +1429,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 41:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setJackpotGold(value);
+      break;
+    case 42:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setJackpotParentGold(value);
       break;
     default:
       reader.skipField();
@@ -1729,6 +1734,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       41,
+      f
+    );
+  }
+  f = message.getJackpotParentGold();
+  if (f !== 0) {
+    writer.writeUint64(
+      42,
       f
     );
   }
@@ -2366,6 +2378,21 @@ proto.holdem.pb.RoomInfo.prototype.getJackpotGold = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setJackpotGold = function(value) {
   jspb.Message.setField(this, 41, value);
+};
+
+
+/**
+ * optional uint64 jackpot_parent_gold = 42;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getJackpotParentGold = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 42, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setJackpotParentGold = function(value) {
+  jspb.Message.setField(this, 42, value);
 };
 
 
@@ -13774,7 +13801,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     rounds: jspb.Message.getFieldWithDefault(msg, 125, 0),
     mode: jspb.Message.getFieldWithDefault(msg, 126, 0),
     modeSetting: (f = msg.getModeSetting()) && proto.holdem.pb.ModeSetting.toObject(includeInstance, f),
-    enterRoomType: jspb.Message.getFieldWithDefault(msg, 128, 0)
+    enterRoomType: jspb.Message.getFieldWithDefault(msg, 128, 0),
+    jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 129, 0)
   };
 
   if (includeInstance) {
@@ -14321,6 +14349,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 128:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setEnterRoomType(value);
+      break;
+    case 129:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setJackpotParentGold(value);
       break;
     default:
       reader.skipField();
@@ -15237,6 +15269,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       128,
+      f
+    );
+  }
+  f = message.getJackpotParentGold();
+  if (f !== 0) {
+    writer.writeUint64(
+      129,
       f
     );
   }
@@ -17239,6 +17278,21 @@ proto.holdem.pb.RoomRecord.prototype.getEnterRoomType = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setEnterRoomType = function(value) {
   jspb.Message.setField(this, 128, value);
+};
+
+
+/**
+ * optional uint64 jackpot_parent_gold = 129;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getJackpotParentGold = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 129, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setJackpotParentGold = function(value) {
+  jspb.Message.setField(this, 129, value);
 };
 
 
@@ -22333,7 +22387,15 @@ proto.holdem.pb.RoomJackpotConfig.toObject = function(includeInstance, msg) {
     contributeFixedLimit: jspb.Message.getFieldWithDefault(msg, 8, 0),
     contributeFixedRate: jspb.Message.getFieldWithDefault(msg, 9, 0),
     contributeRatio: jspb.Message.getFieldWithDefault(msg, 10, 0),
-    contributePotRatio: jspb.Message.getFieldWithDefault(msg, 11, 0)
+    contributePotRatio: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    gamePlayRatio: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    blindRatio: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    royalFlushSwitch: jspb.Message.getFieldWithDefault(msg, 14, 0),
+    royalFlushRatio: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    straightFlushSwitch: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    straightFlushRatio: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    fourOfaKindSwitch: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    fourOfaKindRatio: jspb.Message.getFieldWithDefault(msg, 19, 0)
   };
 
   if (includeInstance) {
@@ -22413,6 +22475,38 @@ proto.holdem.pb.RoomJackpotConfig.deserializeBinaryFromReader = function(msg, re
     case 11:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setContributePotRatio(value);
+      break;
+    case 12:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setGamePlayRatio(value);
+      break;
+    case 13:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setBlindRatio(value);
+      break;
+    case 14:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRoyalFlushSwitch(value);
+      break;
+    case 15:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRoyalFlushRatio(value);
+      break;
+    case 16:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStraightFlushSwitch(value);
+      break;
+    case 17:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setStraightFlushRatio(value);
+      break;
+    case 18:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setFourOfaKindSwitch(value);
+      break;
+    case 19:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setFourOfaKindRatio(value);
       break;
     default:
       reader.skipField();
@@ -22517,6 +22611,62 @@ proto.holdem.pb.RoomJackpotConfig.serializeBinaryToWriter = function(message, wr
   if (f !== 0) {
     writer.writeUint64(
       11,
+      f
+    );
+  }
+  f = message.getGamePlayRatio();
+  if (f !== 0) {
+    writer.writeUint64(
+      12,
+      f
+    );
+  }
+  f = message.getBlindRatio();
+  if (f !== 0) {
+    writer.writeUint64(
+      13,
+      f
+    );
+  }
+  f = message.getRoyalFlushSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      14,
+      f
+    );
+  }
+  f = message.getRoyalFlushRatio();
+  if (f !== 0) {
+    writer.writeUint64(
+      15,
+      f
+    );
+  }
+  f = message.getStraightFlushSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      16,
+      f
+    );
+  }
+  f = message.getStraightFlushRatio();
+  if (f !== 0) {
+    writer.writeUint64(
+      17,
+      f
+    );
+  }
+  f = message.getFourOfaKindSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      18,
+      f
+    );
+  }
+  f = message.getFourOfaKindRatio();
+  if (f !== 0) {
+    writer.writeUint64(
+      19,
       f
     );
   }
@@ -22685,6 +22835,126 @@ proto.holdem.pb.RoomJackpotConfig.prototype.getContributePotRatio = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomJackpotConfig.prototype.setContributePotRatio = function(value) {
   jspb.Message.setField(this, 11, value);
+};
+
+
+/**
+ * optional uint64 game_play_ratio = 12;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getGamePlayRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setGamePlayRatio = function(value) {
+  jspb.Message.setField(this, 12, value);
+};
+
+
+/**
+ * optional uint64 blind_ratio = 13;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getBlindRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setBlindRatio = function(value) {
+  jspb.Message.setField(this, 13, value);
+};
+
+
+/**
+ * optional int32 royal_flush_switch = 14;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getRoyalFlushSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setRoyalFlushSwitch = function(value) {
+  jspb.Message.setField(this, 14, value);
+};
+
+
+/**
+ * optional uint64 royal_flush_ratio = 15;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getRoyalFlushRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setRoyalFlushRatio = function(value) {
+  jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * optional int32 straight_flush_switch = 16;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getStraightFlushSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setStraightFlushSwitch = function(value) {
+  jspb.Message.setField(this, 16, value);
+};
+
+
+/**
+ * optional uint64 straight_flush_ratio = 17;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getStraightFlushRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setStraightFlushRatio = function(value) {
+  jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * optional int32 four_ofa_kind_switch = 18;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getFourOfaKindSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setFourOfaKindSwitch = function(value) {
+  jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * optional uint64 four_ofa_kind_ratio = 19;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getFourOfaKindRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setFourOfaKindRatio = function(value) {
+  jspb.Message.setField(this, 19, value);
 };
 
 

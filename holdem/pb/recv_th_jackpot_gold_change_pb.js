@@ -60,7 +60,8 @@ proto.holdem.pb.ServerMessageJackpotGoldChange.prototype.toObject = function(opt
 proto.holdem.pb.ServerMessageJackpotGoldChange.toObject = function(includeInstance, msg) {
   var f, obj = {
     jackpotId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    jackpotGold: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    jackpotGold: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -105,6 +106,10 @@ proto.holdem.pb.ServerMessageJackpotGoldChange.deserializeBinaryFromReader = fun
       var value = /** @type {number} */ (reader.readUint64());
       msg.setJackpotGold(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setJackpotParentGold(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -148,6 +153,13 @@ proto.holdem.pb.ServerMessageJackpotGoldChange.serializeBinaryToWriter = functio
       f
     );
   }
+  f = message.getJackpotParentGold();
+  if (f !== 0) {
+    writer.writeUint64(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -178,6 +190,21 @@ proto.holdem.pb.ServerMessageJackpotGoldChange.prototype.getJackpotGold = functi
 /** @param {number} value */
 proto.holdem.pb.ServerMessageJackpotGoldChange.prototype.setJackpotGold = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional uint64 jackpot_parent_gold = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageJackpotGoldChange.prototype.getJackpotParentGold = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageJackpotGoldChange.prototype.setJackpotParentGold = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 

@@ -473,6 +473,9 @@ export class RoomInfo extends jspb.Message {
   getJackpotGold(): number;
   setJackpotGold(value: number): void;
 
+  getJackpotParentGold(): number;
+  setJackpotParentGold(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -524,6 +527,7 @@ export namespace RoomInfo {
     callTimeCount: number,
     jackpot: number,
     jackpotGold: number,
+    jackpotParentGold: number,
   }
 
   export interface RetainTypeMap {
@@ -2524,6 +2528,9 @@ export class RoomRecord extends jspb.Message {
   getEnterRoomType(): number;
   setEnterRoomType(value: number): void;
 
+  getJackpotParentGold(): number;
+  setJackpotParentGold(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2662,6 +2669,7 @@ export namespace RoomRecord {
     mode: Def.RoomModeMap[keyof Def.RoomModeMap],
     modeSetting?: ModeSetting.AsObject,
     enterRoomType: number,
+    jackpotParentGold: number,
   }
 }
 
@@ -3433,6 +3441,30 @@ export class RoomJackpotConfig extends jspb.Message {
   getContributePotRatio(): number;
   setContributePotRatio(value: number): void;
 
+  getGamePlayRatio(): number;
+  setGamePlayRatio(value: number): void;
+
+  getBlindRatio(): number;
+  setBlindRatio(value: number): void;
+
+  getRoyalFlushSwitch(): number;
+  setRoyalFlushSwitch(value: number): void;
+
+  getRoyalFlushRatio(): number;
+  setRoyalFlushRatio(value: number): void;
+
+  getStraightFlushSwitch(): number;
+  setStraightFlushSwitch(value: number): void;
+
+  getStraightFlushRatio(): number;
+  setStraightFlushRatio(value: number): void;
+
+  getFourOfaKindSwitch(): number;
+  setFourOfaKindSwitch(value: number): void;
+
+  getFourOfaKindRatio(): number;
+  setFourOfaKindRatio(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomJackpotConfig.AsObject;
   static toObject(includeInstance: boolean, msg: RoomJackpotConfig): RoomJackpotConfig.AsObject;
@@ -3456,6 +3488,14 @@ export namespace RoomJackpotConfig {
     contributeFixedRate: number,
     contributeRatio: number,
     contributePotRatio: number,
+    gamePlayRatio: number,
+    blindRatio: number,
+    royalFlushSwitch: number,
+    royalFlushRatio: number,
+    straightFlushSwitch: number,
+    straightFlushRatio: number,
+    fourOfaKindSwitch: number,
+    fourOfaKindRatio: number,
   }
 }
 

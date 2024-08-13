@@ -10,6 +10,9 @@ export class ServerMessageJackpotGoldChange extends jspb.Message {
   getJackpotGold(): number;
   setJackpotGold(value: number): void;
 
+  getJackpotParentGold(): number;
+  setJackpotParentGold(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageJackpotGoldChange.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageJackpotGoldChange): ServerMessageJackpotGoldChange.AsObject;
@@ -24,6 +27,7 @@ export namespace ServerMessageJackpotGoldChange {
   export type AsObject = {
     jackpotId: number,
     jackpotGold: number,
+    jackpotParentGold: number,
   }
 }
 
