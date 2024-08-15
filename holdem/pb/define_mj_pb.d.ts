@@ -228,6 +228,9 @@ export class RoomInfoMJ extends jspb.Message {
   getPersonalType(): number;
   setPersonalType(value: number): void;
 
+  getMode(): protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap];
+  setMode(value: protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfoMJ): RoomInfoMJ.AsObject;
@@ -257,6 +260,7 @@ export namespace RoomInfoMJ {
     antiCheatType: number,
     antiCheatVideoType: number,
     personalType: number,
+    mode: protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap],
   }
 }
 

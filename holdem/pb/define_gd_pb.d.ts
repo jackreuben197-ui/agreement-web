@@ -174,6 +174,9 @@ export class RoomInfoGD extends jspb.Message {
   getLevelType(): number;
   setLevelType(value: number): void;
 
+  getMode(): protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap];
+  setMode(value: protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfoGD.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfoGD): RoomInfoGD.AsObject;
@@ -204,6 +207,7 @@ export namespace RoomInfoGD {
     antiCheatVideoType: number,
     personalType: number,
     levelType: number,
+    mode: protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap],
   }
 }
 

@@ -476,6 +476,9 @@ export class RoomInfo extends jspb.Message {
   getJackpotParentGold(): number;
   setJackpotParentGold(value: number): void;
 
+  getMode(): Def.RoomModeMap[keyof Def.RoomModeMap];
+  setMode(value: Def.RoomModeMap[keyof Def.RoomModeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -528,6 +531,7 @@ export namespace RoomInfo {
     jackpot: number,
     jackpotGold: number,
     jackpotParentGold: number,
+    mode: Def.RoomModeMap[keyof Def.RoomModeMap],
   }
 
   export interface RetainTypeMap {

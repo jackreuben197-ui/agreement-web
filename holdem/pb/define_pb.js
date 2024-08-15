@@ -1237,7 +1237,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     callTimeCount: jspb.Message.getFieldWithDefault(msg, 39, 0),
     jackpot: jspb.Message.getFieldWithDefault(msg, 40, 0),
     jackpotGold: jspb.Message.getFieldWithDefault(msg, 41, 0),
-    jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 42, 0)
+    jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 42, 0),
+    mode: jspb.Message.getFieldWithDefault(msg, 43, 0)
   };
 
   if (includeInstance) {
@@ -1434,6 +1435,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 42:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setJackpotParentGold(value);
+      break;
+    case 43:
+      var value = /** @type {!proto.holdem.pb.Def.RoomMode} */ (reader.readEnum());
+      msg.setMode(value);
       break;
     default:
       reader.skipField();
@@ -1742,6 +1747,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       42,
+      f
+    );
+  }
+  f = message.getMode();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      43,
       f
     );
   }
@@ -2394,6 +2406,21 @@ proto.holdem.pb.RoomInfo.prototype.getJackpotParentGold = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setJackpotParentGold = function(value) {
   jspb.Message.setField(this, 42, value);
+};
+
+
+/**
+ * optional Def.RoomMode mode = 43;
+ * @return {!proto.holdem.pb.Def.RoomMode}
+ */
+proto.holdem.pb.RoomInfo.prototype.getMode = function() {
+  return /** @type {!proto.holdem.pb.Def.RoomMode} */ (jspb.Message.getFieldWithDefault(this, 43, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.RoomMode} value */
+proto.holdem.pb.RoomInfo.prototype.setMode = function(value) {
+  jspb.Message.setField(this, 43, value);
 };
 
 

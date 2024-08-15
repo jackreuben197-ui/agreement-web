@@ -80,6 +80,9 @@ export class RoomInfoFT extends jspb.Message {
   getPersonalType(): number;
   setPersonalType(value: number): void;
 
+  getMode(): protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap];
+  setMode(value: protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfoFT.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfoFT): RoomInfoFT.AsObject;
@@ -109,6 +112,7 @@ export namespace RoomInfoFT {
     antiCheatVideoType: number,
     ptLevel: number,
     personalType: number,
+    mode: protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap],
   }
 }
 
