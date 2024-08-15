@@ -13830,7 +13830,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     mode: jspb.Message.getFieldWithDefault(msg, 126, 0),
     modeSetting: (f = msg.getModeSetting()) && proto.holdem.pb.ModeSetting.toObject(includeInstance, f),
     enterRoomType: jspb.Message.getFieldWithDefault(msg, 128, 0),
-    jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 129, 0)
+    jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 129, 0),
+    isWhitelist: jspb.Message.getFieldWithDefault(msg, 130, false)
   };
 
   if (includeInstance) {
@@ -14381,6 +14382,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 129:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setJackpotParentGold(value);
+      break;
+    case 130:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsWhitelist(value);
       break;
     default:
       reader.skipField();
@@ -15304,6 +15309,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       129,
+      f
+    );
+  }
+  f = message.getIsWhitelist();
+  if (f) {
+    writer.writeBool(
+      130,
       f
     );
   }
@@ -17321,6 +17333,23 @@ proto.holdem.pb.RoomRecord.prototype.getJackpotParentGold = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setJackpotParentGold = function(value) {
   jspb.Message.setField(this, 129, value);
+};
+
+
+/**
+ * optional bool is_whitelist = 130;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.RoomRecord.prototype.getIsWhitelist = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 130, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.RoomRecord.prototype.setIsWhitelist = function(value) {
+  jspb.Message.setField(this, 130, value);
 };
 
 

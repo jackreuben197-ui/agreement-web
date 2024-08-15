@@ -2535,6 +2535,9 @@ export class RoomRecord extends jspb.Message {
   getJackpotParentGold(): number;
   setJackpotParentGold(value: number): void;
 
+  getIsWhitelist(): boolean;
+  setIsWhitelist(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2674,6 +2677,7 @@ export namespace RoomRecord {
     modeSetting?: ModeSetting.AsObject,
     enterRoomType: number,
     jackpotParentGold: number,
+    isWhitelist: boolean,
   }
 }
 
