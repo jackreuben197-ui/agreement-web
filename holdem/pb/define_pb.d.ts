@@ -3547,3 +3547,43 @@ export namespace SubRoomConfig {
   }
 }
 
+export class JackpotAward extends jspb.Message {
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
+  getNickname(): string;
+  setNickname(value: string): void;
+
+  getAvatar(): string;
+  setAvatar(value: string): void;
+
+  getAward(): number;
+  setAward(value: number): void;
+
+  getCardsType(): number;
+  setCardsType(value: number): void;
+
+  getHandValue(): number;
+  setHandValue(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): JackpotAward.AsObject;
+  static toObject(includeInstance: boolean, msg: JackpotAward): JackpotAward.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: JackpotAward, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): JackpotAward;
+  static deserializeBinaryFromReader(message: JackpotAward, reader: jspb.BinaryReader): JackpotAward;
+}
+
+export namespace JackpotAward {
+  export type AsObject = {
+    userRid: number,
+    nickname: string,
+    avatar: string,
+    award: number,
+    cardsType: number,
+    handValue: number,
+  }
+}
+

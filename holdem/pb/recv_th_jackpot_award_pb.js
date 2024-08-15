@@ -11,6 +11,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ServerMessageJackpotAward', null, global);
 
 /**
@@ -24,12 +25,19 @@ goog.exportSymbol('proto.holdem.pb.ServerMessageJackpotAward', null, global);
  * @constructor
  */
 proto.holdem.pb.ServerMessageJackpotAward = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ServerMessageJackpotAward.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.ServerMessageJackpotAward, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.ServerMessageJackpotAward.displayName = 'proto.holdem.pb.ServerMessageJackpotAward';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.ServerMessageJackpotAward.repeatedFields_ = [6];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -60,10 +68,8 @@ proto.holdem.pb.ServerMessageJackpotAward.prototype.toObject = function(opt_incl
 proto.holdem.pb.ServerMessageJackpotAward.toObject = function(includeInstance, msg) {
   var f, obj = {
     handNum: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    userRid: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    nickname: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    avatar: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    award: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    awardUsersList: jspb.Message.toObjectList(msg.getAwardUsersList(),
+    protobuf_holdem_define_pb.JackpotAward.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -104,21 +110,10 @@ proto.holdem.pb.ServerMessageJackpotAward.deserializeBinaryFromReader = function
       var value = /** @type {number} */ (reader.readUint32());
       msg.setHandNum(value);
       break;
-    case 2:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setUserRid(value);
-      break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setNickname(value);
-      break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setAvatar(value);
-      break;
-    case 5:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setAward(value);
+    case 6:
+      var value = new protobuf_holdem_define_pb.JackpotAward;
+      reader.readMessage(value,protobuf_holdem_define_pb.JackpotAward.deserializeBinaryFromReader);
+      msg.addAwardUsers(value);
       break;
     default:
       reader.skipField();
@@ -156,32 +151,12 @@ proto.holdem.pb.ServerMessageJackpotAward.serializeBinaryToWriter = function(mes
       f
     );
   }
-  f = message.getUserRid();
-  if (f !== 0) {
-    writer.writeUint64(
-      2,
-      f
-    );
-  }
-  f = message.getNickname();
+  f = message.getAwardUsersList();
   if (f.length > 0) {
-    writer.writeString(
-      3,
-      f
-    );
-  }
-  f = message.getAvatar();
-  if (f.length > 0) {
-    writer.writeString(
-      4,
-      f
-    );
-  }
-  f = message.getAward();
-  if (f !== 0) {
-    writer.writeUint64(
-      5,
-      f
+    writer.writeRepeatedMessage(
+      6,
+      f,
+      protobuf_holdem_define_pb.JackpotAward.serializeBinaryToWriter
     );
   }
 };
@@ -203,62 +178,33 @@ proto.holdem.pb.ServerMessageJackpotAward.prototype.setHandNum = function(value)
 
 
 /**
- * optional uint64 user_rid = 2;
- * @return {number}
+ * repeated JackpotAward award_users = 6;
+ * @return {!Array.<!proto.holdem.pb.JackpotAward>}
  */
-proto.holdem.pb.ServerMessageJackpotAward.prototype.getUserRid = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+proto.holdem.pb.ServerMessageJackpotAward.prototype.getAwardUsersList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.JackpotAward>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.JackpotAward, 6));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.ServerMessageJackpotAward.prototype.setUserRid = function(value) {
-  jspb.Message.setField(this, 2, value);
+/** @param {!Array.<!proto.holdem.pb.JackpotAward>} value */
+proto.holdem.pb.ServerMessageJackpotAward.prototype.setAwardUsersList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 6, value);
 };
 
 
 /**
- * optional string nickname = 3;
- * @return {string}
+ * @param {!proto.holdem.pb.JackpotAward=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.JackpotAward}
  */
-proto.holdem.pb.ServerMessageJackpotAward.prototype.getNickname = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+proto.holdem.pb.ServerMessageJackpotAward.prototype.addAwardUsers = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 6, opt_value, proto.holdem.pb.JackpotAward, opt_index);
 };
 
 
-/** @param {string} value */
-proto.holdem.pb.ServerMessageJackpotAward.prototype.setNickname = function(value) {
-  jspb.Message.setField(this, 3, value);
-};
-
-
-/**
- * optional string avatar = 4;
- * @return {string}
- */
-proto.holdem.pb.ServerMessageJackpotAward.prototype.getAvatar = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
-};
-
-
-/** @param {string} value */
-proto.holdem.pb.ServerMessageJackpotAward.prototype.setAvatar = function(value) {
-  jspb.Message.setField(this, 4, value);
-};
-
-
-/**
- * optional uint64 award = 5;
- * @return {number}
- */
-proto.holdem.pb.ServerMessageJackpotAward.prototype.getAward = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ServerMessageJackpotAward.prototype.setAward = function(value) {
-  jspb.Message.setField(this, 5, value);
+proto.holdem.pb.ServerMessageJackpotAward.prototype.clearAwardUsersList = function() {
+  this.setAwardUsersList([]);
 };
 
 
