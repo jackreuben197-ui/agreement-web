@@ -22396,7 +22396,8 @@ proto.holdem.pb.RoomJackpotConfig.toObject = function(includeInstance, msg) {
     straightFlushSwitch: jspb.Message.getFieldWithDefault(msg, 16, 0),
     straightFlushRatio: jspb.Message.getFieldWithDefault(msg, 17, 0),
     fourOfaKindSwitch: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    fourOfaKindRatio: jspb.Message.getFieldWithDefault(msg, 19, 0)
+    fourOfaKindRatio: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    awardRoundType: jspb.Message.getFieldWithDefault(msg, 20, 0)
   };
 
   if (includeInstance) {
@@ -22508,6 +22509,10 @@ proto.holdem.pb.RoomJackpotConfig.deserializeBinaryFromReader = function(msg, re
     case 19:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setFourOfaKindRatio(value);
+      break;
+    case 20:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setAwardRoundType(value);
       break;
     default:
       reader.skipField();
@@ -22668,6 +22673,13 @@ proto.holdem.pb.RoomJackpotConfig.serializeBinaryToWriter = function(message, wr
   if (f !== 0) {
     writer.writeUint64(
       19,
+      f
+    );
+  }
+  f = message.getAwardRoundType();
+  if (f !== 0) {
+    writer.writeInt32(
+      20,
       f
     );
   }
@@ -22956,6 +22968,21 @@ proto.holdem.pb.RoomJackpotConfig.prototype.getFourOfaKindRatio = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomJackpotConfig.prototype.setFourOfaKindRatio = function(value) {
   jspb.Message.setField(this, 19, value);
+};
+
+
+/**
+ * optional int32 award_round_type = 20;
+ * @return {number}
+ */
+proto.holdem.pb.RoomJackpotConfig.prototype.getAwardRoundType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomJackpotConfig.prototype.setAwardRoundType = function(value) {
+  jspb.Message.setField(this, 20, value);
 };
 
 

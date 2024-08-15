@@ -3465,6 +3465,9 @@ export class RoomJackpotConfig extends jspb.Message {
   getFourOfaKindRatio(): number;
   setFourOfaKindRatio(value: number): void;
 
+  getAwardRoundType(): number;
+  setAwardRoundType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomJackpotConfig.AsObject;
   static toObject(includeInstance: boolean, msg: RoomJackpotConfig): RoomJackpotConfig.AsObject;
@@ -3496,6 +3499,7 @@ export namespace RoomJackpotConfig {
     straightFlushRatio: number,
     fourOfaKindSwitch: number,
     fourOfaKindRatio: number,
+    awardRoundType: number,
   }
 }
 
