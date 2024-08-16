@@ -62,7 +62,7 @@ proto.holdem.pb.ServerMessageMatchingResult.toObject = function(includeInstance,
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
     roomId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    toRoomId: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    toRoom: (f = msg.getToRoom()) && protobuf_holdem_define_pb.RoomWithType.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -108,8 +108,9 @@ proto.holdem.pb.ServerMessageMatchingResult.deserializeBinaryFromReader = functi
       msg.setRoomId(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setToRoomId(value);
+      var value = new protobuf_holdem_define_pb.RoomWithType;
+      reader.readMessage(value,protobuf_holdem_define_pb.RoomWithType.deserializeBinaryFromReader);
+      msg.setToRoom(value);
       break;
     default:
       reader.skipField();
@@ -154,11 +155,12 @@ proto.holdem.pb.ServerMessageMatchingResult.serializeBinaryToWriter = function(m
       f
     );
   }
-  f = message.getToRoomId();
-  if (f !== 0) {
-    writer.writeUint64(
+  f = message.getToRoom();
+  if (f != null) {
+    writer.writeMessage(
       3,
-      f
+      f,
+      protobuf_holdem_define_pb.RoomWithType.serializeBinaryToWriter
     );
   }
 };
@@ -195,17 +197,32 @@ proto.holdem.pb.ServerMessageMatchingResult.prototype.setRoomId = function(value
 
 
 /**
- * optional uint64 to_room_id = 3;
- * @return {number}
+ * optional RoomWithType to_room = 3;
+ * @return {?proto.holdem.pb.RoomWithType}
  */
-proto.holdem.pb.ServerMessageMatchingResult.prototype.getToRoomId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+proto.holdem.pb.ServerMessageMatchingResult.prototype.getToRoom = function() {
+  return /** @type{?proto.holdem.pb.RoomWithType} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.RoomWithType, 3));
 };
 
 
-/** @param {number} value */
-proto.holdem.pb.ServerMessageMatchingResult.prototype.setToRoomId = function(value) {
-  jspb.Message.setField(this, 3, value);
+/** @param {?proto.holdem.pb.RoomWithType|undefined} value */
+proto.holdem.pb.ServerMessageMatchingResult.prototype.setToRoom = function(value) {
+  jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+proto.holdem.pb.ServerMessageMatchingResult.prototype.clearToRoom = function() {
+  this.setToRoom(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageMatchingResult.prototype.hasToRoom = function() {
+  return jspb.Message.getField(this, 3) != null;
 };
 
 

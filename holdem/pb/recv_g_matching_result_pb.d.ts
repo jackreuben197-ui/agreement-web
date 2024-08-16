@@ -11,8 +11,10 @@ export class ServerMessageMatchingResult extends jspb.Message {
   getRoomId(): number;
   setRoomId(value: number): void;
 
-  getToRoomId(): number;
-  setToRoomId(value: number): void;
+  hasToRoom(): boolean;
+  clearToRoom(): void;
+  getToRoom(): protobuf_holdem_define_pb.RoomWithType | undefined;
+  setToRoom(value?: protobuf_holdem_define_pb.RoomWithType): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMatchingResult.AsObject;
@@ -28,7 +30,7 @@ export namespace ServerMessageMatchingResult {
   export type AsObject = {
     status: protobuf_holdem_define_pb.Def.MatchingResultStatusMap[keyof protobuf_holdem_define_pb.Def.MatchingResultStatusMap],
     roomId: number,
-    toRoomId: number,
+    toRoom?: protobuf_holdem_define_pb.RoomWithType.AsObject,
   }
 }
 
