@@ -1928,6 +1928,9 @@ export class PlayerSummary extends jspb.Message {
   getSquidPunishTotal(): number;
   setSquidPunishTotal(value: number): void;
 
+  getDeposit(): number;
+  setDeposit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerSummary.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerSummary): PlayerSummary.AsObject;
@@ -1960,6 +1963,7 @@ export namespace PlayerSummary {
     squidOutTotal: number,
     squidCount: number,
     squidPunishTotal: number,
+    deposit: number,
   }
 }
 

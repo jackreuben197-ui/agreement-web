@@ -11814,7 +11814,8 @@ proto.holdem.pb.PlayerSummary.toObject = function(includeInstance, msg) {
     squidInTotal: jspb.Message.getFieldWithDefault(msg, 17, 0),
     squidOutTotal: jspb.Message.getFieldWithDefault(msg, 18, 0),
     squidCount: jspb.Message.getFieldWithDefault(msg, 19, 0),
-    squidPunishTotal: jspb.Message.getFieldWithDefault(msg, 20, 0)
+    squidPunishTotal: jspb.Message.getFieldWithDefault(msg, 20, 0),
+    deposit: jspb.Message.getFieldWithDefault(msg, 21, 0)
   };
 
   if (includeInstance) {
@@ -11930,6 +11931,10 @@ proto.holdem.pb.PlayerSummary.deserializeBinaryFromReader = function(msg, reader
     case 20:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setSquidPunishTotal(value);
+      break;
+    case 21:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setDeposit(value);
       break;
     default:
       reader.skipField();
@@ -12097,6 +12102,13 @@ proto.holdem.pb.PlayerSummary.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeUint64(
       20,
+      f
+    );
+  }
+  f = message.getDeposit();
+  if (f !== 0) {
+    writer.writeUint64(
+      21,
       f
     );
   }
@@ -12402,6 +12414,21 @@ proto.holdem.pb.PlayerSummary.prototype.getSquidPunishTotal = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerSummary.prototype.setSquidPunishTotal = function(value) {
   jspb.Message.setField(this, 20, value);
+};
+
+
+/**
+ * optional uint64 deposit = 21;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummary.prototype.getDeposit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummary.prototype.setDeposit = function(value) {
+  jspb.Message.setField(this, 21, value);
 };
 
 
