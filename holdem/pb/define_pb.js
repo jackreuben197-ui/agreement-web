@@ -23123,7 +23123,8 @@ proto.holdem.pb.SubRoomConfig.toObject = function(includeInstance, msg) {
     limitBetType: jspb.Message.getFieldWithDefault(msg, 5, 0),
     bombpot: jspb.Message.getFieldWithDefault(msg, 6, 0),
     squidBase: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    rounds: jspb.Message.getFieldWithDefault(msg, 8, 0)
+    rounds: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    criticalHit: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -23191,6 +23192,10 @@ proto.holdem.pb.SubRoomConfig.deserializeBinaryFromReader = function(msg, reader
     case 8:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setRounds(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setCriticalHit(value);
       break;
     default:
       reader.skipField();
@@ -23274,6 +23279,13 @@ proto.holdem.pb.SubRoomConfig.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeInt32(
       8,
+      f
+    );
+  }
+  f = message.getCriticalHit();
+  if (f !== 0) {
+    writer.writeInt32(
+      9,
       f
     );
   }
@@ -23397,6 +23409,21 @@ proto.holdem.pb.SubRoomConfig.prototype.getRounds = function() {
 /** @param {number} value */
 proto.holdem.pb.SubRoomConfig.prototype.setRounds = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional int32 critical_hit = 9;
+ * @return {number}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.getCriticalHit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SubRoomConfig.prototype.setCriticalHit = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 

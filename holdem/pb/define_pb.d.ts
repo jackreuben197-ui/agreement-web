@@ -3540,6 +3540,9 @@ export class SubRoomConfig extends jspb.Message {
   getRounds(): number;
   setRounds(value: number): void;
 
+  getCriticalHit(): number;
+  setCriticalHit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SubRoomConfig.AsObject;
   static toObject(includeInstance: boolean, msg: SubRoomConfig): SubRoomConfig.AsObject;
@@ -3560,6 +3563,7 @@ export namespace SubRoomConfig {
     bombpot: number,
     squidBase: number,
     rounds: number,
+    criticalHit: number,
   }
 }
 
