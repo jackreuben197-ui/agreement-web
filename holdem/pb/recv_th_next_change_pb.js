@@ -66,7 +66,8 @@ proto.holdem.pb.ServerMessageNextChange.toObject = function(includeInstance, msg
     insurance: jspb.Message.getFieldWithDefault(msg, 5, false),
     squidOpen: jspb.Message.getFieldWithDefault(msg, 6, false),
     squidBase: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    roomType: jspb.Message.getFieldWithDefault(msg, 8, 0)
+    roomType: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    criticalHitOpen: jspb.Message.getFieldWithDefault(msg, 9, false)
   };
 
   if (includeInstance) {
@@ -134,6 +135,10 @@ proto.holdem.pb.ServerMessageNextChange.deserializeBinaryFromReader = function(m
     case 8:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setRoomType(value);
+      break;
+    case 9:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setCriticalHitOpen(value);
       break;
     default:
       reader.skipField();
@@ -217,6 +222,13 @@ proto.holdem.pb.ServerMessageNextChange.serializeBinaryToWriter = function(messa
   if (f !== 0) {
     writer.writeUint64(
       8,
+      f
+    );
+  }
+  f = message.getCriticalHitOpen();
+  if (f) {
+    writer.writeBool(
+      9,
       f
     );
   }
@@ -348,6 +360,23 @@ proto.holdem.pb.ServerMessageNextChange.prototype.getRoomType = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageNextChange.prototype.setRoomType = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional bool critical_hit_open = 9;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageNextChange.prototype.getCriticalHitOpen = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 9, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageNextChange.prototype.setCriticalHitOpen = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 

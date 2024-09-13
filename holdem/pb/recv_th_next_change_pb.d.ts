@@ -28,6 +28,9 @@ export class ServerMessageNextChange extends jspb.Message {
   getRoomType(): number;
   setRoomType(value: number): void;
 
+  getCriticalHitOpen(): boolean;
+  setCriticalHitOpen(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageNextChange.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageNextChange): ServerMessageNextChange.AsObject;
@@ -48,6 +51,7 @@ export namespace ServerMessageNextChange {
     squidOpen: boolean,
     squidBase: number,
     roomType: number,
+    criticalHitOpen: boolean,
   }
 }
 
