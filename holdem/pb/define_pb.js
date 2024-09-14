@@ -1238,7 +1238,9 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     jackpot: jspb.Message.getFieldWithDefault(msg, 40, 0),
     jackpotGold: jspb.Message.getFieldWithDefault(msg, 41, 0),
     jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 42, 0),
-    mode: jspb.Message.getFieldWithDefault(msg, 43, 0)
+    mode: jspb.Message.getFieldWithDefault(msg, 43, 0),
+    randomAnte: jspb.Message.getFieldWithDefault(msg, 44, ""),
+    criticalHit: jspb.Message.getFieldWithDefault(msg, 45, 0)
   };
 
   if (includeInstance) {
@@ -1439,6 +1441,14 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 43:
       var value = /** @type {!proto.holdem.pb.Def.RoomMode} */ (reader.readEnum());
       msg.setMode(value);
+      break;
+    case 44:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRandomAnte(value);
+      break;
+    case 45:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setCriticalHit(value);
       break;
     default:
       reader.skipField();
@@ -1754,6 +1764,20 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       43,
+      f
+    );
+  }
+  f = message.getRandomAnte();
+  if (f.length > 0) {
+    writer.writeString(
+      44,
+      f
+    );
+  }
+  f = message.getCriticalHit();
+  if (f !== 0) {
+    writer.writeInt32(
+      45,
       f
     );
   }
@@ -2421,6 +2445,36 @@ proto.holdem.pb.RoomInfo.prototype.getMode = function() {
 /** @param {!proto.holdem.pb.Def.RoomMode} value */
 proto.holdem.pb.RoomInfo.prototype.setMode = function(value) {
   jspb.Message.setField(this, 43, value);
+};
+
+
+/**
+ * optional string random_ante = 44;
+ * @return {string}
+ */
+proto.holdem.pb.RoomInfo.prototype.getRandomAnte = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 44, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.RoomInfo.prototype.setRandomAnte = function(value) {
+  jspb.Message.setField(this, 44, value);
+};
+
+
+/**
+ * optional int32 critical_hit = 45;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getCriticalHit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 45, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setCriticalHit = function(value) {
+  jspb.Message.setField(this, 45, value);
 };
 
 
@@ -13858,7 +13912,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     modeSetting: (f = msg.getModeSetting()) && proto.holdem.pb.ModeSetting.toObject(includeInstance, f),
     enterRoomType: jspb.Message.getFieldWithDefault(msg, 128, 0),
     jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 129, 0),
-    isWhitelist: jspb.Message.getFieldWithDefault(msg, 130, false)
+    isWhitelist: jspb.Message.getFieldWithDefault(msg, 130, false),
+    criticalHit: jspb.Message.getFieldWithDefault(msg, 131, 0)
   };
 
   if (includeInstance) {
@@ -14413,6 +14468,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 130:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsWhitelist(value);
+      break;
+    case 131:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setCriticalHit(value);
       break;
     default:
       reader.skipField();
@@ -15343,6 +15402,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       130,
+      f
+    );
+  }
+  f = message.getCriticalHit();
+  if (f !== 0) {
+    writer.writeInt32(
+      131,
       f
     );
   }
@@ -17377,6 +17443,21 @@ proto.holdem.pb.RoomRecord.prototype.getIsWhitelist = function() {
 /** @param {boolean} value */
 proto.holdem.pb.RoomRecord.prototype.setIsWhitelist = function(value) {
   jspb.Message.setField(this, 130, value);
+};
+
+
+/**
+ * optional int32 critical_hit = 131;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getCriticalHit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 131, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setCriticalHit = function(value) {
+  jspb.Message.setField(this, 131, value);
 };
 
 

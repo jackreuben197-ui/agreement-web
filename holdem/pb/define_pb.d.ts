@@ -479,6 +479,12 @@ export class RoomInfo extends jspb.Message {
   getMode(): Def.RoomModeMap[keyof Def.RoomModeMap];
   setMode(value: Def.RoomModeMap[keyof Def.RoomModeMap]): void;
 
+  getRandomAnte(): string;
+  setRandomAnte(value: string): void;
+
+  getCriticalHit(): number;
+  setCriticalHit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -532,6 +538,8 @@ export namespace RoomInfo {
     jackpotGold: number,
     jackpotParentGold: number,
     mode: Def.RoomModeMap[keyof Def.RoomModeMap],
+    randomAnte: string,
+    criticalHit: number,
   }
 
   export interface RetainTypeMap {
@@ -2542,6 +2550,9 @@ export class RoomRecord extends jspb.Message {
   getIsWhitelist(): boolean;
   setIsWhitelist(value: boolean): void;
 
+  getCriticalHit(): number;
+  setCriticalHit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2682,6 +2693,7 @@ export namespace RoomRecord {
     enterRoomType: number,
     jackpotParentGold: number,
     isWhitelist: boolean,
+    criticalHit: number,
   }
 }
 
