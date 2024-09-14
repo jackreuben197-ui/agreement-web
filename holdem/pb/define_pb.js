@@ -2705,7 +2705,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.HandInfo.repeatedFields_ = [5,7,10,11,16];
+proto.holdem.pb.HandInfo.repeatedFields_ = [5,7,10,11,16,18];
 
 
 
@@ -2752,7 +2752,8 @@ proto.holdem.pb.HandInfo.toObject = function(includeInstance, msg) {
     inSquid: jspb.Message.getFieldWithDefault(msg, 15, false),
     secondPotsList: jspb.Message.toObjectList(msg.getSecondPotsList(),
     proto.holdem.pb.SidePot.toObject, includeInstance),
-    conRounds: jspb.Message.getFieldWithDefault(msg, 17, 0)
+    conRounds: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    dealOrderList: jspb.Message.getRepeatedField(msg, 18)
   };
 
   if (includeInstance) {
@@ -2851,6 +2852,10 @@ proto.holdem.pb.HandInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 17:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setConRounds(value);
+      break;
+    case 18:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setDealOrderList(value);
       break;
     default:
       reader.skipField();
@@ -2986,6 +2991,13 @@ proto.holdem.pb.HandInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint32(
       17,
+      f
+    );
+  }
+  f = message.getDealOrderList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      18,
       f
     );
   }
@@ -3305,6 +3317,35 @@ proto.holdem.pb.HandInfo.prototype.getConRounds = function() {
 /** @param {number} value */
 proto.holdem.pb.HandInfo.prototype.setConRounds = function(value) {
   jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * repeated int32 deal_order = 18;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.HandInfo.prototype.getDealOrderList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 18));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.HandInfo.prototype.setDealOrderList = function(value) {
+  jspb.Message.setField(this, 18, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.HandInfo.prototype.addDealOrder = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 18, value, opt_index);
+};
+
+
+proto.holdem.pb.HandInfo.prototype.clearDealOrderList = function() {
+  this.setDealOrderList([]);
 };
 
 

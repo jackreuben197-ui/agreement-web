@@ -637,6 +637,11 @@ export class HandInfo extends jspb.Message {
   getConRounds(): number;
   setConRounds(value: number): void;
 
+  clearDealOrderList(): void;
+  getDealOrderList(): Array<number>;
+  setDealOrderList(value: Array<number>): void;
+  addDealOrder(value: number, index?: number): number;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandInfo.AsObject;
   static toObject(includeInstance: boolean, msg: HandInfo): HandInfo.AsObject;
@@ -664,6 +669,7 @@ export namespace HandInfo {
     inSquid: boolean,
     secondPotsList: Array<SidePot.AsObject>,
     conRounds: number,
+    dealOrderList: Array<number>,
   }
 }
 
