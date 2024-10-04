@@ -329,7 +329,9 @@ proto.holdem.pb.CBRoom.toObject = function(includeInstance, msg) {
     proto.holdem.pb.CBPlaySummary.toObject, includeInstance),
     startTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
     duration: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    gameDuration: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    gameDuration: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    bringInMinLimit: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    playBetMinLimit: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -395,6 +397,14 @@ proto.holdem.pb.CBRoom.deserializeBinaryFromReader = function(msg, reader) {
     case 7:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setGameDuration(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setBringInMinLimit(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setPlayBetMinLimit(value);
       break;
     default:
       reader.skipField();
@@ -473,6 +483,20 @@ proto.holdem.pb.CBRoom.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint32(
       7,
+      f
+    );
+  }
+  f = message.getBringInMinLimit();
+  if (f !== 0) {
+    writer.writeUint64(
+      8,
+      f
+    );
+  }
+  f = message.getPlayBetMinLimit();
+  if (f !== 0) {
+    writer.writeUint64(
+      9,
       f
     );
   }
@@ -613,6 +637,36 @@ proto.holdem.pb.CBRoom.prototype.getGameDuration = function() {
 /** @param {number} value */
 proto.holdem.pb.CBRoom.prototype.setGameDuration = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint64 bring_in_min_limit = 8;
+ * @return {number}
+ */
+proto.holdem.pb.CBRoom.prototype.getBringInMinLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.CBRoom.prototype.setBringInMinLimit = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional uint64 play_bet_min_limit = 9;
+ * @return {number}
+ */
+proto.holdem.pb.CBRoom.prototype.getPlayBetMinLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.CBRoom.prototype.setPlayBetMinLimit = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 

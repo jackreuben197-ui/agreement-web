@@ -150,6 +150,12 @@ export class CBRoom extends jspb.Message {
   getGameDuration(): number;
   setGameDuration(value: number): void;
 
+  getBringInMinLimit(): number;
+  setBringInMinLimit(value: number): void;
+
+  getPlayBetMinLimit(): number;
+  setPlayBetMinLimit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CBRoom.AsObject;
   static toObject(includeInstance: boolean, msg: CBRoom): CBRoom.AsObject;
@@ -169,6 +175,8 @@ export namespace CBRoom {
     startTime: number,
     duration: number,
     gameDuration: number,
+    bringInMinLimit: number,
+    playBetMinLimit: number,
   }
 }
 
