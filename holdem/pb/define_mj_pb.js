@@ -16,6 +16,7 @@ goog.exportSymbol('proto.holdem.pb.ClaimValidAction', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.ActionFailReason', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.ActionMj', null, global);
+goog.exportSymbol('proto.holdem.pb.DefMJ.ExtraReason', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.TileType', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.WaitType', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.WinLoseReason', null, global);
@@ -27,6 +28,8 @@ goog.exportSymbol('proto.holdem.pb.MyGameInfoMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.OperatorMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.PlayerChipChangeMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.PlayerMJ', null, global);
+goog.exportSymbol('proto.holdem.pb.PlayerPrepareMJ', null, global);
+goog.exportSymbol('proto.holdem.pb.PlayerRaise', null, global);
 goog.exportSymbol('proto.holdem.pb.PlayerStartInfoMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.PlayerSummaryMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.PlayerVoidSuit', null, global);
@@ -163,7 +166,8 @@ proto.holdem.pb.DefMJ.WaitType = {
   WT_TURN: 1,
   WT_CLAIM: 2,
   WT_EXCHANGE: 3,
-  WT_VOIDSUIT: 4
+  WT_VOIDSUIT: 4,
+  WT_RAISE: 5
 };
 
 /**
@@ -176,7 +180,8 @@ proto.holdem.pb.DefMJ.TileType = {
   TT_BAMBOO: 3,
   TT_WIND: 4,
   TT_DRAGON: 5,
-  TT_FLOWER: 6
+  TT_FLOWER: 6,
+  TT_JOKER: 7
 };
 
 /**
@@ -202,7 +207,6 @@ proto.holdem.pb.DefMJ.WinLoseReason = {
   WLRNONE: 0,
   WR_SELFDRAW: 1,
   WR_DISCARD: 2,
-  WR_KONG_DISCARD: 3,
   WR_DRAW_CHECK: 4,
   WR_VS_CHECK: 5,
   WR_MELDEDKONG1_AWD: 6,
@@ -210,7 +214,6 @@ proto.holdem.pb.DefMJ.WinLoseReason = {
   WR_MELDEDKONG1_AWD_RROB: 8,
   LR_SELF_DRAW: 9,
   LR_DISCARD: 10,
-  LR_KONG_DISCARD: 11,
   LR_DRAW_CHECK: 12,
   LR_VS_CHECK: 13,
   LR_MELDEDKONG1_AWD: 14,
@@ -224,7 +227,15 @@ proto.holdem.pb.DefMJ.WinLoseReason = {
   LR_CONCEALEDKONG_AWD: 24,
   LR_CONCEALEDKONG_AWD_R: 25,
   LR_MELDEDKONG3_AWD: 27,
-  LR_MELDEDKONG3_AWD_R: 28
+  LR_MELDEDKONG3_AWD_R: 28,
+  WR_KONG_TRANSFER: 29,
+  WR_KONG_TRANSFER_R: 30,
+  WR_RAISE: 31,
+  WR_FOLLOW_DEALER: 32,
+  LR_KONG_TRANSFER: 33,
+  LR_KONG_TRANSFER_R: 34,
+  LR_RAISE: 35,
+  LR_FOLLOW_DEALER: 36
 };
 
 /**
@@ -255,7 +266,12 @@ proto.holdem.pb.DefMJ.WinType = {
   WNT_OUTWITHREPLACEMENTTILEDISCARD: 21,
   WNT_SELFDRAWN: 22,
   WNT_LASTTILEDRAW: 23,
-  WNT_LASTTILECLAIM: 24
+  WNT_LASTTILECLAIM: 24,
+  WNT_CHICKENHAND: 25,
+  WNT_PURESTRAIGHT: 26,
+  WNT_THIRTEENORPHANS: 27,
+  WNT_MELDEDHAND: 28,
+  WNT_CONCEALED: 29
 };
 
 /**
@@ -265,6 +281,16 @@ proto.holdem.pb.DefMJ.ActionFailReason = {
   AFRNONE: 0,
   AFRMAX: 1,
   AFRROBKONG: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.DefMJ.ExtraReason = {
+  ER_NONE: 0,
+  ER_ROBKONG: 1,
+  ER_OUTWITHREPLACEMENTTILEDISCARD: 2,
+  ER_12: 3
 };
 
 
@@ -1298,7 +1324,13 @@ proto.holdem.pb.MatchInfoMJ.toObject = function(includeInstance, msg) {
     waitType: jspb.Message.getFieldWithDefault(msg, 9, 0),
     draw: jspb.Message.getFieldWithDefault(msg, 10, false),
     pb_final: jspb.Message.getFieldWithDefault(msg, 11, false),
-    lastDiscard: (f = msg.getLastDiscard()) && proto.holdem.pb.Tile.toObject(includeInstance, f)
+    lastDiscard: (f = msg.getLastDiscard()) && proto.holdem.pb.Tile.toObject(includeInstance, f),
+    joker: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    randomForJoker: (f = msg.getRandomForJoker()) && proto.holdem.pb.Tile.toObject(includeInstance, f),
+    jokerCount: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    winWay: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    raise: jspb.Message.getFieldWithDefault(msg, 17, false),
+    followDealer: jspb.Message.getFieldWithDefault(msg, 18, false)
   };
 
   if (includeInstance) {
@@ -1383,6 +1415,31 @@ proto.holdem.pb.MatchInfoMJ.deserializeBinaryFromReader = function(msg, reader) 
       var value = new proto.holdem.pb.Tile;
       reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
       msg.setLastDiscard(value);
+      break;
+    case 13:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setJoker(value);
+      break;
+    case 14:
+      var value = new proto.holdem.pb.Tile;
+      reader.readMessage(value,proto.holdem.pb.Tile.deserializeBinaryFromReader);
+      msg.setRandomForJoker(value);
+      break;
+    case 15:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setJokerCount(value);
+      break;
+    case 16:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setWinWay(value);
+      break;
+    case 17:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setRaise(value);
+      break;
+    case 18:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setFollowDealer(value);
       break;
     default:
       reader.skipField();
@@ -1496,6 +1553,49 @@ proto.holdem.pb.MatchInfoMJ.serializeBinaryToWriter = function(message, writer) 
       12,
       f,
       proto.holdem.pb.Tile.serializeBinaryToWriter
+    );
+  }
+  f = message.getJoker();
+  if (f !== 0) {
+    writer.writeInt32(
+      13,
+      f
+    );
+  }
+  f = message.getRandomForJoker();
+  if (f != null) {
+    writer.writeMessage(
+      14,
+      f,
+      proto.holdem.pb.Tile.serializeBinaryToWriter
+    );
+  }
+  f = message.getJokerCount();
+  if (f !== 0) {
+    writer.writeInt32(
+      15,
+      f
+    );
+  }
+  f = message.getWinWay();
+  if (f !== 0) {
+    writer.writeInt32(
+      16,
+      f
+    );
+  }
+  f = message.getRaise();
+  if (f) {
+    writer.writeBool(
+      17,
+      f
+    );
+  }
+  f = message.getFollowDealer();
+  if (f) {
+    writer.writeBool(
+      18,
+      f
     );
   }
 };
@@ -1714,6 +1814,115 @@ proto.holdem.pb.MatchInfoMJ.prototype.hasLastDiscard = function() {
 };
 
 
+/**
+ * optional int32 joker = 13;
+ * @return {number}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getJoker = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setJoker = function(value) {
+  jspb.Message.setField(this, 13, value);
+};
+
+
+/**
+ * optional Tile random_for_joker = 14;
+ * @return {?proto.holdem.pb.Tile}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getRandomForJoker = function() {
+  return /** @type{?proto.holdem.pb.Tile} */ (
+    jspb.Message.getWrapperField(this, proto.holdem.pb.Tile, 14));
+};
+
+
+/** @param {?proto.holdem.pb.Tile|undefined} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setRandomForJoker = function(value) {
+  jspb.Message.setWrapperField(this, 14, value);
+};
+
+
+proto.holdem.pb.MatchInfoMJ.prototype.clearRandomForJoker = function() {
+  this.setRandomForJoker(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.hasRandomForJoker = function() {
+  return jspb.Message.getField(this, 14) != null;
+};
+
+
+/**
+ * optional int32 joker_count = 15;
+ * @return {number}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getJokerCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setJokerCount = function(value) {
+  jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * optional int32 win_way = 16;
+ * @return {number}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getWinWay = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setWinWay = function(value) {
+  jspb.Message.setField(this, 16, value);
+};
+
+
+/**
+ * optional bool raise = 17;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getRaise = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 17, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setRaise = function(value) {
+  jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * optional bool follow_dealer = 18;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getFollowDealer = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 18, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setFollowDealer = function(value) {
+  jspb.Message.setField(this, 18, value);
+};
+
+
 
 /**
  * Generated by JsPbCodeGenerator.
@@ -1925,6 +2134,229 @@ proto.holdem.pb.ExchangeFlower.prototype.addTiles = function(opt_value, opt_inde
 
 proto.holdem.pb.ExchangeFlower.prototype.clearTilesList = function() {
   this.setTilesList([]);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.PlayerPrepareMJ = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.PlayerPrepareMJ, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.PlayerPrepareMJ.displayName = 'proto.holdem.pb.PlayerPrepareMJ';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.PlayerPrepareMJ.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.PlayerPrepareMJ.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.PlayerPrepareMJ} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.PlayerPrepareMJ.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    chip: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    waitType: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    waitDeadline: jspb.Message.getFieldWithDefault(msg, 4, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.PlayerPrepareMJ}
+ */
+proto.holdem.pb.PlayerPrepareMJ.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.PlayerPrepareMJ;
+  return proto.holdem.pb.PlayerPrepareMJ.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.PlayerPrepareMJ} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.PlayerPrepareMJ}
+ */
+proto.holdem.pb.PlayerPrepareMJ.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSeatId(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setChip(value);
+      break;
+    case 3:
+      var value = /** @type {!proto.holdem.pb.DefMJ.WaitType} */ (reader.readEnum());
+      msg.setWaitType(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setWaitDeadline(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.PlayerPrepareMJ.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.PlayerPrepareMJ.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.PlayerPrepareMJ} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.PlayerPrepareMJ.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSeatId();
+  if (f !== 0) {
+    writer.writeInt32(
+      1,
+      f
+    );
+  }
+  f = message.getChip();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
+  f = message.getWaitType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      3,
+      f
+    );
+  }
+  f = message.getWaitDeadline();
+  if (f !== 0) {
+    writer.writeInt64(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional int32 seat_id = 1;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerPrepareMJ.prototype.getSeatId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerPrepareMJ.prototype.setSeatId = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 chip = 2;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerPrepareMJ.prototype.getChip = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerPrepareMJ.prototype.setChip = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional DefMJ.WaitType wait_type = 3;
+ * @return {!proto.holdem.pb.DefMJ.WaitType}
+ */
+proto.holdem.pb.PlayerPrepareMJ.prototype.getWaitType = function() {
+  return /** @type {!proto.holdem.pb.DefMJ.WaitType} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {!proto.holdem.pb.DefMJ.WaitType} value */
+proto.holdem.pb.PlayerPrepareMJ.prototype.setWaitType = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional int64 wait_deadline = 4;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerPrepareMJ.prototype.getWaitDeadline = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerPrepareMJ.prototype.setWaitDeadline = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 
@@ -2538,7 +2970,8 @@ proto.holdem.pb.PlayerMJ.toObject = function(includeInstance, msg) {
     resultDetailList: jspb.Message.toObjectList(msg.getResultDetailList(),
     proto.holdem.pb.ResultDetailMJ.toObject, includeInstance),
     readyTilesList: jspb.Message.toObjectList(msg.getReadyTilesList(),
-    proto.holdem.pb.ReadyTile.toObject, includeInstance)
+    proto.holdem.pb.ReadyTile.toObject, includeInstance),
+    raise: jspb.Message.getFieldWithDefault(msg, 34, 0)
   };
 
   if (includeInstance) {
@@ -2687,6 +3120,10 @@ proto.holdem.pb.PlayerMJ.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.ReadyTile;
       reader.readMessage(value,proto.holdem.pb.ReadyTile.deserializeBinaryFromReader);
       msg.addReadyTiles(value);
+      break;
+    case 34:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRaise(value);
       break;
     default:
       reader.skipField();
@@ -2909,6 +3346,13 @@ proto.holdem.pb.PlayerMJ.serializeBinaryToWriter = function(message, writer) {
       33,
       f,
       proto.holdem.pb.ReadyTile.serializeBinaryToWriter
+    );
+  }
+  f = message.getRaise();
+  if (f !== 0) {
+    writer.writeInt32(
+      34,
+      f
     );
   }
 };
@@ -3472,6 +3916,21 @@ proto.holdem.pb.PlayerMJ.prototype.clearReadyTilesList = function() {
 };
 
 
+/**
+ * optional int32 raise = 34;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerMJ.prototype.getRaise = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 34, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerMJ.prototype.setRaise = function(value) {
+  jspb.Message.setField(this, 34, value);
+};
+
+
 
 /**
  * Generated by JsPbCodeGenerator.
@@ -3943,6 +4402,175 @@ proto.holdem.pb.PlayerVoidSuit.prototype.getTt = function() {
 
 /** @param {!proto.holdem.pb.DefMJ.TileType} value */
 proto.holdem.pb.PlayerVoidSuit.prototype.setTt = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.PlayerRaise = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.PlayerRaise, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.PlayerRaise.displayName = 'proto.holdem.pb.PlayerRaise';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.PlayerRaise.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.PlayerRaise.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.PlayerRaise} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.PlayerRaise.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    raise: jspb.Message.getFieldWithDefault(msg, 2, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.PlayerRaise}
+ */
+proto.holdem.pb.PlayerRaise.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.PlayerRaise;
+  return proto.holdem.pb.PlayerRaise.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.PlayerRaise} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.PlayerRaise}
+ */
+proto.holdem.pb.PlayerRaise.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSeatId(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRaise(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.PlayerRaise.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.PlayerRaise.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.PlayerRaise} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.PlayerRaise.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSeatId();
+  if (f !== 0) {
+    writer.writeInt32(
+      1,
+      f
+    );
+  }
+  f = message.getRaise();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional int32 seat_id = 1;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerRaise.prototype.getSeatId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerRaise.prototype.setSeatId = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional int32 raise = 2;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerRaise.prototype.getRaise = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerRaise.prototype.setRaise = function(value) {
   jspb.Message.setField(this, 2, value);
 };
 
@@ -6423,7 +7051,8 @@ proto.holdem.pb.ResultDetailMJ.toObject = function(includeInstance, msg) {
     proto.holdem.pb.WinTypeWithPoint.toObject, includeInstance),
     winTile: (f = msg.getWinTile()) && proto.holdem.pb.Tile.toObject(includeInstance, f),
     sourceList: jspb.Message.toObjectList(msg.getSourceList(),
-    proto.holdem.pb.SourceMJ.toObject, includeInstance)
+    proto.holdem.pb.SourceMJ.toObject, includeInstance),
+    extraReason: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -6486,6 +7115,10 @@ proto.holdem.pb.ResultDetailMJ.deserializeBinaryFromReader = function(msg, reade
       var value = new proto.holdem.pb.SourceMJ;
       reader.readMessage(value,proto.holdem.pb.SourceMJ.deserializeBinaryFromReader);
       msg.addSource(value);
+      break;
+    case 7:
+      var value = /** @type {!proto.holdem.pb.DefMJ.ExtraReason} */ (reader.readEnum());
+      msg.setExtraReason(value);
       break;
     default:
       reader.skipField();
@@ -6559,6 +7192,13 @@ proto.holdem.pb.ResultDetailMJ.serializeBinaryToWriter = function(message, write
       6,
       f,
       proto.holdem.pb.SourceMJ.serializeBinaryToWriter
+    );
+  }
+  f = message.getExtraReason();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      7,
+      f
     );
   }
 };
@@ -6698,6 +7338,21 @@ proto.holdem.pb.ResultDetailMJ.prototype.addSource = function(opt_value, opt_ind
 
 proto.holdem.pb.ResultDetailMJ.prototype.clearSourceList = function() {
   this.setSourceList([]);
+};
+
+
+/**
+ * optional DefMJ.ExtraReason extra_reason = 7;
+ * @return {!proto.holdem.pb.DefMJ.ExtraReason}
+ */
+proto.holdem.pb.ResultDetailMJ.prototype.getExtraReason = function() {
+  return /** @type {!proto.holdem.pb.DefMJ.ExtraReason} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {!proto.holdem.pb.DefMJ.ExtraReason} value */
+proto.holdem.pb.ResultDetailMJ.prototype.setExtraReason = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 

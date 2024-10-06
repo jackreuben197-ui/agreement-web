@@ -25,6 +25,7 @@ export namespace DefMJ {
     WT_CLAIM: 2;
     WT_EXCHANGE: 3;
     WT_VOIDSUIT: 4;
+    WT_RAISE: 5;
   }
 
   export const WaitType: WaitTypeMap;
@@ -37,6 +38,7 @@ export namespace DefMJ {
     TT_WIND: 4;
     TT_DRAGON: 5;
     TT_FLOWER: 6;
+    TT_JOKER: 7;
   }
 
   export const TileType: TileTypeMap;
@@ -60,7 +62,6 @@ export namespace DefMJ {
     WLRNONE: 0;
     WR_SELFDRAW: 1;
     WR_DISCARD: 2;
-    WR_KONG_DISCARD: 3;
     WR_DRAW_CHECK: 4;
     WR_VS_CHECK: 5;
     WR_MELDEDKONG1_AWD: 6;
@@ -68,7 +69,6 @@ export namespace DefMJ {
     WR_MELDEDKONG1_AWD_RROB: 8;
     LR_SELF_DRAW: 9;
     LR_DISCARD: 10;
-    LR_KONG_DISCARD: 11;
     LR_DRAW_CHECK: 12;
     LR_VS_CHECK: 13;
     LR_MELDEDKONG1_AWD: 14;
@@ -83,6 +83,14 @@ export namespace DefMJ {
     LR_CONCEALEDKONG_AWD_R: 25;
     LR_MELDEDKONG3_AWD: 27;
     LR_MELDEDKONG3_AWD_R: 28;
+    WR_KONG_TRANSFER: 29;
+    WR_KONG_TRANSFER_R: 30;
+    WR_RAISE: 31;
+    WR_FOLLOW_DEALER: 32;
+    LR_KONG_TRANSFER: 33;
+    LR_KONG_TRANSFER_R: 34;
+    LR_RAISE: 35;
+    LR_FOLLOW_DEALER: 36;
   }
 
   export const WinLoseReason: WinLoseReasonMap;
@@ -113,6 +121,11 @@ export namespace DefMJ {
     WNT_SELFDRAWN: 22;
     WNT_LASTTILEDRAW: 23;
     WNT_LASTTILECLAIM: 24;
+    WNT_CHICKENHAND: 25;
+    WNT_PURESTRAIGHT: 26;
+    WNT_THIRTEENORPHANS: 27;
+    WNT_MELDEDHAND: 28;
+    WNT_CONCEALED: 29;
   }
 
   export const WinType: WinTypeMap;
@@ -124,6 +137,15 @@ export namespace DefMJ {
   }
 
   export const ActionFailReason: ActionFailReasonMap;
+
+  export interface ExtraReasonMap {
+    ER_NONE: 0;
+    ER_ROBKONG: 1;
+    ER_OUTWITHREPLACEMENTTILEDISCARD: 2;
+    ER_12: 3;
+  }
+
+  export const ExtraReason: ExtraReasonMap;
 }
 
 export class Tile extends jspb.Message {
@@ -305,6 +327,26 @@ export class MatchInfoMJ extends jspb.Message {
   getLastDiscard(): Tile | undefined;
   setLastDiscard(value?: Tile): void;
 
+  getJoker(): number;
+  setJoker(value: number): void;
+
+  hasRandomForJoker(): boolean;
+  clearRandomForJoker(): void;
+  getRandomForJoker(): Tile | undefined;
+  setRandomForJoker(value?: Tile): void;
+
+  getJokerCount(): number;
+  setJokerCount(value: number): void;
+
+  getWinWay(): number;
+  setWinWay(value: number): void;
+
+  getRaise(): boolean;
+  setRaise(value: boolean): void;
+
+  getFollowDealer(): boolean;
+  setFollowDealer(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MatchInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: MatchInfoMJ): MatchInfoMJ.AsObject;
@@ -329,6 +371,12 @@ export namespace MatchInfoMJ {
     draw: boolean,
     pb_final: boolean,
     lastDiscard?: Tile.AsObject,
+    joker: number,
+    randomForJoker?: Tile.AsObject,
+    jokerCount: number,
+    winWay: number,
+    raise: boolean,
+    followDealer: boolean,
   }
 }
 
@@ -357,6 +405,38 @@ export namespace ExchangeFlower {
   export type AsObject = {
     flowersList: Array<Tile.AsObject>,
     tilesList: Array<Tile.AsObject>,
+  }
+}
+
+export class PlayerPrepareMJ extends jspb.Message {
+  getSeatId(): number;
+  setSeatId(value: number): void;
+
+  getChip(): number;
+  setChip(value: number): void;
+
+  getWaitType(): DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap];
+  setWaitType(value: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap]): void;
+
+  getWaitDeadline(): number;
+  setWaitDeadline(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PlayerPrepareMJ.AsObject;
+  static toObject(includeInstance: boolean, msg: PlayerPrepareMJ): PlayerPrepareMJ.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PlayerPrepareMJ, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PlayerPrepareMJ;
+  static deserializeBinaryFromReader(message: PlayerPrepareMJ, reader: jspb.BinaryReader): PlayerPrepareMJ;
+}
+
+export namespace PlayerPrepareMJ {
+  export type AsObject = {
+    seatId: number,
+    chip: number,
+    waitType: DefMJ.WaitTypeMap[keyof DefMJ.WaitTypeMap],
+    waitDeadline: number,
   }
 }
 
@@ -534,6 +614,9 @@ export class PlayerMJ extends jspb.Message {
   setReadyTilesList(value: Array<ReadyTile>): void;
   addReadyTiles(value?: ReadyTile, index?: number): ReadyTile;
 
+  getRaise(): number;
+  setRaise(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -573,6 +656,7 @@ export namespace PlayerMJ {
     totalWinLose: number,
     resultDetailList: Array<ResultDetailMJ.AsObject>,
     readyTilesList: Array<ReadyTile.AsObject>,
+    raise: number,
   }
 }
 
@@ -641,6 +725,30 @@ export namespace PlayerVoidSuit {
   export type AsObject = {
     seatId: number,
     tt: DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap],
+  }
+}
+
+export class PlayerRaise extends jspb.Message {
+  getSeatId(): number;
+  setSeatId(value: number): void;
+
+  getRaise(): number;
+  setRaise(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PlayerRaise.AsObject;
+  static toObject(includeInstance: boolean, msg: PlayerRaise): PlayerRaise.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PlayerRaise, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PlayerRaise;
+  static deserializeBinaryFromReader(message: PlayerRaise, reader: jspb.BinaryReader): PlayerRaise;
+}
+
+export namespace PlayerRaise {
+  export type AsObject = {
+    seatId: number,
+    raise: number,
   }
 }
 
@@ -1007,6 +1115,9 @@ export class ResultDetailMJ extends jspb.Message {
   setSourceList(value: Array<SourceMJ>): void;
   addSource(value?: SourceMJ, index?: number): SourceMJ;
 
+  getExtraReason(): DefMJ.ExtraReasonMap[keyof DefMJ.ExtraReasonMap];
+  setExtraReason(value: DefMJ.ExtraReasonMap[keyof DefMJ.ExtraReasonMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ResultDetailMJ.AsObject;
   static toObject(includeInstance: boolean, msg: ResultDetailMJ): ResultDetailMJ.AsObject;
@@ -1025,6 +1136,7 @@ export namespace ResultDetailMJ {
     winTypesList: Array<WinTypeWithPoint.AsObject>,
     winTile?: Tile.AsObject,
     sourceList: Array<SourceMJ.AsObject>,
+    extraReason: DefMJ.ExtraReasonMap[keyof DefMJ.ExtraReasonMap],
   }
 }
 
