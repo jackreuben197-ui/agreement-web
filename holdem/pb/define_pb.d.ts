@@ -2568,8 +2568,11 @@ export class RoomRecord extends jspb.Message {
   getSelfDrawnType(): number;
   setSelfDrawnType(value: number): void;
 
-  getWinTypeRuleMap(): jspb.Map<string, number>;
-  clearWinTypeRuleMap(): void;
+  hasWinTypeRule(): boolean;
+  clearWinTypeRule(): void;
+  getWinTypeRule(): WinTypeRule | undefined;
+  setWinTypeRule(value?: WinTypeRule): void;
+
   getKongWinOfDiscardType(): number;
   setKongWinOfDiscardType(value: number): void;
 
@@ -2741,7 +2744,7 @@ export namespace RoomRecord {
     kongTransfer: number,
     kongWinOfDiscard: number,
     selfDrawnType: number,
-    winTypeRuleMap: Array<[string, number]>,
+    winTypeRule?: WinTypeRule.AsObject,
     kongWinOfDiscardType: number,
     joker: number,
     winWay: number,
@@ -3673,6 +3676,46 @@ export namespace JackpotAward {
     award: number,
     cardsType: number,
     handValue: number,
+  }
+}
+
+export class WinTypeRule extends jspb.Message {
+  getOutsideHand(): number;
+  setOutsideHand(value: number): void;
+
+  getAllSimple(): number;
+  setAllSimple(value: number): void;
+
+  getEyesPair(): number;
+  setEyesPair(value: number): void;
+
+  getConcealed(): number;
+  setConcealed(value: number): void;
+
+  getBlessingOfHeavenAndEarth(): number;
+  setBlessingOfHeavenAndEarth(value: number): void;
+
+  getTdNoJokerMultiplyTwo(): number;
+  setTdNoJokerMultiplyTwo(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): WinTypeRule.AsObject;
+  static toObject(includeInstance: boolean, msg: WinTypeRule): WinTypeRule.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: WinTypeRule, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): WinTypeRule;
+  static deserializeBinaryFromReader(message: WinTypeRule, reader: jspb.BinaryReader): WinTypeRule;
+}
+
+export namespace WinTypeRule {
+  export type AsObject = {
+    outsideHand: number,
+    allSimple: number,
+    eyesPair: number,
+    concealed: number,
+    blessingOfHeavenAndEarth: number,
+    tdNoJokerMultiplyTwo: number,
   }
 }
 
