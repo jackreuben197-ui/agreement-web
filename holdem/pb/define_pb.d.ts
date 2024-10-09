@@ -2600,6 +2600,9 @@ export class RoomRecord extends jspb.Message {
   getRaise(): number;
   setRaise(value: number): void;
 
+  getRaiseOpDuration(): number;
+  setRaiseOpDuration(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2754,6 +2757,7 @@ export namespace RoomRecord {
     wallType: number,
     followDealer: number,
     raise: number,
+    raiseOpDuration: number,
   }
 }
 

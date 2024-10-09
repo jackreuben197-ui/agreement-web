@@ -13968,7 +13968,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     robKong: jspb.Message.getFieldWithDefault(msg, 141, 0),
     wallType: jspb.Message.getFieldWithDefault(msg, 142, 0),
     followDealer: jspb.Message.getFieldWithDefault(msg, 143, 0),
-    raise: jspb.Message.getFieldWithDefault(msg, 144, 0)
+    raise: jspb.Message.getFieldWithDefault(msg, 144, 0),
+    raiseOpDuration: jspb.Message.getFieldWithDefault(msg, 145, 0)
   };
 
   if (includeInstance) {
@@ -14580,6 +14581,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 144:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setRaise(value);
+      break;
+    case 145:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRaiseOpDuration(value);
       break;
     default:
       reader.skipField();
@@ -15609,6 +15614,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       144,
+      f
+    );
+  }
+  f = message.getRaiseOpDuration();
+  if (f !== 0) {
+    writer.writeInt32(
+      145,
       f
     );
   }
@@ -17868,6 +17880,21 @@ proto.holdem.pb.RoomRecord.prototype.getRaise = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setRaise = function(value) {
   jspb.Message.setField(this, 144, value);
+};
+
+
+/**
+ * optional int32 raise_op_duration = 145;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRaiseOpDuration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 145, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setRaiseOpDuration = function(value) {
+  jspb.Message.setField(this, 145, value);
 };
 
 
