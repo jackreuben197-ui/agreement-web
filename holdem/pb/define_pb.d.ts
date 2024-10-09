@@ -2559,6 +2559,44 @@ export class RoomRecord extends jspb.Message {
   getCriticalHit(): number;
   setCriticalHit(value: number): void;
 
+  getKongTransfer(): number;
+  setKongTransfer(value: number): void;
+
+  getKongWinOfDiscard(): number;
+  setKongWinOfDiscard(value: number): void;
+
+  getSelfDrawnType(): number;
+  setSelfDrawnType(value: number): void;
+
+  getWinTypeRuleMap(): jspb.Map<string, number>;
+  clearWinTypeRuleMap(): void;
+  getKongWinOfDiscardType(): number;
+  setKongWinOfDiscardType(value: number): void;
+
+  getJoker(): number;
+  setJoker(value: number): void;
+
+  getWinWay(): number;
+  setWinWay(value: number): void;
+
+  getSingleHolder(): number;
+  setSingleHolder(value: number): void;
+
+  getRobKongHolder(): number;
+  setRobKongHolder(value: number): void;
+
+  getRobKong(): number;
+  setRobKong(value: number): void;
+
+  getWallType(): number;
+  setWallType(value: number): void;
+
+  getFollowDealer(): number;
+  setFollowDealer(value: number): void;
+
+  getRaise(): number;
+  setRaise(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2700,6 +2738,19 @@ export namespace RoomRecord {
     jackpotParentGold: number,
     isWhitelist: boolean,
     criticalHit: number,
+    kongTransfer: number,
+    kongWinOfDiscard: number,
+    selfDrawnType: number,
+    winTypeRuleMap: Array<[string, number]>,
+    kongWinOfDiscardType: number,
+    joker: number,
+    winWay: number,
+    singleHolder: number,
+    robKongHolder: number,
+    robKong: number,
+    wallType: number,
+    followDealer: number,
+    raise: number,
   }
 }
 

@@ -13954,7 +13954,20 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     enterRoomType: jspb.Message.getFieldWithDefault(msg, 128, 0),
     jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 129, 0),
     isWhitelist: jspb.Message.getFieldWithDefault(msg, 130, false),
-    criticalHit: jspb.Message.getFieldWithDefault(msg, 131, 0)
+    criticalHit: jspb.Message.getFieldWithDefault(msg, 131, 0),
+    kongTransfer: jspb.Message.getFieldWithDefault(msg, 132, 0),
+    kongWinOfDiscard: jspb.Message.getFieldWithDefault(msg, 133, 0),
+    selfDrawnType: jspb.Message.getFieldWithDefault(msg, 134, 0),
+    winTypeRuleMap: (f = msg.getWinTypeRuleMap()) ? f.toObject(includeInstance, undefined) : [],
+    kongWinOfDiscardType: jspb.Message.getFieldWithDefault(msg, 136, 0),
+    joker: jspb.Message.getFieldWithDefault(msg, 137, 0),
+    winWay: jspb.Message.getFieldWithDefault(msg, 138, 0),
+    singleHolder: jspb.Message.getFieldWithDefault(msg, 139, 0),
+    robKongHolder: jspb.Message.getFieldWithDefault(msg, 140, 0),
+    robKong: jspb.Message.getFieldWithDefault(msg, 141, 0),
+    wallType: jspb.Message.getFieldWithDefault(msg, 142, 0),
+    followDealer: jspb.Message.getFieldWithDefault(msg, 143, 0),
+    raise: jspb.Message.getFieldWithDefault(msg, 144, 0)
   };
 
   if (includeInstance) {
@@ -14513,6 +14526,60 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 131:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setCriticalHit(value);
+      break;
+    case 132:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setKongTransfer(value);
+      break;
+    case 133:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setKongWinOfDiscard(value);
+      break;
+    case 134:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSelfDrawnType(value);
+      break;
+    case 135:
+      var value = msg.getWinTypeRuleMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readInt32);
+         });
+      break;
+    case 136:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setKongWinOfDiscardType(value);
+      break;
+    case 137:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setJoker(value);
+      break;
+    case 138:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setWinWay(value);
+      break;
+    case 139:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSingleHolder(value);
+      break;
+    case 140:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRobKongHolder(value);
+      break;
+    case 141:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRobKong(value);
+      break;
+    case 142:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setWallType(value);
+      break;
+    case 143:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setFollowDealer(value);
+      break;
+    case 144:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRaise(value);
       break;
     default:
       reader.skipField();
@@ -15450,6 +15517,94 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       131,
+      f
+    );
+  }
+  f = message.getKongTransfer();
+  if (f !== 0) {
+    writer.writeInt32(
+      132,
+      f
+    );
+  }
+  f = message.getKongWinOfDiscard();
+  if (f !== 0) {
+    writer.writeInt32(
+      133,
+      f
+    );
+  }
+  f = message.getSelfDrawnType();
+  if (f !== 0) {
+    writer.writeInt32(
+      134,
+      f
+    );
+  }
+  f = message.getWinTypeRuleMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(135, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeInt32);
+  }
+  f = message.getKongWinOfDiscardType();
+  if (f !== 0) {
+    writer.writeInt32(
+      136,
+      f
+    );
+  }
+  f = message.getJoker();
+  if (f !== 0) {
+    writer.writeInt32(
+      137,
+      f
+    );
+  }
+  f = message.getWinWay();
+  if (f !== 0) {
+    writer.writeInt32(
+      138,
+      f
+    );
+  }
+  f = message.getSingleHolder();
+  if (f !== 0) {
+    writer.writeInt32(
+      139,
+      f
+    );
+  }
+  f = message.getRobKongHolder();
+  if (f !== 0) {
+    writer.writeInt32(
+      140,
+      f
+    );
+  }
+  f = message.getRobKong();
+  if (f !== 0) {
+    writer.writeInt32(
+      141,
+      f
+    );
+  }
+  f = message.getWallType();
+  if (f !== 0) {
+    writer.writeInt32(
+      142,
+      f
+    );
+  }
+  f = message.getFollowDealer();
+  if (f !== 0) {
+    writer.writeInt32(
+      143,
+      f
+    );
+  }
+  f = message.getRaise();
+  if (f !== 0) {
+    writer.writeInt32(
+      144,
       f
     );
   }
@@ -17499,6 +17654,204 @@ proto.holdem.pb.RoomRecord.prototype.getCriticalHit = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setCriticalHit = function(value) {
   jspb.Message.setField(this, 131, value);
+};
+
+
+/**
+ * optional int32 kong_transfer = 132;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getKongTransfer = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 132, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setKongTransfer = function(value) {
+  jspb.Message.setField(this, 132, value);
+};
+
+
+/**
+ * optional int32 kong_win_of_discard = 133;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getKongWinOfDiscard = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 133, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setKongWinOfDiscard = function(value) {
+  jspb.Message.setField(this, 133, value);
+};
+
+
+/**
+ * optional int32 self_drawn_type = 134;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSelfDrawnType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 134, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSelfDrawnType = function(value) {
+  jspb.Message.setField(this, 134, value);
+};
+
+
+/**
+ * map<string, int32> win_type_rule = 135;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,number>}
+ */
+proto.holdem.pb.RoomRecord.prototype.getWinTypeRuleMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,number>} */ (
+      jspb.Message.getMapField(this, 135, opt_noLazyCreate,
+      null));
+};
+
+
+proto.holdem.pb.RoomRecord.prototype.clearWinTypeRuleMap = function() {
+  this.getWinTypeRuleMap().clear();
+};
+
+
+/**
+ * optional int32 kong_win_of_discard_type = 136;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getKongWinOfDiscardType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 136, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setKongWinOfDiscardType = function(value) {
+  jspb.Message.setField(this, 136, value);
+};
+
+
+/**
+ * optional int32 joker = 137;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getJoker = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 137, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setJoker = function(value) {
+  jspb.Message.setField(this, 137, value);
+};
+
+
+/**
+ * optional int32 win_way = 138;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getWinWay = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 138, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setWinWay = function(value) {
+  jspb.Message.setField(this, 138, value);
+};
+
+
+/**
+ * optional int32 single_holder = 139;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSingleHolder = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 139, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSingleHolder = function(value) {
+  jspb.Message.setField(this, 139, value);
+};
+
+
+/**
+ * optional int32 rob_kong_holder = 140;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRobKongHolder = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 140, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setRobKongHolder = function(value) {
+  jspb.Message.setField(this, 140, value);
+};
+
+
+/**
+ * optional int32 rob_kong = 141;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRobKong = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 141, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setRobKong = function(value) {
+  jspb.Message.setField(this, 141, value);
+};
+
+
+/**
+ * optional int32 wall_type = 142;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getWallType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 142, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setWallType = function(value) {
+  jspb.Message.setField(this, 142, value);
+};
+
+
+/**
+ * optional int32 follow_dealer = 143;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getFollowDealer = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 143, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setFollowDealer = function(value) {
+  jspb.Message.setField(this, 143, value);
+};
+
+
+/**
+ * optional int32 raise = 144;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRaise = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 144, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setRaise = function(value) {
+  jspb.Message.setField(this, 144, value);
 };
 
 
