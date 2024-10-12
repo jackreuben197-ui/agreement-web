@@ -2603,6 +2603,9 @@ export class RoomRecord extends jspb.Message {
   getRaiseOpDuration(): number;
   setRaiseOpDuration(value: number): void;
 
+  getJokerCount(): number;
+  setJokerCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2758,6 +2761,7 @@ export namespace RoomRecord {
     followDealer: number,
     raise: number,
     raiseOpDuration: number,
+    jokerCount: number,
   }
 }
 
@@ -3702,6 +3706,12 @@ export class WinTypeRule extends jspb.Message {
   getTdNoJokerMultiplyTwo(): number;
   setTdNoJokerMultiplyTwo(value: number): void;
 
+  getWinAddThree(): number;
+  setWinAddThree(value: number): void;
+
+  getWinAddFive(): number;
+  setWinAddFive(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): WinTypeRule.AsObject;
   static toObject(includeInstance: boolean, msg: WinTypeRule): WinTypeRule.AsObject;
@@ -3720,6 +3730,8 @@ export namespace WinTypeRule {
     concealed: number,
     blessingOfHeavenAndEarth: number,
     tdNoJokerMultiplyTwo: number,
+    winAddThree: number,
+    winAddFive: number,
   }
 }
 

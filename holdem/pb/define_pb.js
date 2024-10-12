@@ -13969,7 +13969,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     wallType: jspb.Message.getFieldWithDefault(msg, 142, 0),
     followDealer: jspb.Message.getFieldWithDefault(msg, 143, 0),
     raise: jspb.Message.getFieldWithDefault(msg, 144, 0),
-    raiseOpDuration: jspb.Message.getFieldWithDefault(msg, 145, 0)
+    raiseOpDuration: jspb.Message.getFieldWithDefault(msg, 145, 0),
+    jokerCount: jspb.Message.getFieldWithDefault(msg, 146, 0)
   };
 
   if (includeInstance) {
@@ -14585,6 +14586,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 145:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setRaiseOpDuration(value);
+      break;
+    case 146:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setJokerCount(value);
       break;
     default:
       reader.skipField();
@@ -15621,6 +15626,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       145,
+      f
+    );
+  }
+  f = message.getJokerCount();
+  if (f !== 0) {
+    writer.writeInt32(
+      146,
       f
     );
   }
@@ -17895,6 +17907,21 @@ proto.holdem.pb.RoomRecord.prototype.getRaiseOpDuration = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setRaiseOpDuration = function(value) {
   jspb.Message.setField(this, 145, value);
+};
+
+
+/**
+ * optional int32 joker_count = 146;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getJokerCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 146, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setJokerCount = function(value) {
+  jspb.Message.setField(this, 146, value);
 };
 
 
@@ -24274,7 +24301,9 @@ proto.holdem.pb.WinTypeRule.toObject = function(includeInstance, msg) {
     eyesPair: jspb.Message.getFieldWithDefault(msg, 3, 0),
     concealed: jspb.Message.getFieldWithDefault(msg, 4, 0),
     blessingOfHeavenAndEarth: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    tdNoJokerMultiplyTwo: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    tdNoJokerMultiplyTwo: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    winAddThree: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    winAddFive: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -24334,6 +24363,14 @@ proto.holdem.pb.WinTypeRule.deserializeBinaryFromReader = function(msg, reader) 
     case 6:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setTdNoJokerMultiplyTwo(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setWinAddThree(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setWinAddFive(value);
       break;
     default:
       reader.skipField();
@@ -24403,6 +24440,20 @@ proto.holdem.pb.WinTypeRule.serializeBinaryToWriter = function(message, writer) 
   if (f !== 0) {
     writer.writeInt32(
       6,
+      f
+    );
+  }
+  f = message.getWinAddThree();
+  if (f !== 0) {
+    writer.writeInt32(
+      7,
+      f
+    );
+  }
+  f = message.getWinAddFive();
+  if (f !== 0) {
+    writer.writeInt32(
+      8,
       f
     );
   }
@@ -24496,6 +24547,36 @@ proto.holdem.pb.WinTypeRule.prototype.getTdNoJokerMultiplyTwo = function() {
 /** @param {number} value */
 proto.holdem.pb.WinTypeRule.prototype.setTdNoJokerMultiplyTwo = function(value) {
   jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional int32 win_add_three = 7;
+ * @return {number}
+ */
+proto.holdem.pb.WinTypeRule.prototype.getWinAddThree = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.WinTypeRule.prototype.setWinAddThree = function(value) {
+  jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional int32 win_add_five = 8;
+ * @return {number}
+ */
+proto.holdem.pb.WinTypeRule.prototype.getWinAddFive = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.WinTypeRule.prototype.setWinAddFive = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 
