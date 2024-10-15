@@ -752,6 +752,9 @@ export class MTTInfo extends jspb.Message {
   getBuyRatio(): number;
   setBuyRatio(value: number): void;
 
+  getSngId(): number;
+  setSngId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTInfo.AsObject;
   static toObject(includeInstance: boolean, msg: MTTInfo): MTTInfo.AsObject;
@@ -790,6 +793,7 @@ export namespace MTTInfo {
     addOnPlusMode2EndBl: number,
     addOnPlusMode2MaxTimes: number,
     buyRatio: number,
+    sngId: number,
   }
 }
 
@@ -3247,6 +3251,9 @@ export class MTTRecord extends jspb.Message {
   getAntiCheatOrderMicType(): number;
   setAntiCheatOrderMicType(value: number): void;
 
+  getSngId(): number;
+  setSngId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
   static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
@@ -3368,6 +3375,7 @@ export namespace MTTRecord {
     videoVerifyType: number,
     antiCheatOrderType: number,
     antiCheatOrderMicType: number,
+    sngId: number,
   }
 }
 

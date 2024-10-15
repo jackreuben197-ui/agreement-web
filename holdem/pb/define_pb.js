@@ -3422,7 +3422,8 @@ proto.holdem.pb.MTTInfo.toObject = function(includeInstance, msg) {
     addOnPlusMode2: jspb.Message.getFieldWithDefault(msg, 23, false),
     addOnPlusMode2EndBl: jspb.Message.getFieldWithDefault(msg, 24, 0),
     addOnPlusMode2MaxTimes: jspb.Message.getFieldWithDefault(msg, 25, 0),
-    buyRatio: jspb.Message.getFieldWithDefault(msg, 26, 0)
+    buyRatio: jspb.Message.getFieldWithDefault(msg, 26, 0),
+    sngId: jspb.Message.getFieldWithDefault(msg, 27, 0)
   };
 
   if (includeInstance) {
@@ -3562,6 +3563,10 @@ proto.holdem.pb.MTTInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 26:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setBuyRatio(value);
+      break;
+    case 27:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSngId(value);
       break;
     default:
       reader.skipField();
@@ -3771,6 +3776,13 @@ proto.holdem.pb.MTTInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint32(
       26,
+      f
+    );
+  }
+  f = message.getSngId();
+  if (f !== 0) {
+    writer.writeUint64(
+      27,
       f
     );
   }
@@ -4176,6 +4188,21 @@ proto.holdem.pb.MTTInfo.prototype.getBuyRatio = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTInfo.prototype.setBuyRatio = function(value) {
   jspb.Message.setField(this, 26, value);
+};
+
+
+/**
+ * optional uint64 sng_id = 27;
+ * @return {number}
+ */
+proto.holdem.pb.MTTInfo.prototype.getSngId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 27, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTInfo.prototype.setSngId = function(value) {
+  jspb.Message.setField(this, 27, value);
 };
 
 
@@ -19169,7 +19196,8 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     popupMessage: jspb.Message.getFieldWithDefault(msg, 106, ""),
     videoVerifyType: jspb.Message.getFieldWithDefault(msg, 107, 0),
     antiCheatOrderType: jspb.Message.getFieldWithDefault(msg, 108, 0),
-    antiCheatOrderMicType: jspb.Message.getFieldWithDefault(msg, 109, 0)
+    antiCheatOrderMicType: jspb.Message.getFieldWithDefault(msg, 109, 0),
+    sngId: jspb.Message.getFieldWithDefault(msg, 110, 0)
   };
 
   if (includeInstance) {
@@ -19641,6 +19669,10 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 109:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setAntiCheatOrderMicType(value);
+      break;
+    case 110:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSngId(value);
       break;
     default:
       reader.skipField();
@@ -20431,6 +20463,13 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       109,
+      f
+    );
+  }
+  f = message.getSngId();
+  if (f !== 0) {
+    writer.writeUint64(
+      110,
       f
     );
   }
@@ -22069,6 +22108,21 @@ proto.holdem.pb.MTTRecord.prototype.getAntiCheatOrderMicType = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTRecord.prototype.setAntiCheatOrderMicType = function(value) {
   jspb.Message.setField(this, 109, value);
+};
+
+
+/**
+ * optional uint64 sng_id = 110;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getSngId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 110, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setSngId = function(value) {
+  jspb.Message.setField(this, 110, value);
 };
 
 
