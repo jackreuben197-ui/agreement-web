@@ -2933,7 +2933,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.PlayerMJ.repeatedFields_ = [3,4,5,6,7,8,23,32,33];
+proto.holdem.pb.PlayerMJ.repeatedFields_ = [3,4,5,6,7,8,23,32,33,35];
 
 
 
@@ -2995,7 +2995,8 @@ proto.holdem.pb.PlayerMJ.toObject = function(includeInstance, msg) {
     proto.holdem.pb.ResultDetailMJ.toObject, includeInstance),
     readyTilesList: jspb.Message.toObjectList(msg.getReadyTilesList(),
     proto.holdem.pb.ReadyTile.toObject, includeInstance),
-    raise: jspb.Message.getFieldWithDefault(msg, 34, 0)
+    raise: jspb.Message.getFieldWithDefault(msg, 34, 0),
+    jkongList: jspb.Message.getRepeatedField(msg, 35)
   };
 
   if (includeInstance) {
@@ -3148,6 +3149,10 @@ proto.holdem.pb.PlayerMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 34:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setRaise(value);
+      break;
+    case 35:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
+      msg.setJkongList(value);
       break;
     default:
       reader.skipField();
@@ -3376,6 +3381,13 @@ proto.holdem.pb.PlayerMJ.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       34,
+      f
+    );
+  }
+  f = message.getJkongList();
+  if (f.length > 0) {
+    writer.writePackedUint32(
+      35,
       f
     );
   }
@@ -3952,6 +3964,35 @@ proto.holdem.pb.PlayerMJ.prototype.getRaise = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerMJ.prototype.setRaise = function(value) {
   jspb.Message.setField(this, 34, value);
+};
+
+
+/**
+ * repeated uint32 jkong = 35;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.PlayerMJ.prototype.getJkongList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 35));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.PlayerMJ.prototype.setJkongList = function(value) {
+  jspb.Message.setField(this, 35, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.PlayerMJ.prototype.addJkong = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 35, value, opt_index);
+};
+
+
+proto.holdem.pb.PlayerMJ.prototype.clearJkongList = function() {
+  this.setJkongList([]);
 };
 
 
