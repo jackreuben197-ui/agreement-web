@@ -371,6 +371,9 @@ export class MatchInfoMJ extends jspb.Message {
   getFollowDealer(): boolean;
   setFollowDealer(value: boolean): void;
 
+  getRealJokerValue(): number;
+  setRealJokerValue(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MatchInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: MatchInfoMJ): MatchInfoMJ.AsObject;
@@ -401,6 +404,7 @@ export namespace MatchInfoMJ {
     winWay: number,
     raise: boolean,
     followDealer: boolean,
+    realJokerValue: number,
   }
 }
 

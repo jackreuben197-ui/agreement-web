@@ -1354,7 +1354,8 @@ proto.holdem.pb.MatchInfoMJ.toObject = function(includeInstance, msg) {
     jokerCount: jspb.Message.getFieldWithDefault(msg, 15, 0),
     winWay: jspb.Message.getFieldWithDefault(msg, 16, 0),
     raise: jspb.Message.getFieldWithDefault(msg, 17, false),
-    followDealer: jspb.Message.getFieldWithDefault(msg, 18, false)
+    followDealer: jspb.Message.getFieldWithDefault(msg, 18, false),
+    realJokerValue: jspb.Message.getFieldWithDefault(msg, 19, 0)
   };
 
   if (includeInstance) {
@@ -1464,6 +1465,10 @@ proto.holdem.pb.MatchInfoMJ.deserializeBinaryFromReader = function(msg, reader) 
     case 18:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setFollowDealer(value);
+      break;
+    case 19:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRealJokerValue(value);
       break;
     default:
       reader.skipField();
@@ -1619,6 +1624,13 @@ proto.holdem.pb.MatchInfoMJ.serializeBinaryToWriter = function(message, writer) 
   if (f) {
     writer.writeBool(
       18,
+      f
+    );
+  }
+  f = message.getRealJokerValue();
+  if (f !== 0) {
+    writer.writeInt32(
+      19,
       f
     );
   }
@@ -1944,6 +1956,21 @@ proto.holdem.pb.MatchInfoMJ.prototype.getFollowDealer = function() {
 /** @param {boolean} value */
 proto.holdem.pb.MatchInfoMJ.prototype.setFollowDealer = function(value) {
   jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * optional int32 real_joker_value = 19;
+ * @return {number}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getRealJokerValue = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setRealJokerValue = function(value) {
+  jspb.Message.setField(this, 19, value);
 };
 
 
