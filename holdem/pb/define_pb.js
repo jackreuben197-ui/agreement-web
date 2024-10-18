@@ -24382,7 +24382,8 @@ proto.holdem.pb.WinTypeRule.toObject = function(includeInstance, msg) {
     eyesPair: jspb.Message.getFieldWithDefault(msg, 3, 0),
     concealed: jspb.Message.getFieldWithDefault(msg, 4, 0),
     blessingOfHeavenAndEarth: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    tdNoJokerMultiplyTwo: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    tdNoJokerMultiplyTwo: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    eyesSevenPairs: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -24442,6 +24443,10 @@ proto.holdem.pb.WinTypeRule.deserializeBinaryFromReader = function(msg, reader) 
     case 6:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setTdNoJokerMultiplyTwo(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setEyesSevenPairs(value);
       break;
     default:
       reader.skipField();
@@ -24511,6 +24516,13 @@ proto.holdem.pb.WinTypeRule.serializeBinaryToWriter = function(message, writer) 
   if (f !== 0) {
     writer.writeInt32(
       6,
+      f
+    );
+  }
+  f = message.getEyesSevenPairs();
+  if (f !== 0) {
+    writer.writeInt32(
+      7,
       f
     );
   }
@@ -24604,6 +24616,21 @@ proto.holdem.pb.WinTypeRule.prototype.getTdNoJokerMultiplyTwo = function() {
 /** @param {number} value */
 proto.holdem.pb.WinTypeRule.prototype.setTdNoJokerMultiplyTwo = function(value) {
   jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional int32 eyes_seven_pairs = 7;
+ * @return {number}
+ */
+proto.holdem.pb.WinTypeRule.prototype.getEyesSevenPairs = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.WinTypeRule.prototype.setEyesSevenPairs = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 

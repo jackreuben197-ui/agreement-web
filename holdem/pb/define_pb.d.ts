@@ -3718,6 +3718,9 @@ export class WinTypeRule extends jspb.Message {
   getTdNoJokerMultiplyTwo(): number;
   setTdNoJokerMultiplyTwo(value: number): void;
 
+  getEyesSevenPairs(): number;
+  setEyesSevenPairs(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): WinTypeRule.AsObject;
   static toObject(includeInstance: boolean, msg: WinTypeRule): WinTypeRule.AsObject;
@@ -3736,6 +3739,7 @@ export namespace WinTypeRule {
     concealed: number,
     blessingOfHeavenAndEarth: number,
     tdNoJokerMultiplyTwo: number,
+    eyesSevenPairs: number,
   }
 }
 
