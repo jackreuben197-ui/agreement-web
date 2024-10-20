@@ -3023,7 +3023,8 @@ proto.holdem.pb.PlayerMJ.toObject = function(includeInstance, msg) {
     readyTilesList: jspb.Message.toObjectList(msg.getReadyTilesList(),
     proto.holdem.pb.ReadyTile.toObject, includeInstance),
     raise: jspb.Message.getFieldWithDefault(msg, 34, 0),
-    jkongList: jspb.Message.getRepeatedField(msg, 35)
+    jkongList: jspb.Message.getRepeatedField(msg, 35),
+    winTimes: jspb.Message.getFieldWithDefault(msg, 36, 0)
   };
 
   if (includeInstance) {
@@ -3180,6 +3181,10 @@ proto.holdem.pb.PlayerMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 35:
       var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
       msg.setJkongList(value);
+      break;
+    case 36:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setWinTimes(value);
       break;
     default:
       reader.skipField();
@@ -3415,6 +3420,13 @@ proto.holdem.pb.PlayerMJ.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writePackedUint32(
       35,
+      f
+    );
+  }
+  f = message.getWinTimes();
+  if (f !== 0) {
+    writer.writeInt32(
+      36,
       f
     );
   }
@@ -4020,6 +4032,21 @@ proto.holdem.pb.PlayerMJ.prototype.addJkong = function(value, opt_index) {
 
 proto.holdem.pb.PlayerMJ.prototype.clearJkongList = function() {
   this.setJkongList([]);
+};
+
+
+/**
+ * optional int32 win_times = 36;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerMJ.prototype.getWinTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 36, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerMJ.prototype.setWinTimes = function(value) {
+  jspb.Message.setField(this, 36, value);
 };
 
 
