@@ -650,9 +650,6 @@ export class PlayerMJ extends jspb.Message {
   setJkongList(value: Array<number>): void;
   addJkong(value: number, index?: number): number;
 
-  getWinTimes(): number;
-  setWinTimes(value: number): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -694,7 +691,6 @@ export namespace PlayerMJ {
     readyTilesList: Array<ReadyTile.AsObject>,
     raise: number,
     jkongList: Array<number>,
-    winTimes: number,
   }
 }
 
