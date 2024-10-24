@@ -12,7 +12,7 @@ var goog = jspb;
 var global = Function('return this')();
 
 var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
-goog.exportSymbol('proto.holdem.pb.ClientMessageViewPlayerCardsNUm', null, global);
+goog.exportSymbol('proto.holdem.pb.ClientMessageViewPlayerCardsNum', null, global);
 goog.exportSymbol('proto.holdem.pb.ServerMessageViewPlayerCardsNum', null, global);
 
 /**
@@ -25,12 +25,12 @@ goog.exportSymbol('proto.holdem.pb.ServerMessageViewPlayerCardsNum', null, globa
  * @extends {jspb.Message}
  * @constructor
  */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm = function(opt_data) {
+proto.holdem.pb.ClientMessageViewPlayerCardsNum = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.holdem.pb.ClientMessageViewPlayerCardsNUm, jspb.Message);
+goog.inherits(proto.holdem.pb.ClientMessageViewPlayerCardsNum, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.holdem.pb.ClientMessageViewPlayerCardsNUm.displayName = 'proto.holdem.pb.ClientMessageViewPlayerCardsNUm';
+  proto.holdem.pb.ClientMessageViewPlayerCardsNum.displayName = 'proto.holdem.pb.ClientMessageViewPlayerCardsNum';
 }
 
 
@@ -45,8 +45,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.toObject = function(opt_includeInstance) {
-  return proto.holdem.pb.ClientMessageViewPlayerCardsNUm.toObject(opt_includeInstance, this);
+proto.holdem.pb.ClientMessageViewPlayerCardsNum.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.ClientMessageViewPlayerCardsNum.toObject(opt_includeInstance, this);
 };
 
 
@@ -55,14 +55,13 @@ proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.toObject = function(op
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.holdem.pb.ClientMessageViewPlayerCardsNUm} msg The msg instance to transform.
+ * @param {!proto.holdem.pb.ClientMessageViewPlayerCardsNum} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.toObject = function(includeInstance, msg) {
+proto.holdem.pb.ClientMessageViewPlayerCardsNum.toObject = function(includeInstance, msg) {
   var f, obj = {
-    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
-    userRid: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -76,23 +75,23 @@ proto.holdem.pb.ClientMessageViewPlayerCardsNUm.toObject = function(includeInsta
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.holdem.pb.ClientMessageViewPlayerCardsNUm}
+ * @return {!proto.holdem.pb.ClientMessageViewPlayerCardsNum}
  */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.deserializeBinary = function(bytes) {
+proto.holdem.pb.ClientMessageViewPlayerCardsNum.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.holdem.pb.ClientMessageViewPlayerCardsNUm;
-  return proto.holdem.pb.ClientMessageViewPlayerCardsNUm.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.holdem.pb.ClientMessageViewPlayerCardsNum;
+  return proto.holdem.pb.ClientMessageViewPlayerCardsNum.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.holdem.pb.ClientMessageViewPlayerCardsNUm} msg The message object to deserialize into.
+ * @param {!proto.holdem.pb.ClientMessageViewPlayerCardsNum} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.holdem.pb.ClientMessageViewPlayerCardsNUm}
+ * @return {!proto.holdem.pb.ClientMessageViewPlayerCardsNum}
  */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.deserializeBinaryFromReader = function(msg, reader) {
+proto.holdem.pb.ClientMessageViewPlayerCardsNum.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -103,10 +102,6 @@ proto.holdem.pb.ClientMessageViewPlayerCardsNUm.deserializeBinaryFromReader = fu
       var value = new protobuf_holdem_define_pb.Room;
       reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
       msg.setRoom(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setUserRid(value);
       break;
     default:
       reader.skipField();
@@ -121,9 +116,9 @@ proto.holdem.pb.ClientMessageViewPlayerCardsNUm.deserializeBinaryFromReader = fu
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.serializeBinary = function() {
+proto.holdem.pb.ClientMessageViewPlayerCardsNum.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.holdem.pb.ClientMessageViewPlayerCardsNUm.serializeBinaryToWriter(this, writer);
+  proto.holdem.pb.ClientMessageViewPlayerCardsNum.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -131,11 +126,11 @@ proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.serializeBinary = func
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.holdem.pb.ClientMessageViewPlayerCardsNUm} message
+ * @param {!proto.holdem.pb.ClientMessageViewPlayerCardsNum} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.serializeBinaryToWriter = function(message, writer) {
+proto.holdem.pb.ClientMessageViewPlayerCardsNum.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getRoom();
   if (f != null) {
@@ -145,13 +140,6 @@ proto.holdem.pb.ClientMessageViewPlayerCardsNUm.serializeBinaryToWriter = functi
       protobuf_holdem_define_pb.Room.serializeBinaryToWriter
     );
   }
-  f = message.getUserRid();
-  if (f !== 0) {
-    writer.writeUint64(
-      2,
-      f
-    );
-  }
 };
 
 
@@ -159,19 +147,19 @@ proto.holdem.pb.ClientMessageViewPlayerCardsNUm.serializeBinaryToWriter = functi
  * optional Room room = 1;
  * @return {?proto.holdem.pb.Room}
  */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.getRoom = function() {
+proto.holdem.pb.ClientMessageViewPlayerCardsNum.prototype.getRoom = function() {
   return /** @type{?proto.holdem.pb.Room} */ (
     jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.Room, 1));
 };
 
 
 /** @param {?proto.holdem.pb.Room|undefined} value */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.setRoom = function(value) {
+proto.holdem.pb.ClientMessageViewPlayerCardsNum.prototype.setRoom = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
 
 
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.clearRoom = function() {
+proto.holdem.pb.ClientMessageViewPlayerCardsNum.prototype.clearRoom = function() {
   this.setRoom(undefined);
 };
 
@@ -180,23 +168,8 @@ proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.clearRoom = function()
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.hasRoom = function() {
+proto.holdem.pb.ClientMessageViewPlayerCardsNum.prototype.hasRoom = function() {
   return jspb.Message.getField(this, 1) != null;
-};
-
-
-/**
- * optional uint64 user_rid = 2;
- * @return {number}
- */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.getUserRid = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ClientMessageViewPlayerCardsNUm.prototype.setUserRid = function(value) {
-  jspb.Message.setField(this, 2, value);
 };
 
 
