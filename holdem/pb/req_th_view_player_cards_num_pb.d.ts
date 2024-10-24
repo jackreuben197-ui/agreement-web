@@ -27,6 +27,9 @@ export namespace ClientMessageViewPlayerCardsNum {
 }
 
 export class ServerMessageViewPlayerCardsNum extends jspb.Message {
+  getStatus(): number;
+  setStatus(value: number): void;
+
   getPayTimes(): number;
   setPayTimes(value: number): void;
 
@@ -42,6 +45,7 @@ export class ServerMessageViewPlayerCardsNum extends jspb.Message {
 
 export namespace ServerMessageViewPlayerCardsNum {
   export type AsObject = {
+    status: number,
     payTimes: number,
   }
 }

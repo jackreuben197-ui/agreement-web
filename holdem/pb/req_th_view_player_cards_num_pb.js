@@ -220,7 +220,8 @@ proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.toObject = function(op
  */
 proto.holdem.pb.ServerMessageViewPlayerCardsNum.toObject = function(includeInstance, msg) {
   var f, obj = {
-    payTimes: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    status: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    payTimes: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -259,6 +260,10 @@ proto.holdem.pb.ServerMessageViewPlayerCardsNum.deserializeBinaryFromReader = fu
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt32());
+      msg.setStatus(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setPayTimes(value);
       break;
     default:
@@ -290,10 +295,17 @@ proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.serializeBinary = func
  */
 proto.holdem.pb.ServerMessageViewPlayerCardsNum.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getPayTimes();
+  f = message.getStatus();
   if (f !== 0) {
     writer.writeInt32(
       1,
+      f
+    );
+  }
+  f = message.getPayTimes();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
       f
     );
   }
@@ -301,17 +313,32 @@ proto.holdem.pb.ServerMessageViewPlayerCardsNum.serializeBinaryToWriter = functi
 
 
 /**
- * optional int32 pay_times = 1;
+ * optional int32 status = 1;
  * @return {number}
  */
-proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.getPayTimes = function() {
+proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.getStatus = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.setPayTimes = function(value) {
+proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.setStatus = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional int32 pay_times = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.getPayTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.setPayTimes = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 
