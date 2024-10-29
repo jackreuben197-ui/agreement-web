@@ -3635,6 +3635,9 @@ export class SubRoomConfig extends jspb.Message {
   getCriticalHit(): number;
   setCriticalHit(value: number): void;
 
+  getPlayingPlayerCountLimit(): number;
+  setPlayingPlayerCountLimit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SubRoomConfig.AsObject;
   static toObject(includeInstance: boolean, msg: SubRoomConfig): SubRoomConfig.AsObject;
@@ -3656,6 +3659,7 @@ export namespace SubRoomConfig {
     squidBase: number,
     rounds: number,
     criticalHit: number,
+    playingPlayerCountLimit: number,
   }
 }
 

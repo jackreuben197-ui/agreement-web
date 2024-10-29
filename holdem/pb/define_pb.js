@@ -23750,7 +23750,8 @@ proto.holdem.pb.SubRoomConfig.toObject = function(includeInstance, msg) {
     bombpot: jspb.Message.getFieldWithDefault(msg, 6, 0),
     squidBase: jspb.Message.getFieldWithDefault(msg, 7, 0),
     rounds: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    criticalHit: jspb.Message.getFieldWithDefault(msg, 9, 0)
+    criticalHit: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    playingPlayerCountLimit: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -23822,6 +23823,10 @@ proto.holdem.pb.SubRoomConfig.deserializeBinaryFromReader = function(msg, reader
     case 9:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setCriticalHit(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPlayingPlayerCountLimit(value);
       break;
     default:
       reader.skipField();
@@ -23912,6 +23917,13 @@ proto.holdem.pb.SubRoomConfig.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeInt32(
       9,
+      f
+    );
+  }
+  f = message.getPlayingPlayerCountLimit();
+  if (f !== 0) {
+    writer.writeInt32(
+      10,
       f
     );
   }
@@ -24050,6 +24062,21 @@ proto.holdem.pb.SubRoomConfig.prototype.getCriticalHit = function() {
 /** @param {number} value */
 proto.holdem.pb.SubRoomConfig.prototype.setCriticalHit = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional int32 playing_player_count_limit = 10;
+ * @return {number}
+ */
+proto.holdem.pb.SubRoomConfig.prototype.getPlayingPlayerCountLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.SubRoomConfig.prototype.setPlayingPlayerCountLimit = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 
