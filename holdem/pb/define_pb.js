@@ -4609,7 +4609,8 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 19, 0),
     winTotal: jspb.Message.getFieldWithDefault(msg, 20, 0),
     callTimeCount: jspb.Message.getFieldWithDefault(msg, 21, 0),
-    callTimeStay: jspb.Message.getFieldWithDefault(msg, 22, false)
+    callTimeStay: jspb.Message.getFieldWithDefault(msg, 22, false),
+    totalChips: jspb.Message.getFieldWithDefault(msg, 23, 0)
   };
 
   if (includeInstance) {
@@ -4733,6 +4734,10 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 22:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setCallTimeStay(value);
+      break;
+    case 23:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTotalChips(value);
       break;
     default:
       reader.skipField();
@@ -4914,6 +4919,13 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       22,
+      f
+    );
+  }
+  f = message.getTotalChips();
+  if (f !== 0) {
+    writer.writeUint64(
+      23,
       f
     );
   }
@@ -5255,6 +5267,21 @@ proto.holdem.pb.MyGameInfo.prototype.getCallTimeStay = function() {
 /** @param {boolean} value */
 proto.holdem.pb.MyGameInfo.prototype.setCallTimeStay = function(value) {
   jspb.Message.setField(this, 22, value);
+};
+
+
+/**
+ * optional uint64 total_chips = 23;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getTotalChips = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 23, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfo.prototype.setTotalChips = function(value) {
+  jspb.Message.setField(this, 23, value);
 };
 
 

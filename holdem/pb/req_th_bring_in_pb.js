@@ -306,7 +306,8 @@ proto.holdem.pb.ServerMessageBringIn.prototype.toObject = function(opt_includeIn
 proto.holdem.pb.ServerMessageBringIn.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    chips: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    chips: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    totalChips: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -351,6 +352,10 @@ proto.holdem.pb.ServerMessageBringIn.deserializeBinaryFromReader = function(msg,
       var value = /** @type {number} */ (reader.readUint64());
       msg.setChips(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTotalChips(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -394,6 +399,13 @@ proto.holdem.pb.ServerMessageBringIn.serializeBinaryToWriter = function(message,
       f
     );
   }
+  f = message.getTotalChips();
+  if (f !== 0) {
+    writer.writeUint64(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -424,6 +436,21 @@ proto.holdem.pb.ServerMessageBringIn.prototype.getChips = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageBringIn.prototype.setChips = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional uint64 total_chips = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageBringIn.prototype.getTotalChips = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageBringIn.prototype.setTotalChips = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 

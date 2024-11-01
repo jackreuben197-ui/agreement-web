@@ -45,6 +45,9 @@ export class ServerMessageBringIn extends jspb.Message {
   getChips(): number;
   setChips(value: number): void;
 
+  getTotalChips(): number;
+  setTotalChips(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageBringIn.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageBringIn): ServerMessageBringIn.AsObject;
@@ -59,6 +62,7 @@ export namespace ServerMessageBringIn {
   export type AsObject = {
     status: number,
     chips: number,
+    totalChips: number,
   }
 }
 
