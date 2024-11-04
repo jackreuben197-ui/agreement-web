@@ -1595,6 +1595,9 @@ export class Result extends jspb.Message {
   getSquidCount(): number;
   setSquidCount(value: number): void;
 
+  getAutoChangeRoomHand(): number;
+  setAutoChangeRoomHand(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -1636,6 +1639,7 @@ export namespace Result {
     callTimeCount: number,
     callTimeStay: boolean,
     squidCount: number,
+    autoChangeRoomHand: number,
   }
 }
 

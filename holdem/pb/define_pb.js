@@ -9217,7 +9217,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     winTotal: jspb.Message.getFieldWithDefault(msg, 26, 0),
     callTimeCount: jspb.Message.getFieldWithDefault(msg, 27, 0),
     callTimeStay: jspb.Message.getFieldWithDefault(msg, 28, false),
-    squidCount: jspb.Message.getFieldWithDefault(msg, 29, 0)
+    squidCount: jspb.Message.getFieldWithDefault(msg, 29, 0),
+    autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 30, 0)
   };
 
   if (includeInstance) {
@@ -9373,6 +9374,10 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
     case 29:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSquidCount(value);
+      break;
+    case 30:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setAutoChangeRoomHand(value);
       break;
     default:
       reader.skipField();
@@ -9607,6 +9612,13 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       29,
+      f
+    );
+  }
+  f = message.getAutoChangeRoomHand();
+  if (f !== 0) {
+    writer.writeInt32(
+      30,
       f
     );
   }
@@ -10131,6 +10143,21 @@ proto.holdem.pb.Result.prototype.getSquidCount = function() {
 /** @param {number} value */
 proto.holdem.pb.Result.prototype.setSquidCount = function(value) {
   jspb.Message.setField(this, 29, value);
+};
+
+
+/**
+ * optional int32 auto_change_room_hand = 30;
+ * @return {number}
+ */
+proto.holdem.pb.Result.prototype.getAutoChangeRoomHand = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 30, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Result.prototype.setAutoChangeRoomHand = function(value) {
+  jspb.Message.setField(this, 30, value);
 };
 
 
