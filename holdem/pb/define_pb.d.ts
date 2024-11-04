@@ -915,6 +915,9 @@ export class MyGameInfo extends jspb.Message {
   getTotalChips(): number;
   setTotalChips(value: number): void;
 
+  getAutoChangeRoomHand(): number;
+  setAutoChangeRoomHand(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfo.AsObject;
   static toObject(includeInstance: boolean, msg: MyGameInfo): MyGameInfo.AsObject;
@@ -950,6 +953,7 @@ export namespace MyGameInfo {
     callTimeCount: number,
     callTimeStay: boolean,
     totalChips: number,
+    autoChangeRoomHand: number,
   }
 }
 
