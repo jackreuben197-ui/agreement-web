@@ -9218,7 +9218,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     callTimeCount: jspb.Message.getFieldWithDefault(msg, 27, 0),
     callTimeStay: jspb.Message.getFieldWithDefault(msg, 28, false),
     squidCount: jspb.Message.getFieldWithDefault(msg, 29, 0),
-    autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 30, 0)
+    autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 30, 0),
+    totalChips: jspb.Message.getFieldWithDefault(msg, 31, 0)
   };
 
   if (includeInstance) {
@@ -9378,6 +9379,10 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
     case 30:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setAutoChangeRoomHand(value);
+      break;
+    case 31:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTotalChips(value);
       break;
     default:
       reader.skipField();
@@ -9619,6 +9624,13 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       30,
+      f
+    );
+  }
+  f = message.getTotalChips();
+  if (f !== 0) {
+    writer.writeUint64(
+      31,
       f
     );
   }
@@ -10158,6 +10170,21 @@ proto.holdem.pb.Result.prototype.getAutoChangeRoomHand = function() {
 /** @param {number} value */
 proto.holdem.pb.Result.prototype.setAutoChangeRoomHand = function(value) {
   jspb.Message.setField(this, 30, value);
+};
+
+
+/**
+ * optional uint64 total_chips = 31;
+ * @return {number}
+ */
+proto.holdem.pb.Result.prototype.getTotalChips = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 31, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Result.prototype.setTotalChips = function(value) {
+  jspb.Message.setField(this, 31, value);
 };
 
 
