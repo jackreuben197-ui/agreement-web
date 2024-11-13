@@ -160,6 +160,8 @@ export namespace Def {
     CT_DELAY_4: 12;
     CT_VC_1: 13;
     CT_VC_2: 14;
+    CT_DELAY_5: 15;
+    CT_DELAY_6: 16;
   }
 
   export const ConsumeType: ConsumeTypeMap;
