@@ -14109,7 +14109,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     raiseOpDuration: jspb.Message.getFieldWithDefault(msg, 145, 0),
     jokerCount: jspb.Message.getFieldWithDefault(msg, 146, 0),
     oneMatchMoreWin: jspb.Message.getFieldWithDefault(msg, 147, 0),
-    autoChangeRoomLimitHand: jspb.Message.getFieldWithDefault(msg, 148, 0)
+    autoChangeRoomLimitHand: jspb.Message.getFieldWithDefault(msg, 148, 0),
+    calltime: jspb.Message.getFieldWithDefault(msg, 149, 0)
   };
 
   if (includeInstance) {
@@ -14737,6 +14738,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 148:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setAutoChangeRoomLimitHand(value);
+      break;
+    case 149:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setCalltime(value);
       break;
     default:
       reader.skipField();
@@ -15794,6 +15799,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       148,
+      f
+    );
+  }
+  f = message.getCalltime();
+  if (f !== 0) {
+    writer.writeInt32(
+      149,
       f
     );
   }
@@ -18113,6 +18125,21 @@ proto.holdem.pb.RoomRecord.prototype.getAutoChangeRoomLimitHand = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setAutoChangeRoomLimitHand = function(value) {
   jspb.Message.setField(this, 148, value);
+};
+
+
+/**
+ * optional int32 calltime = 149;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getCalltime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 149, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setCalltime = function(value) {
+  jspb.Message.setField(this, 149, value);
 };
 
 

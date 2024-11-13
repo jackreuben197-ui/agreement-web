@@ -2634,6 +2634,9 @@ export class RoomRecord extends jspb.Message {
   getAutoChangeRoomLimitHand(): number;
   setAutoChangeRoomLimitHand(value: number): void;
 
+  getCalltime(): number;
+  setCalltime(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2792,6 +2795,7 @@ export namespace RoomRecord {
     jokerCount: number,
     oneMatchMoreWin: number,
     autoChangeRoomLimitHand: number,
+    calltime: number,
   }
 }
 
