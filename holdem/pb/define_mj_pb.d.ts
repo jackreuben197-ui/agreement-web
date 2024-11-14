@@ -150,6 +150,7 @@ export namespace DefMJ {
     WNT_NOJOKER: 48;
     WNT_DOUBLEPUNGS: 49;
     WNT_SHORTSTRAIGHT: 50;
+    WNT_HALFFLUSH: 51;
   }
 
   export const WinType: WinTypeMap;
