@@ -2637,6 +2637,11 @@ export class RoomRecord extends jspb.Message {
   getCalltime(): number;
   setCalltime(value: number): void;
 
+  clearRuleUnitList(): void;
+  getRuleUnitList(): Array<RuleUnit>;
+  setRuleUnitList(value: Array<RuleUnit>): void;
+  addRuleUnit(value?: RuleUnit, index?: number): RuleUnit;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2796,6 +2801,7 @@ export namespace RoomRecord {
     oneMatchMoreWin: number,
     autoChangeRoomLimitHand: number,
     calltime: number,
+    ruleUnitList: Array<RuleUnit.AsObject>,
   }
 }
 
@@ -3770,6 +3776,34 @@ export namespace WinTypeRule {
     blessingOfHeavenAndEarth: number,
     tdNoJokerMultiplyTwo: number,
     eyesSevenPairs: number,
+  }
+}
+
+export class RuleUnit extends jspb.Message {
+  getW(): number;
+  setW(value: number): void;
+
+  getD(): number;
+  setD(value: number): void;
+
+  getP(): boolean;
+  setP(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RuleUnit.AsObject;
+  static toObject(includeInstance: boolean, msg: RuleUnit): RuleUnit.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RuleUnit, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RuleUnit;
+  static deserializeBinaryFromReader(message: RuleUnit, reader: jspb.BinaryReader): RuleUnit;
+}
+
+export namespace RuleUnit {
+  export type AsObject = {
+    w: number,
+    d: number,
+    p: boolean,
   }
 }
 
