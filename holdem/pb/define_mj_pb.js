@@ -323,8 +323,8 @@ proto.holdem.pb.DefMJ.ExtraReason = {
  * @enum {number}
  */
 proto.holdem.pb.DefMJ.ExchangeMode = {
-  EXMODE_LEFT: 0,
-  EXMODE_RIGHT: 1,
+  EXMODE_RIGHT: 0,
+  EXMODE_LEFT: 1,
   EXMODE_OPPOSITE: 2
 };
 

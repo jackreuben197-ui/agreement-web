@@ -173,8 +173,8 @@ export namespace DefMJ {
   export const ExtraReason: ExtraReasonMap;
 
   export interface ExchangeModeMap {
-    EXMODE_LEFT: 0;
-    EXMODE_RIGHT: 1;
+    EXMODE_RIGHT: 0;
+    EXMODE_LEFT: 1;
     EXMODE_OPPOSITE: 2;
   }
 
