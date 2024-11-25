@@ -76,7 +76,8 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.toObject = function(include
     waitDeadline: jspb.Message.getFieldWithDefault(msg, 4, 0),
     exchangeTileLength: jspb.Message.getFieldWithDefault(msg, 5, 0),
     readyTilesList: jspb.Message.toObjectList(msg.getReadyTilesList(),
-    protobuf_holdem_define_mj_pb.ReadyTile.toObject, includeInstance)
+    protobuf_holdem_define_mj_pb.ReadyTile.toObject, includeInstance),
+    mode: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -140,6 +141,10 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.deserializeBinaryFromReader
       var value = new protobuf_holdem_define_mj_pb.ReadyTile;
       reader.readMessage(value,protobuf_holdem_define_mj_pb.ReadyTile.deserializeBinaryFromReader);
       msg.addReadyTiles(value);
+      break;
+    case 7:
+      var value = /** @type {!proto.holdem.pb.DefMJ.ExchangeMode} */ (reader.readEnum());
+      msg.setMode(value);
       break;
     default:
       reader.skipField();
@@ -214,6 +219,13 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.serializeBinaryToWriter = f
       6,
       f,
       protobuf_holdem_define_mj_pb.ReadyTile.serializeBinaryToWriter
+    );
+  }
+  f = message.getMode();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      7,
+      f
     );
   }
 };
@@ -370,6 +382,21 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.addReadyTiles = f
 
 proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.clearReadyTilesList = function() {
   this.setReadyTilesList([]);
+};
+
+
+/**
+ * optional DefMJ.ExchangeMode mode = 7;
+ * @return {!proto.holdem.pb.DefMJ.ExchangeMode}
+ */
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.getMode = function() {
+  return /** @type {!proto.holdem.pb.DefMJ.ExchangeMode} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {!proto.holdem.pb.DefMJ.ExchangeMode} value */
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.setMode = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 

@@ -31,6 +31,9 @@ export class ServerMessageMjExchangeTilesComplete extends jspb.Message {
   setReadyTilesList(value: Array<protobuf_holdem_define_mj_pb.ReadyTile>): void;
   addReadyTiles(value?: protobuf_holdem_define_mj_pb.ReadyTile, index?: number): protobuf_holdem_define_mj_pb.ReadyTile;
 
+  getMode(): protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap];
+  setMode(value: protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjExchangeTilesComplete.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjExchangeTilesComplete): ServerMessageMjExchangeTilesComplete.AsObject;
@@ -49,6 +52,7 @@ export namespace ServerMessageMjExchangeTilesComplete {
     waitDeadline: number,
     exchangeTileLength: number,
     readyTilesList: Array<protobuf_holdem_define_mj_pb.ReadyTile.AsObject>,
+    mode: protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap],
   }
 }
 

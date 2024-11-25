@@ -16,6 +16,7 @@ goog.exportSymbol('proto.holdem.pb.ClaimValidAction', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.ActionFailReason', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.ActionMj', null, global);
+goog.exportSymbol('proto.holdem.pb.DefMJ.ExchangeMode', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.ExtraReason', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.TileType', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.WaitType', null, global);
@@ -316,6 +317,15 @@ proto.holdem.pb.DefMJ.ExtraReason = {
   ER_ROBKONG: 1,
   ER_OUTWITHREPLACEMENTTILEDISCARD: 2,
   ER_12: 3
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.DefMJ.ExchangeMode = {
+  EXMODE_LEFT: 0,
+  EXMODE_RIGHT: 1,
+  EXMODE_OPPOSITE: 2
 };
 
 

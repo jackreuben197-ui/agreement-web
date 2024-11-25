@@ -171,6 +171,14 @@ export namespace DefMJ {
   }
 
   export const ExtraReason: ExtraReasonMap;
+
+  export interface ExchangeModeMap {
+    EXMODE_LEFT: 0;
+    EXMODE_RIGHT: 1;
+    EXMODE_OPPOSITE: 2;
+  }
+
+  export const ExchangeMode: ExchangeModeMap;
 }
 
 export class Tile extends jspb.Message {
