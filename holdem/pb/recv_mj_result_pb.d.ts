@@ -28,6 +28,11 @@ export class ServerMessageMjResult extends jspb.Message {
   getWallLeft(): number;
   setWallLeft(value: number): void;
 
+  clearHorseTilesList(): void;
+  getHorseTilesList(): Array<number>;
+  setHorseTilesList(value: Array<number>): void;
+  addHorseTiles(value: number, index?: number): number;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjResult.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjResult): ServerMessageMjResult.AsObject;
@@ -47,6 +52,7 @@ export namespace ServerMessageMjResult {
     wallAscIndex: number,
     wallDescIndex: number,
     wallLeft: number,
+    horseTilesList: Array<number>,
   }
 }
 

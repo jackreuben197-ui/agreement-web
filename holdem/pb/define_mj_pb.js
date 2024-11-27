@@ -1317,7 +1317,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.MatchInfoMJ.repeatedFields_ = [6];
+proto.holdem.pb.MatchInfoMJ.repeatedFields_ = [6,20];
 
 
 
@@ -1366,7 +1366,8 @@ proto.holdem.pb.MatchInfoMJ.toObject = function(includeInstance, msg) {
     winWay: jspb.Message.getFieldWithDefault(msg, 16, 0),
     raise: jspb.Message.getFieldWithDefault(msg, 17, false),
     followDealer: jspb.Message.getFieldWithDefault(msg, 18, false),
-    realJokerValue: jspb.Message.getFieldWithDefault(msg, 19, 0)
+    realJokerValue: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    horseTilesList: jspb.Message.getRepeatedField(msg, 20)
   };
 
   if (includeInstance) {
@@ -1480,6 +1481,10 @@ proto.holdem.pb.MatchInfoMJ.deserializeBinaryFromReader = function(msg, reader) 
     case 19:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setRealJokerValue(value);
+      break;
+    case 20:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setHorseTilesList(value);
       break;
     default:
       reader.skipField();
@@ -1642,6 +1647,13 @@ proto.holdem.pb.MatchInfoMJ.serializeBinaryToWriter = function(message, writer) 
   if (f !== 0) {
     writer.writeInt32(
       19,
+      f
+    );
+  }
+  f = message.getHorseTilesList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      20,
       f
     );
   }
@@ -1982,6 +1994,35 @@ proto.holdem.pb.MatchInfoMJ.prototype.getRealJokerValue = function() {
 /** @param {number} value */
 proto.holdem.pb.MatchInfoMJ.prototype.setRealJokerValue = function(value) {
   jspb.Message.setField(this, 19, value);
+};
+
+
+/**
+ * repeated int32 horse_tiles = 20;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.getHorseTilesList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 20));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.MatchInfoMJ.prototype.setHorseTilesList = function(value) {
+  jspb.Message.setField(this, 20, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.MatchInfoMJ.prototype.addHorseTiles = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 20, value, opt_index);
+};
+
+
+proto.holdem.pb.MatchInfoMJ.prototype.clearHorseTilesList = function() {
+  this.setHorseTilesList([]);
 };
 
 

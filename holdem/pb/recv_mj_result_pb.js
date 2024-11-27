@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageMjResult.repeatedFields_ = [1];
+proto.holdem.pb.ServerMessageMjResult.repeatedFields_ = [1,11];
 
 
 
@@ -74,7 +74,8 @@ proto.holdem.pb.ServerMessageMjResult.toObject = function(includeInstance, msg) 
     draw: jspb.Message.getFieldWithDefault(msg, 4, false),
     wallAscIndex: jspb.Message.getFieldWithDefault(msg, 8, 0),
     wallDescIndex: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    wallLeft: jspb.Message.getFieldWithDefault(msg, 10, 0)
+    wallLeft: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    horseTilesList: jspb.Message.getRepeatedField(msg, 11)
   };
 
   if (includeInstance) {
@@ -139,6 +140,10 @@ proto.holdem.pb.ServerMessageMjResult.deserializeBinaryFromReader = function(msg
     case 10:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setWallLeft(value);
+      break;
+    case 11:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setHorseTilesList(value);
       break;
     default:
       reader.skipField();
@@ -216,6 +221,13 @@ proto.holdem.pb.ServerMessageMjResult.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeUint32(
       10,
+      f
+    );
+  }
+  f = message.getHorseTilesList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      11,
       f
     );
   }
@@ -344,6 +356,35 @@ proto.holdem.pb.ServerMessageMjResult.prototype.getWallLeft = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageMjResult.prototype.setWallLeft = function(value) {
   jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * repeated int32 horse_tiles = 11;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.getHorseTilesList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 11));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.ServerMessageMjResult.prototype.setHorseTilesList = function(value) {
+  jspb.Message.setField(this, 11, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.ServerMessageMjResult.prototype.addHorseTiles = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 11, value, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageMjResult.prototype.clearHorseTilesList = function() {
+  this.setHorseTilesList([]);
 };
 
 

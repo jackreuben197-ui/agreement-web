@@ -383,6 +383,11 @@ export class MatchInfoMJ extends jspb.Message {
   getRealJokerValue(): number;
   setRealJokerValue(value: number): void;
 
+  clearHorseTilesList(): void;
+  getHorseTilesList(): Array<number>;
+  setHorseTilesList(value: Array<number>): void;
+  addHorseTiles(value: number, index?: number): number;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MatchInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: MatchInfoMJ): MatchInfoMJ.AsObject;
@@ -414,6 +419,7 @@ export namespace MatchInfoMJ {
     raise: boolean,
     followDealer: boolean,
     realJokerValue: number,
+    horseTilesList: Array<number>,
   }
 }
 
