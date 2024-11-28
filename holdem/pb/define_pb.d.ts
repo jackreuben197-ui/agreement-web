@@ -2642,6 +2642,12 @@ export class RoomRecord extends jspb.Message {
   setRuleUnitList(value: Array<RuleUnit>): void;
   addRuleUnit(value?: RuleUnit, index?: number): RuleUnit;
 
+  getSimpleHorseMode(): number;
+  setSimpleHorseMode(value: number): void;
+
+  getSimpleHorseCount(): number;
+  setSimpleHorseCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2802,6 +2808,8 @@ export namespace RoomRecord {
     autoChangeRoomLimitHand: number,
     calltime: number,
     ruleUnitList: Array<RuleUnit.AsObject>,
+    simpleHorseMode: number,
+    simpleHorseCount: number,
   }
 }
 

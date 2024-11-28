@@ -14113,7 +14113,9 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     autoChangeRoomLimitHand: jspb.Message.getFieldWithDefault(msg, 148, 0),
     calltime: jspb.Message.getFieldWithDefault(msg, 149, 0),
     ruleUnitList: jspb.Message.toObjectList(msg.getRuleUnitList(),
-    proto.holdem.pb.RuleUnit.toObject, includeInstance)
+    proto.holdem.pb.RuleUnit.toObject, includeInstance),
+    simpleHorseMode: jspb.Message.getFieldWithDefault(msg, 151, 0),
+    simpleHorseCount: jspb.Message.getFieldWithDefault(msg, 152, 0)
   };
 
   if (includeInstance) {
@@ -14750,6 +14752,14 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.RuleUnit;
       reader.readMessage(value,proto.holdem.pb.RuleUnit.deserializeBinaryFromReader);
       msg.addRuleUnit(value);
+      break;
+    case 151:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSimpleHorseMode(value);
+      break;
+    case 152:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSimpleHorseCount(value);
       break;
     default:
       reader.skipField();
@@ -15823,6 +15833,20 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
       150,
       f,
       proto.holdem.pb.RuleUnit.serializeBinaryToWriter
+    );
+  }
+  f = message.getSimpleHorseMode();
+  if (f !== 0) {
+    writer.writeInt32(
+      151,
+      f
+    );
+  }
+  f = message.getSimpleHorseCount();
+  if (f !== 0) {
+    writer.writeInt32(
+      152,
+      f
     );
   }
 };
@@ -18187,6 +18211,36 @@ proto.holdem.pb.RoomRecord.prototype.addRuleUnit = function(opt_value, opt_index
 
 proto.holdem.pb.RoomRecord.prototype.clearRuleUnitList = function() {
   this.setRuleUnitList([]);
+};
+
+
+/**
+ * optional int32 simple_horse_mode = 151;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSimpleHorseMode = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 151, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSimpleHorseMode = function(value) {
+  jspb.Message.setField(this, 151, value);
+};
+
+
+/**
+ * optional int32 simple_horse_count = 152;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSimpleHorseCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 152, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSimpleHorseCount = function(value) {
+  jspb.Message.setField(this, 152, value);
 };
 
 
