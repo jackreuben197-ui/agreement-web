@@ -94,6 +94,8 @@ export namespace DefMJ {
     LR_FOLLOW_DEALER: 36;
     WR_ONE_MATCH_MORE_WIN: 37;
     LR_ONE_MATCH_MORE_WIN: 38;
+    WR_SIMPLE_HORSE: 39;
+    LR_SIMPLE_HORSE: 40;
   }
 
   export const WinLoseReason: WinLoseReasonMap;
