@@ -487,6 +487,9 @@ export class RoomInfo extends jspb.Message {
   getCriticalHit(): number;
   setCriticalHit(value: number): void;
 
+  getAutoChangeRoomLimitHand(): number;
+  setAutoChangeRoomLimitHand(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -542,6 +545,7 @@ export namespace RoomInfo {
     mode: Def.RoomModeMap[keyof Def.RoomModeMap],
     randomAnte: string,
     criticalHit: number,
+    autoChangeRoomLimitHand: number,
   }
 
   export interface RetainTypeMap {

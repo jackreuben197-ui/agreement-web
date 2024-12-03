@@ -1244,7 +1244,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     jackpotParentGold: jspb.Message.getFieldWithDefault(msg, 42, 0),
     mode: jspb.Message.getFieldWithDefault(msg, 43, 0),
     randomAnte: jspb.Message.getFieldWithDefault(msg, 44, ""),
-    criticalHit: jspb.Message.getFieldWithDefault(msg, 45, 0)
+    criticalHit: jspb.Message.getFieldWithDefault(msg, 45, 0),
+    autoChangeRoomLimitHand: jspb.Message.getFieldWithDefault(msg, 46, 0)
   };
 
   if (includeInstance) {
@@ -1453,6 +1454,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 45:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setCriticalHit(value);
+      break;
+    case 46:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setAutoChangeRoomLimitHand(value);
       break;
     default:
       reader.skipField();
@@ -1782,6 +1787,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       45,
+      f
+    );
+  }
+  f = message.getAutoChangeRoomLimitHand();
+  if (f !== 0) {
+    writer.writeInt32(
+      46,
       f
     );
   }
@@ -2479,6 +2491,21 @@ proto.holdem.pb.RoomInfo.prototype.getCriticalHit = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setCriticalHit = function(value) {
   jspb.Message.setField(this, 45, value);
+};
+
+
+/**
+ * optional int32 auto_change_room_limit_hand = 46;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getAutoChangeRoomLimitHand = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 46, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setAutoChangeRoomLimitHand = function(value) {
+  jspb.Message.setField(this, 46, value);
 };
 
 
