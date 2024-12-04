@@ -3665,12 +3665,19 @@ proto.holdem.pb.PlayerChipChangeGD.prototype.setReason = function(value) {
  * @constructor
  */
 proto.holdem.pb.ResultGD = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ResultGD.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.ResultGD, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.ResultGD.displayName = 'proto.holdem.pb.ResultGD';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.ResultGD.repeatedFields_ = [7];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -3705,7 +3712,9 @@ proto.holdem.pb.ResultGD.toObject = function(includeInstance, msg) {
     totalWinLose: jspb.Message.getFieldWithDefault(msg, 3, 0),
     rank: jspb.Message.getFieldWithDefault(msg, 4, 0),
     standUp: jspb.Message.getFieldWithDefault(msg, 5, false),
-    userRid: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    userRid: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    cardsList: jspb.Message.toObjectList(msg.getCardsList(),
+    proto.holdem.pb.Card.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -3765,6 +3774,11 @@ proto.holdem.pb.ResultGD.deserializeBinaryFromReader = function(msg, reader) {
     case 6:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setUserRid(value);
+      break;
+    case 7:
+      var value = new proto.holdem.pb.Card;
+      reader.readMessage(value,proto.holdem.pb.Card.deserializeBinaryFromReader);
+      msg.addCards(value);
       break;
     default:
       reader.skipField();
@@ -3835,6 +3849,14 @@ proto.holdem.pb.ResultGD.serializeBinaryToWriter = function(message, writer) {
     writer.writeUint64(
       6,
       f
+    );
+  }
+  f = message.getCardsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      7,
+      f,
+      proto.holdem.pb.Card.serializeBinaryToWriter
     );
   }
 };
@@ -3929,6 +3951,37 @@ proto.holdem.pb.ResultGD.prototype.getUserRid = function() {
 /** @param {number} value */
 proto.holdem.pb.ResultGD.prototype.setUserRid = function(value) {
   jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * repeated Card cards = 7;
+ * @return {!Array.<!proto.holdem.pb.Card>}
+ */
+proto.holdem.pb.ResultGD.prototype.getCardsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.Card>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.Card, 7));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.Card>} value */
+proto.holdem.pb.ResultGD.prototype.setCardsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 7, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.Card=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.Card}
+ */
+proto.holdem.pb.ResultGD.prototype.addCards = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 7, opt_value, proto.holdem.pb.Card, opt_index);
+};
+
+
+proto.holdem.pb.ResultGD.prototype.clearCardsList = function() {
+  this.setCardsList([]);
 };
 
 

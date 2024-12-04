@@ -572,6 +572,11 @@ export class ResultGD extends jspb.Message {
   getUserRid(): number;
   setUserRid(value: number): void;
 
+  clearCardsList(): void;
+  getCardsList(): Array<Card>;
+  setCardsList(value: Array<Card>): void;
+  addCards(value?: Card, index?: number): Card;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ResultGD.AsObject;
   static toObject(includeInstance: boolean, msg: ResultGD): ResultGD.AsObject;
@@ -590,6 +595,7 @@ export namespace ResultGD {
     rank: DefGD.WinTypeMap[keyof DefGD.WinTypeMap],
     standUp: boolean,
     userRid: number,
+    cardsList: Array<Card.AsObject>,
   }
 }
 
