@@ -14142,7 +14142,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     ruleUnitList: jspb.Message.toObjectList(msg.getRuleUnitList(),
     proto.holdem.pb.RuleUnit.toObject, includeInstance),
     simpleHorseMode: jspb.Message.getFieldWithDefault(msg, 151, 0),
-    simpleHorseCount: jspb.Message.getFieldWithDefault(msg, 152, 0)
+    simpleHorseCount: jspb.Message.getFieldWithDefault(msg, 152, 0),
+    squidForceShowCard: jspb.Message.getFieldWithDefault(msg, 153, 0)
   };
 
   if (includeInstance) {
@@ -14787,6 +14788,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 152:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSimpleHorseCount(value);
+      break;
+    case 153:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidForceShowCard(value);
       break;
     default:
       reader.skipField();
@@ -15873,6 +15878,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       152,
+      f
+    );
+  }
+  f = message.getSquidForceShowCard();
+  if (f !== 0) {
+    writer.writeInt32(
+      153,
       f
     );
   }
@@ -18268,6 +18280,21 @@ proto.holdem.pb.RoomRecord.prototype.getSimpleHorseCount = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setSimpleHorseCount = function(value) {
   jspb.Message.setField(this, 152, value);
+};
+
+
+/**
+ * optional int32 squid_force_show_card = 153;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSquidForceShowCard = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 153, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSquidForceShowCard = function(value) {
+  jspb.Message.setField(this, 153, value);
 };
 
 

@@ -2652,6 +2652,9 @@ export class RoomRecord extends jspb.Message {
   getSimpleHorseCount(): number;
   setSimpleHorseCount(value: number): void;
 
+  getSquidForceShowCard(): number;
+  setSquidForceShowCard(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2814,6 +2817,7 @@ export namespace RoomRecord {
     ruleUnitList: Array<RuleUnit.AsObject>,
     simpleHorseMode: number,
     simpleHorseCount: number,
+    squidForceShowCard: number,
   }
 }
 
