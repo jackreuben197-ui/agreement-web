@@ -318,7 +318,10 @@ proto.holdem.pb.ServerMessageRoomers.toObject = function(includeInstance, msg) {
     protobuf_holdem_define_pb.PlayerSummary.toObject, includeInstance),
     historyOffset: jspb.Message.getFieldWithDefault(msg, 5, 0),
     historyLimit: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    total: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    total: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    totalPot: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    totalHand: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    totalBringin: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -384,6 +387,18 @@ proto.holdem.pb.ServerMessageRoomers.deserializeBinaryFromReader = function(msg,
     case 7:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setTotal(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTotalPot(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTotalHand(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTotalBringin(value);
       break;
     default:
       reader.skipField();
@@ -462,6 +477,27 @@ proto.holdem.pb.ServerMessageRoomers.serializeBinaryToWriter = function(message,
   if (f !== 0) {
     writer.writeInt32(
       7,
+      f
+    );
+  }
+  f = message.getTotalPot();
+  if (f !== 0) {
+    writer.writeUint64(
+      8,
+      f
+    );
+  }
+  f = message.getTotalHand();
+  if (f !== 0) {
+    writer.writeUint64(
+      9,
+      f
+    );
+  }
+  f = message.getTotalBringin();
+  if (f !== 0) {
+    writer.writeUint64(
+      10,
       f
     );
   }
@@ -602,6 +638,51 @@ proto.holdem.pb.ServerMessageRoomers.prototype.getTotal = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageRoomers.prototype.setTotal = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint64 total_pot = 8;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageRoomers.prototype.getTotalPot = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageRoomers.prototype.setTotalPot = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional uint64 total_hand = 9;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageRoomers.prototype.getTotalHand = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageRoomers.prototype.setTotalHand = function(value) {
+  jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional uint64 total_bringin = 10;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageRoomers.prototype.getTotalBringin = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageRoomers.prototype.setTotalBringin = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 

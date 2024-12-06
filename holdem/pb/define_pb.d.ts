@@ -2655,6 +2655,11 @@ export class RoomRecord extends jspb.Message {
   getSquidForceShowCard(): number;
   setSquidForceShowCard(value: number): void;
 
+  hasSettleSetting(): boolean;
+  clearSettleSetting(): void;
+  getSettleSetting(): SettleSetting | undefined;
+  setSettleSetting(value?: SettleSetting): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2818,6 +2823,87 @@ export namespace RoomRecord {
     simpleHorseMode: number,
     simpleHorseCount: number,
     squidForceShowCard: number,
+    settleSetting?: SettleSetting.AsObject,
+  }
+}
+
+export class SettleSetting extends jspb.Message {
+  getType(): number;
+  setType(value: number): void;
+
+  getFeePermillage(): number;
+  setFeePermillage(value: number): void;
+
+  getMaxPerHand(): number;
+  setMaxPerHand(value: number): void;
+
+  getWinProfitPercent(): number;
+  setWinProfitPercent(value: number): void;
+
+  getCapType(): number;
+  setCapType(value: number): void;
+
+  getSecCaps(): string;
+  setSecCaps(value: string): void;
+
+  getHandFeeType(): number;
+  setHandFeeType(value: number): void;
+
+  getPreflopFree(): number;
+  setPreflopFree(value: number): void;
+
+  getFewPlayerHalfOff(): number;
+  setFewPlayerHalfOff(value: number): void;
+
+  getFreePotsValue(): number;
+  setFreePotsValue(value: number): void;
+
+  getWinDivideValue(): number;
+  setWinDivideValue(value: number): void;
+
+  getAboveDivideFee(): number;
+  setAboveDivideFee(value: number): void;
+
+  getBelowDivideRatio(): number;
+  setBelowDivideRatio(value: number): void;
+
+  getJackpotRatio(): number;
+  setJackpotRatio(value: number): void;
+
+  getJackpotRatioHand(): number;
+  setJackpotRatioHand(value: number): void;
+
+  getSettleProfitType(): number;
+  setSettleProfitType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SettleSetting.AsObject;
+  static toObject(includeInstance: boolean, msg: SettleSetting): SettleSetting.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SettleSetting, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SettleSetting;
+  static deserializeBinaryFromReader(message: SettleSetting, reader: jspb.BinaryReader): SettleSetting;
+}
+
+export namespace SettleSetting {
+  export type AsObject = {
+    type: number,
+    feePermillage: number,
+    maxPerHand: number,
+    winProfitPercent: number,
+    capType: number,
+    secCaps: string,
+    handFeeType: number,
+    preflopFree: number,
+    fewPlayerHalfOff: number,
+    freePotsValue: number,
+    winDivideValue: number,
+    aboveDivideFee: number,
+    belowDivideRatio: number,
+    jackpotRatio: number,
+    jackpotRatioHand: number,
+    settleProfitType: number,
   }
 }
 

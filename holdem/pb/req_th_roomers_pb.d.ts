@@ -64,6 +64,15 @@ export class ServerMessageRoomers extends jspb.Message {
   getTotal(): number;
   setTotal(value: number): void;
 
+  getTotalPot(): number;
+  setTotalPot(value: number): void;
+
+  getTotalHand(): number;
+  setTotalHand(value: number): void;
+
+  getTotalBringin(): number;
+  setTotalBringin(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageRoomers.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageRoomers): ServerMessageRoomers.AsObject;
@@ -83,6 +92,9 @@ export namespace ServerMessageRoomers {
     historyOffset: number,
     historyLimit: number,
     total: number,
+    totalPot: number,
+    totalHand: number,
+    totalBringin: number,
   }
 }
 
