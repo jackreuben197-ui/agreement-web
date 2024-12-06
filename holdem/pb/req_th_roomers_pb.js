@@ -321,7 +321,8 @@ proto.holdem.pb.ServerMessageRoomers.toObject = function(includeInstance, msg) {
     total: jspb.Message.getFieldWithDefault(msg, 7, 0),
     totalPot: jspb.Message.getFieldWithDefault(msg, 8, 0),
     totalHand: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    totalBringin: jspb.Message.getFieldWithDefault(msg, 10, 0)
+    totalBringin: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    startTime: jspb.Message.getFieldWithDefault(msg, 11, 0)
   };
 
   if (includeInstance) {
@@ -399,6 +400,10 @@ proto.holdem.pb.ServerMessageRoomers.deserializeBinaryFromReader = function(msg,
     case 10:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setTotalBringin(value);
+      break;
+    case 11:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setStartTime(value);
       break;
     default:
       reader.skipField();
@@ -498,6 +503,13 @@ proto.holdem.pb.ServerMessageRoomers.serializeBinaryToWriter = function(message,
   if (f !== 0) {
     writer.writeUint64(
       10,
+      f
+    );
+  }
+  f = message.getStartTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      11,
       f
     );
   }
@@ -683,6 +695,21 @@ proto.holdem.pb.ServerMessageRoomers.prototype.getTotalBringin = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageRoomers.prototype.setTotalBringin = function(value) {
   jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * optional int64 start_time = 11;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageRoomers.prototype.getStartTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageRoomers.prototype.setStartTime = function(value) {
+  jspb.Message.setField(this, 11, value);
 };
 
 
