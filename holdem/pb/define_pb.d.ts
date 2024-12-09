@@ -2660,6 +2660,12 @@ export class RoomRecord extends jspb.Message {
   getSettleSetting(): SettleSetting | undefined;
   setSettleSetting(value?: SettleSetting): void;
 
+  getSquidMode(): number;
+  setSquidMode(value: number): void;
+
+  getSquidExtraCount(): number;
+  setSquidExtraCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2824,6 +2830,8 @@ export namespace RoomRecord {
     simpleHorseCount: number,
     squidForceShowCard: number,
     settleSetting?: SettleSetting.AsObject,
+    squidMode: number,
+    squidExtraCount: number,
   }
 }
 
