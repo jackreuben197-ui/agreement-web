@@ -71,7 +71,8 @@ proto.holdem.pb.ClientMessageSeated.toObject = function(includeInstance, msg) {
     clubId: jspb.Message.getFieldWithDefault(msg, 8, 0),
     applyBringIn: jspb.Message.getFieldWithDefault(msg, 9, false),
     autoOnTableNoStore: jspb.Message.getFieldWithDefault(msg, 10, false),
-    autoOnTableFix: jspb.Message.getFieldWithDefault(msg, 11, 0)
+    autoOnTableFix: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    depositAdvance: jspb.Message.getFieldWithDefault(msg, 12, 0)
   };
 
   if (includeInstance) {
@@ -152,6 +153,10 @@ proto.holdem.pb.ClientMessageSeated.deserializeBinaryFromReader = function(msg, 
     case 11:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setAutoOnTableFix(value);
+      break;
+    case 12:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setDepositAdvance(value);
       break;
     default:
       reader.skipField();
@@ -257,6 +262,13 @@ proto.holdem.pb.ClientMessageSeated.serializeBinaryToWriter = function(message, 
   if (f !== 0) {
     writer.writeUint64(
       11,
+      f
+    );
+  }
+  f = message.getDepositAdvance();
+  if (f !== 0) {
+    writer.writeUint64(
+      12,
       f
     );
   }
@@ -446,6 +458,21 @@ proto.holdem.pb.ClientMessageSeated.prototype.getAutoOnTableFix = function() {
 /** @param {number} value */
 proto.holdem.pb.ClientMessageSeated.prototype.setAutoOnTableFix = function(value) {
   jspb.Message.setField(this, 11, value);
+};
+
+
+/**
+ * optional uint64 deposit_advance = 12;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageSeated.prototype.getDepositAdvance = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageSeated.prototype.setDepositAdvance = function(value) {
+  jspb.Message.setField(this, 12, value);
 };
 
 

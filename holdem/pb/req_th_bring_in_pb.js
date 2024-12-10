@@ -64,7 +64,8 @@ proto.holdem.pb.ClientMessageBringIn.toObject = function(includeInstance, msg) {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     bringIn: jspb.Message.getFieldWithDefault(msg, 2, 0),
     useWallet: jspb.Message.getFieldWithDefault(msg, 3, false),
-    applyBringIn: jspb.Message.getFieldWithDefault(msg, 4, false)
+    applyBringIn: jspb.Message.getFieldWithDefault(msg, 4, false),
+    depositAdvance: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -117,6 +118,10 @@ proto.holdem.pb.ClientMessageBringIn.deserializeBinaryFromReader = function(msg,
     case 4:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setApplyBringIn(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setDepositAdvance(value);
       break;
     default:
       reader.skipField();
@@ -173,6 +178,13 @@ proto.holdem.pb.ClientMessageBringIn.serializeBinaryToWriter = function(message,
   if (f) {
     writer.writeBool(
       4,
+      f
+    );
+  }
+  f = message.getDepositAdvance();
+  if (f !== 0) {
+    writer.writeUint64(
+      5,
       f
     );
   }
@@ -255,6 +267,21 @@ proto.holdem.pb.ClientMessageBringIn.prototype.getApplyBringIn = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ClientMessageBringIn.prototype.setApplyBringIn = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional uint64 deposit_advance = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageBringIn.prototype.getDepositAdvance = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageBringIn.prototype.setDepositAdvance = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 

@@ -19,6 +19,9 @@ export class ClientMessageBringIn extends jspb.Message {
   getApplyBringIn(): boolean;
   setApplyBringIn(value: boolean): void;
 
+  getDepositAdvance(): number;
+  setDepositAdvance(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageBringIn.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageBringIn): ClientMessageBringIn.AsObject;
@@ -35,6 +38,7 @@ export namespace ClientMessageBringIn {
     bringIn: number,
     useWallet: boolean,
     applyBringIn: boolean,
+    depositAdvance: number,
   }
 }
 
