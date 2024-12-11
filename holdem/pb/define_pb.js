@@ -14147,7 +14147,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     squidForceShowCard: jspb.Message.getFieldWithDefault(msg, 153, 0),
     settleSetting: (f = msg.getSettleSetting()) && proto.holdem.pb.SettleSetting.toObject(includeInstance, f),
     squidMode: jspb.Message.getFieldWithDefault(msg, 155, 0),
-    squidExtraCount: jspb.Message.getFieldWithDefault(msg, 156, 0)
+    squidExtraCount: jspb.Message.getFieldWithDefault(msg, 156, 0),
+    quickChangeRoom: jspb.Message.getFieldWithDefault(msg, 157, 0)
   };
 
   if (includeInstance) {
@@ -14809,6 +14810,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 156:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSquidExtraCount(value);
+      break;
+    case 157:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setQuickChangeRoom(value);
       break;
     default:
       reader.skipField();
@@ -15924,6 +15929,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       156,
+      f
+    );
+  }
+  f = message.getQuickChangeRoom();
+  if (f !== 0) {
+    writer.writeInt32(
+      157,
       f
     );
   }
@@ -18394,6 +18406,21 @@ proto.holdem.pb.RoomRecord.prototype.getSquidExtraCount = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setSquidExtraCount = function(value) {
   jspb.Message.setField(this, 156, value);
+};
+
+
+/**
+ * optional int32 quick_change_room = 157;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getQuickChangeRoom = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 157, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setQuickChangeRoom = function(value) {
+  jspb.Message.setField(this, 157, value);
 };
 
 
