@@ -2669,6 +2669,15 @@ export class RoomRecord extends jspb.Message {
   getQuickChangeRoom(): number;
   setQuickChangeRoom(value: number): void;
 
+  getNotEnoughCloseDuration(): number;
+  setNotEnoughCloseDuration(value: number): void;
+
+  getPlayDurationType(): number;
+  setPlayDurationType(value: number): void;
+
+  getPlayHandsLimit(): number;
+  setPlayHandsLimit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2836,6 +2845,9 @@ export namespace RoomRecord {
     squidMode: number,
     squidExtraCount: number,
     quickChangeRoom: number,
+    notEnoughCloseDuration: number,
+    playDurationType: number,
+    playHandsLimit: number,
   }
 }
 

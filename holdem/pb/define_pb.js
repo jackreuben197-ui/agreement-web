@@ -14148,7 +14148,10 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     settleSetting: (f = msg.getSettleSetting()) && proto.holdem.pb.SettleSetting.toObject(includeInstance, f),
     squidMode: jspb.Message.getFieldWithDefault(msg, 155, 0),
     squidExtraCount: jspb.Message.getFieldWithDefault(msg, 156, 0),
-    quickChangeRoom: jspb.Message.getFieldWithDefault(msg, 157, 0)
+    quickChangeRoom: jspb.Message.getFieldWithDefault(msg, 157, 0),
+    notEnoughCloseDuration: jspb.Message.getFieldWithDefault(msg, 158, 0),
+    playDurationType: jspb.Message.getFieldWithDefault(msg, 159, 0),
+    playHandsLimit: jspb.Message.getFieldWithDefault(msg, 160, 0)
   };
 
   if (includeInstance) {
@@ -14814,6 +14817,18 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 157:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setQuickChangeRoom(value);
+      break;
+    case 158:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setNotEnoughCloseDuration(value);
+      break;
+    case 159:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPlayDurationType(value);
+      break;
+    case 160:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPlayHandsLimit(value);
       break;
     default:
       reader.skipField();
@@ -15936,6 +15951,27 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       157,
+      f
+    );
+  }
+  f = message.getNotEnoughCloseDuration();
+  if (f !== 0) {
+    writer.writeInt64(
+      158,
+      f
+    );
+  }
+  f = message.getPlayDurationType();
+  if (f !== 0) {
+    writer.writeInt32(
+      159,
+      f
+    );
+  }
+  f = message.getPlayHandsLimit();
+  if (f !== 0) {
+    writer.writeInt32(
+      160,
       f
     );
   }
@@ -18421,6 +18457,51 @@ proto.holdem.pb.RoomRecord.prototype.getQuickChangeRoom = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setQuickChangeRoom = function(value) {
   jspb.Message.setField(this, 157, value);
+};
+
+
+/**
+ * optional int64 not_enough_close_duration = 158;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getNotEnoughCloseDuration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 158, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setNotEnoughCloseDuration = function(value) {
+  jspb.Message.setField(this, 158, value);
+};
+
+
+/**
+ * optional int32 play_duration_type = 159;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getPlayDurationType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 159, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setPlayDurationType = function(value) {
+  jspb.Message.setField(this, 159, value);
+};
+
+
+/**
+ * optional int32 play_hands_limit = 160;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getPlayHandsLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 160, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setPlayHandsLimit = function(value) {
+  jspb.Message.setField(this, 160, value);
 };
 
 
