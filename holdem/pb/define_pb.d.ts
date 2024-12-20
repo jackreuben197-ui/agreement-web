@@ -337,6 +337,11 @@ export class Operator extends jspb.Message {
   setCardsList(value: Array<number>): void;
   addCards(value: number, index?: number): number;
 
+  clearPlayerCardsList(): void;
+  getPlayerCardsList(): Array<PlayerCards>;
+  setPlayerCardsList(value: Array<PlayerCards>): void;
+  addPlayerCards(value?: PlayerCards, index?: number): PlayerCards;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Operator.AsObject;
   static toObject(includeInstance: boolean, msg: Operator): Operator.AsObject;
@@ -360,6 +365,7 @@ export namespace Operator {
     opDeadline: number,
     invalidInsurancePotsList: Array<InsurancePotInvalid.AsObject>,
     cardsList: Array<number>,
+    playerCardsList: Array<PlayerCards.AsObject>,
   }
 }
 
@@ -1099,6 +1105,9 @@ export class InsurancePotLimit extends jspb.Message {
   setCantBuyOutsList(value: Array<OutsCard>): void;
   addCantBuyOuts(value?: OutsCard, index?: number): OutsCard;
 
+  getOdds(): number;
+  setOdds(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): InsurancePotLimit.AsObject;
   static toObject(includeInstance: boolean, msg: InsurancePotLimit): InsurancePotLimit.AsObject;
@@ -1122,6 +1131,7 @@ export namespace InsurancePotLimit {
     potUserCount: number,
     potLeaderCount: number,
     cantBuyOutsList: Array<OutsCard.AsObject>,
+    odds: number,
   }
 }
 

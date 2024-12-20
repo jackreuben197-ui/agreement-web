@@ -668,7 +668,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.Operator.repeatedFields_ = [2,3,6,10,11];
+proto.holdem.pb.Operator.repeatedFields_ = [2,3,6,10,11,12];
 
 
 
@@ -713,7 +713,9 @@ proto.holdem.pb.Operator.toObject = function(includeInstance, msg) {
     opDeadline: jspb.Message.getFieldWithDefault(msg, 9, 0),
     invalidInsurancePotsList: jspb.Message.toObjectList(msg.getInvalidInsurancePotsList(),
     proto.holdem.pb.InsurancePotInvalid.toObject, includeInstance),
-    cardsList: jspb.Message.getRepeatedField(msg, 11)
+    cardsList: jspb.Message.getRepeatedField(msg, 11),
+    playerCardsList: jspb.Message.toObjectList(msg.getPlayerCardsList(),
+    proto.holdem.pb.PlayerCards.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -797,6 +799,11 @@ proto.holdem.pb.Operator.deserializeBinaryFromReader = function(msg, reader) {
     case 11:
       var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
       msg.setCardsList(value);
+      break;
+    case 12:
+      var value = new proto.holdem.pb.PlayerCards;
+      reader.readMessage(value,proto.holdem.pb.PlayerCards.deserializeBinaryFromReader);
+      msg.addPlayerCards(value);
       break;
     default:
       reader.skipField();
@@ -906,6 +913,14 @@ proto.holdem.pb.Operator.serializeBinaryToWriter = function(message, writer) {
     writer.writePackedInt32(
       11,
       f
+    );
+  }
+  f = message.getPlayerCardsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      12,
+      f,
+      proto.holdem.pb.PlayerCards.serializeBinaryToWriter
     );
   }
 };
@@ -1155,6 +1170,37 @@ proto.holdem.pb.Operator.prototype.addCards = function(value, opt_index) {
 
 proto.holdem.pb.Operator.prototype.clearCardsList = function() {
   this.setCardsList([]);
+};
+
+
+/**
+ * repeated PlayerCards player_cards = 12;
+ * @return {!Array.<!proto.holdem.pb.PlayerCards>}
+ */
+proto.holdem.pb.Operator.prototype.getPlayerCardsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.PlayerCards>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.PlayerCards, 12));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.PlayerCards>} value */
+proto.holdem.pb.Operator.prototype.setPlayerCardsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 12, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.PlayerCards=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.PlayerCards}
+ */
+proto.holdem.pb.Operator.prototype.addPlayerCards = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 12, opt_value, proto.holdem.pb.PlayerCards, opt_index);
+};
+
+
+proto.holdem.pb.Operator.prototype.clearPlayerCardsList = function() {
+  this.setPlayerCardsList([]);
 };
 
 
@@ -6055,7 +6101,8 @@ proto.holdem.pb.InsurancePotLimit.toObject = function(includeInstance, msg) {
     potUserCount: jspb.Message.getFieldWithDefault(msg, 9, 0),
     potLeaderCount: jspb.Message.getFieldWithDefault(msg, 10, 0),
     cantBuyOutsList: jspb.Message.toObjectList(msg.getCantBuyOutsList(),
-    proto.holdem.pb.OutsCard.toObject, includeInstance)
+    proto.holdem.pb.OutsCard.toObject, includeInstance),
+    odds: +jspb.Message.getFieldWithDefault(msg, 12, 0.0)
   };
 
   if (includeInstance) {
@@ -6137,6 +6184,10 @@ proto.holdem.pb.InsurancePotLimit.deserializeBinaryFromReader = function(msg, re
       var value = new proto.holdem.pb.OutsCard;
       reader.readMessage(value,proto.holdem.pb.OutsCard.deserializeBinaryFromReader);
       msg.addCantBuyOuts(value);
+      break;
+    case 12:
+      var value = /** @type {number} */ (reader.readDouble());
+      msg.setOdds(value);
       break;
     default:
       reader.skipField();
@@ -6244,6 +6295,13 @@ proto.holdem.pb.InsurancePotLimit.serializeBinaryToWriter = function(message, wr
       11,
       f,
       proto.holdem.pb.OutsCard.serializeBinaryToWriter
+    );
+  }
+  f = message.getOdds();
+  if (f !== 0.0) {
+    writer.writeDouble(
+      12,
+      f
     );
   }
 };
@@ -6443,6 +6501,21 @@ proto.holdem.pb.InsurancePotLimit.prototype.addCantBuyOuts = function(opt_value,
 
 proto.holdem.pb.InsurancePotLimit.prototype.clearCantBuyOutsList = function() {
   this.setCantBuyOutsList([]);
+};
+
+
+/**
+ * optional double odds = 12;
+ * @return {number}
+ */
+proto.holdem.pb.InsurancePotLimit.prototype.getOdds = function() {
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 12, 0.0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.InsurancePotLimit.prototype.setOdds = function(value) {
+  jspb.Message.setField(this, 12, value);
 };
 
 
