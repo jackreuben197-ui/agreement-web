@@ -18,6 +18,11 @@ export class ServerMessageInsuranceTrigged extends jspb.Message {
   setInvalidPotsList(value: Array<protobuf_holdem_define_pb.InsurancePotInvalid>): void;
   addInvalidPots(value?: protobuf_holdem_define_pb.InsurancePotInvalid, index?: number): protobuf_holdem_define_pb.InsurancePotInvalid;
 
+  clearPlayerCardsList(): void;
+  getPlayerCardsList(): Array<protobuf_holdem_define_pb.PlayerCards>;
+  setPlayerCardsList(value: Array<protobuf_holdem_define_pb.PlayerCards>): void;
+  addPlayerCards(value?: protobuf_holdem_define_pb.PlayerCards, index?: number): protobuf_holdem_define_pb.PlayerCards;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageInsuranceTrigged.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageInsuranceTrigged): ServerMessageInsuranceTrigged.AsObject;
@@ -33,6 +38,7 @@ export namespace ServerMessageInsuranceTrigged {
     round: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap],
     operatorList: Array<protobuf_holdem_define_pb.Operator.AsObject>,
     invalidPotsList: Array<protobuf_holdem_define_pb.InsurancePotInvalid.AsObject>,
+    playerCardsList: Array<protobuf_holdem_define_pb.PlayerCards.AsObject>,
   }
 }
 

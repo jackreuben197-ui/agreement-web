@@ -213,6 +213,7 @@ export namespace Def {
     IIR_ZERO_OUTS: 1;
     IIR_NO_ODDS_FOUND: 2;
     IIR_NO_ODDS_TABLE_FOUND: 3;
+    IIR_LEADER_LIMIT: 4;
   }
 
   export const IIReason: IIReasonMap;
@@ -259,6 +260,13 @@ export namespace Def {
   }
 
   export const RoomMode: RoomModeMap;
+
+  export interface IsuranceModeMap {
+    IM_NORMAL: 0;
+    IM_WPK: 1;
+  }
+
+  export const IsuranceMode: IsuranceModeMap;
 }
 
 export class Room extends jspb.Message {
@@ -490,6 +498,9 @@ export class RoomInfo extends jspb.Message {
   getAutoChangeRoomLimitHand(): number;
   setAutoChangeRoomLimitHand(value: number): void;
 
+  getInsuranceMode(): Def.IsuranceModeMap[keyof Def.IsuranceModeMap];
+  setInsuranceMode(value: Def.IsuranceModeMap[keyof Def.IsuranceModeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -546,6 +557,7 @@ export namespace RoomInfo {
     randomAnte: string,
     criticalHit: number,
     autoChangeRoomLimitHand: number,
+    insuranceMode: Def.IsuranceModeMap[keyof Def.IsuranceModeMap],
   }
 
   export interface RetainTypeMap {
@@ -1082,6 +1094,11 @@ export class InsurancePotLimit extends jspb.Message {
   getPotLeaderCount(): number;
   setPotLeaderCount(value: number): void;
 
+  clearCantBuyOutsList(): void;
+  getCantBuyOutsList(): Array<OutsCard>;
+  setCantBuyOutsList(value: Array<OutsCard>): void;
+  addCantBuyOuts(value?: OutsCard, index?: number): OutsCard;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): InsurancePotLimit.AsObject;
   static toObject(includeInstance: boolean, msg: InsurancePotLimit): InsurancePotLimit.AsObject;
@@ -1104,6 +1121,7 @@ export namespace InsurancePotLimit {
     outsDetailList: Array<UserOuts.AsObject>,
     potUserCount: number,
     potLeaderCount: number,
+    cantBuyOutsList: Array<OutsCard.AsObject>,
   }
 }
 
@@ -1246,6 +1264,15 @@ export class PlayerCards extends jspb.Message {
   setCardsList(value: Array<number>): void;
   addCards(value: number, index?: number): number;
 
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getAvatar(): string;
+  setAvatar(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerCards.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerCards): PlayerCards.AsObject;
@@ -1260,6 +1287,9 @@ export namespace PlayerCards {
   export type AsObject = {
     seatId: number,
     cardsList: Array<number>,
+    userRid: number,
+    name: string,
+    avatar: string,
   }
 }
 
@@ -2678,6 +2708,9 @@ export class RoomRecord extends jspb.Message {
   getPlayHandsLimit(): number;
   setPlayHandsLimit(value: number): void;
 
+  getInsuranceMode(): Def.IsuranceModeMap[keyof Def.IsuranceModeMap];
+  setInsuranceMode(value: Def.IsuranceModeMap[keyof Def.IsuranceModeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2848,6 +2881,7 @@ export namespace RoomRecord {
     notEnoughCloseDuration: number,
     playDurationType: number,
     playHandsLimit: number,
+    insuranceMode: Def.IsuranceModeMap[keyof Def.IsuranceModeMap],
   }
 }
 

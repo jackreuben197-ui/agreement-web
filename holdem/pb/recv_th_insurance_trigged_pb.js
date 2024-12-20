@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageInsuranceTrigged.repeatedFields_ = [2,4];
+proto.holdem.pb.ServerMessageInsuranceTrigged.repeatedFields_ = [2,4,5];
 
 
 
@@ -71,7 +71,9 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.toObject = function(includeInstanc
     operatorList: jspb.Message.toObjectList(msg.getOperatorList(),
     protobuf_holdem_define_pb.Operator.toObject, includeInstance),
     invalidPotsList: jspb.Message.toObjectList(msg.getInvalidPotsList(),
-    protobuf_holdem_define_pb.InsurancePotInvalid.toObject, includeInstance)
+    protobuf_holdem_define_pb.InsurancePotInvalid.toObject, includeInstance),
+    playerCardsList: jspb.Message.toObjectList(msg.getPlayerCardsList(),
+    protobuf_holdem_define_pb.PlayerCards.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -121,6 +123,11 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.deserializeBinaryFromReader = func
       var value = new protobuf_holdem_define_pb.InsurancePotInvalid;
       reader.readMessage(value,protobuf_holdem_define_pb.InsurancePotInvalid.deserializeBinaryFromReader);
       msg.addInvalidPots(value);
+      break;
+    case 5:
+      var value = new protobuf_holdem_define_pb.PlayerCards;
+      reader.readMessage(value,protobuf_holdem_define_pb.PlayerCards.deserializeBinaryFromReader);
+      msg.addPlayerCards(value);
       break;
     default:
       reader.skipField();
@@ -172,6 +179,14 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.serializeBinaryToWriter = function
       4,
       f,
       protobuf_holdem_define_pb.InsurancePotInvalid.serializeBinaryToWriter
+    );
+  }
+  f = message.getPlayerCardsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      5,
+      f,
+      protobuf_holdem_define_pb.PlayerCards.serializeBinaryToWriter
     );
   }
 };
@@ -251,6 +266,37 @@ proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.addInvalidPots = functio
 
 proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.clearInvalidPotsList = function() {
   this.setInvalidPotsList([]);
+};
+
+
+/**
+ * repeated PlayerCards player_cards = 5;
+ * @return {!Array.<!proto.holdem.pb.PlayerCards>}
+ */
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.getPlayerCardsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.PlayerCards>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.PlayerCards, 5));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.PlayerCards>} value */
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.setPlayerCardsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 5, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.PlayerCards=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.PlayerCards}
+ */
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.addPlayerCards = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.holdem.pb.PlayerCards, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageInsuranceTrigged.prototype.clearPlayerCardsList = function() {
+  this.setPlayerCardsList([]);
 };
 
 

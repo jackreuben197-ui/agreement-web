@@ -27,6 +27,7 @@ goog.exportSymbol('proto.holdem.pb.Def.EHCType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.GameStatus', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.GameType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.IIReason', null, global);
+goog.exportSymbol('proto.holdem.pb.Def.IsuranceMode', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.KeepSeatReason', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.LeaveReason', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.LimitBetType', null, global);
@@ -415,7 +416,8 @@ proto.holdem.pb.Def.IIReason = {
   IIR_NONE: 0,
   IIR_ZERO_OUTS: 1,
   IIR_NO_ODDS_FOUND: 2,
-  IIR_NO_ODDS_TABLE_FOUND: 3
+  IIR_NO_ODDS_TABLE_FOUND: 3,
+  IIR_LEADER_LIMIT: 4
 };
 
 /**
@@ -464,6 +466,14 @@ proto.holdem.pb.Def.RoomMode = {
   RM_NORMAL: 0,
   RM_MATCHING: 1,
   RM_MATCHING_WAITING: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.Def.IsuranceMode = {
+  IM_NORMAL: 0,
+  IM_WPK: 1
 };
 
 
@@ -1246,7 +1256,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     mode: jspb.Message.getFieldWithDefault(msg, 43, 0),
     randomAnte: jspb.Message.getFieldWithDefault(msg, 44, ""),
     criticalHit: jspb.Message.getFieldWithDefault(msg, 45, 0),
-    autoChangeRoomLimitHand: jspb.Message.getFieldWithDefault(msg, 46, 0)
+    autoChangeRoomLimitHand: jspb.Message.getFieldWithDefault(msg, 46, 0),
+    insuranceMode: jspb.Message.getFieldWithDefault(msg, 47, 0)
   };
 
   if (includeInstance) {
@@ -1459,6 +1470,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 46:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setAutoChangeRoomLimitHand(value);
+      break;
+    case 47:
+      var value = /** @type {!proto.holdem.pb.Def.IsuranceMode} */ (reader.readEnum());
+      msg.setInsuranceMode(value);
       break;
     default:
       reader.skipField();
@@ -1795,6 +1810,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       46,
+      f
+    );
+  }
+  f = message.getInsuranceMode();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      47,
       f
     );
   }
@@ -2507,6 +2529,21 @@ proto.holdem.pb.RoomInfo.prototype.getAutoChangeRoomLimitHand = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setAutoChangeRoomLimitHand = function(value) {
   jspb.Message.setField(this, 46, value);
+};
+
+
+/**
+ * optional Def.IsuranceMode insurance_mode = 47;
+ * @return {!proto.holdem.pb.Def.IsuranceMode}
+ */
+proto.holdem.pb.RoomInfo.prototype.getInsuranceMode = function() {
+  return /** @type {!proto.holdem.pb.Def.IsuranceMode} */ (jspb.Message.getFieldWithDefault(this, 47, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.IsuranceMode} value */
+proto.holdem.pb.RoomInfo.prototype.setInsuranceMode = function(value) {
+  jspb.Message.setField(this, 47, value);
 };
 
 
@@ -5975,7 +6012,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.InsurancePotLimit.repeatedFields_ = [8];
+proto.holdem.pb.InsurancePotLimit.repeatedFields_ = [8,11];
 
 
 
@@ -6016,7 +6053,9 @@ proto.holdem.pb.InsurancePotLimit.toObject = function(includeInstance, msg) {
     outsDetailList: jspb.Message.toObjectList(msg.getOutsDetailList(),
     proto.holdem.pb.UserOuts.toObject, includeInstance),
     potUserCount: jspb.Message.getFieldWithDefault(msg, 9, 0),
-    potLeaderCount: jspb.Message.getFieldWithDefault(msg, 10, 0)
+    potLeaderCount: jspb.Message.getFieldWithDefault(msg, 10, 0),
+    cantBuyOutsList: jspb.Message.toObjectList(msg.getCantBuyOutsList(),
+    proto.holdem.pb.OutsCard.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -6093,6 +6132,11 @@ proto.holdem.pb.InsurancePotLimit.deserializeBinaryFromReader = function(msg, re
     case 10:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setPotLeaderCount(value);
+      break;
+    case 11:
+      var value = new proto.holdem.pb.OutsCard;
+      reader.readMessage(value,proto.holdem.pb.OutsCard.deserializeBinaryFromReader);
+      msg.addCantBuyOuts(value);
       break;
     default:
       reader.skipField();
@@ -6192,6 +6236,14 @@ proto.holdem.pb.InsurancePotLimit.serializeBinaryToWriter = function(message, wr
     writer.writeUint32(
       10,
       f
+    );
+  }
+  f = message.getCantBuyOutsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      11,
+      f,
+      proto.holdem.pb.OutsCard.serializeBinaryToWriter
     );
   }
 };
@@ -6360,6 +6412,37 @@ proto.holdem.pb.InsurancePotLimit.prototype.getPotLeaderCount = function() {
 /** @param {number} value */
 proto.holdem.pb.InsurancePotLimit.prototype.setPotLeaderCount = function(value) {
   jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * repeated OutsCard cant_buy_outs = 11;
+ * @return {!Array.<!proto.holdem.pb.OutsCard>}
+ */
+proto.holdem.pb.InsurancePotLimit.prototype.getCantBuyOutsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.OutsCard>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.OutsCard, 11));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.OutsCard>} value */
+proto.holdem.pb.InsurancePotLimit.prototype.setCantBuyOutsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 11, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.OutsCard=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.OutsCard}
+ */
+proto.holdem.pb.InsurancePotLimit.prototype.addCantBuyOuts = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 11, opt_value, proto.holdem.pb.OutsCard, opt_index);
+};
+
+
+proto.holdem.pb.InsurancePotLimit.prototype.clearCantBuyOutsList = function() {
+  this.setCantBuyOutsList([]);
 };
 
 
@@ -7346,7 +7429,10 @@ proto.holdem.pb.PlayerCards.prototype.toObject = function(opt_includeInstance) {
 proto.holdem.pb.PlayerCards.toObject = function(includeInstance, msg) {
   var f, obj = {
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    cardsList: jspb.Message.getRepeatedField(msg, 2)
+    cardsList: jspb.Message.getRepeatedField(msg, 2),
+    userRid: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    avatar: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -7391,6 +7477,18 @@ proto.holdem.pb.PlayerCards.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
       msg.setCardsList(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserRid(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAvatar(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -7431,6 +7529,27 @@ proto.holdem.pb.PlayerCards.serializeBinaryToWriter = function(message, writer) 
   if (f.length > 0) {
     writer.writePackedInt32(
       2,
+      f
+    );
+  }
+  f = message.getUserRid();
+  if (f !== 0) {
+    writer.writeUint64(
+      3,
+      f
+    );
+  }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getAvatar();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
       f
     );
   }
@@ -7478,6 +7597,51 @@ proto.holdem.pb.PlayerCards.prototype.addCards = function(value, opt_index) {
 
 proto.holdem.pb.PlayerCards.prototype.clearCardsList = function() {
   this.setCardsList([]);
+};
+
+
+/**
+ * optional uint64 user_rid = 3;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerCards.prototype.getUserRid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerCards.prototype.setUserRid = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional string name = 4;
+ * @return {string}
+ */
+proto.holdem.pb.PlayerCards.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.PlayerCards.prototype.setName = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional string avatar = 5;
+ * @return {string}
+ */
+proto.holdem.pb.PlayerCards.prototype.getAvatar = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.PlayerCards.prototype.setAvatar = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 
@@ -14151,7 +14315,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     quickChangeRoom: jspb.Message.getFieldWithDefault(msg, 157, 0),
     notEnoughCloseDuration: jspb.Message.getFieldWithDefault(msg, 158, 0),
     playDurationType: jspb.Message.getFieldWithDefault(msg, 159, 0),
-    playHandsLimit: jspb.Message.getFieldWithDefault(msg, 160, 0)
+    playHandsLimit: jspb.Message.getFieldWithDefault(msg, 160, 0),
+    insuranceMode: jspb.Message.getFieldWithDefault(msg, 161, 0)
   };
 
   if (includeInstance) {
@@ -14829,6 +14994,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 160:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPlayHandsLimit(value);
+      break;
+    case 161:
+      var value = /** @type {!proto.holdem.pb.Def.IsuranceMode} */ (reader.readEnum());
+      msg.setInsuranceMode(value);
       break;
     default:
       reader.skipField();
@@ -15972,6 +16141,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       160,
+      f
+    );
+  }
+  f = message.getInsuranceMode();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      161,
       f
     );
   }
@@ -18502,6 +18678,21 @@ proto.holdem.pb.RoomRecord.prototype.getPlayHandsLimit = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setPlayHandsLimit = function(value) {
   jspb.Message.setField(this, 160, value);
+};
+
+
+/**
+ * optional Def.IsuranceMode insurance_mode = 161;
+ * @return {!proto.holdem.pb.Def.IsuranceMode}
+ */
+proto.holdem.pb.RoomRecord.prototype.getInsuranceMode = function() {
+  return /** @type {!proto.holdem.pb.Def.IsuranceMode} */ (jspb.Message.getFieldWithDefault(this, 161, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.IsuranceMode} value */
+proto.holdem.pb.RoomRecord.prototype.setInsuranceMode = function(value) {
+  jspb.Message.setField(this, 161, value);
 };
 
 
