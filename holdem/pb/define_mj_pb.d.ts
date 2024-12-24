@@ -288,10 +288,10 @@ export class RoomInfoMJ extends jspb.Message {
   getMode(): protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap];
   setMode(value: protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap]): void;
 
-  clearAllRulesList(): void;
-  getAllRulesList(): Array<protobuf_holdem_define_pb.RuleUnit>;
-  setAllRulesList(value: Array<protobuf_holdem_define_pb.RuleUnit>): void;
-  addAllRules(value?: protobuf_holdem_define_pb.RuleUnit, index?: number): protobuf_holdem_define_pb.RuleUnit;
+  clearRuleMjList(): void;
+  getRuleMjList(): Array<protobuf_holdem_define_pb.RuleUnit>;
+  setRuleMjList(value: Array<protobuf_holdem_define_pb.RuleUnit>): void;
+  addRuleMj(value?: protobuf_holdem_define_pb.RuleUnit, index?: number): protobuf_holdem_define_pb.RuleUnit;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfoMJ.AsObject;
@@ -323,7 +323,7 @@ export namespace RoomInfoMJ {
     antiCheatVideoType: number,
     personalType: number,
     mode: protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap],
-    allRulesList: Array<protobuf_holdem_define_pb.RuleUnit.AsObject>,
+    ruleMjList: Array<protobuf_holdem_define_pb.RuleUnit.AsObject>,
   }
 }
 

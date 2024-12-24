@@ -761,7 +761,7 @@ proto.holdem.pb.RoomInfoMJ.toObject = function(includeInstance, msg) {
     antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 16, 0),
     personalType: jspb.Message.getFieldWithDefault(msg, 17, 0),
     mode: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    allRulesList: jspb.Message.toObjectList(msg.getAllRulesList(),
+    ruleMjList: jspb.Message.toObjectList(msg.getRuleMjList(),
     protobuf_holdem_define_pb.RuleUnit.toObject, includeInstance)
   };
 
@@ -874,7 +874,7 @@ proto.holdem.pb.RoomInfoMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 19:
       var value = new protobuf_holdem_define_pb.RuleUnit;
       reader.readMessage(value,protobuf_holdem_define_pb.RuleUnit.deserializeBinaryFromReader);
-      msg.addAllRules(value);
+      msg.addRuleMj(value);
       break;
     default:
       reader.skipField();
@@ -1031,7 +1031,7 @@ proto.holdem.pb.RoomInfoMJ.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getAllRulesList();
+  f = message.getRuleMjList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       19,
@@ -1319,17 +1319,17 @@ proto.holdem.pb.RoomInfoMJ.prototype.setMode = function(value) {
 
 
 /**
- * repeated RuleUnit all_rules = 19;
+ * repeated RuleUnit rule_mj = 19;
  * @return {!Array.<!proto.holdem.pb.RuleUnit>}
  */
-proto.holdem.pb.RoomInfoMJ.prototype.getAllRulesList = function() {
+proto.holdem.pb.RoomInfoMJ.prototype.getRuleMjList = function() {
   return /** @type{!Array.<!proto.holdem.pb.RuleUnit>} */ (
     jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.RuleUnit, 19));
 };
 
 
 /** @param {!Array.<!proto.holdem.pb.RuleUnit>} value */
-proto.holdem.pb.RoomInfoMJ.prototype.setAllRulesList = function(value) {
+proto.holdem.pb.RoomInfoMJ.prototype.setRuleMjList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 19, value);
 };
 
@@ -1339,13 +1339,13 @@ proto.holdem.pb.RoomInfoMJ.prototype.setAllRulesList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.holdem.pb.RuleUnit}
  */
-proto.holdem.pb.RoomInfoMJ.prototype.addAllRules = function(opt_value, opt_index) {
+proto.holdem.pb.RoomInfoMJ.prototype.addRuleMj = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 19, opt_value, proto.holdem.pb.RuleUnit, opt_index);
 };
 
 
-proto.holdem.pb.RoomInfoMJ.prototype.clearAllRulesList = function() {
-  this.setAllRulesList([]);
+proto.holdem.pb.RoomInfoMJ.prototype.clearRuleMjList = function() {
+  this.setRuleMjList([]);
 };
 
 
