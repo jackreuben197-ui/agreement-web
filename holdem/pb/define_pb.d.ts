@@ -3969,6 +3969,9 @@ export class RuleUnit extends jspb.Message {
   setFisList(value: Array<number>): void;
   addFis(value: number, index?: number): number;
 
+  getIg(): boolean;
+  setIg(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RuleUnit.AsObject;
   static toObject(includeInstance: boolean, msg: RuleUnit): RuleUnit.AsObject;
@@ -3986,6 +3989,7 @@ export namespace RuleUnit {
     p: boolean,
     fesList: Array<number>,
     fisList: Array<number>,
+    ig: boolean,
   }
 }
 

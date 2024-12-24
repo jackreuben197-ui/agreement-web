@@ -26056,7 +26056,8 @@ proto.holdem.pb.RuleUnit.toObject = function(includeInstance, msg) {
     d: jspb.Message.getFieldWithDefault(msg, 2, 0),
     p: jspb.Message.getFieldWithDefault(msg, 3, false),
     fesList: jspb.Message.getRepeatedField(msg, 4),
-    fisList: jspb.Message.getRepeatedField(msg, 5)
+    fisList: jspb.Message.getRepeatedField(msg, 5),
+    ig: jspb.Message.getFieldWithDefault(msg, 6, false)
   };
 
   if (includeInstance) {
@@ -26112,6 +26113,10 @@ proto.holdem.pb.RuleUnit.deserializeBinaryFromReader = function(msg, reader) {
     case 5:
       var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
       msg.setFisList(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIg(value);
       break;
     default:
       reader.skipField();
@@ -26174,6 +26179,13 @@ proto.holdem.pb.RuleUnit.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writePackedUint32(
       5,
+      f
+    );
+  }
+  f = message.getIg();
+  if (f) {
+    writer.writeBool(
+      6,
       f
     );
   }
@@ -26282,6 +26294,23 @@ proto.holdem.pb.RuleUnit.prototype.addFis = function(value, opt_index) {
 
 proto.holdem.pb.RuleUnit.prototype.clearFisList = function() {
   this.setFisList([]);
+};
+
+
+/**
+ * optional bool ig = 6;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.RuleUnit.prototype.getIg = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.RuleUnit.prototype.setIg = function(value) {
+  jspb.Message.setField(this, 6, value);
 };
 
 
