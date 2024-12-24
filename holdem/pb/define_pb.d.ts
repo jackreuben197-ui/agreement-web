@@ -3959,6 +3959,16 @@ export class RuleUnit extends jspb.Message {
   getP(): boolean;
   setP(value: boolean): void;
 
+  clearFesList(): void;
+  getFesList(): Array<number>;
+  setFesList(value: Array<number>): void;
+  addFes(value: number, index?: number): number;
+
+  clearFisList(): void;
+  getFisList(): Array<number>;
+  setFisList(value: Array<number>): void;
+  addFis(value: number, index?: number): number;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RuleUnit.AsObject;
   static toObject(includeInstance: boolean, msg: RuleUnit): RuleUnit.AsObject;
@@ -3974,6 +3984,8 @@ export namespace RuleUnit {
     w: number,
     d: number,
     p: boolean,
+    fesList: Array<number>,
+    fisList: Array<number>,
   }
 }
 

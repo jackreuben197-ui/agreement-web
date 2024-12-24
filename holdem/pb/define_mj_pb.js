@@ -701,12 +701,19 @@ proto.holdem.pb.ValidAction.prototype.clearTilesList = function() {
  * @constructor
  */
 proto.holdem.pb.RoomInfoMJ = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.RoomInfoMJ.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.RoomInfoMJ, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.RoomInfoMJ.displayName = 'proto.holdem.pb.RoomInfoMJ';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.RoomInfoMJ.repeatedFields_ = [19];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -753,7 +760,9 @@ proto.holdem.pb.RoomInfoMJ.toObject = function(includeInstance, msg) {
     antiCheatType: jspb.Message.getFieldWithDefault(msg, 15, 0),
     antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 16, 0),
     personalType: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    mode: jspb.Message.getFieldWithDefault(msg, 18, 0)
+    mode: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    allRulesList: jspb.Message.toObjectList(msg.getAllRulesList(),
+    protobuf_holdem_define_pb.RuleUnit.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -861,6 +870,11 @@ proto.holdem.pb.RoomInfoMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 18:
       var value = /** @type {!proto.holdem.pb.Def.RoomMode} */ (reader.readEnum());
       msg.setMode(value);
+      break;
+    case 19:
+      var value = new protobuf_holdem_define_pb.RuleUnit;
+      reader.readMessage(value,protobuf_holdem_define_pb.RuleUnit.deserializeBinaryFromReader);
+      msg.addAllRules(value);
       break;
     default:
       reader.skipField();
@@ -1015,6 +1029,14 @@ proto.holdem.pb.RoomInfoMJ.serializeBinaryToWriter = function(message, writer) {
     writer.writeEnum(
       18,
       f
+    );
+  }
+  f = message.getAllRulesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      19,
+      f,
+      protobuf_holdem_define_pb.RuleUnit.serializeBinaryToWriter
     );
   }
 };
@@ -1293,6 +1315,37 @@ proto.holdem.pb.RoomInfoMJ.prototype.getMode = function() {
 /** @param {!proto.holdem.pb.Def.RoomMode} value */
 proto.holdem.pb.RoomInfoMJ.prototype.setMode = function(value) {
   jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * repeated RuleUnit all_rules = 19;
+ * @return {!Array.<!proto.holdem.pb.RuleUnit>}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getAllRulesList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.RuleUnit>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.RuleUnit, 19));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.RuleUnit>} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setAllRulesList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 19, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.RuleUnit=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.RuleUnit}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.addAllRules = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 19, opt_value, proto.holdem.pb.RuleUnit, opt_index);
+};
+
+
+proto.holdem.pb.RoomInfoMJ.prototype.clearAllRulesList = function() {
+  this.setAllRulesList([]);
 };
 
 

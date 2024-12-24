@@ -26010,12 +26010,19 @@ proto.holdem.pb.WinTypeRule.prototype.setEyesSevenPairs = function(value) {
  * @constructor
  */
 proto.holdem.pb.RuleUnit = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.RuleUnit.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.RuleUnit, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.RuleUnit.displayName = 'proto.holdem.pb.RuleUnit';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.RuleUnit.repeatedFields_ = [4,5];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -26047,7 +26054,9 @@ proto.holdem.pb.RuleUnit.toObject = function(includeInstance, msg) {
   var f, obj = {
     w: jspb.Message.getFieldWithDefault(msg, 1, 0),
     d: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    p: jspb.Message.getFieldWithDefault(msg, 3, false)
+    p: jspb.Message.getFieldWithDefault(msg, 3, false),
+    fesList: jspb.Message.getRepeatedField(msg, 4),
+    fisList: jspb.Message.getRepeatedField(msg, 5)
   };
 
   if (includeInstance) {
@@ -26095,6 +26104,14 @@ proto.holdem.pb.RuleUnit.deserializeBinaryFromReader = function(msg, reader) {
     case 3:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setP(value);
+      break;
+    case 4:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
+      msg.setFesList(value);
+      break;
+    case 5:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedUint32());
+      msg.setFisList(value);
       break;
     default:
       reader.skipField();
@@ -26146,6 +26163,20 @@ proto.holdem.pb.RuleUnit.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getFesList();
+  if (f.length > 0) {
+    writer.writePackedUint32(
+      4,
+      f
+    );
+  }
+  f = message.getFisList();
+  if (f.length > 0) {
+    writer.writePackedUint32(
+      5,
+      f
+    );
+  }
 };
 
 
@@ -26193,6 +26224,64 @@ proto.holdem.pb.RuleUnit.prototype.getP = function() {
 /** @param {boolean} value */
 proto.holdem.pb.RuleUnit.prototype.setP = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * repeated uint32 fes = 4;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.RuleUnit.prototype.getFesList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 4));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.RuleUnit.prototype.setFesList = function(value) {
+  jspb.Message.setField(this, 4, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.RuleUnit.prototype.addFes = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
+proto.holdem.pb.RuleUnit.prototype.clearFesList = function() {
+  this.setFesList([]);
+};
+
+
+/**
+ * repeated uint32 fis = 5;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.RuleUnit.prototype.getFisList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 5));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.RuleUnit.prototype.setFisList = function(value) {
+  jspb.Message.setField(this, 5, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.RuleUnit.prototype.addFis = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 5, value, opt_index);
+};
+
+
+proto.holdem.pb.RuleUnit.prototype.clearFisList = function() {
+  this.setFisList([]);
 };
 
 
