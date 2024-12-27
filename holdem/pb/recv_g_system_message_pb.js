@@ -60,8 +60,7 @@ proto.holdem.pb.ServerMessageSystemMessage.prototype.toObject = function(opt_inc
 proto.holdem.pb.ServerMessageSystemMessage.toObject = function(includeInstance, msg) {
   var f, obj = {
     message: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    rotateTimes: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    clientType: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    rotateTimes: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -106,10 +105,6 @@ proto.holdem.pb.ServerMessageSystemMessage.deserializeBinaryFromReader = functio
       var value = /** @type {number} */ (reader.readInt32());
       msg.setRotateTimes(value);
       break;
-    case 3:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setClientType(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -153,13 +148,6 @@ proto.holdem.pb.ServerMessageSystemMessage.serializeBinaryToWriter = function(me
       f
     );
   }
-  f = message.getClientType();
-  if (f !== 0) {
-    writer.writeInt32(
-      3,
-      f
-    );
-  }
 };
 
 
@@ -190,21 +178,6 @@ proto.holdem.pb.ServerMessageSystemMessage.prototype.getRotateTimes = function()
 /** @param {number} value */
 proto.holdem.pb.ServerMessageSystemMessage.prototype.setRotateTimes = function(value) {
   jspb.Message.setField(this, 2, value);
-};
-
-
-/**
- * optional int32 client_type = 3;
- * @return {number}
- */
-proto.holdem.pb.ServerMessageSystemMessage.prototype.getClientType = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.ServerMessageSystemMessage.prototype.setClientType = function(value) {
-  jspb.Message.setField(this, 3, value);
 };
 
 

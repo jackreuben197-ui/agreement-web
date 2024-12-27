@@ -10,9 +10,6 @@ export class ServerMessageSystemMessage extends jspb.Message {
   getRotateTimes(): number;
   setRotateTimes(value: number): void;
 
-  getClientType(): number;
-  setClientType(value: number): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageSystemMessage.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageSystemMessage): ServerMessageSystemMessage.AsObject;
@@ -27,7 +24,6 @@ export namespace ServerMessageSystemMessage {
   export type AsObject = {
     message: string,
     rotateTimes: number,
-    clientType: number,
   }
 }
 
