@@ -24,12 +24,19 @@ goog.exportSymbol('proto.holdem.pb.ServerMessageSystemMessage', null, global);
  * @constructor
  */
 proto.holdem.pb.ServerMessageSystemMessage = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.ServerMessageSystemMessage.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.ServerMessageSystemMessage, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.ServerMessageSystemMessage.displayName = 'proto.holdem.pb.ServerMessageSystemMessage';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.ServerMessageSystemMessage.repeatedFields_ = [3];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -60,7 +67,10 @@ proto.holdem.pb.ServerMessageSystemMessage.prototype.toObject = function(opt_inc
 proto.holdem.pb.ServerMessageSystemMessage.toObject = function(includeInstance, msg) {
   var f, obj = {
     message: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    rotateTimes: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    rotateTimes: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    clientTypesList: jspb.Message.getRepeatedField(msg, 3),
+    startTime: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    endTime: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -105,6 +115,18 @@ proto.holdem.pb.ServerMessageSystemMessage.deserializeBinaryFromReader = functio
       var value = /** @type {number} */ (reader.readInt32());
       msg.setRotateTimes(value);
       break;
+    case 3:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setClientTypesList(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setStartTime(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setEndTime(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -148,6 +170,27 @@ proto.holdem.pb.ServerMessageSystemMessage.serializeBinaryToWriter = function(me
       f
     );
   }
+  f = message.getClientTypesList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      3,
+      f
+    );
+  }
+  f = message.getStartTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      4,
+      f
+    );
+  }
+  f = message.getEndTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      5,
+      f
+    );
+  }
 };
 
 
@@ -178,6 +221,65 @@ proto.holdem.pb.ServerMessageSystemMessage.prototype.getRotateTimes = function()
 /** @param {number} value */
 proto.holdem.pb.ServerMessageSystemMessage.prototype.setRotateTimes = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * repeated int32 client_types = 3;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.ServerMessageSystemMessage.prototype.getClientTypesList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 3));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.ServerMessageSystemMessage.prototype.setClientTypesList = function(value) {
+  jspb.Message.setField(this, 3, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.ServerMessageSystemMessage.prototype.addClientTypes = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 3, value, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageSystemMessage.prototype.clearClientTypesList = function() {
+  this.setClientTypesList([]);
+};
+
+
+/**
+ * optional int64 start_time = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSystemMessage.prototype.getStartTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSystemMessage.prototype.setStartTime = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int64 end_time = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSystemMessage.prototype.getEndTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSystemMessage.prototype.setEndTime = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 
