@@ -20534,7 +20534,8 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     videoVerifyType: jspb.Message.getFieldWithDefault(msg, 107, 0),
     antiCheatOrderType: jspb.Message.getFieldWithDefault(msg, 108, 0),
     antiCheatOrderMicType: jspb.Message.getFieldWithDefault(msg, 109, 0),
-    sngId: jspb.Message.getFieldWithDefault(msg, 110, 0)
+    sngId: jspb.Message.getFieldWithDefault(msg, 110, 0),
+    sngInvitationCode: jspb.Message.getFieldWithDefault(msg, 111, "")
   };
 
   if (includeInstance) {
@@ -21010,6 +21011,10 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 110:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setSngId(value);
+      break;
+    case 111:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSngInvitationCode(value);
       break;
     default:
       reader.skipField();
@@ -21807,6 +21812,13 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       110,
+      f
+    );
+  }
+  f = message.getSngInvitationCode();
+  if (f.length > 0) {
+    writer.writeString(
+      111,
       f
     );
   }
@@ -23460,6 +23472,21 @@ proto.holdem.pb.MTTRecord.prototype.getSngId = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTRecord.prototype.setSngId = function(value) {
   jspb.Message.setField(this, 110, value);
+};
+
+
+/**
+ * optional string sng_invitation_code = 111;
+ * @return {string}
+ */
+proto.holdem.pb.MTTRecord.prototype.getSngInvitationCode = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 111, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.MTTRecord.prototype.setSngInvitationCode = function(value) {
+  jspb.Message.setField(this, 111, value);
 };
 
 

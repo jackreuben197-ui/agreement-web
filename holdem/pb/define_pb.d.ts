@@ -3456,6 +3456,9 @@ export class MTTRecord extends jspb.Message {
   getSngId(): number;
   setSngId(value: number): void;
 
+  getSngInvitationCode(): string;
+  setSngInvitationCode(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
   static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
@@ -3578,6 +3581,7 @@ export namespace MTTRecord {
     antiCheatOrderType: number,
     antiCheatOrderMicType: number,
     sngId: number,
+    sngInvitationCode: string,
   }
 }
 
