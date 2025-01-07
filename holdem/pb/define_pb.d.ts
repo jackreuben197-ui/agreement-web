@@ -2057,6 +2057,11 @@ export class PlayerAllInShowCardWinCardsLength extends jspb.Message {
   getLeftCardsCount(): number;
   setLeftCardsCount(value: number): void;
 
+  clearWinCardsList(): void;
+  getWinCardsList(): Array<number>;
+  setWinCardsList(value: Array<number>): void;
+  addWinCards(value: number, index?: number): number;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerAllInShowCardWinCardsLength.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerAllInShowCardWinCardsLength): PlayerAllInShowCardWinCardsLength.AsObject;
@@ -2072,6 +2077,7 @@ export namespace PlayerAllInShowCardWinCardsLength {
     seatId: number,
     winCardsCount: number,
     leftCardsCount: number,
+    winCardsList: Array<number>,
   }
 }
 

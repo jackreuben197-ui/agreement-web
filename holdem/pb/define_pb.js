@@ -12943,12 +12943,19 @@ proto.holdem.pb.PlayerSummary.prototype.setDeposit = function(value) {
  * @constructor
  */
 proto.holdem.pb.PlayerAllInShowCardWinCardsLength = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.PlayerAllInShowCardWinCardsLength.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.PlayerAllInShowCardWinCardsLength, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.PlayerAllInShowCardWinCardsLength.displayName = 'proto.holdem.pb.PlayerAllInShowCardWinCardsLength';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.PlayerAllInShowCardWinCardsLength.repeatedFields_ = [4];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -12980,7 +12987,8 @@ proto.holdem.pb.PlayerAllInShowCardWinCardsLength.toObject = function(includeIns
   var f, obj = {
     seatId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     winCardsCount: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    leftCardsCount: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    leftCardsCount: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    winCardsList: jspb.Message.getRepeatedField(msg, 4)
   };
 
   if (includeInstance) {
@@ -13028,6 +13036,10 @@ proto.holdem.pb.PlayerAllInShowCardWinCardsLength.deserializeBinaryFromReader = 
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setLeftCardsCount(value);
+      break;
+    case 4:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setWinCardsList(value);
       break;
     default:
       reader.skipField();
@@ -13079,6 +13091,13 @@ proto.holdem.pb.PlayerAllInShowCardWinCardsLength.serializeBinaryToWriter = func
       f
     );
   }
+  f = message.getWinCardsList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      4,
+      f
+    );
+  }
 };
 
 
@@ -13124,6 +13143,35 @@ proto.holdem.pb.PlayerAllInShowCardWinCardsLength.prototype.getLeftCardsCount = 
 /** @param {number} value */
 proto.holdem.pb.PlayerAllInShowCardWinCardsLength.prototype.setLeftCardsCount = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * repeated int32 win_cards = 4;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.PlayerAllInShowCardWinCardsLength.prototype.getWinCardsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 4));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.PlayerAllInShowCardWinCardsLength.prototype.setWinCardsList = function(value) {
+  jspb.Message.setField(this, 4, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.PlayerAllInShowCardWinCardsLength.prototype.addWinCards = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
+proto.holdem.pb.PlayerAllInShowCardWinCardsLength.prototype.clearWinCardsList = function() {
+  this.setWinCardsList([]);
 };
 
 
