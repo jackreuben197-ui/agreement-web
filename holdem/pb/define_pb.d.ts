@@ -4003,3 +4003,29 @@ export namespace RuleUnit {
   }
 }
 
+export class PlayerInsuranceOutsCards extends jspb.Message {
+  getSeatId(): number;
+  setSeatId(value: number): void;
+
+  clearWinCardsList(): void;
+  getWinCardsList(): Array<number>;
+  setWinCardsList(value: Array<number>): void;
+  addWinCards(value: number, index?: number): number;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PlayerInsuranceOutsCards.AsObject;
+  static toObject(includeInstance: boolean, msg: PlayerInsuranceOutsCards): PlayerInsuranceOutsCards.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PlayerInsuranceOutsCards, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PlayerInsuranceOutsCards;
+  static deserializeBinaryFromReader(message: PlayerInsuranceOutsCards, reader: jspb.BinaryReader): PlayerInsuranceOutsCards;
+}
+
+export namespace PlayerInsuranceOutsCards {
+  export type AsObject = {
+    seatId: number,
+    winCardsList: Array<number>,
+  }
+}
+
