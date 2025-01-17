@@ -72,7 +72,8 @@ proto.holdem.pb.ClientMessageSeated.toObject = function(includeInstance, msg) {
     applyBringIn: jspb.Message.getFieldWithDefault(msg, 9, false),
     autoOnTableNoStore: jspb.Message.getFieldWithDefault(msg, 10, false),
     autoOnTableFix: jspb.Message.getFieldWithDefault(msg, 11, 0),
-    depositAdvance: jspb.Message.getFieldWithDefault(msg, 12, 0)
+    depositAdvance: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    autoOnTableMax: jspb.Message.getFieldWithDefault(msg, 13, 0)
   };
 
   if (includeInstance) {
@@ -157,6 +158,10 @@ proto.holdem.pb.ClientMessageSeated.deserializeBinaryFromReader = function(msg, 
     case 12:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setDepositAdvance(value);
+      break;
+    case 13:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAutoOnTableMax(value);
       break;
     default:
       reader.skipField();
@@ -269,6 +274,13 @@ proto.holdem.pb.ClientMessageSeated.serializeBinaryToWriter = function(message, 
   if (f !== 0) {
     writer.writeUint64(
       12,
+      f
+    );
+  }
+  f = message.getAutoOnTableMax();
+  if (f !== 0) {
+    writer.writeUint64(
+      13,
       f
     );
   }
@@ -473,6 +485,21 @@ proto.holdem.pb.ClientMessageSeated.prototype.getDepositAdvance = function() {
 /** @param {number} value */
 proto.holdem.pb.ClientMessageSeated.prototype.setDepositAdvance = function(value) {
   jspb.Message.setField(this, 12, value);
+};
+
+
+/**
+ * optional uint64 auto_on_table_max = 13;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageSeated.prototype.getAutoOnTableMax = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageSeated.prototype.setAutoOnTableMax = function(value) {
+  jspb.Message.setField(this, 13, value);
 };
 
 

@@ -2727,6 +2727,9 @@ export class RoomRecord extends jspb.Message {
   getInsuranceMode(): Def.IsuranceModeMap[keyof Def.IsuranceModeMap];
   setInsuranceMode(value: Def.IsuranceModeMap[keyof Def.IsuranceModeMap]): void;
 
+  getRetainMaxRate(): number;
+  setRetainMaxRate(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2898,6 +2901,7 @@ export namespace RoomRecord {
     playDurationType: number,
     playHandsLimit: number,
     insuranceMode: Def.IsuranceModeMap[keyof Def.IsuranceModeMap],
+    retainMaxRate: number,
   }
 }
 

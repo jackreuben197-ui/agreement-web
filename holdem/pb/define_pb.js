@@ -14438,7 +14438,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     notEnoughCloseDuration: jspb.Message.getFieldWithDefault(msg, 158, 0),
     playDurationType: jspb.Message.getFieldWithDefault(msg, 159, 0),
     playHandsLimit: jspb.Message.getFieldWithDefault(msg, 160, 0),
-    insuranceMode: jspb.Message.getFieldWithDefault(msg, 161, 0)
+    insuranceMode: jspb.Message.getFieldWithDefault(msg, 161, 0),
+    retainMaxRate: jspb.Message.getFieldWithDefault(msg, 162, 0)
   };
 
   if (includeInstance) {
@@ -15120,6 +15121,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 161:
       var value = /** @type {!proto.holdem.pb.Def.IsuranceMode} */ (reader.readEnum());
       msg.setInsuranceMode(value);
+      break;
+    case 162:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setRetainMaxRate(value);
       break;
     default:
       reader.skipField();
@@ -16270,6 +16275,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       161,
+      f
+    );
+  }
+  f = message.getRetainMaxRate();
+  if (f !== 0) {
+    writer.writeUint32(
+      162,
       f
     );
   }
@@ -18815,6 +18827,21 @@ proto.holdem.pb.RoomRecord.prototype.getInsuranceMode = function() {
 /** @param {!proto.holdem.pb.Def.IsuranceMode} value */
 proto.holdem.pb.RoomRecord.prototype.setInsuranceMode = function(value) {
   jspb.Message.setField(this, 161, value);
+};
+
+
+/**
+ * optional uint32 retain_max_rate = 162;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRetainMaxRate = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 162, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setRetainMaxRate = function(value) {
+  jspb.Message.setField(this, 162, value);
 };
 
 

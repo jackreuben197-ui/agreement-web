@@ -43,6 +43,9 @@ export class ClientMessageSeated extends jspb.Message {
   getDepositAdvance(): number;
   setDepositAdvance(value: number): void;
 
+  getAutoOnTableMax(): number;
+  setAutoOnTableMax(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageSeated.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageSeated): ClientMessageSeated.AsObject;
@@ -67,6 +70,7 @@ export namespace ClientMessageSeated {
     autoOnTableNoStore: boolean,
     autoOnTableFix: number,
     depositAdvance: number,
+    autoOnTableMax: number,
   }
 }
 
