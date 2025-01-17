@@ -13,6 +13,11 @@ export class ServerMessageInsuranceOutsCards extends jspb.Message {
   setPlayerCardsList(value: Array<protobuf_holdem_define_pb.PlayerInsuranceOutsCards>): void;
   addPlayerCards(value?: protobuf_holdem_define_pb.PlayerInsuranceOutsCards, index?: number): protobuf_holdem_define_pb.PlayerInsuranceOutsCards;
 
+  clearInsurSeatIdsList(): void;
+  getInsurSeatIdsList(): Array<number>;
+  setInsurSeatIdsList(value: Array<number>): void;
+  addInsurSeatIds(value: number, index?: number): number;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageInsuranceOutsCards.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageInsuranceOutsCards): ServerMessageInsuranceOutsCards.AsObject;
@@ -27,6 +32,7 @@ export namespace ServerMessageInsuranceOutsCards {
   export type AsObject = {
     round: protobuf_holdem_define_pb.Def.RoundMap[keyof protobuf_holdem_define_pb.Def.RoundMap],
     playerCardsList: Array<protobuf_holdem_define_pb.PlayerInsuranceOutsCards.AsObject>,
+    insurSeatIdsList: Array<number>,
   }
 }
 

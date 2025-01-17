@@ -36,7 +36,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageInsuranceOutsCards.repeatedFields_ = [2];
+proto.holdem.pb.ServerMessageInsuranceOutsCards.repeatedFields_ = [2,3];
 
 
 
@@ -69,7 +69,8 @@ proto.holdem.pb.ServerMessageInsuranceOutsCards.toObject = function(includeInsta
   var f, obj = {
     round: jspb.Message.getFieldWithDefault(msg, 1, 0),
     playerCardsList: jspb.Message.toObjectList(msg.getPlayerCardsList(),
-    protobuf_holdem_define_pb.PlayerInsuranceOutsCards.toObject, includeInstance)
+    protobuf_holdem_define_pb.PlayerInsuranceOutsCards.toObject, includeInstance),
+    insurSeatIdsList: jspb.Message.getRepeatedField(msg, 3)
   };
 
   if (includeInstance) {
@@ -115,6 +116,10 @@ proto.holdem.pb.ServerMessageInsuranceOutsCards.deserializeBinaryFromReader = fu
       reader.readMessage(value,protobuf_holdem_define_pb.PlayerInsuranceOutsCards.deserializeBinaryFromReader);
       msg.addPlayerCards(value);
       break;
+    case 3:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
+      msg.setInsurSeatIdsList(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -157,6 +162,13 @@ proto.holdem.pb.ServerMessageInsuranceOutsCards.serializeBinaryToWriter = functi
       2,
       f,
       protobuf_holdem_define_pb.PlayerInsuranceOutsCards.serializeBinaryToWriter
+    );
+  }
+  f = message.getInsurSeatIdsList();
+  if (f.length > 0) {
+    writer.writePackedInt32(
+      3,
+      f
     );
   }
 };
@@ -205,6 +217,35 @@ proto.holdem.pb.ServerMessageInsuranceOutsCards.prototype.addPlayerCards = funct
 
 proto.holdem.pb.ServerMessageInsuranceOutsCards.prototype.clearPlayerCardsList = function() {
   this.setPlayerCardsList([]);
+};
+
+
+/**
+ * repeated int32 insur_seat_ids = 3;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.ServerMessageInsuranceOutsCards.prototype.getInsurSeatIdsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 3));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.ServerMessageInsuranceOutsCards.prototype.setInsurSeatIdsList = function(value) {
+  jspb.Message.setField(this, 3, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.ServerMessageInsuranceOutsCards.prototype.addInsurSeatIds = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 3, value, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageInsuranceOutsCards.prototype.clearInsurSeatIdsList = function() {
+  this.setInsurSeatIdsList([]);
 };
 
 
