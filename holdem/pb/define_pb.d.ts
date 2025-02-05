@@ -264,6 +264,7 @@ export namespace Def {
   export interface IsuranceModeMap {
     IM_NORMAL: 0;
     IM_WPK: 1;
+    IM_EV: 2;
   }
 
   export const IsuranceMode: IsuranceModeMap;

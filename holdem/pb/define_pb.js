@@ -474,7 +474,8 @@ proto.holdem.pb.Def.RoomMode = {
  */
 proto.holdem.pb.Def.IsuranceMode = {
   IM_NORMAL: 0,
-  IM_WPK: 1
+  IM_WPK: 1,
+  IM_EV: 2
 };
 
 
