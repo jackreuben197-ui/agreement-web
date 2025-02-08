@@ -4034,3 +4034,47 @@ export namespace PlayerInsuranceOutsCards {
   }
 }
 
+export class PlayerInsurance extends jspb.Message {
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getAvatar(): string;
+  setAvatar(value: string): void;
+
+  getInsurance(): number;
+  setInsurance(value: number): void;
+
+  getInsuranceBet(): number;
+  setInsuranceBet(value: number): void;
+
+  getInsuranceEv(): number;
+  setInsuranceEv(value: number): void;
+
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PlayerInsurance.AsObject;
+  static toObject(includeInstance: boolean, msg: PlayerInsurance): PlayerInsurance.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PlayerInsurance, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PlayerInsurance;
+  static deserializeBinaryFromReader(message: PlayerInsurance, reader: jspb.BinaryReader): PlayerInsurance;
+}
+
+export namespace PlayerInsurance {
+  export type AsObject = {
+    userRid: number,
+    name: string,
+    avatar: string,
+    insurance: number,
+    insuranceBet: number,
+    insuranceEv: number,
+    createTime: number,
+  }
+}
+
