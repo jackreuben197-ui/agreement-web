@@ -340,7 +340,8 @@ proto.holdem.pb.ServerMessageEnterRoom.toObject = function(includeInstance, msg)
     mttProgress: (f = msg.getMttProgress()) && protobuf_holdem_define_pb.MTTProgress.toObject(includeInstance, f),
     mttRoom: (f = msg.getMttRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     muted: jspb.Message.getFieldWithDefault(msg, 12, false),
-    payTimes: jspb.Message.getFieldWithDefault(msg, 13, 0)
+    payTimes: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    lastBringOutHandNum: jspb.Message.getFieldWithDefault(msg, 14, 0)
   };
 
   if (includeInstance) {
@@ -432,6 +433,10 @@ proto.holdem.pb.ServerMessageEnterRoom.deserializeBinaryFromReader = function(ms
     case 13:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPayTimes(value);
+      break;
+    case 14:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setLastBringOutHandNum(value);
       break;
     default:
       reader.skipField();
@@ -551,6 +556,13 @@ proto.holdem.pb.ServerMessageEnterRoom.serializeBinaryToWriter = function(messag
   if (f !== 0) {
     writer.writeInt32(
       13,
+      f
+    );
+  }
+  f = message.getLastBringOutHandNum();
+  if (f !== 0) {
+    writer.writeUint32(
+      14,
       f
     );
   }
@@ -858,6 +870,21 @@ proto.holdem.pb.ServerMessageEnterRoom.prototype.getPayTimes = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageEnterRoom.prototype.setPayTimes = function(value) {
   jspb.Message.setField(this, 13, value);
+};
+
+
+/**
+ * optional uint32 last_bring_out_hand_num = 14;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageEnterRoom.prototype.getLastBringOutHandNum = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageEnterRoom.prototype.setLastBringOutHandNum = function(value) {
+  jspb.Message.setField(this, 14, value);
 };
 
 
