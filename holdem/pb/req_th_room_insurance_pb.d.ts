@@ -10,6 +10,12 @@ export class ClientMessageRoomInsurance extends jspb.Message {
   getRoom(): protobuf_holdem_define_pb.Room | undefined;
   setRoom(value?: protobuf_holdem_define_pb.Room): void;
 
+  getOffset(): number;
+  setOffset(value: number): void;
+
+  getLimit(): number;
+  setLimit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageRoomInsurance.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageRoomInsurance): ClientMessageRoomInsurance.AsObject;
@@ -23,6 +29,8 @@ export class ClientMessageRoomInsurance extends jspb.Message {
 export namespace ClientMessageRoomInsurance {
   export type AsObject = {
     room?: protobuf_holdem_define_pb.Room.AsObject,
+    offset: number,
+    limit: number,
   }
 }
 
@@ -37,6 +45,15 @@ export class ServerMessageRoomInsurance extends jspb.Message {
   getPlayerInsurancesList(): Array<protobuf_holdem_define_pb.PlayerInsurance>;
   setPlayerInsurancesList(value: Array<protobuf_holdem_define_pb.PlayerInsurance>): void;
   addPlayerInsurances(value?: protobuf_holdem_define_pb.PlayerInsurance, index?: number): protobuf_holdem_define_pb.PlayerInsurance;
+
+  getOffset(): number;
+  setOffset(value: number): void;
+
+  getLimit(): number;
+  setLimit(value: number): void;
+
+  getTotal(): number;
+  setTotal(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageRoomInsurance.AsObject;
@@ -53,6 +70,9 @@ export namespace ServerMessageRoomInsurance {
     status: number,
     insurance: number,
     playerInsurancesList: Array<protobuf_holdem_define_pb.PlayerInsurance.AsObject>,
+    offset: number,
+    limit: number,
+    total: number,
   }
 }
 

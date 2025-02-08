@@ -61,7 +61,9 @@ proto.holdem.pb.ClientMessageRoomInsurance.prototype.toObject = function(opt_inc
  */
 proto.holdem.pb.ClientMessageRoomInsurance.toObject = function(includeInstance, msg) {
   var f, obj = {
-    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f)
+    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
+    offset: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    limit: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -103,6 +105,14 @@ proto.holdem.pb.ClientMessageRoomInsurance.deserializeBinaryFromReader = functio
       reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
       msg.setRoom(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setOffset(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setLimit(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -140,6 +150,20 @@ proto.holdem.pb.ClientMessageRoomInsurance.serializeBinaryToWriter = function(me
       protobuf_holdem_define_pb.Room.serializeBinaryToWriter
     );
   }
+  f = message.getOffset();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
+      f
+    );
+  }
+  f = message.getLimit();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -170,6 +194,36 @@ proto.holdem.pb.ClientMessageRoomInsurance.prototype.clearRoom = function() {
  */
 proto.holdem.pb.ClientMessageRoomInsurance.prototype.hasRoom = function() {
   return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional int32 offset = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageRoomInsurance.prototype.getOffset = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageRoomInsurance.prototype.setOffset = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional int32 limit = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ClientMessageRoomInsurance.prototype.getLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ClientMessageRoomInsurance.prototype.setLimit = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 
@@ -230,7 +284,10 @@ proto.holdem.pb.ServerMessageRoomInsurance.toObject = function(includeInstance, 
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
     insurance: jspb.Message.getFieldWithDefault(msg, 2, 0),
     playerInsurancesList: jspb.Message.toObjectList(msg.getPlayerInsurancesList(),
-    protobuf_holdem_define_pb.PlayerInsurance.toObject, includeInstance)
+    protobuf_holdem_define_pb.PlayerInsurance.toObject, includeInstance),
+    offset: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    limit: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    total: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -279,6 +336,18 @@ proto.holdem.pb.ServerMessageRoomInsurance.deserializeBinaryFromReader = functio
       var value = new protobuf_holdem_define_pb.PlayerInsurance;
       reader.readMessage(value,protobuf_holdem_define_pb.PlayerInsurance.deserializeBinaryFromReader);
       msg.addPlayerInsurances(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setOffset(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setLimit(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setTotal(value);
       break;
     default:
       reader.skipField();
@@ -329,6 +398,27 @@ proto.holdem.pb.ServerMessageRoomInsurance.serializeBinaryToWriter = function(me
       3,
       f,
       protobuf_holdem_define_pb.PlayerInsurance.serializeBinaryToWriter
+    );
+  }
+  f = message.getOffset();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
+      f
+    );
+  }
+  f = message.getLimit();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
+      f
+    );
+  }
+  f = message.getTotal();
+  if (f !== 0) {
+    writer.writeInt32(
+      6,
+      f
     );
   }
 };
@@ -392,6 +482,51 @@ proto.holdem.pb.ServerMessageRoomInsurance.prototype.addPlayerInsurances = funct
 
 proto.holdem.pb.ServerMessageRoomInsurance.prototype.clearPlayerInsurancesList = function() {
   this.setPlayerInsurancesList([]);
+};
+
+
+/**
+ * optional int32 offset = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageRoomInsurance.prototype.getOffset = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageRoomInsurance.prototype.setOffset = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int32 limit = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageRoomInsurance.prototype.getLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageRoomInsurance.prototype.setLimit = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional int32 total = 6;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageRoomInsurance.prototype.getTotal = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageRoomInsurance.prototype.setTotal = function(value) {
+  jspb.Message.setField(this, 6, value);
 };
 
 
