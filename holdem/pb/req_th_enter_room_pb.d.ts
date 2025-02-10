@@ -93,9 +93,6 @@ export class ServerMessageEnterRoom extends jspb.Message {
   getPayTimes(): number;
   setPayTimes(value: number): void;
 
-  getLastBringOutHandNum(): number;
-  setLastBringOutHandNum(value: number): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageEnterRoom.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageEnterRoom): ServerMessageEnterRoom.AsObject;
@@ -120,7 +117,6 @@ export namespace ServerMessageEnterRoom {
     mttRoom?: protobuf_holdem_define_pb.Room.AsObject,
     muted: boolean,
     payTimes: number,
-    lastBringOutHandNum: number,
   }
 }
 

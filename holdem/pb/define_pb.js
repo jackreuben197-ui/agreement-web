@@ -4728,7 +4728,8 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     callTimeCount: jspb.Message.getFieldWithDefault(msg, 21, 0),
     callTimeStay: jspb.Message.getFieldWithDefault(msg, 22, false),
     totalChips: jspb.Message.getFieldWithDefault(msg, 23, 0),
-    autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 24, 0)
+    autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 24, 0),
+    lastStoreHandNum: jspb.Message.getFieldWithDefault(msg, 25, 0)
   };
 
   if (includeInstance) {
@@ -4860,6 +4861,10 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 24:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setAutoChangeRoomHand(value);
+      break;
+    case 25:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setLastStoreHandNum(value);
       break;
     default:
       reader.skipField();
@@ -5055,6 +5060,13 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       24,
+      f
+    );
+  }
+  f = message.getLastStoreHandNum();
+  if (f !== 0) {
+    writer.writeUint32(
+      25,
       f
     );
   }
@@ -5426,6 +5438,21 @@ proto.holdem.pb.MyGameInfo.prototype.getAutoChangeRoomHand = function() {
 /** @param {number} value */
 proto.holdem.pb.MyGameInfo.prototype.setAutoChangeRoomHand = function(value) {
   jspb.Message.setField(this, 24, value);
+};
+
+
+/**
+ * optional uint32 last_store_hand_num = 25;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getLastStoreHandNum = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 25, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfo.prototype.setLastStoreHandNum = function(value) {
+  jspb.Message.setField(this, 25, value);
 };
 
 
