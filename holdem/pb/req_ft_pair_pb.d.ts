@@ -15,6 +15,9 @@ export class ClientMessageFtPair extends jspb.Message {
   setHandGroupIndexesList(value: Array<number>): void;
   addHandGroupIndexes(value: number, index?: number): number;
 
+  getConfirm(): boolean;
+  setConfirm(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageFtPair.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageFtPair): ClientMessageFtPair.AsObject;
@@ -29,6 +32,7 @@ export namespace ClientMessageFtPair {
   export type AsObject = {
     room?: protobuf_holdem_define_pb.Room.AsObject,
     handGroupIndexesList: Array<number>,
+    confirm: boolean,
   }
 }
 

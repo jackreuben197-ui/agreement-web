@@ -69,7 +69,8 @@ proto.holdem.pb.ClientMessageFtPair.prototype.toObject = function(opt_includeIns
 proto.holdem.pb.ClientMessageFtPair.toObject = function(includeInstance, msg) {
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
-    handGroupIndexesList: jspb.Message.getRepeatedField(msg, 2)
+    handGroupIndexesList: jspb.Message.getRepeatedField(msg, 2),
+    confirm: jspb.Message.getFieldWithDefault(msg, 3, false)
   };
 
   if (includeInstance) {
@@ -115,6 +116,10 @@ proto.holdem.pb.ClientMessageFtPair.deserializeBinaryFromReader = function(msg, 
       var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
       msg.setHandGroupIndexesList(value);
       break;
+    case 3:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setConfirm(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -156,6 +161,13 @@ proto.holdem.pb.ClientMessageFtPair.serializeBinaryToWriter = function(message, 
   if (f.length > 0) {
     writer.writePackedInt32(
       2,
+      f
+    );
+  }
+  f = message.getConfirm();
+  if (f) {
+    writer.writeBool(
+      3,
       f
     );
   }
@@ -218,6 +230,23 @@ proto.holdem.pb.ClientMessageFtPair.prototype.addHandGroupIndexes = function(val
 
 proto.holdem.pb.ClientMessageFtPair.prototype.clearHandGroupIndexesList = function() {
   this.setHandGroupIndexesList([]);
+};
+
+
+/**
+ * optional bool confirm = 3;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ClientMessageFtPair.prototype.getConfirm = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 3, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ClientMessageFtPair.prototype.setConfirm = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 
