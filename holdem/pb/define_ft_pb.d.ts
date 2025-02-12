@@ -287,6 +287,12 @@ export class PlayerFT extends jspb.Message {
   getUserSubscriptionId(): number;
   setUserSubscriptionId(value: number): void;
 
+  getGroupConfirm(): boolean;
+  setGroupConfirm(value: boolean): void;
+
+  getPairConfirm(): boolean;
+  setPairConfirm(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerFT.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerFT): PlayerFT.AsObject;
@@ -317,6 +323,8 @@ export namespace PlayerFT {
     groupPairedList: Array<number>,
     fantasyConNum: number,
     userSubscriptionId: number,
+    groupConfirm: boolean,
+    pairConfirm: boolean,
   }
 }
 

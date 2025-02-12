@@ -1650,7 +1650,9 @@ proto.holdem.pb.PlayerFT.toObject = function(includeInstance, msg) {
     status: jspb.Message.getFieldWithDefault(msg, 15, 0),
     groupPairedList: jspb.Message.getRepeatedField(msg, 16),
     fantasyConNum: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 18, 0)
+    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    groupConfirm: jspb.Message.getFieldWithDefault(msg, 19, false),
+    pairConfirm: jspb.Message.getFieldWithDefault(msg, 20, false)
   };
 
   if (includeInstance) {
@@ -1759,6 +1761,14 @@ proto.holdem.pb.PlayerFT.deserializeBinaryFromReader = function(msg, reader) {
     case 18:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setUserSubscriptionId(value);
+      break;
+    case 19:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setGroupConfirm(value);
+      break;
+    case 20:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setPairConfirm(value);
       break;
     default:
       reader.skipField();
@@ -1913,6 +1923,20 @@ proto.holdem.pb.PlayerFT.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       18,
+      f
+    );
+  }
+  f = message.getGroupConfirm();
+  if (f) {
+    writer.writeBool(
+      19,
+      f
+    );
+  }
+  f = message.getPairConfirm();
+  if (f) {
+    writer.writeBool(
+      20,
       f
     );
   }
@@ -2234,6 +2258,40 @@ proto.holdem.pb.PlayerFT.prototype.getUserSubscriptionId = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerFT.prototype.setUserSubscriptionId = function(value) {
   jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * optional bool group_confirm = 19;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.PlayerFT.prototype.getGroupConfirm = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 19, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.PlayerFT.prototype.setGroupConfirm = function(value) {
+  jspb.Message.setField(this, 19, value);
+};
+
+
+/**
+ * optional bool pair_confirm = 20;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.PlayerFT.prototype.getPairConfirm = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 20, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.PlayerFT.prototype.setPairConfirm = function(value) {
+  jspb.Message.setField(this, 20, value);
 };
 
 
