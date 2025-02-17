@@ -7225,7 +7225,8 @@ proto.holdem.pb.PotInsuranceBuy.toObject = function(includeInstance, msg) {
     activeAmount: jspb.Message.getFieldWithDefault(msg, 3, 0),
     activeOutsList: jspb.Message.getRepeatedField(msg, 4),
     passiveAmount: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    passiveOutsList: jspb.Message.getRepeatedField(msg, 6)
+    passiveOutsList: jspb.Message.getRepeatedField(msg, 6),
+    insurEv: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -7285,6 +7286,10 @@ proto.holdem.pb.PotInsuranceBuy.deserializeBinaryFromReader = function(msg, read
     case 6:
       var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
       msg.setPassiveOutsList(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setInsurEv(value);
       break;
     default:
       reader.skipField();
@@ -7354,6 +7359,13 @@ proto.holdem.pb.PotInsuranceBuy.serializeBinaryToWriter = function(message, writ
   if (f.length > 0) {
     writer.writePackedInt32(
       6,
+      f
+    );
+  }
+  f = message.getInsurEv();
+  if (f !== 0) {
+    writer.writeUint64(
+      7,
       f
     );
   }
@@ -7475,6 +7487,21 @@ proto.holdem.pb.PotInsuranceBuy.prototype.addPassiveOuts = function(value, opt_i
 
 proto.holdem.pb.PotInsuranceBuy.prototype.clearPassiveOutsList = function() {
   this.setPassiveOutsList([]);
+};
+
+
+/**
+ * optional uint64 insur_ev = 7;
+ * @return {number}
+ */
+proto.holdem.pb.PotInsuranceBuy.prototype.getInsurEv = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PotInsuranceBuy.prototype.setInsurEv = function(value) {
+  jspb.Message.setField(this, 7, value);
 };
 
 

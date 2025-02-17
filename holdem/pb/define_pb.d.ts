@@ -1250,6 +1250,9 @@ export class PotInsuranceBuy extends jspb.Message {
   setPassiveOutsList(value: Array<number>): void;
   addPassiveOuts(value: number, index?: number): number;
 
+  getInsurEv(): number;
+  setInsurEv(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PotInsuranceBuy.AsObject;
   static toObject(includeInstance: boolean, msg: PotInsuranceBuy): PotInsuranceBuy.AsObject;
@@ -1268,6 +1271,7 @@ export namespace PotInsuranceBuy {
     activeOutsList: Array<number>,
     passiveAmount: number,
     passiveOutsList: Array<number>,
+    insurEv: number,
   }
 }
 
