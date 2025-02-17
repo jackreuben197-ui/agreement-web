@@ -214,6 +214,7 @@ export namespace Def {
     IIR_NO_ODDS_FOUND: 2;
     IIR_NO_ODDS_TABLE_FOUND: 3;
     IIR_LEADER_LIMIT: 4;
+    IIR_EV_LIMIT: 5;
   }
 
   export const IIReason: IIReasonMap;

@@ -419,7 +419,8 @@ proto.holdem.pb.Def.IIReason = {
   IIR_ZERO_OUTS: 1,
   IIR_NO_ODDS_FOUND: 2,
   IIR_NO_ODDS_TABLE_FOUND: 3,
-  IIR_LEADER_LIMIT: 4
+  IIR_LEADER_LIMIT: 4,
+  IIR_EV_LIMIT: 5
 };
 
 /**
