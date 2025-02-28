@@ -20668,7 +20668,12 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     antiCheatOrderType: jspb.Message.getFieldWithDefault(msg, 108, 0),
     antiCheatOrderMicType: jspb.Message.getFieldWithDefault(msg, 109, 0),
     sngId: jspb.Message.getFieldWithDefault(msg, 110, 0),
-    sngInvitationCode: jspb.Message.getFieldWithDefault(msg, 111, "")
+    sngInvitationCode: jspb.Message.getFieldWithDefault(msg, 111, ""),
+    forceVideoTimingAward: jspb.Message.getFieldWithDefault(msg, 112, 0),
+    forceVideoTimingFinals: jspb.Message.getFieldWithDefault(msg, 113, 0),
+    forceVideoClose: jspb.Message.getFieldWithDefault(msg, 114, 0),
+    forceVideoCloseTime: jspb.Message.getFieldWithDefault(msg, 115, 0),
+    forceVideoStartTime: jspb.Message.getFieldWithDefault(msg, 116, 0)
   };
 
   if (includeInstance) {
@@ -21148,6 +21153,26 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 111:
       var value = /** @type {string} */ (reader.readString());
       msg.setSngInvitationCode(value);
+      break;
+    case 112:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setForceVideoTimingAward(value);
+      break;
+    case 113:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setForceVideoTimingFinals(value);
+      break;
+    case 114:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setForceVideoClose(value);
+      break;
+    case 115:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setForceVideoCloseTime(value);
+      break;
+    case 116:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setForceVideoStartTime(value);
       break;
     default:
       reader.skipField();
@@ -21952,6 +21977,41 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       111,
+      f
+    );
+  }
+  f = message.getForceVideoTimingAward();
+  if (f !== 0) {
+    writer.writeInt32(
+      112,
+      f
+    );
+  }
+  f = message.getForceVideoTimingFinals();
+  if (f !== 0) {
+    writer.writeInt32(
+      113,
+      f
+    );
+  }
+  f = message.getForceVideoClose();
+  if (f !== 0) {
+    writer.writeInt32(
+      114,
+      f
+    );
+  }
+  f = message.getForceVideoCloseTime();
+  if (f !== 0) {
+    writer.writeUint64(
+      115,
+      f
+    );
+  }
+  f = message.getForceVideoStartTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      116,
       f
     );
   }
@@ -23620,6 +23680,81 @@ proto.holdem.pb.MTTRecord.prototype.getSngInvitationCode = function() {
 /** @param {string} value */
 proto.holdem.pb.MTTRecord.prototype.setSngInvitationCode = function(value) {
   jspb.Message.setField(this, 111, value);
+};
+
+
+/**
+ * optional int32 force_video_timing_award = 112;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getForceVideoTimingAward = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 112, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setForceVideoTimingAward = function(value) {
+  jspb.Message.setField(this, 112, value);
+};
+
+
+/**
+ * optional int32 force_video_timing_finals = 113;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getForceVideoTimingFinals = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 113, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setForceVideoTimingFinals = function(value) {
+  jspb.Message.setField(this, 113, value);
+};
+
+
+/**
+ * optional int32 force_video_close = 114;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getForceVideoClose = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 114, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setForceVideoClose = function(value) {
+  jspb.Message.setField(this, 114, value);
+};
+
+
+/**
+ * optional uint64 force_video_close_time = 115;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getForceVideoCloseTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 115, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setForceVideoCloseTime = function(value) {
+  jspb.Message.setField(this, 115, value);
+};
+
+
+/**
+ * optional int64 force_video_start_time = 116;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getForceVideoStartTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 116, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setForceVideoStartTime = function(value) {
+  jspb.Message.setField(this, 116, value);
 };
 
 

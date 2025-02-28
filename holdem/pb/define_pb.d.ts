@@ -3479,6 +3479,21 @@ export class MTTRecord extends jspb.Message {
   getSngInvitationCode(): string;
   setSngInvitationCode(value: string): void;
 
+  getForceVideoTimingAward(): number;
+  setForceVideoTimingAward(value: number): void;
+
+  getForceVideoTimingFinals(): number;
+  setForceVideoTimingFinals(value: number): void;
+
+  getForceVideoClose(): number;
+  setForceVideoClose(value: number): void;
+
+  getForceVideoCloseTime(): number;
+  setForceVideoCloseTime(value: number): void;
+
+  getForceVideoStartTime(): number;
+  setForceVideoStartTime(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
   static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
@@ -3602,6 +3617,11 @@ export namespace MTTRecord {
     antiCheatOrderMicType: number,
     sngId: number,
     sngInvitationCode: string,
+    forceVideoTimingAward: number,
+    forceVideoTimingFinals: number,
+    forceVideoClose: number,
+    forceVideoCloseTime: number,
+    forceVideoStartTime: number,
   }
 }
 
