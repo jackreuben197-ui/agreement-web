@@ -67,7 +67,8 @@ proto.holdem.pb.ServerMessageStandup.toObject = function(includeInstance, msg) {
     fee: jspb.Message.getFieldWithDefault(msg, 5, 0),
     storeChips: jspb.Message.getFieldWithDefault(msg, 6, 0),
     willLeave: jspb.Message.getFieldWithDefault(msg, 7, false),
-    muted: jspb.Message.getFieldWithDefault(msg, 8, false)
+    muted: jspb.Message.getFieldWithDefault(msg, 8, false),
+    nextRoom: (f = msg.getNextRoom()) && protobuf_holdem_define_pb.ChangeRoomInfo.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -135,6 +136,11 @@ proto.holdem.pb.ServerMessageStandup.deserializeBinaryFromReader = function(msg,
     case 8:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setMuted(value);
+      break;
+    case 9:
+      var value = new protobuf_holdem_define_pb.ChangeRoomInfo;
+      reader.readMessage(value,protobuf_holdem_define_pb.ChangeRoomInfo.deserializeBinaryFromReader);
+      msg.setNextRoom(value);
       break;
     default:
       reader.skipField();
@@ -219,6 +225,14 @@ proto.holdem.pb.ServerMessageStandup.serializeBinaryToWriter = function(message,
     writer.writeBool(
       8,
       f
+    );
+  }
+  f = message.getNextRoom();
+  if (f != null) {
+    writer.writeMessage(
+      9,
+      f,
+      protobuf_holdem_define_pb.ChangeRoomInfo.serializeBinaryToWriter
     );
   }
 };
@@ -345,6 +359,36 @@ proto.holdem.pb.ServerMessageStandup.prototype.getMuted = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ServerMessageStandup.prototype.setMuted = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional ChangeRoomInfo next_room = 9;
+ * @return {?proto.holdem.pb.ChangeRoomInfo}
+ */
+proto.holdem.pb.ServerMessageStandup.prototype.getNextRoom = function() {
+  return /** @type{?proto.holdem.pb.ChangeRoomInfo} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.ChangeRoomInfo, 9));
+};
+
+
+/** @param {?proto.holdem.pb.ChangeRoomInfo|undefined} value */
+proto.holdem.pb.ServerMessageStandup.prototype.setNextRoom = function(value) {
+  jspb.Message.setWrapperField(this, 9, value);
+};
+
+
+proto.holdem.pb.ServerMessageStandup.prototype.clearNextRoom = function() {
+  this.setNextRoom(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageStandup.prototype.hasNextRoom = function() {
+  return jspb.Message.getField(this, 9) != null;
 };
 
 

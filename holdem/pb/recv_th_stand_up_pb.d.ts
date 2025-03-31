@@ -29,6 +29,11 @@ export class ServerMessageStandup extends jspb.Message {
   getMuted(): boolean;
   setMuted(value: boolean): void;
 
+  hasNextRoom(): boolean;
+  clearNextRoom(): void;
+  getNextRoom(): protobuf_holdem_define_pb.ChangeRoomInfo | undefined;
+  setNextRoom(value?: protobuf_holdem_define_pb.ChangeRoomInfo): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageStandup.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageStandup): ServerMessageStandup.AsObject;
@@ -49,6 +54,7 @@ export namespace ServerMessageStandup {
     storeChips: number,
     willLeave: boolean,
     muted: boolean,
+    nextRoom?: protobuf_holdem_define_pb.ChangeRoomInfo.AsObject,
   }
 }
 

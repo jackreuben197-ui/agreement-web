@@ -92,6 +92,7 @@ export namespace Def {
     SUR_AUTO_EXCEED_MAX_TIMES: 6;
     SUR_KEEPSEAT_TIMEOUT: 7;
     SUR_ACTIVE_LEAVE: 8;
+    SUR_AUTO_CHANGE_ROOM: 9;
   }
 
   export const StandUpReason: StandUpReasonMap;
@@ -105,6 +106,7 @@ export namespace Def {
     LR_EXCHANGE: 5;
     LR_AUTO_EXCEED_MAX_TIMES: 6;
     LR_OFFLINE: 7;
+    LR_AUTO_CHANGE_ROOM: 8;
   }
 
   export const LeaveReason: LeaveReasonMap;
@@ -4112,6 +4114,42 @@ export namespace PlayerInsurance {
     insuranceBet: number,
     insuranceEv: number,
     createTime: number,
+  }
+}
+
+export class ChangeRoomInfo extends jspb.Message {
+  getRoomId(): number;
+  setRoomId(value: number): void;
+
+  getRoomType(): number;
+  setRoomType(value: number): void;
+
+  getAntiCheatType(): number;
+  setAntiCheatType(value: number): void;
+
+  getAntiCheatVideoType(): number;
+  setAntiCheatVideoType(value: number): void;
+
+  getBombpot(): number;
+  setBombpot(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ChangeRoomInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: ChangeRoomInfo): ChangeRoomInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ChangeRoomInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ChangeRoomInfo;
+  static deserializeBinaryFromReader(message: ChangeRoomInfo, reader: jspb.BinaryReader): ChangeRoomInfo;
+}
+
+export namespace ChangeRoomInfo {
+  export type AsObject = {
+    roomId: number,
+    roomType: number,
+    antiCheatType: number,
+    antiCheatVideoType: number,
+    bombpot: number,
   }
 }
 
