@@ -537,6 +537,9 @@ export class PlayerStartInfoMJ extends jspb.Message {
   setReadyTilesList(value: Array<ReadyTile>): void;
   addReadyTiles(value?: ReadyTile, index?: number): ReadyTile;
 
+  getDefaultVoid(): DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap];
+  setDefaultVoid(value: DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerStartInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerStartInfoMJ): PlayerStartInfoMJ.AsObject;
@@ -560,6 +563,7 @@ export namespace PlayerStartInfoMJ {
     flowersList: Array<number>,
     handTileLength: number,
     readyTilesList: Array<ReadyTile.AsObject>,
+    defaultVoid: DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap],
   }
 }
 
@@ -673,6 +677,9 @@ export class PlayerMJ extends jspb.Message {
   setJkongList(value: Array<number>): void;
   addJkong(value: number, index?: number): number;
 
+  getDefaultVoid(): DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap];
+  setDefaultVoid(value: DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -714,6 +721,7 @@ export namespace PlayerMJ {
     readyTilesList: Array<ReadyTile.AsObject>,
     raise: number,
     jkongList: Array<number>,
+    defaultVoid: DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap],
   }
 }
 

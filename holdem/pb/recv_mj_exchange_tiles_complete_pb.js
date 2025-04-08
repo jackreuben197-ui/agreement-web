@@ -77,7 +77,8 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.toObject = function(include
     exchangeTileLength: jspb.Message.getFieldWithDefault(msg, 5, 0),
     readyTilesList: jspb.Message.toObjectList(msg.getReadyTilesList(),
     protobuf_holdem_define_mj_pb.ReadyTile.toObject, includeInstance),
-    mode: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    mode: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    defaultVoid: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -145,6 +146,10 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.deserializeBinaryFromReader
     case 7:
       var value = /** @type {!proto.holdem.pb.DefMJ.ExchangeMode} */ (reader.readEnum());
       msg.setMode(value);
+      break;
+    case 8:
+      var value = /** @type {!proto.holdem.pb.DefMJ.TileType} */ (reader.readEnum());
+      msg.setDefaultVoid(value);
       break;
     default:
       reader.skipField();
@@ -225,6 +230,13 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.serializeBinaryToWriter = f
   if (f !== 0.0) {
     writer.writeEnum(
       7,
+      f
+    );
+  }
+  f = message.getDefaultVoid();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      8,
       f
     );
   }
@@ -397,6 +409,21 @@ proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.getMode = functio
 /** @param {!proto.holdem.pb.DefMJ.ExchangeMode} value */
 proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.setMode = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional DefMJ.TileType default_void = 8;
+ * @return {!proto.holdem.pb.DefMJ.TileType}
+ */
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.getDefaultVoid = function() {
+  return /** @type {!proto.holdem.pb.DefMJ.TileType} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {!proto.holdem.pb.DefMJ.TileType} value */
+proto.holdem.pb.ServerMessageMjExchangeTilesComplete.prototype.setDefaultVoid = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 

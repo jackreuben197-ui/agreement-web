@@ -34,6 +34,9 @@ export class ServerMessageMjExchangeTilesComplete extends jspb.Message {
   getMode(): protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap];
   setMode(value: protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap]): void;
 
+  getDefaultVoid(): protobuf_holdem_define_mj_pb.DefMJ.TileTypeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.TileTypeMap];
+  setDefaultVoid(value: protobuf_holdem_define_mj_pb.DefMJ.TileTypeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.TileTypeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjExchangeTilesComplete.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjExchangeTilesComplete): ServerMessageMjExchangeTilesComplete.AsObject;
@@ -53,6 +56,7 @@ export namespace ServerMessageMjExchangeTilesComplete {
     exchangeTileLength: number,
     readyTilesList: Array<protobuf_holdem_define_mj_pb.ReadyTile.AsObject>,
     mode: protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.ExchangeModeMap],
+    defaultVoid: protobuf_holdem_define_mj_pb.DefMJ.TileTypeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.TileTypeMap],
   }
 }
 
