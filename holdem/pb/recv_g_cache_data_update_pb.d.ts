@@ -4,15 +4,35 @@
 import * as jspb from "google-protobuf";
 
 export class ServerMessageCacheDataUpdate extends jspb.Message {
-  clearJackpotTemplateIdsList(): void;
-  getJackpotTemplateIdsList(): Array<number>;
-  setJackpotTemplateIdsList(value: Array<number>): void;
-  addJackpotTemplateIds(value: number, index?: number): number;
+  clearCreateJackpotTemplateIdsList(): void;
+  getCreateJackpotTemplateIdsList(): Array<number>;
+  setCreateJackpotTemplateIdsList(value: Array<number>): void;
+  addCreateJackpotTemplateIds(value: number, index?: number): number;
 
-  clearRoomTemplateIdsList(): void;
-  getRoomTemplateIdsList(): Array<number>;
-  setRoomTemplateIdsList(value: Array<number>): void;
-  addRoomTemplateIds(value: number, index?: number): number;
+  clearUpdateJackpotTemplateIdsList(): void;
+  getUpdateJackpotTemplateIdsList(): Array<number>;
+  setUpdateJackpotTemplateIdsList(value: Array<number>): void;
+  addUpdateJackpotTemplateIds(value: number, index?: number): number;
+
+  clearDeleteJackpotTemplateIdsList(): void;
+  getDeleteJackpotTemplateIdsList(): Array<number>;
+  setDeleteJackpotTemplateIdsList(value: Array<number>): void;
+  addDeleteJackpotTemplateIds(value: number, index?: number): number;
+
+  clearCreateRoomTemplateIdsList(): void;
+  getCreateRoomTemplateIdsList(): Array<number>;
+  setCreateRoomTemplateIdsList(value: Array<number>): void;
+  addCreateRoomTemplateIds(value: number, index?: number): number;
+
+  clearUpdateRoomTemplateIdsList(): void;
+  getUpdateRoomTemplateIdsList(): Array<number>;
+  setUpdateRoomTemplateIdsList(value: Array<number>): void;
+  addUpdateRoomTemplateIds(value: number, index?: number): number;
+
+  clearDeleteRoomTemplateIdsList(): void;
+  getDeleteRoomTemplateIdsList(): Array<number>;
+  setDeleteRoomTemplateIdsList(value: Array<number>): void;
+  addDeleteRoomTemplateIds(value: number, index?: number): number;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageCacheDataUpdate.AsObject;
@@ -26,8 +46,12 @@ export class ServerMessageCacheDataUpdate extends jspb.Message {
 
 export namespace ServerMessageCacheDataUpdate {
   export type AsObject = {
-    jackpotTemplateIdsList: Array<number>,
-    roomTemplateIdsList: Array<number>,
+    createJackpotTemplateIdsList: Array<number>,
+    updateJackpotTemplateIdsList: Array<number>,
+    deleteJackpotTemplateIdsList: Array<number>,
+    createRoomTemplateIdsList: Array<number>,
+    updateRoomTemplateIdsList: Array<number>,
+    deleteRoomTemplateIdsList: Array<number>,
   }
 }
 

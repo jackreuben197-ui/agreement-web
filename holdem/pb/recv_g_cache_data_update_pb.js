@@ -35,7 +35,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.ServerMessageCacheDataUpdate.repeatedFields_ = [1,2];
+proto.holdem.pb.ServerMessageCacheDataUpdate.repeatedFields_ = [1,2,3,4,5,6];
 
 
 
@@ -66,8 +66,12 @@ proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.toObject = function(opt_i
  */
 proto.holdem.pb.ServerMessageCacheDataUpdate.toObject = function(includeInstance, msg) {
   var f, obj = {
-    jackpotTemplateIdsList: jspb.Message.getRepeatedField(msg, 1),
-    roomTemplateIdsList: jspb.Message.getRepeatedField(msg, 2)
+    createJackpotTemplateIdsList: jspb.Message.getRepeatedField(msg, 1),
+    updateJackpotTemplateIdsList: jspb.Message.getRepeatedField(msg, 2),
+    deleteJackpotTemplateIdsList: jspb.Message.getRepeatedField(msg, 3),
+    createRoomTemplateIdsList: jspb.Message.getRepeatedField(msg, 4),
+    updateRoomTemplateIdsList: jspb.Message.getRepeatedField(msg, 5),
+    deleteRoomTemplateIdsList: jspb.Message.getRepeatedField(msg, 6)
   };
 
   if (includeInstance) {
@@ -106,11 +110,27 @@ proto.holdem.pb.ServerMessageCacheDataUpdate.deserializeBinaryFromReader = funct
     switch (field) {
     case 1:
       var value = /** @type {!Array.<number>} */ (reader.readPackedUint64());
-      msg.setJackpotTemplateIdsList(value);
+      msg.setCreateJackpotTemplateIdsList(value);
       break;
     case 2:
       var value = /** @type {!Array.<number>} */ (reader.readPackedUint64());
-      msg.setRoomTemplateIdsList(value);
+      msg.setUpdateJackpotTemplateIdsList(value);
+      break;
+    case 3:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedUint64());
+      msg.setDeleteJackpotTemplateIdsList(value);
+      break;
+    case 4:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedUint64());
+      msg.setCreateRoomTemplateIdsList(value);
+      break;
+    case 5:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedUint64());
+      msg.setUpdateRoomTemplateIdsList(value);
+      break;
+    case 6:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedUint64());
+      msg.setDeleteRoomTemplateIdsList(value);
       break;
     default:
       reader.skipField();
@@ -141,17 +161,45 @@ proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.serializeBinary = functio
  */
 proto.holdem.pb.ServerMessageCacheDataUpdate.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getJackpotTemplateIdsList();
+  f = message.getCreateJackpotTemplateIdsList();
   if (f.length > 0) {
     writer.writePackedUint64(
       1,
       f
     );
   }
-  f = message.getRoomTemplateIdsList();
+  f = message.getUpdateJackpotTemplateIdsList();
   if (f.length > 0) {
     writer.writePackedUint64(
       2,
+      f
+    );
+  }
+  f = message.getDeleteJackpotTemplateIdsList();
+  if (f.length > 0) {
+    writer.writePackedUint64(
+      3,
+      f
+    );
+  }
+  f = message.getCreateRoomTemplateIdsList();
+  if (f.length > 0) {
+    writer.writePackedUint64(
+      4,
+      f
+    );
+  }
+  f = message.getUpdateRoomTemplateIdsList();
+  if (f.length > 0) {
+    writer.writePackedUint64(
+      5,
+      f
+    );
+  }
+  f = message.getDeleteRoomTemplateIdsList();
+  if (f.length > 0) {
+    writer.writePackedUint64(
+      6,
       f
     );
   }
@@ -159,16 +207,16 @@ proto.holdem.pb.ServerMessageCacheDataUpdate.serializeBinaryToWriter = function(
 
 
 /**
- * repeated uint64 jackpot_template_ids = 1;
+ * repeated uint64 create_jackpot_template_ids = 1;
  * @return {!Array.<number>}
  */
-proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.getJackpotTemplateIdsList = function() {
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.getCreateJackpotTemplateIdsList = function() {
   return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 1));
 };
 
 
 /** @param {!Array.<number>} value */
-proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.setJackpotTemplateIdsList = function(value) {
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.setCreateJackpotTemplateIdsList = function(value) {
   jspb.Message.setField(this, 1, value || []);
 };
 
@@ -177,27 +225,27 @@ proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.setJackpotTemplateIdsList
  * @param {!number} value
  * @param {number=} opt_index
  */
-proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.addJackpotTemplateIds = function(value, opt_index) {
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.addCreateJackpotTemplateIds = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 1, value, opt_index);
 };
 
 
-proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.clearJackpotTemplateIdsList = function() {
-  this.setJackpotTemplateIdsList([]);
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.clearCreateJackpotTemplateIdsList = function() {
+  this.setCreateJackpotTemplateIdsList([]);
 };
 
 
 /**
- * repeated uint64 room_template_ids = 2;
+ * repeated uint64 update_jackpot_template_ids = 2;
  * @return {!Array.<number>}
  */
-proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.getRoomTemplateIdsList = function() {
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.getUpdateJackpotTemplateIdsList = function() {
   return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 2));
 };
 
 
 /** @param {!Array.<number>} value */
-proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.setRoomTemplateIdsList = function(value) {
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.setUpdateJackpotTemplateIdsList = function(value) {
   jspb.Message.setField(this, 2, value || []);
 };
 
@@ -206,13 +254,129 @@ proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.setRoomTemplateIdsList = 
  * @param {!number} value
  * @param {number=} opt_index
  */
-proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.addRoomTemplateIds = function(value, opt_index) {
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.addUpdateJackpotTemplateIds = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 2, value, opt_index);
 };
 
 
-proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.clearRoomTemplateIdsList = function() {
-  this.setRoomTemplateIdsList([]);
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.clearUpdateJackpotTemplateIdsList = function() {
+  this.setUpdateJackpotTemplateIdsList([]);
+};
+
+
+/**
+ * repeated uint64 delete_jackpot_template_ids = 3;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.getDeleteJackpotTemplateIdsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 3));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.setDeleteJackpotTemplateIdsList = function(value) {
+  jspb.Message.setField(this, 3, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.addDeleteJackpotTemplateIds = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 3, value, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.clearDeleteJackpotTemplateIdsList = function() {
+  this.setDeleteJackpotTemplateIdsList([]);
+};
+
+
+/**
+ * repeated uint64 create_room_template_ids = 4;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.getCreateRoomTemplateIdsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 4));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.setCreateRoomTemplateIdsList = function(value) {
+  jspb.Message.setField(this, 4, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.addCreateRoomTemplateIds = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 4, value, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.clearCreateRoomTemplateIdsList = function() {
+  this.setCreateRoomTemplateIdsList([]);
+};
+
+
+/**
+ * repeated uint64 update_room_template_ids = 5;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.getUpdateRoomTemplateIdsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 5));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.setUpdateRoomTemplateIdsList = function(value) {
+  jspb.Message.setField(this, 5, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.addUpdateRoomTemplateIds = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 5, value, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.clearUpdateRoomTemplateIdsList = function() {
+  this.setUpdateRoomTemplateIdsList([]);
+};
+
+
+/**
+ * repeated uint64 delete_room_template_ids = 6;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.getDeleteRoomTemplateIdsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 6));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.setDeleteRoomTemplateIdsList = function(value) {
+  jspb.Message.setField(this, 6, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.addDeleteRoomTemplateIds = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+};
+
+
+proto.holdem.pb.ServerMessageCacheDataUpdate.prototype.clearDeleteRoomTemplateIdsList = function() {
+  this.setDeleteRoomTemplateIdsList([]);
 };
 
 
