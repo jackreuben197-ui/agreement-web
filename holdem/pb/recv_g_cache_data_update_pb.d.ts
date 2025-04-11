@@ -2,37 +2,18 @@
 // file: protobuf/holdem/recv_g_cache_data_update.proto
 
 import * as jspb from "google-protobuf";
+import * as protobuf_holdem_define_pb from "../../protobuf/holdem/define_pb";
 
 export class ServerMessageCacheDataUpdate extends jspb.Message {
-  clearCreateJackpotTemplateIdsList(): void;
-  getCreateJackpotTemplateIdsList(): Array<number>;
-  setCreateJackpotTemplateIdsList(value: Array<number>): void;
-  addCreateJackpotTemplateIds(value: number, index?: number): number;
+  hasRtInfo(): boolean;
+  clearRtInfo(): void;
+  getRtInfo(): protobuf_holdem_define_pb.RoomTemplateUpdateInfo | undefined;
+  setRtInfo(value?: protobuf_holdem_define_pb.RoomTemplateUpdateInfo): void;
 
-  clearUpdateJackpotTemplateIdsList(): void;
-  getUpdateJackpotTemplateIdsList(): Array<number>;
-  setUpdateJackpotTemplateIdsList(value: Array<number>): void;
-  addUpdateJackpotTemplateIds(value: number, index?: number): number;
-
-  clearDeleteJackpotTemplateIdsList(): void;
-  getDeleteJackpotTemplateIdsList(): Array<number>;
-  setDeleteJackpotTemplateIdsList(value: Array<number>): void;
-  addDeleteJackpotTemplateIds(value: number, index?: number): number;
-
-  clearCreateRoomTemplateIdsList(): void;
-  getCreateRoomTemplateIdsList(): Array<number>;
-  setCreateRoomTemplateIdsList(value: Array<number>): void;
-  addCreateRoomTemplateIds(value: number, index?: number): number;
-
-  clearUpdateRoomTemplateIdsList(): void;
-  getUpdateRoomTemplateIdsList(): Array<number>;
-  setUpdateRoomTemplateIdsList(value: Array<number>): void;
-  addUpdateRoomTemplateIds(value: number, index?: number): number;
-
-  clearDeleteRoomTemplateIdsList(): void;
-  getDeleteRoomTemplateIdsList(): Array<number>;
-  setDeleteRoomTemplateIdsList(value: Array<number>): void;
-  addDeleteRoomTemplateIds(value: number, index?: number): number;
+  hasJtInfo(): boolean;
+  clearJtInfo(): void;
+  getJtInfo(): protobuf_holdem_define_pb.JackpotTemplateUpdateInfo | undefined;
+  setJtInfo(value?: protobuf_holdem_define_pb.JackpotTemplateUpdateInfo): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageCacheDataUpdate.AsObject;
@@ -46,12 +27,8 @@ export class ServerMessageCacheDataUpdate extends jspb.Message {
 
 export namespace ServerMessageCacheDataUpdate {
   export type AsObject = {
-    createJackpotTemplateIdsList: Array<number>,
-    updateJackpotTemplateIdsList: Array<number>,
-    deleteJackpotTemplateIdsList: Array<number>,
-    createRoomTemplateIdsList: Array<number>,
-    updateRoomTemplateIdsList: Array<number>,
-    deleteRoomTemplateIdsList: Array<number>,
+    rtInfo?: protobuf_holdem_define_pb.RoomTemplateUpdateInfo.AsObject,
+    jtInfo?: protobuf_holdem_define_pb.JackpotTemplateUpdateInfo.AsObject,
   }
 }
 

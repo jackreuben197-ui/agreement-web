@@ -4153,3 +4153,55 @@ export namespace ChangeRoomInfo {
   }
 }
 
+export class RoomTemplateUpdateInfo extends jspb.Message {
+  getId(): number;
+  setId(value: number): void;
+
+  getUpdateType(): number;
+  setUpdateType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RoomTemplateUpdateInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: RoomTemplateUpdateInfo): RoomTemplateUpdateInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RoomTemplateUpdateInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RoomTemplateUpdateInfo;
+  static deserializeBinaryFromReader(message: RoomTemplateUpdateInfo, reader: jspb.BinaryReader): RoomTemplateUpdateInfo;
+}
+
+export namespace RoomTemplateUpdateInfo {
+  export type AsObject = {
+    id: number,
+    updateType: number,
+  }
+}
+
+export class JackpotTemplateUpdateInfo extends jspb.Message {
+  getId(): number;
+  setId(value: number): void;
+
+  getClubId(): number;
+  setClubId(value: number): void;
+
+  getUpdateType(): number;
+  setUpdateType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): JackpotTemplateUpdateInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: JackpotTemplateUpdateInfo): JackpotTemplateUpdateInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: JackpotTemplateUpdateInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): JackpotTemplateUpdateInfo;
+  static deserializeBinaryFromReader(message: JackpotTemplateUpdateInfo, reader: jspb.BinaryReader): JackpotTemplateUpdateInfo;
+}
+
+export namespace JackpotTemplateUpdateInfo {
+  export type AsObject = {
+    id: number,
+    clubId: number,
+    updateType: number,
+  }
+}
+
