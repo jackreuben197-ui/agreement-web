@@ -4205,3 +4205,27 @@ export namespace JackpotTemplateUpdateInfo {
   }
 }
 
+export class RoomRecordSimple extends jspb.Message {
+  getRoomId(): number;
+  setRoomId(value: number): void;
+
+  getRoomers(): number;
+  setRoomers(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RoomRecordSimple.AsObject;
+  static toObject(includeInstance: boolean, msg: RoomRecordSimple): RoomRecordSimple.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RoomRecordSimple, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RoomRecordSimple;
+  static deserializeBinaryFromReader(message: RoomRecordSimple, reader: jspb.BinaryReader): RoomRecordSimple;
+}
+
+export namespace RoomRecordSimple {
+  export type AsObject = {
+    roomId: number,
+    roomers: number,
+  }
+}
+
