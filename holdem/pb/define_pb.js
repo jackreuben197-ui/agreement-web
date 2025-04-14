@@ -27826,7 +27826,11 @@ proto.holdem.pb.RoomRecordSimple.prototype.toObject = function(opt_includeInstan
 proto.holdem.pb.RoomRecordSimple.toObject = function(includeInstance, msg) {
   var f, obj = {
     roomId: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    roomers: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    status: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    emptySeat: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    playDuration: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    startTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    handNum: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -27868,8 +27872,24 @@ proto.holdem.pb.RoomRecordSimple.deserializeBinaryFromReader = function(msg, rea
       msg.setRoomId(value);
       break;
     case 2:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStatus(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setEmptySeat(value);
+      break;
+    case 4:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setRoomers(value);
+      msg.setPlayDuration(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setStartTime(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setHandNum(value);
       break;
     default:
       reader.skipField();
@@ -27907,10 +27927,38 @@ proto.holdem.pb.RoomRecordSimple.serializeBinaryToWriter = function(message, wri
       f
     );
   }
-  f = message.getRoomers();
+  f = message.getStatus();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
+      f
+    );
+  }
+  f = message.getEmptySeat();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
+  f = message.getPlayDuration();
   if (f !== 0) {
     writer.writeUint32(
-      2,
+      4,
+      f
+    );
+  }
+  f = message.getStartTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      5,
+      f
+    );
+  }
+  f = message.getHandNum();
+  if (f !== 0) {
+    writer.writeUint32(
+      6,
       f
     );
   }
@@ -27933,17 +27981,77 @@ proto.holdem.pb.RoomRecordSimple.prototype.setRoomId = function(value) {
 
 
 /**
- * optional uint32 roomers = 2;
+ * optional int32 status = 2;
  * @return {number}
  */
-proto.holdem.pb.RoomRecordSimple.prototype.getRoomers = function() {
+proto.holdem.pb.RoomRecordSimple.prototype.getStatus = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.RoomRecordSimple.prototype.setRoomers = function(value) {
+proto.holdem.pb.RoomRecordSimple.prototype.setStatus = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional int32 empty_seat = 3;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecordSimple.prototype.getEmptySeat = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecordSimple.prototype.setEmptySeat = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional uint32 play_duration = 4;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecordSimple.prototype.getPlayDuration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecordSimple.prototype.setPlayDuration = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int64 start_time = 5;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecordSimple.prototype.getStartTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecordSimple.prototype.setStartTime = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional uint32 hand_num = 6;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecordSimple.prototype.getHandNum = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecordSimple.prototype.setHandNum = function(value) {
+  jspb.Message.setField(this, 6, value);
 };
 
 

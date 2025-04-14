@@ -4209,8 +4209,20 @@ export class RoomRecordSimple extends jspb.Message {
   getRoomId(): number;
   setRoomId(value: number): void;
 
-  getRoomers(): number;
-  setRoomers(value: number): void;
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getEmptySeat(): number;
+  setEmptySeat(value: number): void;
+
+  getPlayDuration(): number;
+  setPlayDuration(value: number): void;
+
+  getStartTime(): number;
+  setStartTime(value: number): void;
+
+  getHandNum(): number;
+  setHandNum(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecordSimple.AsObject;
@@ -4225,7 +4237,11 @@ export class RoomRecordSimple extends jspb.Message {
 export namespace RoomRecordSimple {
   export type AsObject = {
     roomId: number,
-    roomers: number,
+    status: number,
+    emptySeat: number,
+    playDuration: number,
+    startTime: number,
+    handNum: number,
   }
 }
 
