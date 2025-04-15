@@ -1282,7 +1282,9 @@ proto.holdem.pb.MatchInfoGD.toObject = function(includeInstance, msg) {
     levelCard: jspb.Message.getFieldWithDefault(msg, 6, 0),
     levelGroup: jspb.Message.getFieldWithDefault(msg, 7, 0),
     discardCardsList: jspb.Message.toObjectList(msg.getDiscardCardsList(),
-    proto.holdem.pb.ValidCards.toObject, includeInstance)
+    proto.holdem.pb.Card.toObject, includeInstance),
+    levelCardGroup1: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    levelCardGroup2: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -1348,9 +1350,17 @@ proto.holdem.pb.MatchInfoGD.deserializeBinaryFromReader = function(msg, reader) 
       msg.setLevelGroup(value);
       break;
     case 8:
-      var value = new proto.holdem.pb.ValidCards;
-      reader.readMessage(value,proto.holdem.pb.ValidCards.deserializeBinaryFromReader);
+      var value = new proto.holdem.pb.Card;
+      reader.readMessage(value,proto.holdem.pb.Card.deserializeBinaryFromReader);
       msg.addDiscardCards(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setLevelCardGroup1(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setLevelCardGroup2(value);
       break;
     default:
       reader.skipField();
@@ -1435,7 +1445,21 @@ proto.holdem.pb.MatchInfoGD.serializeBinaryToWriter = function(message, writer) 
     writer.writeRepeatedMessage(
       8,
       f,
-      proto.holdem.pb.ValidCards.serializeBinaryToWriter
+      proto.holdem.pb.Card.serializeBinaryToWriter
+    );
+  }
+  f = message.getLevelCardGroup1();
+  if (f !== 0) {
+    writer.writeInt32(
+      9,
+      f
+    );
+  }
+  f = message.getLevelCardGroup2();
+  if (f !== 0) {
+    writer.writeInt32(
+      10,
+      f
     );
   }
 };
@@ -1547,33 +1571,63 @@ proto.holdem.pb.MatchInfoGD.prototype.setLevelGroup = function(value) {
 
 
 /**
- * repeated ValidCards discard_cards = 8;
- * @return {!Array.<!proto.holdem.pb.ValidCards>}
+ * repeated Card discard_cards = 8;
+ * @return {!Array.<!proto.holdem.pb.Card>}
  */
 proto.holdem.pb.MatchInfoGD.prototype.getDiscardCardsList = function() {
-  return /** @type{!Array.<!proto.holdem.pb.ValidCards>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ValidCards, 8));
+  return /** @type{!Array.<!proto.holdem.pb.Card>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.Card, 8));
 };
 
 
-/** @param {!Array.<!proto.holdem.pb.ValidCards>} value */
+/** @param {!Array.<!proto.holdem.pb.Card>} value */
 proto.holdem.pb.MatchInfoGD.prototype.setDiscardCardsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 8, value);
 };
 
 
 /**
- * @param {!proto.holdem.pb.ValidCards=} opt_value
+ * @param {!proto.holdem.pb.Card=} opt_value
  * @param {number=} opt_index
- * @return {!proto.holdem.pb.ValidCards}
+ * @return {!proto.holdem.pb.Card}
  */
 proto.holdem.pb.MatchInfoGD.prototype.addDiscardCards = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 8, opt_value, proto.holdem.pb.ValidCards, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 8, opt_value, proto.holdem.pb.Card, opt_index);
 };
 
 
 proto.holdem.pb.MatchInfoGD.prototype.clearDiscardCardsList = function() {
   this.setDiscardCardsList([]);
+};
+
+
+/**
+ * optional int32 level_card_group1 = 9;
+ * @return {number}
+ */
+proto.holdem.pb.MatchInfoGD.prototype.getLevelCardGroup1 = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MatchInfoGD.prototype.setLevelCardGroup1 = function(value) {
+  jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional int32 level_card_group2 = 10;
+ * @return {number}
+ */
+proto.holdem.pb.MatchInfoGD.prototype.getLevelCardGroup2 = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MatchInfoGD.prototype.setLevelCardGroup2 = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 

@@ -16,6 +16,12 @@ export class ServerMessageGdResult extends jspb.Message {
   getCurrentWinrate(): number;
   setCurrentWinrate(value: number): void;
 
+  getLevelCardGroup1(): number;
+  setLevelCardGroup1(value: number): void;
+
+  getLevelCardGroup2(): number;
+  setLevelCardGroup2(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageGdResult.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageGdResult): ServerMessageGdResult.AsObject;
@@ -31,6 +37,8 @@ export namespace ServerMessageGdResult {
     resultsList: Array<protobuf_holdem_define_gd_pb.ResultGD.AsObject>,
     matchNum: number,
     currentWinrate: number,
+    levelCardGroup1: number,
+    levelCardGroup2: number,
   }
 }
 

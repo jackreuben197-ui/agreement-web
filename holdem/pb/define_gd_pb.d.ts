@@ -234,9 +234,15 @@ export class MatchInfoGD extends jspb.Message {
   setLevelGroup(value: number): void;
 
   clearDiscardCardsList(): void;
-  getDiscardCardsList(): Array<ValidCards>;
-  setDiscardCardsList(value: Array<ValidCards>): void;
-  addDiscardCards(value?: ValidCards, index?: number): ValidCards;
+  getDiscardCardsList(): Array<Card>;
+  setDiscardCardsList(value: Array<Card>): void;
+  addDiscardCards(value?: Card, index?: number): Card;
+
+  getLevelCardGroup1(): number;
+  setLevelCardGroup1(value: number): void;
+
+  getLevelCardGroup2(): number;
+  setLevelCardGroup2(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MatchInfoGD.AsObject;
@@ -257,7 +263,9 @@ export namespace MatchInfoGD {
     currentInitWinrate: number,
     levelCard: number,
     levelGroup: number,
-    discardCardsList: Array<ValidCards.AsObject>,
+    discardCardsList: Array<Card.AsObject>,
+    levelCardGroup1: number,
+    levelCardGroup2: number,
   }
 }
 

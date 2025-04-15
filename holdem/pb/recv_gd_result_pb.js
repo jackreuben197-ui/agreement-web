@@ -70,7 +70,9 @@ proto.holdem.pb.ServerMessageGdResult.toObject = function(includeInstance, msg) 
     resultsList: jspb.Message.toObjectList(msg.getResultsList(),
     protobuf_holdem_define_gd_pb.ResultGD.toObject, includeInstance),
     matchNum: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    currentWinrate: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    currentWinrate: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    levelCardGroup1: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    levelCardGroup2: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -120,6 +122,14 @@ proto.holdem.pb.ServerMessageGdResult.deserializeBinaryFromReader = function(msg
       var value = /** @type {number} */ (reader.readUint32());
       msg.setCurrentWinrate(value);
       break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setLevelCardGroup1(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setLevelCardGroup2(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -168,6 +178,20 @@ proto.holdem.pb.ServerMessageGdResult.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeUint32(
       3,
+      f
+    );
+  }
+  f = message.getLevelCardGroup1();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
+      f
+    );
+  }
+  f = message.getLevelCardGroup2();
+  if (f !== 0) {
+    writer.writeInt32(
+      5,
       f
     );
   }
@@ -232,6 +256,36 @@ proto.holdem.pb.ServerMessageGdResult.prototype.getCurrentWinrate = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageGdResult.prototype.setCurrentWinrate = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional int32 level_card_group1 = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageGdResult.prototype.getLevelCardGroup1 = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageGdResult.prototype.setLevelCardGroup1 = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int32 level_card_group2 = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageGdResult.prototype.getLevelCardGroup2 = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageGdResult.prototype.setLevelCardGroup2 = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 
