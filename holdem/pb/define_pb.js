@@ -14530,8 +14530,7 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     playHandsLimit: jspb.Message.getFieldWithDefault(msg, 160, 0),
     insuranceMode: jspb.Message.getFieldWithDefault(msg, 161, 0),
     retainMaxRate: jspb.Message.getFieldWithDefault(msg, 162, 0),
-    wheelTemplateId: jspb.Message.getFieldWithDefault(msg, 163, 0),
-    returnDiscard: jspb.Message.getFieldWithDefault(msg, 164, 0)
+    wheelTemplateId: jspb.Message.getFieldWithDefault(msg, 163, 0)
   };
 
   if (includeInstance) {
@@ -15221,10 +15220,6 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 163:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setWheelTemplateId(value);
-      break;
-    case 164:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setReturnDiscard(value);
       break;
     default:
       reader.skipField();
@@ -16389,13 +16384,6 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       163,
-      f
-    );
-  }
-  f = message.getReturnDiscard();
-  if (f !== 0) {
-    writer.writeInt32(
-      164,
       f
     );
   }
@@ -18971,21 +18959,6 @@ proto.holdem.pb.RoomRecord.prototype.getWheelTemplateId = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setWheelTemplateId = function(value) {
   jspb.Message.setField(this, 163, value);
-};
-
-
-/**
- * optional int32 return_discard = 164;
- * @return {number}
- */
-proto.holdem.pb.RoomRecord.prototype.getReturnDiscard = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 164, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.RoomRecord.prototype.setReturnDiscard = function(value) {
-  jspb.Message.setField(this, 164, value);
 };
 
 
