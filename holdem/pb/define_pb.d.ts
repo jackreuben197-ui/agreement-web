@@ -271,6 +271,14 @@ export namespace Def {
   }
 
   export const IsuranceMode: IsuranceModeMap;
+
+  export interface UserQuitClubReasonMap {
+    UQCR_QUIT: 0;
+    UQCR_KICKOUT: 1;
+    UQCR_CLOSECLUB: 2;
+  }
+
+  export const UserQuitClubReason: UserQuitClubReasonMap;
 }
 
 export class Room extends jspb.Message {

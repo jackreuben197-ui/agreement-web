@@ -39,6 +39,7 @@ goog.exportSymbol('proto.holdem.pb.Def.PropBuyType', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.RoomMode', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.Round', null, global);
 goog.exportSymbol('proto.holdem.pb.Def.StandUpReason', null, global);
+goog.exportSymbol('proto.holdem.pb.Def.UserQuitClubReason', null, global);
 goog.exportSymbol('proto.holdem.pb.ExternalHandChange', null, global);
 goog.exportSymbol('proto.holdem.pb.ExternalPools', null, global);
 goog.exportSymbol('proto.holdem.pb.GPS', null, global);
@@ -484,6 +485,15 @@ proto.holdem.pb.Def.IsuranceMode = {
   IM_NORMAL: 0,
   IM_WPK: 1,
   IM_EV: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.Def.UserQuitClubReason = {
+  UQCR_QUIT: 0,
+  UQCR_KICKOUT: 1,
+  UQCR_CLOSECLUB: 2
 };
 
 

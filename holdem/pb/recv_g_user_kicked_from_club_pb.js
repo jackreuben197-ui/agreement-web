@@ -11,6 +11,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
+var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ServerMessageUserKickedFromClub', null, global);
 
 /**
@@ -59,7 +60,9 @@ proto.holdem.pb.ServerMessageUserKickedFromClub.prototype.toObject = function(op
  */
 proto.holdem.pb.ServerMessageUserKickedFromClub.toObject = function(includeInstance, msg) {
   var f, obj = {
-    kickedTime: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    kickedTime: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    clubId: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    reason: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -100,6 +103,14 @@ proto.holdem.pb.ServerMessageUserKickedFromClub.deserializeBinaryFromReader = fu
       var value = /** @type {number} */ (reader.readInt64());
       msg.setKickedTime(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setClubId(value);
+      break;
+    case 3:
+      var value = /** @type {!proto.holdem.pb.Def.UserQuitClubReason} */ (reader.readEnum());
+      msg.setReason(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -136,6 +147,20 @@ proto.holdem.pb.ServerMessageUserKickedFromClub.serializeBinaryToWriter = functi
       f
     );
   }
+  f = message.getClubId();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
+  f = message.getReason();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -151,6 +176,36 @@ proto.holdem.pb.ServerMessageUserKickedFromClub.prototype.getKickedTime = functi
 /** @param {number} value */
 proto.holdem.pb.ServerMessageUserKickedFromClub.prototype.setKickedTime = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 club_id = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUserKickedFromClub.prototype.getClubId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUserKickedFromClub.prototype.setClubId = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional Def.UserQuitClubReason reason = 3;
+ * @return {!proto.holdem.pb.Def.UserQuitClubReason}
+ */
+proto.holdem.pb.ServerMessageUserKickedFromClub.prototype.getReason = function() {
+  return /** @type {!proto.holdem.pb.Def.UserQuitClubReason} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {!proto.holdem.pb.Def.UserQuitClubReason} value */
+proto.holdem.pb.ServerMessageUserKickedFromClub.prototype.setReason = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 
