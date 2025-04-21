@@ -682,6 +682,9 @@ export class HandInfo extends jspb.Message {
   setDealOrderList(value: Array<number>): void;
   addDealOrder(value: number, index?: number): number;
 
+  getCriticalHitOpen(): boolean;
+  setCriticalHitOpen(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HandInfo.AsObject;
   static toObject(includeInstance: boolean, msg: HandInfo): HandInfo.AsObject;
@@ -710,6 +713,7 @@ export namespace HandInfo {
     secondPotsList: Array<SidePot.AsObject>,
     conRounds: number,
     dealOrderList: Array<number>,
+    criticalHitOpen: boolean,
   }
 }
 

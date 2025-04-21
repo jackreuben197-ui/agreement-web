@@ -2915,7 +2915,8 @@ proto.holdem.pb.HandInfo.toObject = function(includeInstance, msg) {
     secondPotsList: jspb.Message.toObjectList(msg.getSecondPotsList(),
     proto.holdem.pb.SidePot.toObject, includeInstance),
     conRounds: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    dealOrderList: jspb.Message.getRepeatedField(msg, 18)
+    dealOrderList: jspb.Message.getRepeatedField(msg, 18),
+    criticalHitOpen: jspb.Message.getFieldWithDefault(msg, 19, false)
   };
 
   if (includeInstance) {
@@ -3018,6 +3019,10 @@ proto.holdem.pb.HandInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 18:
       var value = /** @type {!Array.<number>} */ (reader.readPackedInt32());
       msg.setDealOrderList(value);
+      break;
+    case 19:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setCriticalHitOpen(value);
       break;
     default:
       reader.skipField();
@@ -3160,6 +3165,13 @@ proto.holdem.pb.HandInfo.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writePackedInt32(
       18,
+      f
+    );
+  }
+  f = message.getCriticalHitOpen();
+  if (f) {
+    writer.writeBool(
+      19,
       f
     );
   }
@@ -3508,6 +3520,23 @@ proto.holdem.pb.HandInfo.prototype.addDealOrder = function(value, opt_index) {
 
 proto.holdem.pb.HandInfo.prototype.clearDealOrderList = function() {
   this.setDealOrderList([]);
+};
+
+
+/**
+ * optional bool critical_hit_open = 19;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.HandInfo.prototype.getCriticalHitOpen = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 19, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.HandInfo.prototype.setCriticalHitOpen = function(value) {
+  jspb.Message.setField(this, 19, value);
 };
 
 
