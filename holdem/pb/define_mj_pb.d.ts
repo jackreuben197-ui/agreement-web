@@ -982,6 +982,9 @@ export class PlayerSummaryMJ extends jspb.Message {
   getExposedKongCount(): number;
   setExposedKongCount(value: number): void;
 
+  getLoseKongCount(): number;
+  setLoseKongCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerSummaryMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerSummaryMJ): PlayerSummaryMJ.AsObject;
@@ -1010,6 +1013,7 @@ export namespace PlayerSummaryMJ {
     loseDiscardCount: number,
     concealedKongCount: number,
     exposedKongCount: number,
+    loseKongCount: number,
   }
 }
 

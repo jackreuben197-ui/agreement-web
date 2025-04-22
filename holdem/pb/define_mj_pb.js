@@ -5735,7 +5735,8 @@ proto.holdem.pb.PlayerSummaryMJ.toObject = function(includeInstance, msg) {
     winDiscardCount: jspb.Message.getFieldWithDefault(msg, 13, 0),
     loseDiscardCount: jspb.Message.getFieldWithDefault(msg, 14, 0),
     concealedKongCount: jspb.Message.getFieldWithDefault(msg, 15, 0),
-    exposedKongCount: jspb.Message.getFieldWithDefault(msg, 16, 0)
+    exposedKongCount: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    loseKongCount: jspb.Message.getFieldWithDefault(msg, 17, 0)
   };
 
   if (includeInstance) {
@@ -5835,6 +5836,10 @@ proto.holdem.pb.PlayerSummaryMJ.deserializeBinaryFromReader = function(msg, read
     case 16:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setExposedKongCount(value);
+      break;
+    case 17:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setLoseKongCount(value);
       break;
     default:
       reader.skipField();
@@ -5974,6 +5979,13 @@ proto.holdem.pb.PlayerSummaryMJ.serializeBinaryToWriter = function(message, writ
   if (f !== 0) {
     writer.writeUint32(
       16,
+      f
+    );
+  }
+  f = message.getLoseKongCount();
+  if (f !== 0) {
+    writer.writeUint32(
+      17,
       f
     );
   }
@@ -6219,6 +6231,21 @@ proto.holdem.pb.PlayerSummaryMJ.prototype.getExposedKongCount = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerSummaryMJ.prototype.setExposedKongCount = function(value) {
   jspb.Message.setField(this, 16, value);
+};
+
+
+/**
+ * optional uint32 lose_kong_count = 17;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummaryMJ.prototype.getLoseKongCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummaryMJ.prototype.setLoseKongCount = function(value) {
+  jspb.Message.setField(this, 17, value);
 };
 
 
