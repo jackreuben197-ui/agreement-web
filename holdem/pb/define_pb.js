@@ -276,7 +276,8 @@ proto.holdem.pb.Def.KeepSeatReason = {
   KSR_NONE: 0,
   KSR_TAKE_SEAT: 1,
   KSR_ACTIVE: 2,
-  KSR_NOCHIP: 3
+  KSR_NOCHIP: 3,
+  KSR_DELAY_LEAVE: 4
 };
 
 /**

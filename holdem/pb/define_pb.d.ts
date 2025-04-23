@@ -78,6 +78,7 @@ export namespace Def {
     KSR_TAKE_SEAT: 1;
     KSR_ACTIVE: 2;
     KSR_NOCHIP: 3;
+    KSR_DELAY_LEAVE: 4;
   }
 
   export const KeepSeatReason: KeepSeatReasonMap;
