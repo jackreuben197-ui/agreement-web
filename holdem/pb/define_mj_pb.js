@@ -7029,7 +7029,7 @@ proto.holdem.pb.ResultMJ.toObject = function(includeInstance, msg) {
     handTilesList: jspb.Message.toObjectList(msg.getHandTilesList(),
     proto.holdem.pb.Tile.toObject, includeInstance),
     claimActionsList: jspb.Message.toObjectList(msg.getClaimActionsList(),
-    proto.holdem.pb.ClaimValidAction.toObject, includeInstance)
+    proto.holdem.pb.ClaimAction.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -7101,8 +7101,8 @@ proto.holdem.pb.ResultMJ.deserializeBinaryFromReader = function(msg, reader) {
       msg.addHandTiles(value);
       break;
     case 16:
-      var value = new proto.holdem.pb.ClaimValidAction;
-      reader.readMessage(value,proto.holdem.pb.ClaimValidAction.deserializeBinaryFromReader);
+      var value = new proto.holdem.pb.ClaimAction;
+      reader.readMessage(value,proto.holdem.pb.ClaimAction.deserializeBinaryFromReader);
       msg.addClaimActions(value);
       break;
     default:
@@ -7197,7 +7197,7 @@ proto.holdem.pb.ResultMJ.serializeBinaryToWriter = function(message, writer) {
     writer.writeRepeatedMessage(
       16,
       f,
-      proto.holdem.pb.ClaimValidAction.serializeBinaryToWriter
+      proto.holdem.pb.ClaimAction.serializeBinaryToWriter
     );
   }
 };
@@ -7358,28 +7358,28 @@ proto.holdem.pb.ResultMJ.prototype.clearHandTilesList = function() {
 
 
 /**
- * repeated ClaimValidAction claim_actions = 16;
- * @return {!Array.<!proto.holdem.pb.ClaimValidAction>}
+ * repeated ClaimAction claim_actions = 16;
+ * @return {!Array.<!proto.holdem.pb.ClaimAction>}
  */
 proto.holdem.pb.ResultMJ.prototype.getClaimActionsList = function() {
-  return /** @type{!Array.<!proto.holdem.pb.ClaimValidAction>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ClaimValidAction, 16));
+  return /** @type{!Array.<!proto.holdem.pb.ClaimAction>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ClaimAction, 16));
 };
 
 
-/** @param {!Array.<!proto.holdem.pb.ClaimValidAction>} value */
+/** @param {!Array.<!proto.holdem.pb.ClaimAction>} value */
 proto.holdem.pb.ResultMJ.prototype.setClaimActionsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 16, value);
 };
 
 
 /**
- * @param {!proto.holdem.pb.ClaimValidAction=} opt_value
+ * @param {!proto.holdem.pb.ClaimAction=} opt_value
  * @param {number=} opt_index
- * @return {!proto.holdem.pb.ClaimValidAction}
+ * @return {!proto.holdem.pb.ClaimAction}
  */
 proto.holdem.pb.ResultMJ.prototype.addClaimActions = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 16, opt_value, proto.holdem.pb.ClaimValidAction, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 16, opt_value, proto.holdem.pb.ClaimAction, opt_index);
 };
 
 

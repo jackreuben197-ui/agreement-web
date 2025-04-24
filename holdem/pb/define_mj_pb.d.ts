@@ -1147,9 +1147,9 @@ export class ResultMJ extends jspb.Message {
   addHandTiles(value?: Tile, index?: number): Tile;
 
   clearClaimActionsList(): void;
-  getClaimActionsList(): Array<ClaimValidAction>;
-  setClaimActionsList(value: Array<ClaimValidAction>): void;
-  addClaimActions(value?: ClaimValidAction, index?: number): ClaimValidAction;
+  getClaimActionsList(): Array<ClaimAction>;
+  setClaimActionsList(value: Array<ClaimAction>): void;
+  addClaimActions(value?: ClaimAction, index?: number): ClaimAction;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ResultMJ.AsObject;
@@ -1171,7 +1171,7 @@ export namespace ResultMJ {
     standUp: boolean,
     userRid: number,
     handTilesList: Array<Tile.AsObject>,
-    claimActionsList: Array<ClaimValidAction.AsObject>,
+    claimActionsList: Array<ClaimAction.AsObject>,
   }
 }
 
