@@ -3095,7 +3095,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.PlayerMJ.repeatedFields_ = [3,4,5,6,7,8,23,32,33,35];
+proto.holdem.pb.PlayerMJ.repeatedFields_ = [3,4,5,6,7,8,23,32,33,35,37];
 
 
 
@@ -3159,7 +3159,9 @@ proto.holdem.pb.PlayerMJ.toObject = function(includeInstance, msg) {
     proto.holdem.pb.ReadyTile.toObject, includeInstance),
     raise: jspb.Message.getFieldWithDefault(msg, 34, 0),
     jkongList: jspb.Message.getRepeatedField(msg, 35),
-    defaultVoid: jspb.Message.getFieldWithDefault(msg, 36, 0)
+    defaultVoid: jspb.Message.getFieldWithDefault(msg, 36, 0),
+    claimActionsList: jspb.Message.toObjectList(msg.getClaimActionsList(),
+    proto.holdem.pb.ClaimAction.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -3320,6 +3322,11 @@ proto.holdem.pb.PlayerMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 36:
       var value = /** @type {!proto.holdem.pb.DefMJ.TileType} */ (reader.readEnum());
       msg.setDefaultVoid(value);
+      break;
+    case 37:
+      var value = new proto.holdem.pb.ClaimAction;
+      reader.readMessage(value,proto.holdem.pb.ClaimAction.deserializeBinaryFromReader);
+      msg.addClaimActions(value);
       break;
     default:
       reader.skipField();
@@ -3563,6 +3570,14 @@ proto.holdem.pb.PlayerMJ.serializeBinaryToWriter = function(message, writer) {
     writer.writeEnum(
       36,
       f
+    );
+  }
+  f = message.getClaimActionsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      37,
+      f,
+      proto.holdem.pb.ClaimAction.serializeBinaryToWriter
     );
   }
 };
@@ -4182,6 +4197,37 @@ proto.holdem.pb.PlayerMJ.prototype.getDefaultVoid = function() {
 /** @param {!proto.holdem.pb.DefMJ.TileType} value */
 proto.holdem.pb.PlayerMJ.prototype.setDefaultVoid = function(value) {
   jspb.Message.setField(this, 36, value);
+};
+
+
+/**
+ * repeated ClaimAction claim_actions = 37;
+ * @return {!Array.<!proto.holdem.pb.ClaimAction>}
+ */
+proto.holdem.pb.PlayerMJ.prototype.getClaimActionsList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.ClaimAction>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.ClaimAction, 37));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.ClaimAction>} value */
+proto.holdem.pb.PlayerMJ.prototype.setClaimActionsList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 37, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.ClaimAction=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.ClaimAction}
+ */
+proto.holdem.pb.PlayerMJ.prototype.addClaimActions = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 37, opt_value, proto.holdem.pb.ClaimAction, opt_index);
+};
+
+
+proto.holdem.pb.PlayerMJ.prototype.clearClaimActionsList = function() {
+  this.setClaimActionsList([]);
 };
 
 

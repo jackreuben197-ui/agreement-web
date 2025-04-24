@@ -680,6 +680,11 @@ export class PlayerMJ extends jspb.Message {
   getDefaultVoid(): DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap];
   setDefaultVoid(value: DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap]): void;
 
+  clearClaimActionsList(): void;
+  getClaimActionsList(): Array<ClaimAction>;
+  setClaimActionsList(value: Array<ClaimAction>): void;
+  addClaimActions(value?: ClaimAction, index?: number): ClaimAction;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -722,6 +727,7 @@ export namespace PlayerMJ {
     raise: number,
     jkongList: Array<number>,
     defaultVoid: DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap],
+    claimActionsList: Array<ClaimAction.AsObject>,
   }
 }
 
