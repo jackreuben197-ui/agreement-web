@@ -1083,6 +1083,40 @@ export namespace ExternalResultMJ {
   }
 }
 
+export class ClaimAction extends jspb.Message {
+  getStartValue(): number;
+  setStartValue(value: number): void;
+
+  hasTargetTile(): boolean;
+  clearTargetTile(): void;
+  getTargetTile(): Tile | undefined;
+  setTargetTile(value?: Tile): void;
+
+  getTargetSeatId(): number;
+  setTargetSeatId(value: number): void;
+
+  getTargetAciton(): DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap];
+  setTargetAciton(value: DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap]): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ClaimAction.AsObject;
+  static toObject(includeInstance: boolean, msg: ClaimAction): ClaimAction.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ClaimAction, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ClaimAction;
+  static deserializeBinaryFromReader(message: ClaimAction, reader: jspb.BinaryReader): ClaimAction;
+}
+
+export namespace ClaimAction {
+  export type AsObject = {
+    startValue: number,
+    targetTile?: Tile.AsObject,
+    targetSeatId: number,
+    targetAciton: DefMJ.ActionMjMap[keyof DefMJ.ActionMjMap],
+  }
+}
+
 export class ResultMJ extends jspb.Message {
   getSeatId(): number;
   setSeatId(value: number): void;
@@ -1112,6 +1146,11 @@ export class ResultMJ extends jspb.Message {
   setHandTilesList(value: Array<Tile>): void;
   addHandTiles(value?: Tile, index?: number): Tile;
 
+  clearClaimActionsList(): void;
+  getClaimActionsList(): Array<ClaimValidAction>;
+  setClaimActionsList(value: Array<ClaimValidAction>): void;
+  addClaimActions(value?: ClaimValidAction, index?: number): ClaimValidAction;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ResultMJ.AsObject;
   static toObject(includeInstance: boolean, msg: ResultMJ): ResultMJ.AsObject;
@@ -1132,6 +1171,7 @@ export namespace ResultMJ {
     standUp: boolean,
     userRid: number,
     handTilesList: Array<Tile.AsObject>,
+    claimActionsList: Array<ClaimValidAction.AsObject>,
   }
 }
 
