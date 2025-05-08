@@ -33,6 +33,11 @@ export class ServerMessageMjResult extends jspb.Message {
   setHorseTilesList(value: Array<number>): void;
   addHorseTiles(value: number, index?: number): number;
 
+  clearReadyTilesList(): void;
+  getReadyTilesList(): Array<protobuf_holdem_define_mj_pb.ReadyTile>;
+  setReadyTilesList(value: Array<protobuf_holdem_define_mj_pb.ReadyTile>): void;
+  addReadyTiles(value?: protobuf_holdem_define_mj_pb.ReadyTile, index?: number): protobuf_holdem_define_mj_pb.ReadyTile;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjResult.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjResult): ServerMessageMjResult.AsObject;
@@ -53,6 +58,7 @@ export namespace ServerMessageMjResult {
     wallDescIndex: number,
     wallLeft: number,
     horseTilesList: Array<number>,
+    readyTilesList: Array<protobuf_holdem_define_mj_pb.ReadyTile.AsObject>,
   }
 }
 
