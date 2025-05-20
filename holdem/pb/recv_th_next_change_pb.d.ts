@@ -31,6 +31,9 @@ export class ServerMessageNextChange extends jspb.Message {
   getCriticalHitOpen(): boolean;
   setCriticalHitOpen(value: boolean): void;
 
+  getSquidTotalLimit(): number;
+  setSquidTotalLimit(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageNextChange.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageNextChange): ServerMessageNextChange.AsObject;
@@ -52,6 +55,7 @@ export namespace ServerMessageNextChange {
     squidBase: number,
     roomType: number,
     criticalHitOpen: boolean,
+    squidTotalLimit: number,
   }
 }
 

@@ -67,7 +67,8 @@ proto.holdem.pb.ServerMessageNextChange.toObject = function(includeInstance, msg
     squidOpen: jspb.Message.getFieldWithDefault(msg, 6, false),
     squidBase: jspb.Message.getFieldWithDefault(msg, 7, 0),
     roomType: jspb.Message.getFieldWithDefault(msg, 8, 0),
-    criticalHitOpen: jspb.Message.getFieldWithDefault(msg, 9, false)
+    criticalHitOpen: jspb.Message.getFieldWithDefault(msg, 9, false),
+    squidTotalLimit: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -139,6 +140,10 @@ proto.holdem.pb.ServerMessageNextChange.deserializeBinaryFromReader = function(m
     case 9:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setCriticalHitOpen(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidTotalLimit(value);
       break;
     default:
       reader.skipField();
@@ -229,6 +234,13 @@ proto.holdem.pb.ServerMessageNextChange.serializeBinaryToWriter = function(messa
   if (f) {
     writer.writeBool(
       9,
+      f
+    );
+  }
+  f = message.getSquidTotalLimit();
+  if (f !== 0) {
+    writer.writeInt32(
+      10,
       f
     );
   }
@@ -377,6 +389,21 @@ proto.holdem.pb.ServerMessageNextChange.prototype.getCriticalHitOpen = function(
 /** @param {boolean} value */
 proto.holdem.pb.ServerMessageNextChange.prototype.setCriticalHitOpen = function(value) {
   jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional int32 squid_total_limit = 10;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageNextChange.prototype.getSquidTotalLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageNextChange.prototype.setSquidTotalLimit = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 
