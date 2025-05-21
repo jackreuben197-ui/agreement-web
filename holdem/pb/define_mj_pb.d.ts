@@ -691,6 +691,9 @@ export class PlayerMJ extends jspb.Message {
   getLoseAll(): boolean;
   setLoseAll(value: boolean): void;
 
+  getNeedBringInDeadline(): number;
+  setNeedBringInDeadline(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -736,6 +739,7 @@ export namespace PlayerMJ {
     claimActionsList: Array<ClaimAction.AsObject>,
     needBringIn: boolean,
     loseAll: boolean,
+    needBringInDeadline: number,
   }
 }
 

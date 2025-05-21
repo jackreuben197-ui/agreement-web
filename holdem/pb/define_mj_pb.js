@@ -3165,7 +3165,8 @@ proto.holdem.pb.PlayerMJ.toObject = function(includeInstance, msg) {
     claimActionsList: jspb.Message.toObjectList(msg.getClaimActionsList(),
     proto.holdem.pb.ClaimAction.toObject, includeInstance),
     needBringIn: jspb.Message.getFieldWithDefault(msg, 38, false),
-    loseAll: jspb.Message.getFieldWithDefault(msg, 39, false)
+    loseAll: jspb.Message.getFieldWithDefault(msg, 39, false),
+    needBringInDeadline: jspb.Message.getFieldWithDefault(msg, 40, 0)
   };
 
   if (includeInstance) {
@@ -3339,6 +3340,10 @@ proto.holdem.pb.PlayerMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 39:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setLoseAll(value);
+      break;
+    case 40:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setNeedBringInDeadline(value);
       break;
     default:
       reader.skipField();
@@ -3603,6 +3608,13 @@ proto.holdem.pb.PlayerMJ.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       39,
+      f
+    );
+  }
+  f = message.getNeedBringInDeadline();
+  if (f !== 0) {
+    writer.writeInt64(
+      40,
       f
     );
   }
@@ -4288,6 +4300,21 @@ proto.holdem.pb.PlayerMJ.prototype.getLoseAll = function() {
 /** @param {boolean} value */
 proto.holdem.pb.PlayerMJ.prototype.setLoseAll = function(value) {
   jspb.Message.setField(this, 39, value);
+};
+
+
+/**
+ * optional int64 need_bring_in_deadline = 40;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerMJ.prototype.getNeedBringInDeadline = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 40, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerMJ.prototype.setNeedBringInDeadline = function(value) {
+  jspb.Message.setField(this, 40, value);
 };
 
 

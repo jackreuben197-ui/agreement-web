@@ -10,6 +10,9 @@ export class ServerMessageMjNeedBringIn extends jspb.Message {
   setPlayersList(value: Array<protobuf_holdem_define_mj_pb.NeedBringInPlayer>): void;
   addPlayers(value?: protobuf_holdem_define_mj_pb.NeedBringInPlayer, index?: number): protobuf_holdem_define_mj_pb.NeedBringInPlayer;
 
+  getDeadline(): number;
+  setDeadline(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjNeedBringIn.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjNeedBringIn): ServerMessageMjNeedBringIn.AsObject;
@@ -23,6 +26,7 @@ export class ServerMessageMjNeedBringIn extends jspb.Message {
 export namespace ServerMessageMjNeedBringIn {
   export type AsObject = {
     playersList: Array<protobuf_holdem_define_mj_pb.NeedBringInPlayer.AsObject>,
+    deadline: number,
   }
 }
 

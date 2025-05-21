@@ -68,7 +68,8 @@ proto.holdem.pb.ServerMessageMjNeedBringIn.prototype.toObject = function(opt_inc
 proto.holdem.pb.ServerMessageMjNeedBringIn.toObject = function(includeInstance, msg) {
   var f, obj = {
     playersList: jspb.Message.toObjectList(msg.getPlayersList(),
-    protobuf_holdem_define_mj_pb.NeedBringInPlayer.toObject, includeInstance)
+    protobuf_holdem_define_mj_pb.NeedBringInPlayer.toObject, includeInstance),
+    deadline: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -110,6 +111,10 @@ proto.holdem.pb.ServerMessageMjNeedBringIn.deserializeBinaryFromReader = functio
       reader.readMessage(value,protobuf_holdem_define_mj_pb.NeedBringInPlayer.deserializeBinaryFromReader);
       msg.addPlayers(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setDeadline(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -147,6 +152,13 @@ proto.holdem.pb.ServerMessageMjNeedBringIn.serializeBinaryToWriter = function(me
       protobuf_holdem_define_mj_pb.NeedBringInPlayer.serializeBinaryToWriter
     );
   }
+  f = message.getDeadline();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -178,6 +190,21 @@ proto.holdem.pb.ServerMessageMjNeedBringIn.prototype.addPlayers = function(opt_v
 
 proto.holdem.pb.ServerMessageMjNeedBringIn.prototype.clearPlayersList = function() {
   this.setPlayersList([]);
+};
+
+
+/**
+ * optional int64 deadline = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMjNeedBringIn.prototype.getDeadline = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjNeedBringIn.prototype.setDeadline = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 
