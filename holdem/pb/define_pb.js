@@ -1335,7 +1335,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     criticalHit: jspb.Message.getFieldWithDefault(msg, 45, 0),
     autoChangeRoomLimitHand: jspb.Message.getFieldWithDefault(msg, 46, 0),
     insuranceMode: jspb.Message.getFieldWithDefault(msg, 47, 0),
-    wheelTemplateId: jspb.Message.getFieldWithDefault(msg, 48, 0)
+    wheelTemplateId: jspb.Message.getFieldWithDefault(msg, 48, 0),
+    squidTotalLimit: jspb.Message.getFieldWithDefault(msg, 49, 0)
   };
 
   if (includeInstance) {
@@ -1556,6 +1557,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 48:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setWheelTemplateId(value);
+      break;
+    case 49:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidTotalLimit(value);
       break;
     default:
       reader.skipField();
@@ -1906,6 +1911,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       48,
+      f
+    );
+  }
+  f = message.getSquidTotalLimit();
+  if (f !== 0) {
+    writer.writeInt32(
+      49,
       f
     );
   }
@@ -2648,6 +2660,21 @@ proto.holdem.pb.RoomInfo.prototype.getWheelTemplateId = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setWheelTemplateId = function(value) {
   jspb.Message.setField(this, 48, value);
+};
+
+
+/**
+ * optional int32 squid_total_limit = 49;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getSquidTotalLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 49, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setSquidTotalLimit = function(value) {
+  jspb.Message.setField(this, 49, value);
 };
 
 
@@ -4815,7 +4842,6 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 24, 0),
     lastStoreHandNum: jspb.Message.getFieldWithDefault(msg, 25, 0),
     wantSeat: jspb.Message.getFieldWithDefault(msg, 26, 0),
-    squidTotalLimit: jspb.Message.getFieldWithDefault(msg, 27, 0),
     alreadySeated: jspb.Message.getFieldWithDefault(msg, 28, false)
   };
 
@@ -4956,10 +4982,6 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 26:
       var value = /** @type {!proto.holdem.pb.Def.WantSeatType} */ (reader.readEnum());
       msg.setWantSeat(value);
-      break;
-    case 27:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setSquidTotalLimit(value);
       break;
     case 28:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -5173,13 +5195,6 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       26,
-      f
-    );
-  }
-  f = message.getSquidTotalLimit();
-  if (f !== 0) {
-    writer.writeInt32(
-      27,
       f
     );
   }
@@ -5588,21 +5603,6 @@ proto.holdem.pb.MyGameInfo.prototype.getWantSeat = function() {
 /** @param {!proto.holdem.pb.Def.WantSeatType} value */
 proto.holdem.pb.MyGameInfo.prototype.setWantSeat = function(value) {
   jspb.Message.setField(this, 26, value);
-};
-
-
-/**
- * optional int32 squid_total_limit = 27;
- * @return {number}
- */
-proto.holdem.pb.MyGameInfo.prototype.getSquidTotalLimit = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 27, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.MyGameInfo.prototype.setSquidTotalLimit = function(value) {
-  jspb.Message.setField(this, 27, value);
 };
 
 
