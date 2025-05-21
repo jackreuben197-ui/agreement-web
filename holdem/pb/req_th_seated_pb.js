@@ -560,7 +560,9 @@ proto.holdem.pb.ServerMessageSeated.toObject = function(includeInstance, msg) {
     squidIn: jspb.Message.getFieldWithDefault(msg, 9, false),
     keepSeatLeftTime: jspb.Message.getFieldWithDefault(msg, 13, 0),
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 14, 0),
-    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 15, 0)
+    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    squidTotalLimit: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    alreadySeated: jspb.Message.getFieldWithDefault(msg, 17, false)
   };
 
   if (includeInstance) {
@@ -640,6 +642,14 @@ proto.holdem.pb.ServerMessageSeated.deserializeBinaryFromReader = function(msg, 
     case 15:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setUserSubscriptionId(value);
+      break;
+    case 16:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidTotalLimit(value);
+      break;
+    case 17:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAlreadySeated(value);
       break;
     default:
       reader.skipField();
@@ -744,6 +754,20 @@ proto.holdem.pb.ServerMessageSeated.serializeBinaryToWriter = function(message, 
   if (f !== 0) {
     writer.writeUint64(
       15,
+      f
+    );
+  }
+  f = message.getSquidTotalLimit();
+  if (f !== 0) {
+    writer.writeInt32(
+      16,
+      f
+    );
+  }
+  f = message.getAlreadySeated();
+  if (f) {
+    writer.writeBool(
+      17,
       f
     );
   }
@@ -914,6 +938,38 @@ proto.holdem.pb.ServerMessageSeated.prototype.getUserSubscriptionId = function()
 /** @param {number} value */
 proto.holdem.pb.ServerMessageSeated.prototype.setUserSubscriptionId = function(value) {
   jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * optional int32 squid_total_limit = 16;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSeated.prototype.getSquidTotalLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSeated.prototype.setSquidTotalLimit = function(value) {
+  jspb.Message.setField(this, 16, value);
+};
+
+
+/**
+ * optional bool already_seated = 17;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageSeated.prototype.getAlreadySeated = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 17, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageSeated.prototype.setAlreadySeated = function(value) {
+  jspb.Message.setField(this, 17, value);
 };
 
 

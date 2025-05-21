@@ -4814,7 +4814,9 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     totalChips: jspb.Message.getFieldWithDefault(msg, 23, 0),
     autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 24, 0),
     lastStoreHandNum: jspb.Message.getFieldWithDefault(msg, 25, 0),
-    wantSeat: jspb.Message.getFieldWithDefault(msg, 26, 0)
+    wantSeat: jspb.Message.getFieldWithDefault(msg, 26, 0),
+    squidTotalLimit: jspb.Message.getFieldWithDefault(msg, 27, 0),
+    alreadySeated: jspb.Message.getFieldWithDefault(msg, 28, false)
   };
 
   if (includeInstance) {
@@ -4954,6 +4956,14 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 26:
       var value = /** @type {!proto.holdem.pb.Def.WantSeatType} */ (reader.readEnum());
       msg.setWantSeat(value);
+      break;
+    case 27:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidTotalLimit(value);
+      break;
+    case 28:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setAlreadySeated(value);
       break;
     default:
       reader.skipField();
@@ -5163,6 +5173,20 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       26,
+      f
+    );
+  }
+  f = message.getSquidTotalLimit();
+  if (f !== 0) {
+    writer.writeInt32(
+      27,
+      f
+    );
+  }
+  f = message.getAlreadySeated();
+  if (f) {
+    writer.writeBool(
+      28,
       f
     );
   }
@@ -5564,6 +5588,38 @@ proto.holdem.pb.MyGameInfo.prototype.getWantSeat = function() {
 /** @param {!proto.holdem.pb.Def.WantSeatType} value */
 proto.holdem.pb.MyGameInfo.prototype.setWantSeat = function(value) {
   jspb.Message.setField(this, 26, value);
+};
+
+
+/**
+ * optional int32 squid_total_limit = 27;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getSquidTotalLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 27, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfo.prototype.setSquidTotalLimit = function(value) {
+  jspb.Message.setField(this, 27, value);
+};
+
+
+/**
+ * optional bool already_seated = 28;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getAlreadySeated = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 28, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MyGameInfo.prototype.setAlreadySeated = function(value) {
+  jspb.Message.setField(this, 28, value);
 };
 
 
