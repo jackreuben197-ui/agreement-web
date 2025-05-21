@@ -4842,7 +4842,7 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 24, 0),
     lastStoreHandNum: jspb.Message.getFieldWithDefault(msg, 25, 0),
     wantSeat: jspb.Message.getFieldWithDefault(msg, 26, 0),
-    alreadySeated: jspb.Message.getFieldWithDefault(msg, 28, false)
+    alreadySeated: jspb.Message.getFieldWithDefault(msg, 27, false)
   };
 
   if (includeInstance) {
@@ -4983,7 +4983,7 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {!proto.holdem.pb.Def.WantSeatType} */ (reader.readEnum());
       msg.setWantSeat(value);
       break;
-    case 28:
+    case 27:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setAlreadySeated(value);
       break;
@@ -5201,7 +5201,7 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   f = message.getAlreadySeated();
   if (f) {
     writer.writeBool(
-      28,
+      27,
       f
     );
   }
@@ -5607,19 +5607,19 @@ proto.holdem.pb.MyGameInfo.prototype.setWantSeat = function(value) {
 
 
 /**
- * optional bool already_seated = 28;
+ * optional bool already_seated = 27;
  * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
  * You should avoid comparisons like {@code val === true/false} in those cases.
  * @return {boolean}
  */
 proto.holdem.pb.MyGameInfo.prototype.getAlreadySeated = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 28, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 27, false));
 };
 
 
 /** @param {boolean} value */
 proto.holdem.pb.MyGameInfo.prototype.setAlreadySeated = function(value) {
-  jspb.Message.setField(this, 28, value);
+  jspb.Message.setField(this, 27, value);
 };
 
 
