@@ -685,6 +685,12 @@ export class PlayerMJ extends jspb.Message {
   setClaimActionsList(value: Array<ClaimAction>): void;
   addClaimActions(value?: ClaimAction, index?: number): ClaimAction;
 
+  getNeedBringIn(): boolean;
+  setNeedBringIn(value: boolean): void;
+
+  getLoseAll(): boolean;
+  setLoseAll(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -728,6 +734,8 @@ export namespace PlayerMJ {
     jkongList: Array<number>,
     defaultVoid: DefMJ.TileTypeMap[keyof DefMJ.TileTypeMap],
     claimActionsList: Array<ClaimAction.AsObject>,
+    needBringIn: boolean,
+    loseAll: boolean,
   }
 }
 
@@ -1318,6 +1326,50 @@ export namespace ReadyTile {
     winPt: number,
     left: number,
     winTypesList: Array<WinTypeWithPoint.AsObject>,
+  }
+}
+
+export class NeedBringInPlayer extends jspb.Message {
+  getSeatId(): number;
+  setSeatId(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): NeedBringInPlayer.AsObject;
+  static toObject(includeInstance: boolean, msg: NeedBringInPlayer): NeedBringInPlayer.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: NeedBringInPlayer, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): NeedBringInPlayer;
+  static deserializeBinaryFromReader(message: NeedBringInPlayer, reader: jspb.BinaryReader): NeedBringInPlayer;
+}
+
+export namespace NeedBringInPlayer {
+  export type AsObject = {
+    seatId: number,
+  }
+}
+
+export class NeedBringInResult extends jspb.Message {
+  getSeatId(): number;
+  setSeatId(value: number): void;
+
+  getReject(): boolean;
+  setReject(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): NeedBringInResult.AsObject;
+  static toObject(includeInstance: boolean, msg: NeedBringInResult): NeedBringInResult.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: NeedBringInResult, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): NeedBringInResult;
+  static deserializeBinaryFromReader(message: NeedBringInResult, reader: jspb.BinaryReader): NeedBringInResult;
+}
+
+export namespace NeedBringInResult {
+  export type AsObject = {
+    seatId: number,
+    reject: boolean,
   }
 }
 
