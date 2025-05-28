@@ -2785,6 +2785,14 @@ export class RoomRecord extends jspb.Message {
   getAllInMute(): number;
   setAllInMute(value: number): void;
 
+  clearSquidCountRateList(): void;
+  getSquidCountRateList(): Array<SquidCountRateConfig>;
+  setSquidCountRateList(value: Array<SquidCountRateConfig>): void;
+  addSquidCountRate(value?: SquidCountRateConfig, index?: number): SquidCountRateConfig;
+
+  getDepositPercent(): number;
+  setDepositPercent(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2959,6 +2967,32 @@ export namespace RoomRecord {
     retainMaxRate: number,
     wheelTemplateId: number,
     allInMute: number,
+    squidCountRateList: Array<SquidCountRateConfig.AsObject>,
+    depositPercent: number,
+  }
+}
+
+export class SquidCountRateConfig extends jspb.Message {
+  getCount(): number;
+  setCount(value: number): void;
+
+  getRate(): number;
+  setRate(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SquidCountRateConfig.AsObject;
+  static toObject(includeInstance: boolean, msg: SquidCountRateConfig): SquidCountRateConfig.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SquidCountRateConfig, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SquidCountRateConfig;
+  static deserializeBinaryFromReader(message: SquidCountRateConfig, reader: jspb.BinaryReader): SquidCountRateConfig;
+}
+
+export namespace SquidCountRateConfig {
+  export type AsObject = {
+    count: number,
+    rate: number,
   }
 }
 
