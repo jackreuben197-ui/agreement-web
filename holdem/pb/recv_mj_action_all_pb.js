@@ -78,7 +78,8 @@ proto.holdem.pb.ServerMessageMjActionAll.toObject = function(includeInstance, ms
     erjsList: jspb.Message.toObjectList(msg.getErjsList(),
     protobuf_holdem_define_mj_pb.ExternalResultMJ.toObject, includeInstance),
     operatorReadyTilesList: jspb.Message.toObjectList(msg.getOperatorReadyTilesList(),
-    protobuf_holdem_define_mj_pb.ReadyTile.toObject, includeInstance)
+    protobuf_holdem_define_mj_pb.ReadyTile.toObject, includeInstance),
+    isOffline: jspb.Message.getFieldWithDefault(msg, 12, false)
   };
 
   if (includeInstance) {
@@ -155,6 +156,10 @@ proto.holdem.pb.ServerMessageMjActionAll.deserializeBinaryFromReader = function(
       var value = new protobuf_holdem_define_mj_pb.ReadyTile;
       reader.readMessage(value,protobuf_holdem_define_mj_pb.ReadyTile.deserializeBinaryFromReader);
       msg.addOperatorReadyTiles(value);
+      break;
+    case 12:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsOffline(value);
       break;
     default:
       reader.skipField();
@@ -251,6 +256,13 @@ proto.holdem.pb.ServerMessageMjActionAll.serializeBinaryToWriter = function(mess
       11,
       f,
       protobuf_holdem_define_mj_pb.ReadyTile.serializeBinaryToWriter
+    );
+  }
+  f = message.getIsOffline();
+  if (f) {
+    writer.writeBool(
+      12,
+      f
     );
   }
 };
@@ -466,6 +478,23 @@ proto.holdem.pb.ServerMessageMjActionAll.prototype.addOperatorReadyTiles = funct
 
 proto.holdem.pb.ServerMessageMjActionAll.prototype.clearOperatorReadyTilesList = function() {
   this.setOperatorReadyTilesList([]);
+};
+
+
+/**
+ * optional bool is_offline = 12;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.getIsOffline = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 12, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.setIsOffline = function(value) {
+  jspb.Message.setField(this, 12, value);
 };
 
 
