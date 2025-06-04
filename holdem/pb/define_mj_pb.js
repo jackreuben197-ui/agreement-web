@@ -3166,7 +3166,8 @@ proto.holdem.pb.PlayerMJ.toObject = function(includeInstance, msg) {
     proto.holdem.pb.ClaimAction.toObject, includeInstance),
     needBringIn: jspb.Message.getFieldWithDefault(msg, 38, false),
     loseAll: jspb.Message.getFieldWithDefault(msg, 39, false),
-    needBringInDeadline: jspb.Message.getFieldWithDefault(msg, 40, 0)
+    needBringInDeadline: jspb.Message.getFieldWithDefault(msg, 40, 0),
+    isOffline: jspb.Message.getFieldWithDefault(msg, 41, false)
   };
 
   if (includeInstance) {
@@ -3344,6 +3345,10 @@ proto.holdem.pb.PlayerMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 40:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setNeedBringInDeadline(value);
+      break;
+    case 41:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsOffline(value);
       break;
     default:
       reader.skipField();
@@ -3615,6 +3620,13 @@ proto.holdem.pb.PlayerMJ.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       40,
+      f
+    );
+  }
+  f = message.getIsOffline();
+  if (f) {
+    writer.writeBool(
+      41,
       f
     );
   }
@@ -4315,6 +4327,23 @@ proto.holdem.pb.PlayerMJ.prototype.getNeedBringInDeadline = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerMJ.prototype.setNeedBringInDeadline = function(value) {
   jspb.Message.setField(this, 40, value);
+};
+
+
+/**
+ * optional bool is_offline = 41;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.PlayerMJ.prototype.getIsOffline = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 41, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.PlayerMJ.prototype.setIsOffline = function(value) {
+  jspb.Message.setField(this, 41, value);
 };
 
 

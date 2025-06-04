@@ -694,6 +694,9 @@ export class PlayerMJ extends jspb.Message {
   getNeedBringInDeadline(): number;
   setNeedBringInDeadline(value: number): void;
 
+  getIsOffline(): boolean;
+  setIsOffline(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -740,6 +743,7 @@ export namespace PlayerMJ {
     needBringIn: boolean,
     loseAll: boolean,
     needBringInDeadline: number,
+    isOffline: boolean,
   }
 }
 
