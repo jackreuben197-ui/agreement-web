@@ -79,7 +79,8 @@ proto.holdem.pb.ServerMessageMjActionAll.toObject = function(includeInstance, ms
     protobuf_holdem_define_mj_pb.ExternalResultMJ.toObject, includeInstance),
     operatorReadyTilesList: jspb.Message.toObjectList(msg.getOperatorReadyTilesList(),
     protobuf_holdem_define_mj_pb.ReadyTile.toObject, includeInstance),
-    isOffline: jspb.Message.getFieldWithDefault(msg, 12, false)
+    isOffline: jspb.Message.getFieldWithDefault(msg, 12, false),
+    msgType: jspb.Message.getFieldWithDefault(msg, 13, 0)
   };
 
   if (includeInstance) {
@@ -160,6 +161,10 @@ proto.holdem.pb.ServerMessageMjActionAll.deserializeBinaryFromReader = function(
     case 12:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsOffline(value);
+      break;
+    case 13:
+      var value = /** @type {!proto.holdem.pb.DefMJ.ActionAllType} */ (reader.readEnum());
+      msg.setMsgType(value);
       break;
     default:
       reader.skipField();
@@ -262,6 +267,13 @@ proto.holdem.pb.ServerMessageMjActionAll.serializeBinaryToWriter = function(mess
   if (f) {
     writer.writeBool(
       12,
+      f
+    );
+  }
+  f = message.getMsgType();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      13,
       f
     );
   }
@@ -495,6 +507,21 @@ proto.holdem.pb.ServerMessageMjActionAll.prototype.getIsOffline = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ServerMessageMjActionAll.prototype.setIsOffline = function(value) {
   jspb.Message.setField(this, 12, value);
+};
+
+
+/**
+ * optional DefMJ.ActionAllType msg_type = 13;
+ * @return {!proto.holdem.pb.DefMJ.ActionAllType}
+ */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.getMsgType = function() {
+  return /** @type {!proto.holdem.pb.DefMJ.ActionAllType} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/** @param {!proto.holdem.pb.DefMJ.ActionAllType} value */
+proto.holdem.pb.ServerMessageMjActionAll.prototype.setMsgType = function(value) {
+  jspb.Message.setField(this, 13, value);
 };
 
 

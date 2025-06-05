@@ -15,6 +15,7 @@ var protobuf_holdem_define_pb = require('../../protobuf/holdem/define_pb.js');
 goog.exportSymbol('proto.holdem.pb.ClaimAction', null, global);
 goog.exportSymbol('proto.holdem.pb.ClaimValidAction', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ', null, global);
+goog.exportSymbol('proto.holdem.pb.DefMJ.ActionAllType', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.ActionFailReason', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.ActionMj', null, global);
 goog.exportSymbol('proto.holdem.pb.DefMJ.ExchangeMode', null, global);
@@ -331,6 +332,16 @@ proto.holdem.pb.DefMJ.ExchangeMode = {
   EXMODE_LEFT: 0,
   EXMODE_RIGHT: 1,
   EXMODE_OPPOSITE: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.holdem.pb.DefMJ.ActionAllType = {
+  AAT_NONE: 0,
+  AAT_CLAIM: 1,
+  AAT_READY_HAND: 2,
+  AAT_ACTION: 3
 };
 
 

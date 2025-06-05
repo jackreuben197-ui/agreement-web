@@ -181,6 +181,15 @@ export namespace DefMJ {
   }
 
   export const ExchangeMode: ExchangeModeMap;
+
+  export interface ActionAllTypeMap {
+    AAT_NONE: 0;
+    AAT_CLAIM: 1;
+    AAT_READY_HAND: 2;
+    AAT_ACTION: 3;
+  }
+
+  export const ActionAllType: ActionAllTypeMap;
 }
 
 export class Tile extends jspb.Message {

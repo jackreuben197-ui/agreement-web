@@ -45,6 +45,9 @@ export class ServerMessageMjActionAll extends jspb.Message {
   getIsOffline(): boolean;
   setIsOffline(value: boolean): void;
 
+  getMsgType(): protobuf_holdem_define_mj_pb.DefMJ.ActionAllTypeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.ActionAllTypeMap];
+  setMsgType(value: protobuf_holdem_define_mj_pb.DefMJ.ActionAllTypeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.ActionAllTypeMap]): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjActionAll.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjActionAll): ServerMessageMjActionAll.AsObject;
@@ -67,6 +70,7 @@ export namespace ServerMessageMjActionAll {
     erjsList: Array<protobuf_holdem_define_mj_pb.ExternalResultMJ.AsObject>,
     operatorReadyTilesList: Array<protobuf_holdem_define_mj_pb.ReadyTile.AsObject>,
     isOffline: boolean,
+    msgType: protobuf_holdem_define_mj_pb.DefMJ.ActionAllTypeMap[keyof protobuf_holdem_define_mj_pb.DefMJ.ActionAllTypeMap],
   }
 }
 
