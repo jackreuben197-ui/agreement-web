@@ -984,6 +984,9 @@ export class MyGameInfo extends jspb.Message {
   getAlreadySeated(): boolean;
   setAlreadySeated(value: boolean): void;
 
+  getSquidRoundSeated(): boolean;
+  setSquidRoundSeated(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfo.AsObject;
   static toObject(includeInstance: boolean, msg: MyGameInfo): MyGameInfo.AsObject;
@@ -1023,6 +1026,7 @@ export namespace MyGameInfo {
     lastStoreHandNum: number,
     wantSeat: Def.WantSeatTypeMap[keyof Def.WantSeatTypeMap],
     alreadySeated: boolean,
+    squidRoundSeated: boolean,
   }
 }
 

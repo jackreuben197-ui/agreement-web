@@ -562,7 +562,8 @@ proto.holdem.pb.ServerMessageSeated.toObject = function(includeInstance, msg) {
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 14, 0),
     userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 15, 0),
     squidTotalLimit: jspb.Message.getFieldWithDefault(msg, 16, 0),
-    alreadySeated: jspb.Message.getFieldWithDefault(msg, 17, false)
+    alreadySeated: jspb.Message.getFieldWithDefault(msg, 17, false),
+    squidRoundSeated: jspb.Message.getFieldWithDefault(msg, 18, false)
   };
 
   if (includeInstance) {
@@ -650,6 +651,10 @@ proto.holdem.pb.ServerMessageSeated.deserializeBinaryFromReader = function(msg, 
     case 17:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setAlreadySeated(value);
+      break;
+    case 18:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSquidRoundSeated(value);
       break;
     default:
       reader.skipField();
@@ -768,6 +773,13 @@ proto.holdem.pb.ServerMessageSeated.serializeBinaryToWriter = function(message, 
   if (f) {
     writer.writeBool(
       17,
+      f
+    );
+  }
+  f = message.getSquidRoundSeated();
+  if (f) {
+    writer.writeBool(
+      18,
       f
     );
   }
@@ -970,6 +982,23 @@ proto.holdem.pb.ServerMessageSeated.prototype.getAlreadySeated = function() {
 /** @param {boolean} value */
 proto.holdem.pb.ServerMessageSeated.prototype.setAlreadySeated = function(value) {
   jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * optional bool squid_round_seated = 18;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageSeated.prototype.getSquidRoundSeated = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 18, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageSeated.prototype.setSquidRoundSeated = function(value) {
+  jspb.Message.setField(this, 18, value);
 };
 
 

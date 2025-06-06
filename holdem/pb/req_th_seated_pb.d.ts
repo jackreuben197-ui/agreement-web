@@ -114,6 +114,9 @@ export class ServerMessageSeated extends jspb.Message {
   getAlreadySeated(): boolean;
   setAlreadySeated(value: boolean): void;
 
+  getSquidRoundSeated(): boolean;
+  setSquidRoundSeated(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageSeated.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageSeated): ServerMessageSeated.AsObject;
@@ -139,6 +142,7 @@ export namespace ServerMessageSeated {
     userSubscriptionId: number,
     squidTotalLimit: number,
     alreadySeated: boolean,
+    squidRoundSeated: boolean,
   }
 }
 
