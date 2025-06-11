@@ -21165,8 +21165,7 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     forceVideoTimingFinals: jspb.Message.getFieldWithDefault(msg, 113, 0),
     forceVideoClose: jspb.Message.getFieldWithDefault(msg, 114, 0),
     forceVideoCloseTime: jspb.Message.getFieldWithDefault(msg, 115, 0),
-    forceVideoStartTime: jspb.Message.getFieldWithDefault(msg, 116, 0),
-    isAdmin: jspb.Message.getFieldWithDefault(msg, 117, false)
+    forceVideoStartTime: jspb.Message.getFieldWithDefault(msg, 116, 0)
   };
 
   if (includeInstance) {
@@ -21666,10 +21665,6 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 116:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setForceVideoStartTime(value);
-      break;
-    case 117:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIsAdmin(value);
       break;
     default:
       reader.skipField();
@@ -22509,13 +22504,6 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       116,
-      f
-    );
-  }
-  f = message.getIsAdmin();
-  if (f) {
-    writer.writeBool(
-      117,
       f
     );
   }
@@ -24259,23 +24247,6 @@ proto.holdem.pb.MTTRecord.prototype.getForceVideoStartTime = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTRecord.prototype.setForceVideoStartTime = function(value) {
   jspb.Message.setField(this, 116, value);
-};
-
-
-/**
- * optional bool is_admin = 117;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.holdem.pb.MTTRecord.prototype.getIsAdmin = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 117, false));
-};
-
-
-/** @param {boolean} value */
-proto.holdem.pb.MTTRecord.prototype.setIsAdmin = function(value) {
-  jspb.Message.setField(this, 117, value);
 };
 
 

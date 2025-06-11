@@ -237,7 +237,8 @@ proto.holdem.pb.ServerMessageMttDetail.toObject = function(includeInstance, msg)
     alive: jspb.Message.getFieldWithDefault(msg, 5, 0),
     stateCode: jspb.Message.getFieldWithDefault(msg, 6, 0),
     top: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    state: (f = msg.getState()) && protobuf_holdem_define_pb.MTTUserStatus.toObject(includeInstance, f)
+    state: (f = msg.getState()) && protobuf_holdem_define_pb.MTTUserStatus.toObject(includeInstance, f),
+    isAdmin: jspb.Message.getFieldWithDefault(msg, 9, false)
   };
 
   if (includeInstance) {
@@ -308,6 +309,10 @@ proto.holdem.pb.ServerMessageMttDetail.deserializeBinaryFromReader = function(ms
       var value = new protobuf_holdem_define_pb.MTTUserStatus;
       reader.readMessage(value,protobuf_holdem_define_pb.MTTUserStatus.deserializeBinaryFromReader);
       msg.setState(value);
+      break;
+    case 9:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsAdmin(value);
       break;
     default:
       reader.skipField();
@@ -395,6 +400,13 @@ proto.holdem.pb.ServerMessageMttDetail.serializeBinaryToWriter = function(messag
       8,
       f,
       protobuf_holdem_define_pb.MTTUserStatus.serializeBinaryToWriter
+    );
+  }
+  f = message.getIsAdmin();
+  if (f) {
+    writer.writeBool(
+      9,
+      f
     );
   }
 };
@@ -562,6 +574,23 @@ proto.holdem.pb.ServerMessageMttDetail.prototype.clearState = function() {
  */
 proto.holdem.pb.ServerMessageMttDetail.prototype.hasState = function() {
   return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional bool is_admin = 9;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageMttDetail.prototype.getIsAdmin = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 9, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageMttDetail.prototype.setIsAdmin = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 
