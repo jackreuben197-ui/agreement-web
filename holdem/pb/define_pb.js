@@ -14697,7 +14697,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     allInMute: jspb.Message.getFieldWithDefault(msg, 164, 0),
     squidCountRateList: jspb.Message.toObjectList(msg.getSquidCountRateList(),
     proto.holdem.pb.SquidCountRateConfig.toObject, includeInstance),
-    depositPercent: jspb.Message.getFieldWithDefault(msg, 166, 0)
+    depositPercent: jspb.Message.getFieldWithDefault(msg, 166, 0),
+    insuranceForceBuyRatio: jspb.Message.getFieldWithDefault(msg, 167, 0)
   };
 
   if (includeInstance) {
@@ -15400,6 +15401,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 166:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setDepositPercent(value);
+      break;
+    case 167:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setInsuranceForceBuyRatio(value);
       break;
     default:
       reader.skipField();
@@ -16586,6 +16591,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       166,
+      f
+    );
+  }
+  f = message.getInsuranceForceBuyRatio();
+  if (f !== 0) {
+    writer.writeUint64(
+      167,
       f
     );
   }
@@ -19222,6 +19234,21 @@ proto.holdem.pb.RoomRecord.prototype.getDepositPercent = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setDepositPercent = function(value) {
   jspb.Message.setField(this, 166, value);
+};
+
+
+/**
+ * optional uint64 insurance_force_buy_ratio = 167;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getInsuranceForceBuyRatio = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 167, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setInsuranceForceBuyRatio = function(value) {
+  jspb.Message.setField(this, 167, value);
 };
 
 
