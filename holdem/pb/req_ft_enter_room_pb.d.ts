@@ -72,6 +72,11 @@ export class ServerMessageFtEnterRoom extends jspb.Message {
   getMuted(): boolean;
   setMuted(value: boolean): void;
 
+  hasMyWheelInfo(): boolean;
+  clearMyWheelInfo(): void;
+  getMyWheelInfo(): protobuf_holdem_define_pb.MyWheelInfo | undefined;
+  setMyWheelInfo(value?: protobuf_holdem_define_pb.MyWheelInfo): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageFtEnterRoom.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageFtEnterRoom): ServerMessageFtEnterRoom.AsObject;
@@ -92,6 +97,7 @@ export namespace ServerMessageFtEnterRoom {
     myInfo?: protobuf_holdem_define_ft_pb.MyGameInfoFT.AsObject,
     operatorList: Array<protobuf_holdem_define_ft_pb.OperatorFT.AsObject>,
     muted: boolean,
+    myWheelInfo?: protobuf_holdem_define_pb.MyWheelInfo.AsObject,
   }
 }
 

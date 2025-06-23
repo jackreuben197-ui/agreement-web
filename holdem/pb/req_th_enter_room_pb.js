@@ -367,7 +367,8 @@ proto.holdem.pb.ServerMessageEnterRoom.toObject = function(includeInstance, msg)
     mttProgress: (f = msg.getMttProgress()) && protobuf_holdem_define_pb.MTTProgress.toObject(includeInstance, f),
     mttRoom: (f = msg.getMttRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     muted: jspb.Message.getFieldWithDefault(msg, 12, false),
-    payTimes: jspb.Message.getFieldWithDefault(msg, 13, 0)
+    payTimes: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    myWheelInfo: (f = msg.getMyWheelInfo()) && protobuf_holdem_define_pb.MyWheelInfo.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -459,6 +460,11 @@ proto.holdem.pb.ServerMessageEnterRoom.deserializeBinaryFromReader = function(ms
     case 13:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPayTimes(value);
+      break;
+    case 14:
+      var value = new protobuf_holdem_define_pb.MyWheelInfo;
+      reader.readMessage(value,protobuf_holdem_define_pb.MyWheelInfo.deserializeBinaryFromReader);
+      msg.setMyWheelInfo(value);
       break;
     default:
       reader.skipField();
@@ -579,6 +585,14 @@ proto.holdem.pb.ServerMessageEnterRoom.serializeBinaryToWriter = function(messag
     writer.writeInt32(
       13,
       f
+    );
+  }
+  f = message.getMyWheelInfo();
+  if (f != null) {
+    writer.writeMessage(
+      14,
+      f,
+      protobuf_holdem_define_pb.MyWheelInfo.serializeBinaryToWriter
     );
   }
 };
@@ -885,6 +899,36 @@ proto.holdem.pb.ServerMessageEnterRoom.prototype.getPayTimes = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageEnterRoom.prototype.setPayTimes = function(value) {
   jspb.Message.setField(this, 13, value);
+};
+
+
+/**
+ * optional MyWheelInfo my_wheel_info = 14;
+ * @return {?proto.holdem.pb.MyWheelInfo}
+ */
+proto.holdem.pb.ServerMessageEnterRoom.prototype.getMyWheelInfo = function() {
+  return /** @type{?proto.holdem.pb.MyWheelInfo} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.MyWheelInfo, 14));
+};
+
+
+/** @param {?proto.holdem.pb.MyWheelInfo|undefined} value */
+proto.holdem.pb.ServerMessageEnterRoom.prototype.setMyWheelInfo = function(value) {
+  jspb.Message.setWrapperField(this, 14, value);
+};
+
+
+proto.holdem.pb.ServerMessageEnterRoom.prototype.clearMyWheelInfo = function() {
+  this.setMyWheelInfo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageEnterRoom.prototype.hasMyWheelInfo = function() {
+  return jspb.Message.getField(this, 14) != null;
 };
 
 

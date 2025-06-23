@@ -77,6 +77,11 @@ export class ServerMessageGdEnterRoom extends jspb.Message {
   setResultsList(value: Array<protobuf_holdem_define_gd_pb.ResultGD>): void;
   addResults(value?: protobuf_holdem_define_gd_pb.ResultGD, index?: number): protobuf_holdem_define_gd_pb.ResultGD;
 
+  hasMyWheelInfo(): boolean;
+  clearMyWheelInfo(): void;
+  getMyWheelInfo(): protobuf_holdem_define_pb.MyWheelInfo | undefined;
+  setMyWheelInfo(value?: protobuf_holdem_define_pb.MyWheelInfo): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageGdEnterRoom.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageGdEnterRoom): ServerMessageGdEnterRoom.AsObject;
@@ -98,6 +103,7 @@ export namespace ServerMessageGdEnterRoom {
     operatorList: Array<protobuf_holdem_define_gd_pb.OperatorGD.AsObject>,
     muted: boolean,
     resultsList: Array<protobuf_holdem_define_gd_pb.ResultGD.AsObject>,
+    myWheelInfo?: protobuf_holdem_define_pb.MyWheelInfo.AsObject,
   }
 }
 

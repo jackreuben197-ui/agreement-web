@@ -4324,3 +4324,35 @@ export namespace RoomRecordSimple {
   }
 }
 
+export class MyWheelInfo extends jspb.Message {
+  getWheelTemplateId(): number;
+  setWheelTemplateId(value: number): void;
+
+  getLotteryHandNum(): number;
+  setLotteryHandNum(value: number): void;
+
+  getUserHandNum(): number;
+  setUserHandNum(value: number): void;
+
+  getUserParticipateState(): number;
+  setUserParticipateState(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MyWheelInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: MyWheelInfo): MyWheelInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MyWheelInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MyWheelInfo;
+  static deserializeBinaryFromReader(message: MyWheelInfo, reader: jspb.BinaryReader): MyWheelInfo;
+}
+
+export namespace MyWheelInfo {
+  export type AsObject = {
+    wheelTemplateId: number,
+    lotteryHandNum: number,
+    userHandNum: number,
+    userParticipateState: number,
+  }
+}
+
