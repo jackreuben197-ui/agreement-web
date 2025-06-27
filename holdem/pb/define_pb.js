@@ -14699,7 +14699,11 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     squidCountRateList: jspb.Message.toObjectList(msg.getSquidCountRateList(),
     proto.holdem.pb.SquidCountRateConfig.toObject, includeInstance),
     depositPercent: jspb.Message.getFieldWithDefault(msg, 166, 0),
-    insuranceForceBuyRatio: jspb.Message.getFieldWithDefault(msg, 167, 0)
+    insuranceForceBuyRatio: jspb.Message.getFieldWithDefault(msg, 167, 0),
+    bombDoubleType: jspb.Message.getFieldWithDefault(msg, 168, 0),
+    bombSixBeginReward: jspb.Message.getFieldWithDefault(msg, 169, 0),
+    passAceThreeTime: jspb.Message.getFieldWithDefault(msg, 170, 0),
+    doubleLowLevelUpType: jspb.Message.getFieldWithDefault(msg, 171, 0)
   };
 
   if (includeInstance) {
@@ -15406,6 +15410,22 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 167:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setInsuranceForceBuyRatio(value);
+      break;
+    case 168:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setBombDoubleType(value);
+      break;
+    case 169:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setBombSixBeginReward(value);
+      break;
+    case 170:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPassAceThreeTime(value);
+      break;
+    case 171:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setDoubleLowLevelUpType(value);
       break;
     default:
       reader.skipField();
@@ -16599,6 +16619,34 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       167,
+      f
+    );
+  }
+  f = message.getBombDoubleType();
+  if (f !== 0) {
+    writer.writeInt32(
+      168,
+      f
+    );
+  }
+  f = message.getBombSixBeginReward();
+  if (f !== 0) {
+    writer.writeInt32(
+      169,
+      f
+    );
+  }
+  f = message.getPassAceThreeTime();
+  if (f !== 0) {
+    writer.writeInt32(
+      170,
+      f
+    );
+  }
+  f = message.getDoubleLowLevelUpType();
+  if (f !== 0) {
+    writer.writeInt32(
+      171,
       f
     );
   }
@@ -19250,6 +19298,66 @@ proto.holdem.pb.RoomRecord.prototype.getInsuranceForceBuyRatio = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setInsuranceForceBuyRatio = function(value) {
   jspb.Message.setField(this, 167, value);
+};
+
+
+/**
+ * optional int32 bomb_double_type = 168;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getBombDoubleType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 168, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setBombDoubleType = function(value) {
+  jspb.Message.setField(this, 168, value);
+};
+
+
+/**
+ * optional int32 bomb_six_begin_reward = 169;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getBombSixBeginReward = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 169, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setBombSixBeginReward = function(value) {
+  jspb.Message.setField(this, 169, value);
+};
+
+
+/**
+ * optional int32 pass_ace_three_time = 170;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getPassAceThreeTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 170, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setPassAceThreeTime = function(value) {
+  jspb.Message.setField(this, 170, value);
+};
+
+
+/**
+ * optional int32 double_low_level_up_type = 171;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getDoubleLowLevelUpType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 171, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setDoubleLowLevelUpType = function(value) {
+  jspb.Message.setField(this, 171, value);
 };
 
 

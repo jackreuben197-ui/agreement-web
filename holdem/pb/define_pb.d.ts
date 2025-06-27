@@ -2800,6 +2800,18 @@ export class RoomRecord extends jspb.Message {
   getInsuranceForceBuyRatio(): number;
   setInsuranceForceBuyRatio(value: number): void;
 
+  getBombDoubleType(): number;
+  setBombDoubleType(value: number): void;
+
+  getBombSixBeginReward(): number;
+  setBombSixBeginReward(value: number): void;
+
+  getPassAceThreeTime(): number;
+  setPassAceThreeTime(value: number): void;
+
+  getDoubleLowLevelUpType(): number;
+  setDoubleLowLevelUpType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2977,6 +2989,10 @@ export namespace RoomRecord {
     squidCountRateList: Array<SquidCountRateConfig.AsObject>,
     depositPercent: number,
     insuranceForceBuyRatio: number,
+    bombDoubleType: number,
+    bombSixBeginReward: number,
+    passAceThreeTime: number,
+    doubleLowLevelUpType: number,
   }
 }
 
