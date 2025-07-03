@@ -21302,7 +21302,7 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     forceVideoClose: jspb.Message.getFieldWithDefault(msg, 114, 0),
     forceVideoCloseTime: jspb.Message.getFieldWithDefault(msg, 115, 0),
     forceVideoStartTime: jspb.Message.getFieldWithDefault(msg, 116, 0),
-    forceCloseTime: jspb.Message.getFieldWithDefault(msg, 117, 0)
+    forceCloseTime: jspb.Message.getFieldWithDefault(msg, 117, "")
   };
 
   if (includeInstance) {
@@ -21804,7 +21804,7 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
       msg.setForceVideoStartTime(value);
       break;
     case 117:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setForceCloseTime(value);
       break;
     default:
@@ -22649,8 +22649,8 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
     );
   }
   f = message.getForceCloseTime();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f.length > 0) {
+    writer.writeString(
       117,
       f
     );
@@ -24399,15 +24399,15 @@ proto.holdem.pb.MTTRecord.prototype.setForceVideoStartTime = function(value) {
 
 
 /**
- * optional int64 force_close_time = 117;
- * @return {number}
+ * optional string force_close_time = 117;
+ * @return {string}
  */
 proto.holdem.pb.MTTRecord.prototype.getForceCloseTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 117, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 117, ""));
 };
 
 
-/** @param {number} value */
+/** @param {string} value */
 proto.holdem.pb.MTTRecord.prototype.setForceCloseTime = function(value) {
   jspb.Message.setField(this, 117, value);
 };

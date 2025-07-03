@@ -3599,8 +3599,8 @@ export class MTTRecord extends jspb.Message {
   getForceVideoStartTime(): number;
   setForceVideoStartTime(value: number): void;
 
-  getForceCloseTime(): number;
-  setForceCloseTime(value: number): void;
+  getForceCloseTime(): string;
+  setForceCloseTime(value: string): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
@@ -3730,7 +3730,7 @@ export namespace MTTRecord {
     forceVideoClose: number,
     forceVideoCloseTime: number,
     forceVideoStartTime: number,
-    forceCloseTime: number,
+    forceCloseTime: string,
   }
 }
 
