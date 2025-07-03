@@ -243,7 +243,8 @@ proto.holdem.pb.Card.prototype.toObject = function(opt_includeInstance) {
 proto.holdem.pb.Card.toObject = function(includeInstance, msg) {
   var f, obj = {
     index: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    card: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    card: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    replaceCard: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -288,6 +289,10 @@ proto.holdem.pb.Card.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {number} */ (reader.readInt32());
       msg.setCard(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setReplaceCard(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -331,6 +336,13 @@ proto.holdem.pb.Card.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getReplaceCard();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -361,6 +373,21 @@ proto.holdem.pb.Card.prototype.getCard = function() {
 /** @param {number} value */
 proto.holdem.pb.Card.prototype.setCard = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional int32 replace_card = 3;
+ * @return {number}
+ */
+proto.holdem.pb.Card.prototype.getReplaceCard = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Card.prototype.setReplaceCard = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 

@@ -72,6 +72,9 @@ export class Card extends jspb.Message {
   getCard(): number;
   setCard(value: number): void;
 
+  getReplaceCard(): number;
+  setReplaceCard(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Card.AsObject;
   static toObject(includeInstance: boolean, msg: Card): Card.AsObject;
@@ -86,6 +89,7 @@ export namespace Card {
   export type AsObject = {
     index: number,
     card: number,
+    replaceCard: number,
   }
 }
 
