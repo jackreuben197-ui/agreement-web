@@ -678,7 +678,16 @@ proto.holdem.pb.RoomInfoGD.toObject = function(includeInstance, msg) {
     antiCheatVideoType: jspb.Message.getFieldWithDefault(msg, 16, 0),
     personalType: jspb.Message.getFieldWithDefault(msg, 17, 0),
     levelType: jspb.Message.getFieldWithDefault(msg, 18, 0),
-    mode: jspb.Message.getFieldWithDefault(msg, 19, 0)
+    mode: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    bombFour: jspb.Message.getFieldWithDefault(msg, 20, 0),
+    bombFive: jspb.Message.getFieldWithDefault(msg, 21, 0),
+    straightFlush: jspb.Message.getFieldWithDefault(msg, 22, 0),
+    bombSix: jspb.Message.getFieldWithDefault(msg, 23, 0),
+    bombSeven: jspb.Message.getFieldWithDefault(msg, 24, 0),
+    bombEight: jspb.Message.getFieldWithDefault(msg, 25, 0),
+    bombNine: jspb.Message.getFieldWithDefault(msg, 26, 0),
+    bombTen: jspb.Message.getFieldWithDefault(msg, 27, 0),
+    jokerBomb: jspb.Message.getFieldWithDefault(msg, 28, 0)
   };
 
   if (includeInstance) {
@@ -790,6 +799,42 @@ proto.holdem.pb.RoomInfoGD.deserializeBinaryFromReader = function(msg, reader) {
     case 19:
       var value = /** @type {!proto.holdem.pb.Def.RoomMode} */ (reader.readEnum());
       msg.setMode(value);
+      break;
+    case 20:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBombFour(value);
+      break;
+    case 21:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBombFive(value);
+      break;
+    case 22:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setStraightFlush(value);
+      break;
+    case 23:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBombSix(value);
+      break;
+    case 24:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBombSeven(value);
+      break;
+    case 25:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBombEight(value);
+      break;
+    case 26:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBombNine(value);
+      break;
+    case 27:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBombTen(value);
+      break;
+    case 28:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setJokerBomb(value);
       break;
     default:
       reader.skipField();
@@ -950,6 +995,69 @@ proto.holdem.pb.RoomInfoGD.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       19,
+      f
+    );
+  }
+  f = message.getBombFour();
+  if (f !== 0) {
+    writer.writeUint32(
+      20,
+      f
+    );
+  }
+  f = message.getBombFive();
+  if (f !== 0) {
+    writer.writeUint32(
+      21,
+      f
+    );
+  }
+  f = message.getStraightFlush();
+  if (f !== 0) {
+    writer.writeUint32(
+      22,
+      f
+    );
+  }
+  f = message.getBombSix();
+  if (f !== 0) {
+    writer.writeUint32(
+      23,
+      f
+    );
+  }
+  f = message.getBombSeven();
+  if (f !== 0) {
+    writer.writeUint32(
+      24,
+      f
+    );
+  }
+  f = message.getBombEight();
+  if (f !== 0) {
+    writer.writeUint32(
+      25,
+      f
+    );
+  }
+  f = message.getBombNine();
+  if (f !== 0) {
+    writer.writeUint32(
+      26,
+      f
+    );
+  }
+  f = message.getBombTen();
+  if (f !== 0) {
+    writer.writeUint32(
+      27,
+      f
+    );
+  }
+  f = message.getJokerBomb();
+  if (f !== 0) {
+    writer.writeUint32(
+      28,
       f
     );
   }
@@ -1244,6 +1352,141 @@ proto.holdem.pb.RoomInfoGD.prototype.getMode = function() {
 /** @param {!proto.holdem.pb.Def.RoomMode} value */
 proto.holdem.pb.RoomInfoGD.prototype.setMode = function(value) {
   jspb.Message.setField(this, 19, value);
+};
+
+
+/**
+ * optional uint32 bomb_four = 20;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoGD.prototype.getBombFour = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoGD.prototype.setBombFour = function(value) {
+  jspb.Message.setField(this, 20, value);
+};
+
+
+/**
+ * optional uint32 bomb_five = 21;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoGD.prototype.getBombFive = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoGD.prototype.setBombFive = function(value) {
+  jspb.Message.setField(this, 21, value);
+};
+
+
+/**
+ * optional uint32 straight_flush = 22;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoGD.prototype.getStraightFlush = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 22, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoGD.prototype.setStraightFlush = function(value) {
+  jspb.Message.setField(this, 22, value);
+};
+
+
+/**
+ * optional uint32 bomb_six = 23;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoGD.prototype.getBombSix = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 23, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoGD.prototype.setBombSix = function(value) {
+  jspb.Message.setField(this, 23, value);
+};
+
+
+/**
+ * optional uint32 bomb_seven = 24;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoGD.prototype.getBombSeven = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 24, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoGD.prototype.setBombSeven = function(value) {
+  jspb.Message.setField(this, 24, value);
+};
+
+
+/**
+ * optional uint32 bomb_eight = 25;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoGD.prototype.getBombEight = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 25, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoGD.prototype.setBombEight = function(value) {
+  jspb.Message.setField(this, 25, value);
+};
+
+
+/**
+ * optional uint32 bomb_nine = 26;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoGD.prototype.getBombNine = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 26, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoGD.prototype.setBombNine = function(value) {
+  jspb.Message.setField(this, 26, value);
+};
+
+
+/**
+ * optional uint32 bomb_ten = 27;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoGD.prototype.getBombTen = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 27, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoGD.prototype.setBombTen = function(value) {
+  jspb.Message.setField(this, 27, value);
+};
+
+
+/**
+ * optional uint32 joker_bomb = 28;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoGD.prototype.getJokerBomb = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 28, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoGD.prototype.setJokerBomb = function(value) {
+  jspb.Message.setField(this, 28, value);
 };
 
 
