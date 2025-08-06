@@ -14703,7 +14703,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     bombDoubleType: jspb.Message.getFieldWithDefault(msg, 168, 0),
     bombSixBeginReward: jspb.Message.getFieldWithDefault(msg, 169, 0),
     passAceThreeTime: jspb.Message.getFieldWithDefault(msg, 170, 0),
-    doubleLowLevelUpType: jspb.Message.getFieldWithDefault(msg, 171, 0)
+    doubleLowLevelUpType: jspb.Message.getFieldWithDefault(msg, 171, 0),
+    squidLeaveMode: jspb.Message.getFieldWithDefault(msg, 172, 0)
   };
 
   if (includeInstance) {
@@ -15426,6 +15427,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 171:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setDoubleLowLevelUpType(value);
+      break;
+    case 172:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidLeaveMode(value);
       break;
     default:
       reader.skipField();
@@ -16647,6 +16652,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       171,
+      f
+    );
+  }
+  f = message.getSquidLeaveMode();
+  if (f !== 0) {
+    writer.writeInt32(
+      172,
       f
     );
   }
@@ -19358,6 +19370,21 @@ proto.holdem.pb.RoomRecord.prototype.getDoubleLowLevelUpType = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setDoubleLowLevelUpType = function(value) {
   jspb.Message.setField(this, 171, value);
+};
+
+
+/**
+ * optional int32 squid_leave_mode = 172;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSquidLeaveMode = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 172, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSquidLeaveMode = function(value) {
+  jspb.Message.setField(this, 172, value);
 };
 
 

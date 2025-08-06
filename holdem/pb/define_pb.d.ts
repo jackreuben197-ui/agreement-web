@@ -2812,6 +2812,9 @@ export class RoomRecord extends jspb.Message {
   getDoubleLowLevelUpType(): number;
   setDoubleLowLevelUpType(value: number): void;
 
+  getSquidLeaveMode(): number;
+  setSquidLeaveMode(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -2993,6 +2996,7 @@ export namespace RoomRecord {
     bombSixBeginReward: number,
     passAceThreeTime: number,
     doubleLowLevelUpType: number,
+    squidLeaveMode: number,
   }
 }
 
