@@ -251,7 +251,8 @@ proto.holdem.pb.ServerMessageStandupActive.toObject = function(includeInstance, 
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
     seatId: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    chips: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    chips: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    willStandup: jspb.Message.getFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -299,6 +300,10 @@ proto.holdem.pb.ServerMessageStandupActive.deserializeBinaryFromReader = functio
     case 3:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setChips(value);
+      break;
+    case 4:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setWillStandup(value);
       break;
     default:
       reader.skipField();
@@ -350,6 +355,13 @@ proto.holdem.pb.ServerMessageStandupActive.serializeBinaryToWriter = function(me
       f
     );
   }
+  f = message.getWillStandup();
+  if (f) {
+    writer.writeBool(
+      4,
+      f
+    );
+  }
 };
 
 
@@ -395,6 +407,23 @@ proto.holdem.pb.ServerMessageStandupActive.prototype.getChips = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageStandupActive.prototype.setChips = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional bool will_standup = 4;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ServerMessageStandupActive.prototype.getWillStandup = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 4, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ServerMessageStandupActive.prototype.setWillStandup = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

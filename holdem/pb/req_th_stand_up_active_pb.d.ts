@@ -40,6 +40,9 @@ export class ServerMessageStandupActive extends jspb.Message {
   getChips(): number;
   setChips(value: number): void;
 
+  getWillStandup(): boolean;
+  setWillStandup(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageStandupActive.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageStandupActive): ServerMessageStandupActive.AsObject;
@@ -55,6 +58,7 @@ export namespace ServerMessageStandupActive {
     status: number,
     seatId: number,
     chips: number,
+    willStandup: boolean,
   }
 }
 
