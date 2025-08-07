@@ -4845,7 +4845,8 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     lastStoreHandNum: jspb.Message.getFieldWithDefault(msg, 25, 0),
     wantSeat: jspb.Message.getFieldWithDefault(msg, 26, 0),
     alreadySeated: jspb.Message.getFieldWithDefault(msg, 27, false),
-    squidRoundSeated: jspb.Message.getFieldWithDefault(msg, 28, false)
+    squidRoundSeated: jspb.Message.getFieldWithDefault(msg, 28, false),
+    willStandup: jspb.Message.getFieldWithDefault(msg, 29, false)
   };
 
   if (includeInstance) {
@@ -4993,6 +4994,10 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 28:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setSquidRoundSeated(value);
+      break;
+    case 29:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setWillStandup(value);
       break;
     default:
       reader.skipField();
@@ -5216,6 +5221,13 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       28,
+      f
+    );
+  }
+  f = message.getWillStandup();
+  if (f) {
+    writer.writeBool(
+      29,
       f
     );
   }
@@ -5651,6 +5663,23 @@ proto.holdem.pb.MyGameInfo.prototype.getSquidRoundSeated = function() {
 /** @param {boolean} value */
 proto.holdem.pb.MyGameInfo.prototype.setSquidRoundSeated = function(value) {
   jspb.Message.setField(this, 28, value);
+};
+
+
+/**
+ * optional bool will_standup = 29;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getWillStandup = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 29, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.MyGameInfo.prototype.setWillStandup = function(value) {
+  jspb.Message.setField(this, 29, value);
 };
 
 

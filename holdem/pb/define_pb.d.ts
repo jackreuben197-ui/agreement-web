@@ -987,6 +987,9 @@ export class MyGameInfo extends jspb.Message {
   getSquidRoundSeated(): boolean;
   setSquidRoundSeated(value: boolean): void;
 
+  getWillStandup(): boolean;
+  setWillStandup(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfo.AsObject;
   static toObject(includeInstance: boolean, msg: MyGameInfo): MyGameInfo.AsObject;
@@ -1027,6 +1030,7 @@ export namespace MyGameInfo {
     wantSeat: Def.WantSeatTypeMap[keyof Def.WantSeatTypeMap],
     alreadySeated: boolean,
     squidRoundSeated: boolean,
+    willStandup: boolean,
   }
 }
 

@@ -10,6 +10,9 @@ export class ClientMessageStandupActive extends jspb.Message {
   getRoom(): protobuf_holdem_define_pb.Room | undefined;
   setRoom(value?: protobuf_holdem_define_pb.Room): void;
 
+  getCancelStandup(): boolean;
+  setCancelStandup(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageStandupActive.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageStandupActive): ClientMessageStandupActive.AsObject;
@@ -23,6 +26,7 @@ export class ClientMessageStandupActive extends jspb.Message {
 export namespace ClientMessageStandupActive {
   export type AsObject = {
     room?: protobuf_holdem_define_pb.Room.AsObject,
+    cancelStandup: boolean,
   }
 }
 
@@ -35,6 +39,9 @@ export class ServerMessageStandupActive extends jspb.Message {
 
   getChips(): number;
   setChips(value: number): void;
+
+  getWillStandup(): boolean;
+  setWillStandup(value: boolean): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageStandupActive.AsObject;
@@ -51,6 +58,7 @@ export namespace ServerMessageStandupActive {
     status: number,
     seatId: number,
     chips: number,
+    willStandup: boolean,
   }
 }
 
