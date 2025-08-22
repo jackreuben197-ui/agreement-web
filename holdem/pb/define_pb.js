@@ -14734,7 +14734,8 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     passAceThreeTime: jspb.Message.getFieldWithDefault(msg, 170, 0),
     doubleLowLevelUpType: jspb.Message.getFieldWithDefault(msg, 171, 0),
     squidLeaveMode: jspb.Message.getFieldWithDefault(msg, 172, 0),
-    powerSaving: jspb.Message.getFieldWithDefault(msg, 173, 0)
+    powerSaving: jspb.Message.getFieldWithDefault(msg, 173, 0),
+    squidPlayerCount: jspb.Message.getFieldWithDefault(msg, 174, 0)
   };
 
   if (includeInstance) {
@@ -15465,6 +15466,10 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 173:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPowerSaving(value);
+      break;
+    case 174:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSquidPlayerCount(value);
       break;
     default:
       reader.skipField();
@@ -16700,6 +16705,13 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       173,
+      f
+    );
+  }
+  f = message.getSquidPlayerCount();
+  if (f !== 0) {
+    writer.writeInt32(
+      174,
       f
     );
   }
@@ -19441,6 +19453,21 @@ proto.holdem.pb.RoomRecord.prototype.getPowerSaving = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setPowerSaving = function(value) {
   jspb.Message.setField(this, 173, value);
+};
+
+
+/**
+ * optional int32 squid_player_count = 174;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getSquidPlayerCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 174, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setSquidPlayerCount = function(value) {
+  jspb.Message.setField(this, 174, value);
 };
 
 

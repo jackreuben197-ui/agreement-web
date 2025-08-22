@@ -2822,6 +2822,9 @@ export class RoomRecord extends jspb.Message {
   getPowerSaving(): number;
   setPowerSaving(value: number): void;
 
+  getSquidPlayerCount(): number;
+  setSquidPlayerCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -3005,6 +3008,7 @@ export namespace RoomRecord {
     doubleLowLevelUpType: number,
     squidLeaveMode: number,
     powerSaving: number,
+    squidPlayerCount: number,
   }
 }
 
