@@ -72,7 +72,8 @@ proto.holdem.pb.ServerMessageSupportMessage.toObject = function(includeInstance,
     localTime: jspb.Message.getFieldWithDefault(msg, 11, 0),
     timeToken: jspb.Message.getFieldWithDefault(msg, 12, 0),
     userSend: jspb.Message.getFieldWithDefault(msg, 13, false),
-    supportUserId: jspb.Message.getFieldWithDefault(msg, 14, 0)
+    supportUserId: jspb.Message.getFieldWithDefault(msg, 14, 0),
+    imServiceType: jspb.Message.getFieldWithDefault(msg, 15, 0)
   };
 
   if (includeInstance) {
@@ -164,6 +165,10 @@ proto.holdem.pb.ServerMessageSupportMessage.deserializeBinaryFromReader = functi
     case 14:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setSupportUserId(value);
+      break;
+    case 15:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setImServiceType(value);
       break;
     default:
       reader.skipField();
@@ -289,6 +294,13 @@ proto.holdem.pb.ServerMessageSupportMessage.serializeBinaryToWriter = function(m
   if (f !== 0) {
     writer.writeUint64(
       14,
+      f
+    );
+  }
+  f = message.getImServiceType();
+  if (f !== 0) {
+    writer.writeInt32(
+      15,
       f
     );
   }
@@ -504,6 +516,21 @@ proto.holdem.pb.ServerMessageSupportMessage.prototype.getSupportUserId = functio
 /** @param {number} value */
 proto.holdem.pb.ServerMessageSupportMessage.prototype.setSupportUserId = function(value) {
   jspb.Message.setField(this, 14, value);
+};
+
+
+/**
+ * optional int32 im_service_type = 15;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSupportMessage.prototype.getImServiceType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 15, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSupportMessage.prototype.setImServiceType = function(value) {
+  jspb.Message.setField(this, 15, value);
 };
 
 
