@@ -269,6 +269,7 @@ export namespace Def {
     IM_NORMAL: 0;
     IM_WPK: 1;
     IM_EV: 2;
+    IM_NEW_NORMAL: 3;
   }
 
   export const IsuranceMode: IsuranceModeMap;
