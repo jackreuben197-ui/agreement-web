@@ -62,7 +62,8 @@ proto.holdem.pb.ClientMessageStandupActive.prototype.toObject = function(opt_inc
 proto.holdem.pb.ClientMessageStandupActive.toObject = function(includeInstance, msg) {
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
-    cancelStandup: jspb.Message.getFieldWithDefault(msg, 2, false)
+    cancelStandup: jspb.Message.getFieldWithDefault(msg, 2, false),
+    manualChangeRoom: jspb.Message.getFieldWithDefault(msg, 3, false)
   };
 
   if (includeInstance) {
@@ -108,6 +109,10 @@ proto.holdem.pb.ClientMessageStandupActive.deserializeBinaryFromReader = functio
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setCancelStandup(value);
       break;
+    case 3:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setManualChangeRoom(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -149,6 +154,13 @@ proto.holdem.pb.ClientMessageStandupActive.serializeBinaryToWriter = function(me
   if (f) {
     writer.writeBool(
       2,
+      f
+    );
+  }
+  f = message.getManualChangeRoom();
+  if (f) {
+    writer.writeBool(
+      3,
       f
     );
   }
@@ -199,6 +211,23 @@ proto.holdem.pb.ClientMessageStandupActive.prototype.getCancelStandup = function
 /** @param {boolean} value */
 proto.holdem.pb.ClientMessageStandupActive.prototype.setCancelStandup = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional bool manual_change_room = 3;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ClientMessageStandupActive.prototype.getManualChangeRoom = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 3, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ClientMessageStandupActive.prototype.setManualChangeRoom = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 

@@ -13,6 +13,9 @@ export class ClientMessageStandupActive extends jspb.Message {
   getCancelStandup(): boolean;
   setCancelStandup(value: boolean): void;
 
+  getManualChangeRoom(): boolean;
+  setManualChangeRoom(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageStandupActive.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageStandupActive): ClientMessageStandupActive.AsObject;
@@ -27,6 +30,7 @@ export namespace ClientMessageStandupActive {
   export type AsObject = {
     room?: protobuf_holdem_define_pb.Room.AsObject,
     cancelStandup: boolean,
+    manualChangeRoom: boolean,
   }
 }
 

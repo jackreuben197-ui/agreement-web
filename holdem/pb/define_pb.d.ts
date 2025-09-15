@@ -94,6 +94,7 @@ export namespace Def {
     SUR_KEEPSEAT_TIMEOUT: 7;
     SUR_ACTIVE_LEAVE: 8;
     SUR_AUTO_CHANGE_ROOM: 9;
+    SUR_MANUAL_CHANGE_ROOM: 10;
   }
 
   export const StandUpReason: StandUpReasonMap;
