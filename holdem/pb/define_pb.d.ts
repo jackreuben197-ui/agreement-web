@@ -3623,6 +3623,15 @@ export class MTTRecord extends jspb.Message {
   getChatType(): number;
   setChatType(value: number): void;
 
+  getForceVideoTimingReorg(): number;
+  setForceVideoTimingReorg(value: number): void;
+
+  getForceVideoTimingUpBlind(): number;
+  setForceVideoTimingUpBlind(value: number): void;
+
+  getForceVideoTimingUpBlindTimes(): number;
+  setForceVideoTimingUpBlindTimes(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
   static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
@@ -3753,6 +3762,9 @@ export namespace MTTRecord {
     forceVideoStartTime: number,
     forceCloseTime: number,
     chatType: number,
+    forceVideoTimingReorg: number,
+    forceVideoTimingUpBlind: number,
+    forceVideoTimingUpBlindTimes: number,
   }
 }
 
