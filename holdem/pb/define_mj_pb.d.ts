@@ -706,6 +706,9 @@ export class PlayerMJ extends jspb.Message {
   getIsOffline(): boolean;
   setIsOffline(value: boolean): void;
 
+  getIpAddr(): string;
+  setIpAddr(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -753,6 +756,7 @@ export namespace PlayerMJ {
     loseAll: boolean,
     needBringInDeadline: number,
     isOffline: boolean,
+    ipAddr: string,
   }
 }
 

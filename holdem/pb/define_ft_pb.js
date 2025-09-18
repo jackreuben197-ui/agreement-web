@@ -1652,7 +1652,8 @@ proto.holdem.pb.PlayerFT.toObject = function(includeInstance, msg) {
     fantasyConNum: jspb.Message.getFieldWithDefault(msg, 17, 0),
     userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 18, 0),
     groupConfirm: jspb.Message.getFieldWithDefault(msg, 19, false),
-    pairConfirm: jspb.Message.getFieldWithDefault(msg, 20, false)
+    pairConfirm: jspb.Message.getFieldWithDefault(msg, 20, false),
+    ipAddr: jspb.Message.getFieldWithDefault(msg, 21, "")
   };
 
   if (includeInstance) {
@@ -1769,6 +1770,10 @@ proto.holdem.pb.PlayerFT.deserializeBinaryFromReader = function(msg, reader) {
     case 20:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setPairConfirm(value);
+      break;
+    case 21:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setIpAddr(value);
       break;
     default:
       reader.skipField();
@@ -1937,6 +1942,13 @@ proto.holdem.pb.PlayerFT.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       20,
+      f
+    );
+  }
+  f = message.getIpAddr();
+  if (f.length > 0) {
+    writer.writeString(
+      21,
       f
     );
   }
@@ -2292,6 +2304,21 @@ proto.holdem.pb.PlayerFT.prototype.getPairConfirm = function() {
 /** @param {boolean} value */
 proto.holdem.pb.PlayerFT.prototype.setPairConfirm = function(value) {
   jspb.Message.setField(this, 20, value);
+};
+
+
+/**
+ * optional string ip_addr = 21;
+ * @return {string}
+ */
+proto.holdem.pb.PlayerFT.prototype.getIpAddr = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 21, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.PlayerFT.prototype.setIpAddr = function(value) {
+  jspb.Message.setField(this, 21, value);
 };
 
 

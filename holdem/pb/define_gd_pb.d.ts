@@ -421,6 +421,9 @@ export class PlayerGD extends jspb.Message {
   getGold(): number;
   setGold(value: number): void;
 
+  getIpAddr(): string;
+  setIpAddr(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerGD.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerGD): PlayerGD.AsObject;
@@ -456,6 +459,7 @@ export namespace PlayerGD {
     lastAction: DefGD.ActionGdMap[keyof DefGD.ActionGdMap],
     lastDiscard?: ValidCards.AsObject,
     gold: number,
+    ipAddr: string,
   }
 }
 

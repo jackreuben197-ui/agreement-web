@@ -3178,7 +3178,8 @@ proto.holdem.pb.PlayerMJ.toObject = function(includeInstance, msg) {
     needBringIn: jspb.Message.getFieldWithDefault(msg, 38, false),
     loseAll: jspb.Message.getFieldWithDefault(msg, 39, false),
     needBringInDeadline: jspb.Message.getFieldWithDefault(msg, 40, 0),
-    isOffline: jspb.Message.getFieldWithDefault(msg, 41, false)
+    isOffline: jspb.Message.getFieldWithDefault(msg, 41, false),
+    ipAddr: jspb.Message.getFieldWithDefault(msg, 42, "")
   };
 
   if (includeInstance) {
@@ -3360,6 +3361,10 @@ proto.holdem.pb.PlayerMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 41:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsOffline(value);
+      break;
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setIpAddr(value);
       break;
     default:
       reader.skipField();
@@ -3638,6 +3643,13 @@ proto.holdem.pb.PlayerMJ.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       41,
+      f
+    );
+  }
+  f = message.getIpAddr();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
       f
     );
   }
@@ -4355,6 +4367,21 @@ proto.holdem.pb.PlayerMJ.prototype.getIsOffline = function() {
 /** @param {boolean} value */
 proto.holdem.pb.PlayerMJ.prototype.setIsOffline = function(value) {
   jspb.Message.setField(this, 41, value);
+};
+
+
+/**
+ * optional string ip_addr = 42;
+ * @return {string}
+ */
+proto.holdem.pb.PlayerMJ.prototype.getIpAddr = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.PlayerMJ.prototype.setIpAddr = function(value) {
+  jspb.Message.setField(this, 42, value);
 };
 
 

@@ -75,7 +75,8 @@ proto.holdem.pb.ServerMessageSeatedOthers.toObject = function(includeInstance, m
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 14, 0),
     deposit: jspb.Message.getFieldWithDefault(msg, 15, 0),
     squidIn: jspb.Message.getFieldWithDefault(msg, 17, false),
-    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 18, 0)
+    userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    ipAddr: jspb.Message.getFieldWithDefault(msg, 19, "")
   };
 
   if (includeInstance) {
@@ -179,6 +180,10 @@ proto.holdem.pb.ServerMessageSeatedOthers.deserializeBinaryFromReader = function
     case 18:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setUserSubscriptionId(value);
+      break;
+    case 19:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setIpAddr(value);
       break;
     default:
       reader.skipField();
@@ -325,6 +330,13 @@ proto.holdem.pb.ServerMessageSeatedOthers.serializeBinaryToWriter = function(mes
   if (f !== 0) {
     writer.writeUint64(
       18,
+      f
+    );
+  }
+  f = message.getIpAddr();
+  if (f.length > 0) {
+    writer.writeString(
+      19,
       f
     );
   }
@@ -585,6 +597,21 @@ proto.holdem.pb.ServerMessageSeatedOthers.prototype.getUserSubscriptionId = func
 /** @param {number} value */
 proto.holdem.pb.ServerMessageSeatedOthers.prototype.setUserSubscriptionId = function(value) {
   jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * optional string ip_addr = 19;
+ * @return {string}
+ */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.getIpAddr = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 19, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.ServerMessageSeatedOthers.prototype.setIpAddr = function(value) {
+  jspb.Message.setField(this, 19, value);
 };
 
 

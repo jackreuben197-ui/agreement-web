@@ -2244,7 +2244,8 @@ proto.holdem.pb.PlayerGD.toObject = function(includeInstance, msg) {
     readyStart: jspb.Message.getFieldWithDefault(msg, 20, false),
     lastAction: jspb.Message.getFieldWithDefault(msg, 21, 0),
     lastDiscard: (f = msg.getLastDiscard()) && proto.holdem.pb.ValidCards.toObject(includeInstance, f),
-    gold: jspb.Message.getFieldWithDefault(msg, 23, 0)
+    gold: jspb.Message.getFieldWithDefault(msg, 23, 0),
+    ipAddr: jspb.Message.getFieldWithDefault(msg, 24, "")
   };
 
   if (includeInstance) {
@@ -2375,6 +2376,10 @@ proto.holdem.pb.PlayerGD.deserializeBinaryFromReader = function(msg, reader) {
     case 23:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setGold(value);
+      break;
+    case 24:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setIpAddr(value);
       break;
     default:
       reader.skipField();
@@ -2566,6 +2571,13 @@ proto.holdem.pb.PlayerGD.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       23,
+      f
+    );
+  }
+  f = message.getIpAddr();
+  if (f.length > 0) {
+    writer.writeString(
+      24,
       f
     );
   }
@@ -2966,6 +2978,21 @@ proto.holdem.pb.PlayerGD.prototype.getGold = function() {
 /** @param {number} value */
 proto.holdem.pb.PlayerGD.prototype.setGold = function(value) {
   jspb.Message.setField(this, 23, value);
+};
+
+
+/**
+ * optional string ip_addr = 24;
+ * @return {string}
+ */
+proto.holdem.pb.PlayerGD.prototype.getIpAddr = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 24, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.PlayerGD.prototype.setIpAddr = function(value) {
+  jspb.Message.setField(this, 24, value);
 };
 
 
