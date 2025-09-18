@@ -1556,6 +1556,9 @@ export class Player extends jspb.Message {
   getInSquid(): boolean;
   setInSquid(value: boolean): void;
 
+  getIpAddr(): string;
+  setIpAddr(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Player.AsObject;
   static toObject(includeInstance: boolean, msg: Player): Player.AsObject;
@@ -1599,6 +1602,7 @@ export namespace Player {
     userSubscriptionId: number,
     squidCount: number,
     inSquid: boolean,
+    ipAddr: string,
   }
 }
 
@@ -1985,6 +1989,9 @@ export class Roomer extends jspb.Message {
   getIsOnline(): boolean;
   setIsOnline(value: boolean): void;
 
+  getIpAddr(): string;
+  setIpAddr(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Roomer.AsObject;
   static toObject(includeInstance: boolean, msg: Roomer): Roomer.AsObject;
@@ -2003,6 +2010,7 @@ export namespace Roomer {
     sex: number,
     vip: number,
     isOnline: boolean,
+    ipAddr: string,
   }
 }
 
@@ -2070,6 +2078,9 @@ export class PlayerSummary extends jspb.Message {
   getDeposit(): number;
   setDeposit(value: number): void;
 
+  getIpAddr(): string;
+  setIpAddr(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerSummary.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerSummary): PlayerSummary.AsObject;
@@ -2103,6 +2114,7 @@ export namespace PlayerSummary {
     squidCount: number,
     squidPunishTotal: number,
     deposit: number,
+    ipAddr: string,
   }
 }
 
