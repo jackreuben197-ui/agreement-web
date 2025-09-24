@@ -7,6 +7,12 @@ export class ServerMessageUserDiamondChange extends jspb.Message {
   getUserId(): number;
   setUserId(value: number): void;
 
+  getDiamonds(): number;
+  setDiamonds(value: number): void;
+
+  getDiamondsLock(): number;
+  setDiamondsLock(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserDiamondChange.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserDiamondChange): ServerMessageUserDiamondChange.AsObject;
@@ -20,6 +26,8 @@ export class ServerMessageUserDiamondChange extends jspb.Message {
 export namespace ServerMessageUserDiamondChange {
   export type AsObject = {
     userId: number,
+    diamonds: number,
+    diamondsLock: number,
   }
 }
 

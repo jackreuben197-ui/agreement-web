@@ -59,7 +59,9 @@ proto.holdem.pb.ServerMessageUserDiamondChange.prototype.toObject = function(opt
  */
 proto.holdem.pb.ServerMessageUserDiamondChange.toObject = function(includeInstance, msg) {
   var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    userId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    diamonds: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    diamondsLock: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -100,6 +102,14 @@ proto.holdem.pb.ServerMessageUserDiamondChange.deserializeBinaryFromReader = fun
       var value = /** @type {number} */ (reader.readUint64());
       msg.setUserId(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setDiamonds(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setDiamondsLock(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -136,6 +146,20 @@ proto.holdem.pb.ServerMessageUserDiamondChange.serializeBinaryToWriter = functio
       f
     );
   }
+  f = message.getDiamonds();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
+  f = message.getDiamondsLock();
+  if (f !== 0) {
+    writer.writeInt64(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -151,6 +175,36 @@ proto.holdem.pb.ServerMessageUserDiamondChange.prototype.getUserId = function() 
 /** @param {number} value */
 proto.holdem.pb.ServerMessageUserDiamondChange.prototype.setUserId = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional int64 diamonds = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUserDiamondChange.prototype.getDiamonds = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUserDiamondChange.prototype.setDiamonds = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional int64 diamonds_lock = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUserDiamondChange.prototype.getDiamondsLock = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUserDiamondChange.prototype.setDiamondsLock = function(value) {
+  jspb.Message.setField(this, 3, value);
 };
 
 
