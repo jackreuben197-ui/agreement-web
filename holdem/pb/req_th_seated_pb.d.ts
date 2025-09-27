@@ -117,6 +117,9 @@ export class ServerMessageSeated extends jspb.Message {
   getSquidRoundSeated(): boolean;
   setSquidRoundSeated(value: boolean): void;
 
+  getVideoMaskId(): number;
+  setVideoMaskId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageSeated.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageSeated): ServerMessageSeated.AsObject;
@@ -143,6 +146,7 @@ export namespace ServerMessageSeated {
     squidTotalLimit: number,
     alreadySeated: boolean,
     squidRoundSeated: boolean,
+    videoMaskId: number,
   }
 }
 
