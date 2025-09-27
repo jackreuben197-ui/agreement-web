@@ -70,7 +70,8 @@ proto.holdem.pb.ServerMessageGdSeatedOthers.toObject = function(includeInstance,
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 9, 0),
     userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 10, 0),
     gold: jspb.Message.getFieldWithDefault(msg, 11, 0),
-    ipAddr: jspb.Message.getFieldWithDefault(msg, 12, "")
+    ipAddr: jspb.Message.getFieldWithDefault(msg, 12, ""),
+    videoMaskId: jspb.Message.getFieldWithDefault(msg, 13, 0)
   };
 
   if (includeInstance) {
@@ -154,6 +155,10 @@ proto.holdem.pb.ServerMessageGdSeatedOthers.deserializeBinaryFromReader = functi
     case 12:
       var value = /** @type {string} */ (reader.readString());
       msg.setIpAddr(value);
+      break;
+    case 13:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setVideoMaskId(value);
       break;
     default:
       reader.skipField();
@@ -265,6 +270,13 @@ proto.holdem.pb.ServerMessageGdSeatedOthers.serializeBinaryToWriter = function(m
   if (f.length > 0) {
     writer.writeString(
       12,
+      f
+    );
+  }
+  f = message.getVideoMaskId();
+  if (f !== 0) {
+    writer.writeUint64(
+      13,
       f
     );
   }
@@ -448,6 +460,21 @@ proto.holdem.pb.ServerMessageGdSeatedOthers.prototype.getIpAddr = function() {
 /** @param {string} value */
 proto.holdem.pb.ServerMessageGdSeatedOthers.prototype.setIpAddr = function(value) {
   jspb.Message.setField(this, 12, value);
+};
+
+
+/**
+ * optional uint64 video_mask_id = 13;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageGdSeatedOthers.prototype.getVideoMaskId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageGdSeatedOthers.prototype.setVideoMaskId = function(value) {
+  jspb.Message.setField(this, 13, value);
 };
 
 

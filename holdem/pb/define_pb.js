@@ -8752,7 +8752,8 @@ proto.holdem.pb.Player.toObject = function(includeInstance, msg) {
     userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 30, 0),
     squidCount: jspb.Message.getFieldWithDefault(msg, 31, 0),
     inSquid: jspb.Message.getFieldWithDefault(msg, 32, false),
-    ipAddr: jspb.Message.getFieldWithDefault(msg, 33, "")
+    ipAddr: jspb.Message.getFieldWithDefault(msg, 33, ""),
+    videoMaskId: jspb.Message.getFieldWithDefault(msg, 34, 0)
   };
 
   if (includeInstance) {
@@ -8918,6 +8919,10 @@ proto.holdem.pb.Player.deserializeBinaryFromReader = function(msg, reader) {
     case 33:
       var value = /** @type {string} */ (reader.readString());
       msg.setIpAddr(value);
+      break;
+    case 34:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setVideoMaskId(value);
       break;
     default:
       reader.skipField();
@@ -9171,6 +9176,13 @@ proto.holdem.pb.Player.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       33,
+      f
+    );
+  }
+  f = message.getVideoMaskId();
+  if (f !== 0) {
+    writer.writeUint64(
+      34,
       f
     );
   }
@@ -9709,6 +9721,21 @@ proto.holdem.pb.Player.prototype.getIpAddr = function() {
 /** @param {string} value */
 proto.holdem.pb.Player.prototype.setIpAddr = function(value) {
   jspb.Message.setField(this, 33, value);
+};
+
+
+/**
+ * optional uint64 video_mask_id = 34;
+ * @return {number}
+ */
+proto.holdem.pb.Player.prototype.getVideoMaskId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 34, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Player.prototype.setVideoMaskId = function(value) {
+  jspb.Message.setField(this, 34, value);
 };
 
 

@@ -296,6 +296,9 @@ export class PlayerFT extends jspb.Message {
   getIpAddr(): string;
   setIpAddr(value: string): void;
 
+  getVideoMaskId(): number;
+  setVideoMaskId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerFT.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerFT): PlayerFT.AsObject;
@@ -329,6 +332,7 @@ export namespace PlayerFT {
     groupConfirm: boolean,
     pairConfirm: boolean,
     ipAddr: string,
+    videoMaskId: number,
   }
 }
 

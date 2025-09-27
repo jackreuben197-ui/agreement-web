@@ -709,6 +709,9 @@ export class PlayerMJ extends jspb.Message {
   getIpAddr(): string;
   setIpAddr(value: string): void;
 
+  getVideoMaskId(): number;
+  setVideoMaskId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerMJ.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerMJ): PlayerMJ.AsObject;
@@ -757,6 +760,7 @@ export namespace PlayerMJ {
     needBringInDeadline: number,
     isOffline: boolean,
     ipAddr: string,
+    videoMaskId: number,
   }
 }
 

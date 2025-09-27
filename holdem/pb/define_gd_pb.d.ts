@@ -424,6 +424,9 @@ export class PlayerGD extends jspb.Message {
   getIpAddr(): string;
   setIpAddr(value: string): void;
 
+  getVideoMaskId(): number;
+  setVideoMaskId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerGD.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerGD): PlayerGD.AsObject;
@@ -460,6 +463,7 @@ export namespace PlayerGD {
     lastDiscard?: ValidCards.AsObject,
     gold: number,
     ipAddr: string,
+    videoMaskId: number,
   }
 }
 

@@ -40,6 +40,9 @@ export class ServerMessageGdSeatedOthers extends jspb.Message {
   getIpAddr(): string;
   setIpAddr(value: string): void;
 
+  getVideoMaskId(): number;
+  setVideoMaskId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageGdSeatedOthers.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageGdSeatedOthers): ServerMessageGdSeatedOthers.AsObject;
@@ -64,6 +67,7 @@ export namespace ServerMessageGdSeatedOthers {
     userSubscriptionId: number,
     gold: number,
     ipAddr: string,
+    videoMaskId: number,
   }
 }
 
