@@ -4426,3 +4426,31 @@ export namespace MyWheelInfo {
   }
 }
 
+export class BlackInfo extends jspb.Message {
+  getTribeId(): number;
+  setTribeId(value: number): void;
+
+  getTribeRid(): number;
+  setTribeRid(value: number): void;
+
+  getTribeName(): string;
+  setTribeName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): BlackInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: BlackInfo): BlackInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: BlackInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): BlackInfo;
+  static deserializeBinaryFromReader(message: BlackInfo, reader: jspb.BinaryReader): BlackInfo;
+}
+
+export namespace BlackInfo {
+  export type AsObject = {
+    tribeId: number,
+    tribeRid: number,
+    tribeName: string,
+  }
+}
+
