@@ -240,7 +240,7 @@ proto.holdem.pb.ServerMessageTribeUserRunningMtt.prototype.setTribeRid = functio
 
 
 /**
- * optional uint64 tribe_Name = 4;
+ * optional uint64 tribe_name = 4;
  * @return {number}
  */
 proto.holdem.pb.ServerMessageTribeUserRunningMtt.prototype.getTribeName = function() {
