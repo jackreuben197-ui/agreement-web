@@ -13,8 +13,8 @@ export class ServerMessageTribeUserRunningMtt extends jspb.Message {
   getTribeRid(): number;
   setTribeRid(value: number): void;
 
-  getTribeName(): number;
-  setTribeName(value: number): void;
+  getTribeName(): string;
+  setTribeName(value: string): void;
 
   clearMatchIdsList(): void;
   getMatchIdsList(): Array<number>;
@@ -36,7 +36,7 @@ export namespace ServerMessageTribeUserRunningMtt {
     userId: number,
     tribeId: number,
     tribeRid: number,
-    tribeName: number,
+    tribeName: string,
     matchIdsList: Array<number>,
   }
 }

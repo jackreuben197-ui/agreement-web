@@ -69,7 +69,7 @@ proto.holdem.pb.ServerMessageTribeUserRunningMtt.toObject = function(includeInst
     userId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     tribeId: jspb.Message.getFieldWithDefault(msg, 2, 0),
     tribeRid: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    tribeName: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    tribeName: jspb.Message.getFieldWithDefault(msg, 4, ""),
     matchIdsList: jspb.Message.getRepeatedField(msg, 5)
   };
 
@@ -120,7 +120,7 @@ proto.holdem.pb.ServerMessageTribeUserRunningMtt.deserializeBinaryFromReader = f
       msg.setTribeRid(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readUint64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setTribeName(value);
       break;
     case 5:
@@ -178,8 +178,8 @@ proto.holdem.pb.ServerMessageTribeUserRunningMtt.serializeBinaryToWriter = funct
     );
   }
   f = message.getTribeName();
-  if (f !== 0) {
-    writer.writeUint64(
+  if (f.length > 0) {
+    writer.writeString(
       4,
       f
     );
@@ -240,15 +240,15 @@ proto.holdem.pb.ServerMessageTribeUserRunningMtt.prototype.setTribeRid = functio
 
 
 /**
- * optional uint64 tribe_name = 4;
- * @return {number}
+ * optional string tribe_name = 4;
+ * @return {string}
  */
 proto.holdem.pb.ServerMessageTribeUserRunningMtt.prototype.getTribeName = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {number} value */
+/** @param {string} value */
 proto.holdem.pb.ServerMessageTribeUserRunningMtt.prototype.setTribeName = function(value) {
   jspb.Message.setField(this, 4, value);
 };
