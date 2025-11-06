@@ -3,7 +3,7 @@
 
 import * as jspb from "google-protobuf";
 
-export class ServerMessageTribeUserRunningMtt extends jspb.Message {
+export class ServerMessageTribeBlackUserRunningMtt extends jspb.Message {
   getUserId(): number;
   setUserId(value: number): void;
 
@@ -22,16 +22,16 @@ export class ServerMessageTribeUserRunningMtt extends jspb.Message {
   addMatchIds(value: number, index?: number): number;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ServerMessageTribeUserRunningMtt.AsObject;
-  static toObject(includeInstance: boolean, msg: ServerMessageTribeUserRunningMtt): ServerMessageTribeUserRunningMtt.AsObject;
+  toObject(includeInstance?: boolean): ServerMessageTribeBlackUserRunningMtt.AsObject;
+  static toObject(includeInstance: boolean, msg: ServerMessageTribeBlackUserRunningMtt): ServerMessageTribeBlackUserRunningMtt.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ServerMessageTribeUserRunningMtt, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ServerMessageTribeUserRunningMtt;
-  static deserializeBinaryFromReader(message: ServerMessageTribeUserRunningMtt, reader: jspb.BinaryReader): ServerMessageTribeUserRunningMtt;
+  static serializeBinaryToWriter(message: ServerMessageTribeBlackUserRunningMtt, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ServerMessageTribeBlackUserRunningMtt;
+  static deserializeBinaryFromReader(message: ServerMessageTribeBlackUserRunningMtt, reader: jspb.BinaryReader): ServerMessageTribeBlackUserRunningMtt;
 }
 
-export namespace ServerMessageTribeUserRunningMtt {
+export namespace ServerMessageTribeBlackUserRunningMtt {
   export type AsObject = {
     userId: number,
     tribeId: number,
