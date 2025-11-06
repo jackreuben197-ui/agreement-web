@@ -1,5 +1,5 @@
 // package: holdem.pb
-// file: protobuf/holdem/recv_g_tribe_black_user_running_mtt.proto
+// file: protobuf/holdem/recv_g_tribe_black_user_mtt.proto
 
 import * as jspb from "google-protobuf";
 
