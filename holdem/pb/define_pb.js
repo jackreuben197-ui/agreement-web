@@ -53,6 +53,7 @@ goog.exportSymbol('proto.holdem.pb.InsurancePotLimit', null, global);
 goog.exportSymbol('proto.holdem.pb.JackpotAward', null, global);
 goog.exportSymbol('proto.holdem.pb.JackpotTemplateUpdateInfo', null, global);
 goog.exportSymbol('proto.holdem.pb.Luckycards', null, global);
+goog.exportSymbol('proto.holdem.pb.MTTBlindLevelDelayTime', null, global);
 goog.exportSymbol('proto.holdem.pb.MTTInfo', null, global);
 goog.exportSymbol('proto.holdem.pb.MTTMore', null, global);
 goog.exportSymbol('proto.holdem.pb.MTTProgress', null, global);
@@ -21372,12 +21373,19 @@ proto.holdem.pb.RoomAdmin.prototype.setIsAdmin = function(value) {
  * @constructor
  */
 proto.holdem.pb.MTTRecord = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.MTTRecord.repeatedFields_, null);
 };
 goog.inherits(proto.holdem.pb.MTTRecord, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   proto.holdem.pb.MTTRecord.displayName = 'proto.holdem.pb.MTTRecord';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.MTTRecord.repeatedFields_ = [123];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -21527,7 +21535,12 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     chatType: jspb.Message.getFieldWithDefault(msg, 118, 0),
     forceVideoTimingReorg: jspb.Message.getFieldWithDefault(msg, 119, 0),
     forceVideoTimingUpBlind: jspb.Message.getFieldWithDefault(msg, 120, 0),
-    forceVideoTimingUpBlindTimes: jspb.Message.getFieldWithDefault(msg, 121, 0)
+    forceVideoTimingUpBlindTimes: jspb.Message.getFieldWithDefault(msg, 121, 0),
+    delayTimeType: jspb.Message.getFieldWithDefault(msg, 122, 0),
+    blindLevelDelayTimeTableList: jspb.Message.toObjectList(msg.getBlindLevelDelayTimeTableList(),
+    proto.holdem.pb.MTTBlindLevelDelayTime.toObject, includeInstance),
+    maxDelayTimes: jspb.Message.getFieldWithDefault(msg, 124, 0),
+    autoDelayTime: jspb.Message.getFieldWithDefault(msg, 125, 0)
   };
 
   if (includeInstance) {
@@ -22047,6 +22060,23 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 121:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setForceVideoTimingUpBlindTimes(value);
+      break;
+    case 122:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setDelayTimeType(value);
+      break;
+    case 123:
+      var value = new proto.holdem.pb.MTTBlindLevelDelayTime;
+      reader.readMessage(value,proto.holdem.pb.MTTBlindLevelDelayTime.deserializeBinaryFromReader);
+      msg.addBlindLevelDelayTimeTable(value);
+      break;
+    case 124:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMaxDelayTimes(value);
+      break;
+    case 125:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setAutoDelayTime(value);
       break;
     default:
       reader.skipField();
@@ -22921,6 +22951,35 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       121,
+      f
+    );
+  }
+  f = message.getDelayTimeType();
+  if (f !== 0) {
+    writer.writeInt32(
+      122,
+      f
+    );
+  }
+  f = message.getBlindLevelDelayTimeTableList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      123,
+      f,
+      proto.holdem.pb.MTTBlindLevelDelayTime.serializeBinaryToWriter
+    );
+  }
+  f = message.getMaxDelayTimes();
+  if (f !== 0) {
+    writer.writeUint32(
+      124,
+      f
+    );
+  }
+  f = message.getAutoDelayTime();
+  if (f !== 0) {
+    writer.writeInt32(
+      125,
       f
     );
   }
@@ -24742,6 +24801,82 @@ proto.holdem.pb.MTTRecord.prototype.setForceVideoTimingUpBlindTimes = function(v
 };
 
 
+/**
+ * optional int32 delay_time_type = 122;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getDelayTimeType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 122, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setDelayTimeType = function(value) {
+  jspb.Message.setField(this, 122, value);
+};
+
+
+/**
+ * repeated MTTBlindLevelDelayTime blind_level_delay_time_table = 123;
+ * @return {!Array.<!proto.holdem.pb.MTTBlindLevelDelayTime>}
+ */
+proto.holdem.pb.MTTRecord.prototype.getBlindLevelDelayTimeTableList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.MTTBlindLevelDelayTime>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.MTTBlindLevelDelayTime, 123));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.MTTBlindLevelDelayTime>} value */
+proto.holdem.pb.MTTRecord.prototype.setBlindLevelDelayTimeTableList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 123, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.MTTBlindLevelDelayTime=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.MTTBlindLevelDelayTime}
+ */
+proto.holdem.pb.MTTRecord.prototype.addBlindLevelDelayTimeTable = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 123, opt_value, proto.holdem.pb.MTTBlindLevelDelayTime, opt_index);
+};
+
+
+proto.holdem.pb.MTTRecord.prototype.clearBlindLevelDelayTimeTableList = function() {
+  this.setBlindLevelDelayTimeTableList([]);
+};
+
+
+/**
+ * optional uint32 max_delay_times = 124;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getMaxDelayTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 124, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setMaxDelayTimes = function(value) {
+  jspb.Message.setField(this, 124, value);
+};
+
+
+/**
+ * optional int32 auto_delay_time = 125;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getAutoDelayTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 125, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setAutoDelayTime = function(value) {
+  jspb.Message.setField(this, 125, value);
+};
+
+
 
 /**
  * Generated by JsPbCodeGenerator.
@@ -25097,7 +25232,8 @@ proto.holdem.pb.MTTUserStatus.toObject = function(includeInstance, msg) {
     chip: jspb.Message.getFieldWithDefault(msg, 2, 0),
     store: jspb.Message.getFieldWithDefault(msg, 3, 0),
     initScore: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    partialEnable: jspb.Message.getFieldWithDefault(msg, 5, false)
+    partialEnable: jspb.Message.getFieldWithDefault(msg, 5, false),
+    mttDelayTimes: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -25153,6 +25289,10 @@ proto.holdem.pb.MTTUserStatus.deserializeBinaryFromReader = function(msg, reader
     case 5:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setPartialEnable(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMttDelayTimes(value);
       break;
     default:
       reader.skipField();
@@ -25215,6 +25355,13 @@ proto.holdem.pb.MTTUserStatus.serializeBinaryToWriter = function(message, writer
   if (f) {
     writer.writeBool(
       5,
+      f
+    );
+  }
+  f = message.getMttDelayTimes();
+  if (f !== 0) {
+    writer.writeUint32(
+      6,
       f
     );
   }
@@ -25295,6 +25442,21 @@ proto.holdem.pb.MTTUserStatus.prototype.getPartialEnable = function() {
 /** @param {boolean} value */
 proto.holdem.pb.MTTUserStatus.prototype.setPartialEnable = function(value) {
   jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional uint32 mtt_delay_times = 6;
+ * @return {number}
+ */
+proto.holdem.pb.MTTUserStatus.prototype.getMttDelayTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTUserStatus.prototype.setMttDelayTimes = function(value) {
+  jspb.Message.setField(this, 6, value);
 };
 
 
@@ -29395,6 +29557,229 @@ proto.holdem.pb.BlackInfo.prototype.getTribeName = function() {
 /** @param {string} value */
 proto.holdem.pb.BlackInfo.prototype.setTribeName = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.MTTBlindLevelDelayTime, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.MTTBlindLevelDelayTime.displayName = 'proto.holdem.pb.MTTBlindLevelDelayTime';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.MTTBlindLevelDelayTime.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.MTTBlindLevelDelayTime} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    level: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    smallBlind: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    ante: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    delayTimes: jspb.Message.getFieldWithDefault(msg, 4, 0)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.MTTBlindLevelDelayTime}
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.MTTBlindLevelDelayTime;
+  return proto.holdem.pb.MTTBlindLevelDelayTime.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.MTTBlindLevelDelayTime} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.MTTBlindLevelDelayTime}
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setLevel(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setSmallBlind(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAnte(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setDelayTimes(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.MTTBlindLevelDelayTime.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.MTTBlindLevelDelayTime} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getLevel();
+  if (f !== 0) {
+    writer.writeUint32(
+      1,
+      f
+    );
+  }
+  f = message.getSmallBlind();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
+  f = message.getAnte();
+  if (f !== 0) {
+    writer.writeUint64(
+      3,
+      f
+    );
+  }
+  f = message.getDelayTimes();
+  if (f !== 0) {
+    writer.writeUint32(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint32 level = 1;
+ * @return {number}
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime.prototype.getLevel = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTBlindLevelDelayTime.prototype.setLevel = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 small_blind = 2;
+ * @return {number}
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime.prototype.getSmallBlind = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTBlindLevelDelayTime.prototype.setSmallBlind = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional uint64 ante = 3;
+ * @return {number}
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime.prototype.getAnte = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTBlindLevelDelayTime.prototype.setAnte = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional uint32 delay_times = 4;
+ * @return {number}
+ */
+proto.holdem.pb.MTTBlindLevelDelayTime.prototype.getDelayTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTBlindLevelDelayTime.prototype.setDelayTimes = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

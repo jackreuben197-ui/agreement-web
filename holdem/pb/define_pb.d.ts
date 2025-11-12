@@ -3648,6 +3648,20 @@ export class MTTRecord extends jspb.Message {
   getForceVideoTimingUpBlindTimes(): number;
   setForceVideoTimingUpBlindTimes(value: number): void;
 
+  getDelayTimeType(): number;
+  setDelayTimeType(value: number): void;
+
+  clearBlindLevelDelayTimeTableList(): void;
+  getBlindLevelDelayTimeTableList(): Array<MTTBlindLevelDelayTime>;
+  setBlindLevelDelayTimeTableList(value: Array<MTTBlindLevelDelayTime>): void;
+  addBlindLevelDelayTimeTable(value?: MTTBlindLevelDelayTime, index?: number): MTTBlindLevelDelayTime;
+
+  getMaxDelayTimes(): number;
+  setMaxDelayTimes(value: number): void;
+
+  getAutoDelayTime(): number;
+  setAutoDelayTime(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
   static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
@@ -3781,6 +3795,10 @@ export namespace MTTRecord {
     forceVideoTimingReorg: number,
     forceVideoTimingUpBlind: number,
     forceVideoTimingUpBlindTimes: number,
+    delayTimeType: number,
+    blindLevelDelayTimeTableList: Array<MTTBlindLevelDelayTime.AsObject>,
+    maxDelayTimes: number,
+    autoDelayTime: number,
   }
 }
 
@@ -3844,6 +3862,9 @@ export class MTTUserStatus extends jspb.Message {
   getPartialEnable(): boolean;
   setPartialEnable(value: boolean): void;
 
+  getMttDelayTimes(): number;
+  setMttDelayTimes(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTUserStatus.AsObject;
   static toObject(includeInstance: boolean, msg: MTTUserStatus): MTTUserStatus.AsObject;
@@ -3861,6 +3882,7 @@ export namespace MTTUserStatus {
     store: number,
     initScore: number,
     partialEnable: boolean,
+    mttDelayTimes: number,
   }
 }
 
@@ -4451,6 +4473,38 @@ export namespace BlackInfo {
     tribeId: number,
     tribeRid: number,
     tribeName: string,
+  }
+}
+
+export class MTTBlindLevelDelayTime extends jspb.Message {
+  getLevel(): number;
+  setLevel(value: number): void;
+
+  getSmallBlind(): number;
+  setSmallBlind(value: number): void;
+
+  getAnte(): number;
+  setAnte(value: number): void;
+
+  getDelayTimes(): number;
+  setDelayTimes(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MTTBlindLevelDelayTime.AsObject;
+  static toObject(includeInstance: boolean, msg: MTTBlindLevelDelayTime): MTTBlindLevelDelayTime.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MTTBlindLevelDelayTime, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MTTBlindLevelDelayTime;
+  static deserializeBinaryFromReader(message: MTTBlindLevelDelayTime, reader: jspb.BinaryReader): MTTBlindLevelDelayTime;
+}
+
+export namespace MTTBlindLevelDelayTime {
+  export type AsObject = {
+    level: number,
+    smallBlind: number,
+    ante: number,
+    delayTimes: number,
   }
 }
 
