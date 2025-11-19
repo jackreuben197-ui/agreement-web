@@ -61,7 +61,8 @@ proto.holdem.pb.ServerMessageUserOrderAudit.toObject = function(includeInstance,
   var f, obj = {
     orderNo: jspb.Message.getFieldWithDefault(msg, 1, ""),
     status: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    orderCategory: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    orderCategory: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    orderType: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -109,6 +110,10 @@ proto.holdem.pb.ServerMessageUserOrderAudit.deserializeBinaryFromReader = functi
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOrderCategory(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setOrderType(value);
       break;
     default:
       reader.skipField();
@@ -160,6 +165,13 @@ proto.holdem.pb.ServerMessageUserOrderAudit.serializeBinaryToWriter = function(m
       f
     );
   }
+  f = message.getOrderType();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
+      f
+    );
+  }
 };
 
 
@@ -205,6 +217,21 @@ proto.holdem.pb.ServerMessageUserOrderAudit.prototype.getOrderCategory = functio
 /** @param {number} value */
 proto.holdem.pb.ServerMessageUserOrderAudit.prototype.setOrderCategory = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional int32 order_type = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUserOrderAudit.prototype.getOrderType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUserOrderAudit.prototype.setOrderType = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

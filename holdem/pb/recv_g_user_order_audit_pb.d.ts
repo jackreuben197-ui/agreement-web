@@ -13,6 +13,9 @@ export class ServerMessageUserOrderAudit extends jspb.Message {
   getOrderCategory(): number;
   setOrderCategory(value: number): void;
 
+  getOrderType(): number;
+  setOrderType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserOrderAudit.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserOrderAudit): ServerMessageUserOrderAudit.AsObject;
@@ -28,6 +31,7 @@ export namespace ServerMessageUserOrderAudit {
     orderNo: string,
     status: number,
     orderCategory: number,
+    orderType: number,
   }
 }
 
