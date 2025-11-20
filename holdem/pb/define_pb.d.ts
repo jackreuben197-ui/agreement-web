@@ -992,6 +992,9 @@ export class MyGameInfo extends jspb.Message {
   getWillStandup(): boolean;
   setWillStandup(value: boolean): void;
 
+  getMttRemaindDelayTimes(): number;
+  setMttRemaindDelayTimes(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfo.AsObject;
   static toObject(includeInstance: boolean, msg: MyGameInfo): MyGameInfo.AsObject;
@@ -1033,6 +1036,7 @@ export namespace MyGameInfo {
     alreadySeated: boolean,
     squidRoundSeated: boolean,
     willStandup: boolean,
+    mttRemaindDelayTimes: number,
   }
 }
 
@@ -3862,9 +3866,6 @@ export class MTTUserStatus extends jspb.Message {
   getPartialEnable(): boolean;
   setPartialEnable(value: boolean): void;
 
-  getMttDelayTimes(): number;
-  setMttDelayTimes(value: number): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTUserStatus.AsObject;
   static toObject(includeInstance: boolean, msg: MTTUserStatus): MTTUserStatus.AsObject;
@@ -3882,7 +3883,6 @@ export namespace MTTUserStatus {
     store: number,
     initScore: number,
     partialEnable: boolean,
-    mttDelayTimes: number,
   }
 }
 

@@ -4850,7 +4850,8 @@ proto.holdem.pb.MyGameInfo.toObject = function(includeInstance, msg) {
     wantSeat: jspb.Message.getFieldWithDefault(msg, 26, 0),
     alreadySeated: jspb.Message.getFieldWithDefault(msg, 27, false),
     squidRoundSeated: jspb.Message.getFieldWithDefault(msg, 28, false),
-    willStandup: jspb.Message.getFieldWithDefault(msg, 29, false)
+    willStandup: jspb.Message.getFieldWithDefault(msg, 29, false),
+    mttRemaindDelayTimes: jspb.Message.getFieldWithDefault(msg, 30, 0)
   };
 
   if (includeInstance) {
@@ -5002,6 +5003,10 @@ proto.holdem.pb.MyGameInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 29:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setWillStandup(value);
+      break;
+    case 30:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMttRemaindDelayTimes(value);
       break;
     default:
       reader.skipField();
@@ -5232,6 +5237,13 @@ proto.holdem.pb.MyGameInfo.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       29,
+      f
+    );
+  }
+  f = message.getMttRemaindDelayTimes();
+  if (f !== 0) {
+    writer.writeUint32(
+      30,
       f
     );
   }
@@ -5684,6 +5696,21 @@ proto.holdem.pb.MyGameInfo.prototype.getWillStandup = function() {
 /** @param {boolean} value */
 proto.holdem.pb.MyGameInfo.prototype.setWillStandup = function(value) {
   jspb.Message.setField(this, 29, value);
+};
+
+
+/**
+ * optional uint32 mtt_remaind_delay_times = 30;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfo.prototype.getMttRemaindDelayTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 30, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfo.prototype.setMttRemaindDelayTimes = function(value) {
+  jspb.Message.setField(this, 30, value);
 };
 
 
@@ -25232,8 +25259,7 @@ proto.holdem.pb.MTTUserStatus.toObject = function(includeInstance, msg) {
     chip: jspb.Message.getFieldWithDefault(msg, 2, 0),
     store: jspb.Message.getFieldWithDefault(msg, 3, 0),
     initScore: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    partialEnable: jspb.Message.getFieldWithDefault(msg, 5, false),
-    mttDelayTimes: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    partialEnable: jspb.Message.getFieldWithDefault(msg, 5, false)
   };
 
   if (includeInstance) {
@@ -25289,10 +25315,6 @@ proto.holdem.pb.MTTUserStatus.deserializeBinaryFromReader = function(msg, reader
     case 5:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setPartialEnable(value);
-      break;
-    case 6:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setMttDelayTimes(value);
       break;
     default:
       reader.skipField();
@@ -25355,13 +25377,6 @@ proto.holdem.pb.MTTUserStatus.serializeBinaryToWriter = function(message, writer
   if (f) {
     writer.writeBool(
       5,
-      f
-    );
-  }
-  f = message.getMttDelayTimes();
-  if (f !== 0) {
-    writer.writeUint32(
-      6,
       f
     );
   }
@@ -25442,21 +25457,6 @@ proto.holdem.pb.MTTUserStatus.prototype.getPartialEnable = function() {
 /** @param {boolean} value */
 proto.holdem.pb.MTTUserStatus.prototype.setPartialEnable = function(value) {
   jspb.Message.setField(this, 5, value);
-};
-
-
-/**
- * optional uint32 mtt_delay_times = 6;
- * @return {number}
- */
-proto.holdem.pb.MTTUserStatus.prototype.getMttDelayTimes = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.MTTUserStatus.prototype.setMttDelayTimes = function(value) {
-  jspb.Message.setField(this, 6, value);
 };
 
 
