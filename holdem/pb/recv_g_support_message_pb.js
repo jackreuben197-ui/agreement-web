@@ -73,7 +73,10 @@ proto.holdem.pb.ServerMessageSupportMessage.toObject = function(includeInstance,
     timeToken: jspb.Message.getFieldWithDefault(msg, 12, 0),
     userSend: jspb.Message.getFieldWithDefault(msg, 13, false),
     supportUserId: jspb.Message.getFieldWithDefault(msg, 14, 0),
-    imServiceType: jspb.Message.getFieldWithDefault(msg, 15, 0)
+    imServiceType: jspb.Message.getFieldWithDefault(msg, 15, 0),
+    tribeId: jspb.Message.getFieldWithDefault(msg, 16, 0),
+    subType: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    extra: jspb.Message.getFieldWithDefault(msg, 18, "")
   };
 
   if (includeInstance) {
@@ -169,6 +172,18 @@ proto.holdem.pb.ServerMessageSupportMessage.deserializeBinaryFromReader = functi
     case 15:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setImServiceType(value);
+      break;
+    case 16:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTribeId(value);
+      break;
+    case 17:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSubType(value);
+      break;
+    case 18:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setExtra(value);
       break;
     default:
       reader.skipField();
@@ -301,6 +316,27 @@ proto.holdem.pb.ServerMessageSupportMessage.serializeBinaryToWriter = function(m
   if (f !== 0) {
     writer.writeInt32(
       15,
+      f
+    );
+  }
+  f = message.getTribeId();
+  if (f !== 0) {
+    writer.writeUint64(
+      16,
+      f
+    );
+  }
+  f = message.getSubType();
+  if (f !== 0) {
+    writer.writeInt32(
+      17,
+      f
+    );
+  }
+  f = message.getExtra();
+  if (f.length > 0) {
+    writer.writeString(
+      18,
       f
     );
   }
@@ -531,6 +567,51 @@ proto.holdem.pb.ServerMessageSupportMessage.prototype.getImServiceType = functio
 /** @param {number} value */
 proto.holdem.pb.ServerMessageSupportMessage.prototype.setImServiceType = function(value) {
   jspb.Message.setField(this, 15, value);
+};
+
+
+/**
+ * optional uint64 tribe_id = 16;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSupportMessage.prototype.getTribeId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSupportMessage.prototype.setTribeId = function(value) {
+  jspb.Message.setField(this, 16, value);
+};
+
+
+/**
+ * optional int32 sub_type = 17;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSupportMessage.prototype.getSubType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 17, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSupportMessage.prototype.setSubType = function(value) {
+  jspb.Message.setField(this, 17, value);
+};
+
+
+/**
+ * optional string extra = 18;
+ * @return {string}
+ */
+proto.holdem.pb.ServerMessageSupportMessage.prototype.getExtra = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 18, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.ServerMessageSupportMessage.prototype.setExtra = function(value) {
+  jspb.Message.setField(this, 18, value);
 };
 
 
