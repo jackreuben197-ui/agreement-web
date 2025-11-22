@@ -16,6 +16,12 @@ export class ServerMessageUserOrderAudit extends jspb.Message {
   getOrderType(): number;
   setOrderType(value: number): void;
 
+  getCloseChat(): boolean;
+  setCloseChat(value: boolean): void;
+
+  getDelay(): number;
+  setDelay(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserOrderAudit.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserOrderAudit): ServerMessageUserOrderAudit.AsObject;
@@ -32,6 +38,8 @@ export namespace ServerMessageUserOrderAudit {
     status: number,
     orderCategory: number,
     orderType: number,
+    closeChat: boolean,
+    delay: number,
   }
 }
 
