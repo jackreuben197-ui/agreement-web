@@ -1718,6 +1718,9 @@ export class Result extends jspb.Message {
   getTotalChips(): number;
   setTotalChips(value: number): void;
 
+  getInPool(): boolean;
+  setInPool(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -1761,6 +1764,7 @@ export namespace Result {
     squidCount: number,
     autoChangeRoomHand: number,
     totalChips: number,
+    inPool: boolean,
   }
 }
 

@@ -9856,7 +9856,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     callTimeStay: jspb.Message.getFieldWithDefault(msg, 28, false),
     squidCount: jspb.Message.getFieldWithDefault(msg, 29, 0),
     autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 30, 0),
-    totalChips: jspb.Message.getFieldWithDefault(msg, 31, 0)
+    totalChips: jspb.Message.getFieldWithDefault(msg, 31, 0),
+    inPool: jspb.Message.getFieldWithDefault(msg, 32, false)
   };
 
   if (includeInstance) {
@@ -10020,6 +10021,10 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
     case 31:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setTotalChips(value);
+      break;
+    case 32:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setInPool(value);
       break;
     default:
       reader.skipField();
@@ -10268,6 +10273,13 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       31,
+      f
+    );
+  }
+  f = message.getInPool();
+  if (f) {
+    writer.writeBool(
+      32,
       f
     );
   }
@@ -10822,6 +10834,23 @@ proto.holdem.pb.Result.prototype.getTotalChips = function() {
 /** @param {number} value */
 proto.holdem.pb.Result.prototype.setTotalChips = function(value) {
   jspb.Message.setField(this, 31, value);
+};
+
+
+/**
+ * optional bool in_pool = 32;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.Result.prototype.getInPool = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 32, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.Result.prototype.setInPool = function(value) {
+  jspb.Message.setField(this, 32, value);
 };
 
 
