@@ -2089,6 +2089,9 @@ export class PlayerSummary extends jspb.Message {
   getIpAddr(): string;
   setIpAddr(value: string): void;
 
+  getPoolCount(): number;
+  setPoolCount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): PlayerSummary.AsObject;
   static toObject(includeInstance: boolean, msg: PlayerSummary): PlayerSummary.AsObject;
@@ -2123,6 +2126,7 @@ export namespace PlayerSummary {
     squidPunishTotal: number,
     deposit: number,
     ipAddr: string,
+    poolCount: number,
   }
 }
 

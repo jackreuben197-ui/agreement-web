@@ -12711,7 +12711,8 @@ proto.holdem.pb.PlayerSummary.toObject = function(includeInstance, msg) {
     squidCount: jspb.Message.getFieldWithDefault(msg, 19, 0),
     squidPunishTotal: jspb.Message.getFieldWithDefault(msg, 20, 0),
     deposit: jspb.Message.getFieldWithDefault(msg, 21, 0),
-    ipAddr: jspb.Message.getFieldWithDefault(msg, 22, "")
+    ipAddr: jspb.Message.getFieldWithDefault(msg, 22, ""),
+    poolCount: jspb.Message.getFieldWithDefault(msg, 23, 0)
   };
 
   if (includeInstance) {
@@ -12835,6 +12836,10 @@ proto.holdem.pb.PlayerSummary.deserializeBinaryFromReader = function(msg, reader
     case 22:
       var value = /** @type {string} */ (reader.readString());
       msg.setIpAddr(value);
+      break;
+    case 23:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPoolCount(value);
       break;
     default:
       reader.skipField();
@@ -13016,6 +13021,13 @@ proto.holdem.pb.PlayerSummary.serializeBinaryToWriter = function(message, writer
   if (f.length > 0) {
     writer.writeString(
       22,
+      f
+    );
+  }
+  f = message.getPoolCount();
+  if (f !== 0) {
+    writer.writeInt32(
+      23,
       f
     );
   }
@@ -13351,6 +13363,21 @@ proto.holdem.pb.PlayerSummary.prototype.getIpAddr = function() {
 /** @param {string} value */
 proto.holdem.pb.PlayerSummary.prototype.setIpAddr = function(value) {
   jspb.Message.setField(this, 22, value);
+};
+
+
+/**
+ * optional int32 pool_count = 23;
+ * @return {number}
+ */
+proto.holdem.pb.PlayerSummary.prototype.getPoolCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 23, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.PlayerSummary.prototype.setPoolCount = function(value) {
+  jspb.Message.setField(this, 23, value);
 };
 
 
