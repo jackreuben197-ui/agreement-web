@@ -4547,8 +4547,8 @@ export class RoomUserInfo extends jspb.Message {
   getAvatar(): string;
   setAvatar(value: string): void;
 
-  getSeat(): string;
-  setSeat(value: string): void;
+  getSeat(): number;
+  setSeat(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomUserInfo.AsObject;
@@ -4566,7 +4566,7 @@ export namespace RoomUserInfo {
     un: number,
     name: string,
     avatar: string,
-    seat: string,
+    seat: number,
   }
 }
 

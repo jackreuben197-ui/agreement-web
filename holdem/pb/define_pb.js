@@ -30025,7 +30025,7 @@ proto.holdem.pb.RoomUserInfo.toObject = function(includeInstance, msg) {
     un: jspb.Message.getFieldWithDefault(msg, 2, 0),
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
     avatar: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    seat: jspb.Message.getFieldWithDefault(msg, 5, "")
+    seat: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -30079,7 +30079,7 @@ proto.holdem.pb.RoomUserInfo.deserializeBinaryFromReader = function(msg, reader)
       msg.setAvatar(value);
       break;
     case 5:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setSeat(value);
       break;
     default:
@@ -30140,8 +30140,8 @@ proto.holdem.pb.RoomUserInfo.serializeBinaryToWriter = function(message, writer)
     );
   }
   f = message.getSeat();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0) {
+    writer.writeInt32(
       5,
       f
     );
@@ -30210,15 +30210,15 @@ proto.holdem.pb.RoomUserInfo.prototype.setAvatar = function(value) {
 
 
 /**
- * optional string seat = 5;
- * @return {string}
+ * optional int32 seat = 5;
+ * @return {number}
  */
 proto.holdem.pb.RoomUserInfo.prototype.getSeat = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {string} value */
+/** @param {number} value */
 proto.holdem.pb.RoomUserInfo.prototype.setSeat = function(value) {
   jspb.Message.setField(this, 5, value);
 };
