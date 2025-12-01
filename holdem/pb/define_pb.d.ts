@@ -2855,6 +2855,21 @@ export class RoomRecord extends jspb.Message {
   getSquidPlayerCount(): number;
   setSquidPlayerCount(value: number): void;
 
+  clearUsersList(): void;
+  getUsersList(): Array<RoomUserInfo>;
+  setUsersList(value: Array<RoomUserInfo>): void;
+  addUsers(value?: RoomUserInfo, index?: number): RoomUserInfo;
+
+  clearRelateClubIdsList(): void;
+  getRelateClubIdsList(): Array<number>;
+  setRelateClubIdsList(value: Array<number>): void;
+  addRelateClubIds(value: number, index?: number): number;
+
+  clearRelateTribeClubListList(): void;
+  getRelateTribeClubListList(): Array<RoomTribeClubRelate>;
+  setRelateTribeClubListList(value: Array<RoomTribeClubRelate>): void;
+  addRelateTribeClubList(value?: RoomTribeClubRelate, index?: number): RoomTribeClubRelate;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -3039,6 +3054,9 @@ export namespace RoomRecord {
     squidLeaveMode: number,
     powerSaving: number,
     squidPlayerCount: number,
+    usersList: Array<RoomUserInfo.AsObject>,
+    relateClubIdsList: Array<number>,
+    relateTribeClubListList: Array<RoomTribeClubRelate.AsObject>,
   }
 }
 
@@ -4513,6 +4531,68 @@ export namespace MTTBlindLevelDelayTime {
     smallBlind: number,
     ante: number,
     delayTimes: number,
+  }
+}
+
+export class RoomUserInfo extends jspb.Message {
+  getId(): number;
+  setId(value: number): void;
+
+  getUn(): number;
+  setUn(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getAvatar(): string;
+  setAvatar(value: string): void;
+
+  getSeat(): string;
+  setSeat(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RoomUserInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: RoomUserInfo): RoomUserInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RoomUserInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RoomUserInfo;
+  static deserializeBinaryFromReader(message: RoomUserInfo, reader: jspb.BinaryReader): RoomUserInfo;
+}
+
+export namespace RoomUserInfo {
+  export type AsObject = {
+    id: number,
+    un: number,
+    name: string,
+    avatar: string,
+    seat: string,
+  }
+}
+
+export class RoomTribeClubRelate extends jspb.Message {
+  getTribeId(): number;
+  setTribeId(value: number): void;
+
+  clearClubIdsList(): void;
+  getClubIdsList(): Array<number>;
+  setClubIdsList(value: Array<number>): void;
+  addClubIds(value: number, index?: number): number;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RoomTribeClubRelate.AsObject;
+  static toObject(includeInstance: boolean, msg: RoomTribeClubRelate): RoomTribeClubRelate.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RoomTribeClubRelate, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RoomTribeClubRelate;
+  static deserializeBinaryFromReader(message: RoomTribeClubRelate, reader: jspb.BinaryReader): RoomTribeClubRelate;
+}
+
+export namespace RoomTribeClubRelate {
+  export type AsObject = {
+    tribeId: number,
+    clubIdsList: Array<number>,
   }
 }
 

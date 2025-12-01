@@ -85,6 +85,8 @@ goog.exportSymbol('proto.holdem.pb.RoomJackpotConfig', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomRecord', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomRecordSimple', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomTemplateUpdateInfo', null, global);
+goog.exportSymbol('proto.holdem.pb.RoomTribeClubRelate', null, global);
+goog.exportSymbol('proto.holdem.pb.RoomUserInfo', null, global);
 goog.exportSymbol('proto.holdem.pb.RoomWithType', null, global);
 goog.exportSymbol('proto.holdem.pb.Roomer', null, global);
 goog.exportSymbol('proto.holdem.pb.RuleUnit', null, global);
@@ -14722,7 +14724,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.RoomRecord.repeatedFields_ = [58,82,93,119,150,165];
+proto.holdem.pb.RoomRecord.repeatedFields_ = [58,82,93,119,150,165,175,176,177];
 
 
 
@@ -14930,7 +14932,12 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     doubleLowLevelUpType: jspb.Message.getFieldWithDefault(msg, 171, 0),
     squidLeaveMode: jspb.Message.getFieldWithDefault(msg, 172, 0),
     powerSaving: jspb.Message.getFieldWithDefault(msg, 173, 0),
-    squidPlayerCount: jspb.Message.getFieldWithDefault(msg, 174, 0)
+    squidPlayerCount: jspb.Message.getFieldWithDefault(msg, 174, 0),
+    usersList: jspb.Message.toObjectList(msg.getUsersList(),
+    proto.holdem.pb.RoomUserInfo.toObject, includeInstance),
+    relateClubIdsList: jspb.Message.getRepeatedField(msg, 176),
+    relateTribeClubListList: jspb.Message.toObjectList(msg.getRelateTribeClubListList(),
+    proto.holdem.pb.RoomTribeClubRelate.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -15665,6 +15672,20 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 174:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSquidPlayerCount(value);
+      break;
+    case 175:
+      var value = new proto.holdem.pb.RoomUserInfo;
+      reader.readMessage(value,proto.holdem.pb.RoomUserInfo.deserializeBinaryFromReader);
+      msg.addUsers(value);
+      break;
+    case 176:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedUint64());
+      msg.setRelateClubIdsList(value);
+      break;
+    case 177:
+      var value = new proto.holdem.pb.RoomTribeClubRelate;
+      reader.readMessage(value,proto.holdem.pb.RoomTribeClubRelate.deserializeBinaryFromReader);
+      msg.addRelateTribeClubList(value);
       break;
     default:
       reader.skipField();
@@ -16908,6 +16929,29 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
     writer.writeInt32(
       174,
       f
+    );
+  }
+  f = message.getUsersList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      175,
+      f,
+      proto.holdem.pb.RoomUserInfo.serializeBinaryToWriter
+    );
+  }
+  f = message.getRelateClubIdsList();
+  if (f.length > 0) {
+    writer.writePackedUint64(
+      176,
+      f
+    );
+  }
+  f = message.getRelateTribeClubListList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      177,
+      f,
+      proto.holdem.pb.RoomTribeClubRelate.serializeBinaryToWriter
     );
   }
 };
@@ -19663,6 +19707,97 @@ proto.holdem.pb.RoomRecord.prototype.getSquidPlayerCount = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setSquidPlayerCount = function(value) {
   jspb.Message.setField(this, 174, value);
+};
+
+
+/**
+ * repeated RoomUserInfo users = 175;
+ * @return {!Array.<!proto.holdem.pb.RoomUserInfo>}
+ */
+proto.holdem.pb.RoomRecord.prototype.getUsersList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.RoomUserInfo>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.RoomUserInfo, 175));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.RoomUserInfo>} value */
+proto.holdem.pb.RoomRecord.prototype.setUsersList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 175, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.RoomUserInfo=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.RoomUserInfo}
+ */
+proto.holdem.pb.RoomRecord.prototype.addUsers = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 175, opt_value, proto.holdem.pb.RoomUserInfo, opt_index);
+};
+
+
+proto.holdem.pb.RoomRecord.prototype.clearUsersList = function() {
+  this.setUsersList([]);
+};
+
+
+/**
+ * repeated uint64 relate_club_ids = 176;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRelateClubIdsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 176));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.RoomRecord.prototype.setRelateClubIdsList = function(value) {
+  jspb.Message.setField(this, 176, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.RoomRecord.prototype.addRelateClubIds = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 176, value, opt_index);
+};
+
+
+proto.holdem.pb.RoomRecord.prototype.clearRelateClubIdsList = function() {
+  this.setRelateClubIdsList([]);
+};
+
+
+/**
+ * repeated RoomTribeClubRelate relate_tribe_club_list = 177;
+ * @return {!Array.<!proto.holdem.pb.RoomTribeClubRelate>}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRelateTribeClubListList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.RoomTribeClubRelate>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.holdem.pb.RoomTribeClubRelate, 177));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.RoomTribeClubRelate>} value */
+proto.holdem.pb.RoomRecord.prototype.setRelateTribeClubListList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 177, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.RoomTribeClubRelate=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.RoomTribeClubRelate}
+ */
+proto.holdem.pb.RoomRecord.prototype.addRelateTribeClubList = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 177, opt_value, proto.holdem.pb.RoomTribeClubRelate, opt_index);
+};
+
+
+proto.holdem.pb.RoomRecord.prototype.clearRelateTribeClubListList = function() {
+  this.setRelateTribeClubListList([]);
 };
 
 
@@ -29836,6 +29971,446 @@ proto.holdem.pb.MTTBlindLevelDelayTime.prototype.getDelayTimes = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTBlindLevelDelayTime.prototype.setDelayTimes = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.RoomUserInfo = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.holdem.pb.RoomUserInfo, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.RoomUserInfo.displayName = 'proto.holdem.pb.RoomUserInfo';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.RoomUserInfo.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.RoomUserInfo.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.RoomUserInfo} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.RoomUserInfo.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    un: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    avatar: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    seat: jspb.Message.getFieldWithDefault(msg, 5, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.RoomUserInfo}
+ */
+proto.holdem.pb.RoomUserInfo.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.RoomUserInfo;
+  return proto.holdem.pb.RoomUserInfo.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.RoomUserInfo} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.RoomUserInfo}
+ */
+proto.holdem.pb.RoomUserInfo.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setId(value);
+      break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUn(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAvatar(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSeat(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.RoomUserInfo.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.RoomUserInfo.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.RoomUserInfo} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.RoomUserInfo.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getId();
+  if (f !== 0) {
+    writer.writeUint64(
+      1,
+      f
+    );
+  }
+  f = message.getUn();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getAvatar();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getSeat();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint64 id = 1;
+ * @return {number}
+ */
+proto.holdem.pb.RoomUserInfo.prototype.getId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomUserInfo.prototype.setId = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 un = 2;
+ * @return {number}
+ */
+proto.holdem.pb.RoomUserInfo.prototype.getUn = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomUserInfo.prototype.setUn = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional string name = 3;
+ * @return {string}
+ */
+proto.holdem.pb.RoomUserInfo.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.RoomUserInfo.prototype.setName = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional string avatar = 4;
+ * @return {string}
+ */
+proto.holdem.pb.RoomUserInfo.prototype.getAvatar = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.RoomUserInfo.prototype.setAvatar = function(value) {
+  jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional string seat = 5;
+ * @return {string}
+ */
+proto.holdem.pb.RoomUserInfo.prototype.getSeat = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.RoomUserInfo.prototype.setSeat = function(value) {
+  jspb.Message.setField(this, 5, value);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.holdem.pb.RoomTribeClubRelate = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.holdem.pb.RoomTribeClubRelate.repeatedFields_, null);
+};
+goog.inherits(proto.holdem.pb.RoomTribeClubRelate, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.holdem.pb.RoomTribeClubRelate.displayName = 'proto.holdem.pb.RoomTribeClubRelate';
+}
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.holdem.pb.RoomTribeClubRelate.repeatedFields_ = [2];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.holdem.pb.RoomTribeClubRelate.prototype.toObject = function(opt_includeInstance) {
+  return proto.holdem.pb.RoomTribeClubRelate.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.holdem.pb.RoomTribeClubRelate} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.RoomTribeClubRelate.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    tribeId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    clubIdsList: jspb.Message.getRepeatedField(msg, 2)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.holdem.pb.RoomTribeClubRelate}
+ */
+proto.holdem.pb.RoomTribeClubRelate.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.holdem.pb.RoomTribeClubRelate;
+  return proto.holdem.pb.RoomTribeClubRelate.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.holdem.pb.RoomTribeClubRelate} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.holdem.pb.RoomTribeClubRelate}
+ */
+proto.holdem.pb.RoomTribeClubRelate.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTribeId(value);
+      break;
+    case 2:
+      var value = /** @type {!Array.<number>} */ (reader.readPackedUint64());
+      msg.setClubIdsList(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.holdem.pb.RoomTribeClubRelate.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.holdem.pb.RoomTribeClubRelate.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.holdem.pb.RoomTribeClubRelate} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.holdem.pb.RoomTribeClubRelate.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getTribeId();
+  if (f !== 0) {
+    writer.writeUint64(
+      1,
+      f
+    );
+  }
+  f = message.getClubIdsList();
+  if (f.length > 0) {
+    writer.writePackedUint64(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional uint64 tribe_id = 1;
+ * @return {number}
+ */
+proto.holdem.pb.RoomTribeClubRelate.prototype.getTribeId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomTribeClubRelate.prototype.setTribeId = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * repeated uint64 club_ids = 2;
+ * @return {!Array.<number>}
+ */
+proto.holdem.pb.RoomTribeClubRelate.prototype.getClubIdsList = function() {
+  return /** @type {!Array.<number>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/** @param {!Array.<number>} value */
+proto.holdem.pb.RoomTribeClubRelate.prototype.setClubIdsList = function(value) {
+  jspb.Message.setField(this, 2, value || []);
+};
+
+
+/**
+ * @param {!number} value
+ * @param {number=} opt_index
+ */
+proto.holdem.pb.RoomTribeClubRelate.prototype.addClubIds = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+proto.holdem.pb.RoomTribeClubRelate.prototype.clearClubIdsList = function() {
+  this.setClubIdsList([]);
 };
 
 
