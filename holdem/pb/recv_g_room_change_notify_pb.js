@@ -60,7 +60,8 @@ proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.toObject = function(opt_
  */
 proto.holdem.pb.ServerMessageRoomChangeNotify.toObject = function(includeInstance, msg) {
   var f, obj = {
-    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.RoomRecord.toObject(includeInstance, f)
+    room: (f = msg.getRoom()) && protobuf_holdem_define_pb.RoomRecord.toObject(includeInstance, f),
+    sendTimestamp: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -102,6 +103,10 @@ proto.holdem.pb.ServerMessageRoomChangeNotify.deserializeBinaryFromReader = func
       reader.readMessage(value,protobuf_holdem_define_pb.RoomRecord.deserializeBinaryFromReader);
       msg.setRoom(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setSendTimestamp(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -139,6 +144,13 @@ proto.holdem.pb.ServerMessageRoomChangeNotify.serializeBinaryToWriter = function
       protobuf_holdem_define_pb.RoomRecord.serializeBinaryToWriter
     );
   }
+  f = message.getSendTimestamp();
+  if (f !== 0) {
+    writer.writeInt64(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -169,6 +181,21 @@ proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.clearRoom = function() {
  */
 proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.hasRoom = function() {
   return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional int64 send_timestamp = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.getSendTimestamp = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.setSendTimestamp = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 
