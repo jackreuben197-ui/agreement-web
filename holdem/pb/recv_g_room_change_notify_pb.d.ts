@@ -13,6 +13,14 @@ export class ServerMessageRoomChangeNotify extends jspb.Message {
   getSendTimestamp(): number;
   setSendTimestamp(value: number): void;
 
+  hasRoomChange(): boolean;
+  clearRoomChange(): void;
+  getRoomChange(): protobuf_holdem_define_pb.RoomChange | undefined;
+  setRoomChange(value?: protobuf_holdem_define_pb.RoomChange): void;
+
+  getChangeType(): number;
+  setChangeType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageRoomChangeNotify.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageRoomChangeNotify): ServerMessageRoomChangeNotify.AsObject;
@@ -27,6 +35,8 @@ export namespace ServerMessageRoomChangeNotify {
   export type AsObject = {
     room?: protobuf_holdem_define_pb.RoomRecord.AsObject,
     sendTimestamp: number,
+    roomChange?: protobuf_holdem_define_pb.RoomChange.AsObject,
+    changeType: number,
   }
 }
 

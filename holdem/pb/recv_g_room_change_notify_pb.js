@@ -61,7 +61,9 @@ proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.toObject = function(opt_
 proto.holdem.pb.ServerMessageRoomChangeNotify.toObject = function(includeInstance, msg) {
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.RoomRecord.toObject(includeInstance, f),
-    sendTimestamp: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    sendTimestamp: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    roomChange: (f = msg.getRoomChange()) && protobuf_holdem_define_pb.RoomChange.toObject(includeInstance, f),
+    changeType: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -107,6 +109,15 @@ proto.holdem.pb.ServerMessageRoomChangeNotify.deserializeBinaryFromReader = func
       var value = /** @type {number} */ (reader.readInt64());
       msg.setSendTimestamp(value);
       break;
+    case 3:
+      var value = new protobuf_holdem_define_pb.RoomChange;
+      reader.readMessage(value,protobuf_holdem_define_pb.RoomChange.deserializeBinaryFromReader);
+      msg.setRoomChange(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setChangeType(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -148,6 +159,21 @@ proto.holdem.pb.ServerMessageRoomChangeNotify.serializeBinaryToWriter = function
   if (f !== 0) {
     writer.writeInt64(
       2,
+      f
+    );
+  }
+  f = message.getRoomChange();
+  if (f != null) {
+    writer.writeMessage(
+      3,
+      f,
+      protobuf_holdem_define_pb.RoomChange.serializeBinaryToWriter
+    );
+  }
+  f = message.getChangeType();
+  if (f !== 0) {
+    writer.writeInt32(
+      4,
       f
     );
   }
@@ -196,6 +222,51 @@ proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.getSendTimestamp = funct
 /** @param {number} value */
 proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.setSendTimestamp = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional RoomChange room_change = 3;
+ * @return {?proto.holdem.pb.RoomChange}
+ */
+proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.getRoomChange = function() {
+  return /** @type{?proto.holdem.pb.RoomChange} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.RoomChange, 3));
+};
+
+
+/** @param {?proto.holdem.pb.RoomChange|undefined} value */
+proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.setRoomChange = function(value) {
+  jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.clearRoomChange = function() {
+  this.setRoomChange(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.hasRoomChange = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional int32 change_type = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.getChangeType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageRoomChangeNotify.prototype.setChangeType = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

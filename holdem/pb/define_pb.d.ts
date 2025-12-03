@@ -4596,3 +4596,53 @@ export namespace RoomTribeClubRelate {
   }
 }
 
+export class RoomChange extends jspb.Message {
+  getRid(): number;
+  setRid(value: number): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getEmptySeat(): number;
+  setEmptySeat(value: number): void;
+
+  getHandNum(): number;
+  setHandNum(value: number): void;
+
+  clearUsersList(): void;
+  getUsersList(): Array<RoomUserInfo>;
+  setUsersList(value: Array<RoomUserInfo>): void;
+  addUsers(value?: RoomUserInfo, index?: number): RoomUserInfo;
+
+  clearRelateClubIdsList(): void;
+  getRelateClubIdsList(): Array<number>;
+  setRelateClubIdsList(value: Array<number>): void;
+  addRelateClubIds(value: number, index?: number): number;
+
+  clearRelateTribeClubListList(): void;
+  getRelateTribeClubListList(): Array<RoomTribeClubRelate>;
+  setRelateTribeClubListList(value: Array<RoomTribeClubRelate>): void;
+  addRelateTribeClubList(value?: RoomTribeClubRelate, index?: number): RoomTribeClubRelate;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RoomChange.AsObject;
+  static toObject(includeInstance: boolean, msg: RoomChange): RoomChange.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RoomChange, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RoomChange;
+  static deserializeBinaryFromReader(message: RoomChange, reader: jspb.BinaryReader): RoomChange;
+}
+
+export namespace RoomChange {
+  export type AsObject = {
+    rid: number,
+    status: number,
+    emptySeat: number,
+    handNum: number,
+    usersList: Array<RoomUserInfo.AsObject>,
+    relateClubIdsList: Array<number>,
+    relateTribeClubListList: Array<RoomTribeClubRelate.AsObject>,
+  }
+}
+
