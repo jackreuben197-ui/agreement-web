@@ -2870,6 +2870,14 @@ export class RoomRecord extends jspb.Message {
   setRelateTribeClubListList(value: Array<RoomTribeClubRelate>): void;
   addRelateTribeClubList(value?: RoomTribeClubRelate, index?: number): RoomTribeClubRelate;
 
+  getCurrency(): string;
+  setCurrency(value: string): void;
+
+  hasCowboyConfig(): boolean;
+  clearCowboyConfig(): void;
+  getCowboyConfig(): CowboyConfig | undefined;
+  setCowboyConfig(value?: CowboyConfig): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -3057,6 +3065,8 @@ export namespace RoomRecord {
     usersList: Array<RoomUserInfo.AsObject>,
     relateClubIdsList: Array<number>,
     relateTribeClubListList: Array<RoomTribeClubRelate.AsObject>,
+    currency: string,
+    cowboyConfig?: CowboyConfig.AsObject,
   }
 }
 
@@ -4643,6 +4653,30 @@ export namespace RoomChange {
     usersList: Array<RoomUserInfo.AsObject>,
     relateClubIdsList: Array<number>,
     relateTribeClubListList: Array<RoomTribeClubRelate.AsObject>,
+  }
+}
+
+export class CowboyConfig extends jspb.Message {
+  getMaxAmountMin(): number;
+  setMaxAmountMin(value: number): void;
+
+  getMaxAmountMax(): number;
+  setMaxAmountMax(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CowboyConfig.AsObject;
+  static toObject(includeInstance: boolean, msg: CowboyConfig): CowboyConfig.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CowboyConfig, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CowboyConfig;
+  static deserializeBinaryFromReader(message: CowboyConfig, reader: jspb.BinaryReader): CowboyConfig;
+}
+
+export namespace CowboyConfig {
+  export type AsObject = {
+    maxAmountMin: number,
+    maxAmountMax: number,
   }
 }
 
