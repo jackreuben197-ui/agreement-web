@@ -4394,6 +4394,9 @@ export class JackpotTemplateUpdateInfo extends jspb.Message {
   getUpdateType(): number;
   setUpdateType(value: number): void;
 
+  getTribeId(): number;
+  setTribeId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): JackpotTemplateUpdateInfo.AsObject;
   static toObject(includeInstance: boolean, msg: JackpotTemplateUpdateInfo): JackpotTemplateUpdateInfo.AsObject;
@@ -4409,6 +4412,7 @@ export namespace JackpotTemplateUpdateInfo {
     id: number,
     clubId: number,
     updateType: number,
+    tribeId: number,
   }
 }
 
