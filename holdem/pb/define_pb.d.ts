@@ -1724,6 +1724,9 @@ export class Result extends jspb.Message {
   getJawd(): number;
   setJawd(value: number): void;
 
+  getJackpotFee(): number;
+  setJackpotFee(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -1769,6 +1772,7 @@ export namespace Result {
     totalChips: number,
     inPool: boolean,
     jawd: number,
+    jackpotFee: number,
   }
 }
 

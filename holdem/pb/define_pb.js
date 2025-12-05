@@ -9862,7 +9862,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 30, 0),
     totalChips: jspb.Message.getFieldWithDefault(msg, 31, 0),
     inPool: jspb.Message.getFieldWithDefault(msg, 32, false),
-    jawd: jspb.Message.getFieldWithDefault(msg, 33, 0)
+    jawd: jspb.Message.getFieldWithDefault(msg, 33, 0),
+    jackpotFee: jspb.Message.getFieldWithDefault(msg, 34, 0)
   };
 
   if (includeInstance) {
@@ -10034,6 +10035,10 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
     case 33:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setJawd(value);
+      break;
+    case 34:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setJackpotFee(value);
       break;
     default:
       reader.skipField();
@@ -10296,6 +10301,13 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       33,
+      f
+    );
+  }
+  f = message.getJackpotFee();
+  if (f !== 0) {
+    writer.writeUint64(
+      34,
       f
     );
   }
@@ -10882,6 +10894,21 @@ proto.holdem.pb.Result.prototype.getJawd = function() {
 /** @param {number} value */
 proto.holdem.pb.Result.prototype.setJawd = function(value) {
   jspb.Message.setField(this, 33, value);
+};
+
+
+/**
+ * optional uint64 jackpot_fee = 34;
+ * @return {number}
+ */
+proto.holdem.pb.Result.prototype.getJackpotFee = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 34, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Result.prototype.setJackpotFee = function(value) {
+  jspb.Message.setField(this, 34, value);
 };
 
 
