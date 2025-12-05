@@ -13,6 +13,9 @@ export class ServerMessageUserIsMute extends jspb.Message {
   getMute(): boolean;
   setMute(value: boolean): void;
 
+  getUserId(): number;
+  setUserId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserIsMute.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserIsMute): ServerMessageUserIsMute.AsObject;
@@ -28,6 +31,7 @@ export namespace ServerMessageUserIsMute {
     clubId: number,
     tribeId: number,
     mute: boolean,
+    userId: number,
   }
 }
 
