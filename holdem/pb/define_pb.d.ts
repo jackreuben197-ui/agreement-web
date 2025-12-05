@@ -1721,6 +1721,9 @@ export class Result extends jspb.Message {
   getInPool(): boolean;
   setInPool(value: boolean): void;
 
+  getJawd(): number;
+  setJawd(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -1765,6 +1768,7 @@ export namespace Result {
     autoChangeRoomHand: number,
     totalChips: number,
     inPool: boolean,
+    jawd: number,
   }
 }
 

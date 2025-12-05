@@ -9861,7 +9861,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     squidCount: jspb.Message.getFieldWithDefault(msg, 29, 0),
     autoChangeRoomHand: jspb.Message.getFieldWithDefault(msg, 30, 0),
     totalChips: jspb.Message.getFieldWithDefault(msg, 31, 0),
-    inPool: jspb.Message.getFieldWithDefault(msg, 32, false)
+    inPool: jspb.Message.getFieldWithDefault(msg, 32, false),
+    jawd: jspb.Message.getFieldWithDefault(msg, 33, 0)
   };
 
   if (includeInstance) {
@@ -10029,6 +10030,10 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
     case 32:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setInPool(value);
+      break;
+    case 33:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setJawd(value);
       break;
     default:
       reader.skipField();
@@ -10284,6 +10289,13 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       32,
+      f
+    );
+  }
+  f = message.getJawd();
+  if (f !== 0) {
+    writer.writeUint64(
+      33,
       f
     );
   }
@@ -10855,6 +10867,21 @@ proto.holdem.pb.Result.prototype.getInPool = function() {
 /** @param {boolean} value */
 proto.holdem.pb.Result.prototype.setInPool = function(value) {
   jspb.Message.setField(this, 32, value);
+};
+
+
+/**
+ * optional uint64 jawd = 33;
+ * @return {number}
+ */
+proto.holdem.pb.Result.prototype.getJawd = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 33, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Result.prototype.setJawd = function(value) {
+  jspb.Message.setField(this, 33, value);
 };
 
 
