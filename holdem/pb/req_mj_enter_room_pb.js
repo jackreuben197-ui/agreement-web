@@ -309,7 +309,11 @@ proto.holdem.pb.ServerMessageMjEnterRoom.toObject = function(includeInstance, ms
     operatorList: jspb.Message.toObjectList(msg.getOperatorList(),
     protobuf_holdem_define_mj_pb.OperatorMJ.toObject, includeInstance),
     muted: jspb.Message.getFieldWithDefault(msg, 8, false),
-    myWheelInfo: (f = msg.getMyWheelInfo()) && protobuf_holdem_define_pb.MyWheelInfo.toObject(includeInstance, f)
+    myWheelInfo: (f = msg.getMyWheelInfo()) && protobuf_holdem_define_pb.MyWheelInfo.toObject(includeInstance, f),
+    mttRoom: (f = msg.getMttRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
+    mttInfo: (f = msg.getMttInfo()) && protobuf_holdem_define_pb.MTTInfo.toObject(includeInstance, f),
+    payTimes: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    blackInfo: (f = msg.getBlackInfo()) && protobuf_holdem_define_pb.BlackInfo.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -387,6 +391,25 @@ proto.holdem.pb.ServerMessageMjEnterRoom.deserializeBinaryFromReader = function(
       var value = new protobuf_holdem_define_pb.MyWheelInfo;
       reader.readMessage(value,protobuf_holdem_define_pb.MyWheelInfo.deserializeBinaryFromReader);
       msg.setMyWheelInfo(value);
+      break;
+    case 10:
+      var value = new protobuf_holdem_define_pb.Room;
+      reader.readMessage(value,protobuf_holdem_define_pb.Room.deserializeBinaryFromReader);
+      msg.setMttRoom(value);
+      break;
+    case 11:
+      var value = new protobuf_holdem_define_pb.MTTInfo;
+      reader.readMessage(value,protobuf_holdem_define_pb.MTTInfo.deserializeBinaryFromReader);
+      msg.setMttInfo(value);
+      break;
+    case 13:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPayTimes(value);
+      break;
+    case 14:
+      var value = new protobuf_holdem_define_pb.BlackInfo;
+      reader.readMessage(value,protobuf_holdem_define_pb.BlackInfo.deserializeBinaryFromReader);
+      msg.setBlackInfo(value);
       break;
     default:
       reader.skipField();
@@ -484,6 +507,37 @@ proto.holdem.pb.ServerMessageMjEnterRoom.serializeBinaryToWriter = function(mess
       9,
       f,
       protobuf_holdem_define_pb.MyWheelInfo.serializeBinaryToWriter
+    );
+  }
+  f = message.getMttRoom();
+  if (f != null) {
+    writer.writeMessage(
+      10,
+      f,
+      protobuf_holdem_define_pb.Room.serializeBinaryToWriter
+    );
+  }
+  f = message.getMttInfo();
+  if (f != null) {
+    writer.writeMessage(
+      11,
+      f,
+      protobuf_holdem_define_pb.MTTInfo.serializeBinaryToWriter
+    );
+  }
+  f = message.getPayTimes();
+  if (f !== 0) {
+    writer.writeInt32(
+      13,
+      f
+    );
+  }
+  f = message.getBlackInfo();
+  if (f != null) {
+    writer.writeMessage(
+      14,
+      f,
+      protobuf_holdem_define_pb.BlackInfo.serializeBinaryToWriter
     );
   }
 };
@@ -715,6 +769,111 @@ proto.holdem.pb.ServerMessageMjEnterRoom.prototype.clearMyWheelInfo = function()
  */
 proto.holdem.pb.ServerMessageMjEnterRoom.prototype.hasMyWheelInfo = function() {
   return jspb.Message.getField(this, 9) != null;
+};
+
+
+/**
+ * optional Room mtt_room = 10;
+ * @return {?proto.holdem.pb.Room}
+ */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.getMttRoom = function() {
+  return /** @type{?proto.holdem.pb.Room} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.Room, 10));
+};
+
+
+/** @param {?proto.holdem.pb.Room|undefined} value */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.setMttRoom = function(value) {
+  jspb.Message.setWrapperField(this, 10, value);
+};
+
+
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.clearMttRoom = function() {
+  this.setMttRoom(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.hasMttRoom = function() {
+  return jspb.Message.getField(this, 10) != null;
+};
+
+
+/**
+ * optional MTTInfo mtt_info = 11;
+ * @return {?proto.holdem.pb.MTTInfo}
+ */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.getMttInfo = function() {
+  return /** @type{?proto.holdem.pb.MTTInfo} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.MTTInfo, 11));
+};
+
+
+/** @param {?proto.holdem.pb.MTTInfo|undefined} value */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.setMttInfo = function(value) {
+  jspb.Message.setWrapperField(this, 11, value);
+};
+
+
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.clearMttInfo = function() {
+  this.setMttInfo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.hasMttInfo = function() {
+  return jspb.Message.getField(this, 11) != null;
+};
+
+
+/**
+ * optional int32 pay_times = 13;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.getPayTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.setPayTimes = function(value) {
+  jspb.Message.setField(this, 13, value);
+};
+
+
+/**
+ * optional BlackInfo black_info = 14;
+ * @return {?proto.holdem.pb.BlackInfo}
+ */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.getBlackInfo = function() {
+  return /** @type{?proto.holdem.pb.BlackInfo} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.BlackInfo, 14));
+};
+
+
+/** @param {?proto.holdem.pb.BlackInfo|undefined} value */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.setBlackInfo = function(value) {
+  jspb.Message.setWrapperField(this, 14, value);
+};
+
+
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.clearBlackInfo = function() {
+  this.setBlackInfo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.hasBlackInfo = function() {
+  return jspb.Message.getField(this, 14) != null;
 };
 
 

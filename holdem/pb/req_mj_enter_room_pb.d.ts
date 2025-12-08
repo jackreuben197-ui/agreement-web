@@ -77,6 +77,24 @@ export class ServerMessageMjEnterRoom extends jspb.Message {
   getMyWheelInfo(): protobuf_holdem_define_pb.MyWheelInfo | undefined;
   setMyWheelInfo(value?: protobuf_holdem_define_pb.MyWheelInfo): void;
 
+  hasMttRoom(): boolean;
+  clearMttRoom(): void;
+  getMttRoom(): protobuf_holdem_define_pb.Room | undefined;
+  setMttRoom(value?: protobuf_holdem_define_pb.Room): void;
+
+  hasMttInfo(): boolean;
+  clearMttInfo(): void;
+  getMttInfo(): protobuf_holdem_define_pb.MTTInfo | undefined;
+  setMttInfo(value?: protobuf_holdem_define_pb.MTTInfo): void;
+
+  getPayTimes(): number;
+  setPayTimes(value: number): void;
+
+  hasBlackInfo(): boolean;
+  clearBlackInfo(): void;
+  getBlackInfo(): protobuf_holdem_define_pb.BlackInfo | undefined;
+  setBlackInfo(value?: protobuf_holdem_define_pb.BlackInfo): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjEnterRoom.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjEnterRoom): ServerMessageMjEnterRoom.AsObject;
@@ -98,6 +116,10 @@ export namespace ServerMessageMjEnterRoom {
     operatorList: Array<protobuf_holdem_define_mj_pb.OperatorMJ.AsObject>,
     muted: boolean,
     myWheelInfo?: protobuf_holdem_define_pb.MyWheelInfo.AsObject,
+    mttRoom?: protobuf_holdem_define_pb.Room.AsObject,
+    mttInfo?: protobuf_holdem_define_pb.MTTInfo.AsObject,
+    payTimes: number,
+    blackInfo?: protobuf_holdem_define_pb.BlackInfo.AsObject,
   }
 }
 
