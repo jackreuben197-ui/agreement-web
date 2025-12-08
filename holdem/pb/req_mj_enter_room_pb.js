@@ -313,7 +313,8 @@ proto.holdem.pb.ServerMessageMjEnterRoom.toObject = function(includeInstance, ms
     mttRoom: (f = msg.getMttRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     mttInfo: (f = msg.getMttInfo()) && protobuf_holdem_define_pb.MTTInfo.toObject(includeInstance, f),
     payTimes: jspb.Message.getFieldWithDefault(msg, 13, 0),
-    blackInfo: (f = msg.getBlackInfo()) && protobuf_holdem_define_pb.BlackInfo.toObject(includeInstance, f)
+    blackInfo: (f = msg.getBlackInfo()) && protobuf_holdem_define_pb.BlackInfo.toObject(includeInstance, f),
+    mttProgress: (f = msg.getMttProgress()) && protobuf_holdem_define_pb.MTTProgress.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -410,6 +411,11 @@ proto.holdem.pb.ServerMessageMjEnterRoom.deserializeBinaryFromReader = function(
       var value = new protobuf_holdem_define_pb.BlackInfo;
       reader.readMessage(value,protobuf_holdem_define_pb.BlackInfo.deserializeBinaryFromReader);
       msg.setBlackInfo(value);
+      break;
+    case 15:
+      var value = new protobuf_holdem_define_pb.MTTProgress;
+      reader.readMessage(value,protobuf_holdem_define_pb.MTTProgress.deserializeBinaryFromReader);
+      msg.setMttProgress(value);
       break;
     default:
       reader.skipField();
@@ -538,6 +544,14 @@ proto.holdem.pb.ServerMessageMjEnterRoom.serializeBinaryToWriter = function(mess
       14,
       f,
       protobuf_holdem_define_pb.BlackInfo.serializeBinaryToWriter
+    );
+  }
+  f = message.getMttProgress();
+  if (f != null) {
+    writer.writeMessage(
+      15,
+      f,
+      protobuf_holdem_define_pb.MTTProgress.serializeBinaryToWriter
     );
   }
 };
@@ -874,6 +888,36 @@ proto.holdem.pb.ServerMessageMjEnterRoom.prototype.clearBlackInfo = function() {
  */
 proto.holdem.pb.ServerMessageMjEnterRoom.prototype.hasBlackInfo = function() {
   return jspb.Message.getField(this, 14) != null;
+};
+
+
+/**
+ * optional MTTProgress mtt_progress = 15;
+ * @return {?proto.holdem.pb.MTTProgress}
+ */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.getMttProgress = function() {
+  return /** @type{?proto.holdem.pb.MTTProgress} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.MTTProgress, 15));
+};
+
+
+/** @param {?proto.holdem.pb.MTTProgress|undefined} value */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.setMttProgress = function(value) {
+  jspb.Message.setWrapperField(this, 15, value);
+};
+
+
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.clearMttProgress = function() {
+  this.setMttProgress(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.ServerMessageMjEnterRoom.prototype.hasMttProgress = function() {
+  return jspb.Message.getField(this, 15) != null;
 };
 
 

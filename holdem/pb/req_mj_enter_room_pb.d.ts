@@ -95,6 +95,11 @@ export class ServerMessageMjEnterRoom extends jspb.Message {
   getBlackInfo(): protobuf_holdem_define_pb.BlackInfo | undefined;
   setBlackInfo(value?: protobuf_holdem_define_pb.BlackInfo): void;
 
+  hasMttProgress(): boolean;
+  clearMttProgress(): void;
+  getMttProgress(): protobuf_holdem_define_pb.MTTProgress | undefined;
+  setMttProgress(value?: protobuf_holdem_define_pb.MTTProgress): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMjEnterRoom.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMjEnterRoom): ServerMessageMjEnterRoom.AsObject;
@@ -120,6 +125,7 @@ export namespace ServerMessageMjEnterRoom {
     mttInfo?: protobuf_holdem_define_pb.MTTInfo.AsObject,
     payTimes: number,
     blackInfo?: protobuf_holdem_define_pb.BlackInfo.AsObject,
+    mttProgress?: protobuf_holdem_define_pb.MTTProgress.AsObject,
   }
 }
 
