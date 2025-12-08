@@ -1727,6 +1727,11 @@ export class Result extends jspb.Message {
   getJackpotFee(): number;
   setJackpotFee(value: number): void;
 
+  clearUserInsuranceResultList(): void;
+  getUserInsuranceResultList(): Array<UserInsuranceResult>;
+  setUserInsuranceResultList(value: Array<UserInsuranceResult>): void;
+  addUserInsuranceResult(value?: UserInsuranceResult, index?: number): UserInsuranceResult;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -1773,6 +1778,7 @@ export namespace Result {
     inPool: boolean,
     jawd: number,
     jackpotFee: number,
+    userInsuranceResultList: Array<UserInsuranceResult.AsObject>,
   }
 }
 
@@ -4689,6 +4695,34 @@ export namespace CowboyConfig {
   export type AsObject = {
     maxAmountMin: number,
     maxAmountMax: number,
+  }
+}
+
+export class UserInsuranceResult extends jspb.Message {
+  getRnd(): Def.RoundMap[keyof Def.RoundMap];
+  setRnd(value: Def.RoundMap[keyof Def.RoundMap]): void;
+
+  getInsurance(): number;
+  setInsurance(value: number): void;
+
+  getInsuranceWin(): number;
+  setInsuranceWin(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserInsuranceResult.AsObject;
+  static toObject(includeInstance: boolean, msg: UserInsuranceResult): UserInsuranceResult.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserInsuranceResult, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserInsuranceResult;
+  static deserializeBinaryFromReader(message: UserInsuranceResult, reader: jspb.BinaryReader): UserInsuranceResult;
+}
+
+export namespace UserInsuranceResult {
+  export type AsObject = {
+    rnd: Def.RoundMap[keyof Def.RoundMap],
+    insurance: number,
+    insuranceWin: number,
   }
 }
 
