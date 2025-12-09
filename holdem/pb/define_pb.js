@@ -29083,7 +29083,8 @@ proto.holdem.pb.JackpotTemplateUpdateInfo.toObject = function(includeInstance, m
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     clubId: jspb.Message.getFieldWithDefault(msg, 2, 0),
     updateType: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    tribeId: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    tribeId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    gold: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -29135,6 +29136,10 @@ proto.holdem.pb.JackpotTemplateUpdateInfo.deserializeBinaryFromReader = function
     case 4:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setTribeId(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setGold(value);
       break;
     default:
       reader.skipField();
@@ -29190,6 +29195,13 @@ proto.holdem.pb.JackpotTemplateUpdateInfo.serializeBinaryToWriter = function(mes
   if (f !== 0) {
     writer.writeUint64(
       4,
+      f
+    );
+  }
+  f = message.getGold();
+  if (f !== 0) {
+    writer.writeInt64(
+      5,
       f
     );
   }
@@ -29253,6 +29265,21 @@ proto.holdem.pb.JackpotTemplateUpdateInfo.prototype.getTribeId = function() {
 /** @param {number} value */
 proto.holdem.pb.JackpotTemplateUpdateInfo.prototype.setTribeId = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int64 gold = 5;
+ * @return {number}
+ */
+proto.holdem.pb.JackpotTemplateUpdateInfo.prototype.getGold = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.JackpotTemplateUpdateInfo.prototype.setGold = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 
