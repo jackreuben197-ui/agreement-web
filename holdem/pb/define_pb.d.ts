@@ -4730,3 +4730,27 @@ export namespace UserInsuranceResult {
   }
 }
 
+export class WheelTemplateUpdateInfo extends jspb.Message {
+  getId(): number;
+  setId(value: number): void;
+
+  getUpdateType(): number;
+  setUpdateType(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): WheelTemplateUpdateInfo.AsObject;
+  static toObject(includeInstance: boolean, msg: WheelTemplateUpdateInfo): WheelTemplateUpdateInfo.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: WheelTemplateUpdateInfo, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): WheelTemplateUpdateInfo;
+  static deserializeBinaryFromReader(message: WheelTemplateUpdateInfo, reader: jspb.BinaryReader): WheelTemplateUpdateInfo;
+}
+
+export namespace WheelTemplateUpdateInfo {
+  export type AsObject = {
+    id: number,
+    updateType: number,
+  }
+}
+
