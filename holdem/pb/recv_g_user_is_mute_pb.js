@@ -62,7 +62,8 @@ proto.holdem.pb.ServerMessageUserIsMute.toObject = function(includeInstance, msg
     clubId: jspb.Message.getFieldWithDefault(msg, 1, 0),
     tribeId: jspb.Message.getFieldWithDefault(msg, 2, 0),
     mute: jspb.Message.getFieldWithDefault(msg, 3, false),
-    userId: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    userId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    userRandomId: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -114,6 +115,10 @@ proto.holdem.pb.ServerMessageUserIsMute.deserializeBinaryFromReader = function(m
     case 4:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setUserId(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserRandomId(value);
       break;
     default:
       reader.skipField();
@@ -169,6 +174,13 @@ proto.holdem.pb.ServerMessageUserIsMute.serializeBinaryToWriter = function(messa
   if (f !== 0) {
     writer.writeUint64(
       4,
+      f
+    );
+  }
+  f = message.getUserRandomId();
+  if (f !== 0) {
+    writer.writeUint64(
+      5,
       f
     );
   }
@@ -234,6 +246,21 @@ proto.holdem.pb.ServerMessageUserIsMute.prototype.getUserId = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageUserIsMute.prototype.setUserId = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional uint64 user_random_id = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUserIsMute.prototype.getUserRandomId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUserIsMute.prototype.setUserRandomId = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 

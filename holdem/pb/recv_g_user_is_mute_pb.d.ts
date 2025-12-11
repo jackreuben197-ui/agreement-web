@@ -16,6 +16,9 @@ export class ServerMessageUserIsMute extends jspb.Message {
   getUserId(): number;
   setUserId(value: number): void;
 
+  getUserRandomId(): number;
+  setUserRandomId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserIsMute.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserIsMute): ServerMessageUserIsMute.AsObject;
@@ -32,6 +35,7 @@ export namespace ServerMessageUserIsMute {
     tribeId: number,
     mute: boolean,
     userId: number,
+    userRandomId: number,
   }
 }
 
