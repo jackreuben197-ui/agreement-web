@@ -109,6 +109,7 @@ export namespace Def {
     LR_AUTO_EXCEED_MAX_TIMES: 6;
     LR_OFFLINE: 7;
     LR_AUTO_CHANGE_ROOM: 8;
+    LR_PLAYER_NOT_ENOUGH: 9;
   }
 
   export const LeaveReason: LeaveReasonMap;
