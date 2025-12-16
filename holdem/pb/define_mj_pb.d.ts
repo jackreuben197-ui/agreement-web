@@ -789,6 +789,12 @@ export class MyGameInfoMJ extends jspb.Message {
   getWantSeat(): protobuf_holdem_define_pb.Def.WantSeatTypeMap[keyof protobuf_holdem_define_pb.Def.WantSeatTypeMap];
   setWantSeat(value: protobuf_holdem_define_pb.Def.WantSeatTypeMap[keyof protobuf_holdem_define_pb.Def.WantSeatTypeMap]): void;
 
+  getMttCurrentRank(): number;
+  setMttCurrentRank(value: number): void;
+
+  getMttRemaindDelayTimes(): number;
+  setMttRemaindDelayTimes(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MyGameInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: MyGameInfoMJ): MyGameInfoMJ.AsObject;
@@ -809,6 +815,8 @@ export namespace MyGameInfoMJ {
     sex: number,
     userSubscriptionId: number,
     wantSeat: protobuf_holdem_define_pb.Def.WantSeatTypeMap[keyof protobuf_holdem_define_pb.Def.WantSeatTypeMap],
+    mttCurrentRank: number,
+    mttRemaindDelayTimes: number,
   }
 }
 

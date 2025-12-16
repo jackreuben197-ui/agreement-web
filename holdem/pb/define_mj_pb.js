@@ -4466,7 +4466,9 @@ proto.holdem.pb.MyGameInfoMJ.toObject = function(includeInstance, msg) {
     avatar: jspb.Message.getFieldWithDefault(msg, 5, ""),
     sex: jspb.Message.getFieldWithDefault(msg, 6, 0),
     userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    wantSeat: jspb.Message.getFieldWithDefault(msg, 8, 0)
+    wantSeat: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    mttCurrentRank: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    mttRemaindDelayTimes: jspb.Message.getFieldWithDefault(msg, 10, 0)
   };
 
   if (includeInstance) {
@@ -4534,6 +4536,14 @@ proto.holdem.pb.MyGameInfoMJ.deserializeBinaryFromReader = function(msg, reader)
     case 8:
       var value = /** @type {!proto.holdem.pb.Def.WantSeatType} */ (reader.readEnum());
       msg.setWantSeat(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMttCurrentRank(value);
+      break;
+    case 10:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMttRemaindDelayTimes(value);
       break;
     default:
       reader.skipField();
@@ -4617,6 +4627,20 @@ proto.holdem.pb.MyGameInfoMJ.serializeBinaryToWriter = function(message, writer)
   if (f !== 0.0) {
     writer.writeEnum(
       8,
+      f
+    );
+  }
+  f = message.getMttCurrentRank();
+  if (f !== 0) {
+    writer.writeInt32(
+      9,
+      f
+    );
+  }
+  f = message.getMttRemaindDelayTimes();
+  if (f !== 0) {
+    writer.writeUint32(
+      10,
       f
     );
   }
@@ -4742,6 +4766,36 @@ proto.holdem.pb.MyGameInfoMJ.prototype.getWantSeat = function() {
 /** @param {!proto.holdem.pb.Def.WantSeatType} value */
 proto.holdem.pb.MyGameInfoMJ.prototype.setWantSeat = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional int32 mtt_current_rank = 9;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfoMJ.prototype.getMttCurrentRank = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfoMJ.prototype.setMttCurrentRank = function(value) {
+  jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional uint32 mtt_remaind_delay_times = 10;
+ * @return {number}
+ */
+proto.holdem.pb.MyGameInfoMJ.prototype.getMttRemaindDelayTimes = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 10, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MyGameInfoMJ.prototype.setMttRemaindDelayTimes = function(value) {
+  jspb.Message.setField(this, 10, value);
 };
 
 

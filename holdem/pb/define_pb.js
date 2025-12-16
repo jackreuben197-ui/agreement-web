@@ -21933,7 +21933,10 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     blindLevelDelayTimeTableList: jspb.Message.toObjectList(msg.getBlindLevelDelayTimeTableList(),
     proto.holdem.pb.MTTBlindLevelDelayTime.toObject, includeInstance),
     maxDelayTimes: jspb.Message.getFieldWithDefault(msg, 124, 0),
-    autoDelayTime: jspb.Message.getFieldWithDefault(msg, 125, 0)
+    autoDelayTime: jspb.Message.getFieldWithDefault(msg, 125, 0),
+    mjTotalHands: jspb.Message.getFieldWithDefault(msg, 131, 0),
+    mjShuffleHands: jspb.Message.getFieldWithDefault(msg, 132, 0),
+    mjBlindUpHands: jspb.Message.getFieldWithDefault(msg, 133, 0)
   };
 
   if (includeInstance) {
@@ -22470,6 +22473,18 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 125:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setAutoDelayTime(value);
+      break;
+    case 131:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMjTotalHands(value);
+      break;
+    case 132:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMjShuffleHands(value);
+      break;
+    case 133:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMjBlindUpHands(value);
       break;
     default:
       reader.skipField();
@@ -23373,6 +23388,27 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       125,
+      f
+    );
+  }
+  f = message.getMjTotalHands();
+  if (f !== 0) {
+    writer.writeInt32(
+      131,
+      f
+    );
+  }
+  f = message.getMjShuffleHands();
+  if (f !== 0) {
+    writer.writeInt32(
+      132,
+      f
+    );
+  }
+  f = message.getMjBlindUpHands();
+  if (f !== 0) {
+    writer.writeInt32(
+      133,
       f
     );
   }
@@ -25267,6 +25303,51 @@ proto.holdem.pb.MTTRecord.prototype.getAutoDelayTime = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTRecord.prototype.setAutoDelayTime = function(value) {
   jspb.Message.setField(this, 125, value);
+};
+
+
+/**
+ * optional int32 mj_total_hands = 131;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getMjTotalHands = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 131, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setMjTotalHands = function(value) {
+  jspb.Message.setField(this, 131, value);
+};
+
+
+/**
+ * optional int32 mj_shuffle_hands = 132;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getMjShuffleHands = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 132, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setMjShuffleHands = function(value) {
+  jspb.Message.setField(this, 132, value);
+};
+
+
+/**
+ * optional int32 mj_blind_up_hands = 133;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getMjBlindUpHands = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 133, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setMjBlindUpHands = function(value) {
+  jspb.Message.setField(this, 133, value);
 };
 
 

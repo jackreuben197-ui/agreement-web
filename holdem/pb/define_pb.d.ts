@@ -3716,6 +3716,15 @@ export class MTTRecord extends jspb.Message {
   getAutoDelayTime(): number;
   setAutoDelayTime(value: number): void;
 
+  getMjTotalHands(): number;
+  setMjTotalHands(value: number): void;
+
+  getMjShuffleHands(): number;
+  setMjShuffleHands(value: number): void;
+
+  getMjBlindUpHands(): number;
+  setMjBlindUpHands(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
   static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
@@ -3853,6 +3862,9 @@ export namespace MTTRecord {
     blindLevelDelayTimeTableList: Array<MTTBlindLevelDelayTime.AsObject>,
     maxDelayTimes: number,
     autoDelayTime: number,
+    mjTotalHands: number,
+    mjShuffleHands: number,
+    mjBlindUpHands: number,
   }
 }
 

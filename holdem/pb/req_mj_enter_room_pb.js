@@ -64,7 +64,8 @@ proto.holdem.pb.ClientMessageMjEnterRoom.toObject = function(includeInstance, ms
   var f, obj = {
     room: (f = msg.getRoom()) && protobuf_holdem_define_pb.Room.toObject(includeInstance, f),
     gps: (f = msg.getGps()) && protobuf_holdem_define_pb.GPS.toObject(includeInstance, f),
-    wantSeat: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    wantSeat: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    observer: jspb.Message.getFieldWithDefault(msg, 4, false)
   };
 
   if (includeInstance) {
@@ -115,6 +116,10 @@ proto.holdem.pb.ClientMessageMjEnterRoom.deserializeBinaryFromReader = function(
       var value = /** @type {!proto.holdem.pb.Def.WantSeatType} */ (reader.readEnum());
       msg.setWantSeat(value);
       break;
+    case 4:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setObserver(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -164,6 +169,13 @@ proto.holdem.pb.ClientMessageMjEnterRoom.serializeBinaryToWriter = function(mess
   if (f !== 0.0) {
     writer.writeEnum(
       3,
+      f
+    );
+  }
+  f = message.getObserver();
+  if (f) {
+    writer.writeBool(
+      4,
       f
     );
   }
@@ -242,6 +254,23 @@ proto.holdem.pb.ClientMessageMjEnterRoom.prototype.getWantSeat = function() {
 /** @param {!proto.holdem.pb.Def.WantSeatType} value */
 proto.holdem.pb.ClientMessageMjEnterRoom.prototype.setWantSeat = function(value) {
   jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional bool observer = 4;
+ * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
+ * You should avoid comparisons like {@code val === true/false} in those cases.
+ * @return {boolean}
+ */
+proto.holdem.pb.ClientMessageMjEnterRoom.prototype.getObserver = function() {
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 4, false));
+};
+
+
+/** @param {boolean} value */
+proto.holdem.pb.ClientMessageMjEnterRoom.prototype.setObserver = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

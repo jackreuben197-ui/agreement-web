@@ -19,6 +19,9 @@ export class ClientMessageMjEnterRoom extends jspb.Message {
   getWantSeat(): protobuf_holdem_define_pb.Def.WantSeatTypeMap[keyof protobuf_holdem_define_pb.Def.WantSeatTypeMap];
   setWantSeat(value: protobuf_holdem_define_pb.Def.WantSeatTypeMap[keyof protobuf_holdem_define_pb.Def.WantSeatTypeMap]): void;
 
+  getObserver(): boolean;
+  setObserver(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ClientMessageMjEnterRoom.AsObject;
   static toObject(includeInstance: boolean, msg: ClientMessageMjEnterRoom): ClientMessageMjEnterRoom.AsObject;
@@ -34,6 +37,7 @@ export namespace ClientMessageMjEnterRoom {
     room?: protobuf_holdem_define_pb.Room.AsObject,
     gps?: protobuf_holdem_define_pb.GPS.AsObject,
     wantSeat: protobuf_holdem_define_pb.Def.WantSeatTypeMap[keyof protobuf_holdem_define_pb.Def.WantSeatTypeMap],
+    observer: boolean,
   }
 }
 
