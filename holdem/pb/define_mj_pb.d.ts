@@ -376,11 +376,6 @@ export class RoomInfoMJ extends jspb.Message {
   getOneMatchMoreWin(): number;
   setOneMatchMoreWin(value: number): void;
 
-  clearRuleUnitList(): void;
-  getRuleUnitList(): Array<protobuf_holdem_define_pb.RuleUnit>;
-  setRuleUnitList(value: Array<protobuf_holdem_define_pb.RuleUnit>): void;
-  addRuleUnit(value?: protobuf_holdem_define_pb.RuleUnit, index?: number): protobuf_holdem_define_pb.RuleUnit;
-
   getSimpleHorseMode(): number;
   setSimpleHorseMode(value: number): void;
 
@@ -442,7 +437,6 @@ export namespace RoomInfoMJ {
     raise: number,
     jokerCount: number,
     oneMatchMoreWin: number,
-    ruleUnitList: Array<protobuf_holdem_define_pb.RuleUnit.AsObject>,
     simpleHorseMode: number,
     simpleHorseCount: number,
   }

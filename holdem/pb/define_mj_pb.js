@@ -726,7 +726,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.RoomInfoMJ.repeatedFields_ = [19,150];
+proto.holdem.pb.RoomInfoMJ.repeatedFields_ = [19];
 
 
 
@@ -801,8 +801,6 @@ proto.holdem.pb.RoomInfoMJ.toObject = function(includeInstance, msg) {
     raise: jspb.Message.getFieldWithDefault(msg, 144, 0),
     jokerCount: jspb.Message.getFieldWithDefault(msg, 146, 0),
     oneMatchMoreWin: jspb.Message.getFieldWithDefault(msg, 147, 0),
-    ruleUnitList: jspb.Message.toObjectList(msg.getRuleUnitList(),
-    protobuf_holdem_define_pb.RuleUnit.toObject, includeInstance),
     simpleHorseMode: jspb.Message.getFieldWithDefault(msg, 151, 0),
     simpleHorseCount: jspb.Message.getFieldWithDefault(msg, 152, 0)
   };
@@ -1014,11 +1012,6 @@ proto.holdem.pb.RoomInfoMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 147:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOneMatchMoreWin(value);
-      break;
-    case 150:
-      var value = new protobuf_holdem_define_pb.RuleUnit;
-      reader.readMessage(value,protobuf_holdem_define_pb.RuleUnit.deserializeBinaryFromReader);
-      msg.addRuleUnit(value);
       break;
     case 151:
       var value = /** @type {number} */ (reader.readInt32());
@@ -1358,14 +1351,6 @@ proto.holdem.pb.RoomInfoMJ.serializeBinaryToWriter = function(message, writer) {
     writer.writeInt32(
       147,
       f
-    );
-  }
-  f = message.getRuleUnitList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      150,
-      f,
-      protobuf_holdem_define_pb.RuleUnit.serializeBinaryToWriter
     );
   }
   f = message.getSimpleHorseMode();
@@ -2064,37 +2049,6 @@ proto.holdem.pb.RoomInfoMJ.prototype.getOneMatchMoreWin = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfoMJ.prototype.setOneMatchMoreWin = function(value) {
   jspb.Message.setField(this, 147, value);
-};
-
-
-/**
- * repeated RuleUnit rule_unit = 150;
- * @return {!Array.<!proto.holdem.pb.RuleUnit>}
- */
-proto.holdem.pb.RoomInfoMJ.prototype.getRuleUnitList = function() {
-  return /** @type{!Array.<!proto.holdem.pb.RuleUnit>} */ (
-    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.RuleUnit, 150));
-};
-
-
-/** @param {!Array.<!proto.holdem.pb.RuleUnit>} value */
-proto.holdem.pb.RoomInfoMJ.prototype.setRuleUnitList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 150, value);
-};
-
-
-/**
- * @param {!proto.holdem.pb.RuleUnit=} opt_value
- * @param {number=} opt_index
- * @return {!proto.holdem.pb.RuleUnit}
- */
-proto.holdem.pb.RoomInfoMJ.prototype.addRuleUnit = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 150, opt_value, proto.holdem.pb.RuleUnit, opt_index);
-};
-
-
-proto.holdem.pb.RoomInfoMJ.prototype.clearRuleUnitList = function() {
-  this.setRuleUnitList([]);
 };
 
 
