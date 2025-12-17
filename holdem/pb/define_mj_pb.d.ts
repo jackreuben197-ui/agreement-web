@@ -387,9 +387,6 @@ export class RoomInfoMJ extends jspb.Message {
   getSimpleHorseCount(): number;
   setSimpleHorseCount(value: number): void;
 
-  getAnte(): number;
-  setAnte(value: number): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfoMJ): RoomInfoMJ.AsObject;
@@ -448,7 +445,6 @@ export namespace RoomInfoMJ {
     ruleUnitList: Array<protobuf_holdem_define_pb.RuleUnit.AsObject>,
     simpleHorseMode: number,
     simpleHorseCount: number,
-    ante: number,
   }
 }
 

@@ -804,8 +804,7 @@ proto.holdem.pb.RoomInfoMJ.toObject = function(includeInstance, msg) {
     ruleUnitList: jspb.Message.toObjectList(msg.getRuleUnitList(),
     protobuf_holdem_define_pb.RuleUnit.toObject, includeInstance),
     simpleHorseMode: jspb.Message.getFieldWithDefault(msg, 151, 0),
-    simpleHorseCount: jspb.Message.getFieldWithDefault(msg, 152, 0),
-    ante: jspb.Message.getFieldWithDefault(msg, 153, 0)
+    simpleHorseCount: jspb.Message.getFieldWithDefault(msg, 152, 0)
   };
 
   if (includeInstance) {
@@ -1028,10 +1027,6 @@ proto.holdem.pb.RoomInfoMJ.deserializeBinaryFromReader = function(msg, reader) {
     case 152:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSimpleHorseCount(value);
-      break;
-    case 153:
-      var value = /** @type {number} */ (reader.readUint64());
-      msg.setAnte(value);
       break;
     default:
       reader.skipField();
@@ -1384,13 +1379,6 @@ proto.holdem.pb.RoomInfoMJ.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       152,
-      f
-    );
-  }
-  f = message.getAnte();
-  if (f !== 0) {
-    writer.writeUint64(
-      153,
       f
     );
   }
@@ -2137,21 +2125,6 @@ proto.holdem.pb.RoomInfoMJ.prototype.getSimpleHorseCount = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfoMJ.prototype.setSimpleHorseCount = function(value) {
   jspb.Message.setField(this, 152, value);
-};
-
-
-/**
- * optional uint64 ante = 153;
- * @return {number}
- */
-proto.holdem.pb.RoomInfoMJ.prototype.getAnte = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 153, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.RoomInfoMJ.prototype.setAnte = function(value) {
-  jspb.Message.setField(this, 153, value);
 };
 
 
