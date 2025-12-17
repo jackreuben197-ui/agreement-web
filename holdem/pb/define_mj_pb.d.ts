@@ -302,6 +302,94 @@ export class RoomInfoMJ extends jspb.Message {
   setRuleMjList(value: Array<protobuf_holdem_define_pb.RuleUnit>): void;
   addRuleMj(value?: protobuf_holdem_define_pb.RuleUnit, index?: number): protobuf_holdem_define_pb.RuleUnit;
 
+  getStraddleOn(): number;
+  setStraddleOn(value: number): void;
+
+  getStraddleMax(): number;
+  setStraddleMax(value: number): void;
+
+  getInsuranceOpDuration(): number;
+  setInsuranceOpDuration(value: number): void;
+
+  getSecondPcsOpDuration(): number;
+  setSecondPcsOpDuration(value: number): void;
+
+  getSecondPcsUserLimit(): number;
+  setSecondPcsUserLimit(value: number): void;
+
+  getDelayViewCardOn(): number;
+  setDelayViewCardOn(value: number): void;
+
+  getPostOn(): number;
+  setPostOn(value: number): void;
+
+  getMuckOn(): number;
+  setMuckOn(value: number): void;
+
+  getBombpot(): number;
+  setBombpot(value: number): void;
+
+  getKongTransfer(): number;
+  setKongTransfer(value: number): void;
+
+  getKongWinOfDiscard(): number;
+  setKongWinOfDiscard(value: number): void;
+
+  getSelfDrawnType(): number;
+  setSelfDrawnType(value: number): void;
+
+  hasWinTypeRule(): boolean;
+  clearWinTypeRule(): void;
+  getWinTypeRule(): protobuf_holdem_define_pb.WinTypeRule | undefined;
+  setWinTypeRule(value?: protobuf_holdem_define_pb.WinTypeRule): void;
+
+  getKongWinOfDiscardType(): number;
+  setKongWinOfDiscardType(value: number): void;
+
+  getJoker(): number;
+  setJoker(value: number): void;
+
+  getWinWay(): number;
+  setWinWay(value: number): void;
+
+  getSingleHolder(): number;
+  setSingleHolder(value: number): void;
+
+  getRobKongHolder(): number;
+  setRobKongHolder(value: number): void;
+
+  getRobKong(): number;
+  setRobKong(value: number): void;
+
+  getWallType(): number;
+  setWallType(value: number): void;
+
+  getFollowDealer(): number;
+  setFollowDealer(value: number): void;
+
+  getRaise(): number;
+  setRaise(value: number): void;
+
+  getJokerCount(): number;
+  setJokerCount(value: number): void;
+
+  getOneMatchMoreWin(): number;
+  setOneMatchMoreWin(value: number): void;
+
+  clearRuleUnitList(): void;
+  getRuleUnitList(): Array<protobuf_holdem_define_pb.RuleUnit>;
+  setRuleUnitList(value: Array<protobuf_holdem_define_pb.RuleUnit>): void;
+  addRuleUnit(value?: protobuf_holdem_define_pb.RuleUnit, index?: number): protobuf_holdem_define_pb.RuleUnit;
+
+  getSimpleHorseMode(): number;
+  setSimpleHorseMode(value: number): void;
+
+  getSimpleHorseCount(): number;
+  setSimpleHorseCount(value: number): void;
+
+  getAnte(): number;
+  setAnte(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfoMJ.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfoMJ): RoomInfoMJ.AsObject;
@@ -333,6 +421,34 @@ export namespace RoomInfoMJ {
     personalType: number,
     mode: protobuf_holdem_define_pb.Def.RoomModeMap[keyof protobuf_holdem_define_pb.Def.RoomModeMap],
     ruleMjList: Array<protobuf_holdem_define_pb.RuleUnit.AsObject>,
+    straddleOn: number,
+    straddleMax: number,
+    insuranceOpDuration: number,
+    secondPcsOpDuration: number,
+    secondPcsUserLimit: number,
+    delayViewCardOn: number,
+    postOn: number,
+    muckOn: number,
+    bombpot: number,
+    kongTransfer: number,
+    kongWinOfDiscard: number,
+    selfDrawnType: number,
+    winTypeRule?: protobuf_holdem_define_pb.WinTypeRule.AsObject,
+    kongWinOfDiscardType: number,
+    joker: number,
+    winWay: number,
+    singleHolder: number,
+    robKongHolder: number,
+    robKong: number,
+    wallType: number,
+    followDealer: number,
+    raise: number,
+    jokerCount: number,
+    oneMatchMoreWin: number,
+    ruleUnitList: Array<protobuf_holdem_define_pb.RuleUnit.AsObject>,
+    simpleHorseMode: number,
+    simpleHorseCount: number,
+    ante: number,
   }
 }
 

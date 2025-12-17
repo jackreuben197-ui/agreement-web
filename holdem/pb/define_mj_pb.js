@@ -726,7 +726,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.holdem.pb.RoomInfoMJ.repeatedFields_ = [19];
+proto.holdem.pb.RoomInfoMJ.repeatedFields_ = [19,150];
 
 
 
@@ -776,7 +776,36 @@ proto.holdem.pb.RoomInfoMJ.toObject = function(includeInstance, msg) {
     personalType: jspb.Message.getFieldWithDefault(msg, 17, 0),
     mode: jspb.Message.getFieldWithDefault(msg, 18, 0),
     ruleMjList: jspb.Message.toObjectList(msg.getRuleMjList(),
-    protobuf_holdem_define_pb.RuleUnit.toObject, includeInstance)
+    protobuf_holdem_define_pb.RuleUnit.toObject, includeInstance),
+    straddleOn: jspb.Message.getFieldWithDefault(msg, 20, 0),
+    straddleMax: jspb.Message.getFieldWithDefault(msg, 21, 0),
+    insuranceOpDuration: jspb.Message.getFieldWithDefault(msg, 23, 0),
+    secondPcsOpDuration: jspb.Message.getFieldWithDefault(msg, 25, 0),
+    secondPcsUserLimit: jspb.Message.getFieldWithDefault(msg, 26, 0),
+    delayViewCardOn: jspb.Message.getFieldWithDefault(msg, 27, 0),
+    postOn: jspb.Message.getFieldWithDefault(msg, 28, 0),
+    muckOn: jspb.Message.getFieldWithDefault(msg, 29, 0),
+    bombpot: jspb.Message.getFieldWithDefault(msg, 88, 0),
+    kongTransfer: jspb.Message.getFieldWithDefault(msg, 132, 0),
+    kongWinOfDiscard: jspb.Message.getFieldWithDefault(msg, 133, 0),
+    selfDrawnType: jspb.Message.getFieldWithDefault(msg, 134, 0),
+    winTypeRule: (f = msg.getWinTypeRule()) && protobuf_holdem_define_pb.WinTypeRule.toObject(includeInstance, f),
+    kongWinOfDiscardType: jspb.Message.getFieldWithDefault(msg, 136, 0),
+    joker: jspb.Message.getFieldWithDefault(msg, 137, 0),
+    winWay: jspb.Message.getFieldWithDefault(msg, 138, 0),
+    singleHolder: jspb.Message.getFieldWithDefault(msg, 139, 0),
+    robKongHolder: jspb.Message.getFieldWithDefault(msg, 140, 0),
+    robKong: jspb.Message.getFieldWithDefault(msg, 141, 0),
+    wallType: jspb.Message.getFieldWithDefault(msg, 142, 0),
+    followDealer: jspb.Message.getFieldWithDefault(msg, 143, 0),
+    raise: jspb.Message.getFieldWithDefault(msg, 144, 0),
+    jokerCount: jspb.Message.getFieldWithDefault(msg, 146, 0),
+    oneMatchMoreWin: jspb.Message.getFieldWithDefault(msg, 147, 0),
+    ruleUnitList: jspb.Message.toObjectList(msg.getRuleUnitList(),
+    protobuf_holdem_define_pb.RuleUnit.toObject, includeInstance),
+    simpleHorseMode: jspb.Message.getFieldWithDefault(msg, 151, 0),
+    simpleHorseCount: jspb.Message.getFieldWithDefault(msg, 152, 0),
+    ante: jspb.Message.getFieldWithDefault(msg, 153, 0)
   };
 
   if (includeInstance) {
@@ -889,6 +918,120 @@ proto.holdem.pb.RoomInfoMJ.deserializeBinaryFromReader = function(msg, reader) {
       var value = new protobuf_holdem_define_pb.RuleUnit;
       reader.readMessage(value,protobuf_holdem_define_pb.RuleUnit.deserializeBinaryFromReader);
       msg.addRuleMj(value);
+      break;
+    case 20:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStraddleOn(value);
+      break;
+    case 21:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStraddleMax(value);
+      break;
+    case 23:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setInsuranceOpDuration(value);
+      break;
+    case 25:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSecondPcsOpDuration(value);
+      break;
+    case 26:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSecondPcsUserLimit(value);
+      break;
+    case 27:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setDelayViewCardOn(value);
+      break;
+    case 28:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPostOn(value);
+      break;
+    case 29:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMuckOn(value);
+      break;
+    case 88:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setBombpot(value);
+      break;
+    case 132:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setKongTransfer(value);
+      break;
+    case 133:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setKongWinOfDiscard(value);
+      break;
+    case 134:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSelfDrawnType(value);
+      break;
+    case 135:
+      var value = new protobuf_holdem_define_pb.WinTypeRule;
+      reader.readMessage(value,protobuf_holdem_define_pb.WinTypeRule.deserializeBinaryFromReader);
+      msg.setWinTypeRule(value);
+      break;
+    case 136:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setKongWinOfDiscardType(value);
+      break;
+    case 137:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setJoker(value);
+      break;
+    case 138:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setWinWay(value);
+      break;
+    case 139:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSingleHolder(value);
+      break;
+    case 140:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRobKongHolder(value);
+      break;
+    case 141:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRobKong(value);
+      break;
+    case 142:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setWallType(value);
+      break;
+    case 143:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setFollowDealer(value);
+      break;
+    case 144:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setRaise(value);
+      break;
+    case 146:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setJokerCount(value);
+      break;
+    case 147:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setOneMatchMoreWin(value);
+      break;
+    case 150:
+      var value = new protobuf_holdem_define_pb.RuleUnit;
+      reader.readMessage(value,protobuf_holdem_define_pb.RuleUnit.deserializeBinaryFromReader);
+      msg.addRuleUnit(value);
+      break;
+    case 151:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSimpleHorseMode(value);
+      break;
+    case 152:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setSimpleHorseCount(value);
+      break;
+    case 153:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAnte(value);
       break;
     default:
       reader.skipField();
@@ -1051,6 +1194,204 @@ proto.holdem.pb.RoomInfoMJ.serializeBinaryToWriter = function(message, writer) {
       19,
       f,
       protobuf_holdem_define_pb.RuleUnit.serializeBinaryToWriter
+    );
+  }
+  f = message.getStraddleOn();
+  if (f !== 0) {
+    writer.writeInt32(
+      20,
+      f
+    );
+  }
+  f = message.getStraddleMax();
+  if (f !== 0) {
+    writer.writeInt32(
+      21,
+      f
+    );
+  }
+  f = message.getInsuranceOpDuration();
+  if (f !== 0) {
+    writer.writeUint32(
+      23,
+      f
+    );
+  }
+  f = message.getSecondPcsOpDuration();
+  if (f !== 0) {
+    writer.writeInt32(
+      25,
+      f
+    );
+  }
+  f = message.getSecondPcsUserLimit();
+  if (f !== 0) {
+    writer.writeInt32(
+      26,
+      f
+    );
+  }
+  f = message.getDelayViewCardOn();
+  if (f !== 0) {
+    writer.writeInt32(
+      27,
+      f
+    );
+  }
+  f = message.getPostOn();
+  if (f !== 0) {
+    writer.writeInt32(
+      28,
+      f
+    );
+  }
+  f = message.getMuckOn();
+  if (f !== 0) {
+    writer.writeInt32(
+      29,
+      f
+    );
+  }
+  f = message.getBombpot();
+  if (f !== 0) {
+    writer.writeInt32(
+      88,
+      f
+    );
+  }
+  f = message.getKongTransfer();
+  if (f !== 0) {
+    writer.writeInt32(
+      132,
+      f
+    );
+  }
+  f = message.getKongWinOfDiscard();
+  if (f !== 0) {
+    writer.writeInt32(
+      133,
+      f
+    );
+  }
+  f = message.getSelfDrawnType();
+  if (f !== 0) {
+    writer.writeInt32(
+      134,
+      f
+    );
+  }
+  f = message.getWinTypeRule();
+  if (f != null) {
+    writer.writeMessage(
+      135,
+      f,
+      protobuf_holdem_define_pb.WinTypeRule.serializeBinaryToWriter
+    );
+  }
+  f = message.getKongWinOfDiscardType();
+  if (f !== 0) {
+    writer.writeInt32(
+      136,
+      f
+    );
+  }
+  f = message.getJoker();
+  if (f !== 0) {
+    writer.writeInt32(
+      137,
+      f
+    );
+  }
+  f = message.getWinWay();
+  if (f !== 0) {
+    writer.writeInt32(
+      138,
+      f
+    );
+  }
+  f = message.getSingleHolder();
+  if (f !== 0) {
+    writer.writeInt32(
+      139,
+      f
+    );
+  }
+  f = message.getRobKongHolder();
+  if (f !== 0) {
+    writer.writeInt32(
+      140,
+      f
+    );
+  }
+  f = message.getRobKong();
+  if (f !== 0) {
+    writer.writeInt32(
+      141,
+      f
+    );
+  }
+  f = message.getWallType();
+  if (f !== 0) {
+    writer.writeInt32(
+      142,
+      f
+    );
+  }
+  f = message.getFollowDealer();
+  if (f !== 0) {
+    writer.writeInt32(
+      143,
+      f
+    );
+  }
+  f = message.getRaise();
+  if (f !== 0) {
+    writer.writeInt32(
+      144,
+      f
+    );
+  }
+  f = message.getJokerCount();
+  if (f !== 0) {
+    writer.writeInt32(
+      146,
+      f
+    );
+  }
+  f = message.getOneMatchMoreWin();
+  if (f !== 0) {
+    writer.writeInt32(
+      147,
+      f
+    );
+  }
+  f = message.getRuleUnitList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      150,
+      f,
+      protobuf_holdem_define_pb.RuleUnit.serializeBinaryToWriter
+    );
+  }
+  f = message.getSimpleHorseMode();
+  if (f !== 0) {
+    writer.writeInt32(
+      151,
+      f
+    );
+  }
+  f = message.getSimpleHorseCount();
+  if (f !== 0) {
+    writer.writeInt32(
+      152,
+      f
+    );
+  }
+  f = message.getAnte();
+  if (f !== 0) {
+    writer.writeUint64(
+      153,
+      f
     );
   }
 };
@@ -1360,6 +1701,457 @@ proto.holdem.pb.RoomInfoMJ.prototype.addRuleMj = function(opt_value, opt_index) 
 
 proto.holdem.pb.RoomInfoMJ.prototype.clearRuleMjList = function() {
   this.setRuleMjList([]);
+};
+
+
+/**
+ * optional int32 straddle_on = 20;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getStraddleOn = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setStraddleOn = function(value) {
+  jspb.Message.setField(this, 20, value);
+};
+
+
+/**
+ * optional int32 straddle_max = 21;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getStraddleMax = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 21, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setStraddleMax = function(value) {
+  jspb.Message.setField(this, 21, value);
+};
+
+
+/**
+ * optional uint32 insurance_op_duration = 23;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getInsuranceOpDuration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 23, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setInsuranceOpDuration = function(value) {
+  jspb.Message.setField(this, 23, value);
+};
+
+
+/**
+ * optional int32 second_pcs_op_duration = 25;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getSecondPcsOpDuration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 25, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setSecondPcsOpDuration = function(value) {
+  jspb.Message.setField(this, 25, value);
+};
+
+
+/**
+ * optional int32 second_pcs_user_limit = 26;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getSecondPcsUserLimit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 26, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setSecondPcsUserLimit = function(value) {
+  jspb.Message.setField(this, 26, value);
+};
+
+
+/**
+ * optional int32 delay_view_card_on = 27;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getDelayViewCardOn = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 27, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setDelayViewCardOn = function(value) {
+  jspb.Message.setField(this, 27, value);
+};
+
+
+/**
+ * optional int32 post_on = 28;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getPostOn = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 28, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setPostOn = function(value) {
+  jspb.Message.setField(this, 28, value);
+};
+
+
+/**
+ * optional int32 muck_on = 29;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getMuckOn = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 29, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setMuckOn = function(value) {
+  jspb.Message.setField(this, 29, value);
+};
+
+
+/**
+ * optional int32 bombpot = 88;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getBombpot = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 88, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setBombpot = function(value) {
+  jspb.Message.setField(this, 88, value);
+};
+
+
+/**
+ * optional int32 kong_transfer = 132;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getKongTransfer = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 132, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setKongTransfer = function(value) {
+  jspb.Message.setField(this, 132, value);
+};
+
+
+/**
+ * optional int32 kong_win_of_discard = 133;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getKongWinOfDiscard = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 133, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setKongWinOfDiscard = function(value) {
+  jspb.Message.setField(this, 133, value);
+};
+
+
+/**
+ * optional int32 self_drawn_type = 134;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getSelfDrawnType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 134, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setSelfDrawnType = function(value) {
+  jspb.Message.setField(this, 134, value);
+};
+
+
+/**
+ * optional WinTypeRule win_type_rule = 135;
+ * @return {?proto.holdem.pb.WinTypeRule}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getWinTypeRule = function() {
+  return /** @type{?proto.holdem.pb.WinTypeRule} */ (
+    jspb.Message.getWrapperField(this, protobuf_holdem_define_pb.WinTypeRule, 135));
+};
+
+
+/** @param {?proto.holdem.pb.WinTypeRule|undefined} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setWinTypeRule = function(value) {
+  jspb.Message.setWrapperField(this, 135, value);
+};
+
+
+proto.holdem.pb.RoomInfoMJ.prototype.clearWinTypeRule = function() {
+  this.setWinTypeRule(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.hasWinTypeRule = function() {
+  return jspb.Message.getField(this, 135) != null;
+};
+
+
+/**
+ * optional int32 kong_win_of_discard_type = 136;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getKongWinOfDiscardType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 136, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setKongWinOfDiscardType = function(value) {
+  jspb.Message.setField(this, 136, value);
+};
+
+
+/**
+ * optional int32 joker = 137;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getJoker = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 137, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setJoker = function(value) {
+  jspb.Message.setField(this, 137, value);
+};
+
+
+/**
+ * optional int32 win_way = 138;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getWinWay = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 138, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setWinWay = function(value) {
+  jspb.Message.setField(this, 138, value);
+};
+
+
+/**
+ * optional int32 single_holder = 139;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getSingleHolder = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 139, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setSingleHolder = function(value) {
+  jspb.Message.setField(this, 139, value);
+};
+
+
+/**
+ * optional int32 rob_kong_holder = 140;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getRobKongHolder = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 140, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setRobKongHolder = function(value) {
+  jspb.Message.setField(this, 140, value);
+};
+
+
+/**
+ * optional int32 rob_kong = 141;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getRobKong = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 141, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setRobKong = function(value) {
+  jspb.Message.setField(this, 141, value);
+};
+
+
+/**
+ * optional int32 wall_type = 142;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getWallType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 142, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setWallType = function(value) {
+  jspb.Message.setField(this, 142, value);
+};
+
+
+/**
+ * optional int32 follow_dealer = 143;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getFollowDealer = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 143, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setFollowDealer = function(value) {
+  jspb.Message.setField(this, 143, value);
+};
+
+
+/**
+ * optional int32 raise = 144;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getRaise = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 144, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setRaise = function(value) {
+  jspb.Message.setField(this, 144, value);
+};
+
+
+/**
+ * optional int32 joker_count = 146;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getJokerCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 146, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setJokerCount = function(value) {
+  jspb.Message.setField(this, 146, value);
+};
+
+
+/**
+ * optional int32 one_match_more_win = 147;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getOneMatchMoreWin = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 147, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setOneMatchMoreWin = function(value) {
+  jspb.Message.setField(this, 147, value);
+};
+
+
+/**
+ * repeated RuleUnit rule_unit = 150;
+ * @return {!Array.<!proto.holdem.pb.RuleUnit>}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getRuleUnitList = function() {
+  return /** @type{!Array.<!proto.holdem.pb.RuleUnit>} */ (
+    jspb.Message.getRepeatedWrapperField(this, protobuf_holdem_define_pb.RuleUnit, 150));
+};
+
+
+/** @param {!Array.<!proto.holdem.pb.RuleUnit>} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setRuleUnitList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 150, value);
+};
+
+
+/**
+ * @param {!proto.holdem.pb.RuleUnit=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.holdem.pb.RuleUnit}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.addRuleUnit = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 150, opt_value, proto.holdem.pb.RuleUnit, opt_index);
+};
+
+
+proto.holdem.pb.RoomInfoMJ.prototype.clearRuleUnitList = function() {
+  this.setRuleUnitList([]);
+};
+
+
+/**
+ * optional int32 simple_horse_mode = 151;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getSimpleHorseMode = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 151, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setSimpleHorseMode = function(value) {
+  jspb.Message.setField(this, 151, value);
+};
+
+
+/**
+ * optional int32 simple_horse_count = 152;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getSimpleHorseCount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 152, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setSimpleHorseCount = function(value) {
+  jspb.Message.setField(this, 152, value);
+};
+
+
+/**
+ * optional uint64 ante = 153;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfoMJ.prototype.getAnte = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 153, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfoMJ.prototype.setAnte = function(value) {
+  jspb.Message.setField(this, 153, value);
 };
 
 
