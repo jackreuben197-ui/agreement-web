@@ -1349,7 +1349,8 @@ proto.holdem.pb.RoomInfo.toObject = function(includeInstance, msg) {
     autoChangeRoomLimitHand: jspb.Message.getFieldWithDefault(msg, 46, 0),
     insuranceMode: jspb.Message.getFieldWithDefault(msg, 47, 0),
     wheelTemplateId: jspb.Message.getFieldWithDefault(msg, 48, 0),
-    squidTotalLimit: jspb.Message.getFieldWithDefault(msg, 49, 0)
+    squidTotalLimit: jspb.Message.getFieldWithDefault(msg, 49, 0),
+    limitRetainMaxRate: jspb.Message.getFieldWithDefault(msg, 50, 0)
   };
 
   if (includeInstance) {
@@ -1574,6 +1575,10 @@ proto.holdem.pb.RoomInfo.deserializeBinaryFromReader = function(msg, reader) {
     case 49:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setSquidTotalLimit(value);
+      break;
+    case 50:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setLimitRetainMaxRate(value);
       break;
     default:
       reader.skipField();
@@ -1931,6 +1936,13 @@ proto.holdem.pb.RoomInfo.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       49,
+      f
+    );
+  }
+  f = message.getLimitRetainMaxRate();
+  if (f !== 0) {
+    writer.writeInt32(
+      50,
       f
     );
   }
@@ -2688,6 +2700,21 @@ proto.holdem.pb.RoomInfo.prototype.getSquidTotalLimit = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomInfo.prototype.setSquidTotalLimit = function(value) {
   jspb.Message.setField(this, 49, value);
+};
+
+
+/**
+ * optional int32 limit_retain_max_rate = 50;
+ * @return {number}
+ */
+proto.holdem.pb.RoomInfo.prototype.getLimitRetainMaxRate = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 50, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomInfo.prototype.setLimitRetainMaxRate = function(value) {
+  jspb.Message.setField(this, 50, value);
 };
 
 

@@ -537,6 +537,9 @@ export class RoomInfo extends jspb.Message {
   getSquidTotalLimit(): number;
   setSquidTotalLimit(value: number): void;
 
+  getLimitRetainMaxRate(): number;
+  setLimitRetainMaxRate(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomInfo.AsObject;
   static toObject(includeInstance: boolean, msg: RoomInfo): RoomInfo.AsObject;
@@ -596,6 +599,7 @@ export namespace RoomInfo {
     insuranceMode: Def.IsuranceModeMap[keyof Def.IsuranceModeMap],
     wheelTemplateId: number,
     squidTotalLimit: number,
+    limitRetainMaxRate: number,
   }
 
   export interface RetainTypeMap {
