@@ -61,6 +61,9 @@ export class ServerMessageSeatedOthers extends jspb.Message {
   getVideoMaskId(): number;
   setVideoMaskId(value: number): void;
 
+  getTotalBringin(): number;
+  setTotalBringin(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageSeatedOthers.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageSeatedOthers): ServerMessageSeatedOthers.AsObject;
@@ -92,6 +95,7 @@ export namespace ServerMessageSeatedOthers {
     userSubscriptionId: number,
     ipAddr: string,
     videoMaskId: number,
+    totalBringin: number,
   }
 }
 
