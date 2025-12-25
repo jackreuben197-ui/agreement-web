@@ -60,8 +60,7 @@ proto.holdem.pb.ServerMessageUserUsdtOrderNotify.prototype.toObject = function(o
 proto.holdem.pb.ServerMessageUserUsdtOrderNotify.toObject = function(includeInstance, msg) {
   var f, obj = {
     orderNo: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    status: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    rejectReason: jspb.Message.getFieldWithDefault(msg, 3, "")
+    status: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -106,10 +105,6 @@ proto.holdem.pb.ServerMessageUserUsdtOrderNotify.deserializeBinaryFromReader = f
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStatus(value);
       break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setRejectReason(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -153,13 +148,6 @@ proto.holdem.pb.ServerMessageUserUsdtOrderNotify.serializeBinaryToWriter = funct
       f
     );
   }
-  f = message.getRejectReason();
-  if (f.length > 0) {
-    writer.writeString(
-      3,
-      f
-    );
-  }
 };
 
 
@@ -190,21 +178,6 @@ proto.holdem.pb.ServerMessageUserUsdtOrderNotify.prototype.getStatus = function(
 /** @param {number} value */
 proto.holdem.pb.ServerMessageUserUsdtOrderNotify.prototype.setStatus = function(value) {
   jspb.Message.setField(this, 2, value);
-};
-
-
-/**
- * optional string reject_reason = 3;
- * @return {string}
- */
-proto.holdem.pb.ServerMessageUserUsdtOrderNotify.prototype.getRejectReason = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/** @param {string} value */
-proto.holdem.pb.ServerMessageUserUsdtOrderNotify.prototype.setRejectReason = function(value) {
-  jspb.Message.setField(this, 3, value);
 };
 
 

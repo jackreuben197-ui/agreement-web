@@ -10,9 +10,6 @@ export class ServerMessageUserUsdtOrderNotify extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
-  getRejectReason(): string;
-  setRejectReason(value: string): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserUsdtOrderNotify.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserUsdtOrderNotify): ServerMessageUserUsdtOrderNotify.AsObject;
@@ -27,7 +24,6 @@ export namespace ServerMessageUserUsdtOrderNotify {
   export type AsObject = {
     orderNo: string,
     status: number,
-    rejectReason: string,
   }
 }
 
