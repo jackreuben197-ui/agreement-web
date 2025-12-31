@@ -21964,7 +21964,10 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     autoDelayTime: jspb.Message.getFieldWithDefault(msg, 125, 0),
     mjTotalHands: jspb.Message.getFieldWithDefault(msg, 131, 0),
     mjShuffleHands: jspb.Message.getFieldWithDefault(msg, 132, 0),
-    mjBlindUpHands: jspb.Message.getFieldWithDefault(msg, 133, 0)
+    mjBlindUpHands: jspb.Message.getFieldWithDefault(msg, 133, 0),
+    invitationCode: jspb.Message.getFieldWithDefault(msg, 134, ""),
+    clubId: jspb.Message.getFieldWithDefault(msg, 135, 0),
+    originType: jspb.Message.getFieldWithDefault(msg, 136, 0)
   };
 
   if (includeInstance) {
@@ -22513,6 +22516,18 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 133:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setMjBlindUpHands(value);
+      break;
+    case 134:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInvitationCode(value);
+      break;
+    case 135:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setClubId(value);
+      break;
+    case 136:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setOriginType(value);
       break;
     default:
       reader.skipField();
@@ -23437,6 +23452,27 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       133,
+      f
+    );
+  }
+  f = message.getInvitationCode();
+  if (f.length > 0) {
+    writer.writeString(
+      134,
+      f
+    );
+  }
+  f = message.getClubId();
+  if (f !== 0) {
+    writer.writeUint64(
+      135,
+      f
+    );
+  }
+  f = message.getOriginType();
+  if (f !== 0) {
+    writer.writeInt32(
+      136,
       f
     );
   }
@@ -25376,6 +25412,51 @@ proto.holdem.pb.MTTRecord.prototype.getMjBlindUpHands = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTRecord.prototype.setMjBlindUpHands = function(value) {
   jspb.Message.setField(this, 133, value);
+};
+
+
+/**
+ * optional string invitation_code = 134;
+ * @return {string}
+ */
+proto.holdem.pb.MTTRecord.prototype.getInvitationCode = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 134, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.MTTRecord.prototype.setInvitationCode = function(value) {
+  jspb.Message.setField(this, 134, value);
+};
+
+
+/**
+ * optional uint64 club_id = 135;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getClubId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 135, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setClubId = function(value) {
+  jspb.Message.setField(this, 135, value);
+};
+
+
+/**
+ * optional int32 origin_type = 136;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getOriginType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 136, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setOriginType = function(value) {
+  jspb.Message.setField(this, 136, value);
 };
 
 

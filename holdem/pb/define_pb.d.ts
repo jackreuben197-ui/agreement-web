@@ -3730,6 +3730,15 @@ export class MTTRecord extends jspb.Message {
   getMjBlindUpHands(): number;
   setMjBlindUpHands(value: number): void;
 
+  getInvitationCode(): string;
+  setInvitationCode(value: string): void;
+
+  getClubId(): number;
+  setClubId(value: number): void;
+
+  getOriginType(): number;
+  setOriginType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
   static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
@@ -3870,6 +3879,9 @@ export namespace MTTRecord {
     mjTotalHands: number,
     mjShuffleHands: number,
     mjBlindUpHands: number,
+    invitationCode: string,
+    clubId: number,
+    originType: number,
   }
 }
 
