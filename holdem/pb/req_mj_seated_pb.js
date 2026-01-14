@@ -447,7 +447,8 @@ proto.holdem.pb.ServerMessageMjSeated.toObject = function(includeInstance, msg) 
     keepSeatLeftTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
     keepSeatDeadline: jspb.Message.getFieldWithDefault(msg, 6, 0),
     userSubscriptionId: jspb.Message.getFieldWithDefault(msg, 7, 0),
-    videoMaskId: jspb.Message.getFieldWithDefault(msg, 8, 0)
+    videoMaskId: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    totalBringin: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -515,6 +516,10 @@ proto.holdem.pb.ServerMessageMjSeated.deserializeBinaryFromReader = function(msg
     case 8:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setVideoMaskId(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setTotalBringin(value);
       break;
     default:
       reader.skipField();
@@ -598,6 +603,13 @@ proto.holdem.pb.ServerMessageMjSeated.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeUint64(
       8,
+      f
+    );
+  }
+  f = message.getTotalBringin();
+  if (f !== 0) {
+    writer.writeUint64(
+      9,
       f
     );
   }
@@ -721,6 +733,21 @@ proto.holdem.pb.ServerMessageMjSeated.prototype.getVideoMaskId = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageMjSeated.prototype.setVideoMaskId = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional uint64 total_bringin = 9;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMjSeated.prototype.getTotalBringin = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMjSeated.prototype.setTotalBringin = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 
