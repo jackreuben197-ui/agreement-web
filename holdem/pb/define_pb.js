@@ -31842,7 +31842,7 @@ proto.holdem.pb.JackpotAwardLog.toObject = function(includeInstance, msg) {
     limitBetType: jspb.Message.getFieldWithDefault(msg, 9, 0),
     bombpot: jspb.Message.getFieldWithDefault(msg, 10, 0),
     cardsType: jspb.Message.getFieldWithDefault(msg, 11, 0),
-    award: jspb.Message.getFieldWithDefault(msg, 12, 0),
+    goldChange: jspb.Message.getFieldWithDefault(msg, 12, 0),
     cardData: jspb.Message.getFieldWithDefault(msg, 13, ""),
     createTime: jspb.Message.getFieldWithDefault(msg, 14, 0),
     jackpotId: jspb.Message.getFieldWithDefault(msg, 15, 0),
@@ -31932,7 +31932,7 @@ proto.holdem.pb.JackpotAwardLog.deserializeBinaryFromReader = function(msg, read
       break;
     case 12:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setAward(value);
+      msg.setGoldChange(value);
       break;
     case 13:
       var value = /** @type {string} */ (reader.readString());
@@ -32068,7 +32068,7 @@ proto.holdem.pb.JackpotAwardLog.serializeBinaryToWriter = function(message, writ
       f
     );
   }
-  f = message.getAward();
+  f = message.getGoldChange();
   if (f !== 0) {
     writer.writeInt64(
       12,
@@ -32293,16 +32293,16 @@ proto.holdem.pb.JackpotAwardLog.prototype.setCardsType = function(value) {
 
 
 /**
- * optional int64 award = 12;
+ * optional int64 gold_change = 12;
  * @return {number}
  */
-proto.holdem.pb.JackpotAwardLog.prototype.getAward = function() {
+proto.holdem.pb.JackpotAwardLog.prototype.getGoldChange = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 12, 0));
 };
 
 
 /** @param {number} value */
-proto.holdem.pb.JackpotAwardLog.prototype.setAward = function(value) {
+proto.holdem.pb.JackpotAwardLog.prototype.setGoldChange = function(value) {
   jspb.Message.setField(this, 12, value);
 };
 

@@ -4823,8 +4823,8 @@ export class JackpotAwardLog extends jspb.Message {
   getCardsType(): number;
   setCardsType(value: number): void;
 
-  getAward(): number;
-  setAward(value: number): void;
+  getGoldChange(): number;
+  setGoldChange(value: number): void;
 
   getCardData(): string;
   setCardData(value: string): void;
@@ -4870,7 +4870,7 @@ export namespace JackpotAwardLog {
     limitBetType: number,
     bombpot: number,
     cardsType: number,
-    award: number,
+    goldChange: number,
     cardData: string,
     createTime: number,
     jackpotId: number,
