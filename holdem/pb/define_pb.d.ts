@@ -4443,6 +4443,11 @@ export class JackpotTemplateUpdateInfo extends jspb.Message {
   getGold(): number;
   setGold(value: number): void;
 
+  clearAwardListList(): void;
+  getAwardListList(): Array<JackpotAwardLog>;
+  setAwardListList(value: Array<JackpotAwardLog>): void;
+  addAwardList(value?: JackpotAwardLog, index?: number): JackpotAwardLog;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): JackpotTemplateUpdateInfo.AsObject;
   static toObject(includeInstance: boolean, msg: JackpotTemplateUpdateInfo): JackpotTemplateUpdateInfo.AsObject;
@@ -4460,6 +4465,7 @@ export namespace JackpotTemplateUpdateInfo {
     updateType: number,
     tribeId: number,
     gold: number,
+    awardListList: Array<JackpotAwardLog.AsObject>,
   }
 }
 
@@ -4780,6 +4786,98 @@ export namespace WheelTemplateUpdateInfo {
   export type AsObject = {
     id: number,
     updateType: number,
+  }
+}
+
+export class JackpotAwardLog extends jspb.Message {
+  getUserId(): number;
+  setUserId(value: number): void;
+
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
+  getUserName(): string;
+  setUserName(value: string): void;
+
+  getRoomId(): number;
+  setRoomId(value: number): void;
+
+  getRoomName(): string;
+  setRoomName(value: string): void;
+
+  getRoomMultiLangNames(): string;
+  setRoomMultiLangNames(value: string): void;
+
+  getGameType(): number;
+  setGameType(value: number): void;
+
+  getPokerType(): number;
+  setPokerType(value: number): void;
+
+  getLimitBetType(): number;
+  setLimitBetType(value: number): void;
+
+  getBombpot(): number;
+  setBombpot(value: number): void;
+
+  getCardsType(): number;
+  setCardsType(value: number): void;
+
+  getAward(): number;
+  setAward(value: number): void;
+
+  getCardData(): string;
+  setCardData(value: string): void;
+
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
+  getJackpotId(): number;
+  setJackpotId(value: number): void;
+
+  getSmallBlind(): number;
+  setSmallBlind(value: number): void;
+
+  getAnte(): number;
+  setAnte(value: number): void;
+
+  getUserAvatar(): string;
+  setUserAvatar(value: string): void;
+
+  getMarsEarth(): number;
+  setMarsEarth(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): JackpotAwardLog.AsObject;
+  static toObject(includeInstance: boolean, msg: JackpotAwardLog): JackpotAwardLog.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: JackpotAwardLog, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): JackpotAwardLog;
+  static deserializeBinaryFromReader(message: JackpotAwardLog, reader: jspb.BinaryReader): JackpotAwardLog;
+}
+
+export namespace JackpotAwardLog {
+  export type AsObject = {
+    userId: number,
+    userRid: number,
+    userName: string,
+    roomId: number,
+    roomName: string,
+    roomMultiLangNames: string,
+    gameType: number,
+    pokerType: number,
+    limitBetType: number,
+    bombpot: number,
+    cardsType: number,
+    award: number,
+    cardData: string,
+    createTime: number,
+    jackpotId: number,
+    smallBlind: number,
+    ante: number,
+    userAvatar: string,
+    marsEarth: number,
   }
 }
 
