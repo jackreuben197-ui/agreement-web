@@ -8,6 +8,9 @@ export class ServerMessageFriendRoomCreatorSettle extends jspb.Message {
   getRoomId(): number;
   setRoomId(value: number): void;
 
+  getMatchId(): number;
+  setMatchId(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageFriendRoomCreatorSettle.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageFriendRoomCreatorSettle): ServerMessageFriendRoomCreatorSettle.AsObject;
@@ -21,6 +24,7 @@ export class ServerMessageFriendRoomCreatorSettle extends jspb.Message {
 export namespace ServerMessageFriendRoomCreatorSettle {
   export type AsObject = {
     roomId: number,
+    matchId: number,
   }
 }
 

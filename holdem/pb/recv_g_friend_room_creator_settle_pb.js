@@ -60,7 +60,8 @@ proto.holdem.pb.ServerMessageFriendRoomCreatorSettle.prototype.toObject = functi
  */
 proto.holdem.pb.ServerMessageFriendRoomCreatorSettle.toObject = function(includeInstance, msg) {
   var f, obj = {
-    roomId: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    roomId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    matchId: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -101,6 +102,10 @@ proto.holdem.pb.ServerMessageFriendRoomCreatorSettle.deserializeBinaryFromReader
       var value = /** @type {number} */ (reader.readUint64());
       msg.setRoomId(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setMatchId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -137,6 +142,13 @@ proto.holdem.pb.ServerMessageFriendRoomCreatorSettle.serializeBinaryToWriter = f
       f
     );
   }
+  f = message.getMatchId();
+  if (f !== 0) {
+    writer.writeUint64(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -152,6 +164,21 @@ proto.holdem.pb.ServerMessageFriendRoomCreatorSettle.prototype.getRoomId = funct
 /** @param {number} value */
 proto.holdem.pb.ServerMessageFriendRoomCreatorSettle.prototype.setRoomId = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional uint64 match_id = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageFriendRoomCreatorSettle.prototype.getMatchId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageFriendRoomCreatorSettle.prototype.setMatchId = function(value) {
+  jspb.Message.setField(this, 2, value);
 };
 
 
