@@ -4881,3 +4881,485 @@ export namespace JackpotAwardLog {
   }
 }
 
+export class UserMttRecord extends jspb.Message {
+  getMatchId(): number;
+  setMatchId(value: number): void;
+
+  getStartTime(): number;
+  setStartTime(value: number): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getUpblindInterval(): number;
+  setUpblindInterval(value: number): void;
+
+  getTotalRebuyTimes(): number;
+  setTotalRebuyTimes(value: number): void;
+
+  getApplyFeePool(): number;
+  setApplyFeePool(value: number): void;
+
+  getApplyFeeService(): number;
+  setApplyFeeService(value: number): void;
+
+  getApplyFeeHunter(): number;
+  setApplyFeeHunter(value: number): void;
+
+  getPrizeBasePool(): number;
+  setPrizeBasePool(value: number): void;
+
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getAntiCheatType(): number;
+  setAntiCheatType(value: number): void;
+
+  getAntiCheatVideoType(): number;
+  setAntiCheatVideoType(value: number): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getLimitMin(): number;
+  setLimitMin(value: number): void;
+
+  getInitialScore(): number;
+  setInitialScore(value: number): void;
+
+  getTotalBuyinTimes(): number;
+  setTotalBuyinTimes(value: number): void;
+
+  getJoker(): number;
+  setJoker(value: number): void;
+
+  getJokerCount(): number;
+  setJokerCount(value: number): void;
+
+  getMjTotalHands(): number;
+  setMjTotalHands(value: number): void;
+
+  getMjBlindUpHands(): number;
+  setMjBlindUpHands(value: number): void;
+
+  getGameIcon(): string;
+  setGameIcon(value: string): void;
+
+  clearPrizesList(): void;
+  getPrizesList(): Array<MTTPrize>;
+  setPrizesList(value: Array<MTTPrize>): void;
+  addPrizes(value?: MTTPrize, index?: number): MTTPrize;
+
+  getIsAdmin(): boolean;
+  setIsAdmin(value: boolean): void;
+
+  getIsTop(): number;
+  setIsTop(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getGameType(): number;
+  setGameType(value: number): void;
+
+  getPokerType(): number;
+  setPokerType(value: number): void;
+
+  getHunterOn(): number;
+  setHunterOn(value: number): void;
+
+  getParticipants(): number;
+  setParticipants(value: number): void;
+
+  getAlive(): number;
+  setAlive(value: number): void;
+
+  getApplyStartTime(): number;
+  setApplyStartTime(value: number): void;
+
+  getMaxDelayApplyBl(): number;
+  setMaxDelayApplyBl(value: number): void;
+
+  getRebuyTimes(): number;
+  setRebuyTimes(value: number): void;
+
+  getAddonBeginBl(): number;
+  setAddonBeginBl(value: number): void;
+
+  getAddonEndBl(): number;
+  setAddonEndBl(value: number): void;
+
+  getPrizeType(): number;
+  setPrizeType(value: number): void;
+
+  getPropBuyType(): number;
+  setPropBuyType(value: number): void;
+
+  getBuyinFreeTimes(): number;
+  setBuyinFreeTimes(value: number): void;
+
+  getRebuyFreeTimes(): number;
+  setRebuyFreeTimes(value: number): void;
+
+  getMultiRatioFreeTimes(): number;
+  setMultiRatioFreeTimes(value: number): void;
+
+  getAddonFreeTimes(): number;
+  setAddonFreeTimes(value: number): void;
+
+  getBuyinFreeInclSvr(): number;
+  setBuyinFreeInclSvr(value: number): void;
+
+  getRebuyFreeInclSvr(): number;
+  setRebuyFreeInclSvr(value: number): void;
+
+  getMultiRatioFreeInclSvr(): number;
+  setMultiRatioFreeInclSvr(value: number): void;
+
+  getAddonFreeInclSvr(): number;
+  setAddonFreeInclSvr(value: number): void;
+
+  getAntiCheatTimelimit(): number;
+  setAntiCheatTimelimit(value: number): void;
+
+  getVideoVerifyType(): number;
+  setVideoVerifyType(value: number): void;
+
+  getAntiCheatOrderType(): number;
+  setAntiCheatOrderType(value: number): void;
+
+  getAntiCheatOrderMicType(): number;
+  setAntiCheatOrderMicType(value: number): void;
+
+  getBought(): number;
+  setBought(value: number): void;
+
+  getMttBuy(): number;
+  setMttBuy(value: number): void;
+
+  getMttBannerUrl(): string;
+  setMttBannerUrl(value: string): void;
+
+  getForceCloseTime(): number;
+  setForceCloseTime(value: number): void;
+
+  getStateCode(): number;
+  setStateCode(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserMttRecord.AsObject;
+  static toObject(includeInstance: boolean, msg: UserMttRecord): UserMttRecord.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserMttRecord, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserMttRecord;
+  static deserializeBinaryFromReader(message: UserMttRecord, reader: jspb.BinaryReader): UserMttRecord;
+}
+
+export namespace UserMttRecord {
+  export type AsObject = {
+    matchId: number,
+    startTime: number,
+    status: number,
+    upblindInterval: number,
+    totalRebuyTimes: number,
+    applyFeePool: number,
+    applyFeeService: number,
+    applyFeeHunter: number,
+    prizeBasePool: number,
+    goldType: number,
+    antiCheatType: number,
+    antiCheatVideoType: number,
+    type: number,
+    limitMin: number,
+    initialScore: number,
+    totalBuyinTimes: number,
+    joker: number,
+    jokerCount: number,
+    mjTotalHands: number,
+    mjBlindUpHands: number,
+    gameIcon: string,
+    prizesList: Array<MTTPrize.AsObject>,
+    isAdmin: boolean,
+    isTop: number,
+    name: string,
+    gameType: number,
+    pokerType: number,
+    hunterOn: number,
+    participants: number,
+    alive: number,
+    applyStartTime: number,
+    maxDelayApplyBl: number,
+    rebuyTimes: number,
+    addonBeginBl: number,
+    addonEndBl: number,
+    prizeType: number,
+    propBuyType: number,
+    buyinFreeTimes: number,
+    rebuyFreeTimes: number,
+    multiRatioFreeTimes: number,
+    addonFreeTimes: number,
+    buyinFreeInclSvr: number,
+    rebuyFreeInclSvr: number,
+    multiRatioFreeInclSvr: number,
+    addonFreeInclSvr: number,
+    antiCheatTimelimit: number,
+    videoVerifyType: number,
+    antiCheatOrderType: number,
+    antiCheatOrderMicType: number,
+    bought: number,
+    mttBuy: number,
+    mttBannerUrl: string,
+    forceCloseTime: number,
+    stateCode: number,
+  }
+}
+
+export class MTTPrize extends jspb.Message {
+  getRankMin(): number;
+  setRankMin(value: number): void;
+
+  getRankMax(): number;
+  setRankMax(value: number): void;
+
+  getAward(): number;
+  setAward(value: number): void;
+
+  clearGoodsList(): void;
+  getGoodsList(): Array<PrizeGoods>;
+  setGoodsList(value: Array<PrizeGoods>): void;
+  addGoods(value?: PrizeGoods, index?: number): PrizeGoods;
+
+  getAwardRatio(): number;
+  setAwardRatio(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): MTTPrize.AsObject;
+  static toObject(includeInstance: boolean, msg: MTTPrize): MTTPrize.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: MTTPrize, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): MTTPrize;
+  static deserializeBinaryFromReader(message: MTTPrize, reader: jspb.BinaryReader): MTTPrize;
+}
+
+export namespace MTTPrize {
+  export type AsObject = {
+    rankMin: number,
+    rankMax: number,
+    award: number,
+    goodsList: Array<PrizeGoods.AsObject>,
+    awardRatio: number,
+  }
+}
+
+export class PrizeGoods extends jspb.Message {
+  getI(): number;
+  setI(value: number): void;
+
+  getNa(): string;
+  setNa(value: string): void;
+
+  getV(): number;
+  setV(value: number): void;
+
+  getN(): number;
+  setN(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): PrizeGoods.AsObject;
+  static toObject(includeInstance: boolean, msg: PrizeGoods): PrizeGoods.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: PrizeGoods, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): PrizeGoods;
+  static deserializeBinaryFromReader(message: PrizeGoods, reader: jspb.BinaryReader): PrizeGoods;
+}
+
+export namespace PrizeGoods {
+  export type AsObject = {
+    i: number,
+    na: string,
+    v: number,
+    n: number,
+  }
+}
+
+export class UserMttRecordChange extends jspb.Message {
+  getMatchId(): number;
+  setMatchId(value: number): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  getParticipants(): number;
+  setParticipants(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserMttRecordChange.AsObject;
+  static toObject(includeInstance: boolean, msg: UserMttRecordChange): UserMttRecordChange.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserMttRecordChange, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserMttRecordChange;
+  static deserializeBinaryFromReader(message: UserMttRecordChange, reader: jspb.BinaryReader): UserMttRecordChange;
+}
+
+export namespace UserMttRecordChange {
+  export type AsObject = {
+    matchId: number,
+    status: number,
+    participants: number,
+  }
+}
+
+export class UserSNGRecord extends jspb.Message {
+  getSngId(): number;
+  setSngId(value: number): void;
+
+  getAntiCheatType(): number;
+  setAntiCheatType(value: number): void;
+
+  getAntiCheatVideoType(): number;
+  setAntiCheatVideoType(value: number): void;
+
+  getApplyFeePool(): number;
+  setApplyFeePool(value: number): void;
+
+  getApplyFeeService(): number;
+  setApplyFeeService(value: number): void;
+
+  getBuyStatus(): number;
+  setBuyStatus(value: number): void;
+
+  getLimitParticipants(): number;
+  setLimitParticipants(value: number): void;
+
+  getName(): string;
+  setName(value: string): void;
+
+  getBombpot(): number;
+  setBombpot(value: number): void;
+
+  getGameType(): number;
+  setGameType(value: number): void;
+
+  getLimitBetType(): number;
+  setLimitBetType(value: number): void;
+
+  getOriginType(): number;
+  setOriginType(value: number): void;
+
+  getPokerType(): number;
+  setPokerType(value: number): void;
+
+  getCurrency(): string;
+  setCurrency(value: string): void;
+
+  getBlindtableType(): number;
+  setBlindtableType(value: number): void;
+
+  getClubId(): number;
+  setClubId(value: number): void;
+
+  getGameIcon(): string;
+  setGameIcon(value: string): void;
+
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getInitialScore(): number;
+  setInitialScore(value: number): void;
+
+  getInvitationCode(): string;
+  setInvitationCode(value: string): void;
+
+  getPrizeType(): number;
+  setPrizeType(value: number): void;
+
+  getTribeId(): number;
+  setTribeId(value: number): void;
+
+  getType(): number;
+  setType(value: number): void;
+
+  getUpblindInterval(): number;
+  setUpblindInterval(value: number): void;
+
+  clearPrizesList(): void;
+  getPrizesList(): Array<MTTPrize>;
+  setPrizesList(value: Array<MTTPrize>): void;
+  addPrizes(value?: MTTPrize, index?: number): MTTPrize;
+
+  getIsAdmin(): boolean;
+  setIsAdmin(value: boolean): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserSNGRecord.AsObject;
+  static toObject(includeInstance: boolean, msg: UserSNGRecord): UserSNGRecord.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserSNGRecord, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserSNGRecord;
+  static deserializeBinaryFromReader(message: UserSNGRecord, reader: jspb.BinaryReader): UserSNGRecord;
+}
+
+export namespace UserSNGRecord {
+  export type AsObject = {
+    sngId: number,
+    antiCheatType: number,
+    antiCheatVideoType: number,
+    applyFeePool: number,
+    applyFeeService: number,
+    buyStatus: number,
+    limitParticipants: number,
+    name: string,
+    bombpot: number,
+    gameType: number,
+    limitBetType: number,
+    originType: number,
+    pokerType: number,
+    currency: string,
+    blindtableType: number,
+    clubId: number,
+    gameIcon: string,
+    goldType: number,
+    initialScore: number,
+    invitationCode: string,
+    prizeType: number,
+    tribeId: number,
+    type: number,
+    upblindInterval: number,
+    prizesList: Array<MTTPrize.AsObject>,
+    isAdmin: boolean,
+    status: number,
+  }
+}
+
+export class UserSNGRecordChange extends jspb.Message {
+  getSngId(): number;
+  setSngId(value: number): void;
+
+  getStatus(): number;
+  setStatus(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UserSNGRecordChange.AsObject;
+  static toObject(includeInstance: boolean, msg: UserSNGRecordChange): UserSNGRecordChange.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: UserSNGRecordChange, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UserSNGRecordChange;
+  static deserializeBinaryFromReader(message: UserSNGRecordChange, reader: jspb.BinaryReader): UserSNGRecordChange;
+}
+
+export namespace UserSNGRecordChange {
+  export type AsObject = {
+    sngId: number,
+    status: number,
+  }
+}
+
