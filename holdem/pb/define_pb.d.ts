@@ -5037,6 +5037,19 @@ export class UserMttRecord extends jspb.Message {
   getForceCloseTime(): number;
   setForceCloseTime(value: number): void;
 
+  clearRelateClubIdsList(): void;
+  getRelateClubIdsList(): Array<number>;
+  setRelateClubIdsList(value: Array<number>): void;
+  addRelateClubIds(value: number, index?: number): number;
+
+  clearRelateTribeClubListList(): void;
+  getRelateTribeClubListList(): Array<RoomTribeClubRelate>;
+  setRelateTribeClubListList(value: Array<RoomTribeClubRelate>): void;
+  addRelateTribeClubList(value?: RoomTribeClubRelate, index?: number): RoomTribeClubRelate;
+
+  getOriginType(): number;
+  setOriginType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserMttRecord.AsObject;
   static toObject(includeInstance: boolean, msg: UserMttRecord): UserMttRecord.AsObject;
@@ -5100,6 +5113,9 @@ export namespace UserMttRecord {
     antiCheatOrderMicType: number,
     mttBannerUrl: string,
     forceCloseTime: number,
+    relateClubIdsList: Array<number>,
+    relateTribeClubListList: Array<RoomTribeClubRelate.AsObject>,
+    originType: number,
   }
 }
 
@@ -5285,6 +5301,16 @@ export class UserSNGRecord extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
+  clearRelateClubIdsList(): void;
+  getRelateClubIdsList(): Array<number>;
+  setRelateClubIdsList(value: Array<number>): void;
+  addRelateClubIds(value: number, index?: number): number;
+
+  clearRelateTribeClubListList(): void;
+  getRelateTribeClubListList(): Array<RoomTribeClubRelate>;
+  setRelateTribeClubListList(value: Array<RoomTribeClubRelate>): void;
+  addRelateTribeClubList(value?: RoomTribeClubRelate, index?: number): RoomTribeClubRelate;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserSNGRecord.AsObject;
   static toObject(includeInstance: boolean, msg: UserSNGRecord): UserSNGRecord.AsObject;
@@ -5324,6 +5350,8 @@ export namespace UserSNGRecord {
     prizesList: Array<MTTPrize.AsObject>,
     isAdmin: boolean,
     status: number,
+    relateClubIdsList: Array<number>,
+    relateTribeClubListList: Array<RoomTribeClubRelate.AsObject>,
   }
 }
 
