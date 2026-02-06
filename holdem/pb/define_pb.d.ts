@@ -5037,9 +5037,6 @@ export class UserMttRecord extends jspb.Message {
   getForceCloseTime(): number;
   setForceCloseTime(value: number): void;
 
-  getStateCode(): number;
-  setStateCode(value: number): void;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserMttRecord.AsObject;
   static toObject(includeInstance: boolean, msg: UserMttRecord): UserMttRecord.AsObject;
@@ -5103,7 +5100,6 @@ export namespace UserMttRecord {
     antiCheatOrderMicType: number,
     mttBannerUrl: string,
     forceCloseTime: number,
-    stateCode: number,
   }
 }
 

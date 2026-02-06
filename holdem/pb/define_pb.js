@@ -32523,8 +32523,7 @@ proto.holdem.pb.UserMttRecord.toObject = function(includeInstance, msg) {
     antiCheatOrderType: jspb.Message.getFieldWithDefault(msg, 48, 0),
     antiCheatOrderMicType: jspb.Message.getFieldWithDefault(msg, 49, 0),
     mttBannerUrl: jspb.Message.getFieldWithDefault(msg, 50, ""),
-    forceCloseTime: jspb.Message.getFieldWithDefault(msg, 51, 0),
-    stateCode: jspb.Message.getFieldWithDefault(msg, 52, 0)
+    forceCloseTime: jspb.Message.getFieldWithDefault(msg, 51, 0)
   };
 
   if (includeInstance) {
@@ -32765,10 +32764,6 @@ proto.holdem.pb.UserMttRecord.deserializeBinaryFromReader = function(msg, reader
     case 51:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setForceCloseTime(value);
-      break;
-    case 52:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setStateCode(value);
       break;
     default:
       reader.skipField();
@@ -33154,13 +33149,6 @@ proto.holdem.pb.UserMttRecord.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeInt64(
       51,
-      f
-    );
-  }
-  f = message.getStateCode();
-  if (f !== 0) {
-    writer.writeInt32(
-      52,
       f
     );
   }
@@ -33947,21 +33935,6 @@ proto.holdem.pb.UserMttRecord.prototype.getForceCloseTime = function() {
 /** @param {number} value */
 proto.holdem.pb.UserMttRecord.prototype.setForceCloseTime = function(value) {
   jspb.Message.setField(this, 51, value);
-};
-
-
-/**
- * optional int32 state_code = 52;
- * @return {number}
- */
-proto.holdem.pb.UserMttRecord.prototype.getStateCode = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 52, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.UserMttRecord.prototype.setStateCode = function(value) {
-  jspb.Message.setField(this, 52, value);
 };
 
 
