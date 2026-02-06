@@ -32522,11 +32522,9 @@ proto.holdem.pb.UserMttRecord.toObject = function(includeInstance, msg) {
     videoVerifyType: jspb.Message.getFieldWithDefault(msg, 47, 0),
     antiCheatOrderType: jspb.Message.getFieldWithDefault(msg, 48, 0),
     antiCheatOrderMicType: jspb.Message.getFieldWithDefault(msg, 49, 0),
-    bought: jspb.Message.getFieldWithDefault(msg, 50, 0),
-    mttBuy: jspb.Message.getFieldWithDefault(msg, 51, 0),
-    mttBannerUrl: jspb.Message.getFieldWithDefault(msg, 52, ""),
-    forceCloseTime: jspb.Message.getFieldWithDefault(msg, 53, 0),
-    stateCode: jspb.Message.getFieldWithDefault(msg, 54, 0)
+    mttBannerUrl: jspb.Message.getFieldWithDefault(msg, 50, ""),
+    forceCloseTime: jspb.Message.getFieldWithDefault(msg, 51, 0),
+    stateCode: jspb.Message.getFieldWithDefault(msg, 52, 0)
   };
 
   if (includeInstance) {
@@ -32761,22 +32759,14 @@ proto.holdem.pb.UserMttRecord.deserializeBinaryFromReader = function(msg, reader
       msg.setAntiCheatOrderMicType(value);
       break;
     case 50:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setBought(value);
-      break;
-    case 51:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setMttBuy(value);
-      break;
-    case 52:
       var value = /** @type {string} */ (reader.readString());
       msg.setMttBannerUrl(value);
       break;
-    case 53:
+    case 51:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setForceCloseTime(value);
       break;
-    case 54:
+    case 52:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStateCode(value);
       break;
@@ -33153,38 +33143,24 @@ proto.holdem.pb.UserMttRecord.serializeBinaryToWriter = function(message, writer
       f
     );
   }
-  f = message.getBought();
-  if (f !== 0) {
-    writer.writeInt32(
-      50,
-      f
-    );
-  }
-  f = message.getMttBuy();
-  if (f !== 0) {
-    writer.writeInt32(
-      51,
-      f
-    );
-  }
   f = message.getMttBannerUrl();
   if (f.length > 0) {
     writer.writeString(
-      52,
+      50,
       f
     );
   }
   f = message.getForceCloseTime();
   if (f !== 0) {
     writer.writeInt64(
-      53,
+      51,
       f
     );
   }
   f = message.getStateCode();
   if (f !== 0) {
     writer.writeInt32(
-      54,
+      52,
       f
     );
   }
@@ -33945,77 +33921,47 @@ proto.holdem.pb.UserMttRecord.prototype.setAntiCheatOrderMicType = function(valu
 
 
 /**
- * optional int32 bought = 50;
- * @return {number}
- */
-proto.holdem.pb.UserMttRecord.prototype.getBought = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 50, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.UserMttRecord.prototype.setBought = function(value) {
-  jspb.Message.setField(this, 50, value);
-};
-
-
-/**
- * optional int32 mtt_buy = 51;
- * @return {number}
- */
-proto.holdem.pb.UserMttRecord.prototype.getMttBuy = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 51, 0));
-};
-
-
-/** @param {number} value */
-proto.holdem.pb.UserMttRecord.prototype.setMttBuy = function(value) {
-  jspb.Message.setField(this, 51, value);
-};
-
-
-/**
- * optional string mtt_banner_url = 52;
+ * optional string mtt_banner_url = 50;
  * @return {string}
  */
 proto.holdem.pb.UserMttRecord.prototype.getMttBannerUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 52, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 50, ""));
 };
 
 
 /** @param {string} value */
 proto.holdem.pb.UserMttRecord.prototype.setMttBannerUrl = function(value) {
-  jspb.Message.setField(this, 52, value);
+  jspb.Message.setField(this, 50, value);
 };
 
 
 /**
- * optional int64 force_close_time = 53;
+ * optional int64 force_close_time = 51;
  * @return {number}
  */
 proto.holdem.pb.UserMttRecord.prototype.getForceCloseTime = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 53, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 51, 0));
 };
 
 
 /** @param {number} value */
 proto.holdem.pb.UserMttRecord.prototype.setForceCloseTime = function(value) {
-  jspb.Message.setField(this, 53, value);
+  jspb.Message.setField(this, 51, value);
 };
 
 
 /**
- * optional int32 state_code = 54;
+ * optional int32 state_code = 52;
  * @return {number}
  */
 proto.holdem.pb.UserMttRecord.prototype.getStateCode = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 54, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 52, 0));
 };
 
 
 /** @param {number} value */
 proto.holdem.pb.UserMttRecord.prototype.setStateCode = function(value) {
-  jspb.Message.setField(this, 54, value);
+  jspb.Message.setField(this, 52, value);
 };
 
 

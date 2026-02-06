@@ -5031,12 +5031,6 @@ export class UserMttRecord extends jspb.Message {
   getAntiCheatOrderMicType(): number;
   setAntiCheatOrderMicType(value: number): void;
 
-  getBought(): number;
-  setBought(value: number): void;
-
-  getMttBuy(): number;
-  setMttBuy(value: number): void;
-
   getMttBannerUrl(): string;
   setMttBannerUrl(value: string): void;
 
@@ -5107,8 +5101,6 @@ export namespace UserMttRecord {
     videoVerifyType: number,
     antiCheatOrderType: number,
     antiCheatOrderMicType: number,
-    bought: number,
-    mttBuy: number,
     mttBannerUrl: string,
     forceCloseTime: number,
     stateCode: number,
