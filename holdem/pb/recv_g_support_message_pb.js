@@ -76,7 +76,8 @@ proto.holdem.pb.ServerMessageSupportMessage.toObject = function(includeInstance,
     imServiceType: jspb.Message.getFieldWithDefault(msg, 15, 0),
     tribeId: jspb.Message.getFieldWithDefault(msg, 16, 0),
     subType: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    extra: jspb.Message.getFieldWithDefault(msg, 18, "")
+    extra: jspb.Message.getFieldWithDefault(msg, 18, ""),
+    seq: jspb.Message.getFieldWithDefault(msg, 19, 0)
   };
 
   if (includeInstance) {
@@ -184,6 +185,10 @@ proto.holdem.pb.ServerMessageSupportMessage.deserializeBinaryFromReader = functi
     case 18:
       var value = /** @type {string} */ (reader.readString());
       msg.setExtra(value);
+      break;
+    case 19:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setSeq(value);
       break;
     default:
       reader.skipField();
@@ -337,6 +342,13 @@ proto.holdem.pb.ServerMessageSupportMessage.serializeBinaryToWriter = function(m
   if (f.length > 0) {
     writer.writeString(
       18,
+      f
+    );
+  }
+  f = message.getSeq();
+  if (f !== 0) {
+    writer.writeInt64(
+      19,
       f
     );
   }
@@ -612,6 +624,21 @@ proto.holdem.pb.ServerMessageSupportMessage.prototype.getExtra = function() {
 /** @param {string} value */
 proto.holdem.pb.ServerMessageSupportMessage.prototype.setExtra = function(value) {
   jspb.Message.setField(this, 18, value);
+};
+
+
+/**
+ * optional int64 seq = 19;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageSupportMessage.prototype.getSeq = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageSupportMessage.prototype.setSeq = function(value) {
+  jspb.Message.setField(this, 19, value);
 };
 
 

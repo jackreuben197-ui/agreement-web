@@ -58,6 +58,9 @@ export class ServerMessageSupportMessage extends jspb.Message {
   getExtra(): string;
   setExtra(value: string): void;
 
+  getSeq(): number;
+  setSeq(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageSupportMessage.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageSupportMessage): ServerMessageSupportMessage.AsObject;
@@ -88,6 +91,7 @@ export namespace ServerMessageSupportMessage {
     tribeId: number,
     subType: number,
     extra: string,
+    seq: number,
   }
 }
 
