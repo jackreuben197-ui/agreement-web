@@ -17,6 +17,9 @@ export class ServerMessageMttSeriesNotify extends jspb.Message {
   getTribeId(): number;
   setTribeId(value: number): void;
 
+  getCreateTime(): number;
+  setCreateTime(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageMttSeriesNotify.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageMttSeriesNotify): ServerMessageMttSeriesNotify.AsObject;
@@ -33,6 +36,7 @@ export namespace ServerMessageMttSeriesNotify {
     name: string,
     type: protobuf_holdem_define_pb.Def.SeriesListTypeMap[keyof protobuf_holdem_define_pb.Def.SeriesListTypeMap],
     tribeId: number,
+    createTime: number,
   }
 }
 

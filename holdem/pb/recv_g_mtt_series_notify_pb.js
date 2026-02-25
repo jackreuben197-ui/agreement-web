@@ -63,7 +63,8 @@ proto.holdem.pb.ServerMessageMttSeriesNotify.toObject = function(includeInstance
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     type: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    tribeId: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    tribeId: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    createTime: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -115,6 +116,10 @@ proto.holdem.pb.ServerMessageMttSeriesNotify.deserializeBinaryFromReader = funct
     case 4:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setTribeId(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setCreateTime(value);
       break;
     default:
       reader.skipField();
@@ -170,6 +175,13 @@ proto.holdem.pb.ServerMessageMttSeriesNotify.serializeBinaryToWriter = function(
   if (f !== 0) {
     writer.writeUint64(
       4,
+      f
+    );
+  }
+  f = message.getCreateTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      5,
       f
     );
   }
@@ -233,6 +245,21 @@ proto.holdem.pb.ServerMessageMttSeriesNotify.prototype.getTribeId = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageMttSeriesNotify.prototype.setTribeId = function(value) {
   jspb.Message.setField(this, 4, value);
+};
+
+
+/**
+ * optional int64 create_time = 5;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageMttSeriesNotify.prototype.getCreateTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageMttSeriesNotify.prototype.setCreateTime = function(value) {
+  jspb.Message.setField(this, 5, value);
 };
 
 
