@@ -3748,6 +3748,21 @@ export class MTTRecord extends jspb.Message {
   getOriginType(): number;
   setOriginType(value: number): void;
 
+  getStageFatherId(): number;
+  setStageFatherId(value: number): void;
+
+  getStageName(): string;
+  setStageName(value: string): void;
+
+  getStageBlindLevel(): number;
+  setStageBlindLevel(value: number): void;
+
+  getStageRemainRate(): number;
+  setStageRemainRate(value: number): void;
+
+  getStageFinalScoreType(): number;
+  setStageFinalScoreType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
   static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
@@ -3891,6 +3906,11 @@ export namespace MTTRecord {
     invitationCode: string,
     clubId: number,
     originType: number,
+    stageFatherId: number,
+    stageName: string,
+    stageBlindLevel: number,
+    stageRemainRate: number,
+    stageFinalScoreType: number,
   }
 }
 
@@ -5068,6 +5088,21 @@ export class UserMttRecord extends jspb.Message {
   getCreateTime(): number;
   setCreateTime(value: number): void;
 
+  getStageFatherId(): number;
+  setStageFatherId(value: number): void;
+
+  getStageName(): string;
+  setStageName(value: string): void;
+
+  getStageBlindLevel(): number;
+  setStageBlindLevel(value: number): void;
+
+  getStageRemainRate(): number;
+  setStageRemainRate(value: number): void;
+
+  getStageFinalScoreType(): number;
+  setStageFinalScoreType(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserMttRecord.AsObject;
   static toObject(includeInstance: boolean, msg: UserMttRecord): UserMttRecord.AsObject;
@@ -5137,6 +5172,11 @@ export namespace UserMttRecord {
     seriesId: number,
     pinnedTime: number,
     createTime: number,
+    stageFatherId: number,
+    stageName: string,
+    stageBlindLevel: number,
+    stageRemainRate: number,
+    stageFinalScoreType: number,
   }
 }
 

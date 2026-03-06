@@ -21985,7 +21985,12 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     mjBlindUpHands: jspb.Message.getFieldWithDefault(msg, 133, 0),
     invitationCode: jspb.Message.getFieldWithDefault(msg, 134, ""),
     clubId: jspb.Message.getFieldWithDefault(msg, 135, 0),
-    originType: jspb.Message.getFieldWithDefault(msg, 136, 0)
+    originType: jspb.Message.getFieldWithDefault(msg, 136, 0),
+    stageFatherId: jspb.Message.getFieldWithDefault(msg, 137, 0),
+    stageName: jspb.Message.getFieldWithDefault(msg, 138, ""),
+    stageBlindLevel: jspb.Message.getFieldWithDefault(msg, 139, 0),
+    stageRemainRate: jspb.Message.getFieldWithDefault(msg, 140, 0),
+    stageFinalScoreType: jspb.Message.getFieldWithDefault(msg, 141, 0)
   };
 
   if (includeInstance) {
@@ -22546,6 +22551,26 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 136:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setOriginType(value);
+      break;
+    case 137:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setStageFatherId(value);
+      break;
+    case 138:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setStageName(value);
+      break;
+    case 139:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStageBlindLevel(value);
+      break;
+    case 140:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStageRemainRate(value);
+      break;
+    case 141:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStageFinalScoreType(value);
       break;
     default:
       reader.skipField();
@@ -23491,6 +23516,41 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       136,
+      f
+    );
+  }
+  f = message.getStageFatherId();
+  if (f !== 0) {
+    writer.writeUint64(
+      137,
+      f
+    );
+  }
+  f = message.getStageName();
+  if (f.length > 0) {
+    writer.writeString(
+      138,
+      f
+    );
+  }
+  f = message.getStageBlindLevel();
+  if (f !== 0) {
+    writer.writeInt32(
+      139,
+      f
+    );
+  }
+  f = message.getStageRemainRate();
+  if (f !== 0) {
+    writer.writeInt32(
+      140,
+      f
+    );
+  }
+  f = message.getStageFinalScoreType();
+  if (f !== 0) {
+    writer.writeInt32(
+      141,
       f
     );
   }
@@ -25475,6 +25535,81 @@ proto.holdem.pb.MTTRecord.prototype.getOriginType = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTRecord.prototype.setOriginType = function(value) {
   jspb.Message.setField(this, 136, value);
+};
+
+
+/**
+ * optional uint64 stage_father_id = 137;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getStageFatherId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 137, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setStageFatherId = function(value) {
+  jspb.Message.setField(this, 137, value);
+};
+
+
+/**
+ * optional string stage_name = 138;
+ * @return {string}
+ */
+proto.holdem.pb.MTTRecord.prototype.getStageName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 138, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.MTTRecord.prototype.setStageName = function(value) {
+  jspb.Message.setField(this, 138, value);
+};
+
+
+/**
+ * optional int32 stage_blind_level = 139;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getStageBlindLevel = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 139, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setStageBlindLevel = function(value) {
+  jspb.Message.setField(this, 139, value);
+};
+
+
+/**
+ * optional int32 stage_remain_rate = 140;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getStageRemainRate = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 140, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setStageRemainRate = function(value) {
+  jspb.Message.setField(this, 140, value);
+};
+
+
+/**
+ * optional int32 stage_final_score_type = 141;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getStageFinalScoreType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 141, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setStageFinalScoreType = function(value) {
+  jspb.Message.setField(this, 141, value);
 };
 
 
@@ -32541,7 +32676,12 @@ proto.holdem.pb.UserMttRecord.toObject = function(includeInstance, msg) {
     originType: jspb.Message.getFieldWithDefault(msg, 54, 0),
     seriesId: jspb.Message.getFieldWithDefault(msg, 55, 0),
     pinnedTime: jspb.Message.getFieldWithDefault(msg, 56, 0),
-    createTime: jspb.Message.getFieldWithDefault(msg, 57, 0)
+    createTime: jspb.Message.getFieldWithDefault(msg, 57, 0),
+    stageFatherId: jspb.Message.getFieldWithDefault(msg, 58, 0),
+    stageName: jspb.Message.getFieldWithDefault(msg, 59, ""),
+    stageBlindLevel: jspb.Message.getFieldWithDefault(msg, 60, 0),
+    stageRemainRate: jspb.Message.getFieldWithDefault(msg, 61, 0),
+    stageFinalScoreType: jspb.Message.getFieldWithDefault(msg, 62, 0)
   };
 
   if (includeInstance) {
@@ -32807,6 +32947,26 @@ proto.holdem.pb.UserMttRecord.deserializeBinaryFromReader = function(msg, reader
     case 57:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setCreateTime(value);
+      break;
+    case 58:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setStageFatherId(value);
+      break;
+    case 59:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setStageName(value);
+      break;
+    case 60:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStageBlindLevel(value);
+      break;
+    case 61:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStageRemainRate(value);
+      break;
+    case 62:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setStageFinalScoreType(value);
       break;
     default:
       reader.skipField();
@@ -33235,6 +33395,41 @@ proto.holdem.pb.UserMttRecord.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeInt64(
       57,
+      f
+    );
+  }
+  f = message.getStageFatherId();
+  if (f !== 0) {
+    writer.writeUint64(
+      58,
+      f
+    );
+  }
+  f = message.getStageName();
+  if (f.length > 0) {
+    writer.writeString(
+      59,
+      f
+    );
+  }
+  f = message.getStageBlindLevel();
+  if (f !== 0) {
+    writer.writeInt32(
+      60,
+      f
+    );
+  }
+  f = message.getStageRemainRate();
+  if (f !== 0) {
+    writer.writeInt32(
+      61,
+      f
+    );
+  }
+  f = message.getStageFinalScoreType();
+  if (f !== 0) {
+    writer.writeInt32(
+      62,
       f
     );
   }
@@ -34141,6 +34336,81 @@ proto.holdem.pb.UserMttRecord.prototype.getCreateTime = function() {
 /** @param {number} value */
 proto.holdem.pb.UserMttRecord.prototype.setCreateTime = function(value) {
   jspb.Message.setField(this, 57, value);
+};
+
+
+/**
+ * optional uint64 stage_father_id = 58;
+ * @return {number}
+ */
+proto.holdem.pb.UserMttRecord.prototype.getStageFatherId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 58, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.UserMttRecord.prototype.setStageFatherId = function(value) {
+  jspb.Message.setField(this, 58, value);
+};
+
+
+/**
+ * optional string stage_name = 59;
+ * @return {string}
+ */
+proto.holdem.pb.UserMttRecord.prototype.getStageName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 59, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.UserMttRecord.prototype.setStageName = function(value) {
+  jspb.Message.setField(this, 59, value);
+};
+
+
+/**
+ * optional int32 stage_blind_level = 60;
+ * @return {number}
+ */
+proto.holdem.pb.UserMttRecord.prototype.getStageBlindLevel = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 60, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.UserMttRecord.prototype.setStageBlindLevel = function(value) {
+  jspb.Message.setField(this, 60, value);
+};
+
+
+/**
+ * optional int32 stage_remain_rate = 61;
+ * @return {number}
+ */
+proto.holdem.pb.UserMttRecord.prototype.getStageRemainRate = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 61, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.UserMttRecord.prototype.setStageRemainRate = function(value) {
+  jspb.Message.setField(this, 61, value);
+};
+
+
+/**
+ * optional int32 stage_final_score_type = 62;
+ * @return {number}
+ */
+proto.holdem.pb.UserMttRecord.prototype.getStageFinalScoreType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 62, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.UserMttRecord.prototype.setStageFinalScoreType = function(value) {
+  jspb.Message.setField(this, 62, value);
 };
 
 
