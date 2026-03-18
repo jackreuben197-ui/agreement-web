@@ -15089,7 +15089,13 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     relateTribeClubListList: jspb.Message.toObjectList(msg.getRelateTribeClubListList(),
     proto.holdem.pb.RoomTribeClubRelate.toObject, includeInstance),
     currency: jspb.Message.getFieldWithDefault(msg, 178, ""),
-    cowboyConfig: (f = msg.getCowboyConfig()) && proto.holdem.pb.CowboyConfig.toObject(includeInstance, f)
+    cowboyConfig: (f = msg.getCowboyConfig()) && proto.holdem.pb.CowboyConfig.toObject(includeInstance, f),
+    micSeatSwitch: jspb.Message.getFieldWithDefault(msg, 180, 0),
+    micMiddleSwitch: jspb.Message.getFieldWithDefault(msg, 181, 0),
+    videoSeatSwitch: jspb.Message.getFieldWithDefault(msg, 182, 0),
+    videoMiddleSwitch: jspb.Message.getFieldWithDefault(msg, 183, 0),
+    powerSavingSeatSwitch: jspb.Message.getFieldWithDefault(msg, 184, 0),
+    powerSavingMiddleSwitch: jspb.Message.getFieldWithDefault(msg, 185, 0)
   };
 
   if (includeInstance) {
@@ -15847,6 +15853,30 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.CowboyConfig;
       reader.readMessage(value,proto.holdem.pb.CowboyConfig.deserializeBinaryFromReader);
       msg.setCowboyConfig(value);
+      break;
+    case 180:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMicSeatSwitch(value);
+      break;
+    case 181:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setMicMiddleSwitch(value);
+      break;
+    case 182:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setVideoSeatSwitch(value);
+      break;
+    case 183:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setVideoMiddleSwitch(value);
+      break;
+    case 184:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPowerSavingSeatSwitch(value);
+      break;
+    case 185:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPowerSavingMiddleSwitch(value);
       break;
     default:
       reader.skipField();
@@ -17128,6 +17158,48 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
       179,
       f,
       proto.holdem.pb.CowboyConfig.serializeBinaryToWriter
+    );
+  }
+  f = message.getMicSeatSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      180,
+      f
+    );
+  }
+  f = message.getMicMiddleSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      181,
+      f
+    );
+  }
+  f = message.getVideoSeatSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      182,
+      f
+    );
+  }
+  f = message.getVideoMiddleSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      183,
+      f
+    );
+  }
+  f = message.getPowerSavingSeatSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      184,
+      f
+    );
+  }
+  f = message.getPowerSavingMiddleSwitch();
+  if (f !== 0) {
+    writer.writeInt32(
+      185,
+      f
     );
   }
 };
@@ -20019,6 +20091,96 @@ proto.holdem.pb.RoomRecord.prototype.clearCowboyConfig = function() {
  */
 proto.holdem.pb.RoomRecord.prototype.hasCowboyConfig = function() {
   return jspb.Message.getField(this, 179) != null;
+};
+
+
+/**
+ * optional int32 mic_seat_switch = 180;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getMicSeatSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 180, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setMicSeatSwitch = function(value) {
+  jspb.Message.setField(this, 180, value);
+};
+
+
+/**
+ * optional int32 mic_middle_switch = 181;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getMicMiddleSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 181, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setMicMiddleSwitch = function(value) {
+  jspb.Message.setField(this, 181, value);
+};
+
+
+/**
+ * optional int32 video_seat_switch = 182;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getVideoSeatSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 182, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setVideoSeatSwitch = function(value) {
+  jspb.Message.setField(this, 182, value);
+};
+
+
+/**
+ * optional int32 video_middle_switch = 183;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getVideoMiddleSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 183, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setVideoMiddleSwitch = function(value) {
+  jspb.Message.setField(this, 183, value);
+};
+
+
+/**
+ * optional int32 power_saving_seat_switch = 184;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getPowerSavingSeatSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 184, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setPowerSavingSeatSwitch = function(value) {
+  jspb.Message.setField(this, 184, value);
+};
+
+
+/**
+ * optional int32 power_saving_middle_switch = 185;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getPowerSavingMiddleSwitch = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 185, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setPowerSavingMiddleSwitch = function(value) {
+  jspb.Message.setField(this, 185, value);
 };
 
 
