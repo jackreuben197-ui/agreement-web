@@ -3787,6 +3787,9 @@ export class MTTRecord extends jspb.Message {
   getStageFinalScoreType(): number;
   setStageFinalScoreType(value: number): void;
 
+  getInsuranceAmount(): number;
+  setInsuranceAmount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
   static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
@@ -3935,6 +3938,7 @@ export namespace MTTRecord {
     stageBlindLevel: number,
     stageRemainRate: number,
     stageFinalScoreType: number,
+    insuranceAmount: number,
   }
 }
 
@@ -5127,6 +5131,9 @@ export class UserMttRecord extends jspb.Message {
   getStageFinalScoreType(): number;
   setStageFinalScoreType(value: number): void;
 
+  getInsuranceAmount(): number;
+  setInsuranceAmount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserMttRecord.AsObject;
   static toObject(includeInstance: boolean, msg: UserMttRecord): UserMttRecord.AsObject;
@@ -5201,6 +5208,7 @@ export namespace UserMttRecord {
     stageBlindLevel: number,
     stageRemainRate: number,
     stageFinalScoreType: number,
+    insuranceAmount: number,
   }
 }
 

@@ -22152,7 +22152,8 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     stageName: jspb.Message.getFieldWithDefault(msg, 138, ""),
     stageBlindLevel: jspb.Message.getFieldWithDefault(msg, 139, 0),
     stageRemainRate: jspb.Message.getFieldWithDefault(msg, 140, 0),
-    stageFinalScoreType: jspb.Message.getFieldWithDefault(msg, 141, 0)
+    stageFinalScoreType: jspb.Message.getFieldWithDefault(msg, 141, 0),
+    insuranceAmount: jspb.Message.getFieldWithDefault(msg, 142, 0)
   };
 
   if (includeInstance) {
@@ -22733,6 +22734,10 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 141:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStageFinalScoreType(value);
+      break;
+    case 142:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setInsuranceAmount(value);
       break;
     default:
       reader.skipField();
@@ -23713,6 +23718,13 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       141,
+      f
+    );
+  }
+  f = message.getInsuranceAmount();
+  if (f !== 0) {
+    writer.writeUint64(
+      142,
       f
     );
   }
@@ -25772,6 +25784,21 @@ proto.holdem.pb.MTTRecord.prototype.getStageFinalScoreType = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTRecord.prototype.setStageFinalScoreType = function(value) {
   jspb.Message.setField(this, 141, value);
+};
+
+
+/**
+ * optional uint64 insurance_amount = 142;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getInsuranceAmount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 142, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setInsuranceAmount = function(value) {
+  jspb.Message.setField(this, 142, value);
 };
 
 
@@ -32843,7 +32870,8 @@ proto.holdem.pb.UserMttRecord.toObject = function(includeInstance, msg) {
     stageName: jspb.Message.getFieldWithDefault(msg, 59, ""),
     stageBlindLevel: jspb.Message.getFieldWithDefault(msg, 60, 0),
     stageRemainRate: jspb.Message.getFieldWithDefault(msg, 61, 0),
-    stageFinalScoreType: jspb.Message.getFieldWithDefault(msg, 62, 0)
+    stageFinalScoreType: jspb.Message.getFieldWithDefault(msg, 62, 0),
+    insuranceAmount: jspb.Message.getFieldWithDefault(msg, 63, 0)
   };
 
   if (includeInstance) {
@@ -33129,6 +33157,10 @@ proto.holdem.pb.UserMttRecord.deserializeBinaryFromReader = function(msg, reader
     case 62:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStageFinalScoreType(value);
+      break;
+    case 63:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setInsuranceAmount(value);
       break;
     default:
       reader.skipField();
@@ -33592,6 +33624,13 @@ proto.holdem.pb.UserMttRecord.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeInt32(
       62,
+      f
+    );
+  }
+  f = message.getInsuranceAmount();
+  if (f !== 0) {
+    writer.writeUint64(
+      63,
       f
     );
   }
@@ -34573,6 +34612,21 @@ proto.holdem.pb.UserMttRecord.prototype.getStageFinalScoreType = function() {
 /** @param {number} value */
 proto.holdem.pb.UserMttRecord.prototype.setStageFinalScoreType = function(value) {
   jspb.Message.setField(this, 62, value);
+};
+
+
+/**
+ * optional uint64 insurance_amount = 63;
+ * @return {number}
+ */
+proto.holdem.pb.UserMttRecord.prototype.getInsuranceAmount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 63, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.UserMttRecord.prototype.setInsuranceAmount = function(value) {
+  jspb.Message.setField(this, 63, value);
 };
 
 
