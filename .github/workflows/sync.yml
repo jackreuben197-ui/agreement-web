@@ -3,19 +3,32 @@ name: Sync GitLab to GitHub
 on:
   schedule:
     - cron: '*/5 * * * *'
-  workflow_dispatch: # 支持手动触发
+  workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout target repo
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Sync and push
+      - name: Sync from GitLab
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GL_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
-          git remote add gitlab https://kong1985:${{ secrets.GITLAB_TOKEN }}@gitlab.com/darkalliance/agreement-web.git
+          git config user.name "gitlab-sync"
+          git config user.email "sync@example.com"
+
+          # GitLab
+          git remote add gitlab https://kong1985:${GL_TOKEN}@gitlab.com/darkalliance/agreement-web.git
           git fetch gitlab
-          git push origin gitlab/master:master --force
+
+          # 切换到 main（如你用的是 master 就改）
+          git checkout master
+          git reset --hard gitlab/master
+
+          # 明确使用 PAT 推送到 GitHub
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/kingofake/agreement-web.git
+          git push origin master --force
