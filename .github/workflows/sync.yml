@@ -13,6 +13,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Debug PAT length
+        run: |
+          echo "PAT length = ${#GH_PAT}"
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
       - name: Sync GitLab → GitHub
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
