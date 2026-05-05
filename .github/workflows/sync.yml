@@ -18,3 +18,4 @@ jobs:
         run: |
           git remote add gitlab https://kong1985:${{ secrets.GITLAB_TOKEN }}@gitlab.com/darkalliance/agreement-web.git
           git fetch gitlab
+          git pull
