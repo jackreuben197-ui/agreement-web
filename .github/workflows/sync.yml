@@ -1,0 +1,21 @@
+name: Sync GitLab to GitHub
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch: # 支持手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Sync and push
+        run: |
+          git remote add gitlab https://kong1986:${{ secrets.GITLAB_TOKEN }}@gitlab.com/darkalliance/agreement-web.git
+          git fetch gitlab
+          git push origin gitlab/master:master # 将GitLab的master同步到GitHub的master
