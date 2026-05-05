@@ -12,12 +12,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-
-      - name: Debug PAT length
-        run: |
-          echo "PAT length = ${#GH_PAT}"
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          
       - name: Sync GitLab → GitHub
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
@@ -31,5 +26,5 @@ jobs:
       
           git checkout -B master gitlab/master
       
-          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/kingofake/agreement-web.git
+          git remote set-url origin https://${GH_PAT}@github.com/kingofake/agreement-web.git
           git push origin master --force
