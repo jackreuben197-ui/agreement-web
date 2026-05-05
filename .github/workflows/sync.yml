@@ -18,13 +18,21 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
           GL_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
-          git config user.name "gitlab-sync"
-          git config user.email "sync@example.com"
+          git config --global user.name "gitlab-sync"
+          git config --global user.email "sync@example.com"
       
+          # GitLab
           git remote add gitlab https://kong1985:${GL_TOKEN}@gitlab.com/darkalliance/agreement-web.git
           git fetch gitlab
       
+          # 本地分支
           git checkout -B master gitlab/master
       
-          git remote set-url origin https://kingofake:${GH_PAT}@github.com/kingofake/agreement-web.git
+          # ✅ 关键：用 credential.helper 注入 PAT
+          git config --global credential.helper store
+          echo "https://kingofake:${GH_PAT}@github.com" > ~/.git-credentials
+      
+          git remote remove origin
+          git remote add origin https://github.com/kingofake/agreement-web.git
+      
           git push origin master --force
