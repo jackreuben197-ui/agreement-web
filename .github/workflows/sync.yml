@@ -26,5 +26,5 @@ jobs:
       
           git checkout -B master gitlab/master
       
-          git remote set-url origin https://${GH_PAT}@github.com/kingofake/agreement-web.git
+          git remote set-url origin https://kingofake:${GH_PAT}@github.com/kingofake/agreement-web.git
           git push origin master --force
