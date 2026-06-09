@@ -25,6 +25,27 @@ const fs = require('fs');
 const path = require('path');
 
 // ============================================================================
+// 辅助函数 — 格式化内联枚举值的缩进
+//
+// 输入 rawValue: 从 .js 文件提取的枚举对象字面量，如：
+//   "{\n  NONE: 0,\n  MSG_D_REGISTER: 1,\n  ...\n};"
+//
+// 输出：统一缩进的字符串，body 行 4 空格，闭合花括号 2 空格
+//   "{\n    NONE: 0,\n    MSG_D_REGISTER: 1,\n    ...\n  };"
+// ============================================================================
+function formatEnumBody(raw) {
+  const lines = raw.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+  // lines[0] = "{", lines[1..n-2] = body, lines[n-1] = "};"
+  const result = [];
+  result.push(lines[0]); // {
+  for (let i = 1; i < lines.length - 1; i++) {
+    result.push('    ' + lines[i]); // 4-space indent
+  }
+  result.push('  ' + lines[lines.length - 1]); // 2-space indent };
+  return result.join('\n');
+}
+
+// ============================================================================
 // 常量 — 跨平台路径
 // ============================================================================
 const ROOT = path.resolve(__dirname, '..');
@@ -240,10 +261,12 @@ function buildProxy() {
   const sortedEnums = [...enumValues.keys()].sort();
   console.log('[build]   Found', sortedClasses.length, 'classes (lazy) +', sortedEnums.length, 'enums (inline)');
 
-  // enum 内联行 — 直接 exports.Foo = { ... };
-  const inlineLines = sortedEnums.map(name =>
-    `  exports.${name} = ${enumValues.get(name)};`
-  );
+  // enum 内联行 — 格式化 body 缩进，确保可读
+  const inlineLines = sortedEnums.map(name => {
+    const raw = enumValues.get(name);
+    const formatted = formatEnumBody(raw);
+    return `  exports.${name} = ${formatted}`;
+  });
 
   // class 惰性行 — lazy('ClassName');
   const lazyLines = sortedClasses.map(name =>
