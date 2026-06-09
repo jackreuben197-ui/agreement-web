@@ -171,53 +171,82 @@ async function buildRuntime() {
 // 生成一个 UMD 文件，将这些符号重新导出为扁平命名导出。
 //
 // 提取策略（基于 .js 文件内容，比 .d.ts 更准确）：
-//   1. goog.exportSymbol('proto.holdem.pb.ClassName', ...) → class
-//   2. proto.holdem.pb.EnumName = { ... }                    → enum / const map
+//   1. goog.exportSymbol('proto.holdem.pb.ClassName', ...) → class 构造函数
+//   2. proto.holdem.pb.EnumName = { ... }                    → 枚举/常量映射
 //
-// 导出方式：Object.defineProperty 惰性 getter
-//   - 首次访问 exports.Foo 时才解析 window.HoldemPB.Foo
-//   - 避免 Cocos IDE 中 holdem-pb.js 未加载时出现 undefined 错误
-//   - 解析后值被闭包缓存，后续访问零开销
-//
-// 使用者通过 proxy 导入：
-//   import { ClientMessageEnterRoom, Code } from '@silenthill/agreement-web';
-// 内部延迟解析到 window.HoldemPB.ClientMessageEnterRoom。
+// 导出方式按符号类型区分：
+//   enum  → 内联值 exports.Foo = { ... }
+//     enum 经常在模块顶层做静态映射表（如 [Code.MSG_XXX]: ...），
+//     必须在 import 时立即可用，不能懒加载
+//   class → Object.defineProperty 惰性 getter
+//     避免 Cocos IDE 中 holdem-pb.js 未加载时 new Foo() 报错
 // ============================================================================
 function buildProxy() {
   console.log('[build] Building dist/proxy.js ...');
 
-  const symbols = new Set();
+  // 分离收集：先收 enum（内联），再收 class（lazy），enum 优先
+  const classNames = new Set();
+  const enumValues = new Map();
 
-  // 遍历所有 .js 文件，提取运行时注册的符号
   const jsFiles = fs.readdirSync(PB_DIR).filter(f => f.endsWith('.js'));
 
+  // 第一遍：提取枚举值（proto.holdem.pb.XXX = { ... };）
+  //   enum 经常在模块顶层做静态映射表，必须 import 时立即可用
   for (const file of jsFiles) {
     const content = fs.readFileSync(path.join(PB_DIR, file), 'utf8');
 
-    // 匹配 goog.exportSymbol('proto.holdem.pb.ClassName', null, global)
-    // 每个 class 构造函数通过此调用注册到 proto.holdem.pb.*
-    const exportRe = /goog\.exportSymbol\('proto\.holdem\.pb\.(\w+)'/g;
-    let match;
-    while ((match = exportRe.exec(content)) !== null) {
-      symbols.add(match[1]);
-    }
-
-    // 匹配 proto.holdem.pb.EnumName = { ... }
-    // 枚举和常量映射通过直接赋值挂载
     const assignRe = /proto\.holdem\.pb\.(\w+)\s*=\s*\{/g;
+    let match;
     while ((match = assignRe.exec(content)) !== null) {
-      symbols.add(match[1]);
+      const enumName = match[1];
+      if (enumValues.has(enumName)) continue;
+
+      // 找到匹配 } 和 }; — 枚举值从 { 到 };
+      const openPos = match.index + match[0].length - 1;
+      let depth = 1;
+      let closePos = openPos + 1;
+      while (depth > 0 && closePos < content.length) {
+        if (content[closePos] === '{') depth++;
+        else if (content[closePos] === '}') depth--;
+        closePos++;
+      }
+      while (closePos < content.length && /[;\s]/.test(content[closePos])) {
+        closePos++;
+      }
+
+      const rawValue = content.substring(openPos, closePos).trim();
+      // 只内联扁平枚举（值中无嵌套 {），排除嵌套结构
+      if (!/:\s*\{/.test(rawValue)) {
+        enumValues.set(enumName, rawValue);
+      }
     }
   }
 
-  const sortedNames = [...symbols].sort();
-  console.log('[build]   Found', sortedNames.length, 'runtime symbols');
+  // 第二遍：提取 class 符号（goog.exportSymbol，排除已归入 enum 的）
+  for (const file of jsFiles) {
+    const content = fs.readFileSync(path.join(PB_DIR, file), 'utf8');
 
-  // 生成惰性代理导出
-  //   每个符号通过 Object.defineProperty 设置 lazy getter
-  //   首次访问时才解析 window.HoldemPB.XXX，后续访问直接返回已解析值
-  //   目的：即使 holdem-pb.js 尚未加载，import { Foo } 也不会抛出异常
-  const proxyLines = sortedNames.map(name =>
+    const exportRe = /goog\.exportSymbol\('proto\.holdem\.pb\.(\w+)'/g;
+    let match;
+    while ((match = exportRe.exec(content)) !== null) {
+      if (!enumValues.has(match[1])) {
+        classNames.add(match[1]);
+      }
+    }
+  }
+
+  // class 按字母排序，enum 也排序
+  const sortedClasses = [...classNames].sort();
+  const sortedEnums = [...enumValues.keys()].sort();
+  console.log('[build]   Found', sortedClasses.length, 'classes (lazy) +', sortedEnums.length, 'enums (inline)');
+
+  // enum 内联行 — 直接 exports.Foo = { ... };
+  const inlineLines = sortedEnums.map(name =>
+    `  exports.${name} = ${enumValues.get(name)};`
+  );
+
+  // class 惰性行 — lazy('ClassName');
+  const lazyLines = sortedClasses.map(name =>
     `  lazy('${name}');`
   );
 
@@ -239,8 +268,7 @@ function buildProxy() {
     '    return (typeof window !== \'undefined\' ? window : global).HoldemPB;',
     '  }',
     '',
-    '  // 在 exports 上设置惰性 getter',
-    '  // 首次读取时从 window.HoldemPB 解析，之后直接返回已解析值',
+    '  // class 构造函数：惰性 getter，首次访问时才解析',
     '  function lazy(name) {',
     '    var val, resolved = false;',
     '    Object.defineProperty(exports, name, {',
@@ -257,7 +285,11 @@ function buildProxy() {
     '    });',
     '  }',
     '',
-    ...proxyLines,
+    '  // enum / 常量映射 — 内联值，import 时立即可用',
+    ...inlineLines,
+    '',
+    '  // class 构造函数 — 惰性加载',
+    ...lazyLines,
     '',
     '  return exports;',
     '}));',
