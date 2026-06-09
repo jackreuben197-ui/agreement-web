@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Sync GitLab → GitHub
+      - name: Sync GitLab → GitHub & Auto Generate Exports
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
           GL_TOKEN: ${{ secrets.GITLAB_TOKEN }}
@@ -21,18 +21,71 @@ jobs:
           git config --global user.name "gitlab-sync"
           git config --global user.email "sync@example.com"
       
-          # GitLab
-          git remote add gitlab https://kong1985:${GL_TOKEN}@gitlab.com/darkalliance/agreement-web.git
+          # 1. 从 GitLab 拉取最新代码
+          git remote add gitlab https://kong1985:${GL_TOKEN}@://gitlab.com
           git fetch gitlab
       
-          # 本地分支
+          # 2. 切换并重置本地 master 分支
           git checkout -B master gitlab/master
       
-          # ✅ 关键：用 credential.helper 注入 PAT
+          # 3. 🛠️ 动态生成 package.json
+          cat << 'EOF' > package.json
+          {
+            "name": "@kingofake/agreement-web",
+            "version": "1.0.0",
+            "description": "Synced private package from GitLab with auto-generated exports",
+            "main": "index.js",
+            "types": "index.d.ts",
+            "private": true
+          }
+          EOF
+
+          # 4. 🔄 动态扫描 holdem/pb 目录并生成 index.js
+          echo "// 自动生成的入口文件：导出 holdem/pb 下的所有模块" > index.js
+          
+          # 检查目录是否存在
+          if [ -d "holdem/pb" ]; then
+            # 查找所有以 _pb.js 结尾的文件（排除目录本身和其它后缀）
+            find holdem/pb -maxdepth 1 -name "*_pb.js" | while read -r file; do
+              # 提取文件名（去除扩展名），例如 holdem/pb/auth_pb
+              base_path="${file%.js}"
+              # 提取纯文件名用于导出变量名，例如 auth_pb
+              filename=$(basename "$base_path")
+              # 清理变量名中可能不合法的字符（如减号转下划线，如果是标准pb这里一般已经是下划线了）
+              var_name=$(echo "$filename" | sed 's/[^a-zA-Z0-9_]/_/g')
+              
+              # 写入导出语句
+              echo "const $var_name = require('./$base_path');" >> index.js
+              echo "module.exports = { ...module.exports, ...$var_name };" >> index.js
+            done
+          else
+            echo "// 警告：未找到 holdem/pb 目录" >> index.js
+          fi
+
+          # 5. 🔄 动态扫描 holdem/pb 目录并生成 index.d.ts
+          echo "// 自动生成的类型声明文件" > index.d.ts
+          if [ -d "holdem/pb" ]; then
+            find holdem/pb -maxdepth 1 -name "*_pb.d.ts" | while read -r file; do
+              # 提取不含 .d.ts 的路径，例如 holdem/pb/auth_pb
+              base_path="${file%.d.ts}"
+              # 批量导出该文件的所有类型声明
+              echo "export * from './$base_path';" >> index.d.ts
+            done
+          else
+            echo "// 警告：未找到 holdem/pb 目录" >> index.d.ts
+          fi
+
+          # 6. 将新生成的文件提交到本地历史中
+          git add package.json index.js index.d.ts
+          # 使用 || true 避免在文件未发生变化时导致整个脚本报错中断
+          git commit -m "chore: auto-generate npm package entry files" || true
+      
+          # 7. ✅ 用 credential.helper 注入 PAT 并推送到 GitHub
           git config --global credential.helper store
           echo "https://kingofake:${GH_PAT}@github.com" > ~/.git-credentials
       
-          git remote remove origin
-          git remote add origin https://github.com/kingofake/agreement-web.git
+          git remote remove origin || true
+          git remote add origin https://github.com
       
+          # 强推到 GitHub 仓库
           git push origin master --force
