@@ -22,7 +22,7 @@ jobs:
           git config --global user.email "sync@example.com"
       
           # 1. 从 GitLab 拉取最新代码
-          git remote add gitlab https://kong1985:${GL_TOKEN}@://gitlab.com
+          git remote add gitlab https://kong1985:${GL_TOKEN}@gitlab.com/darkalliance/agreement-web.git
           git fetch gitlab
       
           # 2. 切换并重置本地 master 分支
@@ -85,7 +85,7 @@ jobs:
           echo "https://kingofake:${GH_PAT}@github.com" > ~/.git-credentials
       
           git remote remove origin || true
-          git remote add origin https://github.com
+          git remote add origin https://github.com/kingofake/agreement-web.git
       
           # 强推到 GitHub 仓库
           git push origin master --force
