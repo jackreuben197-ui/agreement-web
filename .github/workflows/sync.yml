@@ -50,4 +50,4 @@ jobs:
           git remote remove origin || true
           git remote add origin https://github.com/kingofake/agreement-web.git
 
-          git push origin master --force
+          git push origin master
