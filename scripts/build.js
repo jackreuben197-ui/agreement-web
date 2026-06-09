@@ -174,9 +174,14 @@ async function buildRuntime() {
 //   1. goog.exportSymbol('proto.holdem.pb.ClassName', ...) → class
 //   2. proto.holdem.pb.EnumName = { ... }                    → enum / const map
 //
+// 导出方式：Object.defineProperty 惰性 getter
+//   - 首次访问 exports.Foo 时才解析 window.HoldemPB.Foo
+//   - 避免 Cocos IDE 中 holdem-pb.js 未加载时出现 undefined 错误
+//   - 解析后值被闭包缓存，后续访问零开销
+//
 // 使用者通过 proxy 导入：
 //   import { ClientMessageEnterRoom, Code } from '@silenthill/agreement-web';
-// 内部实际读取 window.HoldemPB.ClientMessageEnterRoom。
+// 内部延迟解析到 window.HoldemPB.ClientMessageEnterRoom。
 // ============================================================================
 function buildProxy() {
   console.log('[build] Building dist/proxy.js ...');
@@ -208,9 +213,12 @@ function buildProxy() {
   const sortedNames = [...symbols].sort();
   console.log('[build]   Found', sortedNames.length, 'runtime symbols');
 
-  // 生成代理导出 — 每个符号一行 exports.Foo = pb.Foo
+  // 生成惰性代理导出
+  //   每个符号通过 Object.defineProperty 设置 lazy getter
+  //   首次访问时才解析 window.HoldemPB.XXX，后续访问直接返回已解析值
+  //   目的：即使 holdem-pb.js 尚未加载，import { Foo } 也不会抛出异常
   const proxyLines = sortedNames.map(name =>
-    `  exports.${name} = pb.${name};`
+    `  lazy('${name}');`
   );
 
   // UMD 包装（与 runtime 相同结构，CJS 分支传入 module.exports）
@@ -226,7 +234,28 @@ function buildProxy() {
     '}(typeof self !== \'undefined\' ? self : this, function(exports) {',
     '  \'use strict\';',
     '',
-    '  var pb = (typeof window !== \'undefined\' ? window : global).HoldemPB;',
+    '  // 获取 window.HoldemPB（惰性 — 可能尚未加载）',
+    '  function getPB() {',
+    '    return (typeof window !== \'undefined\' ? window : global).HoldemPB;',
+    '  }',
+    '',
+    '  // 在 exports 上设置惰性 getter',
+    '  // 首次读取时从 window.HoldemPB 解析，之后直接返回已解析值',
+    '  function lazy(name) {',
+    '    var val, resolved = false;',
+    '    Object.defineProperty(exports, name, {',
+    '      get: function() {',
+    '        if (!resolved) {',
+    '          var pb = getPB();',
+    '          val = pb ? pb[name] : undefined;',
+    '          resolved = true;',
+    '        }',
+    '        return val;',
+    '      },',
+    '      configurable: true,',
+    '      enumerable: true',
+    '    });',
+    '  }',
     '',
     ...proxyLines,
     '',
