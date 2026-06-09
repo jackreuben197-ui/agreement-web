@@ -1,24 +1,49 @@
+# ============================================================================
+# Sync GitLab → GitHub & Generate PB Runtime
+#
+# 每小时（或手动触发）从 GitLab 同步 holdem/pb/ 协议文件，
+# 然后运行 scripts/build.js 生成 dist/ 产物，提交到 GitHub master。
+#
+# 工作流程：
+#   1. checkout GitHub master（包含 scripts/build.js + package.json）
+#   2. 从 GitLab 拉取 holdem/ 目录覆盖本地（只读 — 不被构建脚本修改）
+#   3. npm ci && npm run build（读取 holdem/pb/ → 产出 dist/）
+#   4. git add dist/ holdem/ && git commit && git push
+#
+# 需要的 Secrets：
+#   GH_PAT      - GitHub Personal Access Token（用于 push）
+#   GITLAB_TOKEN - GitLab Access Token（用于 fetch private repo）
+# ============================================================================
 name: Sync GitLab → GitHub & Generate PB Runtime
 
 on:
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
+    - cron: '0 * * * *'   # 每小时执行一次
+  workflow_dispatch:       # 允许手动触发
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
+      # -------------------------------------------------------------------
+      # Step 0: 拉取 GitHub 仓库完整历史（master 分支有构建脚本和 package.json）
+      # -------------------------------------------------------------------
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
+      # -------------------------------------------------------------------
+      # Step 0.5: 安装 Node.js 20（构建脚本和 esbuild 需要）
+      # -------------------------------------------------------------------
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # -------------------------------------------------------------------
+      # Step 1-5: 同步 + 构建 + 提交 + 推送
+      # -------------------------------------------------------------------
       - name: Sync & Build
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
@@ -27,22 +52,38 @@ jobs:
           git config --global user.name "gitlab-sync"
           git config --global user.email "sync@example.com"
 
+          # Step 1: 切换到 GitHub 的 master 分支
+          #   此分支包含 scripts/build.js + package.json + .github/workflows/
+          #   holdem/pb/ 将被 GitLab 版本覆盖，但构建产物 dist/ 会重新生成
           echo "=== Checkout GitHub master ==="
           git checkout master || git checkout -b master
 
+          # Step 2: 从 GitLab 只拉取 holdem/ 目录
+          #   不切换整个分支 — 只覆盖 holdem/ 路径
+          #   目的：protobuf 协议文件由 GitLab 端 protoc 生成，是唯一权威来源
           echo "=== Fetch holdem/pb from GitLab ==="
           git remote add gitlab https://kong1985:${GL_TOKEN}@gitlab.com/darkalliance/agreement-web.git || true
           git fetch gitlab master
           git checkout gitlab/master -- holdem/
 
+          # Step 3: 从 holdem/pb/ 构建 dist/
+          #   npm ci 严格安装 package-lock.json 中的依赖（google-protobuf + esbuild）
+          #   npm run build 执行 scripts/build.js → 产出 dist/holdem-pb.js + proxy.js + d.ts
           echo "=== Build PB Runtime ==="
           npm ci
           npm run build
 
+          # Step 4: 提交变动
+          #   dist/     — 由构建脚本生成的新文件
+          #   holdem/   — GitLab 同步来的更新（可能新增/删除/修改 pb 文件）
+          #   || true   — 允许无变动时跳过（避免提交失败中断流程）
           echo "=== Commit ==="
           git add dist/ holdem/
           git commit -m "chore: sync from gitlab and generate pb runtime" || true
 
+          # Step 5: 推送到 GitHub master
+          #   不使用 --force（正常 fast-forward push）
+          #   如果失败则说明有其他提交冲突，下次 workflow 会自动重试
           echo "=== Push GitHub ==="
           git config --global credential.helper store
           echo "https://kingofake:${GH_PAT}@github.com" > ~/.git-credentials
