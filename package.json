@@ -1,0 +1,13 @@
+{
+  "name": "@kingofake/agreement-web",
+  "version": "1.0.0",
+  "description": "Shared protobuf runtime for Vue3 + Cocos",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "holdem-pb.js",
+    "holdem"
+  ]
+}
