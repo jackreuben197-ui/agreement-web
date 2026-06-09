@@ -67,11 +67,19 @@ jobs:
           git checkout gitlab/master -- holdem/
 
           # Step 3: 从 holdem/pb/ 构建 dist/
-          #   npm ci 严格安装 package-lock.json 中的依赖（google-protobuf + esbuild）
-          #   npm run build 执行 scripts/build.js → 产出 dist/holdem-pb.js + proxy.js + d.ts
           echo "=== Build PB Runtime ==="
-          npm ci
+          # 如果此时仓库由于某种原因没有 package-lock，换成 npm install 兼容
+          if [ -f "package-lock.json" ]; then
+            npm ci
+          else
+            npm install
+          fi
           npm run build
+
+          # ✨ Step 3.5: 强制生成/更新最新的 package-lock.json 并放行下游 npm ci
+          # 确保这个私有包自身的 lock 文件是最新且完整的
+          echo "=== Update Package Lock ==="
+          npm install --package-lock-only
 
           # Step 4: 提交变动
           #   dist/     — 由构建脚本生成的新文件
