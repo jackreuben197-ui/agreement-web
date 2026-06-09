@@ -320,7 +320,11 @@ function buildProxy() {
     ''
   ].join('\n');
 
-  fs.writeFileSync(path.join(DIST_DIR, 'proxy.js'), proxy);
+  // 通过 esbuild 压缩 proxy 输出（仅 minify，不改变模块格式）
+  const minified = esbuild.transformSync(proxy, {
+    minify: true,
+  });
+  fs.writeFileSync(path.join(DIST_DIR, 'proxy.js'), minified.code);
   console.log('[build]   dist/proxy.js done');
 }
 
