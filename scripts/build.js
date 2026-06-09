@@ -116,6 +116,7 @@ async function buildRuntime() {
       write: false,          // 不写文件，手动处理
       plugins: [pbRemapPlugin],
       logLevel: 'warning',
+      minify: true,
     });
     core = result.outputFiles[0].text;
   } finally {
