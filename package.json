@@ -1,0 +1,20 @@
+{
+  "name": "@silenthill/agreement-web",
+  "version": "1.0.0",
+  "description": "Shared protobuf runtime for Vue3 + Cocos - UMD bundle with proxy",
+  "main": "dist/proxy.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "prepublishOnly": "node scripts/build.js"
+  },
+  "dependencies": {
+    "google-protobuf": "^3.21.4"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.2"
+  }
+}

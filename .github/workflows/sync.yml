@@ -1,4 +1,4 @@
-name: Sync GitLab to GitHub
+name: Sync GitLab → GitHub & Generate PB Runtime
 
 on:
   schedule:
@@ -14,101 +14,36 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Sync GitLab → GitHub & Generate PB Runtime
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sync & Build
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
           GL_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
-
           git config --global user.name "gitlab-sync"
           git config --global user.email "sync@example.com"
 
-          echo "=== Fetch GitLab ==="
+          echo "=== Checkout GitHub master ==="
+          git checkout master || git checkout -b master
+
+          echo "=== Fetch holdem/pb from GitLab ==="
           git remote add gitlab https://kong1985:${GL_TOKEN}@gitlab.com/darkalliance/agreement-web.git || true
-          git fetch gitlab
-          git checkout -B master gitlab/master
+          git fetch gitlab master
+          git checkout gitlab/master -- holdem/
 
-          echo "=== Generate package.json ==="
-          cat << 'EOF' > package.json
-          {
-            "name": "@kingofake/agreement-web",
-            "version": "1.0.0",
-            "description": "Shared protobuf runtime for Vue3 + Cocos",
-            "main": "index.js",
-            "types": "index.d.ts",
-            "files": [
-              "index.js",
-              "index.d.ts",
-              "holdem-pb.js",
-              "holdem"
-            ]
-          }
-          EOF
+          echo "=== Build PB Runtime ==="
+          npm ci
+          npm run build
 
-          ###########################################################
-          # 1. 生成 holdem-pb.js（runtime）
-          ###########################################################
-          echo "=== Generate holdem-pb.js ==="
-          echo "window.HoldemPB = window.HoldemPB || {};" > holdem-pb.js
+          echo "=== Commit ==="
+          git add dist/ holdem/
+          git commit -m "chore: sync from gitlab and generate pb runtime" || true
 
-          if [ -d "holdem/pb" ]; then
-            find holdem/pb -maxdepth 1 -name "*_pb.js" | sort | while read -r file; do
-              base_path="${file%.js}"
-              echo "Object.assign(window.HoldemPB, require('./$base_path'));" >> holdem-pb.js
-            done
-          fi
-
-          ###########################################################
-          # 2. 生成 index.js（proxy，不 require PB）
-          ###########################################################
-          echo "=== Generate index.js ==="
-          echo "// Auto generated proxy" > index.js
-
-          if [ -d "holdem/pb" ]; then
-            find holdem/pb -maxdepth 1 -name "*_pb.js" | sort | while read -r file; do
-              name=$(basename "$file" .js)
-              echo "exports.${name} = window.HoldemPB.${name};" >> index.js
-            done
-          fi
-
-          ###########################################################
-          # 3. 生成 index.d.ts
-          ###########################################################
-          echo "=== Generate index.d.ts ==="
-          echo "// Auto generated type exports" > index.d.ts
-
-          if [ -d "holdem/pb" ]; then
-            find holdem/pb -maxdepth 1 -name "*_pb.d.ts" | sort | while read -r file; do
-              base_path="${file%.d.ts}"
-              echo "export * from './$base_path';" >> index.d.ts
-            done
-          fi
-
-          ###########################################################
-          # 4. 生成 global.d.ts
-          ###########################################################
-          echo "=== Generate global.d.ts ==="
-          cat << 'EOF' > global.d.ts
-          import * as PB from './index';
-
-          declare global {
-            interface Window {
-              HoldemPB: typeof PB;
-            }
-          }
-
-          export {};
-          EOF
-
-          ###########################################################
-          # 5. 提交生成文件
-          ###########################################################
-          git add package.json index.js index.d.ts global.d.ts holdem-pb.js
-          git commit -m "chore: auto-generate protobuf runtime" || true
-
-          ###########################################################
-          # 6. Push GitHub
-          ###########################################################
+          echo "=== Push GitHub ==="
           git config --global credential.helper store
           echo "https://kingofake:${GH_PAT}@github.com" > ~/.git-credentials
 
