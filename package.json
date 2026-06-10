@@ -4,16 +4,6 @@
   "description": "Shared protobuf runtime for Vue3 + Cocos - UMD bundle with proxy",
   "main": "dist/proxy.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/proxy.js",
-      "require": "./dist/proxy.js"
-    },
-    "./runtime": {
-      "import": "./dist/runtime.js",
-      "require": "./dist/runtime.js"
-    }
-  },
   "files": [
     "dist/"
   ],
