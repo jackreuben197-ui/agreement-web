@@ -4,8 +4,18 @@
 
 ## 安装
 
+安装后 `import`/`require` 使用的包名是 `@silenthill/agreement-web`。
+
 ```bash
-npm install @silenthill/agreement-web
+npm install git+ssh://git@github.com:kingofake/agreement-web.git
+```
+
+更新：
+
+```bash
+npm update @silenthill/agreement-web
+# 或者重新安装
+npm install git+ssh://git@github.com:kingofake/agreement-web.git
 ```
 
 ## 使用方式
