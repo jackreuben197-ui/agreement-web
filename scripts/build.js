@@ -76,7 +76,7 @@ if (!fs.existsSync(DIST_DIR)) {
 // 不需要真正的模块隔离 —— esbuild 的 CommonJS 互操作恰好满足这一点。
 // ============================================================================
 async function buildRuntime() {
-  console.log('[build] Building dist/holdem-pb.js ...');
+  console.log('[build] Building runtime bundles ...');
 
   // 收集所有 .js 文件，按依赖顺序排序
   //   0: define_pb.js              (基础类型，无模块间依赖)
@@ -127,42 +127,26 @@ async function buildRuntime() {
     },
   };
 
-  let core;
-  try {
-    const result = await esbuild.build({
-      entryPoints: [entryPath],
-      bundle: true,
-      format: 'iife',       // 输出为 IIFE，方便包裹 UMD
-      platform: 'browser',   // 目标平台为浏览器
-      write: false,          // 不写文件，手动处理
-      plugins: [pbRemapPlugin],
-      logLevel: 'warning',
-      minify: true,
-    });
-    core = result.outputFiles[0].text;
-  } finally {
-    // 清理临时入口文件
-    if (fs.existsSync(entryPath)) {
-      fs.unlinkSync(entryPath);
-    }
-  }
+  const sharedOpts = {
+    entryPoints: [entryPath],
+    bundle: true,
+    platform: 'browser',
+    write: false,
+    plugins: [pbRemapPlugin],
+    logLevel: 'warning',
+    minify: true,
+  };
 
-  // esbuild IIFE 输出格式为：
-  //   (() => { ... })();
-  // 或 "use strict";\n(() => { ... })();
-  // 剥离此包装，提取内部代码体，放入 UMD 工厂函数
-  let body = core
+  // --- holdem-pb.js: IIFE → UMD（CDN / <script> 加载） ---
+  const iifeResult = await esbuild.build({ ...sharedOpts, format: 'iife' });
+  const iifeCore = iifeResult.outputFiles[0].text;
+
+  let body = iifeCore
     .replace(/^"use strict";\s*/s, '')
     .replace(/^\(\(\)\s*=>\s*\{/s, '')
     .replace(/\}\)\(\);?\s*$/s, '')
     .trim();
 
-  // UMD 包装 — 支持三种加载方式：
-  //   1. AMD:        define([], factory)
-  //   2. CJS/Node:   module.exports = factory()
-  //   3. Browser:    window.HoldemPB = factory()
-  // UMD factory 内部执行 google-protobuf + pb 模块代码，
-  // 返回 proto.holdem.pb （所有 protobuf 类的扁平字典）
   const umd = [
     '(function(root, factory) {',
     '  if (typeof define === \'function\' && define.amd) {',
@@ -184,6 +168,28 @@ async function buildRuntime() {
 
   fs.writeFileSync(path.join(DIST_DIR, 'holdem-pb.js'), umd);
   console.log('[build]   dist/holdem-pb.js done');
+
+  // --- runtime.js: CJS（项目内直接 import/require 打包） ---
+  const cjsResult = await esbuild.build({ ...sharedOpts, format: 'cjs' });
+  let cjsCore = cjsResult.outputFiles[0].text;
+
+  // esbuild CJS 输出可能有尾部多余分号/空白，统一处理
+  cjsCore = cjsCore.trim();
+
+  // 末尾追加 module.exports 导出 proto.holdem.pb
+  const cjsRuntime = [
+    cjsCore,
+    'module.exports = proto.holdem.pb;',
+    ''
+  ].join('\n');
+
+  fs.writeFileSync(path.join(DIST_DIR, 'runtime.js'), cjsRuntime);
+  console.log('[build]   dist/runtime.js done');
+
+  // 清理临时入口文件
+  if (fs.existsSync(entryPath)) {
+    fs.unlinkSync(entryPath);
+  }
 }
 
 // ============================================================================
