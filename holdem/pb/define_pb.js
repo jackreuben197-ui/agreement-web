@@ -22153,7 +22153,13 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     stageBlindLevel: jspb.Message.getFieldWithDefault(msg, 139, 0),
     stageRemainRate: jspb.Message.getFieldWithDefault(msg, 140, 0),
     stageFinalScoreType: jspb.Message.getFieldWithDefault(msg, 141, 0),
-    insuranceAmount: jspb.Message.getFieldWithDefault(msg, 142, 0)
+    insuranceAmount: jspb.Message.getFieldWithDefault(msg, 142, 0),
+    activityDetail: jspb.Message.getFieldWithDefault(msg, 143, ""),
+    breakInterval: jspb.Message.getFieldWithDefault(msg, 144, 0),
+    breakDuration: jspb.Message.getFieldWithDefault(msg, 145, 0),
+    breakRemindTime: jspb.Message.getFieldWithDefault(msg, 146, 0),
+    finalBreakDuration: jspb.Message.getFieldWithDefault(msg, 147, 0),
+    finalBreakRemind: jspb.Message.getFieldWithDefault(msg, 148, 0)
   };
 
   if (includeInstance) {
@@ -22738,6 +22744,30 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 142:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setInsuranceAmount(value);
+      break;
+    case 143:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setActivityDetail(value);
+      break;
+    case 144:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBreakInterval(value);
+      break;
+    case 145:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBreakDuration(value);
+      break;
+    case 146:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setBreakRemindTime(value);
+      break;
+    case 147:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setFinalBreakDuration(value);
+      break;
+    case 148:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setFinalBreakRemind(value);
       break;
     default:
       reader.skipField();
@@ -23725,6 +23755,48 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       142,
+      f
+    );
+  }
+  f = message.getActivityDetail();
+  if (f.length > 0) {
+    writer.writeString(
+      143,
+      f
+    );
+  }
+  f = message.getBreakInterval();
+  if (f !== 0) {
+    writer.writeUint32(
+      144,
+      f
+    );
+  }
+  f = message.getBreakDuration();
+  if (f !== 0) {
+    writer.writeUint32(
+      145,
+      f
+    );
+  }
+  f = message.getBreakRemindTime();
+  if (f !== 0) {
+    writer.writeUint32(
+      146,
+      f
+    );
+  }
+  f = message.getFinalBreakDuration();
+  if (f !== 0) {
+    writer.writeUint32(
+      147,
+      f
+    );
+  }
+  f = message.getFinalBreakRemind();
+  if (f !== 0) {
+    writer.writeInt32(
+      148,
       f
     );
   }
@@ -25799,6 +25871,96 @@ proto.holdem.pb.MTTRecord.prototype.getInsuranceAmount = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTRecord.prototype.setInsuranceAmount = function(value) {
   jspb.Message.setField(this, 142, value);
+};
+
+
+/**
+ * optional string activity_detail = 143;
+ * @return {string}
+ */
+proto.holdem.pb.MTTRecord.prototype.getActivityDetail = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 143, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.MTTRecord.prototype.setActivityDetail = function(value) {
+  jspb.Message.setField(this, 143, value);
+};
+
+
+/**
+ * optional uint32 break_interval = 144;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getBreakInterval = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 144, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setBreakInterval = function(value) {
+  jspb.Message.setField(this, 144, value);
+};
+
+
+/**
+ * optional uint32 break_duration = 145;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getBreakDuration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 145, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setBreakDuration = function(value) {
+  jspb.Message.setField(this, 145, value);
+};
+
+
+/**
+ * optional uint32 break_remind_time = 146;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getBreakRemindTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 146, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setBreakRemindTime = function(value) {
+  jspb.Message.setField(this, 146, value);
+};
+
+
+/**
+ * optional uint32 final_break_duration = 147;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getFinalBreakDuration = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 147, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setFinalBreakDuration = function(value) {
+  jspb.Message.setField(this, 147, value);
+};
+
+
+/**
+ * optional int32 final_break_remind = 148;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getFinalBreakRemind = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 148, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setFinalBreakRemind = function(value) {
+  jspb.Message.setField(this, 148, value);
 };
 
 
