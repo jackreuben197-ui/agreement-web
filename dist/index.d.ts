@@ -56,6 +56,7 @@ export interface CodeMap {
   MSG_S_USER_MTT_CHANGE_NOTIFY: 151;
   MSG_S_USER_SNG_CHANGE_NOTIFY: 152;
   MSG_S_MTT_SERIES_NOTIFY: 153;
+  MSG_S_MTT_BREAK: 154;
   MSG_D_USER_PLAYING: 201;
   MSG_R_ROOMS: 202;
   MSG_R_QUICK_JOIN: 203;
@@ -8030,6 +8031,12 @@ export class MTTMore extends jspb.Message {
   getPrizePool(): number;
   setPrizePool(value: number): void;
 
+  getBreakStartTime(): number;
+  setBreakStartTime(value: number): void;
+
+  getBreakEndTime(): number;
+  setBreakEndTime(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTMore.AsObject;
   static toObject(includeInstance: boolean, msg: MTTMore): MTTMore.AsObject;
@@ -8049,6 +8056,8 @@ export namespace MTTMore {
     nante: number,
     nbl: number,
     prizePool: number,
+    breakStartTime: number,
+    breakEndTime: number,
   }
 }
 
@@ -10959,6 +10968,54 @@ export namespace ServerMessageMttAwardNotify {
   export type AsObject = {
     matchId: number,
     matchName: string,
+  }
+}
+
+export class ServerMessageMttBreak extends jspb.Message {
+  getMatchId(): number;
+  setMatchId(value: number): void;
+
+  getBreakType(): number;
+  setBreakType(value: number): void;
+
+  getEventType(): number;
+  setEventType(value: number): void;
+
+  getStartTime(): number;
+  setStartTime(value: number): void;
+
+  getEndTime(): number;
+  setEndTime(value: number): void;
+
+  getRemindTime(): number;
+  setRemindTime(value: number): void;
+
+  getDuration(): number;
+  setDuration(value: number): void;
+
+  getBlindLevel(): number;
+  setBlindLevel(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ServerMessageMttBreak.AsObject;
+  static toObject(includeInstance: boolean, msg: ServerMessageMttBreak): ServerMessageMttBreak.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ServerMessageMttBreak, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ServerMessageMttBreak;
+  static deserializeBinaryFromReader(message: ServerMessageMttBreak, reader: jspb.BinaryReader): ServerMessageMttBreak;
+}
+
+export namespace ServerMessageMttBreak {
+  export type AsObject = {
+    matchId: number,
+    breakType: number,
+    eventType: number,
+    startTime: number,
+    endTime: number,
+    remindTime: number,
+    duration: number,
+    blindLevel: number,
   }
 }
 

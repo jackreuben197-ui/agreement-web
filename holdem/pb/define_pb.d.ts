@@ -3988,6 +3988,12 @@ export class MTTMore extends jspb.Message {
   getPrizePool(): number;
   setPrizePool(value: number): void;
 
+  getBreakStartTime(): number;
+  setBreakStartTime(value: number): void;
+
+  getBreakEndTime(): number;
+  setBreakEndTime(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTMore.AsObject;
   static toObject(includeInstance: boolean, msg: MTTMore): MTTMore.AsObject;
@@ -4007,6 +4013,8 @@ export namespace MTTMore {
     nante: number,
     nbl: number,
     prizePool: number,
+    breakStartTime: number,
+    breakEndTime: number,
   }
 }
 

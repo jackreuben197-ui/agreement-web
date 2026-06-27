@@ -26017,7 +26017,9 @@ proto.holdem.pb.MTTMore.toObject = function(includeInstance, msg) {
     nsb: jspb.Message.getFieldWithDefault(msg, 4, 0),
     nante: jspb.Message.getFieldWithDefault(msg, 5, 0),
     nbl: jspb.Message.getFieldWithDefault(msg, 6, 0),
-    prizePool: jspb.Message.getFieldWithDefault(msg, 7, 0)
+    prizePool: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    breakStartTime: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    breakEndTime: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -26081,6 +26083,14 @@ proto.holdem.pb.MTTMore.deserializeBinaryFromReader = function(msg, reader) {
     case 7:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setPrizePool(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setBreakStartTime(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setBreakEndTime(value);
       break;
     default:
       reader.skipField();
@@ -26157,6 +26167,20 @@ proto.holdem.pb.MTTMore.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint64(
       7,
+      f
+    );
+  }
+  f = message.getBreakStartTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      8,
+      f
+    );
+  }
+  f = message.getBreakEndTime();
+  if (f !== 0) {
+    writer.writeInt64(
+      9,
       f
     );
   }
@@ -26265,6 +26289,36 @@ proto.holdem.pb.MTTMore.prototype.getPrizePool = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTMore.prototype.setPrizePool = function(value) {
   jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional int64 break_start_time = 8;
+ * @return {number}
+ */
+proto.holdem.pb.MTTMore.prototype.getBreakStartTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTMore.prototype.setBreakStartTime = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional int64 break_end_time = 9;
+ * @return {number}
+ */
+proto.holdem.pb.MTTMore.prototype.getBreakEndTime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTMore.prototype.setBreakEndTime = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 
