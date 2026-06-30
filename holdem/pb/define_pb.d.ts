@@ -3808,6 +3808,9 @@ export class MTTRecord extends jspb.Message {
   getFinalBreakRemind(): number;
   setFinalBreakRemind(value: number): void;
 
+  getBreakRemind(): number;
+  setBreakRemind(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MTTRecord.AsObject;
   static toObject(includeInstance: boolean, msg: MTTRecord): MTTRecord.AsObject;
@@ -3963,6 +3966,7 @@ export namespace MTTRecord {
     breakRemindTime: number,
     finalBreakDuration: number,
     finalBreakRemind: number,
+    breakRemind: number,
   }
 }
 

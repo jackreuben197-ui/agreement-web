@@ -22159,7 +22159,8 @@ proto.holdem.pb.MTTRecord.toObject = function(includeInstance, msg) {
     breakDuration: jspb.Message.getFieldWithDefault(msg, 145, 0),
     breakRemindTime: jspb.Message.getFieldWithDefault(msg, 146, 0),
     finalBreakDuration: jspb.Message.getFieldWithDefault(msg, 147, 0),
-    finalBreakRemind: jspb.Message.getFieldWithDefault(msg, 148, 0)
+    finalBreakRemind: jspb.Message.getFieldWithDefault(msg, 148, 0),
+    breakRemind: jspb.Message.getFieldWithDefault(msg, 149, 0)
   };
 
   if (includeInstance) {
@@ -22768,6 +22769,10 @@ proto.holdem.pb.MTTRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 148:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setFinalBreakRemind(value);
+      break;
+    case 149:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setBreakRemind(value);
       break;
     default:
       reader.skipField();
@@ -23797,6 +23802,13 @@ proto.holdem.pb.MTTRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       148,
+      f
+    );
+  }
+  f = message.getBreakRemind();
+  if (f !== 0) {
+    writer.writeInt32(
+      149,
       f
     );
   }
@@ -25961,6 +25973,21 @@ proto.holdem.pb.MTTRecord.prototype.getFinalBreakRemind = function() {
 /** @param {number} value */
 proto.holdem.pb.MTTRecord.prototype.setFinalBreakRemind = function(value) {
   jspb.Message.setField(this, 148, value);
+};
+
+
+/**
+ * optional int32 break_remind = 149;
+ * @return {number}
+ */
+proto.holdem.pb.MTTRecord.prototype.getBreakRemind = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 149, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.MTTRecord.prototype.setBreakRemind = function(value) {
+  jspb.Message.setField(this, 149, value);
 };
 
 
