@@ -5789,6 +5789,9 @@ export class Result extends jspb.Message {
   setUserInsuranceResultList(value: Array<UserInsuranceResult>): void;
   addUserInsuranceResult(value?: UserInsuranceResult, index?: number): UserInsuranceResult;
 
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -5836,6 +5839,7 @@ export namespace Result {
     jawd: number,
     jackpotFee: number,
     userInsuranceResultList: Array<UserInsuranceResult.AsObject>,
+    userRid: number,
   }
 }
 
