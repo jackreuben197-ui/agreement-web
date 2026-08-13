@@ -20,6 +20,9 @@ export class ServerMessageStartInfo extends jspb.Message {
   setPlayersList(value: Array<protobuf_holdem_define_pb.PlayerStartInfo>): void;
   addPlayers(value?: protobuf_holdem_define_pb.PlayerStartInfo, index?: number): protobuf_holdem_define_pb.PlayerStartInfo;
 
+  getBotStyle(): string;
+  setBotStyle(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageStartInfo.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageStartInfo): ServerMessageStartInfo.AsObject;
@@ -35,6 +38,7 @@ export namespace ServerMessageStartInfo {
     handInfo?: protobuf_holdem_define_pb.HandInfo.AsObject,
     nextOperator?: protobuf_holdem_define_pb.Operator.AsObject,
     playersList: Array<protobuf_holdem_define_pb.PlayerStartInfo.AsObject>,
+    botStyle: string,
   }
 }
 

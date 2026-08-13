@@ -14653,6 +14653,9 @@ export class ServerMessageStartInfo extends jspb.Message {
   setPlayersList(value: Array<PlayerStartInfo>): void;
   addPlayers(value?: PlayerStartInfo, index?: number): PlayerStartInfo;
 
+  getBotStyle(): string;
+  setBotStyle(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageStartInfo.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageStartInfo): ServerMessageStartInfo.AsObject;
@@ -14668,6 +14671,7 @@ export namespace ServerMessageStartInfo {
     handInfo?: HandInfo.AsObject,
     nextOperator?: Operator.AsObject,
     playersList: Array<PlayerStartInfo.AsObject>,
+    botStyle: string,
   }
 }
 
