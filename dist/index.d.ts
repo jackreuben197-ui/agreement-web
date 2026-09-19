@@ -11805,6 +11805,18 @@ export class ServerMessageUserGameWatch extends jspb.Message {
   getAmount(): number;
   setAmount(value: number): void;
 
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getAmountMinUnit(): number;
+  setAmountMinUnit(value: number): void;
+
+  getReceiveClubId(): number;
+  setReceiveClubId(value: number): void;
+
+  getBillingId(): string;
+  setBillingId(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserGameWatch.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserGameWatch): ServerMessageUserGameWatch.AsObject;
@@ -11822,6 +11834,10 @@ export namespace ServerMessageUserGameWatch {
     roomId: number,
     handNum: number,
     amount: number,
+    goldType: number,
+    amountMinUnit: number,
+    receiveClubId: number,
+    billingId: string,
   }
 }
 
@@ -21566,6 +21582,12 @@ export class ServerMessageViewPlayerCardsNum extends jspb.Message {
   getPayTimes(): number;
   setPayTimes(value: number): void;
 
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getPrice(): number;
+  setPrice(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageViewPlayerCardsNum.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageViewPlayerCardsNum): ServerMessageViewPlayerCardsNum.AsObject;
@@ -21580,6 +21602,8 @@ export namespace ServerMessageViewPlayerCardsNum {
   export type AsObject = {
     status: number,
     payTimes: number,
+    goldType: number,
+    price: number,
   }
 }
 
@@ -21617,6 +21641,15 @@ export class ServerMessageViewPlayerCards extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getAmount(): number;
+  setAmount(value: number): void;
+
+  getBillingId(): string;
+  setBillingId(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageViewPlayerCards.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageViewPlayerCards): ServerMessageViewPlayerCards.AsObject;
@@ -21630,5 +21663,8 @@ export class ServerMessageViewPlayerCards extends jspb.Message {
 export namespace ServerMessageViewPlayerCards {
   export type AsObject = {
     status: number,
+    goldType: number,
+    amount: number,
+    billingId: string,
   }
 }

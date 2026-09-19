@@ -19,6 +19,18 @@ export class ServerMessageUserGameWatch extends jspb.Message {
   getAmount(): number;
   setAmount(value: number): void;
 
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getAmountMinUnit(): number;
+  setAmountMinUnit(value: number): void;
+
+  getReceiveClubId(): number;
+  setReceiveClubId(value: number): void;
+
+  getBillingId(): string;
+  setBillingId(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserGameWatch.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserGameWatch): ServerMessageUserGameWatch.AsObject;
@@ -36,6 +48,10 @@ export namespace ServerMessageUserGameWatch {
     roomId: number,
     handNum: number,
     amount: number,
+    goldType: number,
+    amountMinUnit: number,
+    receiveClubId: number,
+    billingId: string,
   }
 }
 

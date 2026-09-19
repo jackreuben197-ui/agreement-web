@@ -38,6 +38,15 @@ export class ServerMessageViewPlayerCards extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getAmount(): number;
+  setAmount(value: number): void;
+
+  getBillingId(): string;
+  setBillingId(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageViewPlayerCards.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageViewPlayerCards): ServerMessageViewPlayerCards.AsObject;
@@ -51,6 +60,9 @@ export class ServerMessageViewPlayerCards extends jspb.Message {
 export namespace ServerMessageViewPlayerCards {
   export type AsObject = {
     status: number,
+    goldType: number,
+    amount: number,
+    billingId: string,
   }
 }
 

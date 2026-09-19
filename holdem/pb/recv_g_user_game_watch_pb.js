@@ -63,7 +63,11 @@ proto.holdem.pb.ServerMessageUserGameWatch.toObject = function(includeInstance, 
     userName: jspb.Message.getFieldWithDefault(msg, 2, ""),
     roomId: jspb.Message.getFieldWithDefault(msg, 3, 0),
     handNum: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    amount: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    amount: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    goldType: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    amountMinUnit: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    receiveClubId: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    billingId: jspb.Message.getFieldWithDefault(msg, 9, "")
   };
 
   if (includeInstance) {
@@ -119,6 +123,22 @@ proto.holdem.pb.ServerMessageUserGameWatch.deserializeBinaryFromReader = functio
     case 5:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setAmount(value);
+      break;
+    case 6:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setGoldType(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setAmountMinUnit(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setReceiveClubId(value);
+      break;
+    case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setBillingId(value);
       break;
     default:
       reader.skipField();
@@ -181,6 +201,34 @@ proto.holdem.pb.ServerMessageUserGameWatch.serializeBinaryToWriter = function(me
   if (f !== 0) {
     writer.writeInt64(
       5,
+      f
+    );
+  }
+  f = message.getGoldType();
+  if (f !== 0) {
+    writer.writeInt32(
+      6,
+      f
+    );
+  }
+  f = message.getAmountMinUnit();
+  if (f !== 0) {
+    writer.writeInt64(
+      7,
+      f
+    );
+  }
+  f = message.getReceiveClubId();
+  if (f !== 0) {
+    writer.writeUint64(
+      8,
+      f
+    );
+  }
+  f = message.getBillingId();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
       f
     );
   }
@@ -259,6 +307,66 @@ proto.holdem.pb.ServerMessageUserGameWatch.prototype.getAmount = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageUserGameWatch.prototype.setAmount = function(value) {
   jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * optional int32 gold_type = 6;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUserGameWatch.prototype.getGoldType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUserGameWatch.prototype.setGoldType = function(value) {
+  jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional int64 amount_min_unit = 7;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUserGameWatch.prototype.getAmountMinUnit = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUserGameWatch.prototype.setAmountMinUnit = function(value) {
+  jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional uint64 receive_club_id = 8;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUserGameWatch.prototype.getReceiveClubId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUserGameWatch.prototype.setReceiveClubId = function(value) {
+  jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional string billing_id = 9;
+ * @return {string}
+ */
+proto.holdem.pb.ServerMessageUserGameWatch.prototype.getBillingId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.ServerMessageUserGameWatch.prototype.setBillingId = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 
