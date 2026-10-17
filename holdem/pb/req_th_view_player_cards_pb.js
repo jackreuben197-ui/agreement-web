@@ -274,7 +274,10 @@ proto.holdem.pb.ServerMessageViewPlayerCards.prototype.toObject = function(opt_i
  */
 proto.holdem.pb.ServerMessageViewPlayerCards.toObject = function(includeInstance, msg) {
   var f, obj = {
-    status: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    status: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    goldType: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    amount: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    billingId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -315,6 +318,18 @@ proto.holdem.pb.ServerMessageViewPlayerCards.deserializeBinaryFromReader = funct
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStatus(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setGoldType(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setAmount(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setBillingId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -351,6 +366,27 @@ proto.holdem.pb.ServerMessageViewPlayerCards.serializeBinaryToWriter = function(
       f
     );
   }
+  f = message.getGoldType();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
+      f
+    );
+  }
+  f = message.getAmount();
+  if (f !== 0) {
+    writer.writeUint64(
+      3,
+      f
+    );
+  }
+  f = message.getBillingId();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
 };
 
 
@@ -366,6 +402,51 @@ proto.holdem.pb.ServerMessageViewPlayerCards.prototype.getStatus = function() {
 /** @param {number} value */
 proto.holdem.pb.ServerMessageViewPlayerCards.prototype.setStatus = function(value) {
   jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional int32 gold_type = 2;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageViewPlayerCards.prototype.getGoldType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageViewPlayerCards.prototype.setGoldType = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional uint64 amount = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageViewPlayerCards.prototype.getAmount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageViewPlayerCards.prototype.setAmount = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional string billing_id = 4;
+ * @return {string}
+ */
+proto.holdem.pb.ServerMessageViewPlayerCards.prototype.getBillingId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.ServerMessageViewPlayerCards.prototype.setBillingId = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

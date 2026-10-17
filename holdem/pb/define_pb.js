@@ -9913,7 +9913,8 @@ proto.holdem.pb.Result.toObject = function(includeInstance, msg) {
     jawd: jspb.Message.getFieldWithDefault(msg, 33, 0),
     jackpotFee: jspb.Message.getFieldWithDefault(msg, 34, 0),
     userInsuranceResultList: jspb.Message.toObjectList(msg.getUserInsuranceResultList(),
-    proto.holdem.pb.UserInsuranceResult.toObject, includeInstance)
+    proto.holdem.pb.UserInsuranceResult.toObject, includeInstance),
+    userRid: jspb.Message.getFieldWithDefault(msg, 36, 0)
   };
 
   if (includeInstance) {
@@ -10094,6 +10095,10 @@ proto.holdem.pb.Result.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.UserInsuranceResult;
       reader.readMessage(value,proto.holdem.pb.UserInsuranceResult.deserializeBinaryFromReader);
       msg.addUserInsuranceResult(value);
+      break;
+    case 36:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setUserRid(value);
       break;
     default:
       reader.skipField();
@@ -10372,6 +10377,13 @@ proto.holdem.pb.Result.serializeBinaryToWriter = function(message, writer) {
       35,
       f,
       proto.holdem.pb.UserInsuranceResult.serializeBinaryToWriter
+    );
+  }
+  f = message.getUserRid();
+  if (f !== 0) {
+    writer.writeUint64(
+      36,
+      f
     );
   }
 };
@@ -11003,6 +11015,21 @@ proto.holdem.pb.Result.prototype.addUserInsuranceResult = function(opt_value, op
 
 proto.holdem.pb.Result.prototype.clearUserInsuranceResultList = function() {
   this.setUserInsuranceResultList([]);
+};
+
+
+/**
+ * optional uint64 user_rid = 36;
+ * @return {number}
+ */
+proto.holdem.pb.Result.prototype.getUserRid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 36, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.Result.prototype.setUserRid = function(value) {
+  jspb.Message.setField(this, 36, value);
 };
 
 

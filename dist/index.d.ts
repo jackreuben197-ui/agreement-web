@@ -5789,6 +5789,9 @@ export class Result extends jspb.Message {
   setUserInsuranceResultList(value: Array<UserInsuranceResult>): void;
   addUserInsuranceResult(value?: UserInsuranceResult, index?: number): UserInsuranceResult;
 
+  getUserRid(): number;
+  setUserRid(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Result.AsObject;
   static toObject(includeInstance: boolean, msg: Result): Result.AsObject;
@@ -5836,6 +5839,7 @@ export namespace Result {
     jawd: number,
     jackpotFee: number,
     userInsuranceResultList: Array<UserInsuranceResult.AsObject>,
+    userRid: number,
   }
 }
 
@@ -11801,6 +11805,18 @@ export class ServerMessageUserGameWatch extends jspb.Message {
   getAmount(): number;
   setAmount(value: number): void;
 
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getAmountMinUnit(): number;
+  setAmountMinUnit(value: number): void;
+
+  getReceiveClubId(): number;
+  setReceiveClubId(value: number): void;
+
+  getBillingId(): string;
+  setBillingId(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserGameWatch.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserGameWatch): ServerMessageUserGameWatch.AsObject;
@@ -11818,6 +11834,10 @@ export namespace ServerMessageUserGameWatch {
     roomId: number,
     handNum: number,
     amount: number,
+    goldType: number,
+    amountMinUnit: number,
+    receiveClubId: number,
+    billingId: string,
   }
 }
 
@@ -12020,6 +12040,11 @@ export class ServerMessageUserOrderAudit extends jspb.Message {
   getDelay(): number;
   setDelay(value: number): void;
 
+  clearRewardPropsList(): void;
+  getRewardPropsList(): Array<RechargeRewardProp>;
+  setRewardPropsList(value: Array<RechargeRewardProp>): void;
+  addRewardProps(value?: RechargeRewardProp, index?: number): RechargeRewardProp;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserOrderAudit.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserOrderAudit): ServerMessageUserOrderAudit.AsObject;
@@ -12038,6 +12063,39 @@ export namespace ServerMessageUserOrderAudit {
     orderType: number,
     closeChat: boolean,
     delay: number,
+    rewardPropsList: Array<RechargeRewardProp.AsObject>,
+  }
+}
+
+export class RechargeRewardProp extends jspb.Message {
+  getPropId(): number;
+  setPropId(value: number): void;
+
+  getPropName(): string;
+  setPropName(value: string): void;
+
+  getPropValue(): number;
+  setPropValue(value: number): void;
+
+  getQuantity(): number;
+  setQuantity(value: number): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): RechargeRewardProp.AsObject;
+  static toObject(includeInstance: boolean, msg: RechargeRewardProp): RechargeRewardProp.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: RechargeRewardProp, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): RechargeRewardProp;
+  static deserializeBinaryFromReader(message: RechargeRewardProp, reader: jspb.BinaryReader): RechargeRewardProp;
+}
+
+export namespace RechargeRewardProp {
+  export type AsObject = {
+    propId: number,
+    propName: string,
+    propValue: number,
+    quantity: number,
   }
 }
 
@@ -14649,6 +14707,9 @@ export class ServerMessageStartInfo extends jspb.Message {
   setPlayersList(value: Array<PlayerStartInfo>): void;
   addPlayers(value?: PlayerStartInfo, index?: number): PlayerStartInfo;
 
+  getBotStyle(): string;
+  setBotStyle(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageStartInfo.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageStartInfo): ServerMessageStartInfo.AsObject;
@@ -14664,6 +14725,7 @@ export namespace ServerMessageStartInfo {
     handInfo?: HandInfo.AsObject,
     nextOperator?: Operator.AsObject,
     playersList: Array<PlayerStartInfo.AsObject>,
+    botStyle: string,
   }
 }
 
@@ -21558,6 +21620,12 @@ export class ServerMessageViewPlayerCardsNum extends jspb.Message {
   getPayTimes(): number;
   setPayTimes(value: number): void;
 
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getPrice(): number;
+  setPrice(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageViewPlayerCardsNum.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageViewPlayerCardsNum): ServerMessageViewPlayerCardsNum.AsObject;
@@ -21572,6 +21640,8 @@ export namespace ServerMessageViewPlayerCardsNum {
   export type AsObject = {
     status: number,
     payTimes: number,
+    goldType: number,
+    price: number,
   }
 }
 
@@ -21609,6 +21679,15 @@ export class ServerMessageViewPlayerCards extends jspb.Message {
   getStatus(): number;
   setStatus(value: number): void;
 
+  getGoldType(): number;
+  setGoldType(value: number): void;
+
+  getAmount(): number;
+  setAmount(value: number): void;
+
+  getBillingId(): string;
+  setBillingId(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageViewPlayerCards.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageViewPlayerCards): ServerMessageViewPlayerCards.AsObject;
@@ -21622,5 +21701,8 @@ export class ServerMessageViewPlayerCards extends jspb.Message {
 export namespace ServerMessageViewPlayerCards {
   export type AsObject = {
     status: number,
+    goldType: number,
+    amount: number,
+    billingId: string,
   }
 }

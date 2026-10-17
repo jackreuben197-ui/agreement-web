@@ -70,7 +70,8 @@ proto.holdem.pb.ServerMessageStartInfo.toObject = function(includeInstance, msg)
     handInfo: (f = msg.getHandInfo()) && protobuf_holdem_define_pb.HandInfo.toObject(includeInstance, f),
     nextOperator: (f = msg.getNextOperator()) && protobuf_holdem_define_pb.Operator.toObject(includeInstance, f),
     playersList: jspb.Message.toObjectList(msg.getPlayersList(),
-    protobuf_holdem_define_pb.PlayerStartInfo.toObject, includeInstance)
+    protobuf_holdem_define_pb.PlayerStartInfo.toObject, includeInstance),
+    botStyle: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -121,6 +122,10 @@ proto.holdem.pb.ServerMessageStartInfo.deserializeBinaryFromReader = function(ms
       var value = new protobuf_holdem_define_pb.PlayerStartInfo;
       reader.readMessage(value,protobuf_holdem_define_pb.PlayerStartInfo.deserializeBinaryFromReader);
       msg.addPlayers(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setBotStyle(value);
       break;
     default:
       reader.skipField();
@@ -173,6 +178,13 @@ proto.holdem.pb.ServerMessageStartInfo.serializeBinaryToWriter = function(messag
       3,
       f,
       protobuf_holdem_define_pb.PlayerStartInfo.serializeBinaryToWriter
+    );
+  }
+  f = message.getBotStyle();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -266,6 +278,21 @@ proto.holdem.pb.ServerMessageStartInfo.prototype.addPlayers = function(opt_value
 
 proto.holdem.pb.ServerMessageStartInfo.prototype.clearPlayersList = function() {
   this.setPlayersList([]);
+};
+
+
+/**
+ * optional string bot_style = 4;
+ * @return {string}
+ */
+proto.holdem.pb.ServerMessageStartInfo.prototype.getBotStyle = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.ServerMessageStartInfo.prototype.setBotStyle = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 

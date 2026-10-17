@@ -221,7 +221,9 @@ proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.toObject = function(op
 proto.holdem.pb.ServerMessageViewPlayerCardsNum.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    payTimes: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    payTimes: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    goldType: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    price: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -266,6 +268,14 @@ proto.holdem.pb.ServerMessageViewPlayerCardsNum.deserializeBinaryFromReader = fu
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPayTimes(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setGoldType(value);
+      break;
+    case 4:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setPrice(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -309,6 +319,20 @@ proto.holdem.pb.ServerMessageViewPlayerCardsNum.serializeBinaryToWriter = functi
       f
     );
   }
+  f = message.getGoldType();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
+      f
+    );
+  }
+  f = message.getPrice();
+  if (f !== 0) {
+    writer.writeUint64(
+      4,
+      f
+    );
+  }
 };
 
 
@@ -339,6 +363,36 @@ proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.getPayTimes = function
 /** @param {number} value */
 proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.setPayTimes = function(value) {
   jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * optional int32 gold_type = 3;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.getGoldType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.setGoldType = function(value) {
+  jspb.Message.setField(this, 3, value);
+};
+
+
+/**
+ * optional uint64 price = 4;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.getPrice = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageViewPlayerCardsNum.prototype.setPrice = function(value) {
+  jspb.Message.setField(this, 4, value);
 };
 
 
