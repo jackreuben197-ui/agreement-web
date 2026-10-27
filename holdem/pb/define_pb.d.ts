@@ -2928,6 +2928,9 @@ export class RoomRecord extends jspb.Message {
   getPowerSavingMiddleSwitch(): number;
   setPowerSavingMiddleSwitch(value: number): void;
 
+  getIsHot(): boolean;
+  setIsHot(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -3123,6 +3126,7 @@ export namespace RoomRecord {
     videoMiddleSwitch: number,
     powerSavingSeatSwitch: number,
     powerSavingMiddleSwitch: number,
+    isHot: boolean,
   }
 }
 
@@ -4788,6 +4792,9 @@ export class RoomChange extends jspb.Message {
   setRelateTribeClubListList(value: Array<RoomTribeClubRelate>): void;
   addRelateTribeClubList(value?: RoomTribeClubRelate, index?: number): RoomTribeClubRelate;
 
+  getIsHot(): boolean;
+  setIsHot(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomChange.AsObject;
   static toObject(includeInstance: boolean, msg: RoomChange): RoomChange.AsObject;
@@ -4807,6 +4814,7 @@ export namespace RoomChange {
     usersList: Array<RoomUserInfo.AsObject>,
     relateClubIdsList: Array<number>,
     relateTribeClubListList: Array<RoomTribeClubRelate.AsObject>,
+    isHot: boolean,
   }
 }
 
@@ -5174,6 +5182,9 @@ export class UserMttRecord extends jspb.Message {
   getInsuranceAmount(): number;
   setInsuranceAmount(value: number): void;
 
+  getIsHot(): boolean;
+  setIsHot(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserMttRecord.AsObject;
   static toObject(includeInstance: boolean, msg: UserMttRecord): UserMttRecord.AsObject;
@@ -5249,6 +5260,7 @@ export namespace UserMttRecord {
     stageRemainRate: number,
     stageFinalScoreType: number,
     insuranceAmount: number,
+    isHot: boolean,
   }
 }
 
@@ -5338,6 +5350,9 @@ export class UserMttRecordChange extends jspb.Message {
   getPinnedTime(): number;
   setPinnedTime(value: number): void;
 
+  getIsHot(): boolean;
+  setIsHot(value: boolean): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserMttRecordChange.AsObject;
   static toObject(includeInstance: boolean, msg: UserMttRecordChange): UserMttRecordChange.AsObject;
@@ -5355,6 +5370,7 @@ export namespace UserMttRecordChange {
     participants: number,
     seriesId: number,
     pinnedTime: number,
+    isHot: boolean,
   }
 }
 
