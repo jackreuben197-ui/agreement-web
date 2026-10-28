@@ -15123,7 +15123,10 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     videoMiddleSwitch: jspb.Message.getFieldWithDefault(msg, 183, 0),
     powerSavingSeatSwitch: jspb.Message.getFieldWithDefault(msg, 184, 0),
     powerSavingMiddleSwitch: jspb.Message.getFieldWithDefault(msg, 185, 0),
-    isHot: jspb.Message.getFieldWithDefault(msg, 186, false)
+    isHot: jspb.Message.getFieldWithDefault(msg, 186, false),
+    isTop: jspb.Message.getFieldWithDefault(msg, 187, 0),
+    roomIntro: jspb.Message.getFieldWithDefault(msg, 188, ""),
+    roomFeatures: jspb.Message.getFieldWithDefault(msg, 189, "")
   };
 
   if (includeInstance) {
@@ -15909,6 +15912,18 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 186:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsHot(value);
+      break;
+    case 187:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setIsTop(value);
+      break;
+    case 188:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRoomIntro(value);
+      break;
+    case 189:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRoomFeatures(value);
       break;
     default:
       reader.skipField();
@@ -17238,6 +17253,27 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       186,
+      f
+    );
+  }
+  f = message.getIsTop();
+  if (f !== 0) {
+    writer.writeInt32(
+      187,
+      f
+    );
+  }
+  f = message.getRoomIntro();
+  if (f.length > 0) {
+    writer.writeString(
+      188,
+      f
+    );
+  }
+  f = message.getRoomFeatures();
+  if (f.length > 0) {
+    writer.writeString(
+      189,
       f
     );
   }
@@ -20237,6 +20273,51 @@ proto.holdem.pb.RoomRecord.prototype.getIsHot = function() {
 /** @param {boolean} value */
 proto.holdem.pb.RoomRecord.prototype.setIsHot = function(value) {
   jspb.Message.setField(this, 186, value);
+};
+
+
+/**
+ * optional int32 is_top = 187;
+ * @return {number}
+ */
+proto.holdem.pb.RoomRecord.prototype.getIsTop = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 187, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomRecord.prototype.setIsTop = function(value) {
+  jspb.Message.setField(this, 187, value);
+};
+
+
+/**
+ * optional string room_intro = 188;
+ * @return {string}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRoomIntro = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 188, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.RoomRecord.prototype.setRoomIntro = function(value) {
+  jspb.Message.setField(this, 188, value);
+};
+
+
+/**
+ * optional string room_features = 189;
+ * @return {string}
+ */
+proto.holdem.pb.RoomRecord.prototype.getRoomFeatures = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 189, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.RoomRecord.prototype.setRoomFeatures = function(value) {
+  jspb.Message.setField(this, 189, value);
 };
 
 
@@ -31590,7 +31671,10 @@ proto.holdem.pb.RoomChange.toObject = function(includeInstance, msg) {
     relateClubIdsList: jspb.Message.getRepeatedField(msg, 6),
     relateTribeClubListList: jspb.Message.toObjectList(msg.getRelateTribeClubListList(),
     proto.holdem.pb.RoomTribeClubRelate.toObject, includeInstance),
-    isHot: jspb.Message.getFieldWithDefault(msg, 8, false)
+    isHot: jspb.Message.getFieldWithDefault(msg, 8, false),
+    isTop: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    roomIntro: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    roomFeatures: jspb.Message.getFieldWithDefault(msg, 11, "")
   };
 
   if (includeInstance) {
@@ -31660,6 +31744,18 @@ proto.holdem.pb.RoomChange.deserializeBinaryFromReader = function(msg, reader) {
     case 8:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsHot(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setIsTop(value);
+      break;
+    case 10:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRoomIntro(value);
+      break;
+    case 11:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRoomFeatures(value);
       break;
     default:
       reader.skipField();
@@ -31745,6 +31841,27 @@ proto.holdem.pb.RoomChange.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       8,
+      f
+    );
+  }
+  f = message.getIsTop();
+  if (f !== 0) {
+    writer.writeInt32(
+      9,
+      f
+    );
+  }
+  f = message.getRoomIntro();
+  if (f.length > 0) {
+    writer.writeString(
+      10,
+      f
+    );
+  }
+  f = message.getRoomFeatures();
+  if (f.length > 0) {
+    writer.writeString(
+      11,
       f
     );
   }
@@ -31916,6 +32033,51 @@ proto.holdem.pb.RoomChange.prototype.getIsHot = function() {
 /** @param {boolean} value */
 proto.holdem.pb.RoomChange.prototype.setIsHot = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional int32 is_top = 9;
+ * @return {number}
+ */
+proto.holdem.pb.RoomChange.prototype.getIsTop = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.RoomChange.prototype.setIsTop = function(value) {
+  jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * optional string room_intro = 10;
+ * @return {string}
+ */
+proto.holdem.pb.RoomChange.prototype.getRoomIntro = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.RoomChange.prototype.setRoomIntro = function(value) {
+  jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * optional string room_features = 11;
+ * @return {string}
+ */
+proto.holdem.pb.RoomChange.prototype.getRoomFeatures = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.RoomChange.prototype.setRoomFeatures = function(value) {
+  jspb.Message.setField(this, 11, value);
 };
 
 
@@ -33200,7 +33362,8 @@ proto.holdem.pb.UserMttRecord.toObject = function(includeInstance, msg) {
     stageRemainRate: jspb.Message.getFieldWithDefault(msg, 61, 0),
     stageFinalScoreType: jspb.Message.getFieldWithDefault(msg, 62, 0),
     insuranceAmount: jspb.Message.getFieldWithDefault(msg, 63, 0),
-    isHot: jspb.Message.getFieldWithDefault(msg, 64, false)
+    isHot: jspb.Message.getFieldWithDefault(msg, 64, false),
+    mttBannerUrlC: jspb.Message.getFieldWithDefault(msg, 65, "")
   };
 
   if (includeInstance) {
@@ -33494,6 +33657,10 @@ proto.holdem.pb.UserMttRecord.deserializeBinaryFromReader = function(msg, reader
     case 64:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsHot(value);
+      break;
+    case 65:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMttBannerUrlC(value);
       break;
     default:
       reader.skipField();
@@ -33971,6 +34138,13 @@ proto.holdem.pb.UserMttRecord.serializeBinaryToWriter = function(message, writer
   if (f) {
     writer.writeBool(
       64,
+      f
+    );
+  }
+  f = message.getMttBannerUrlC();
+  if (f.length > 0) {
+    writer.writeString(
+      65,
       f
     );
   }
@@ -34987,6 +35161,21 @@ proto.holdem.pb.UserMttRecord.prototype.setIsHot = function(value) {
 };
 
 
+/**
+ * optional string mtt_banner_url_c = 65;
+ * @return {string}
+ */
+proto.holdem.pb.UserMttRecord.prototype.getMttBannerUrlC = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 65, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.UserMttRecord.prototype.setMttBannerUrlC = function(value) {
+  jspb.Message.setField(this, 65, value);
+};
+
+
 
 /**
  * Generated by JsPbCodeGenerator.
@@ -35538,7 +35727,9 @@ proto.holdem.pb.UserMttRecordChange.toObject = function(includeInstance, msg) {
     participants: jspb.Message.getFieldWithDefault(msg, 3, 0),
     seriesId: jspb.Message.getFieldWithDefault(msg, 4, 0),
     pinnedTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    isHot: jspb.Message.getFieldWithDefault(msg, 6, false)
+    isHot: jspb.Message.getFieldWithDefault(msg, 6, false),
+    isTop: jspb.Message.getFieldWithDefault(msg, 7, 0),
+    mttBannerUrlC: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -35598,6 +35789,14 @@ proto.holdem.pb.UserMttRecordChange.deserializeBinaryFromReader = function(msg, 
     case 6:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsHot(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setIsTop(value);
+      break;
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMttBannerUrlC(value);
       break;
     default:
       reader.skipField();
@@ -35667,6 +35866,20 @@ proto.holdem.pb.UserMttRecordChange.serializeBinaryToWriter = function(message, 
   if (f) {
     writer.writeBool(
       6,
+      f
+    );
+  }
+  f = message.getIsTop();
+  if (f !== 0) {
+    writer.writeInt32(
+      7,
+      f
+    );
+  }
+  f = message.getMttBannerUrlC();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
       f
     );
   }
@@ -35762,6 +35975,36 @@ proto.holdem.pb.UserMttRecordChange.prototype.getIsHot = function() {
 /** @param {boolean} value */
 proto.holdem.pb.UserMttRecordChange.prototype.setIsHot = function(value) {
   jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * optional int32 is_top = 7;
+ * @return {number}
+ */
+proto.holdem.pb.UserMttRecordChange.prototype.getIsTop = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.UserMttRecordChange.prototype.setIsTop = function(value) {
+  jspb.Message.setField(this, 7, value);
+};
+
+
+/**
+ * optional string mtt_banner_url_c = 8;
+ * @return {string}
+ */
+proto.holdem.pb.UserMttRecordChange.prototype.getMttBannerUrlC = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/** @param {string} value */
+proto.holdem.pb.UserMttRecordChange.prototype.setMttBannerUrlC = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 

@@ -2931,6 +2931,15 @@ export class RoomRecord extends jspb.Message {
   getIsHot(): boolean;
   setIsHot(value: boolean): void;
 
+  getIsTop(): number;
+  setIsTop(value: number): void;
+
+  getRoomIntro(): string;
+  setRoomIntro(value: string): void;
+
+  getRoomFeatures(): string;
+  setRoomFeatures(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomRecord.AsObject;
   static toObject(includeInstance: boolean, msg: RoomRecord): RoomRecord.AsObject;
@@ -3127,6 +3136,9 @@ export namespace RoomRecord {
     powerSavingSeatSwitch: number,
     powerSavingMiddleSwitch: number,
     isHot: boolean,
+    isTop: number,
+    roomIntro: string,
+    roomFeatures: string,
   }
 }
 
@@ -4795,6 +4807,15 @@ export class RoomChange extends jspb.Message {
   getIsHot(): boolean;
   setIsHot(value: boolean): void;
 
+  getIsTop(): number;
+  setIsTop(value: number): void;
+
+  getRoomIntro(): string;
+  setRoomIntro(value: string): void;
+
+  getRoomFeatures(): string;
+  setRoomFeatures(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RoomChange.AsObject;
   static toObject(includeInstance: boolean, msg: RoomChange): RoomChange.AsObject;
@@ -4815,6 +4836,9 @@ export namespace RoomChange {
     relateClubIdsList: Array<number>,
     relateTribeClubListList: Array<RoomTribeClubRelate.AsObject>,
     isHot: boolean,
+    isTop: number,
+    roomIntro: string,
+    roomFeatures: string,
   }
 }
 
@@ -5185,6 +5209,9 @@ export class UserMttRecord extends jspb.Message {
   getIsHot(): boolean;
   setIsHot(value: boolean): void;
 
+  getMttBannerUrlC(): string;
+  setMttBannerUrlC(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserMttRecord.AsObject;
   static toObject(includeInstance: boolean, msg: UserMttRecord): UserMttRecord.AsObject;
@@ -5261,6 +5288,7 @@ export namespace UserMttRecord {
     stageFinalScoreType: number,
     insuranceAmount: number,
     isHot: boolean,
+    mttBannerUrlC: string,
   }
 }
 
@@ -5353,6 +5381,12 @@ export class UserMttRecordChange extends jspb.Message {
   getIsHot(): boolean;
   setIsHot(value: boolean): void;
 
+  getIsTop(): number;
+  setIsTop(value: number): void;
+
+  getMttBannerUrlC(): string;
+  setMttBannerUrlC(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserMttRecordChange.AsObject;
   static toObject(includeInstance: boolean, msg: UserMttRecordChange): UserMttRecordChange.AsObject;
@@ -5371,6 +5405,8 @@ export namespace UserMttRecordChange {
     seriesId: number,
     pinnedTime: number,
     isHot: boolean,
+    isTop: number,
+    mttBannerUrlC: string,
   }
 }
 
