@@ -27,6 +27,9 @@ export class ServerMessageUserOrderAudit extends jspb.Message {
   setRewardPropsList(value: Array<RechargeRewardProp>): void;
   addRewardProps(value?: RechargeRewardProp, index?: number): RechargeRewardProp;
 
+  getRewardRechargeAmount(): number;
+  setRewardRechargeAmount(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserOrderAudit.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserOrderAudit): ServerMessageUserOrderAudit.AsObject;
@@ -46,6 +49,7 @@ export namespace ServerMessageUserOrderAudit {
     closeChat: boolean,
     delay: number,
     rewardPropsList: Array<RechargeRewardProp.AsObject>,
+    rewardRechargeAmount: number,
   }
 }
 

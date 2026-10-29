@@ -74,7 +74,8 @@ proto.holdem.pb.ServerMessageUserOrderAudit.toObject = function(includeInstance,
     closeChat: jspb.Message.getFieldWithDefault(msg, 5, false),
     delay: jspb.Message.getFieldWithDefault(msg, 6, 0),
     rewardPropsList: jspb.Message.toObjectList(msg.getRewardPropsList(),
-    proto.holdem.pb.RechargeRewardProp.toObject, includeInstance)
+    proto.holdem.pb.RechargeRewardProp.toObject, includeInstance),
+    rewardRechargeAmount: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
 
   if (includeInstance) {
@@ -139,6 +140,10 @@ proto.holdem.pb.ServerMessageUserOrderAudit.deserializeBinaryFromReader = functi
       var value = new proto.holdem.pb.RechargeRewardProp;
       reader.readMessage(value,proto.holdem.pb.RechargeRewardProp.deserializeBinaryFromReader);
       msg.addRewardProps(value);
+      break;
+    case 8:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRewardRechargeAmount(value);
       break;
     default:
       reader.skipField();
@@ -217,6 +222,13 @@ proto.holdem.pb.ServerMessageUserOrderAudit.serializeBinaryToWriter = function(m
       7,
       f,
       proto.holdem.pb.RechargeRewardProp.serializeBinaryToWriter
+    );
+  }
+  f = message.getRewardRechargeAmount();
+  if (f !== 0) {
+    writer.writeUint64(
+      8,
+      f
     );
   }
 };
@@ -342,6 +354,21 @@ proto.holdem.pb.ServerMessageUserOrderAudit.prototype.addRewardProps = function(
 
 proto.holdem.pb.ServerMessageUserOrderAudit.prototype.clearRewardPropsList = function() {
   this.setRewardPropsList([]);
+};
+
+
+/**
+ * optional uint64 reward_recharge_amount = 8;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUserOrderAudit.prototype.getRewardRechargeAmount = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUserOrderAudit.prototype.setRewardRechargeAmount = function(value) {
+  jspb.Message.setField(this, 8, value);
 };
 
 
