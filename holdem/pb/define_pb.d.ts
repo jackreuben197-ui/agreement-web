@@ -2928,9 +2928,6 @@ export class RoomRecord extends jspb.Message {
   getPowerSavingMiddleSwitch(): number;
   setPowerSavingMiddleSwitch(value: number): void;
 
-  getIsHot(): boolean;
-  setIsHot(value: boolean): void;
-
   getIsTop(): number;
   setIsTop(value: number): void;
 
@@ -3135,7 +3132,6 @@ export namespace RoomRecord {
     videoMiddleSwitch: number,
     powerSavingSeatSwitch: number,
     powerSavingMiddleSwitch: number,
-    isHot: boolean,
     isTop: number,
     roomIntro: string,
     roomFeatures: string,
@@ -4804,9 +4800,6 @@ export class RoomChange extends jspb.Message {
   setRelateTribeClubListList(value: Array<RoomTribeClubRelate>): void;
   addRelateTribeClubList(value?: RoomTribeClubRelate, index?: number): RoomTribeClubRelate;
 
-  getIsHot(): boolean;
-  setIsHot(value: boolean): void;
-
   getIsTop(): number;
   setIsTop(value: number): void;
 
@@ -4835,7 +4828,6 @@ export namespace RoomChange {
     usersList: Array<RoomUserInfo.AsObject>,
     relateClubIdsList: Array<number>,
     relateTribeClubListList: Array<RoomTribeClubRelate.AsObject>,
-    isHot: boolean,
     isTop: number,
     roomIntro: string,
     roomFeatures: string,
@@ -5206,9 +5198,6 @@ export class UserMttRecord extends jspb.Message {
   getInsuranceAmount(): number;
   setInsuranceAmount(value: number): void;
 
-  getIsHot(): boolean;
-  setIsHot(value: boolean): void;
-
   getMttBannerUrlC(): string;
   setMttBannerUrlC(value: string): void;
 
@@ -5287,7 +5276,6 @@ export namespace UserMttRecord {
     stageRemainRate: number,
     stageFinalScoreType: number,
     insuranceAmount: number,
-    isHot: boolean,
     mttBannerUrlC: string,
   }
 }
@@ -5378,9 +5366,6 @@ export class UserMttRecordChange extends jspb.Message {
   getPinnedTime(): number;
   setPinnedTime(value: number): void;
 
-  getIsHot(): boolean;
-  setIsHot(value: boolean): void;
-
   getIsTop(): number;
   setIsTop(value: number): void;
 
@@ -5404,7 +5389,6 @@ export namespace UserMttRecordChange {
     participants: number,
     seriesId: number,
     pinnedTime: number,
-    isHot: boolean,
     isTop: number,
     mttBannerUrlC: string,
   }

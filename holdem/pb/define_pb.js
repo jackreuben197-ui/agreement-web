@@ -15123,7 +15123,6 @@ proto.holdem.pb.RoomRecord.toObject = function(includeInstance, msg) {
     videoMiddleSwitch: jspb.Message.getFieldWithDefault(msg, 183, 0),
     powerSavingSeatSwitch: jspb.Message.getFieldWithDefault(msg, 184, 0),
     powerSavingMiddleSwitch: jspb.Message.getFieldWithDefault(msg, 185, 0),
-    isHot: jspb.Message.getFieldWithDefault(msg, 186, false),
     isTop: jspb.Message.getFieldWithDefault(msg, 187, 0),
     roomIntro: jspb.Message.getFieldWithDefault(msg, 188, ""),
     roomFeatures: jspb.Message.getFieldWithDefault(msg, 189, "")
@@ -15908,10 +15907,6 @@ proto.holdem.pb.RoomRecord.deserializeBinaryFromReader = function(msg, reader) {
     case 185:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setPowerSavingMiddleSwitch(value);
-      break;
-    case 186:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIsHot(value);
       break;
     case 187:
       var value = /** @type {number} */ (reader.readInt32());
@@ -17246,13 +17241,6 @@ proto.holdem.pb.RoomRecord.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       185,
-      f
-    );
-  }
-  f = message.getIsHot();
-  if (f) {
-    writer.writeBool(
-      186,
       f
     );
   }
@@ -20256,23 +20244,6 @@ proto.holdem.pb.RoomRecord.prototype.getPowerSavingMiddleSwitch = function() {
 /** @param {number} value */
 proto.holdem.pb.RoomRecord.prototype.setPowerSavingMiddleSwitch = function(value) {
   jspb.Message.setField(this, 185, value);
-};
-
-
-/**
- * optional bool is_hot = 186;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.holdem.pb.RoomRecord.prototype.getIsHot = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 186, false));
-};
-
-
-/** @param {boolean} value */
-proto.holdem.pb.RoomRecord.prototype.setIsHot = function(value) {
-  jspb.Message.setField(this, 186, value);
 };
 
 
@@ -31671,7 +31642,6 @@ proto.holdem.pb.RoomChange.toObject = function(includeInstance, msg) {
     relateClubIdsList: jspb.Message.getRepeatedField(msg, 6),
     relateTribeClubListList: jspb.Message.toObjectList(msg.getRelateTribeClubListList(),
     proto.holdem.pb.RoomTribeClubRelate.toObject, includeInstance),
-    isHot: jspb.Message.getFieldWithDefault(msg, 8, false),
     isTop: jspb.Message.getFieldWithDefault(msg, 9, 0),
     roomIntro: jspb.Message.getFieldWithDefault(msg, 10, ""),
     roomFeatures: jspb.Message.getFieldWithDefault(msg, 11, "")
@@ -31740,10 +31710,6 @@ proto.holdem.pb.RoomChange.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.holdem.pb.RoomTribeClubRelate;
       reader.readMessage(value,proto.holdem.pb.RoomTribeClubRelate.deserializeBinaryFromReader);
       msg.addRelateTribeClubList(value);
-      break;
-    case 8:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIsHot(value);
       break;
     case 9:
       var value = /** @type {number} */ (reader.readInt32());
@@ -31835,13 +31801,6 @@ proto.holdem.pb.RoomChange.serializeBinaryToWriter = function(message, writer) {
       7,
       f,
       proto.holdem.pb.RoomTribeClubRelate.serializeBinaryToWriter
-    );
-  }
-  f = message.getIsHot();
-  if (f) {
-    writer.writeBool(
-      8,
-      f
     );
   }
   f = message.getIsTop();
@@ -32016,23 +31975,6 @@ proto.holdem.pb.RoomChange.prototype.addRelateTribeClubList = function(opt_value
 
 proto.holdem.pb.RoomChange.prototype.clearRelateTribeClubListList = function() {
   this.setRelateTribeClubListList([]);
-};
-
-
-/**
- * optional bool is_hot = 8;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.holdem.pb.RoomChange.prototype.getIsHot = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 8, false));
-};
-
-
-/** @param {boolean} value */
-proto.holdem.pb.RoomChange.prototype.setIsHot = function(value) {
-  jspb.Message.setField(this, 8, value);
 };
 
 
@@ -33362,7 +33304,6 @@ proto.holdem.pb.UserMttRecord.toObject = function(includeInstance, msg) {
     stageRemainRate: jspb.Message.getFieldWithDefault(msg, 61, 0),
     stageFinalScoreType: jspb.Message.getFieldWithDefault(msg, 62, 0),
     insuranceAmount: jspb.Message.getFieldWithDefault(msg, 63, 0),
-    isHot: jspb.Message.getFieldWithDefault(msg, 64, false),
     mttBannerUrlC: jspb.Message.getFieldWithDefault(msg, 65, "")
   };
 
@@ -33653,10 +33594,6 @@ proto.holdem.pb.UserMttRecord.deserializeBinaryFromReader = function(msg, reader
     case 63:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setInsuranceAmount(value);
-      break;
-    case 64:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIsHot(value);
       break;
     case 65:
       var value = /** @type {string} */ (reader.readString());
@@ -34131,13 +34068,6 @@ proto.holdem.pb.UserMttRecord.serializeBinaryToWriter = function(message, writer
   if (f !== 0) {
     writer.writeUint64(
       63,
-      f
-    );
-  }
-  f = message.getIsHot();
-  if (f) {
-    writer.writeBool(
-      64,
       f
     );
   }
@@ -35145,23 +35075,6 @@ proto.holdem.pb.UserMttRecord.prototype.setInsuranceAmount = function(value) {
 
 
 /**
- * optional bool is_hot = 64;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.holdem.pb.UserMttRecord.prototype.getIsHot = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 64, false));
-};
-
-
-/** @param {boolean} value */
-proto.holdem.pb.UserMttRecord.prototype.setIsHot = function(value) {
-  jspb.Message.setField(this, 64, value);
-};
-
-
-/**
  * optional string mtt_banner_url_c = 65;
  * @return {string}
  */
@@ -35727,7 +35640,6 @@ proto.holdem.pb.UserMttRecordChange.toObject = function(includeInstance, msg) {
     participants: jspb.Message.getFieldWithDefault(msg, 3, 0),
     seriesId: jspb.Message.getFieldWithDefault(msg, 4, 0),
     pinnedTime: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    isHot: jspb.Message.getFieldWithDefault(msg, 6, false),
     isTop: jspb.Message.getFieldWithDefault(msg, 7, 0),
     mttBannerUrlC: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
@@ -35785,10 +35697,6 @@ proto.holdem.pb.UserMttRecordChange.deserializeBinaryFromReader = function(msg, 
     case 5:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setPinnedTime(value);
-      break;
-    case 6:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setIsHot(value);
       break;
     case 7:
       var value = /** @type {number} */ (reader.readInt32());
@@ -35859,13 +35767,6 @@ proto.holdem.pb.UserMttRecordChange.serializeBinaryToWriter = function(message, 
   if (f !== 0) {
     writer.writeInt64(
       5,
-      f
-    );
-  }
-  f = message.getIsHot();
-  if (f) {
-    writer.writeBool(
-      6,
       f
     );
   }
@@ -35958,23 +35859,6 @@ proto.holdem.pb.UserMttRecordChange.prototype.getPinnedTime = function() {
 /** @param {number} value */
 proto.holdem.pb.UserMttRecordChange.prototype.setPinnedTime = function(value) {
   jspb.Message.setField(this, 5, value);
-};
-
-
-/**
- * optional bool is_hot = 6;
- * Note that Boolean fields may be set to 0/1 when serialized from a Java server.
- * You should avoid comparisons like {@code val === true/false} in those cases.
- * @return {boolean}
- */
-proto.holdem.pb.UserMttRecordChange.prototype.getIsHot = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 6, false));
-};
-
-
-/** @param {boolean} value */
-proto.holdem.pb.UserMttRecordChange.prototype.setIsHot = function(value) {
-  jspb.Message.setField(this, 6, value);
 };
 
 

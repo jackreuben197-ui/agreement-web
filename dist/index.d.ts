@@ -57,6 +57,7 @@ export interface CodeMap {
   MSG_S_USER_SNG_CHANGE_NOTIFY: 152;
   MSG_S_MTT_SERIES_NOTIFY: 153;
   MSG_S_MTT_BREAK: 154;
+  MSG_S_TRIBE_ACTIVITY_REWARD: 155;
   MSG_D_USER_PLAYING: 201;
   MSG_R_ROOMS: 202;
   MSG_R_QUICK_JOIN: 203;
@@ -6971,9 +6972,6 @@ export class RoomRecord extends jspb.Message {
   getPowerSavingMiddleSwitch(): number;
   setPowerSavingMiddleSwitch(value: number): void;
 
-  getIsHot(): boolean;
-  setIsHot(value: boolean): void;
-
   getIsTop(): number;
   setIsTop(value: number): void;
 
@@ -7178,7 +7176,6 @@ export namespace RoomRecord {
     videoMiddleSwitch: number,
     powerSavingSeatSwitch: number,
     powerSavingMiddleSwitch: number,
-    isHot: boolean,
     isTop: number,
     roomIntro: string,
     roomFeatures: string,
@@ -8847,9 +8844,6 @@ export class RoomChange extends jspb.Message {
   setRelateTribeClubListList(value: Array<RoomTribeClubRelate>): void;
   addRelateTribeClubList(value?: RoomTribeClubRelate, index?: number): RoomTribeClubRelate;
 
-  getIsHot(): boolean;
-  setIsHot(value: boolean): void;
-
   getIsTop(): number;
   setIsTop(value: number): void;
 
@@ -8878,7 +8872,6 @@ export namespace RoomChange {
     usersList: Array<RoomUserInfo.AsObject>,
     relateClubIdsList: Array<number>,
     relateTribeClubListList: Array<RoomTribeClubRelate.AsObject>,
-    isHot: boolean,
     isTop: number,
     roomIntro: string,
     roomFeatures: string,
@@ -9249,9 +9242,6 @@ export class UserMttRecord extends jspb.Message {
   getInsuranceAmount(): number;
   setInsuranceAmount(value: number): void;
 
-  getIsHot(): boolean;
-  setIsHot(value: boolean): void;
-
   getMttBannerUrlC(): string;
   setMttBannerUrlC(value: string): void;
 
@@ -9330,7 +9320,6 @@ export namespace UserMttRecord {
     stageRemainRate: number,
     stageFinalScoreType: number,
     insuranceAmount: number,
-    isHot: boolean,
     mttBannerUrlC: string,
   }
 }
@@ -9421,9 +9410,6 @@ export class UserMttRecordChange extends jspb.Message {
   getPinnedTime(): number;
   setPinnedTime(value: number): void;
 
-  getIsHot(): boolean;
-  setIsHot(value: boolean): void;
-
   getIsTop(): number;
   setIsTop(value: number): void;
 
@@ -9447,7 +9433,6 @@ export namespace UserMttRecordChange {
     participants: number,
     seriesId: number,
     pinnedTime: number,
-    isHot: boolean,
     isTop: number,
     mttBannerUrlC: string,
   }
@@ -11640,6 +11625,52 @@ export namespace ServerMessageTodoList {
   export type AsObject = {
     num: number,
     type: number,
+  }
+}
+
+export class ServerMessageTribeActivityReward extends jspb.Message {
+  getOrderNo(): string;
+  setOrderNo(value: string): void;
+
+  getTribeId(): number;
+  setTribeId(value: number): void;
+
+  getClubId(): number;
+  setClubId(value: number): void;
+
+  getRewardKind(): number;
+  setRewardKind(value: number): void;
+
+  getTier(): number;
+  setTier(value: number): void;
+
+  getRewardGold(): number;
+  setRewardGold(value: number): void;
+
+  clearRewardPropsList(): void;
+  getRewardPropsList(): Array<RechargeRewardProp>;
+  setRewardPropsList(value: Array<RechargeRewardProp>): void;
+  addRewardProps(value?: RechargeRewardProp, index?: number): RechargeRewardProp;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ServerMessageTribeActivityReward.AsObject;
+  static toObject(includeInstance: boolean, msg: ServerMessageTribeActivityReward): ServerMessageTribeActivityReward.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ServerMessageTribeActivityReward, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ServerMessageTribeActivityReward;
+  static deserializeBinaryFromReader(message: ServerMessageTribeActivityReward, reader: jspb.BinaryReader): ServerMessageTribeActivityReward;
+}
+
+export namespace ServerMessageTribeActivityReward {
+  export type AsObject = {
+    orderNo: string,
+    tribeId: number,
+    clubId: number,
+    rewardKind: number,
+    tier: number,
+    rewardGold: number,
+    rewardPropsList: Array<RechargeRewardProp.AsObject>,
   }
 }
 
