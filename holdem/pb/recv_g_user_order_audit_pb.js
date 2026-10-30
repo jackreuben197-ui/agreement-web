@@ -75,7 +75,8 @@ proto.holdem.pb.ServerMessageUserOrderAudit.toObject = function(includeInstance,
     delay: jspb.Message.getFieldWithDefault(msg, 6, 0),
     rewardPropsList: jspb.Message.toObjectList(msg.getRewardPropsList(),
     proto.holdem.pb.RechargeRewardProp.toObject, includeInstance),
-    rewardRechargeAmount: jspb.Message.getFieldWithDefault(msg, 8, 0)
+    rewardRechargeAmount: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    rewardGold: jspb.Message.getFieldWithDefault(msg, 9, 0)
   };
 
   if (includeInstance) {
@@ -144,6 +145,10 @@ proto.holdem.pb.ServerMessageUserOrderAudit.deserializeBinaryFromReader = functi
     case 8:
       var value = /** @type {number} */ (reader.readUint64());
       msg.setRewardRechargeAmount(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readUint64());
+      msg.setRewardGold(value);
       break;
     default:
       reader.skipField();
@@ -228,6 +233,13 @@ proto.holdem.pb.ServerMessageUserOrderAudit.serializeBinaryToWriter = function(m
   if (f !== 0) {
     writer.writeUint64(
       8,
+      f
+    );
+  }
+  f = message.getRewardGold();
+  if (f !== 0) {
+    writer.writeUint64(
+      9,
       f
     );
   }
@@ -369,6 +381,21 @@ proto.holdem.pb.ServerMessageUserOrderAudit.prototype.getRewardRechargeAmount = 
 /** @param {number} value */
 proto.holdem.pb.ServerMessageUserOrderAudit.prototype.setRewardRechargeAmount = function(value) {
   jspb.Message.setField(this, 8, value);
+};
+
+
+/**
+ * optional uint64 reward_gold = 9;
+ * @return {number}
+ */
+proto.holdem.pb.ServerMessageUserOrderAudit.prototype.getRewardGold = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
+};
+
+
+/** @param {number} value */
+proto.holdem.pb.ServerMessageUserOrderAudit.prototype.setRewardGold = function(value) {
+  jspb.Message.setField(this, 9, value);
 };
 
 

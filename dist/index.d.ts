@@ -12131,6 +12131,9 @@ export class ServerMessageUserOrderAudit extends jspb.Message {
   getRewardRechargeAmount(): number;
   setRewardRechargeAmount(value: number): void;
 
+  getRewardGold(): number;
+  setRewardGold(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServerMessageUserOrderAudit.AsObject;
   static toObject(includeInstance: boolean, msg: ServerMessageUserOrderAudit): ServerMessageUserOrderAudit.AsObject;
@@ -12151,6 +12154,7 @@ export namespace ServerMessageUserOrderAudit {
     delay: number,
     rewardPropsList: Array<RechargeRewardProp.AsObject>,
     rewardRechargeAmount: number,
+    rewardGold: number,
   }
 }
 
